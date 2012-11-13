@@ -70,7 +70,7 @@ The login form is submitted to the server via the `POST` method.  Using
 app.post('/login',
   passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/login',
-                                   failureFlash: true });
+                                   failureFlash: true })
 );
 ```
 
