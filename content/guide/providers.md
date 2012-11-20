@@ -59,6 +59,11 @@ implementations.
       <td>[Geoff Hollingworth](https://github.com/eusholli)</td>
     </tr>
     <tr>
+      <td>[Authic](https://github.com/authic/passport-authic)</td>
+      <td>OAuth 2.0</td>
+      <td>[Authic](https://github.com/authic)</td>
+    </tr>
+    <tr>
       <td>[Bitbucket](https://github.com/jaredhanson/passport-bitbucket)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
@@ -212,6 +217,11 @@ implementations.
       <td>[Meetup](https://github.com/jaredhanson/passport-meetup)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
+    </tr>
+    <tr>
+      <td>[mixi](https://bitbucket.org/fumito_ito/passport-mixi)</td>
+      <td>OAuth 2.0</td>
+      <td>[Fumito Ito](https://bitbucket.org/fumito_ito)</td>
     </tr>
     <tr>
       <td>[Netflix](https://github.com/jaredhanson/passport-netflix)</td>
