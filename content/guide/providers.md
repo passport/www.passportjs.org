@@ -304,6 +304,11 @@ implementations.
       <td>[Vincent PEYROUSE](https://github.com/GodezInc)</td>
     </tr>
     <tr>
+      <td>[Teambox](https://github.com/teambox/passport-teambox)</td>
+      <td>OAuth 2.0</td>
+      <td>[Patrick Heneise](https://github.com/PatrickHeneise)</td>
+    </tr>
+    <tr>
       <td>[Texas School Safety Center](https://github.com/TxSSC/passport-txssc)</td>
       <td>OAuth 2.0</td>
       <td>[Cody Stoltman](https://github.com/particlebanana)</td>
