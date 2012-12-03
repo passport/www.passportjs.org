@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Passport <% if (title) { %><%- ' | ' + title -%><% } %></title>
+    <title>Passport <% if (title) { %><%- ' | ' + title -%><% } %> <% if (typeof tagline !== 'undefined') { %><%- ' - ' + tagline -%><% } %></title>
     <link rel="stylesheet" href="/vendor/bootstrap/2.2.1/css/bootstrap.css">
     <link rel="stylesheet" href="/vendor/highlight/gc5f3dbd/styles/github.css">
     <link rel="stylesheet" href="/assets/css/site.css">
