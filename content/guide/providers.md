@@ -209,6 +209,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Mail.Ru](https://github.com/tiberule/passport-mailru)</td>
+      <td>OAuth 2.0</td>
+      <td>[Tiberule](https://github.com/tiberule)</td>
+    </tr>
+    <tr>
       <td>[me2day](https://github.com/outsideris/passport-me2day)</td>
       <td></td>
       <td>[JeongHoon Byun](https://github.com/outsideris)</td>
