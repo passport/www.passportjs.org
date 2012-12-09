@@ -99,7 +99,7 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
-      <td>[Facebook](https://github.com/jaredhanson/passport-facebook)</td>
+      <td>[Facebook](/guide/providers/facebook/)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
@@ -164,7 +164,7 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
-      <td>[Google](https://github.com/jaredhanson/passport-google)</td>
+      <td>[Google](/guide/providers/google/)</td>
       <td>OpenID</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
@@ -334,7 +334,7 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
-      <td>[Twitter](https://github.com/jaredhanson/passport-twitter)</td>
+      <td>[Twitter](/guide/providers/twitter/)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
