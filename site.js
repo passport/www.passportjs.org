@@ -21,16 +21,15 @@ site.plug(require('kerouac-robotstxt')());
     '/guide/authenticate.html': '/guide/authenticate/',
     '/guide/authorize.html': '/guide/authorize/',
     '/guide/configuration.html': '/guide/configure/',
-    '/guide/facebook.html': '/guide/facebook/',
-    '/guide/google.html': '/guide/google/',
     '/guide/log-out.html': '/guide/logout/',
-    '/guide/oauth-providers.html': '/guide/providers/',
-    '/guide/oauth.html': '/guide/oauth/',
-    '/guide/openid-providers.html': '/guide/providers/',
-    '/guide/openid.html': '/guide/openid/',
-    '/guide/twitter.html': '/guide/twitter/',
-    '/guide/user-profile.html': '/guide/profile/',
-    '/guide/username-password.html': '/guide/username-password/'
+    '/guide/providers.html': '/guide/providers/',
+    '/guide/providers/username-password.html': '/guide/providers/username-password/',
+    '/guide/providers/oauth.html': '/guide/providers/oauth/',
+    '/guide/providers/openid.html': '/guide/providers/openid/',
+    '/guide/providers/facebook.html': '/guide/providers/facebook/',
+    '/guide/providers/google.html': '/guide/providers/google/',
+    '/guide/providers/twitter.html': '/guide/providers/twitter/',
+    '/guide/user-profile.html': '/guide/profile/'
   }
   
   site.plug(require('kerouac-htaccess')({ redirect: redirect }));
