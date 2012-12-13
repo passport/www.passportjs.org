@@ -84,6 +84,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[doctape](https://github.com/doctape/passport-doctape)</td>
+      <td>OAuth 2.0</td>
+      <td>[doctape](https://github.com/doctape)</td>
+    </tr>
+    <tr>
       <td>[Dropbox](https://github.com/jaredhanson/passport-dropbox)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
