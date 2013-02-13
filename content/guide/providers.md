@@ -209,6 +209,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Kreativität trifft Technik](https://github.com/ktt-ol/passport-ktt)</td>
+      <td>OpenID</td>
+      <td>[Martin Hilscher](https://github.com/ktt-ol)</td>
+    </tr>
+    <tr>
       <td>[LinkedIn](https://github.com/jaredhanson/passport-linkedin)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
