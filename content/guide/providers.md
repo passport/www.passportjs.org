@@ -79,6 +79,16 @@ implementations.
       <td>[Sébastien De Bollivier](https://github.com/despekiroule)</td>
     </tr>
     <tr>
+      <td>[Cloud Foundry](https://github.com/rajaraodv/passport-cloudfoundry)</td>
+      <td>OAuth 2.0</td>
+      <td>[Raja Rao DV](https://github.com/rajaraodv)</td>
+    </tr>
+    <tr>
+      <td>[Cloud Foundry](https://github.com/rajaraodv/passport-cloudfoundry-openidconnect)</td>
+      <td>OpenID Connect</td>
+      <td>[Raja Rao DV](https://github.com/rajaraodv)</td>
+    </tr>
+    <tr>
       <td>[DailyCred](https://github.com/hstove/passport-dailycred)</td>
       <td>OAuth 2.0</td>
       <td>[Hank Stoever](https://github.com/hstove)</td>
