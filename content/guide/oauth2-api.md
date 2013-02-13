@@ -39,13 +39,14 @@ Additionally, it is up to the implementor to determine what limits can be placed
 on the application regarding scope of access, as well as subsequently enforcing
 those limits.
 
-As a toolkit, OAuth2orize does not attempt to make implementation decisions.  It
-is highly recommended that services deploying OAuth 2.0 have a complete
-understanding of the security considerations involved.
+As a toolkit, OAuth2orize does not attempt to make implementation decisions.
+This guide does not cover these issues, but does highly recommended that
+services deploying OAuth 2.0 have a complete understanding of the security
+considerations involved.
 
 #### Authenticating Tokens
 
-OAuth 2.0 provides a framework, in which an arbitrarily set of extensible token
+OAuth 2.0 provides a framework, in which an arbitrarily extensible set of token
 types can be issued.  In practice, only specific token types have gained
 widespread use.
 
@@ -63,3 +64,35 @@ module.
 ```bash
 $ npm install passport-http-bearer
 ```
+
+##### Configuration
+
+```javascript
+passport.use(new BearerStrategy(
+  function(token, done) {
+    User.findOne({ token: token }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      return done(null, user, { scope: 'read' });
+    });
+  }
+));
+```
+
+The verify callback for bearer tokens accepts the `token` as an argument.
+When invoking `done`, optional `info` can be passed, which will be set by
+Passport at `req.authInfo`.  This is typically used to convey the scope of the
+token, and can be used when making access control checks.
+
+##### Protect Endpoints
+
+```javascript
+app.get('/profile', 
+  passport.authenticate('bearer', { session: false }),
+  function(req, res) {
+    res.json(req.user);
+  });
+```
+
+Specify `passport.authenticate()` with the `bearer` strategy to protect API
+endpoints.  Sessions are not typically needed by APIs, so they can be disabled.
