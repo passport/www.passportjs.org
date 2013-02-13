@@ -294,6 +294,11 @@ implementations.
       <td>[Siedrix](https://github.com/Siedrix)</td>
     </tr>
     <tr>
+      <td>[QQ](https://github.com/AndyShang/passport-qq)</td>
+      <td>OAuth 2.0</td>
+      <td>[Andy Shang](https://github.com/AndyShang)</td>
+    </tr>
+    <tr>
       <td>[Rdio](https://github.com/jaredhanson/passport-rdio)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
