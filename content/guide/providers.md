@@ -59,6 +59,11 @@ implementations.
       <td>[Geoff Hollingworth](https://github.com/eusholli)</td>
     </tr>
     <tr>
+      <td>[Auth0](https://github.com/auth0/passport-auth0)</td>
+      <td>OAuth 2.0</td>
+      <td>[Auth0](https://github.com/auth0)</td>
+    </tr>
+    <tr>
       <td>[Authic](https://github.com/authic/passport-authic)</td>
       <td>OAuth 2.0</td>
       <td>[Authic](https://github.com/authic)</td>
