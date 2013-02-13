@@ -1,6 +1,6 @@
 ---
 layout: 'guide'
-title: 'OAuth 2.0'
+title: 'OAuth 2.0 APIs'
 ---
 
 ### OAuth 2.0
@@ -87,7 +87,7 @@ token, and can be used when making access control checks.
 ##### Protect Endpoints
 
 ```javascript
-app.get('/profile', 
+app.get('/api/me', 
   passport.authenticate('bearer', { session: false }),
   function(req, res) {
     res.json(req.user);
