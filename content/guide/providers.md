@@ -409,6 +409,11 @@ implementations.
       <td>[Michael Owens](https://github.com/mowens)</td>
     </tr>
     <tr>
+      <td>[XING](https://github.com/pascal-bach/passport-xing)</td>
+      <td>OAuth</td>
+      <td>[Pascal Bach](https://github.com/pascal-bach)</td>
+    </tr>
+    <tr>
       <td>[Yahoo!](https://github.com/jaredhanson/passport-yahoo)</td>
       <td>OpenID</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
