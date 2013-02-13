@@ -314,6 +314,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Sina Weibo](https://github.com/kfll/passport-sina)</td>
+      <td>OAuth 2.0</td>
+      <td>[Qichao Yang](https://github.com/kfll)</td>
+    </tr>
+    <tr>
       <td>[Singly](https://github.com/Singly/passport-singly)</td>
       <td>OAuth 2.0</td>
       <td>[Beau Gunderson](https://github.com/beaugunderson)</td>
