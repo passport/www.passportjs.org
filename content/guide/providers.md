@@ -84,6 +84,11 @@ implementations.
       <td>[Hank Stoever](https://github.com/hstove)</td>
     </tr>
     <tr>
+      <td>[Desk.com](https://github.com/Mistat/passport-deskcom)</td>
+      <td>OAuth</td>
+      <td>[Misato Takahashi](https://github.com/Mistat)</td>
+    </tr>
+    <tr>
       <td>[Digg](https://github.com/jaredhanson/passport-digg)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
