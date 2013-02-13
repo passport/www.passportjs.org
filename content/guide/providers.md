@@ -269,6 +269,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Pocket](https://github.com/Siedrix/passport-pocket)</td>
+      <td>OAuth 2.0</td>
+      <td>[Siedrix](https://github.com/Siedrix)</td>
+    </tr>
+    <tr>
       <td>[Rdio](https://github.com/jaredhanson/passport-rdio)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
