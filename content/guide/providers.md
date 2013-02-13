@@ -114,6 +114,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Everyplay](https://github.com/Everyplay/passport-everyplay)</td>
+      <td>OAuth 2.0</td>
+      <td>[Matti Savolainen](https://github.com/Everyplay)</td>
+    </tr>
+    <tr>
       <td>[Facebook](https://github.com/jaredhanson/passport-facebook)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
