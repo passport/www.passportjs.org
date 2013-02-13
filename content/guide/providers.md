@@ -394,6 +394,11 @@ implementations.
       <td>[Stepan Stolyarov](https://github.com/stevebest)</td>
     </tr>
     <tr>
+      <td>[Weibo](https://github.com/AndyShang/passport-weibo)</td>
+      <td>OAuth 2.0</td>
+      <td>[Andy Shang](https://github.com/AndyShang)</td>
+    </tr>
+    <tr>
       <td>[Windows Live](https://github.com/jaredhanson/passport-windowslive)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
