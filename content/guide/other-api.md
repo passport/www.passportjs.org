@@ -43,6 +43,11 @@ when protecting API endpoints.
       <td>[Yuri Karadzhov](https://github.com/yuri-karadzhov)</td>
     </tr>
     <tr>
+      <td>[Hawk](https://github.com/jfromaniello/passport-hawk)</td>
+      <td>[hueniverse/hawk](https://github.com/hueniverse/hawk)</td>
+      <td>[José F. Romaniello](https://github.com/jfromaniello)</td>
+    </tr>
+    <tr>
       <td>[Local API Key](https://github.com/cholalabs/passport-localapikey)</td>
       <td>N/A</td>
       <td>[Sudhakar Mani](https://github.com/cholalabs)</td>
