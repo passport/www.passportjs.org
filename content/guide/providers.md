@@ -309,6 +309,11 @@ implementations.
       <td>[Andy Shang](https://github.com/AndyShang)</td>
     </tr>
     <tr>
+      <td>[Rakuten](https://github.com/gologo13/passport-rakuten)</td>
+      <td>OAuth 2.0</td>
+      <td>[Yohei Yamaguchi](https://github.com/gologo13)</td>
+    </tr>
+    <tr>
       <td>[Rdio](https://github.com/jaredhanson/passport-rdio)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
@@ -432,6 +437,11 @@ implementations.
       <td>[Yahoo!](https://github.com/jaredhanson/passport-yahoo-oauth)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
+    </tr>
+    <tr>
+      <td>[Yahoo! JAPAN](https://github.com/Lewuathe/passport-yj)</td>
+      <td>OAuth 2.0</td>
+      <td>[Kai Sasaki](https://github.com/Lewuathe)</td>
     </tr>
     <tr>
       <td>[Yammer](https://github.com/jaredhanson/passport-yammer)</td>
