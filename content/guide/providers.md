@@ -304,6 +304,11 @@ implementations.
       <td>[Siedrix](https://github.com/Siedrix)</td>
     </tr>
     <tr>
+      <td>[Podio](https://github.com/appsattic/passport-podio)</td>
+      <td>OAuth 2.0</td>
+      <td>[Andrew Chilton](https://github.com/appsattic)</td>
+    </tr>
+    <tr>
       <td>[QQ](https://github.com/AndyShang/passport-qq)</td>
       <td>OAuth 2.0</td>
       <td>[Andy Shang](https://github.com/AndyShang)</td>
