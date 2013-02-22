@@ -12,7 +12,7 @@ can be used to establish a login session.
 req.login(user, function(err) {
   if (err) { return next(err); }
   return res.redirect('/users/' + req.user.username);
-}
+});
 ```
 
 When the login operation completes, `user` will be assigned to `req.user`.
