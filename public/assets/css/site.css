@@ -4,6 +4,11 @@
   border-bottom: 1px solid #eeeeee;
 }
 
+.masthead .logo {
+  height: 32px;
+  width: 32px;
+}
+
 .masthead h3 a {
   color: #333333;;
   text-decoration: none;
@@ -18,6 +23,14 @@
   margin-top: 20px;
   padding-top: 10px;
   border-top: 1px solid #eeeeee;
+}
+
+.hero-unit .logo {
+  height: 90px;
+  width: 90px;
+  float: left;
+  margin-right: 15px;
+  margin-top: 10px;
 }
 
 .brochure {
@@ -62,17 +75,4 @@
 
 .guide .content h3 {
   margin-top: 0;
-}
-
-.masthead .logo {
-  height: 32px;
-  width: 32px;
-}
-
-.hero-unit .logo {
-  height: 90px;
-  width: 90px;
-  float: left;
-  margin-right: 15px;
-  margin-top: 10px;
 }
