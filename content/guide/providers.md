@@ -399,6 +399,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[University of Cambridge](https://github.com/ForbesLindesay/passport-raven) (Raven)</td>
+      <td>[WAA-&gt;WLS](http://raven.cam.ac.uk/project/waa2wls-protocol.txt)</td>
+      <td>[Forbes Lindesay](https://github.com/ForbesLindesay)</td>
+    </tr>
+    <tr>
       <td>[Urlship](https://github.com/urlship/passport-urlship)</td>
       <td>OAuth 2.0</td>
       <td>[Cleave Pokotea](https://github.com/urlship)</td>
