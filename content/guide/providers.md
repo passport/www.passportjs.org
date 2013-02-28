@@ -74,6 +74,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Box](https://github.com/bluedge/passport-box)</td>
+      <td>OAuth 2.0</td>
+      <td>[Nicolas Alessandra](https://github.com/bluedge)</td>
+    </tr>
+    <tr>
       <td>[Buffer](https://github.com/despekiroule/passport-bufferapp)</td>
       <td>OAuth 2.0</td>
       <td>[Sébastien De Bollivier](https://github.com/despekiroule)</td>
