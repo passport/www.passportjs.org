@@ -334,6 +334,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[reddit](https://github.com/Slotos/passport-reddit)</td>
+      <td>OAuth 2.0</td>
+      <td>[Dmytro Soltys](https://github.com/Slotos)</td>
+    </tr>
+    <tr>
       <td>[RunKeeper](https://github.com/jaredhanson/passport-runkeeper)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
