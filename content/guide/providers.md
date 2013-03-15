@@ -374,6 +374,11 @@ implementations.
       <td>[Liam Curry](https://github.com/liamcurry)</td>
     </tr>
     <tr>
+      <td>[Stripe](https://github.com/huffpostlabs/passport-stripe)</td>
+      <td>OAuth 2.0</td>
+      <td>[Matthew Conlen](https://github.com/huffpostlabs/passport-stripe)</td>
+    </tr>
+    <tr>
       <td>[SUPINFO](https://github.com/godezinc/passport-supinfo)</td>
       <td>OpenID</td>
       <td>[Vincent PEYROUSE](https://github.com/GodezInc)</td>
