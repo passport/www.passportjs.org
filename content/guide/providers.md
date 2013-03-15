@@ -364,6 +364,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Stack Exchange](https://github.com/geNAZt/passport-stackexchange)</td>
+      <td>OAuth 2.0</td>
+      <td>[Fabian Faßbender](https://github.com/geNAZt)</td>
+    </tr>
+    <tr>
       <td>[StatusNet](https://github.com/zoowar/passport-statusnet)</td>
       <td>OAuth</td>
       <td>[zoowar](https://github.com/zoowar)</td>
