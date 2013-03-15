@@ -429,6 +429,11 @@ implementations.
       <td>[Forbes Lindesay](https://github.com/ForbesLindesay)</td>
     </tr>
     <tr>
+      <td>[University of Warwick](https://github.com/UniversityofWarwick/passport-warwick-sso-oauth)</td>
+      <td>OAuth</td>
+      <td>[Mat Mannion](https://github.com/UniversityofWarwick)</td>
+    </tr>
+    <tr>
       <td>[Urlship](https://github.com/urlship/passport-urlship)</td>
       <td>OAuth 2.0</td>
       <td>[Cleave Pokotea](https://github.com/urlship)</td>
