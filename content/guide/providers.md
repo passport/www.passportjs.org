@@ -483,6 +483,11 @@ implementations.
       <td>OAuth 2.0</td>
       <td>[Sergey Sergeev](https://github.com/gurugray)</td>
     </tr>
+    <tr>
+      <td>[YouTube](https://github.com/jozzhart/passport-youtube)</td>
+      <td>OAuth 2.0</td>
+      <td>[Jozz Hart](https://github.com/jozzhart)</td>
+    </tr>
   </tbody>
 </table>
 
