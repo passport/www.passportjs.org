@@ -399,6 +399,11 @@ implementations.
       <td>[Cleave Pokotea](https://github.com/Tumunu)</td>
     </tr>
     <tr>
+      <td>[Trello](https://github.com/fuwaneko/passport-trello)</td>
+      <td>OAuth</td>
+      <td>[Dmitry Gorbunov](https://github.com/fuwaneko)</td>
+    </tr>
+    <tr>
       <td>[TripIt](https://github.com/jaredhanson/passport-tripit)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
