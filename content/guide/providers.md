@@ -134,6 +134,11 @@ implementations.
       <td>[Matti Savolainen](https://github.com/Everyplay)</td>
     </tr>
     <tr>
+      <td>[EyeEm](https://github.com/elmariachi111/passport-eyeem)</td>
+      <td>OAuth 2.0</td>
+      <td>[Stefan Adolf](https://github.com/elmariachi111)</td>
+    </tr>
+    <tr>
       <td>[Facebook](https://github.com/jaredhanson/passport-facebook)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
