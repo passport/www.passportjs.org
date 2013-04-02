@@ -62,5 +62,10 @@ when protecting API endpoints.
       <td>[RFC 6749](http://tools.ietf.org/html/rfc6749#section-2.3.1)</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
+    <tr>
+      <td>[OAuth 2.0 JWT Client Assertion](https://github.com/xtuple/passport-oauth2-jwt-bearer)</td>
+      <td>[draft-jones-oauth-jwt-bearer](http://tools.ietf.org/html/draft-jones-oauth-jwt-bearer)</td>
+      <td>[xTuple](https://github.com/xtuple)</td>
+    </tr>
   </tbody>
 </table>
