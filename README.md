@@ -19,6 +19,10 @@ Once generated, the site can be previewed locally by running the server:
     
 and navigating to: [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
+#### Publish
+
+    $ make publish
+
 ## Credits
 
 - [Jared Hanson](http://github.com/jaredhanson)
