@@ -1,6 +1,6 @@
 # www.passportjs.org
 
-This [passportjs.org](http://passportjs.org/) website.
+The [passportjs.org](http://passportjs.org/) website.
 
 ## Usage
 
