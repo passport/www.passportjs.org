@@ -274,6 +274,11 @@ implementations.
       <td>[Fumito Ito](https://bitbucket.org/fumito_ito)</td>
     </tr>
     <tr>
+      <td>[Nate](https://github.com/pukapukan/passport-nate)</td>
+      <td>OAuth</td>
+      <td>[Jason Park](https://github.com/pukapukan)</td>
+    </tr>
+    <tr>
       <td>[Netflix](https://github.com/jaredhanson/passport-netflix)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
