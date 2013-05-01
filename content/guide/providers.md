@@ -74,6 +74,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[bitly](https://github.com/dreadjr/passport-bitly)</td>
+      <td>OAuth 2.0</td>
+      <td>[dreadjr](https://github.com/dreadjr)</td>
+    </tr>
+    <tr>
       <td>[Box](https://github.com/bluedge/passport-box)</td>
       <td>OAuth 2.0</td>
       <td>[Nicolas Alessandra](https://github.com/bluedge)</td>
@@ -112,6 +117,11 @@ implementations.
       <td>[doctape](https://github.com/doctape/passport-doctape)</td>
       <td>OAuth 2.0</td>
       <td>[doctape](https://github.com/doctape)</td>
+    </tr>
+    <tr>
+      <td>[douban](https://github.com/ktmud/passport-douban)</td>
+      <td>OAuth 2.0</td>
+      <td>[Jesse Yang](https://github.com/ktmud)</td>
     </tr>
     <tr>
       <td>[Dropbox](https://github.com/jaredhanson/passport-dropbox)</td>
