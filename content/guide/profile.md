@@ -41,6 +41,13 @@ fields available are outlined in the following table.
       <dd>The type of email address (home, work, etc.).</dd>
     </dl>
   </dd>
+  <dt><code>photos</code> {Array} [n]<dt>
+  <dd>
+    <dl>
+      <dt><code>value</code> {String}<dt>
+      <dd>The link to the image.</dd>
+    </dl>
+  </dd>
 </dl>
 
 Note that not all of the above fields are available from every service provider.
