@@ -45,7 +45,7 @@ fields available are outlined in the following table.
   <dd>
     <dl>
       <dt><code>value</code> {String}<dt>
-      <dd>The link to the image.</dd>
+      <dd>The URL of the image.</dd>
     </dl>
   </dd>
 </dl>
