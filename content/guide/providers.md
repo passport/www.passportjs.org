@@ -294,6 +294,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[oDesk](https://github.com/dglittle/passport-odesk)</td>
+      <td>OAuth</td>
+      <td>[Anatolij Ostroumov](https://github.com/dglittle)</td>
+    </tr>
+    <tr>
       <td>[Odnoklassniki](https://github.com/ozon1234/passport-odnoklassniki)</td>
       <td>OAuth</td>
       <td>[Alexey Kozlov](https://github.com/ozon1234)</td>
