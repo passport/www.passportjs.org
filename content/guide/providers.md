@@ -296,7 +296,7 @@ implementations.
     <tr>
       <td>[oDesk](https://github.com/dglittle/passport-odesk)</td>
       <td>OAuth</td>
-      <td>[Anatolij Ostroumov](https://github.com/dglittle)</td>
+      <td>[Anatolij Ostroumov](https://github.com/vodolaz095)</td>
     </tr>
     <tr>
       <td>[Odnoklassniki](https://github.com/ozon1234/passport-odnoklassniki)</td>
