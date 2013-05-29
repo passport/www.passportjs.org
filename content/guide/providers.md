@@ -39,6 +39,11 @@ implementations.
       <td>[Chris Christensen](https://github.com/christianchristensen)</td>
     </tr>
     <tr>
+      <td>[Amazon](https://github.com/jaredhanson/passport-amazon)</td>
+      <td>OAuth 2.0</td>
+      <td>[Jared Hanson](https://github.com/jaredhanson)</td>
+    </tr>
+    <tr>
       <td>[AngelList](https://github.com/jaredhanson/passport-angellist)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
