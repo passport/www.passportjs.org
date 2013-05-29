@@ -94,6 +94,11 @@ implementations.
       <td>[Sébastien De Bollivier](https://github.com/despekiroule)</td>
     </tr>
     <tr>
+      <td>[Chalkable](https://github.com/headlessme/passport-chalkable-oauth2)</td>
+      <td>OAuth 2.0</td>
+      <td>[Andy Pritchard](https://github.com/headlessme)</td>
+    </tr>
+    <tr>
       <td>[Cloud Foundry](https://github.com/rajaraodv/passport-cloudfoundry)</td>
       <td>OAuth 2.0</td>
       <td>[Raja Rao DV](https://github.com/rajaraodv)</td>
