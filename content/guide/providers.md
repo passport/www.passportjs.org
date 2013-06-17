@@ -379,6 +379,11 @@ implementations.
       <td>[Dmytro Soltys](https://github.com/Slotos)</td>
     </tr>
     <tr>
+      <td>[Renren](https://github.com/xinbenlv/passport-renren)</td>
+      <td>OAuth 2.0</td>
+      <td>[Zainan Victor Zhou](https://github.com/xinbenlv)</td>
+    </tr>
+    <tr>
       <td>[RunKeeper](https://github.com/jaredhanson/passport-runkeeper)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
