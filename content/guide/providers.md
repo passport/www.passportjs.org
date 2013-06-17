@@ -439,6 +439,11 @@ implementations.
       <td>[Patrick Heneise](https://github.com/PatrickHeneise)</td>
     </tr>
     <tr>
+      <td>[Tencent QQ](https://github.com/heroicyang/passport-tqq)</td>
+      <td>OAuth 2.0</td>
+      <td>[Heroic Yang](https://github.com/heroicyang)</td>
+    </tr>
+    <tr>
       <td>[Texas School Safety Center](https://github.com/TxSSC/passport-txssc)</td>
       <td>OAuth 2.0</td>
       <td>[Cody Stoltman](https://github.com/particlebanana)</td>
