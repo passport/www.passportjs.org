@@ -144,6 +144,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Eventbrite](https://github.com/venkatperi/passport-eventbrite-oauth)</td>
+      <td>OAuth 2.0</td>
+      <td>[Venkat Peri](https://github.com/venkatperi)</td>
+    </tr>
+    <tr>
       <td>[Evernote](https://github.com/jaredhanson/passport-evernote)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
