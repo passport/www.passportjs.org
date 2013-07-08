@@ -249,6 +249,11 @@ implementations.
       <td>[Hackers @ Berkeley](https://github.com/HackBerkeley)</td>
     </tr>
     <tr>
+      <td>[human/api](https://github.com/humanapi/passport-humanapi)</td>
+      <td>OAuth 2.0</td>
+      <td>[Ola Wiberg](https://github.com/olawiberg)</td>
+    </tr>
+    <tr>
       <td>[Instagram](https://github.com/jaredhanson/passport-instagram)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
