@@ -304,6 +304,11 @@ implementations.
       <td>[Fumito Ito](https://bitbucket.org/fumito_ito)</td>
     </tr>
     <tr>
+      <td>[MyUSA](https://github.com/Innovation-Toolkit/passport-myusa)</td>
+      <td>OAuth 2.0</td>
+      <td>[Joe Polastre](https://github.com/polastre)</td>
+    </tr>
+    <tr>
       <td>[Nate](https://github.com/pukapukan/passport-nate)</td>
       <td>OAuth</td>
       <td>[Jason Park](https://github.com/pukapukan)</td>
