@@ -309,6 +309,11 @@ implementations.
       <td>[Tiberule](https://github.com/tiberule)</td>
     </tr>
     <tr>
+      <td>[MailChimp](https://github.com/brainflake/passport-mailchimp)</td>
+      <td>OAuth 2.0</td>
+      <td>[Brian Falk](https://github.com/brainflake)</td>
+    </tr>
+    <tr>
       <td>[me2day](https://github.com/outsideris/passport-me2day)</td>
       <td></td>
       <td>[JeongHoon Byun](https://github.com/outsideris)</td>
