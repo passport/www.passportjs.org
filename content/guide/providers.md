@@ -549,6 +549,11 @@ implementations.
       <td>[Michael Owens](https://github.com/mowens)</td>
     </tr>
     <tr>
+      <td>[WordPress](https://github.com/mjpearson/passport-wordpress)</td>
+      <td>OAuth 2.0</td>
+      <td>[Michael Pearson](https://github.com/mjpearson)</td>
+    </tr>
+    <tr>
       <td>[XING](https://github.com/pascal-bach/passport-xing)</td>
       <td>OAuth</td>
       <td>[Pascal Bach](https://github.com/pascal-bach)</td>
