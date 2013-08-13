@@ -269,6 +269,11 @@ implementations.
       <td>[Ola Wiberg](https://github.com/olawiberg)</td>
     </tr>
     <tr>
+      <td>[imgur](https://github.com/mindfreakthemon/passport-imgur)</td>
+      <td>OAuth 2.0</td>
+      <td>[Monday Freelem](https://github.com/mindfreakthemon)</td>
+    </tr>
+    <tr>
       <td>[Instagram](https://github.com/jaredhanson/passport-instagram)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
