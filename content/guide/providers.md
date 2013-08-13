@@ -74,6 +74,11 @@ implementations.
       <td>[Authic](https://github.com/authic)</td>
     </tr>
     <tr>
+      <td>[Baidu](https://github.com/xiaoao/passport-baidu)</td>
+      <td>OAuth 2.0</td>
+      <td>[xiaoao](https://github.com/xiaoao)</td>
+    </tr>
+    <tr>
       <td>[Bitbucket](https://github.com/jaredhanson/passport-bitbucket)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
