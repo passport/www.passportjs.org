@@ -49,6 +49,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Animexx](https://github.com/sargodarya/passport-animexx)</td>
+      <td>OAuth</td>
+      <td>[Sargo Darya](https://github.com/SargoDarya)</td>
+    </tr>
+    <tr>
       <td>[AOL](https://github.com/jaredhanson/passport-aol)</td>
       <td>OpenID</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
