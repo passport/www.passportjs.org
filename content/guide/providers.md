@@ -219,6 +219,11 @@ implementations.
       <td>[Carlos Rodriguez](https://github.com/carlos8f)</td>
     </tr>
     <tr>
+      <td>[FreshBooks](https://github.com/MichaelJCole/passport-freshbooks)</td>
+      <td>OAuth</td>
+      <td>[Michael Cole](https://github.com/MichaelJCole)</td>
+    </tr>
+    <tr>
       <td>[Geeklist](https://github.com/despekiroule/passport-geeklist)</td>
       <td>OAuth</td>
       <td>[Sébastien De Bollivier](https://github.com/despekiroule)</td>
