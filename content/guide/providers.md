@@ -64,6 +64,11 @@ implementations.
       <td>[Michael Owens](https://github.com/mowens)</td>
     </tr>
     <tr>
+      <td>[Assembla](https://github.com/maxiperezc/passport-assembla)</td>
+      <td>OAuth 2.0</td>
+      <td>[Maxi Perez Coto](https://github.com/maxiperezc)</td>
+    </tr>
+    <tr>
       <td>[AT&T Foundry](https://github.com/att-innovate/passport-att-alpha) Alpha API Program</td>
       <td>OAuth 2.0</td>
       <td>[Geoff Hollingworth](https://github.com/eusholli)</td>
