@@ -519,6 +519,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Twitch](https://github.com/johnkernke/passport-twitchtv)</td>
+      <td>OAuth 2.0</td>
+      <td>[John Kernke](https://github.com/johnkernke)</td>
+    </tr>
+    <tr>
       <td>[Twitter](https://github.com/jaredhanson/passport-twitter)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
