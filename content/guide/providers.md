@@ -89,6 +89,11 @@ implementations.
       <td>[xiaoao](https://github.com/xiaoao)</td>
     </tr>
     <tr>
+      <td>[Beatport](https://github.com/fastman/passport-beatport)</td>
+      <td>OAuth</td>
+      <td>[Jakub Jelen](https://github.com/fastman)</td>
+    </tr>
+    <tr>
       <td>[Bitbucket](https://github.com/jaredhanson/passport-bitbucket)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
