@@ -329,6 +329,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[MercadoLibre](https://github.com/sdurandeu/passport-mercadolibre)</td>
+      <td>OAuth 2.0</td>
+      <td>[Sebastian Durandeu](https://github.com/sdurandeu)</td>
+    </tr>
+    <tr>
       <td>[mixi](https://bitbucket.org/fumito_ito/passport-mixi)</td>
       <td>OAuth 2.0</td>
       <td>[Fumito Ito](https://bitbucket.org/fumito_ito)</td>
