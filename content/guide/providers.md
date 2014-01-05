@@ -159,6 +159,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Dropbox](https://github.com/florianheinemann/passport-dropbox-oauth2)</td>
+      <td>OAuth 2.0</td>
+      <td>[Florian Heinemann](https://github.com/florianheinemann)</td>
+    </tr>
+    <tr>
       <td>[Dwolla](https://github.com/jaredhanson/passport-dwolla)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
