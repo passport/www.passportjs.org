@@ -24,9 +24,9 @@ requirements.  Authentication mechanisms, known as _strategies_, are packaged as
 individual modules.  Applications can choose which strategies to employ, without
 creating unnecessary dependencies.
 
-Despite the complexities involved in authentication, code does not not have to
-be complicated.
-    
+Despite the complexities involved in authentication, code does not have to be
+complicated.
+
 ```javascript
 app.post('/login', passport.authenticate('local', { successRedirect: '/',
                                                     failureRedirect: '/login' }));
