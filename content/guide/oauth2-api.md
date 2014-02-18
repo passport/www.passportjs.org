@@ -28,7 +28,7 @@ that must be performed:
 #### Issuing Tokens
 
 [OAuth2orize](https://github.com/jaredhanson/oauth2orize), a sibling project to
-Passport, provides a tookit for implementing OAuth 2.0 authorization servers.
+Passport, provides a toolkit for implementing OAuth 2.0 authorization servers.
 
 The authorization process is a complex sequence that involves authenticating
 both the requesting application and the user, as well as prompting the user for
@@ -40,7 +40,7 @@ on the application regarding scope of access, as well as subsequently enforcing
 those limits.
 
 As a toolkit, OAuth2orize does not attempt to make implementation decisions.
-This guide does not cover these issues, but does highly recommended that
+This guide does not cover these issues, but does highly recommend that
 services deploying OAuth 2.0 have a complete understanding of the security
 considerations involved.
 
