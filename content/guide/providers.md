@@ -549,6 +549,11 @@ implementations.
       <td>[Cleave Pokotea](https://github.com/urlship)</td>
     </tr>
     <tr>
+      <td>[Venmo](https://github.com/jihokoo/passport-venmo)</td>
+      <td>OAuth 2.0</td>
+      <td>[Ji Ho Koo](https://github.com/jihokoo)</td>
+    </tr>
+    <tr>
       <td>[Vimeo](https://github.com/jaredhanson/passport-vimeo)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
