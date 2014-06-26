@@ -99,6 +99,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[BitAuth](https://github.com/martindale/passport-bitauth)</td>
+      <td>BitAuth</td>
+      <td>[Eric Martindale](https://github.com/martindale)</td>
+    </tr>
+    <tr>
       <td>[bitly](https://github.com/dreadjr/passport-bitly)</td>
       <td>OAuth 2.0</td>
       <td>[dreadjr](https://github.com/dreadjr)</td>
