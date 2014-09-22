@@ -584,6 +584,11 @@ implementations.
       <td>[Pascal Bach](https://github.com/pascal-bach)</td>
     </tr>
     <tr>
+      <td>[XMPP](https://github.com/surevine/passport-xmpp)</td>
+      <td>XMPP</td>
+      <td>[Lloyd Watkin](https://github.com/lloydwatkin)</td>
+    </tr>
+    <tr>
       <td>[Yahoo!](https://github.com/jaredhanson/passport-yahoo)</td>
       <td>OpenID</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
