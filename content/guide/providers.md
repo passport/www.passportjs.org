@@ -616,5 +616,5 @@ implementations.
   </tbody>
 </table>
 
-**Attention Developers:** If you implement support another provider, send me a
+**Attention Developers:** If you implement support for another provider, send me a
 message and I will add it to the list.
