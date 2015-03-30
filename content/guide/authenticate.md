@@ -77,8 +77,8 @@ passport.authenticate('local', { successFlash: 'Welcome!' });
 
 Note: Using flash messages requires a `req.flash()` function.  Express 2.x
 provided this functionality, however it was removed from Express 3.x.  Use of
-[connect-flash](https://github.com/jaredhanson/connect-flash) middleware is
-recommended to provide this functionality when using Express 3.x.
+[flash](https://github.com/expressjs/flash) middleware is
+recommended to provide this functionality when using Express 3.x or 4.x.
 
 #### Disable Sessions
 
