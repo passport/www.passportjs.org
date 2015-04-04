@@ -454,6 +454,11 @@ implementations.
       <td>[Beau Gunderson](https://github.com/beaugunderson)</td>
     </tr>
     <tr>
+      <td>[SmartThings](https://github.com/jeff-blaisdell/passport-smartthings)</td>
+      <td>OAuth 2.0</td>
+      <td>[Jeff Blaisdell](https://github.com/jeff-blaisdell)</td>
+    </tr>    
+    <tr>
       <td>[SmugMug](https://github.com/jaredhanson/passport-smugmug)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
