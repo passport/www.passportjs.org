@@ -1,30 +1,19 @@
 {
   "name": "www.passportjs.org",
   "version": "0.0.0",
-  "description": "The official website of Passport.",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jaredhanson/www.passportjs.org.git"
+  "scripts": {
+    "start": "node ./bin/www"
   },
-  "bugs": {
-    "url": "http://github.com/jaredhanson/www.passportjs.org/issues"
-  },
-  "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
-  },
-  "licenses": [ {
-    "type": "CC BY-SA 3.0",
-    "url": "http://creativecommons.org/licenses/by-sa/3.0/"
-  } ],
   "dependencies": {
-    "kerouac": "0.0.x",
-    "kerouac-robotstxt": "0.1.x",
-    "kerouac-sitemap": "0.1.x",
-    "kerouac-htaccess": "0.1.x",
-    "ejs-locals": "1.x.x",
-    "express": "3.x.x"
+    "body-parser": "~1.12.0",
+    "cookie-parser": "~1.3.4",
+    "debug": "~2.1.1",
+    "express": "~4.12.2",
+    "jade": "~1.9.2",
+    "morgan": "~1.5.1",
+    "express-livereload": "*",
+    "stylus": "*",
+    "serve-favicon": "~2.2.0"
   }
 }
