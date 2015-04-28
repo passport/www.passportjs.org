@@ -1,5 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  nav#menu
+    a#logo(href='#', title='JH') by Jared Hanson
+    .menu-trigger
+    .menu-hold
+      ul
+        li
+          a(href='#') Documentation
+        li
+          a(href='#') Features
+        li
+          a(href='#') Strategies
+    .design
+      a(href='#')
+        | Supported by
+        img(src='images/supported_logo.svg', alt='')
+
+
+  .content
+    .home
+      h1 Passport
+      h2 Simple, unobtrusive authentication for Node.js
+      .browser
+        .browser-toolbar
+          .btns
+            i.close
+            i.min
+            i.max
+        .browser-content
+          p passport.authenticate('twitter’);
+      p Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
+
+      .strategies
+        p +500 Strategies Now!
+        a.btn(href='#') VIEW ALL STRATEGIES
+

@@ -1,0 +1,188 @@
+extends layout
+
+block content
+  .main-hold
+    nav#menu
+      a#logo(href='#', title='JH') by Jared Hanson
+      .menu-trigger
+      .menu-hold.expanded
+        ul
+          li
+            a(href='#') Documentation
+            ul
+              li.current
+                a(href='#') Overview
+              li
+                a(href='#') Authenticate
+              li
+                a(href='#') Configure
+              li
+                a(href='#') Username & Password
+              li
+                a(href='#') OpenID
+              li
+                a(href='#') OAuth
+            ul.type-2
+              li
+                a(href='#') Providers
+                ul
+                  li
+                    a(href='#') Facebook
+                  li
+                    a(href='#') Twitter
+                  li
+                    a(href='#') Google
+                  li
+                    a(href='#') Other
+              li
+                a(href='#') APIs
+                ul
+                  li
+                    a(href='#') Basic & Digest
+                  li
+                    a(href='#') OAuth
+                  li
+                    a(href='#') OAuth 2.0
+                  li
+                    a(href='#') Other
+              li
+                a(href='#') Operations
+                ul
+                  li
+                    a(href='#') Log In
+                  li
+                    a(href='#') Log Out
+                  li
+                    a(href='#') Authorize
+                  li
+                    a(href='#') User Profile
+          li
+            a(href='#') Features
+          li
+            a(href='#') Strategies
+        .social
+          ul
+            li.twitter
+              a(href='#')
+            li.facebook
+              a(href='#')
+            li.git
+              a(href='#')
+                span.stat 0
+      .design
+        a(href='#')
+          | Supported by
+          img(src='images/supported_logo.svg', alt='')
+
+
+    .search.mobile-no
+      form(action='#')
+        input(placeholder='Search for Strategies', type='text')
+        button(type='submit')
+    .select
+      p OVERVIEW
+      .menu-hold.expanded
+        ul
+          li
+            a(href='#') Documentation
+            ul
+              li.current
+                a(href='#') Overview
+              li
+                a(href='#') Authenticate
+              li
+                a(href='#') Configure
+              li
+                a(href='#') Username & Password
+              li
+                a(href='#') OpenID
+              li
+                a(href='#') OAuth
+            ul.type-2
+              li
+                a(href='#') Providers
+                ul
+                  li
+                    a(href='#') Facebook
+                  li
+                    a(href='#') Twitter
+                  li
+                    a(href='#') Google
+                  li
+                    a(href='#') Other
+              li
+                a(href='#') APIs
+                ul
+                  li
+                    a(href='#') Basic & Digest
+                  li
+                    a(href='#') OAuth
+                  li
+                    a(href='#') OAuth 2.0
+                  li
+                    a(href='#') Other
+              li
+                a(href='#') Operations
+                ul
+                  li
+                    a(href='#') Log In
+                  li
+                    a(href='#') Log Out
+                  li
+                    a(href='#') Authorize
+                  li
+                    a(href='#') User Profile
+          li
+            a(href='#') Features
+          li
+            a(href='#') Strategies
+    .content
+      .entry
+        h1 Overview
+        p
+          | Passport is authentication middleware for
+          a(href='#') Node
+          | . It is designed to serve a singular purpose: authenticate requests. When writing modules, encapsulation is a virtue, so Passport delegates all other functionality to the application. This separation of concerns keeps code clean and maintainable, and makes Passport extremely easy to integrate into an application.
+        p
+          | In modern web applications, authentication can take a variety of forms. Traditionally, users log in by providing a username and password. With the rise of social networking, single sign-on using an
+          a(href='#') OAuth
+          |  provider such as
+          a(href='#') Facebook
+          |  or
+          a(href='#') Twitter
+          |  has become a popular authentication method.
+          span.desktop-only
+            | Services that expose an API often require token-based credentials to protect access.
+        p.desktop-only
+          | Passport recognizes that each application has unique authentication requirements. Authentication mechanisms, known as strategies, are packaged as individual modules. Applications can choose which strategies to employ, without creating unnecessary dependencies.
+        p.desktop-only
+          | Despite the complexities involved in authentication, code does not have to be complicated.
+        h2.desktop-only Install Passport
+        .pic
+          .browser
+            .browser-toolbar
+              .btns
+                i.close
+                i.min
+                i.max
+            .browser-content
+              .slides
+                p passport.authenticate('twitter’);
+                p passport.authenticate('facebook);
+                p passport.authenticate('gmail);
+
+
+  .cloned-blur
+  .search-con
+    .head
+      span.close-ico
+      .hold
+        h2 SEARCH FOR STRATEGIES
+        form(action='#')
+          .input
+          span.autocomplete
+          input(value='', type='text')
+        p.info-line 110 STRATEGIES
+    .con-line
+    .results
+      section

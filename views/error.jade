@@ -1,6 +1,23 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  nav#menu
+    a#logo(href='#', title='JH') by Jared Hanson
+    .menu-trigger
+    .menu-hold
+      ul
+        li
+          a(href='#') Documentation
+        li
+          a(href='#') Features
+        li
+          a(href='#') Strategies
+    .design
+      a(href='#')
+        | Supported by
+        img(src='images/supported_logo.svg', alt='')
+
+  .content
+    h1= message
+    h2= error.status
+    pre #{error.stack}
