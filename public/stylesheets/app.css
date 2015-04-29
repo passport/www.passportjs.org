@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 body {
-  font: 16px/30px Helvetica, Arial, sans-serif;
+  font: 16px/30px 'Avenir';
   color: rgba(255,255,255,0.7);
   background: #1e222b;
   -webkit-text-size-adjust: none;
@@ -14,7 +14,7 @@ textarea,
 select,
 button {
   outline: none;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Avenir';
 }
 a {
   text-decoration: none;
@@ -548,7 +548,8 @@ a:hover {
 }
 .home h1 {
   font-size: 60px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Avenir';
+  font-weight: 100;
   color: #34e078;
   line-height: 1;
   margin: 0 0 20px;
@@ -562,7 +563,8 @@ a:hover {
 .home h2 {
   font-size: 22px;
   color: #fff;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Avenir';
+  font-weight: 100;
   line-height: 1.4;
   margin: 0 0 27px 0;
 }
@@ -678,7 +680,7 @@ a:hover {
 }
 .entry h1 {
   font-size: 22px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Avenir';
   color: #fff;
   line-height: 30px;
   padding-bottom: 6px;
@@ -693,7 +695,7 @@ a:hover {
 }
 @media (min-width: 768px) {
   .entry h2 {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Avenir';
     font-weight: 600;
     font-size: 30px;
     color: #fff;
@@ -845,7 +847,7 @@ a.btn,
 }
 .search-con h2 {
   font-size: 13px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Avenir';
   color: #fff;
   letter-spacing: 0.88px;
   line-height: 22px;
