@@ -75,9 +75,6 @@ body
   height 100%
   margin 0
 
-pre
-  overflow-x scroll
-
 input, textarea, select, button
   outline none
   font-family Helvetica, Arial, sans-serif
@@ -481,9 +478,6 @@ a
   margin-top 120px
   +breakpoint("tablet")
     margin-top 0
-    padding 0 10%
-  +breakpoint("desktop")
-    padding 0 15%
   h1
     font-size 60px
     font-family Helvetica, Arial, sans-serif
@@ -513,17 +507,50 @@ a
 
   .browser
     margin-bottom 30px
+    padding 0 15px
+    box-sizing border-box
     +breakpoint("tablet")
       width 100%
       margin-bottom 0
-      transform translateY(120px)
+      transform translateY(180px)
+    +breakpoint("desktop")
+      transform translateY(140px)
+
+    .rw-wrapper
+      position: relative;
+
+    .rw-words-1
+      position relative
+      width 55px
+      height 16px
+      padding 0 4px
+      display inline-block
+      vertical-align middle
+      span
+        position: absolute;
+        opacity: 0;
+        overflow: hidden;
+        -webkit-animation: rotateWord 9s linear infinite 0s;
+        animation: rotateWord 9s linear infinite 0s;
+        width 57px
+        text-align center
+        left 4px
+        &:nth-child(2)
+          -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+        &:nth-child(3)
+          -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+
 
   & > p
     line-height 1.8
     margin-bottom 30px
+    padding 0 15px
     +breakpoint("tablet")
       transform translateY(-120px)
       margin 0 auto 0
+      max-width 700px
 
   .strategies
     +breakpoint("tablet")
@@ -838,7 +865,6 @@ a.btn,
 
 
 .browser
-  background: #000
   clear both
   width auto
   border-radius(5px)
@@ -846,7 +872,6 @@ a.btn,
   overflow: hidden
   line-height: normal;
   margin 0 auto
-  clearfix()
   .home &
     max-width 330px
   +breakpoint("tablet")
@@ -922,4 +947,21 @@ a.btn,
   to {
     visibility: hidden;
   }
+}
+
+@-webkit-keyframes rotateWord {
+  0% { opacity: 0; }
+  2% { opacity: 0; -webkit-transform: translateY(-30px); }
+  5% { opacity: 1; -webkit-transform: translateY(0px);}
+  37% { opacity: 1; -webkit-transform: translateY(0px); }
+  40% { opacity: 0; -webkit-transform: translateY(30px); }
+  100% { opacity: 0; }
+}
+@keyframes rotateWord {
+  0% { opacity: 0; }
+  2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+  5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+  37% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+  40% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+  100% { opacity: 0; }
 }
