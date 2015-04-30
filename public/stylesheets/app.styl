@@ -340,10 +340,12 @@ a
     height auto
     background none
     text-align left
+    margin-top 50px
 
-    position absolute
-    top 56%
-    transform translateY(-50%)
+  &.pepe
+    text-align center
+    ul
+      padding-left 0
 
   ul
     margin 0
@@ -383,11 +385,15 @@ a
     text-align center
     display block
 
-    ul
+    & > ul
       width 100%
       top 50%
       transform translateY(-50%)
       position absolute
+      padding-left 0
+
+      & *
+        padding-left 0
 
 [data-accordion]
   [data-content]
@@ -407,7 +413,7 @@ a
   max-width 800px
   text-align center
   margin 120px auto 0
-  padding 0 15px 50px
+  padding 0 15px
   +breakpoint("tablet")
     margin-top 0
   h1
@@ -472,13 +478,14 @@ a
         vertical-align middle
 
     .btn
+      text-transform uppercase
       +breakpoint("desktop")
         display inline-block
         padding 0 44px
 
 .entry
   max-width 800px
-  padding 0 15px 50px
+  padding 0 15px
   margin 120px auto 0
   +breakpoint("tablet")
     margin-top 0
@@ -567,6 +574,7 @@ a.btn,
     display block !important
 
 .is-menu
+  overflow hidden
   .cloned-blur
     overflow hidden
     display block

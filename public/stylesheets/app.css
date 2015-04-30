@@ -365,10 +365,14 @@ a:hover {
     height: auto;
     background: none;
     text-align: left;
-    position: absolute;
-    top: 56%;
-    transform: translateY(-50%);
+    margin-top: 50px;
   }
+}
+.menu-hold.pepe {
+  text-align: center;
+}
+.menu-hold.pepe ul {
+  padding-left: 0;
 }
 .menu-hold ul {
   margin: 0;
@@ -411,11 +415,15 @@ a:hover {
   text-align: center;
   display: block;
 }
-.menu-hold.is-active ul {
+.menu-hold.is-active > ul {
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
+  padding-left: 0;
+}
+.menu-hold.is-active > ul * {
+  padding-left: 0;
 }
 [data-accordion] [data-content] {
   overflow: hidden;
@@ -439,7 +447,7 @@ a:hover {
   max-width: 800px;
   text-align: center;
   margin: 120px auto 0;
-  padding: 0 15px 50px;
+  padding: 0 15px;
 }
 @media (min-width: 768px) {
   .home {
@@ -530,6 +538,9 @@ a:hover {
     vertical-align: middle;
   }
 }
+.home .strategies .btn {
+  text-transform: uppercase;
+}
 @media (min-width: 992px) {
   .home .strategies .btn {
     display: inline-block;
@@ -538,7 +549,7 @@ a:hover {
 }
 .entry {
   max-width: 800px;
-  padding: 0 15px 50px;
+  padding: 0 15px;
   margin: 120px auto 0;
 }
 @media (min-width: 768px) {
@@ -652,6 +663,9 @@ a.btn,
   .desktop-only {
     display: block !important;
   }
+}
+.is-menu {
+  overflow: hidden;
 }
 .is-menu .cloned-blur {
   overflow: hidden;
