@@ -276,23 +276,49 @@ a:hover {
   }
 }
 #menu .menu-trigger {
-  background: url("../images/ico_menu_trigger.svg") no-repeat;
   height: 16px;
   width: 23px;
   cursor: pointer;
   float: right;
-  margin: 42px 40px 0 0;
+  margin: 51px 40px 0 0;
+}
+#menu .menu-trigger span,
+#menu .menu-trigger span:before,
+#menu .menu-trigger span:after {
+  background: #fff;
+  width: 100%;
+  height: 2px;
+  display: block;
+  transition: 0.3s ease-out;
+  backface-visibility: hidden;
+}
+#menu .menu-trigger span {
+  position: relative;
+}
+#menu .menu-trigger span:before,
+#menu .menu-trigger span:after {
+  content: "";
+  position: absolute;
+}
+#menu .menu-trigger span:before {
+  top: -7px;
+}
+#menu .menu-trigger span:after {
+  top: 7px;
 }
 @media (min-width: 768px) {
   #menu .menu-trigger {
     display: none;
   }
 }
-#menu .menu-trigger.is-active {
-  background-image: url("../images/ico_close.svg");
-  height: 19px;
-  width: 19px;
-  margin: 39px 42px 0 0;
+#menu .menu-trigger.is-active span {
+  background: transparent;
+}
+#menu .menu-trigger.is-active span:before {
+  transform: translate(0, 7px) rotate(-45deg);
+}
+#menu .menu-trigger.is-active span:after {
+  transform: translate(0, -7px) rotate(45deg);
 }
 #menu .design {
   display: none;
@@ -567,6 +593,7 @@ a:hover {
   font-weight: 100;
   line-height: 1.4;
   margin: 0 0 27px 0;
+  padding: 0 15px;
 }
 @media (min-width: 992px) {
   .home h2 {
@@ -606,11 +633,6 @@ a:hover {
 }
 .home .browser .rw-words-1 {
   position: relative;
-  width: 55px;
-  height: 19px;
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
 }
 .home .browser .rw-words-1 span {
   position: absolute;
@@ -618,9 +640,6 @@ a:hover {
   overflow: hidden;
   -webkit-animation: rotateWord 9s linear infinite 0s;
   animation: rotateWord 9s linear infinite 0s;
-  width: 57px;
-  text-align: center;
-  left: 3px;
 }
 .home .browser .rw-words-1 span:nth-child(2) {
   -webkit-animation-delay: 3s;
