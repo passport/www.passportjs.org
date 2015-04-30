@@ -1,20 +1,23 @@
 $.fn.hasScrollBar = function() {
-    return this.get(0).scrollHeight > this.get(0).clientHeight;
+  return this.get(0).scrollHeight > this.get(0).clientHeight;
 };
 
 function msieversion() {
 
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE ");
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
 
-        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
-    $("body").addClass("ie")
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+  $("body").addClass("ie")
 
-   return false;
+ return false;
+
 };
+
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
+
 $(document).ready(function() {
 
   if (msieversion()) {

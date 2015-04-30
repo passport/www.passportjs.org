@@ -195,10 +195,12 @@ a
   box-sizing border-box
   display inline-block
   position absolute
+  -webkit-transform translateY(100px)
   transform translateY(100px)
   +breakpoint("tablet")
     background none
     width 200px
+    -webkit-transform none
     transform none
     box-sizing initial
     padding 0
@@ -307,8 +309,10 @@ a
       span
         background transparent
         &:before
+          -webkit-transform translate(0, 7px) rotate(-45deg)
           transform translate(0, 7px) rotate(-45deg)
         &:after
+          -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
   .design
     display none
@@ -388,6 +392,7 @@ a
     & > ul
       width 100%
       top 50%
+      -webkit-transform translateY(-50%)
       transform translateY(-50%)
       position absolute
       padding-left 0
@@ -449,6 +454,7 @@ a
     line-height 1.8
     margin-bottom 30px
     +breakpoint("tablet")
+      -webkit-transform translateY(-120px)
       transform translateY(-120px)
       margin 0 auto 0
 
@@ -460,8 +466,10 @@ a
     +breakpoint("tablet")
       max-width 500px
       margin-bottom 0
+      -webkit-transform translateY(180px)
       transform translateY(180px)
     +breakpoint("desktop")
+      -webkit-transform translateY(140px)
       transform translateY(140px)
 
   .strategies
@@ -575,6 +583,7 @@ a.btn,
 
 .is-menu
   overflow hidden
+  height 100vh
   .cloned-blur
     overflow hidden
     display block

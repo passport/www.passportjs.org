@@ -176,12 +176,14 @@ a:hover {
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
+  -webkit-transform: translateY(100px);
   transform: translateY(100px);
 }
 @media (min-width: 768px) {
   .search {
     background: none;
     width: 200px;
+    -webkit-transform: none;
     transform: none;
     box-sizing: initial;
     padding: 0;
@@ -320,9 +322,11 @@ a:hover {
   background: transparent;
 }
 #menu .menu-trigger.is-active span:before {
+  -webkit-transform: translate(0, 7px) rotate(-45deg);
   transform: translate(0, 7px) rotate(-45deg);
 }
 #menu .menu-trigger.is-active span:after {
+  -webkit-transform: translate(0, -7px) rotate(45deg);
   transform: translate(0, -7px) rotate(45deg);
 }
 #menu .design {
@@ -418,6 +422,7 @@ a:hover {
 .menu-hold.is-active > ul {
   width: 100%;
   top: 50%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   position: absolute;
   padding-left: 0;
@@ -498,6 +503,7 @@ a:hover {
 }
 @media (min-width: 768px) {
   .home > p {
+    -webkit-transform: translateY(-120px);
     transform: translateY(-120px);
     margin: 0 auto 0;
   }
@@ -512,11 +518,13 @@ a:hover {
   .home .window {
     max-width: 500px;
     margin-bottom: 0;
+    -webkit-transform: translateY(180px);
     transform: translateY(180px);
   }
 }
 @media (min-width: 992px) {
   .home .window {
+    -webkit-transform: translateY(140px);
     transform: translateY(140px);
   }
 }
@@ -666,6 +674,7 @@ a.btn,
 }
 .is-menu {
   overflow: hidden;
+  height: 100vh;
 }
 .is-menu .cloned-blur {
   overflow: hidden;
