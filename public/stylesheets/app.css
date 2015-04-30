@@ -379,6 +379,11 @@ a:hover {
   position: absolute;
   width: 100%;
 }
+.menu-hold.expanded {
+  position: relative;
+  transform: none;
+  top: 0;
+}
 @media (min-width: 768px) {
   .menu-hold.expanded {
     padding-top: 21px;
@@ -393,6 +398,10 @@ a:hover {
 }
 .menu-hold.expanded > ul > li > a {
   color: #fff;
+}
+.menu-hold.expanded ul {
+  position: relative;
+  transform: none;
 }
 @media (min-width: 768px) {
   .menu-hold.expanded ul {
@@ -611,41 +620,56 @@ a:hover {
     display: none;
   }
 }
-.home .browser {
+.home .window {
+  max-width: 330px;
   margin-bottom: 30px;
-  padding: 0 15px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 @media (min-width: 768px) {
-  .home .browser {
-    width: 100%;
+  .home .window {
+    max-width: 500px;
     margin-bottom: 0;
     transform: translateY(180px);
   }
 }
 @media (min-width: 992px) {
-  .home .browser {
+  .home .window {
     transform: translateY(140px);
   }
 }
-.home .browser .rw-wrapper {
+.home .window p {
+  color: #444f5e;
+  font-size: 13px;
+  padding: 30px 35px;
+  margin: 0;
+  padding: 35px 40px;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .home .window p {
+    font-size: 14px;
+    padding: 40px;
+  }
+}
+.home .window .rw-wrapper {
   position: relative;
 }
-.home .browser .rw-words-1 {
+.home .window .rw-words-1 {
   position: relative;
 }
-.home .browser .rw-words-1 span {
+.home .window .rw-words-1 span {
   position: absolute;
   opacity: 0;
   overflow: hidden;
   -webkit-animation: rotateWord 9s linear infinite 0s;
   animation: rotateWord 9s linear infinite 0s;
 }
-.home .browser .rw-words-1 span:nth-child(2) {
+.home .window .rw-words-1 span:nth-child(2) {
   -webkit-animation-delay: 3s;
   animation-delay: 3s;
 }
-.home .browser .rw-words-1 span:nth-child(3) {
+.home .window .rw-words-1 span:nth-child(3) {
   -webkit-animation-delay: 6s;
   animation-delay: 6s;
 }
@@ -1082,46 +1106,23 @@ a.btn,
   line-height: normal;
   margin: 0 auto;
 }
-.home .browser {
-  max-width: 330px;
-}
-@media (min-width: 768px) {
-  .home .browser {
-    max-width: 500px;
-  }
-}
 .browser i {
   font-style: normal;
 }
 .browser .browser-content {
   background: #000;
   display: block;
-  -webkit-border-radius: 0 0 5px 5px;
-  border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   background-clip: padding-box;
   overflow: hidden;
-}
-.browser .browser-content p {
-  color: #444f5e;
-  font-size: 13px;
-  padding: 30px 35px;
-  margin: 0;
-}
-.home .browser .browser-content p {
-  padding: 35px 40px;
-}
-@media (min-width: 768px) {
-  .browser .browser-content p {
-    font-size: 14px;
-    padding: 40px;
-  }
 }
 .browser .browser-toolbar {
   width: 100%;
   background: #fff;
   position: relative;
-  -webkit-border-radius: 3px 3px 0 0;
-  border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   overflow: hidden;
@@ -1169,6 +1170,50 @@ a.btn,
     height: 11px;
     width: 11px;
   }
+}
+.window {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-clip: padding-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  background: #000;
+  overflow: hidden;
+}
+.window .window-toolbar {
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 0 4px;
+  overflow: hidden;
+}
+.window .window-toolbar i {
+  background: #f00;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  background-clip: padding-box;
+  float: left;
+  margin: 8px;
+  margin-right: 0;
+}
+.window .window-toolbar i.red {
+  background-color: #ff5f57;
+}
+.window .window-toolbar i.yellow {
+  background-color: #ffbd2e;
+}
+.window .window-toolbar i.green {
+  background-color: #2ace42;
+}
+.window .window-toolbar span {
+  text-align: center;
+  max-width: 150px;
+  margin: auto;
+  display: block;
+  font-family: Menlo;
+  font-size: 12px;
+  color: #999;
 }
 @-webkit-keyframes blink {
   to {

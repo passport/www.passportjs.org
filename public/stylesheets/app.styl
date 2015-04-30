@@ -353,6 +353,9 @@ a
     position absolute
     width 100%
   &.expanded
+    position relative
+    transform none
+    top 0
     +breakpoint("tablet")
       padding-top 21px
       padding-bottom 76px
@@ -362,6 +365,8 @@ a
     & > ul > li > a
       color: #fff
     ul
+      position relative
+      transform none
       +breakpoint("tablet")
         text-align left
         padding-left 70px
@@ -525,16 +530,28 @@ a
     +breakpoint("tablet")
       display none
 
-  .browser
+  .window
+    max-width 330px
     margin-bottom 30px
-    padding 0 15px
     box-sizing border-box
+    margin 0 auto
     +breakpoint("tablet")
-      width 100%
+      max-width 500px
       margin-bottom 0
       transform translateY(180px)
     +breakpoint("desktop")
       transform translateY(140px)
+
+    p
+      color #444f5e
+      font-size 13px
+      padding 30px 35px
+      margin 0
+      padding 35px 40px
+      text-align left
+      +breakpoint("tablet")
+        font-size 14px
+        padding 40px
 
     .rw-wrapper
       position: relative;
@@ -879,63 +896,45 @@ a.btn,
 .browser
   clear both
   width auto
-  border-radius(5px)
-  text-align: left
-  overflow: hidden
-  line-height: normal;
+  border-radius 5px
+  text-align left
+  overflow hidden
+  line-height normal
   margin 0 auto
-  .home &
-    max-width 330px
-  +breakpoint("tablet")
-    .home &
-      max-width 500px
 
   i
-    font-style: normal;
+    font-style normal
 
   .browser-content
-    background: #000;
-    display: block
-    border-radius(0 0 5px 5px)
-    overflow: hidden
-    p
-      color #444f5e
-      font-size 13px
-      padding 30px 35px
-      margin 0
-      .home &
-        padding 35px 40px
-      +breakpoint("tablet")
-        font-size 14px
-        padding 40px
-
+    background #000
+    display block
+    border-radius 0 0 5px 5px
+    overflow hidden
 
   .browser-toolbar
     width 100%
-    background: white
+    background white
     position relative
-    border-radius(3px 3px 0 0)
-    border-bottom: 1px solid rgba(black,.1)
-    overflow: hidden
+    border-radius 3px 3px 0 0
+    border-bottom 1px solid rgba(black,.1)
+    overflow hidden
 
   .btns
     position relative
     top 2px
     white-space nowrap
-    padding: 8px 12px
+    padding 8px 12px
     margin-left 0
     display inline-block
     +breakpoint("tablet")
-      padding: 9px 16px
+      padding 9px 16px
     .close
       background-color #FF5F57
-      cursor: default
+      cursor default
     .min
       background-color #FFBD2E
     .max
       background-color #2ACE42
-
-
 
 .browser .btns .close,
 .browser .btns .min, .browser .btns .max
@@ -949,6 +948,42 @@ a.btn,
     margin-right 8px
     height 11px
     width 11px
+
+.window
+  border-radius 3px
+  box-shadow 0 1px 2px rgba(0,0,0,.1)
+  background black
+  overflow hidden
+  .window-toolbar
+    background white
+    border-bottom 1px solid #f1f1f1
+    padding 0 4px
+    overflow hidden
+    i
+      background red
+      width 12px
+      height 12px
+      display inline-block
+      border-radius 100px
+      float left
+      margin 8px
+      margin-right 0
+
+      &.red
+        background-color #FF5F57
+      &.yellow
+        background-color #FFBD2E
+      &.green
+        background-color #2ACE42
+
+    span
+      text-align center
+      max-width 150px
+      margin auto
+      display block
+      font-family Menlo
+      font-size 12px
+      color #999
 
 @keyframes blink {
   to {
