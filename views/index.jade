@@ -7,7 +7,7 @@ block content
     .top-site
       .search
         form(action='#')
-          input(placeholder='Search for Strategies', type='text')
+          input(type='text', placeholder='Search for Strategies')
           button(type='submit')
 
       .social
@@ -20,23 +20,20 @@ block content
             a(href='#')
               span.stat 0
     nav#menu
-      a#logo(href='#', title='JH') by Jared Hanson
+      a#logo(href='/', title='JH') by Jared Hanson
       .menu-trigger
         span
       .menu-hold
         ul
           li
-            a(href='/docs') Documentation
-          li
-            a(href='#') Features
+            a(href='docs') Documentation
           li
             a(href='#') Strategies
+
       .design
         a(href='#')
           | Supported by
           img(src='images/supported_logo.svg', alt='')
-
-
     .content
       .home
         h1 Passport

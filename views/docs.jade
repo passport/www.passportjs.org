@@ -1,17 +1,35 @@
 extends layout
 
+include mixins
+
 block content
   .main-hold
+    .top-site
+      .search
+        form(action='#')
+          input(type='text', placeholder='Search for Strategies')
+          button(type='submit')
+
+      .social
+        ul
+          li.twitter
+            a(href='#')
+          li.facebook
+            a(href='#')
+          li.git
+            a(href='#')
+              span.stat 0
     nav#menu
-      a#logo(href='#', title='JH') by Jared Hanson
+      a#logo(href='/', title='JH') by Jared Hanson
       .menu-trigger
-      .menu-hold.expanded
+        span
+      .menu-hold
         ul
           li
-            a(href='#') Documentation
-            ul
-              li.current
-                a(href='#') Overview
+            a(href='docs') Documentation
+            ul(data-accordion-group='')
+              li
+                a(href='#').active Overview
               li
                 a(href='#') Authenticate
               li
@@ -22,10 +40,9 @@ block content
                 a(href='#') OpenID
               li
                 a(href='#') OAuth
-            ul.type-2
-              li
-                a(href='#') Providers
-                ul
+              li.accordion(data-accordion='')
+                h5(data-control='') Providers
+                ul(data-content='')
                   li
                     a(href='#') Facebook
                   li
@@ -34,9 +51,9 @@ block content
                     a(href='#') Google
                   li
                     a(href='#') Other
-              li
-                a(href='#') APIs
-                ul
+              li.accordion(data-accordion='')
+                h5(data-control='') APIs
+                ul(data-content='')
                   li
                     a(href='#') Basic & Digest
                   li
@@ -45,9 +62,9 @@ block content
                     a(href='#') OAuth 2.0
                   li
                     a(href='#') Other
-              li
-                a(href='#') Operations
-                ul
+              li.accordion(data-accordion='')
+                h5(data-control='') Operations
+                ul(data-content='')
                   li
                     a(href='#') Log In
                   li
@@ -57,98 +74,25 @@ block content
                   li
                     a(href='#') User Profile
           li
-            a(href='#') Features
-          li
             a(href='#') Strategies
-        .social
-          ul
-            li.twitter
-              a(href='#')
-            li.facebook
-              a(href='#')
-            li.git
-              a(href='#')
-                span.stat 0
+
       .design
         a(href='#')
           | Supported by
           img(src='images/supported_logo.svg', alt='')
-
-
-    .search.mobile-no
-      form(action='#')
-        input(placeholder='Search for Strategies', type='text')
-        button(type='submit')
-    .select
-      p OVERVIEW
-      .menu-hold.expanded
-        ul
-          li
-            a(href='#') Documentation
-            ul
-              li.current
-                a(href='#') Overview
-              li
-                a(href='#') Authenticate
-              li
-                a(href='#') Configure
-              li
-                a(href='#') Username & Password
-              li
-                a(href='#') OpenID
-              li
-                a(href='#') OAuth
-            ul.type-2
-              li
-                a(href='#') Providers
-                ul
-                  li
-                    a(href='#') Facebook
-                  li
-                    a(href='#') Twitter
-                  li
-                    a(href='#') Google
-                  li
-                    a(href='#') Other
-              li
-                a(href='#') APIs
-                ul
-                  li
-                    a(href='#') Basic & Digest
-                  li
-                    a(href='#') OAuth
-                  li
-                    a(href='#') OAuth 2.0
-                  li
-                    a(href='#') Other
-              li
-                a(href='#') Operations
-                ul
-                  li
-                    a(href='#') Log In
-                  li
-                    a(href='#') Log Out
-                  li
-                    a(href='#') Authorize
-                  li
-                    a(href='#') User Profile
-          li
-            a(href='#') Features
-          li
-            a(href='#') Strategies
     .content
       .entry
         h1 Overview
         p
-          | Passport is authentication middleware for
+          | Passport is authentication middleware for&nbsp;
           a(href='#') Node
           | . It is designed to serve a singular purpose: authenticate requests. When writing modules, encapsulation is a virtue, so Passport delegates all other functionality to the application. This separation of concerns keeps code clean and maintainable, and makes Passport extremely easy to integrate into an application.
         p
-          | In modern web applications, authentication can take a variety of forms. Traditionally, users log in by providing a username and password. With the rise of social networking, single sign-on using an
+          | In modern web applications, authentication can take a variety of forms. Traditionally, users log in by providing a username and password. With the rise of social networking, single sign-on using an&nbsp;
           a(href='#') OAuth
-          |  provider such as
+          |  provider such as&nbsp;
           a(href='#') Facebook
-          |  or
+          |  or&nbsp;
           a(href='#') Twitter
           |  has become a popular authentication method.
           span.desktop-only
@@ -158,19 +102,10 @@ block content
         p.desktop-only
           | Despite the complexities involved in authentication, code does not have to be complicated.
         h2.desktop-only Install Passport
-        .pic
-          .browser
-            .browser-toolbar
-              .btns
-                i.close
-                i.min
-                i.max
-            .browser-content
-              .slides
-                p passport.authenticate('twitter’);
-                p passport.authenticate('facebook);
-                p passport.authenticate('gmail);
-
+        +window("app.js -- vim")
+          .rw-wrapper
+            .rw-sentence
+              p $ npm install passport
 
   .cloned-blur
   .search-con
