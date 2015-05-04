@@ -13,27 +13,29 @@ block content
       .social
         ul
           li.twitter
-            a(href='#')
+            a(href='http://twitter.com/passportjs', target='_blank')
           li.facebook
-            a(href='#')
+            a(href='/')
           li.git
-            a(href='#')
+            a(href='http://github.com/jaredhanson/passport', target='_blank')
               span.stat 0
+          li.auth0
+            a(href='http://auth0.com', target='_blank')
+              img(src='images/supported_logo.svg', alt='')
+
     nav#menu
       a#logo(href='/', title='JH') by Jared Hanson
       .menu-trigger
         span
-      .menu-hold.pepe
+      .menu-hold
         ul
+          li.active
+            a(href='/') Home
           li
             a(href='docs') Documentation
           li
-            a(href='#') Strategies
+            a(href='/') Strategies
 
-      .design
-        a(href='#')
-          | Supported by
-          img(src='images/supported_logo.svg', alt='')
     .content
       .home
         h1 Passport
@@ -51,7 +53,7 @@ block content
 
         .strategies
           p +500 Strategies Now!
-          a.btn(href='#') View All Strategies
+          a.btn(href='/') View All Strategies
 
   .cloned-blur
   .search-con
@@ -59,7 +61,7 @@ block content
       span.close-ico
       .hold
         h2 SEARCH FOR STRATEGIES
-        form(action='#')
+        form(action='/')
           .input
           span.autocomplete
           input(value='', type='text')

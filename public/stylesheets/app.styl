@@ -1,4 +1,5 @@
-green = #34E078
+blue = #01B7EE
+green = #35DF79
 
 transition-ease()
   -webkit-transition arguments .5s ease
@@ -58,19 +59,124 @@ grid(cols = 1, gutter = 0, childs = ".item")
     padding-right: gutter
     background-clip: content-box
 
-border-radius(radius)
-  -webkit-border-radius: radius
-  border-radius: radius
-  background-clip: padding-box
+.btn
+  text-transform uppercase
+  border-radius 60px
+  padding 0 44px
+  display block
+  background blue
+  font-size 16px
+  color white
+  line-height 3.8
+  height 60px
+  max-width 277px
+  border none
+  &:hover
+    background darken(blue,20%)
+
+.browser
+  clear both
+  width auto
+  border-radius 5px
+  text-align left
+  overflow hidden
+  line-height normal
+  margin 0 auto
+
+  i
+    font-style normal
+
+  .browser-content
+    background #000
+    display block
+    border-radius 0 0 5px 5px
+    overflow hidden
+
+  .browser-toolbar
+    width 100%
+    background white
+    position relative
+    border-radius 3px 3px 0 0
+    border-bottom 1px solid rgba(black,.1)
+    overflow hidden
+
+  .btns
+    position relative
+    top 2px
+    white-space nowrap
+    padding 8px 12px
+    margin-left 0
+    display inline-block
+    +breakpoint("tablet")
+      padding 9px 16px
+    .close
+      background-color #FF5F57
+      cursor default
+    .min
+      background-color #FFBD2E
+    .max
+      background-color #2ACE42
+
+.browser .btns .close,
+.browser .btns .min, .browser .btns .max
+  float left
+  border-radius(50%)
+  margin-right 4px
+  opacity 100
+  height 10px
+  width 10px
+  +breakpoint("tablet")
+    margin-right 8px
+    height 11px
+    width 11px
+
+.window
+  border-radius 3px
+  box-shadow 0 1px 2px rgba(0,0,0,.1)
+  background #212121
+  overflow hidden
+  .window-toolbar
+    background white
+    border-bottom 1px solid #f1f1f1
+    padding 0 4px
+    overflow hidden
+    i
+      background red
+      width 12px
+      height 12px
+      display inline-block
+      border-radius 100px
+      float left
+      margin 8px
+      margin-right 0
+
+      &.red
+        background-color #FF5F57
+      &.yellow
+        background-color #FFBD2E
+      &.green
+        background-color #2ACE42
+
+    span
+      text-align center
+      max-width 150px
+      margin auto
+      display block
+      font-family Menlo
+      font-size 12px
+      color #444F5E
+  .window-content
+    font-family Menlo
+    color white
 
 
 html
   height 100%
 
 body
-  font 16px/30px 'Avenir'
+  font 18px/30px 'Avenir'
   color rgba(255,255,255,0.70)
-  background #1e222b
+  background black
   -webkit-text-size-adjust none
   height 100%
   margin 0
@@ -80,11 +186,9 @@ input, textarea, select, button
   font-family 'Avenir'
 
 a
-  text-decoration none
   color green
-  transition-ease: color
-  &:hover
-    color green
+  text-decoration none
+  transition-ease: all
 
 .main-hold
   position relative
@@ -134,9 +238,17 @@ a
     margin 0
     padding 0
   li
+    width 26px
+    height 26px
     display inline-block
     vertical-align middle
     margin-right 5px
+    &:last-child
+      margin-left 62px
+      border-left 1px solid rgba(white,.2)
+      padding-left 10px
+      img
+        width 100%
   a
     height 36px
     width 36px
@@ -174,6 +286,9 @@ a
           left -3px
           top 50%
           margin-top -3px
+  .auth0
+    a
+      background none
   .facebook
     a
       width 35px
@@ -206,14 +321,13 @@ a
     padding 0
 
   form
-    border 1px solid #5C6E85
+    border 1px solid rgba(white,.3)
     border-radius 48px
     margin 0
     padding 0
     width 100%
     text-align center
     height 46px
-    transition border .3s ease-in-out
     input
       display inline-block
       text-align left
@@ -225,11 +339,11 @@ a
       padding-right 10px
       width 145px
       &::-webkit-input-placeholder
-        color rgba(white,.4)
+        color rgba(white,.5)
       &:-moz-placeholder
-        color rgba(white,.4)
+        color rgba(white,.5)
       &:-ms-input-placeholder
-        color rgba(white,.4)
+        color rgba(white,.5)
 
     button
       display inline-block
@@ -259,10 +373,9 @@ a
     font-size 16px
     line-height 22px
     padding 85px 0 0 0
-    margin 60px 0 0
+    margin 60px 0 0 26%
     text-align center
     max-width 130px
-    display inline-block
     float none
     position relative
     z-index 101
@@ -273,7 +386,8 @@ a
   height 101px
   +breakpoint("tablet")
     width 260px
-    background #1a1e27
+    background black
+    border-right 1px solid rgba(white,.2)
     height 100%
     text-align center
     position fixed
@@ -335,7 +449,6 @@ a
         vertical-align middle
 
 .menu-hold
-  background rgba(27, 34, 42, .9)
   display none
   width 100%
   z-index 99
@@ -344,43 +457,28 @@ a
     height auto
     background none
     text-align left
-    margin-top 50px
-
-  &.pepe
-    text-align center
-    ul
-      padding-left 0
+    transform translateY(60%)
 
   ul
     margin 0
-    padding-left 90px
+    padding 0
 
     li
       list-style none
+      padding-left 26%
+      margin-bottom 15px
+      &.active:nth-child(1)
+        box-shadow inset 8px 0 0 0 blue
+        a
+          color blue
+      &.active:nth-child(2)
+        box-shadow inset 8px 0 0 0 green
+        a
+          color green
       a
         color white
         font-size 24px
         line-height 2.5
-        &:hover, &.active
-          color green
-
-      h5
-        color white
-        margin 2px 0
-        font-size 16px
-        font-weight normal
-        cursor pointer
-
-    ul
-      padding-left 20px
-      li
-        a
-          color rgba(white,.7)
-          font-size 16px
-          line-height 1
-
-      ul
-        padding-left 20px
 
   &.is-active
     height calc(100vh - 100px)
@@ -425,7 +523,7 @@ a
     font-size 60px
     font-family 'Avenir'
     font-weight 100
-    color green
+    color blue
     line-height 1
     margin 0 0 20px
     +breakpoint("desktop")
@@ -467,10 +565,20 @@ a
       max-width 500px
       margin-bottom 0
       -webkit-transform translateY(180px)
-      transform translateY(180px)
+      transform translateY(210px)
     +breakpoint("desktop")
-      -webkit-transform translateY(140px)
-      transform translateY(140px)
+      -webkit-transform translateY(180px)
+      transform translateY(180px)
+
+    p
+      font-size 13px
+      padding 30px 35px
+      margin 0
+      padding 35px 40px
+      text-align left
+      +breakpoint("tablet")
+        font-size 14px
+        padding 40px
 
   .strategies
     +breakpoint("tablet")
@@ -486,10 +594,9 @@ a
         vertical-align middle
 
     .btn
-      text-transform uppercase
+      margin 0 auto
       +breakpoint("desktop")
         display inline-block
-        padding 0 44px
 
 .entry
   max-width 800px
@@ -530,51 +637,23 @@ a
         display none
         max-width 100%
 
-.window
-  p
-    color #444f5e
-    font-size 13px
-    padding 30px 35px
-    margin 0
-    padding 35px 40px
-    text-align left
-    +breakpoint("tablet")
-      font-size 14px
-      padding 40px
+.rw-wrapper
+  position: relative;
 
-  .rw-wrapper
-    position: relative;
-
-  .rw-words-1
-    position relative
-    span
-      position: absolute;
-      opacity: 0;
-      overflow: hidden;
-      -webkit-animation: rotateWord 9s linear infinite 0s;
-      animation: rotateWord 9s linear infinite 0s;
-      &:nth-child(2)
-        -webkit-animation-delay: 3s;
-        animation-delay: 3s;
-      &:nth-child(3)
-        -webkit-animation-delay: 6s;
-        animation-delay: 6s;
-
-
-a.btn,
-.btn
-  background green
-  border-radius 3px
-  font-size 16px
-  color white
-  letter-spacing 0.88px
-  line-height 65px
-  height 61px
-  max-width 277px
-  margin auto
-  border none
-  display block
-  padding 0
+.rw-words-1
+  position relative
+  span
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    -webkit-animation: rotateWord 9s linear infinite 0s;
+    animation: rotateWord 9s linear infinite 0s;
+    &:nth-child(2)
+      -webkit-animation-delay: 3s;
+      animation-delay: 3s;
+    &:nth-child(3)
+      -webkit-animation-delay: 6s;
+      animation-delay: 6s;
 
 .desktop-only
   display none !important
@@ -816,99 +895,6 @@ a.btn,
 .ui-autocomplete
   display none !important
 
-
-
-.browser
-  clear both
-  width auto
-  border-radius 5px
-  text-align left
-  overflow hidden
-  line-height normal
-  margin 0 auto
-
-  i
-    font-style normal
-
-  .browser-content
-    background #000
-    display block
-    border-radius 0 0 5px 5px
-    overflow hidden
-
-  .browser-toolbar
-    width 100%
-    background white
-    position relative
-    border-radius 3px 3px 0 0
-    border-bottom 1px solid rgba(black,.1)
-    overflow hidden
-
-  .btns
-    position relative
-    top 2px
-    white-space nowrap
-    padding 8px 12px
-    margin-left 0
-    display inline-block
-    +breakpoint("tablet")
-      padding 9px 16px
-    .close
-      background-color #FF5F57
-      cursor default
-    .min
-      background-color #FFBD2E
-    .max
-      background-color #2ACE42
-
-.browser .btns .close,
-.browser .btns .min, .browser .btns .max
-  float left
-  border-radius(50%)
-  margin-right 4px
-  opacity 100
-  height 10px
-  width 10px
-  +breakpoint("tablet")
-    margin-right 8px
-    height 11px
-    width 11px
-
-.window
-  border-radius 3px
-  box-shadow 0 1px 2px rgba(0,0,0,.1)
-  background black
-  overflow hidden
-  .window-toolbar
-    background white
-    border-bottom 1px solid #f1f1f1
-    padding 0 4px
-    overflow hidden
-    i
-      background red
-      width 12px
-      height 12px
-      display inline-block
-      border-radius 100px
-      float left
-      margin 8px
-      margin-right 0
-
-      &.red
-        background-color #FF5F57
-      &.yellow
-        background-color #FFBD2E
-      &.green
-        background-color #2ACE42
-
-    span
-      text-align center
-      max-width 150px
-      margin auto
-      display block
-      font-family Menlo
-      font-size 12px
-      color #999
 
 @keyframes blink {
   to {

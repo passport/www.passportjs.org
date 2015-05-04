@@ -86,7 +86,7 @@ $(document).ready(function() {
     return false;
   });
 
-  $(".search form input").on("change keyup paste", function(){
+  $(".search form input").on("focus", function(){
     var val = $(this).val();
     $(".cloned-blur").html("").html($(".main-hold").clone());
     $("body").addClass("is-search");
@@ -114,14 +114,12 @@ $(document).ready(function() {
       if (input.val() == input.attr('placeholder')) {
         input.val('').removeClass("placeholder");
       }
-      $('form').css('border-color', '#fff');
     });
 
     $(input).blur(function(){
       // if (input.val() == '' || input.val() == input.attr('placeholder')) {
       //   input.val(input.attr('placeholder')).addClass("placeholder");
       // }
-      $('form').css('border-color', '#5C6E85');
     });
   }).blur();
 

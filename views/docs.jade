@@ -13,12 +13,16 @@ block content
       .social
         ul
           li.twitter
-            a(href='#')
+            a(href='http://twitter.com/passportjs', target='_blank')
           li.facebook
-            a(href='#')
+            a(href='/')
           li.git
-            a(href='#')
+            a(href='http://github.com/jaredhanson/passport', target='_blank')
               span.stat 0
+          li.auth0
+            a(href='http://auth0.com', target='_blank')
+              img(src='images/supported_logo.svg', alt='')
+
     nav#menu
       a#logo(href='/', title='JH') by Jared Hanson
       .menu-trigger
@@ -26,61 +30,60 @@ block content
       .menu-hold
         ul
           li
+            a(href='/') Home
+          li.active
             a(href='docs') Documentation
-            ul(data-accordion-group='')
-              li
-                a(href='#').active Overview
-              li
-                a(href='#') Authenticate
-              li
-                a(href='#') Configure
-              li
-                a(href='#') Username & Password
-              li
-                a(href='#') OpenID
-              li
-                a(href='#') OAuth
-              li.accordion(data-accordion='')
-                h5(data-control='') Providers
-                ul(data-content='')
-                  li
-                    a(href='#') Facebook
-                  li
-                    a(href='#') Twitter
-                  li
-                    a(href='#') Google
-                  li
-                    a(href='#') Other
-              li.accordion(data-accordion='')
-                h5(data-control='') APIs
-                ul(data-content='')
-                  li
-                    a(href='#') Basic & Digest
-                  li
-                    a(href='#') OAuth
-                  li
-                    a(href='#') OAuth 2.0
-                  li
-                    a(href='#') Other
-              li.accordion(data-accordion='')
-                h5(data-control='') Operations
-                ul(data-content='')
-                  li
-                    a(href='#') Log In
-                  li
-                    a(href='#') Log Out
-                  li
-                    a(href='#') Authorize
-                  li
-                    a(href='#') User Profile
           li
-            a(href='#') Strategies
+            a(href='/') Strategies
 
-      .design
-        a(href='#')
-          | Supported by
-          img(src='images/supported_logo.svg', alt='')
     .content
+      //- .sub-menu
+      //-   ul(data-accordion-group='')
+      //-     li
+      //-       a(href='#').active Overview
+      //-     li
+      //-       a(href='#') Authenticate
+      //-     li
+      //-       a(href='#') Configure
+      //-     li
+      //-       a(href='#') Username & Password
+      //-     li
+      //-       a(href='#') OpenID
+      //-     li
+      //-       a(href='#') OAuth
+      //-     li.accordion(data-accordion='')
+      //-       h5(data-control='') Providers
+      //-       ul(data-content='')
+      //-         li
+      //-           a(href='#') Facebook
+      //-         li
+      //-           a(href='#') Twitter
+      //-         li
+      //-           a(href='#') Google
+      //-         li
+      //-           a(href='#') Other
+      //-     li.accordion(data-accordion='')
+      //-       h5(data-control='') APIs
+      //-       ul(data-content='')
+      //-         li
+      //-           a(href='#') Basic & Digest
+      //-         li
+      //-           a(href='#') OAuth
+      //-         li
+      //-           a(href='#') OAuth 2.0
+      //-         li
+      //-           a(href='#') Other
+      //-     li.accordion(data-accordion='')
+      //-       h5(data-control='') Operations
+      //-       ul(data-content='')
+      //-         li
+      //-           a(href='#') Log In
+      //-         li
+      //-           a(href='#') Log Out
+      //-         li
+      //-           a(href='#') Authorize
+      //-         li
+      //-           a(href='#') User Profile
       .entry
         h1 Overview
         p
