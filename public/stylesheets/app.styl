@@ -190,6 +190,14 @@ a
   text-decoration none
   transition-ease: all
 
+ul
+  margin 0
+  padding 0
+
+  li
+    list-style none
+
+
 .main-hold
   position relative
   padding-bottom 30px
@@ -457,14 +465,9 @@ a
     height auto
     background none
     text-align left
-    transform translateY(60%)
-
-  ul
-    margin 0
-    padding 0
+    transform translateY(80%)
 
     li
-      list-style none
       padding-left 26%
       margin-bottom 15px
       &.active:nth-child(1)
@@ -504,6 +507,24 @@ a
     max-height 0
   [data-control]
     position relative
+
+.rw-wrapper
+  position: relative;
+
+.rw-words-1
+  position relative
+  span
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    -webkit-animation: rotateWord 9s linear infinite 0s;
+    animation: rotateWord 9s linear infinite 0s;
+    &:nth-child(2)
+      -webkit-animation-delay: 3s;
+      animation-delay: 3s;
+    &:nth-child(3)
+      -webkit-animation-delay: 6s;
+      animation-delay: 6s;
 
 .content
   +breakpoint("tablet")
@@ -602,12 +623,13 @@ a
   max-width 800px
   padding 0 15px
   margin 120px auto 0
+  position relative
   +breakpoint("tablet")
     margin-top 0
   h1
     font-size 22px
     font-family 'Avenir'
-    color white
+    color green
     line-height 1
     margin 0
     padding 0
@@ -637,23 +659,30 @@ a
         display none
         max-width 100%
 
-.rw-wrapper
-  position: relative;
+.sub-menu
+  position absolute
+  left 380px
+  top 0
 
-.rw-words-1
-  position relative
-  span
-    position: absolute;
-    opacity: 0;
-    overflow: hidden;
-    -webkit-animation: rotateWord 9s linear infinite 0s;
-    animation: rotateWord 9s linear infinite 0s;
-    &:nth-child(2)
-      -webkit-animation-delay: 3s;
-      animation-delay: 3s;
-    &:nth-child(3)
-      -webkit-animation-delay: 6s;
-      animation-delay: 6s;
+  ul ul
+    padding-left 20px
+
+  li
+    a
+      color rgba(white,.7)
+      font-size 14px
+      &.active
+        color green
+
+    li
+      a
+        color rgba(white,.5)
+
+  h5
+    margin 0
+    font-weight normal
+    font-size 14px
+    color white
 
 .desktop-only
   display none !important
