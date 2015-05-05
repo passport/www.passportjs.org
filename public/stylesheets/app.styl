@@ -1,5 +1,6 @@
 blue = #01B7EE
 green = #35DF79
+yellow = #D4FD02
 
 transition-ease()
   -webkit-transition arguments .5s ease
@@ -168,6 +169,10 @@ grid(cols = 1, gutter = 0, childs = ".item")
   .window-content
     font-family Menlo
     color white
+    font-size 14px
+    padding 20px
+    p
+      margin 0
 
 
 html
@@ -205,6 +210,9 @@ ul
     margin 0 auto
     padding-bottom 60px
 
+  &.blured
+    blur-set 20px
+
 .search-con
   +breakpoint("tablet")
     .con-line
@@ -228,10 +236,10 @@ ul
 .top-site
   clearfix()
   +breakpoint("tablet")
-    padding 60px 50px 0 310px
+    padding 60px 20px 0 280px
     margin-bottom 80px
   +breakpoint("desktop")
-    padding-left 400px
+    padding 60px 50px 0 400px
 
 .social
   color green
@@ -241,10 +249,7 @@ ul
     display inline-block
     float right
     margin-top 10px
-    margin-right 60px
-  ul
-    margin 0
-    padding 0
+
   li
     width 26px
     height 26px
@@ -253,6 +258,7 @@ ul
     margin-right 5px
     &:last-child
       margin-left 62px
+      margin-right 0
       border-left 1px solid rgba(white,.2)
       padding-left 10px
       img
@@ -471,11 +477,11 @@ ul
       padding-left 26%
       margin-bottom 15px
       &.active:nth-child(1)
-        box-shadow inset 8px 0 0 0 blue
+        box-shadow inset 5px 0 0 0 blue
         a
           color blue
       &.active:nth-child(2)
-        box-shadow inset 8px 0 0 0 green
+        box-shadow inset 5px 0 0 0 green
         a
           color green
       a
@@ -527,6 +533,7 @@ ul
       animation-delay: 6s;
 
 .content
+  clearfix()
   +breakpoint("tablet")
     padding-left 260px
     position relative
@@ -537,7 +544,7 @@ ul
   max-width 800px
   text-align center
   margin 120px auto 0
-  padding 0 15px
+  padding 0 20px
   +breakpoint("tablet")
     margin-top 0
   h1
@@ -591,15 +598,12 @@ ul
       -webkit-transform translateY(180px)
       transform translateY(180px)
 
+    .window-content
+      padding-top 40px
+      padding-bottom 40px
     p
-      font-size 13px
-      padding 30px 35px
       margin 0
-      padding 35px 40px
       text-align left
-      +breakpoint("tablet")
-        font-size 14px
-        padding 40px
 
   .strategies
     +breakpoint("tablet")
@@ -621,11 +625,15 @@ ul
 
 .entry
   max-width 800px
-  padding 0 15px
+  padding 0 20px
   margin 120px auto 0
   position relative
   +breakpoint("tablet")
     margin-top 0
+    float left
+  +breakpoint("desktop")
+    max-width 62%
+
   h1
     font-size 22px
     font-family 'Avenir'
@@ -659,10 +667,17 @@ ul
         display none
         max-width 100%
 
+  .window
+    max-width 600px
+    margin 0 auto
+
 .sub-menu
-  position absolute
-  left 380px
-  top 0
+  margin-left 50px
+  width 18%
+  float left
+  display none
+  +breakpoint("desktop")
+    display block
 
   ul ul
     padding-left 20px
@@ -671,7 +686,7 @@ ul
     a
       color rgba(white,.7)
       font-size 14px
-      &.active
+      &.active, &:hover
         color green
 
     li
@@ -692,37 +707,11 @@ ul
 .is-menu
   overflow hidden
   height 100vh
-  .cloned-blur
-    overflow hidden
-    display block
-    top 100px
-    .menu-hold
-      display none !important
-    & > div:first-child
-      margin-top -100px
-    +breakpoint("tablet")
-      display none !important
-
-.cloned-blur
-  position absolute
-  top 0
-  bottom 0
-  left 0
-  right 0
-  z-index 98
-  background #1b222a
-  blur-set: 10px
-  display none
+  .top-site, .content
+    blur-set 20px
 
 .is-search
   overflow hidden
-  .cloned-blur
-    top 0
-    display block
-    +breakpoint("tablet")
-      display block !important
-    & > div:first-child
-      margin-top 0
   .search-con
     display block
 
@@ -733,8 +722,7 @@ ul
   right 0
   bottom 0
   z-index 99
-  background #1b222a
-  background rgba(27, 34, 42, .9)
+  background rgba(#121212,.9)
   padding 21px 0 0 0
   display none
   .head
@@ -830,7 +818,7 @@ ul
         height 81px
         animation blink 1s steps(3, start) infinite
         -webkit-animation blink 1s steps(3, start) infinite
-        background green
+        background yellow
     input
       opacity 0
   .info-line
@@ -855,32 +843,23 @@ ul
     bottom 0
     +breakpoint("tablet")
       top 283px
-      padding 50px 25px 0 25px
       max-width 1050px
+      padding-top 50px
       margin auto
       clear both
   section
     text-align center
-    +breakpoint("tablet")
-      margin 0 -42px
   article
-    width 300px
-    display inline-block
-    margin 0 10px 30px
+    width 33.333333%
+    float left
     border 1px solid #4a4f55
     min-height 180px
     padding 17px 20px 45px 20px
     position relative
-    -webkit-transition background 0.5s ease, border 0.5s ease
-    -moz-transition background 0.5s ease, border 0.5s ease
-    transition background 0.5s ease, border 0.5s ease
-    +breakpoint("tablet")
-      margin 0 23px 50px 23px
-    &:hover
-      border 1px solid #34e178
-      background #34e178
-      .text
-        color #fff
+    -webkit-transition background .3s, border .3s
+    -moz-transition background .3s, border .3s
+    transition background .3s, border .3s
+    box-sizing border-box
     a
       &:hover
         text-decoration none
@@ -908,9 +887,19 @@ ul
         line-height 30px
         margin-right 25px
       .download
-        background url(../images/ico_download.svg) no-repeat 0 6px
+        background url(../images/ico_download.svg) no-repeat 0 -24px
       .star
-        background url(../images/ico_star.svg) no-repeat 0 6px
+        background url(../images/ico_star.svg) no-repeat 0 -24px
+    &:hover
+      border 1px solid #34e178
+      background yellow
+      span, .stat span
+        color #4A4A4A
+      .stat
+        .download, .star
+          background-position 0 6px
+      .text
+        color rgba(#4A4A4A,.5)
 
 
 +breakpoint("desktop")

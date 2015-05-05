@@ -75,8 +75,8 @@ $(document).ready(function() {
   });
 
   $(".menu-trigger").click(function() {
-    $(".cloned-blur").html("").html($(".main-hold").clone());
     $("body").toggleClass("is-menu");
+    $(".content, .top-site").toggleClass('blured');
     $(this).toggleClass("is-active").next().toggleClass("is-active");
     return false;
   });
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
   $(".search form input").on("focus", function(){
     var val = $(this).val();
-    $(".cloned-blur").html("").html($(".main-hold").clone());
+    $(".main-hold").addClass('blured');
     $("body").addClass("is-search");
     $(".search-con form input").val(val).focus();
     $(".search-con form input").val("");
@@ -99,12 +99,14 @@ $(document).ready(function() {
   $(".search-con .close-ico").click(function() {
     $(".search form input").val("");
     $("body").removeClass("is-search");
+    $(".main-hold").removeClass('blured');
   });
 
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {
       $(".search form input").val("");
       $("body").removeClass("is-search");
+      $(".main-hold").removeClass('blured');
     }
   });
 
