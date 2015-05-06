@@ -38,78 +38,87 @@ block content
       nav.sub-menu
         ul
           li
-            a(href='#').active Overview
+            a(href='#overview', data='scroll-to') Overview
           li
-            a(href='#') Authenticate
+            a(href='#authenticate', data='scroll-to') Authenticate
           li
-            a(href='#') Configure
+            a(href='#configure', data='scroll-to') Configure
           li
-            a(href='#') Username & Password
+            a(href='#username-password', data='scroll-to') Username & Password
           li
-            a(href='#') OpenID
+            a(href='#openid', data='scroll-to') OpenID
           li
-            a(href='#') OAuth
+            a(href='#oauth', data='scroll-to') OAuth
           li
             h5 Providers
             ul
               li
-                a(href='#') Facebook
+                a(href='#facebook', data='scroll-to') Facebook
               li
-                a(href='#') Twitter
+                a(href='#twitter', data='scroll-to') Twitter
               li
-                a(href='#') Google
+                a(href='#google', data='scroll-to') Google
               li
                 a(href='#') Other
           li
             h5 APIs
             ul
               li
-                a(href='#') Basic & Digest
+                a(href='#basic-digest', data='scroll-to') Basic & Digest
               li
-                a(href='#') OAuth
+                a(href='#oauth-api', data='scroll-to') OAuth
               li
-                a(href='#') OAuth 2.0
+                a(href='#oauth2-api', data='scroll-to') OAuth 2.0
               li
-                a(href='#') Other
+                a(href='#other-api', data='scroll-to') Other
           li
             h5 Operations
             ul
               li
-                a(href='#') Log In
+                a(href='#login', data='scroll-to') Log In
               li
-                a(href='#') Log Out
+                a(href='#logout', data='scroll-to') Log Out
               li
-                a(href='#') Authorize
+                a(href='#authorize', data='scroll-to') Authorize
               li
-                a(href='#') User Profile
+                a(href='#profile', data='scroll-to') User Profile
 
       .entry
-        h1 Overview
-        p
-          | Passport is authentication middleware for&nbsp;
-          a(href='#') Node
-          | . It is designed to serve a singular purpose: authenticate requests. When writing modules, encapsulation is a virtue, so Passport delegates all other functionality to the application. This separation of concerns keeps code clean and maintainable, and makes Passport extremely easy to integrate into an application.
-        p
-          | In modern web applications, authentication can take a variety of forms. Traditionally, users log in by providing a username and password. With the rise of social networking, single sign-on using an&nbsp;
-          a(href='#') OAuth
-          |  provider such as&nbsp;
-          a(href='#') Facebook
-          |  or&nbsp;
-          a(href='#') Twitter
-          |  has become a popular authentication method.
-          span.desktop-only
-            | Services that expose an API often require token-based credentials to protect access.
-        p.desktop-only
-          | Passport recognizes that each application has unique authentication requirements. Authentication mechanisms, known as strategies, are packaged as individual modules. Applications can choose which strategies to employ, without creating unnecessary dependencies.
-        p.desktop-only
-          | Despite the complexities involved in authentication, code does not have to be complicated.
-        h2.desktop-only Install Passport
-        +window("app.js -- vim")
-          .rw-wrapper
-            .rw-sentence
-              p $ npm install passport
+        #overview
+          include:markdown docs/overview.md
+        #authenticate
+          include:markdown docs/authenticate.md
+        #configure
+          include:markdown docs/configure.md
+        #username-password
+          include:markdown docs/username-password.md
+        #openid
+          include:markdown docs/openid.md
+        #oauth
+          include:markdown docs/oauth.md
+        #facebook
+          include:markdown docs/facebook.md
+        #twitter
+          include:markdown docs/twitter.md
+        #google
+          include:markdown docs/google.md
+        #basic-digest
+          include:markdown docs/basic-digest.md
+        #oauth-api
+          include:markdown docs/oauth-api.md
+        #oauth2-api
+          include:markdown docs/oauth2-api.md
+        #other-api
+          include:markdown docs/other-api.md
+        #login
+          include:markdown docs/login.md
+        #logout
+          include:markdown docs/logout.md
+        #authorize
+          include:markdown docs/authorize.md
+        #profile
+          include:markdown docs/profile.md
 
-  .cloned-blur
   .search-con
     .head
       span.close-ico

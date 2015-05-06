@@ -750,7 +750,7 @@ ul li {
   .entry h1 {
     font-size: 50px;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -785,9 +785,8 @@ ul li {
     max-width: 100%;
   }
 }
-.entry .window {
-  max-width: 600px;
-  margin: 0 auto;
+.entry > div {
+  margin-bottom: 80px;
 }
 .sub-menu {
   margin-left: 50px;
