@@ -81,11 +81,6 @@ $(document).ready(function() {
     return false;
   });
 
-  $(".select p").click(function() {
-    $(this).parent().toggleClass("is-block");
-    return false;
-  });
-
   $(".search form input").on("focus", function(){
     var val = $(this).val();
     $(".main-hold").addClass('blured');
@@ -94,6 +89,18 @@ $(document).ready(function() {
     $(".search-con form input").val("");
     $(".search-con form input").val(val);
     $(".search-con form input").autocomplete("search");
+  });
+
+  $("[data-search]").on("click", function(){
+    var val = $(this).val();
+    $(".main-hold").addClass('blured');
+    $("body").addClass("is-search");
+    $(".search-con form input").val(val).focus();
+    $(".search-con form input").val("");
+    $(".search-con form input").val(val);
+    $(".search-con form input").autocomplete("search");
+
+    return false;
   });
 
   $(".search-con .close-ico").click(function() {
@@ -145,29 +152,15 @@ $(document).ready(function() {
     "transitionSpeed": 400
   });
 
-  //Scroll to href ID
-  // $('a[data="scroll-to"][href*=#]:not([href=#])').click(function() {
-  //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-  //     var target = $(this.hash);
-  //     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-  //     if (target.length) {
-  //       $('html,body').animate({
-  //         scrollTop: target.offset().top - 30
-  //       }, 1000);
-  //       return false;
-  //     }
-  //   }
-  // });
-
   // menu nav docs
-  var $navigation = $('.sub-menu nav'),
-      offset = $navigation.offset().top;
+  var navigation = $('.sub-menu nav'),
+      offset = navigation.offset().top;
 
   $(window).on("scroll", function() {
     if (offset < $(this).scrollTop()) {
-        $navigation.addClass("fixed");
+        navigation.addClass("fixed");
     } else {
-        $navigation.removeClass("fixed");
+        navigation.removeClass("fixed");
     }
   });
 
