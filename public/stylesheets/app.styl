@@ -2,6 +2,27 @@ blue = #01B7EE
 green = #35DF79
 yellow = #D4FD02
 
+color_gray_1 = #F8F8F9 // Light bg gray
+color_gray_2 = #E8EAEB // Light border gray
+color_gray_3 = #9DA2A8 // Light text gray
+color_gray_4 = #5C666F // Dark bg gray
+
+color_blue_links = #0A86B1 // Std color for links
+
+code_color_green = #00FCD4
+code_color_blue = #44C7F4
+code_color_yellow = #EACA2C
+code_color_orange = #FF9A57
+code_color_violet = #FF9CE3
+
+// Auth0 Colors
+color_blue = #44c7f4
+color_red = #eb5424
+color_orange = #ff9a57
+color_yellow = #eaca2c
+color_green = #01b48f
+color_pink = #c879b2
+
 transition-ease()
   -webkit-transition arguments .5s ease
   -moz-transition arguments .5s ease
@@ -541,10 +562,12 @@ ul
     padding-left 350px
 
 .home
-  max-width 800px
+  max-width 840px
+  width 100%
   text-align center
   margin 120px auto 0
   padding 0 20px
+  box-sizing border-box
   +breakpoint("tablet")
     margin-top 0
   h1
@@ -624,15 +647,17 @@ ul
         display inline-block
 
 .entry
-  max-width 800px
+  max-width 840px
+  width 100%
   padding 0 20px
   margin 120px auto 0
   position relative
+  box-sizing border-box
   +breakpoint("tablet")
     margin-top 0
     float left
   +breakpoint("desktop")
-    max-width 62%
+    width 65%
 
   h1
     font-size 22px
@@ -667,12 +692,13 @@ ul
         display none
         max-width 100%
 
-  & > div
+  & > section
     margin-bottom 80px
 
 .sub-menu
   margin-left 50px
   width 18%
+  min-height 1px
   float left
   display none
   +breakpoint("desktop")
@@ -683,20 +709,25 @@ ul
 
   li
     a
-      color rgba(white,.7)
+      color rgba(white,.5)
       font-size 14px
       &.active, &:hover
         color green
-
-    li
-      a
-        color rgba(white,.5)
 
   h5
     margin 0
     font-weight normal
     font-size 14px
     color white
+
+  nav
+    -webkit-transition padding .5s
+    transition padding .5s
+    &.fixed
+      position fixed
+      top 0
+      padding-top 20px
+
 
 .desktop-only
   display none !important
@@ -940,3 +971,297 @@ ul
   40% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
   100% { opacity: 0; }
 }
+
+// Code Style
+pre
+  code.hljs
+    background #212121
+    display block
+    padding 20px
+    font-family Menlo
+    font-size 16px
+    border-radius 3px
+  .markdown
+    .emphasis
+      font-style italic
+  .nginx
+    .built_in
+      font-weight normal
+
+pre code.hljs,
+pre .subst,
+pre .tag .title,
+pre .lisp .title,
+pre .clojure .built_in,
+pre .nginx .title
+  color white
+
+pre .tag .title
+  color blue
+
+pre .string,
+pre .title,
+pre .constant,
+pre .parent,
+pre .tag .value,
+pre .rules .value,
+pre .rules .value .number,
+pre .preprocessor,
+pre .ruby .symbol,
+pre .ruby .symbol .string,
+pre .aggregate,
+pre .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .addition,
+pre .flow,
+pre .stream,
+pre .bash .variable,
+pre .apache .tag,
+pre .apache .cbracket,
+pre .tex .command,
+pre .tex .special,
+pre .erlang_repl .function_or_atom,
+pre .markdown .header
+  color green
+
+pre .comment,
+pre .annotation,
+pre .template_comment,
+pre .diff .header,
+pre .chunk,
+pre .markdown .blockquote
+  color #8E8E8E
+
+pre .number,
+pre .date,
+pre .regexp,
+pre .literal,
+pre .smalltalk .symbol,
+pre .smalltalk .char,
+pre .go .constant,
+pre .change,
+pre .markdown .bullet,
+pre .markdown .link_url
+pre .tag
+  color blue
+
+pre .label,
+pre .javadoc,
+pre .ruby .string,
+pre .decorator,
+pre .filter .argument,
+pre .localvars,
+pre .array,
+pre .attr_selector,
+pre .important,
+pre .pseudo,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .envvar,
+pre .shebang,
+pre .apache .sqbracket,
+pre .nginx .built_in,
+pre .tex .formula,
+pre .erlang_repl .reserved,
+pre .prompt,
+pre .markdown .link_label,
+pre .vhdl .attribute,
+pre .clojure .attribute,
+pre .coffeescript .property
+  color code_color_violet
+
+pre .keyword,
+pre .id,
+pre .phpdoc,
+pre .title,
+pre .built_in,
+pre .aggregate,
+pre .css .tag,
+pre .javadoctag,
+pre .phpdoc,
+pre .yardoctag,
+pre .smalltalk .class,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag,
+pre .go .typename,
+pre .tex .command,
+pre .markdown .strong,
+pre .request,
+pre .status
+  font-weight bold
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata
+  opacity 0.5
+
+// dl, dt Style
+dl
+  margin-bottom 20px
+
+dt,
+dd
+  line-height 20px
+  code
+    padding 2px 4px
+    font-family Menlo
+    color black
+    background-color rgba(white,.5)
+    border-radius 3px
+    font-size 12px
+    margin-right 5px
+
+dt
+  font-size 16px
+  color white
+
+dd
+  margin-left 10px
+  line-height 2
+
+.dl-horizontal
+  *zoom 1
+  &:after
+    clear both
+  dt
+    float left
+    width 160px
+    overflow hidden
+    clear left
+    text-align right
+    text-overflow ellipsis
+    white-space nowrap
+  dd
+    margin-left 180px
+
+.dl-horizontal:before,
+.dl-horizontal:after
+  display table
+  line-height 0
+  content ""
+
+
+// Table Style
+table
+  max-width 100%
+  background-color transparent
+  border-collapse collapse
+  border-spacing 0
+
+.table
+  width 100%
+  margin-bottom 20px
+  th
+    font-weight 500
+  thead
+    th
+      vertical-align bottom
+  tbody
+    & + tbody
+      border-top 2px solid #dddddd
+
+.table th,
+.table td
+  padding 8px
+  line-height 20px
+  text-align left
+  vertical-align top
+  border-top 1px solid transparent
+  a
+    font-size 16px
+
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td
+  border-top 0
+
+.table-condensed th,
+.table-condensed td
+  padding 4px 5px
+
+.table-bordered
+  border 1px solid #dddddd
+  border-collapse separate
+  *border-collapse collapse
+  border-left 0
+  -webkit-border-radius 4px
+  -moz-border-radius 4px
+  border-radius 4px
+
+.table-bordered th,
+.table-bordered td
+  border-left 1px solid #dddddd
+
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td
+  border-top 0
+
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child
+  -webkit-border-top-left-radius 4px
+  border-top-left-radius 4px
+  -moz-border-radius-topleft 4px
+
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child
+  -webkit-border-top-right-radius 4px
+  border-top-right-radius 4px
+  -moz-border-radius-topright 4px
+
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child,
+.table-bordered tfoot:last-child tr:last-child td:first-child
+  -webkit-border-radius 0 0 0 4px
+  -moz-border-radius 0 0 0 4px
+  border-radius 0 0 0 4px
+  -webkit-border-bottom-left-radius 4px
+  border-bottom-left-radius 4px
+  -moz-border-radius-bottomleft 4px
+
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child,
+.table-bordered tfoot:last-child tr:last-child td:last-child
+  -webkit-border-bottom-right-radius 4px
+  border-bottom-right-radius 4px
+  -moz-border-radius-bottomright 4px
+
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child
+  -webkit-border-top-left-radius 4px
+  border-top-left-radius 4px
+  -moz-border-radius-topleft 4px
+
+.table-bordered caption + thead tr:first-child th:last-child,
+.table-bordered caption + tbody tr:first-child td:last-child,
+.table-bordered colgroup + thead tr:first-child th:last-child,
+.table-bordered colgroup + tbody tr:first-child td:last-child
+  -webkit-border-top-right-radius 4px
+  border-top-right-radius 4px
+  -moz-border-radius-topright 4px
+
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th
+  background-color #212121
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th
+  background-color #f5f5f5

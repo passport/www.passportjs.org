@@ -35,88 +35,89 @@ block content
             a(href='/') Strategies
 
     .content
-      nav.sub-menu
-        ul
-          li
-            a(href='#overview', data='scroll-to') Overview
-          li
-            a(href='#authenticate', data='scroll-to') Authenticate
-          li
-            a(href='#configure', data='scroll-to') Configure
-          li
-            a(href='#username-password', data='scroll-to') Username & Password
-          li
-            a(href='#openid', data='scroll-to') OpenID
-          li
-            a(href='#oauth', data='scroll-to') OAuth
-          li
-            h5 Providers
-            ul
-              li
-                a(href='#facebook', data='scroll-to') Facebook
-              li
-                a(href='#twitter', data='scroll-to') Twitter
-              li
-                a(href='#google', data='scroll-to') Google
-              li
-                a(href='#') Other
-          li
-            h5 APIs
-            ul
-              li
-                a(href='#basic-digest', data='scroll-to') Basic & Digest
-              li
-                a(href='#oauth-api', data='scroll-to') OAuth
-              li
-                a(href='#oauth2-api', data='scroll-to') OAuth 2.0
-              li
-                a(href='#other-api', data='scroll-to') Other
-          li
-            h5 Operations
-            ul
-              li
-                a(href='#login', data='scroll-to') Log In
-              li
-                a(href='#logout', data='scroll-to') Log Out
-              li
-                a(href='#authorize', data='scroll-to') Authorize
-              li
-                a(href='#profile', data='scroll-to') User Profile
+      .sub-menu
+        nav
+          ul
+            li
+              a(href='#overview').active Overview
+            li
+              a(href='#authenticate') Authenticate
+            li
+              a(href='#configure') Configure
+            li
+              a(href='#username-password') Username & Password
+            li
+              a(href='#openid') OpenID
+            li
+              a(href='#oauth') OAuth
+            li
+              h5 Providers
+              ul
+                li
+                  a(href='#facebook') Facebook
+                li
+                  a(href='#twitter') Twitter
+                li
+                  a(href='#google') Google
+                li
+                  a(href='#') Other
+            li
+              h5 APIs
+              ul
+                li
+                  a(href='#basic-digest') Basic & Digest
+                li
+                  a(href='#oauth-api') OAuth
+                li
+                  a(href='#oauth2-api') OAuth 2.0
+                li
+                  a(href='#other-api') Other
+            li
+              h5 Operations
+              ul
+                li
+                  a(href='#login') Log In
+                li
+                  a(href='#logout') Log Out
+                li
+                  a(href='#authorize') Authorize
+                li
+                  a(href='#profile') User Profile
 
       .entry
-        #overview
+        section#overview
           include:markdown docs/overview.md
-        #authenticate
+        section#authenticate
           include:markdown docs/authenticate.md
-        #configure
+        section#configure
           include:markdown docs/configure.md
-        #username-password
+        section#username-password
           include:markdown docs/username-password.md
-        #openid
+        section#openid
           include:markdown docs/openid.md
-        #oauth
+        section#oauth
           include:markdown docs/oauth.md
-        #facebook
+        section#facebook
           include:markdown docs/facebook.md
-        #twitter
+        section#twitter
           include:markdown docs/twitter.md
-        #google
+        section#google
           include:markdown docs/google.md
-        #basic-digest
+        section#basic-digest
           include:markdown docs/basic-digest.md
-        #oauth-api
+        section#oauth-api
           include:markdown docs/oauth-api.md
-        #oauth2-api
+        section#oauth2-api
           include:markdown docs/oauth2-api.md
-        #other-api
+        section#other-api
           include:markdown docs/other-api.md
-        #login
+        section#login
           include:markdown docs/login.md
-        #logout
+        section#logout
           include:markdown docs/logout.md
-        #authorize
+        section#authorize
           include:markdown docs/authorize.md
-        #profile
+        section#profile
           include:markdown docs/profile.md
 
   .search-con
