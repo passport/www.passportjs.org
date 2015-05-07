@@ -45,7 +45,7 @@ clearfix()
 
   *zoom: 1
 
-breakpoint(point, value = 0)
+breakpoint(point = "min-width", value = 0)
   if point == "mobile"
     @media (min-width: 320px)
       {block}
@@ -190,8 +190,10 @@ grid(cols = 1, gutter = 0, childs = ".item")
   .window-content
     font-family Menlo
     color white
-    font-size 14px
+    font-size 12px
     padding 20px
+    +breakpoint("tablet")
+      font-size 14px
     p
       margin 0
 
@@ -200,12 +202,14 @@ html
   height 100%
 
 body
-  font 18px/30px 'Avenir'
+  font 16px/30px 'Avenir'
   color rgba(255,255,255,0.70)
   background black
   -webkit-text-size-adjust none
   height 100%
   margin 0
+  +breakpoint("tablet")
+    font-size 18px
 
 input, textarea, select, button
   outline none
@@ -214,7 +218,7 @@ input, textarea, select, button
 a
   color green
   text-decoration none
-  transition-ease: all
+  transition-ease: color
 
 ul
   margin 0
@@ -257,10 +261,12 @@ ul
 .top-site
   clearfix()
   +breakpoint("tablet")
-    padding 60px 20px 0 280px
-    margin-bottom 80px
+    padding-top 60px
+    padding-right 20px
+    padding-left 280px
   +breakpoint("desktop")
-    padding 60px 50px 0 400px
+    padding-right 50px
+    padding-left 400px
 
 .social
   color green
@@ -339,7 +345,7 @@ ul
         background-position -51px 0
 
 .search
-  background #1a1e27
+  background #212121
   width 100%
   padding 20px
   box-sizing border-box
@@ -528,13 +534,6 @@ ul
       & *
         padding-left 0
 
-[data-accordion]
-  [data-content]
-    overflow hidden
-    max-height 0
-  [data-control]
-    position relative
-
 .rw-wrapper
   position: relative;
 
@@ -569,7 +568,7 @@ ul
   padding 0 20px
   box-sizing border-box
   +breakpoint("tablet")
-    margin-top 0
+    margin-top 80px
   h1
     font-size 60px
     font-family 'Avenir'
@@ -601,6 +600,7 @@ ul
 
   & > p
     line-height 1.8
+    margin-top 30px
     margin-bottom 30px
     +breakpoint("tablet")
       -webkit-transform translateY(-120px)
@@ -622,8 +622,9 @@ ul
       transform translateY(180px)
 
     .window-content
-      padding-top 40px
-      padding-bottom 40px
+      +breakpoint("tablet")
+        padding-top 40px
+        padding-bottom 40px
     p
       margin 0
       text-align left
@@ -647,20 +648,24 @@ ul
         display inline-block
 
 .entry
+  +breakpoint("desktop")
+    margin-top 80px
+
+.guides
   max-width 840px
   width 100%
   padding 0 20px
-  margin 120px auto 0
+  margin 20px 0 0
   position relative
   box-sizing border-box
   +breakpoint("tablet")
-    margin-top 0
     float left
   +breakpoint("desktop")
-    width 65%
+    margin 0
+    width 70%
 
   h1
-    font-size 22px
+    font-size 30px
     font-family 'Avenir'
     color green
     line-height 1
@@ -671,13 +676,17 @@ ul
       font-weight 600
       margin-bottom 30px
   h2
-    +breakpoint("tablet")
-      font-family 'Avenir'
-      font-weight 600
-      font-size 30px
-      color white
-      line-height 1
+    font-size 22px
+    color white
+    font-family 'Avenir'
+    font-weight 100
+    line-height 1.4
+    margin 0 0 27px 0
+    +breakpoint("desktop")
+      font-size 36px
       margin 50px 0 30px
+  h4
+    color white
   p
     line-height 30px
     margin-bottom 30px
@@ -696,12 +705,17 @@ ul
     margin-bottom 80px
 
 .sub-menu
-  margin-left 50px
-  width 18%
-  min-height 1px
-  float left
-  display none
+  padding 20px
+  margin-top 87px
+  +breakpoint("tablet")
+    margin-top 0
   +breakpoint("desktop")
+    background-color transparent
+    width 20%
+    min-height 1px
+    padding 0
+    margin-left 50px
+    float left
     display block
 
   ul ul
@@ -720,13 +734,23 @@ ul
     font-size 14px
     color white
 
+  [data-accordion]
+    [data-content]
+      +breakpoint("desktop")
+        overflow auto!important
+        max-height 100%!important
+    [data-control]
+      position relative
+
   nav
     -webkit-transition padding .5s
     transition padding .5s
     &.fixed
-      position fixed
-      top 0
-      padding-top 20px
+      +breakpoint("desktop")
+        position fixed
+        top 0
+        padding-top 20px
+        z-index 99
 
 
 .desktop-only
@@ -979,8 +1003,10 @@ pre
     display block
     padding 20px
     font-family Menlo
-    font-size 16px
+    font-size 13px
     border-radius 3px
+    +breakpoint("tablet")
+      font-size 16px
   .markdown
     .emphasis
       font-style italic
@@ -1103,6 +1129,17 @@ pre .xml .cdata
   opacity 0.5
 
 // dl, dt Style
+p
+  code
+    padding 2px 4px
+    font-family Menlo
+    color black
+    background-color rgba(white,.5)
+    border-radius 3px
+    font-size 12px
+    +breakpoint("desktop")
+      font-size 14px
+
 dl
   margin-bottom 20px
 
