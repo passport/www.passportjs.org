@@ -55,9 +55,6 @@ ul
     margin 0 auto
     padding-bottom 60px
 
-  // &.blured
-  //   blur-set 20px
-
 .search-con
   +breakpoint("tablet")
     .con-line
@@ -79,8 +76,8 @@ ul
         right 0
 
 .top-site
-  clearfix()
   +breakpoint("tablet")
+    clearfix()
     padding-top 60px
     padding-right 20px
     padding-left 280px
@@ -89,7 +86,6 @@ ul
     padding-left 400px
 
 .social
-  color green
   text-decoration none
   display none
   +breakpoint("tablet")
@@ -111,16 +107,11 @@ ul
       img
         width 100%
   a
-    height 36px
-    width 36px
     display block
     background url(../images/ico_social.svg) no-repeat
-    background-size 108px 36px
     position relative
-    +breakpoint("tablet")
-      height 26px
-      width 25px
-      background-size auto auto
+    height 26px
+    width 25px
     .stat
       display none
       +breakpoint("tablet")
@@ -147,22 +138,17 @@ ul
           left -3px
           top 50%
           margin-top -3px
-  .auth0
-    a
-      background none
-  .facebook
-    a
-      width 35px
-      background-position -36px 0
-      +breakpoint("tablet")
-        width 26px
-        background-position -25px 0
   .git
     a
-      background-position -70px 0
-      +breakpoint("tablet")
-        width 26px
-        background-position -51px 0
+      background-position -51px 0
+  .auth0
+    width 24px
+    height 24px
+    a
+      width 24px
+      height 24px
+      display block
+      background-image url(../images/supported_logo.svg)
 
 .search
   background #212121
@@ -341,7 +327,11 @@ ul
         font-size 24px
         line-height 2.5
 
+  .social
+    display none
+
   &.is-active
+    background rgba(#121212,.98)
     height calc(100vh - 100px)
     position absolute
     top 100px
@@ -350,14 +340,26 @@ ul
 
     & > ul
       width 100%
-      top 50%
+      top 46%
       -webkit-transform translateY(-50%)
       transform translateY(-50%)
       position absolute
       padding-left 0
 
-      & *
-        padding-left 0
+    li
+      margin 30px 0
+
+    a
+      color white
+      font-size 30px
+
+    .social
+      display inherit
+      position absolute
+      width 100%
+      bottom 40px
+      li
+        margin 0 5px 0
 
 .rw-wrapper
   position: relative;
@@ -590,7 +592,8 @@ ul
       color rgba(white,.5)
       font-size 14px
       &.active, &:hover
-        color green
+        +breakpoint("tablet")
+          color green
 
   h5
     margin 0
@@ -622,11 +625,16 @@ ul
   +breakpoint("tablet")
     display block !important
 
+.top-site, .content
+  -webkit-transition .5s
+  transition .5s
+  +breakpoint("tablet")
+    -webkit-transition none
+    transition none
+
 .is-menu
   overflow hidden
   height 100vh
-  .top-site, .content
-    blur-set 20px
 
 .is-search
   overflow hidden
@@ -648,24 +656,25 @@ ul
     top 21px
     right 0
     left 0
-    height 201px
+    height auto
     +breakpoint("tablet")
       top 0
       height 283px
       padding-top 41px
   .close-ico
     position absolute
-    top 18px
-    right 43px
-    background url(../images/ico_close.svg)
+    top 10px
+    right 20px
+    background url(../images/ico_close2.svg)
+    background-size 20px 20px
     height 19px
     width 19px
     display block
     cursor pointer
     +breakpoint("tablet")
+      background-size auto auto
       top 50px
       right 50px
-      background url(../images/ico_close2.svg)
       height 24px
       width 25px
       opacity 0.3
@@ -683,12 +692,13 @@ ul
       padding-bottom 5px
   form
     width 314px
-    margin auto
+    margin 0 20px
     padding-left 56px
-    background url(../images/ico_seach2.svg) no-repeat 0 20px
-    background-size 38px 38px
+    background url(../images/ico_seach2.svg) no-repeat 0 10px
+    background-size 30px 30px
     position relative
     +breakpoint("tablet")
+      margin 0 auto
       width 400px
       padding-left 70px
       background url(../images/ico_seach2.svg) no-repeat 0 26px
@@ -696,11 +706,11 @@ ul
       position relative
       left 10px
     .autocomplete
-      font-size 56px
-      min-height 74px
+      font-size 36px
+      min-height 60px
       display block
       color #8d9095
-      line-height 74px
+      line-height 1.5
       text-transform lowercase
       white-space nowrap
       +breakpoint("tablet")
@@ -709,10 +719,10 @@ ul
         min-height 96px
     .input,
     input
-      font-size 56px
+      font-size 36px
       color #fff
       text-transform lowercase
-      line-height 72px
+      line-height 1.5
       background none
       position absolute
       top 0
@@ -727,15 +737,18 @@ ul
       float left
       &:after
         content ""
-        display blockw
+        display block
         width 2px
         position absolute
-        top 7px
+        top 0
         right 0
-        height 81px
+        height 55px
         animation blink 1s steps(3, start) infinite
         -webkit-animation blink 1s steps(3, start) infinite
         background yellow
+        +breakpoint("tablet")
+          top 7px
+          height 81px
     input
       opacity 0
   .info-line
@@ -750,11 +763,10 @@ ul
       line-height 22px
       margin 6px 0
   .results
-    overflow-x hidden
     overflow-y auto
     -webkit-overflow-scrolling touch
     position absolute
-    top 222px
+    top 180px
     left 0
     right 0
     bottom 0
@@ -775,21 +787,24 @@ ul
     padding-bottom 20px
     a
       border 1px solid #4a4f55
-      min-height 140px
+      min-height 100px
       padding 17px 20px 45px 20px
       position relative
       display block
+      +breakpoint("tablet")
+        min-height 140px
       &:hover
-        text-decoration none
-        border-color transparent
-        background yellow
-        span, .stat span
-          color #4A4A4A
-        .stat
-          .download, .star
-            background-position 0 6px
-        .text
-          color rgba(#4A4A4A,.5)
+        +breakpoint("tablet")
+          text-decoration none
+          border-color transparent
+          background yellow
+          span, .stat span
+            color #4A4A4A
+          .stat
+            .download, .star
+              background-position 0 6px
+          .text
+            color rgba(#4A4A4A,.5)
     span
       display block
       text-align left
