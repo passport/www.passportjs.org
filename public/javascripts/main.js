@@ -157,7 +157,7 @@ $(document).ready(function() {
   });
 
   // menu nav docs
-  var navigation = $('.sub-menu nav'),
+  var navigation = $('.sub-menu nav, .go-top'),
       offset = navigation.offset().top;
 
   $(window).on("scroll", function() {
