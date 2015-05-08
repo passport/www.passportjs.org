@@ -1,0 +1,52 @@
+extends layout
+
+include mixins
+
+block content
+  nav#menu
+    a#logo(href='/', title='JH') by Jared Hanson
+    .menu-trigger
+      span
+    .menu-hold
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='docs') Documentation
+        li.active
+          a(href='features') Features
+        li
+          a(href='/', data-search='') Strategies
+
+  .content
+    .features
+      h1 Features
+
+      section
+        article
+          i.icon-budicon-285
+          p 140+ authentication strategies
+        article
+          i.icon-budicon-297
+          p Single sign-on with OpenID and OAuth
+        article
+          i.icon-budicon-499
+          p Easily handle success and failure
+        article
+          i.icon-budicon-292
+          p Supports persistent sessions
+        article
+          i.icon-budicon-280
+          p Dynamic scope and permissions
+        article
+          i.icon-budicon-477
+          p Pick and choose required strategies
+        article
+          i.icon-budicon-333
+          p Implement custom strategies
+        article
+          i.icon-budicon-87
+          p Does not mount routes in application
+        article
+          i.icon-budicon-717
+          p Lightweight code base

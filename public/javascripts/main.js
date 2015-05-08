@@ -107,6 +107,8 @@ $(document).ready(function() {
     $(".search form input").val("");
     $("body").removeClass("is-search");
     $(".main-hold").removeClass('blured');
+    $(".search-con form .input").text('');
+    $(".results section").html('');
   });
 
   $(document).keyup(function(e) {
@@ -114,6 +116,8 @@ $(document).ready(function() {
       $(".search form input").val("");
       $("body").removeClass("is-search");
       $(".main-hold").removeClass('blured');
+      $(".search-con form .input").text('');
+      $(".results section").html('');
     }
   });
 

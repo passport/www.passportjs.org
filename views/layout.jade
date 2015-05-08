@@ -9,7 +9,39 @@ html
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
     != LRScript
   body
-    block content
+    .main-hold
+      .top-site
+        .search
+          form(action='#')
+            input(type='text', placeholder='Search for Strategies')
+            button(type='submit')
+
+        .social
+          ul
+            li.twitter
+              a(href='http://twitter.com/passportjs', target='_blank')
+            li.git
+              a(href='http://github.com/jaredhanson/passport', target='_blank')
+                span.stat 0
+            li.auth0
+              a(href='http://auth0.com', target='_blank')
+                img(src='images/supported_logo.svg', alt='')
+
+      block content
+
+    .search-con
+      .head
+        span.close-ico
+        .hold
+          h2 SEARCH FOR STRATEGIES
+          form(action='/')
+            .input
+            span.autocomplete
+            input(value='', type='text')
+          p.info-line 0 STRATEGIES
+      .con-line
+      .results
+        section
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js')

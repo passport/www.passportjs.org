@@ -3,67 +3,37 @@ extends layout
 include mixins
 
 block content
-  .main-hold
-    .top-site
-      .search
-        form(action='#')
-          input(type='text', placeholder='Search for Strategies')
-          button(type='submit')
+  nav#menu
+    a#logo(href='/', title='JH') by Jared Hanson
+    .menu-trigger
+      span
+    .menu-hold
+      ul
+        li.active
+          a(href='/') Home
+        li
+          a(href='docs') Documentation
+        li
+          a(href='features') Features
+        li
+          a(href='/', data-search='') Strategies
 
-      .social
-        ul
-          li.twitter
-            a(href='http://twitter.com/passportjs', target='_blank')
-          li.git
-            a(href='http://github.com/jaredhanson/passport', target='_blank')
-              span.stat 0
-          li.auth0
-            a(href='http://auth0.com', target='_blank')
-              img(src='images/supported_logo.svg', alt='')
+  .content
+    .home
+      h1 Passport
+      h2 Simple, unobtrusive authentication for Node.js
+      +window("app.js -- vim")
+        .rw-wrapper
+          .rw-sentence
+            p passport.authenticate
+              span.rw-words.rw-words-1
+                span ('twitter');
+                span ('facebook');
+                span ('google');
 
-    nav#menu
-      a#logo(href='/', title='JH') by Jared Hanson
-      .menu-trigger
-        span
-      .menu-hold
-        ul
-          li.active
-            a(href='/') Home
-          li
-            a(href='docs') Documentation
-          li
-            a(href='/', data-search='') Strategies
+      p Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
-    .content
-      .home
-        h1 Passport
-        h2 Simple, unobtrusive authentication for Node.js
-        +window("app.js -- vim")
-          .rw-wrapper
-            .rw-sentence
-              p passport.authenticate
-                span.rw-words.rw-words-1
-                  span ('twitter');
-                  span ('facebook');
-                  span ('google');
-
-        p Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
-
-        .strategies
-          p +500 Strategies Now!
-          a.btn(href='/') View All Strategies
-
-  .search-con
-    .head
-      span.close-ico
-      .hold
-        h2 SEARCH FOR STRATEGIES
-        form(action='/')
-          .input
-          span.autocomplete
-          input(value='', type='text')
-        p.info-line 110 STRATEGIES
-    .con-line
-    .results
-      section
+      .strategies
+        p +500 Strategies Now!
+        a.btn(href='/', data-search='') View All Strategies
 
