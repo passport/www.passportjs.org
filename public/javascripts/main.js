@@ -69,7 +69,7 @@ $(document).ready(function() {
       };
     },
     search: function() {
-      $(".results section").html("")
+      $(".results section").html("");
     }
   });
 
@@ -116,6 +116,7 @@ $(document).ready(function() {
     $(".main-hold").removeClass('blured');
     $(".search-con form .input").text('');
     $(".results section").html('');
+    $(".search-con .info-line span").text('0');
   });
 
   $(document).keyup(function(e) {
@@ -125,6 +126,7 @@ $(document).ready(function() {
       $(".main-hold").removeClass('blured');
       $(".search-con form .input").text('');
       $(".results section").html('');
+      $(".search-con .info-line span").text('0');
     }
   });
 
