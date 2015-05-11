@@ -32,16 +32,16 @@ html
         .menu-hold
           ul
             li(class=(title === 'PassportJS' ? 'active' : ''))
-              a(href='/') Home
+              a(href='/', data-pjax='/') Home
             li(class=(title === 'Documentation' ? 'active' : ''))
-              a(href='docs') Documentation
+              a(href='/docs', data-pjax='/docs') Documentation
             li(class=(title === 'Features' ? 'active' : ''))
-              a(href='features') Features
+              a(href='/features', data-pjax='/features') Features
             li
               a(href='/', data-search='') Strategies
 
 
-      .content
+      #page-content.content
         block content
 
 

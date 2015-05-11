@@ -19,6 +19,9 @@ function numberWithCommas(x) {
 };
 
 $(document).ready(function() {
+  $(document).pjax('a[data-pjax]', '#page-content', {
+    fragment: '#page-content'
+  });
 
   if (msieversion()) {
     $("body").addClass("ie")
