@@ -9,15 +9,17 @@ html
 
 body
   font 16px/30px 'Avenir'
-  color white
-  background black
+  color rgba(255,255,255,.9)
+  background #000
   -webkit-text-size-adjust none
   height 100%
   margin 0
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   +breakpoint("tablet")
     font-size 16px
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
 
 input, textarea, select, button
   outline none
@@ -860,6 +862,7 @@ ul
   .ie .search-con .results,
   .ie .search-con .con-line
     width 1000px
+
 
 .ui-helper-hidden-accessible
   display none !important

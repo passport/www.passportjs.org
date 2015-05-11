@@ -3022,17 +3022,22 @@ html {
 }
 body {
   font: 16px/30px 'Avenir';
-  color: #fff;
+  color: rgba(255,255,255,0.9);
   background: #000;
   -webkit-text-size-adjust: none;
   height: 100%;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 @media (min-width: 768px) {
   body {
     font-size: 16px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
   }
 }
 input,
