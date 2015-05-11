@@ -3216,7 +3216,7 @@ ul li {
   }
 }
 .search form {
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 48px;
   margin: 0;
   padding: 0;
@@ -3232,7 +3232,7 @@ ul li {
   background: none;
   color: #fff;
   border: none;
-  padding-right: 10px;
+  padding-left: 0px;
   width: 145px;
 }
 .search form input::-webkit-input-placeholder {
@@ -3252,8 +3252,9 @@ ul li {
   border: none;
   vertical-align: top;
   position: relative;
-  left: -3px;
-  top: 13px;
+  top: 14px;
+  margin-left: 10px;
+  margin-right: 14px;
 }
 #logo {
   display: block;
