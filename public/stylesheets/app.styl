@@ -43,15 +43,16 @@ ul
   border-radius 60px
   padding 0 44px
   display block
-  background blue
+  background green
   font-size 16px
-  color white
+  color black
   line-height 3.8
   height 60px
   max-width 277px
   border none
+  font-weight: 500;
   &:hover
-    background darken(blue,20%)
+    background darken(green,20%)
 
 
 .main-hold
@@ -333,13 +334,13 @@ ul
       padding-left 26%
       margin-bottom 15px
       &.active:nth-child(1)
-        box-shadow inset 5px 0 0 0 blue
-        a
-          color blue
-      &.active:nth-child(2)
         box-shadow inset 5px 0 0 0 green
         a
           color green
+      &.active:nth-child(2)
+        box-shadow inset 5px 0 0 0 blue
+        a
+          color blue
       &.active:nth-child(3)
         box-shadow inset 5px 0 0 0 yellow
         a
@@ -575,7 +576,7 @@ ul
 
   h1
     font-size 30px
-    color green
+    color white
     line-height 1
     margin 0
     padding 0
@@ -634,7 +635,7 @@ ul
       font-size 14px
       &.active, &:hover
         +breakpoint("tablet")
-          color green
+          color blue
 
   h5
     margin 0
