@@ -449,6 +449,7 @@ ul
     line-height 1.8
     margin-top 30px
     margin-bottom 30px
+    color: rgba(255,255,255,.8)
     +breakpoint("tablet")
       -webkit-transform translateY(-120px)
       transform translateY(-120px)
@@ -508,6 +509,7 @@ ul
     color white
     line-height 1
     margin 0 0 40px
+    color: yellow;
     padding 0
     +breakpoint("tablet")
       font-size 50px
@@ -628,7 +630,7 @@ ul
     display block
 
   ul ul
-    padding-left 20px
+    padding-left 0px
 
   li
     a
@@ -647,7 +649,9 @@ ul
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 11px;
-    margin-top: 10px;
+    margin-top: 20px;
+    &:first-child
+      margin-top: 0;
 
   [data-accordion]
     [data-content]

@@ -7,6 +7,7 @@ block content
   .entry
     .sub-menu
       nav
+        h5(data-control='') General
         ul
           li
             a(href='#overview').active Overview
@@ -20,39 +21,38 @@ block content
             a(href='#openid') OpenID
           li
             a(href='#oauth') OAuth
+        h5(data-control='') Providers
+        ul
           li
-            h5(data-control='') Providers
-            ul
-              li
-                a(href='#facebook') Facebook
-              li
-                a(href='#twitter') Twitter
-              li
-                a(href='#google') Google
-              li
-                a(href='/', data-search='') Other
+            a(href='#facebook') Facebook
           li
-            h5(data-control='') APIs
-            ul
-              li
-                a(href='#basic-digest') Basic & Digest
-              li
-                a(href='#oauth-api') OAuth
-              li
-                a(href='#oauth2-api') OAuth 2.0
-              li
-                a(href='#other-api') Other
+            a(href='#twitter') Twitter
           li
-            h5(data-control='') Operations
-            ul
-              li
-                a(href='#login') Log In
-              li
-                a(href='#logout') Log Out
-              li
-                a(href='#authorize') Authorize
-              li
-                a(href='#profile') User Profile
+            a(href='#google') Google
+          li
+            a(href='/', data-search='') Other
+
+        h5(data-control='') APIs
+        ul
+          li
+            a(href='#basic-digest') Basic & Digest
+          li
+            a(href='#oauth-api') OAuth
+          li
+            a(href='#oauth2-api') OAuth 2.0
+          li
+            a(href='#other-api') Other
+            
+          h5(data-control='') Operations
+          ul
+            li
+              a(href='#login') Log In
+            li
+              a(href='#logout') Log Out
+            li
+              a(href='#authorize') Authorize
+            li
+              a(href='#profile') User Profile
 
     a.go-top(href='#menu')
       i.icon-budicon-462

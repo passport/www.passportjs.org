@@ -3577,6 +3577,7 @@ ul li {
   line-height: 1.8;
   margin-top: 30px;
   margin-bottom: 30px;
+  color: rgba(255,255,255,0.8);
 }
 @media (min-width: 768px) {
   .home > p {
@@ -3659,6 +3660,7 @@ ul li {
   color: #fff;
   line-height: 1;
   margin: 0 0 40px;
+  color: #d4fd02;
   padding: 0;
 }
 @media (min-width: 768px) {
@@ -3838,7 +3840,7 @@ ul li {
   }
 }
 .sub-menu ul ul {
-  padding-left: 20px;
+  padding-left: 0px;
 }
 .sub-menu li a {
   color: rgba(255,255,255,0.7);
@@ -3859,7 +3861,10 @@ ul li {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 11px;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+.sub-menu h5:first-child {
+  margin-top: 0;
 }
 @media (min-width: 992px) {
   .sub-menu [data-accordion] [data-content] {
