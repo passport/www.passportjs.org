@@ -14,8 +14,10 @@ body
   -webkit-text-size-adjust none
   height 100%
   margin 0
+
   +breakpoint("tablet")
     font-size 16px
+
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -104,10 +106,8 @@ ul
     vertical-align middle
     margin-right 5px
     &:last-child
-      margin-left 62px
-      margin-right 0
-      border-left 1px solid rgba(white,.2)
-      padding-left 10px
+      margin-right 62px
+      padding-left 4px
       img
         width 100%
   a
@@ -120,7 +120,7 @@ ul
       display none
       +breakpoint("tablet")
         display block
-        background #5C6E85
+        background #333
         border-radius 3px
         position absolute
         left 33px
@@ -145,14 +145,14 @@ ul
   .git
     a
       background-position -51px 0
-  .auth0
+.auth0
+  width 24px
+  height 24px
+  a
     width 24px
     height 24px
-    a
-      width 24px
-      height 24px
-      display block
-      background-image url(../images/supported_logo.svg)
+    display block
+    background-image url(../images/supported_logo.svg)
 
 .search
   background #212121
@@ -613,11 +613,11 @@ ul
 
   li
     a
-      color rgba(white,.5)
+      color rgba(white,.7)
       font-size 14px
       &.active, &:hover
         +breakpoint("tablet")
-          color green
+          color #35df79
 
   h5
     margin 0

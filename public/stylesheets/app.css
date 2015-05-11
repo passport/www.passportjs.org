@@ -3146,10 +3146,8 @@ ul li {
   margin-right: 5px;
 }
 .social li:last-child {
-  margin-left: 62px;
-  margin-right: 0;
-  border-left: 1px solid rgba(255,255,255,0.2);
-  padding-left: 10px;
+  margin-right: 62px;
+  padding-left: 4px;
 }
 .social li:last-child img {
   width: 100%;
@@ -3167,7 +3165,7 @@ ul li {
 @media (min-width: 768px) {
   .social a .stat {
     display: block;
-    background: #5c6e85;
+    background: #333;
     border-radius: 3px;
     position: absolute;
     left: 33px;
@@ -3196,11 +3194,11 @@ ul li {
 .social .git a {
   background-position: -51px 0;
 }
-.social .auth0 {
+.auth0 {
   width: 24px;
   height: 24px;
 }
-.social .auth0 a {
+.auth0 a {
   width: 24px;
   height: 24px;
   display: block;
@@ -3827,7 +3825,7 @@ ul li {
   padding-left: 20px;
 }
 .sub-menu li a {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.7);
   font-size: 14px;
 }
 @media (min-width: 768px) {
