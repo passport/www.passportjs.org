@@ -517,34 +517,66 @@ ul
 
   section
     +breakpoint("tablet")
-      // grid(3, 20px, "article")
+      // grid(3, 10px, "article")
 
   article
     background-color yellow
-    max-width: 400px;
+    max-width: 500px;
     margin: auto;
     text-align: left;
     padding: 10px 30px;
+    color: black;
     margin-bottom 2px
+    border-radius: 3px;
     &:hover
       -webkit-transform: scale(1.2)
     i
       width 60px
       height 60px
-      color black
       font-size 28px
       display inline-block
       vertical-align middle
-      line-height 2.5
+      line-height 2.3
 
     p
-      color #333
-      margin 10px auto
+      color black
+      font-weight: 500;
       padding 0
+      font-size: 20px;
+      line-height: 30px;
       display: inline-block;
+      margin-bottom: 0px;
 
-    .item-1
-      // background-color:
+  .item-1
+    background-color: lighten(yellow, 10%)
+
+  .item-2
+    background-color: yellow
+
+  .item-3
+    background-color: darken(yellow, 5%)
+
+  .item-4
+    background-color: darken(yellow, 10%)
+
+  .item-5
+    background-color: darken(yellow, 15%)
+
+  .item-5
+    background-color: darken(yellow, 20%)
+
+  .item-6
+    background-color: darken(yellow, 25%)
+
+  .item-7
+    background-color: darken(yellow, 30%)
+
+  .item-8
+    background-color: darken(yellow, 35%)
+
+  .item-9
+    background-color: darken(yellow, 40%)
+
 .entry
   +breakpoint("desktop")
     margin-top 80px
