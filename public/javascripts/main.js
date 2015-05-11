@@ -153,8 +153,12 @@ $(document).ready(function() {
   });
 
   // menu nav docs
-  // var navigation = $('.sub-menu nav, .go-top'),
-  //     offset = navigation.offset().top;
+  if ($('.sub-menu nav, .go-top').length > 0) {
+
+    var navigation = $('.sub-menu nav, .go-top'),
+        offset = navigation.offset().top;
+  }
+
 
   $(window).on("scroll", function() {
     if (offset < $(this).scrollTop()) {
