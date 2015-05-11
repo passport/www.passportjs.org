@@ -3671,9 +3671,14 @@ ul li {
 }
 .features p.page-description {
   margin-top: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   color: #ccc;
   font-size: 18px;
+}
+@media (min-width: 768px) {
+  .features p.page-description {
+    margin-bottom: 60px;
+  }
 }
 .features article {
   background-color: #d4fd02;
@@ -3691,27 +3696,40 @@ ul li {
 .features article i {
   width: 60px;
   height: 60px;
-  font-size: 28px;
   display: inline-block;
   vertical-align: middle;
-  line-height: 3.2;
+  font-size: 20px;
   text-align: center;
-  height: 80px;
-  width: 80px;
+  line-height: 3.5;
   float: left;
   background: rgba(0,0,0,0.2);
+}
+@media (min-width: 768px) {
+  .features article i {
+    height: 80px;
+    width: 80px;
+    line-height: 3.3;
+    font-size: 28px;
+  }
 }
 .features article p {
   color: #000;
   font-weight: 500;
   padding: 0;
-  font-size: 20px;
   margin: 0;
-  padding-left: 30px;
   display: inline-block;
   margin-bottom: 0px;
-  padding-top: 26px;
   float: left;
+  padding-top: 16px;
+  font-size: 14px;
+  padding-left: 20px;
+}
+@media (min-width: 768px) {
+  .features article p {
+    padding-top: 26px;
+    font-size: 20px;
+    padding-left: 30px;
+  }
 }
 .features .item-1 {
   background-color: #35df79;

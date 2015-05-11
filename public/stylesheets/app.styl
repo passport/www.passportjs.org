@@ -517,9 +517,11 @@ ul
 
   p.page-description
     margin-top: 40px
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     color: #ccc;
     font-size: 18px;
+    +breakpoint("tablet")
+      margin-bottom: 60px;
 
   section
     +breakpoint("tablet")
@@ -539,27 +541,34 @@ ul
     i
       width 60px
       height 60px
-      font-size 28px
       display inline-block
       vertical-align middle
-      line-height 3.2
+      font-size: 20px;
       text-align: center;
-      height: 80px;
-      width: 80px
+      line-height: 3.5;
       float left;
       background: rgba(0,0,0,.2)
+      +breakpoint("tablet")
+        height: 80px;
+        width: 80px
+        line-height 3.3
+        font-size 28px
+
     p
       color black
       font-weight: 500;
       padding 0
-      font-size: 20px;
       margin: 0;
-      padding-left: 30px;
       display: inline-block;
       margin-bottom: 0px;
-      padding-top: 26px
       float left;
-
+      padding-top: 16px;
+      font-size: 14px;
+      padding-left: 20px;
+      +breakpoint("tablet")
+        padding-top: 26px
+        font-size: 20px;
+        padding-left: 30px;
 
   .item-1
     background-color: #35DF79
