@@ -219,7 +219,7 @@ ul
     font-size 16px
     line-height 22px
     padding 85px 0 0 0
-    margin 60px 0 0 26%
+    margin 60px auto 0 auto;
     text-align center
     max-width 130px
     float none
@@ -303,7 +303,7 @@ ul
   padding-bottom: 50px
   text-align: center;
   color: #999;
-  z-index: 10000;
+  z-index: 10;
   display: block;
   +breakpoint("tablet")
     position: fixed;
@@ -517,29 +517,34 @@ ul
 
   section
     +breakpoint("tablet")
-      grid(3, 20px, "article")
+      // grid(3, 20px, "article")
 
   article
-    margin-bottom 50px
-    +breakpoint("tablet")
-      min-height 200px
-      margin-bottom 0
+    background-color yellow
+    max-width: 400px;
+    margin: auto;
+    text-align: left;
+    padding: 10px 30px;
+    margin-bottom 2px
+    &:hover
+      -webkit-transform: scale(1.2)
     i
       width 60px
       height 60px
-      background-color yellow
       color black
       font-size 28px
       display inline-block
-      border-radius 50%
       vertical-align middle
       line-height 2.5
-    p
-      color white
-      max-width 225px
-      margin 20px auto
-      padding 0
 
+    p
+      color #333
+      margin 10px auto
+      padding 0
+      display: inline-block;
+
+    .item-1
+      // background-color:
 .entry
   +breakpoint("desktop")
     margin-top 80px
