@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/stylesheets/app.css')
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
     != LRScript
-  body
+  body(class=page_name)
     .main-hold
       .top-site
         .search
@@ -24,7 +24,28 @@ html
               a(href='http://github.com/jaredhanson/passport', target='_blank')
                 span.stat 0
 
-      block content
+
+      nav#menu
+        a#logo(href='/', title='JH') by Jared Hanson
+        .menu-trigger
+          span
+        .menu-hold
+          ul
+            li(class=(title === 'PassportJS' ? 'active' : ''))
+              a(href='/') Home
+            li(class=(title === 'Documentation' ? 'active' : ''))
+              a(href='docs') Documentation
+            li(class=(title === 'Features' ? 'active' : ''))
+              a(href='features') Features
+            li
+              a(href='/', data-search='') Strategies
+            
+      .supported 
+        | Supported by 
+        a(href='http://auth0.com', target='_blank').auth0
+
+      .content
+        block content
 
     .search-con
       .head

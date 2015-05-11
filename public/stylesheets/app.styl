@@ -146,14 +146,6 @@ ul
   .git
     a
       background-position -51px 0
-.auth0
-  width 24px
-  height 24px
-  a
-    width 24px
-    height 24px
-    display block
-    background-image url(../images/supported_logo.svg)
 
 .search
   background #212121
@@ -301,6 +293,26 @@ ul
         display inline-block
         vertical-align middle
 
+.supported
+  clear: both;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 350px;
+  bottom: 50px
+  text-align: center;
+  color: #999;
+  z-index: 10000;
+  .auth0
+    width 24px
+    height 24px
+    display inline-block
+    margin-left: 6px;
+    margin-bottom: -8px;
+    background-image url(../images/supported_logo.svg)
+
+
 .menu-hold
   display none
   width 100%
@@ -332,8 +344,7 @@ ul
         font-size 24px
         line-height 2.5
 
-  .social
-    display none
+
 
   &.is-active
     background rgba(#121212,.98)
@@ -564,8 +575,8 @@ ul
     margin 0
     padding 0
     +breakpoint("tablet")
-      font-size 50px
-      font-weight 500
+      font-size 40px
+      font-weight 400
       margin-bottom 30px
   h2
     font-size 22px
@@ -574,7 +585,7 @@ ul
     line-height 1.4
     margin 0 0 27px 0
     +breakpoint("desktop")
-      font-size 36px
+      font-size 26px
       margin 50px 0 30px
   h4
     color white
