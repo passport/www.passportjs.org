@@ -3568,6 +3568,11 @@ ul li {
   margin: auto;
   max-width: 100%;
 }
+@media (min-width: 768px) {
+  .home img {
+    height: 60px;
+  }
+}
 .home > p {
   line-height: 1.8;
   margin-top: 30px;
@@ -3578,6 +3583,7 @@ ul li {
     -webkit-transform: translateY(-120px);
     transform: translateY(-120px);
     margin: 0 auto 0;
+    font-size: 18px;
   }
 }
 .home .window {
