@@ -3171,9 +3171,10 @@ ul li {
     left: 33px;
     top: 2px;
     font-size: 12px;
-    color: #fff;
-    line-height: 25px;
+    color: rgba(255,255,255,0.8);
+    line-height: 23px;
     height: 22px;
+    font-weight: bold;
     padding: 0 10px;
   }
 }
@@ -3183,7 +3184,7 @@ ul li {
     height: 0;
     border-style: solid;
     border-width: 3px 3px 3px 0;
-    border-color: transparent #5c6e85 transparent transparent;
+    border-color: transparent #333 transparent transparent;
     position: absolute;
     content: "";
     left: -3px;
@@ -3838,7 +3839,12 @@ ul li {
   margin: 0;
   font-weight: normal;
   font-size: 14px;
-  color: #fff;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  margin-top: 10px;
 }
 @media (min-width: 992px) {
   .sub-menu [data-accordion] [data-content] {

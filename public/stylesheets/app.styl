@@ -126,9 +126,10 @@ ul
         left 33px
         top 2px
         font-size 12px
-        color white
-        line-height 25px
+        color rgba(255,255,255,.8)
+        line-height 23px
         height 22px
+        font-weight: bold;
         padding 0 10px
       &:after
         +breakpoint("tablet")
@@ -136,7 +137,7 @@ ul
           height 0
           border-style solid
           border-width 3px 3px 3px 0
-          border-color transparent #5c6e85 transparent transparent
+          border-color transparent #333 transparent transparent
           position absolute
           content ""
           left -3px
@@ -617,13 +618,18 @@ ul
       font-size 14px
       &.active, &:hover
         +breakpoint("tablet")
-          color #35df79
+          color green
 
   h5
     margin 0
     font-weight normal
     font-size 14px
-    color white
+    color #f1f1f1
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+    margin-top: 10px;
 
   [data-accordion]
     [data-content]
