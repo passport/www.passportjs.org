@@ -3384,14 +3384,19 @@ ul li {
 .supported {
   clear: both;
   padding: 10px;
-  position: fixed;
   bottom: 0;
   left: 0;
-  width: 350px;
-  bottom: 50px;
+  padding-bottom: 50px;
   text-align: center;
   color: #999;
   z-index: 10000;
+  display: block;
+}
+@media (min-width: 768px) {
+  .supported {
+    position: fixed;
+    width: 350px;
+  }
 }
 .supported .auth0 {
   width: 24px;
