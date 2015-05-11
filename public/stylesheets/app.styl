@@ -233,7 +233,7 @@ ul
   +breakpoint("tablet")
     width 260px
     background black
-    border-right 1px solid rgba(white,.2)
+    border-right 1px solid #222
     height 100%
     text-align center
     position fixed
@@ -297,16 +297,17 @@ ul
 
 .supported
   clear: both;
-  padding: 10px;
+  padding: 10px 0 50px 0;
   bottom: 0;
   left: 0;
-  padding-bottom: 50px
   text-align: center;
   color: #999;
   z-index: 10;
   display: block;
   +breakpoint("tablet")
     position: fixed;
+    width: 260px;
+  +breakpoint("desktop")
     width: 350px;
 
   .auth0
@@ -694,7 +695,7 @@ ul
 
   li
     a
-      color rgba(white,.7)
+      color rgba(white,.8)
       font-size 14px
       &.active, &:hover
         +breakpoint("tablet")
