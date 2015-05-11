@@ -32,6 +32,7 @@ $(document).ready(function() {
   $.getJSON("data.json", function(qdata) {
     data = qdata;
   });
+
   $(".search-con form input").autocomplete({
     source: function( request, response ) {
       var matches = $.map( data, function(acItem) {
@@ -53,6 +54,12 @@ $(document).ready(function() {
 
             $(".results section").append('<article><a href="'+ acItem.url +'"><span class="title">'+ acItem.label +'</span><span class="text">'+ acItem.desc +'</span><span class="stat"><span class="download">'+ acItem.forks +'</span><span class="star">'+ acItem.stars +'</span></span></a></article>');
           }
+        });
+
+        $(".results section").each(function(){
+          var numChilds = $("article").length;
+
+          $(".search-con .info-line span").text(numChilds);
         });
       });
       if ($('.search-con .results').hasScrollBar()) {

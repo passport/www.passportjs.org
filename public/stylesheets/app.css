@@ -3397,7 +3397,12 @@ ul li {
 @media (min-width: 768px) {
   .supported {
     position: fixed;
-    width: 350px;
+    width: 240px;
+  }
+}
+@media (min-width: 992px) {
+  .supported {
+    width: 330px;
   }
 }
 .supported .auth0 {
@@ -3433,6 +3438,8 @@ ul li {
   }
   .menu-hold li.active:nth-child(2) {
     box-shadow: inset 5px 0 0 0 #01b7ee;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .menu-hold li.active:nth-child(2) a {
     color: #01b7ee;
@@ -4110,6 +4117,7 @@ ul li {
   line-height: 18px;
   text-align: center;
   margin: 6px 0;
+  font-weight: 500;
 }
 @media (min-width: 768px) {
   .search-con .info-line {
@@ -4117,6 +4125,9 @@ ul li {
     line-height: 22px;
     margin: 6px 0;
   }
+}
+.search-con .info-line span {
+  margin-right: 5px;
 }
 .search-con .results {
   overflow-y: auto;
