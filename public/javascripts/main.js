@@ -176,8 +176,8 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.sub-menu nav a', function (ev) {
-    var $el = $(this),
-        id = $el.attr('href');
+    var $el = $(this);
+    var id = $el.attr('href');
 
     $('html, body').animate({
       scrollTop: $(id).offset().top - 30
