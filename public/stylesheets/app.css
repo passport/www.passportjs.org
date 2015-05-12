@@ -3701,17 +3701,17 @@ ul li {
 .features section {
   text-align: center;
 }
-.col {
+.features .col {
   display: inline-block;
   margin-right: 30px;
   width: 100%;
 }
 @media (min-width: 992px) {
-  .col {
+  .features .col {
     width: 450px;
   }
 }
-.col article {
+.features .col article {
   background-color: #d4fd02;
   margin: auto;
   text-align: left;
@@ -3721,7 +3721,7 @@ ul li {
   margin-bottom: 20px;
   border-radius: 3px;
 }
-.col article i {
+.features .col article i {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -3733,14 +3733,14 @@ ul li {
   background: rgba(0,0,0,0.2);
 }
 @media (min-width: 768px) {
-  .col article i {
+  .features .col article i {
     height: 80px;
     width: 80px;
     line-height: 3.3;
     font-size: 28px;
   }
 }
-.col article p {
+.features .col article p {
   color: #000;
   font-weight: 500;
   padding: 0;
@@ -3753,43 +3753,43 @@ ul li {
   padding-left: 10px;
 }
 @media (min-width: 768px) {
-  .col article p {
+  .features .col article p {
     padding-top: 26px;
     font-size: 18px;
     padding-left: 30px;
   }
 }
-.col .item-1 {
+.features .col .item-1 {
   background-color: #35df79;
 }
-.col .item-2 {
+.features .col .item-2 {
   background-color: #42e26f;
 }
-.col .item-3 {
+.features .col .item-3 {
   background-color: #62e858;
 }
-.col .item-4 {
+.features .col .item-4 {
   background-color: #6ce94f;
 }
-.col .item-5 {
+.features .col .item-5 {
   background-color: #7ded43;
 }
-.col .item-5 {
+.features .col .item-5 {
   background-color: #8df038;
 }
-.col .item-6 {
+.features .col .item-6 {
   background-color: #a1f328;
 }
-.col .item-7 {
+.features .col .item-7 {
   background-color: #b4f71b;
 }
-.col .item-8 {
+.features .col .item-8 {
   background-color: #d3fd03;
 }
-.col .item-9 {
+.features .col .item-9 {
   background-color: #dcfd35;
 }
-.hide {
+.features .hide {
   opacity: 0;
 }
 @media (min-width: 992px) {
@@ -4050,7 +4050,7 @@ ul li {
     right: 50px;
     height: 24px;
     width: 25px;
-    opacity: 0.3;
+    opacity: 0.8;
   }
 }
 .search-con h2 {
