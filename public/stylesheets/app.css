@@ -3700,7 +3700,7 @@ ul li {
   display: inline-block;
   margin-right: 30px;
 }
-article {
+.col article {
   background-color: #d4fd02;
   margin: auto;
   text-align: left;
@@ -3710,7 +3710,7 @@ article {
   margin-bottom: 20px;
   border-radius: 3px;
 }
-article i {
+.col article i {
   width: 60px;
   height: 60px;
   display: inline-block;
@@ -3722,14 +3722,14 @@ article i {
   background: rgba(0,0,0,0.2);
 }
 @media (min-width: 768px) {
-  article i {
+  .col article i {
     height: 80px;
     width: 80px;
     line-height: 3.3;
     font-size: 28px;
   }
 }
-article p {
+.col article p {
   color: #000;
   font-weight: 500;
   padding: 0;
@@ -3742,7 +3742,7 @@ article p {
   padding-left: 10px;
 }
 @media (min-width: 768px) {
-  article p {
+  .col article p {
     padding-top: 26px;
     font-size: 18px;
     padding-left: 30px;
