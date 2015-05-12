@@ -85,11 +85,11 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on('change keyup paste', '.search-con form input', function(){
+  $(document).on('change keyup paste', '.search-con form input', function() {
     $(".search-con form .autocomplete").text("");
   });
 
-  $(document).on('change keyup paste', function(){
+  $(document).on('change keyup paste', '.search-con form input, .search form input', function() {
     $(".search-con form .input").text($(this).val());
   });
 
@@ -142,21 +142,19 @@ $(document).ready(function() {
     }
   });
 
-  // FIXME: should be re-evaluated on each pjax:end
-  $('[placeholder]').each(function() {
-    var input = $(this);
-    $(input).focus(function(){
-      if (input.val() == input.attr('placeholder')) {
-        input.val('').removeClass("placeholder");
-      }
-    });
+  $(document).on('focus', '[placeholder]', function () {
+    var $input = $(this);
+    if ($input.val() == $input.attr('placeholder')) {
+      $input.val('').removeClass("placeholder");
+    }
+  });
 
-    $(input).blur(function(){
-      // if (input.val() == '' || input.val() == input.attr('placeholder')) {
-      //   input.val(input.attr('placeholder')).addClass("placeholder");
-      // }
-    });
-  }).blur();
+  $(document).on('blur', '[placeholder]', function () {
+    var $input = $(this);
+    // if ($input.val() == '' || $input.val() == $input.attr('placeholder')) {
+    //   $input.val($input.attr('placeholder')).addClass("placeholder");
+    // }
+  })
 
   // FIXME: should be re-evaluated on each pjax:end
   if ($('.search-con .results').hasScrollBar()) {
