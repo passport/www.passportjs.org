@@ -266,6 +266,7 @@ ul
         top 7px
     +breakpoint("tablet")
       display none
+
     &.is-active
       span
         background transparent
@@ -275,6 +276,7 @@ ul
         &:after
           -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
+
   .design
     display none
     +breakpoint("tablet")
@@ -544,10 +546,13 @@ ul
       // grid(2, 20px, ".col")
 
   .col
-    min-width: 450px
+
     display: inline-block;
     margin-right: 30px;
+    width: 100%;
 
+    +breakpoint("desktop")
+      width: 450px
 
     article
       background-color yellow
@@ -560,13 +565,13 @@ ul
       border-radius: 3px;
 
       i
-        width 60px
-        height 60px
+        width 50px
+        height 50px
         display inline-block
         vertical-align middle
         font-size: 20px;
         text-align: center;
-        line-height: 3.5;
+        line-height: 2.8;
         float left;
         background: rgba(0,0,0,.2)
         +breakpoint("tablet")
@@ -583,8 +588,8 @@ ul
         display: inline-block;
         margin-bottom: 0px;
         float left;
-        padding-top: 16px;
-        font-size: 14px;
+        padding-top: 11px;
+        font-size: 12px;
         padding-left: 10px;
         +breakpoint("tablet")
           padding-top: 26px
@@ -770,6 +775,20 @@ ul
 .is-menu
   overflow hidden
   height 100vh
+
+  .social
+    display: block
+    position: fixed;
+    bottom: 50px;
+    z-index: 100;
+    right: 0;
+    left: 0;
+    text-align: center;
+    .twitter
+      margin-right: 30px;
+
+  .social li:last-child
+    margin-right: 0;
 
 .is-search
   overflow hidden

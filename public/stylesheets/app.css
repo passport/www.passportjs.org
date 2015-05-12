@@ -3702,9 +3702,14 @@ ul li {
   text-align: center;
 }
 .col {
-  min-width: 450px;
   display: inline-block;
   margin-right: 30px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .col {
+    width: 450px;
+  }
 }
 .col article {
   background-color: #d4fd02;
@@ -3717,13 +3722,13 @@ ul li {
   border-radius: 3px;
 }
 .col article i {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: inline-block;
   vertical-align: middle;
   font-size: 20px;
   text-align: center;
-  line-height: 3.5;
+  line-height: 2.8;
   float: left;
   background: rgba(0,0,0,0.2);
 }
@@ -3743,8 +3748,8 @@ ul li {
   display: inline-block;
   margin-bottom: 0px;
   float: left;
-  padding-top: 16px;
-  font-size: 14px;
+  padding-top: 11px;
+  font-size: 12px;
   padding-left: 10px;
 }
 @media (min-width: 768px) {
@@ -3980,6 +3985,21 @@ ul li {
 .is-menu {
   overflow: hidden;
   height: 100vh;
+}
+.is-menu .social {
+  display: block;
+  position: fixed;
+  bottom: 50px;
+  z-index: 100;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+.is-menu .social .twitter {
+  margin-right: 30px;
+}
+.is-menu .social li:last-child {
+  margin-right: 0;
 }
 .is-search {
   overflow: hidden;
