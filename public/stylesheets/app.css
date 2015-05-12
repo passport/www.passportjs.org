@@ -3385,9 +3385,10 @@ ul li {
 }
 .supported {
   clear: both;
-  padding: 10px 0 50px 0;
+  padding: 10px;
   bottom: 0;
   left: 0;
+  padding-bottom: 50px;
   text-align: center;
   color: #999;
   z-index: 10;
@@ -3396,12 +3397,12 @@ ul li {
 @media (min-width: 768px) {
   .supported {
     position: fixed;
-    width: 260px;
+    width: 240px;
   }
 }
 @media (min-width: 992px) {
   .supported {
-    width: 350px;
+    width: 330px;
   }
 }
 .supported .auth0 {
@@ -3437,6 +3438,8 @@ ul li {
   }
   .menu-hold li.active:nth-child(2) {
     box-shadow: inset 5px 0 0 0 #01b7ee;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .menu-hold li.active:nth-child(2) a {
     color: #01b7ee;
@@ -4127,6 +4130,7 @@ article p {
   line-height: 18px;
   text-align: center;
   margin: 6px 0;
+  font-weight: 500;
 }
 @media (min-width: 768px) {
   .search-con .info-line {
@@ -4134,6 +4138,9 @@ article p {
     line-height: 22px;
     margin: 6px 0;
   }
+}
+.search-con .info-line span {
+  margin-right: 5px;
 }
 .search-con .results {
   overflow-y: auto;

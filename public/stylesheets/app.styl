@@ -296,19 +296,20 @@ ul
         vertical-align middle
 
 .supported
-  clear: both;
-  padding: 10px 0 50px 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  color: #999;
-  z-index: 10;
-  display: block;
+  clear both
+  padding 10px
+  bottom 0
+  left 0
+  padding-bottom 50px
+  text-align center
+  color #999
+  z-index 10
+  display block
   +breakpoint("tablet")
-    position: fixed;
-    width: 260px;
+    position fixed
+    width 240px
   +breakpoint("desktop")
-    width: 350px;
+    width 330px
 
   .auth0
     width 24px
@@ -339,6 +340,8 @@ ul
           color green
       &.active:nth-child(2)
         box-shadow inset 5px 0 0 0 blue
+        -webkit-transition .5s
+        transition .5s
         a
           color blue
       &.active:nth-child(3)
@@ -883,10 +886,15 @@ ul
     line-height 18px
     text-align center
     margin 6px 0
+    font-weight 500
     +breakpoint("tablet")
       font-size 16px
       line-height 22px
       margin 6px 0
+
+    span
+      margin-right 5px
+
   .results
     overflow-y auto
     -webkit-overflow-scrolling touch
