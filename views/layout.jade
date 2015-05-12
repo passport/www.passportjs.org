@@ -3,9 +3,28 @@ html
   head
     title= title
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    
     meta(name='msapplication-TileColor', content='#35DF79')
     meta(name='msapplication-TileImage', content='/images/favicon/ms-icon-144x144.png')
     meta(name='theme-color', content='#35DF79')
+  
+    meta(name='twitter:card', content='summary_large_image')
+    meta(name='twitter:site', content='@passportjs')
+    meta(name='twitter:creator', content='@jaredhanson')
+    meta(name='twitter:title', content='Passport')
+    meta(name='twitter:description', content='Simple, unobtrusive authentication for Node.js')
+    meta(name='twitter:image', content='http://passportjs.org/images/twitter-card.png')
+
+    //- OpenGraph
+    meta(property='og:type', content='website')
+    meta(property='og:title', content='Passport')
+    meta(property='og:description', content='Simple, unobtrusive authentication for Node.js')
+    meta(property='og:locale', content='en_US')
+    meta(property='og:url', content='http://passportjs.org/')
+    meta(property='og:image', content='http://passportjs.org/images/facebook-card.png')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:width', content='1200')
+    meta(property='og:image:height', content='630')
             
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
@@ -29,23 +48,7 @@ html
     link(rel='manifest', href='/images/favicon/manifest.json')
       
     //- Twitter
-    meta(name='twitter:card', content='summary_large_image')
-    meta(name='twitter:site', content='@passportjs')
-    meta(name='twitter:creator', content='@jaredhanson')
-    meta(name='twitter:title', content='Passport')
-    meta(name='twitter:description', content='Simple, unobtrusive authentication for Node.js')
-    meta(name='twitter:image', content='http://passport-js.herokuapp.com/images/twitter-card.png')
 
-    //- OpenGraph
-    meta(property='og:type', content='website')
-    meta(property='og:title', content='Passport')
-    meta(property='og:description', content='Simple, unobtrusive authentication for Node.js')
-    meta(property='og:locale', content='en_US')
-    meta(property='og:url', content='http://passport-js.herokuapp.com/')
-    meta(property='og:image', content='http://passport-js.herokuapp.com/images/facebook-card.png')
-    meta(property='og:image:type', content='image/png')
-    meta(property='og:image:width', content='1200')
-    meta(property='og:image:height', content='630')
       
     != LRScript
   body(class=page_name)
