@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'PassportJS', page_class: 'page-home'});
+  res.render('index', { title: 'Passport', page_class: 'page-home'});
 });
 
 router.get('/docs', function(req, res, next) {
