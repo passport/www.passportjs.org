@@ -7,8 +7,7 @@ function msieversion() {
   var ua = window.navigator.userAgent;
   var msie = ua.indexOf("MSIE ");
 
-  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
-  $("body").addClass("ie")
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) return true;
 
  return false;
 
@@ -23,15 +22,14 @@ $(document).ready(function() {
     fragment: '#page-content'
   });
 
-  if (msieversion()) {
-    $("body").addClass("ie")
-  };
+  $("body").toggleClass("ie", msieversion());
 
-  $.getJSON("https://api.github.com/repos/jaredhanson/passport", function(data){
+  $.getJSON("https://api.github.com/repos/jaredhanson/passport", function(data) {
     $(".social .stat").text(numberWithCommas(data.stargazers_count));
   });
 
   var data;
+
   $.getJSON("data.json", function(qdata) {
     data = qdata;
   });
@@ -196,7 +194,7 @@ $(document).ready(function() {
         sections.removeClass('active');
 
         $(this).addClass('active');
-        nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+        nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
       }
     });
   });
