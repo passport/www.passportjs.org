@@ -3653,6 +3653,11 @@ ul li {
   overflow: hidden;
   padding: 0 20px;
 }
+@media (min-width: 768px) {
+  .features {
+    padding: 0 100px;
+  }
+}
 @media (min-width: 992px) {
   .features {
     margin-top: 80px;
@@ -3684,20 +3689,25 @@ ul li {
     margin-bottom: 60px;
   }
 }
-.features article {
+.features section {
+  text-align: center;
+}
+.col {
+  min-width: 450px;
+  display: inline-block;
+  margin-right: 30px;
+}
+article {
   background-color: #d4fd02;
-  max-width: 500px;
   margin: auto;
   text-align: left;
   color: #000;
   margin-bottom: 4px;
-  border-radius: 3px;
   overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 3px;
 }
-.features article:hover {
-  -webkit-transform: scale(1.1);
-}
-.features article i {
+article i {
   width: 60px;
   height: 60px;
   display: inline-block;
@@ -3709,14 +3719,14 @@ ul li {
   background: rgba(0,0,0,0.2);
 }
 @media (min-width: 768px) {
-  .features article i {
+  article i {
     height: 80px;
     width: 80px;
     line-height: 3.3;
     font-size: 28px;
   }
 }
-.features article p {
+article p {
   color: #000;
   font-weight: 500;
   padding: 0;
@@ -3726,43 +3736,43 @@ ul li {
   float: left;
   padding-top: 16px;
   font-size: 14px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 @media (min-width: 768px) {
-  .features article p {
+  article p {
     padding-top: 26px;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 30px;
   }
 }
-.features .item-1 {
+.item-1 {
   background-color: #35df79;
 }
-.features .item-2 {
+.item-2 {
   background-color: #42e26f;
 }
-.features .item-3 {
+.item-3 {
   background-color: #62e858;
 }
-.features .item-4 {
+.item-4 {
   background-color: #6ce94f;
 }
-.features .item-5 {
+.item-5 {
   background-color: #7ded43;
 }
-.features .item-5 {
+.item-5 {
   background-color: #8df038;
 }
-.features .item-6 {
+.item-6 {
   background-color: #a1f328;
 }
-.features .item-7 {
+.item-7 {
   background-color: #b4f71b;
 }
-.features .item-8 {
+.item-8 {
   background-color: #d3fd03;
 }
-.features .item-9 {
+.item-9 {
   background-color: #dcfd35;
 }
 @media (min-width: 992px) {

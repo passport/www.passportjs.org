@@ -502,8 +502,13 @@ ul
   margin-top 120px
   overflow hidden
   padding 0 20px
+
+  +breakpoint("tablet")
+    padding 0 100px
+
   +breakpoint("desktop")
     margin-top 80px
+
   h1
     font-size 30px
     font-weight 500
@@ -525,20 +530,25 @@ ul
       margin-bottom: 60px;
 
   section
-    +breakpoint("tablet")
-      // grid(3, 10px, "article")
+    text-align: center;
+    // +breakpoint("tablet")
+      // grid(2, 20px, ".col")
+
+  .col
+    min-width: 450px
+    display: inline-block;
+    margin-right: 30px;
 
   article
     background-color yellow
-    max-width: 500px;
     margin: auto;
     text-align: left;
     color: black;
     margin-bottom 4px
-    border-radius: 3px;
     overflow: hidden;
-    &:hover
-      -webkit-transform: scale(1.1)
+    margin-bottom: 20px;
+    border-radius: 3px;
+
     i
       width 60px
       height 60px
@@ -565,10 +575,10 @@ ul
       float left;
       padding-top: 16px;
       font-size: 14px;
-      padding-left: 20px;
+      padding-left: 10px;
       +breakpoint("tablet")
         padding-top: 26px
-        font-size: 20px;
+        font-size: 18px;
         padding-left: 30px;
 
   .item-1
