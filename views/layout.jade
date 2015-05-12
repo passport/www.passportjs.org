@@ -57,22 +57,23 @@ html
 
 
       nav#menu
-        a#logo(href='/', title='JH') by Jared Hanson
+        a#logo(href='/', title='JH', data-pjax="/") by Jared Hanson
         .menu-trigger
           span
         .menu-hold
           ul
+
             li(class=(title === 'Passport' ? 'active' : ''))
-              a(href='/') Home
+              a(href='/', data-pjax='/') Home
             li(class=(title === 'Documentation' ? 'active' : ''))
-              a(href='docs') Documentation
+              a(href='/docs', data-pjax='/docs') Documentation
             li(class=(title === 'Features' ? 'active' : ''))
-              a(href='features') Features
+              a(href='/features', data-pjax='/features') Features
             li
               a(href='/', data-search='') Strategies
 
 
-      .content
+      #page-content.content
         block content
 
 
@@ -100,4 +101,5 @@ html
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js')
     script(src='javascripts/plugins.js')
+    script(src='javascripts/helpers.js')
     script(src='javascripts/main.js')
