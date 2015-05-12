@@ -339,6 +339,8 @@ ul
     li
       padding-left 26%
       margin-bottom 15px
+      -webkit-transition box-shadow .3s ease-in-out
+      transition box-shadow .3s ease-in-out
       &.active:nth-child(1)
         box-shadow inset 5px 0 0 0 green
         a
@@ -656,7 +658,7 @@ ul
     &.fixed
       display block
       z-index 99
-      +breakpoint("tablet")
+      +breakpoint("desktop")
         display none
 
 .guides
@@ -724,6 +726,9 @@ ul
     float left
     display block
 
+    -webkit-animation: fadeInLeft .4s ease-in-out
+    animation: fadeInLeft .4s ease-in-out
+
   ul ul
     padding-left 0px
 
@@ -732,7 +737,7 @@ ul
       color rgba(white,.8)
       font-size 14px
       &.active, &:hover
-        +breakpoint("tablet")
+        +breakpoint("desktop")
           color blue
 
   h5
@@ -1039,4 +1044,32 @@ ul
   37% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
   40% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
   100% { opacity: 0; }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }

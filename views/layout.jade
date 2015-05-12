@@ -3,11 +3,11 @@ html
   head
     title= title
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    
+
     meta(name='msapplication-TileColor', content='#35DF79')
     meta(name='msapplication-TileImage', content='/images/favicon/ms-icon-144x144.png')
     meta(name='theme-color', content='#35DF79')
-  
+
     meta(name='twitter:card', content='summary_large_image')
     meta(name='twitter:site', content='@passportjs')
     meta(name='twitter:creator', content='@jaredhanson')
@@ -25,12 +25,12 @@ html
     meta(property='og:image:type', content='image/png')
     meta(property='og:image:width', content='1200')
     meta(property='og:image:height', content='630')
-            
+
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css')
     link(rel='stylesheet', href='/stylesheets/app.css')
-    
+
     //- Favicons
     link(rel='apple-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
     link(rel='apple-touch-icon', sizes='60x60', href='/images/favicon/apple-icon-60x60.png')
@@ -46,13 +46,13 @@ html
     link(rel='icon', type='image/png', sizes='96x96', href='/images/favicon/favicon-96x96.png')
     link(rel='icon', type='image/png', sizes='16x16', href='/images/favicon/favicon-16x16.png')
     link(rel='manifest', href='/images/favicon/manifest.json')
-      
+
     //- Twitter
 
-      
+
     != LRScript
   body(class=page_name)
-    .main-hold
+    .main-hold#top
       .top-site
         .search
           form(action='#')
