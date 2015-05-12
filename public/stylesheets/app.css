@@ -3432,6 +3432,8 @@ ul li {
   .menu-hold li {
     padding-left: 26%;
     margin-bottom: 15px;
+    -webkit-transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
   }
   .menu-hold li.active:nth-child(1) {
     box-shadow: inset 5px 0 0 0 #35df79;
@@ -3810,7 +3812,7 @@ ul li {
   display: block;
   z-index: 99;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .entry .go-top.fixed {
     display: none;
   }
@@ -3907,6 +3909,8 @@ ul li {
     margin-left: 50px;
     float: left;
     display: block;
+    -webkit-animation: fadeInLeft 0.4s ease-in-out;
+    animation: fadeInLeft 0.4s ease-in-out;
   }
 }
 .sub-menu ul ul {
@@ -3916,7 +3920,7 @@ ul li {
   color: rgba(255,255,255,0.8);
   font-size: 14px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .sub-menu li a.active,
   .sub-menu li a:hover {
     color: #01b7ee;
@@ -4321,6 +4325,18 @@ ul li {
     opacity: 0;
   }
 }
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
 @-moz-keyframes blink {
   to {
     visibility: hidden;
@@ -4451,5 +4467,53 @@ ul li {
   }
   100% {
     opacity: 0;
+  }
+}
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-o-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
 }
