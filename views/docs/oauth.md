@@ -23,8 +23,8 @@ Thankfully, Passport shields an application from the complexities of dealing
 with OAuth variants.  In many cases, a provider-specific strategy can be used
 instead of the generic OAuth strategies described below.  This cuts down on the
 necessary configuration, and accommodates any provider-specific quirks. See
-[Facebook](/guide/facebook/), [Twitter](/guide/twitter/) or the list of
-[providers](/guide/providers/) for preferred usage.
+[Facebook](/docs#facebook), [Twitter](/docs#twitter) or the list of
+<a href="" data-search>providers</a> for preferred usage.
 
 Support for OAuth is provided by the [passport-oauth](https://github.com/jaredhanson/passport-oauth)
 module.
