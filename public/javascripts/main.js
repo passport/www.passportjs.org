@@ -161,11 +161,6 @@ $(document).ready(function() {
     $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
   };
 
-  // FIXME: should be re-evaluated on each pjax:end
-  $('.accordion').accordion({
-    "transitionSpeed": 400
-  });
-
   $(window).resize(function() {
     if ($('.search-con .results').hasScrollBar()) {
       $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
