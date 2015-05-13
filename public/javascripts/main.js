@@ -13,7 +13,8 @@ $(document).ready(function() {
    */
 
   $(document).pjax('a[data-pjax]', '#page-content', {
-    fragment: '#page-content'
+    fragment: '#page-content',
+    timeout: 1200
   });
 
   $(document).on('pjax:end', function () {
