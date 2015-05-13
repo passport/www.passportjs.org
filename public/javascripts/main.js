@@ -31,7 +31,7 @@ $(document).ready(function() {
    * Load for remote Data only once
    */
 
-  $.getJSON("https://api.github.com/repos/jaredhanson/passport", function(data) {
+  $.getJSON('repo.json', function(data) {
     $(".social .stat").text(numberWithCommas(data.stargazers_count));
   });
 
