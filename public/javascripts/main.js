@@ -19,6 +19,7 @@ $(document).ready(function() {
 
   $(document).on('pjax:end', function () {
     sidebarToggle();
+    toggleResponsiveMenu(false);
     initialize();
   });
 
@@ -63,6 +64,7 @@ $(document).ready(function() {
   $('.search-con form input').typeahead(null, {
     name: 'strategies',
     display: 'label',
+    limit: Infinity,
     source: strategies,
     templates: {
       suggestion: templateItem
@@ -80,21 +82,8 @@ $(document).ready(function() {
     };
   });
 
-  $('.search-con form input').bind('typeahead:cursorchange', function (ev) {
-    var $results = $('.search-con .tt-menu .tt-dataset article').clone();
-    $results.appendTo($('.search-con .results section').html(''));
-    $(".search-con .info-line span").text($results.length);
-    if ($('.search-con .results').hasScrollBar()) {
-      $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-    } else {
-      $(".search-con .results section").css({ paddingLeft: 0 })
-    };
-  });
-
-  $(document).on('click', '.menu-trigger', function() {
-    $("body").toggleClass("is-menu");
-    $(".content, .top-site").toggleClass('blured');
-    $(this).toggleClass("is-active").next().toggleClass("is-active");
+  $(document).on('click', '.menu-trigger', function(ev) {
+    toggleResponsiveMenu();
     return false;
   });
 
@@ -129,11 +118,6 @@ $(document).ready(function() {
     //   $input.val($input.attr('placeholder')).addClass("placeholder");
     // }
   })
-
-  // FIXME: should be re-evaluated on each pjax:end
-  if ($('.search-con .results').hasScrollBar()) {
-    $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-  };
 
   $(window).resize(function() {
     if ($('.search-con .results').hasScrollBar()) {
@@ -221,6 +205,12 @@ $(document).ready(function() {
     $(".main-hold").addClass('blured');
     $("body").addClass("is-search");
     $(".search-con form input").val(val).focus();
+  }
+
+  function toggleResponsiveMenu(open) {
+    $("body").toggleClass("is-menu", open);
+    $(".content, .top-site").toggleClass('blured', open);
+    $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
   }
 
   function templateItem(item) {
