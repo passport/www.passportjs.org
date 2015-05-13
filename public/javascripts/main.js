@@ -230,11 +230,10 @@ $(document).ready(function() {
   }
 
   function renderFeaturedStrategies() {
-    var $featured = $.map(strategies.all().sort(sorter), function (strat) {
-      return templateItem(strat);
-    });
+    var $featured = $.map(strategies.all().sort(sorter), templateItem);
 
     $('.search-con .results section').html($featured);
+    $(".search-con .info-line span").text($featured.length);
   }
 
   function templateItem(item) {
