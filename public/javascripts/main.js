@@ -149,6 +149,13 @@ $(document).ready(function() {
   });
   // end menu nav docs
 
+  /*
+   * Accordion
+   */
+  $('.accordion').accordion({
+    "transitionSpeed": 400
+  });
+
   /**
    * Contextual helpers
    * Depends on globally context variable values

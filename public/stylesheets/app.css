@@ -3939,8 +3939,16 @@ ul li {
     animation: fadeInLeft 0.4s ease-in-out;
   }
 }
-.sub-menu ul ul {
-  padding-left: 0px;
+.sub-menu ul {
+  padding-left: 18px;
+}
+@media (min-width: 992px) {
+  .sub-menu ul {
+    padding-left: 0;
+  }
+}
+.sub-menu li {
+  line-height: 2.5;
 }
 .sub-menu li a {
   color: rgba(255,255,255,0.8);
@@ -3962,9 +3970,20 @@ ul li {
   letter-spacing: 1px;
   font-size: 11px;
   margin-top: 20px;
+  line-height: 4;
 }
 .sub-menu h5:first-child {
   margin-top: 0;
+}
+.sub-menu h5 i {
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+@media (min-width: 992px) {
+  .sub-menu h5 i {
+    display: none;
+  }
 }
 @media (min-width: 992px) {
   .sub-menu [data-accordion] [data-content] {
@@ -3974,6 +3993,10 @@ ul li {
 }
 .sub-menu [data-accordion] [data-control] {
   position: relative;
+}
+.sub-menu .accordion.open i {
+  -webkit-transform: rotate(90deg) translateX(5px);
+  transform: rotate(90deg) translateY(5px);
 }
 .sub-menu nav {
   -webkit-transition: padding 0.5s;

@@ -6,45 +6,58 @@ block content
 
   .entry
     .sub-menu
-      nav
-        h5(data-control='') General
-        ul
-          li
-            a(href='#overview').active Overview
-          li
-            a(href='#authenticate') Authenticate
-          li
-            a(href='#configure') Configure
-          li
-            a(href='#username-password') Username & Password
-          li
-            a(href='#openid') OpenID
-          li
-            a(href='#oauth') OAuth
-        h5(data-control='') Providers
-        ul
-          li
-            a(href='#facebook') Facebook
-          li
-            a(href='#twitter') Twitter
-          li
-            a(href='#google') Google
-          li
-            a(href='/', data-search='') Other
+      nav(data-accordion-group='')
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | General
+          ul(data-content='')
+            li
+              a(href='#overview').active Overview
+            li
+              a(href='#authenticate') Authenticate
+            li
+              a(href='#configure') Configure
+            li
+              a(href='#username-password') Username & Password
+            li
+              a(href='#openid') OpenID
+            li
+              a(href='#oauth') OAuth
 
-        h5(data-control='') APIs
-        ul
-          li
-            a(href='#basic-digest') Basic & Digest
-          li
-            a(href='#oauth-api') OAuth
-          li
-            a(href='#oauth2-api') OAuth 2.0
-          li
-            a(href='#other-api') Other
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | Providers
+          ul(data-content='')
+            li
+              a(href='#facebook') Facebook
+            li
+              a(href='#twitter') Twitter
+            li
+              a(href='#google') Google
+            li
+              a(href='/', data-search='') Other
 
-          h5(data-control='') Operations
-          ul
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | APIs
+          ul(data-content='')
+            li
+              a(href='#basic-digest') Basic & Digest
+            li
+              a(href='#oauth-api') OAuth
+            li
+              a(href='#oauth2-api') OAuth 2.0
+            li
+              a(href='#other-api') Other
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | Operations
+          ul(data-content='')
             li
               a(href='#login') Log In
             li

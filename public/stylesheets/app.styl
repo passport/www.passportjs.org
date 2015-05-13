@@ -740,10 +740,13 @@ ul
     -webkit-animation: fadeInLeft .4s ease-in-out
     animation: fadeInLeft .4s ease-in-out
 
-  ul ul
-    padding-left 0px
+  ul
+    padding-left 18px
+    +breakpoint("desktop")
+      padding-left 0
 
   li
+    line-height 2.5
     a
       color rgba(white,.8)
       font-size 14px
@@ -761,8 +764,16 @@ ul
     letter-spacing: 1px;
     font-size: 11px;
     margin-top: 20px;
+    line-height 4
     &:first-child
       margin-top: 0;
+
+    i
+      display inline-block
+      margin-right 5px
+      transition transform .3s ease-in-out
+      +breakpoint("desktop")
+        display none
 
   [data-accordion]
     [data-content]
@@ -771,6 +782,11 @@ ul
         max-height 100%!important
     [data-control]
       position relative
+
+  .accordion.open
+    i
+      -webkit-transform rotate(90deg) translateX(5px)
+      transform rotate(90deg) translateY(5px)
 
   nav
     -webkit-transition padding .5s
