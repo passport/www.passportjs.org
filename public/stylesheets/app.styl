@@ -205,21 +205,20 @@ ul
 #logo
   display block
   cursor pointer
-  background url(../images/logo.svg) no-repeat
-  background-size 33px 40px
+  background  url(../images/logo.svg) center left no-repeat
+  background-size auto 90%;
   color #fff
   font-size 14px
   line-height 44px
   padding-left 56px
-  margin 30px 0 0 40px
+  height: 60px;
+  margin 24px 0 0 40px
   float left
   +breakpoint("tablet")
-    background-size 49px 60px
     background-position 50% 0
     font-size 16px
     line-height 22px
-    padding 85px 0 0 0
-    margin 60px auto 0 auto;
+    margin 60px auto 20px auto;
     text-align center
     max-width 130px
     float none
@@ -227,9 +226,14 @@ ul
     z-index 101
   &:hover
     text-decoration none
-
+.jared
+  color: #ccc;
+  display: none;
+  +breakpoint('tablet')
+    display: block;
+    
 #menu
-  height 101px
+  height 100px
   +breakpoint("tablet")
     width 260px
     background black
@@ -243,10 +247,10 @@ ul
     width 350px
   .menu-trigger
     height 16px
-    width 23px
+    width 24px
     cursor pointer
     float right
-    margin 51px 40px 0 0
+    margin 54px 40px 0 0
     span, span:before, span:after
       background white
       width 100%
