@@ -64,6 +64,7 @@ $(document).ready(function() {
   $('.search-con form input').typeahead(null, {
     name: 'strategies',
     display: 'label',
+    limit: Infinity,
     source: strategies,
     templates: {
       suggestion: templateItem
