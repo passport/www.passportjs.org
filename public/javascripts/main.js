@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var $submenu, $gotop, submenuOffset, gotopOffset;
   var data = [];
+  var loadingTimeout = 0;
 
   /**
    * highlight js configuration
@@ -17,13 +18,13 @@ $(document).ready(function() {
     timeout: 1200
   });
 
-  $(document).on('pjax:clicked', function () {
-    $('body').toggleClass('pjax-loading', true);
+  $(document).on('pjax:click', function () {
+    togglePjaxLoading(true);
     toggleResponsiveMenu(false);
   });
 
   $(document).on('pjax:beforeReplace', function () {
-    $('body').toggleClass('pjax-loading', false);
+    togglePjaxLoading(false);
   });
 
   $(document).on('pjax:end', function () {
@@ -153,7 +154,6 @@ $(document).ready(function() {
     var $el = $(this);
     var id = $el.attr('href');
     var scroll = $(id).offset().top - 30;
-
     $('html, body').animate({ scrollTop: scroll }, 500);
   });
   // end menu nav docs
@@ -195,13 +195,23 @@ $(document).ready(function() {
   }
 
   function initialize() {
+    // reset containers
     $submenu = $('.sub-menu nav');
     $gotop = $('.go-top');
     submenuOffset = $submenu.offset();
     gotopOffset = $gotop.offset();
+
+    // reset syntax highlight
     $('pre code').each(function (i, block) {
       hljs.highlightBlock(block);
     });
+
+    // animate docs scroll
+    if (/^\/docs/.test(window.location.pathname) && window.location.hash) {
+      var scroll = $(window.location.hash).offset().top - 30;
+      $('html, body').animate({ scrollTop: scroll }, 500);
+
+    }
   }
 
   function sidebarToggle() {
@@ -264,4 +274,26 @@ $(document).ready(function() {
     return starsSorter(a, b);
   }
 
+  function togglePjaxLoading(toggle) {
+    // do not add pjax-loading flag twice
+    // wait for it to resolve or be canceled
+    if (toggle && loadingTimeout) {
+      return;
+    }
+
+    // cancel timer if toggle false
+    // and remove pjax-loading flag
+    if (!toggle) {
+      clearInterval(loadingTimeout);
+      $('body').toggleClass('pjax-loading', false);
+      return;
+    }
+
+    // save timeout timer and await to add
+    // pjax-loading flag
+    loadingTimeout = setTimeout(function () {
+      $('body').toggleClass('pjax-loading', true);
+    }, 300);
+
+  }
 });
