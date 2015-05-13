@@ -230,6 +230,10 @@ ul
     z-index 10
   +breakpoint("desktop")
     width 350px
+
+    @media screen and ( max-height: 750px )
+      overflow-y scroll
+
   .menu-trigger
     height 10px
     width 23px
@@ -304,6 +308,9 @@ ul
   +breakpoint("desktop")
     width 330px
 
+    @media screen and ( max-height: 680px )
+      display none
+
   .auth0
     width 24px
     height 24px
@@ -326,6 +333,12 @@ ul
     top 52%
     -webkit-transform translateY(-50%)
     transform translateY(-50%)
+
+    @media screen and ( max-height: 750px )
+      position relative
+      -webkit-transform none
+      transform none
+      top 80px
 
     li
       padding-left 26%
@@ -792,6 +805,10 @@ ul
         padding-top 20px
         z-index 99
 
+        @media screen and ( max-height: 750px )
+          position relative
+          padding-top 0
+
 
 .desktop-only
   display none !important
@@ -882,10 +899,11 @@ ul
   form
     position relative
     display inline-block
-
-    border-bottom 1px solid rgba(white,.2)
-
     max-width 620px
+    padding 0 36px
+    +breakpoint("tablet")
+      border-bottom 1px solid rgba(white,.2)
+      padding 0
     .twitter-typeahead
       &:before
         content ""
@@ -899,7 +917,7 @@ ul
         top 16px
         +breakpoint("tablet")
           background-size 100%
-          left -80px
+          left -70px
           top 20px
 
     .tt-menu
@@ -939,28 +957,44 @@ ul
         line-height 95px
         min-height 95px
 
+        &::-webkit-input-placeholder {
+          text-transform initial
+          text-align center
+          font-weight 200
+        }
+
+        &:-moz-placeholder {
+          text-transform initial
+          text-align center
+          font-weight 200
+        }
+
+        &::-moz-placeholder {
+          text-transform initial
+          text-align center
+          font-weight 200
+        }
+
+        &:-ms-input-placeholder {
+          text-transform initial
+          text-align center
+          font-weight 200
+        }
+
       &::-webkit-input-placeholder {
         text-transform initial
-        text-align center
-        font-weight 200
       }
 
       &:-moz-placeholder {
         text-transform initial
-        text-align center
-        font-weight 200
       }
 
       &::-moz-placeholder {
         text-transform initial
-        text-align center
-        font-weight 200
       }
 
       &:-ms-input-placeholder {
         text-transform initial
-        text-align center
-        font-weight 200
       }
 
   .info-line
@@ -969,12 +1003,12 @@ ul
     letter-spacing 0.71px
     line-height 18px
     text-align center
-    margin 6px 0
+    margin 6px 0 0
     font-weight 500
     +breakpoint("tablet")
       font-size 16px
       line-height 22px
-      margin 6px 0
+      margin-top 30px
 
     span
       margin-right 5px

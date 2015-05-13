@@ -3376,6 +3376,11 @@ ul li {
   display: inline-block;
   vertical-align: middle;
 }
+@media screen and (min-width: 992px) and (max-height: 750px) {
+  #menu {
+    overflow-y: scroll;
+  }
+}
 .supported {
   clear: both;
   padding: 10px;
@@ -3406,6 +3411,11 @@ ul li {
   margin-left: 6px;
   margin-bottom: -8px;
   background: url("../images/supported_logo.svg") no-repeat;
+}
+@media screen and (min-width: 992px) and (max-height: 680px) {
+  .supported {
+    display: none;
+  }
 }
 .menu-hold {
   display: none;
@@ -3486,6 +3496,14 @@ ul li {
 }
 .menu-hold.is-active .social li {
   margin: 0 5px 0;
+}
+@media screen and (min-width: 768px) and (max-height: 750px) {
+  .menu-hold {
+    position: relative;
+    -webkit-transform: none;
+    transform: none;
+    top: 80px;
+  }
 }
 .rw-wrapper {
   position: relative;
@@ -4005,6 +4023,12 @@ ul li {
     z-index: 99;
   }
 }
+@media screen and (min-width: 992px) and (max-height: 750px) {
+  .sub-menu nav.fixed {
+    position: relative;
+    padding-top: 0;
+  }
+}
 .desktop-only {
   display: none !important;
 }
@@ -4117,8 +4141,14 @@ ul li {
 .search-con form {
   position: relative;
   display: inline-block;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
   max-width: 620px;
+  padding: 0 36px;
+}
+@media (min-width: 768px) {
+  .search-con form {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 0;
+  }
 }
 .search-con form .twitter-typeahead:before {
   content: "";
@@ -4134,7 +4164,7 @@ ul li {
 @media (min-width: 768px) {
   .search-con form .twitter-typeahead:before {
     background-size: 100%;
-    left: -80px;
+    left: -70px;
     top: 20px;
   }
 }
@@ -4179,26 +4209,38 @@ ul li {
     line-height: 95px;
     min-height: 95px;
   }
+  .search-con form .tt-input::-webkit-input-placeholder {
+    text-transform: initial;
+    text-align: center;
+    font-weight: 200;
+  }
+  .search-con form .tt-input:-moz-placeholder {
+    text-transform: initial;
+    text-align: center;
+    font-weight: 200;
+  }
+  .search-con form .tt-input::-moz-placeholder {
+    text-transform: initial;
+    text-align: center;
+    font-weight: 200;
+  }
+  .search-con form .tt-input:-ms-input-placeholder {
+    text-transform: initial;
+    text-align: center;
+    font-weight: 200;
+  }
 }
 .search-con form .tt-input::-webkit-input-placeholder {
   text-transform: initial;
-  text-align: center;
-  font-weight: 200;
 }
 .search-con form .tt-input:-moz-placeholder {
   text-transform: initial;
-  text-align: center;
-  font-weight: 200;
 }
 .search-con form .tt-input::-moz-placeholder {
   text-transform: initial;
-  text-align: center;
-  font-weight: 200;
 }
 .search-con form .tt-input:-ms-input-placeholder {
   text-transform: initial;
-  text-align: center;
-  font-weight: 200;
 }
 .search-con .info-line {
   font-size: 12.8px;
@@ -4206,14 +4248,14 @@ ul li {
   letter-spacing: 0.71px;
   line-height: 18px;
   text-align: center;
-  margin: 6px 0;
+  margin: 6px 0 0;
   font-weight: 500;
 }
 @media (min-width: 768px) {
   .search-con .info-line {
     font-size: 16px;
     line-height: 22px;
-    margin: 6px 0;
+    margin-top: 30px;
   }
 }
 .search-con .info-line span {
