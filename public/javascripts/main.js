@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var $submenu, $gotop, submenuOffset, gotopOffset;
   var data = [];
+  var loadingTimeout = 0;
 
   /**
    * highlight js configuration
@@ -17,13 +18,13 @@ $(document).ready(function() {
     timeout: 1200
   });
 
-  $(document).on('pjax:clicked', function () {
-    $('body').toggleClass('pjax-loading', true);
+  $(document).on('pjax:click', function () {
+    togglePjaxLoading(true);
     toggleResponsiveMenu(false);
   });
 
   $(document).on('pjax:beforeReplace', function () {
-    $('body').toggleClass('pjax-loading', false);
+    togglePjaxLoading(false);
   });
 
   $(document).on('pjax:end', function () {
@@ -264,4 +265,26 @@ $(document).ready(function() {
     return starsSorter(a, b);
   }
 
+  function togglePjaxLoading(toggle) {
+    // do not add pjax-loading flag twice
+    // wait for it to resolve or be canceled
+    if (toggle && loadingTimeout) {
+      return;
+    }
+
+    // cancel timer if toggle false
+    // and remove pjax-loading flag
+    if (!toggle) {
+      clearInterval(loadingTimeout);
+      $('body').toggleClass('pjax-loading', false);
+      return;
+    }
+
+    // save timeout timer and await to add
+    // pjax-loading flag
+    loadingTimeout = setTimeout(function () {
+      $('body').toggleClass('pjax-loading', true);
+    }, 300);
+
+  }
 });
