@@ -3686,7 +3686,7 @@ ul li {
   margin-top: 120px;
   overflow: hidden;
   padding: 0 20px;
-  max-width: 900px;
+  max-width: 890px;
   margin: auto;
 }
 @media (min-width: 992px) {
@@ -3722,6 +3722,7 @@ ul li {
 }
 .features section {
   text-align: center;
+  padding-left: 30px;
 }
 .features .col {
   display: inline-block;
@@ -3731,9 +3732,6 @@ ul li {
 @media (min-width: 992px) {
   .features .col {
     width: 400px;
-  }
-  .features .col:nth-child(2n) {
-    margin-right: 0;
   }
 }
 .features .col article {
