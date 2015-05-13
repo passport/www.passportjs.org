@@ -19,6 +19,7 @@ $(document).ready(function() {
 
   $(document).on('pjax:end', function () {
     sidebarToggle();
+    toggleResponsiveMenu(false);
     initialize();
   });
 
@@ -91,10 +92,8 @@ $(document).ready(function() {
     };
   });
 
-  $(document).on('click', '.menu-trigger', function() {
-    $("body").toggleClass("is-menu");
-    $(".content, .top-site").toggleClass('blured');
-    $(this).toggleClass("is-active").next().toggleClass("is-active");
+  $(document).on('click', '.menu-trigger', function(ev) {
+    toggleResponsiveMenu();
     return false;
   });
 
@@ -129,11 +128,6 @@ $(document).ready(function() {
     //   $input.val($input.attr('placeholder')).addClass("placeholder");
     // }
   })
-
-  // FIXME: should be re-evaluated on each pjax:end
-  if ($('.search-con .results').hasScrollBar()) {
-    $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-  };
 
   $(window).resize(function() {
     if ($('.search-con .results').hasScrollBar()) {
@@ -221,6 +215,12 @@ $(document).ready(function() {
     $(".main-hold").addClass('blured');
     $("body").addClass("is-search");
     $(".search-con form input").val(val).focus();
+  }
+
+  function toggleResponsiveMenu(open) {
+    $("body").toggleClass("is-menu", open);
+    $(".content, .top-site").toggleClass('blured', open);
+    $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
   }
 
   function templateItem(item) {
