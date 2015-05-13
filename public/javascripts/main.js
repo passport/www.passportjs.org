@@ -82,17 +82,6 @@ $(document).ready(function() {
     };
   });
 
-  $('.search-con form input').bind('typeahead:cursorchange', function (ev) {
-    var $results = $('.search-con .tt-menu .tt-dataset article').clone();
-    $results.appendTo($('.search-con .results section').html(''));
-    $(".search-con .info-line span").text($results.length);
-    if ($('.search-con .results').hasScrollBar()) {
-      $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-    } else {
-      $(".search-con .results section").css({ paddingLeft: 0 })
-    };
-  });
-
   $(document).on('click', '.menu-trigger', function(ev) {
     toggleResponsiveMenu();
     return false;
