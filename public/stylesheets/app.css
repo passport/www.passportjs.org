@@ -3086,27 +3086,6 @@ ul li {
   }
 }
 @media (min-width: 768px) {
-  .search-con .con-line {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: absolute;
-    top: 283px;
-    left: 0;
-    right: 0;
-  }
-  .search-con .con-line:after {
-    content: "";
-    height: 1px;
-    background: #494d56;
-    max-width: 1000px;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-}
-@media (min-width: 768px) {
   .top-site {
     *zoom: 1;
     padding-top: 60px;
@@ -4086,7 +4065,6 @@ ul li {
 @media (min-width: 768px) {
   .search-con .head {
     top: 0;
-    height: 283px;
     padding-top: 41px;
   }
 }
@@ -4192,6 +4170,18 @@ ul li {
     line-height: 95px;
     min-height: 95px;
   }
+}
+.search-con form .tt-input::-webkit-input-placeholder {
+  text-transform: initial;
+}
+.search-con form .tt-input:-moz-placeholder {
+  text-transform: initial;
+}
+.search-con form .tt-input::-moz-placeholder {
+  text-transform: initial;
+}
+.search-con form .tt-input:-ms-input-placeholder {
+  text-transform: initial;
 }
 .search-con .info-line {
   font-size: 12.8px;
@@ -4345,8 +4335,7 @@ ul li {
   background: url("../images/ico_star.svg") no-repeat 0 -24px;
 }
 @media (min-width: 992px) {
-  .ie .search-con .results,
-  .ie .search-con .con-line {
+  .ie .search-con .results {
     width: 1000px;
   }
 }

@@ -61,27 +61,6 @@ ul
     margin 0 auto
     padding-bottom 60px
 
-
-.search-con
-  +breakpoint("tablet")
-    .con-line
-      max-width 1000px
-      margin 0 auto
-      position absolute
-      top 283px
-      left 0
-      right 0
-      &:after
-        content ""
-        height 1px
-        background #494d56
-        max-width 1000px
-        margin 0 auto
-        position absolute
-        top 0
-        left 0
-        right 0
-
 .top-site
   +breakpoint("tablet")
     clearfix()
@@ -858,7 +837,6 @@ ul
     height auto
     +breakpoint("tablet")
       top 0
-      height 283px
       padding-top 41px
   .close-ico
     position absolute
@@ -944,6 +922,22 @@ ul
         font-size 70px
         line-height 95px
         min-height 95px
+
+      &::-webkit-input-placeholder {
+        text-transform initial
+      }
+
+      &:-moz-placeholder {
+        text-transform initial
+      }
+
+      &::-moz-placeholder {
+        text-transform initial
+      }
+
+      &:-ms-input-placeholder {
+        text-transform initial
+      }
 
   .info-line
     font-size 12.8px
@@ -1034,8 +1028,7 @@ ul
 
 
 +breakpoint("desktop")
-  .ie .search-con .results,
-  .ie .search-con .con-line
+  .ie .search-con .results
     width 1000px
 
 @keyframes blink {
