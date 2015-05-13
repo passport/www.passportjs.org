@@ -3033,6 +3033,9 @@ body {
     font-size: 16px;
   }
 }
+body.pjax-loading #page-content {
+  opacity: 0.3;
+}
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   body {
     -webkit-font-smoothing: antialiased;

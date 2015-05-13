@@ -17,9 +17,17 @@ $(document).ready(function() {
     timeout: 1200
   });
 
+  $(document).on('pjax:clicked', function () {
+    $('body').toggleClass('pjax-loading', true);
+    toggleResponsiveMenu(false);
+  });
+
+  $(document).on('pjax:beforeReplace', function () {
+    $('body').toggleClass('pjax-loading', false);
+  });
+
   $(document).on('pjax:end', function () {
     sidebarToggle();
-    toggleResponsiveMenu(false);
     initialize();
   });
 
