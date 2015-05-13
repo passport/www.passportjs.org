@@ -206,20 +206,20 @@ ul
   display block
   cursor pointer
   background  url(../images/logo.svg) center left no-repeat
-  background-size auto 90%;
+  background-size 40px auto;
   color #fff
   font-size 14px
   line-height 44px
   padding-left 56px
-  height: 60px;
-  margin 24px 0 0 40px
+  height: 100px;
+  margin 0 0 0 40px
   float left
   +breakpoint("tablet")
-    background-position 50% 0
-    background-size auto 100%;
+    background-position center
+    background-size auto 80%;
     font-size 16px
     line-height 22px
-    margin 60px auto 20px auto;
+    margin 60px auto 10px auto;
     text-align center
     max-width 130px
     float none
@@ -230,6 +230,7 @@ ul
 .jared
   color: #ccc;
   display: none;
+  font-size: 15px;
   +breakpoint('tablet')
     display: block;
 
@@ -541,6 +542,7 @@ ul
   padding 0 20px
   max-width: 890px;
   margin: auto;
+  margin-top: 120px;
   +breakpoint("desktop")
     margin-top 80px
 
@@ -569,11 +571,13 @@ ul
     padding-left: 30px
 
   .col
-    display: inline-block;
+    display: block;
     margin-right: 30px;
-    width: 100%;
-    +breakpoint("desktop")
+    // width: 100%;
+
+    +breakpoint("tablet")
       width: 400px
+      display: inline-block
 
     article
       background-color yellow
