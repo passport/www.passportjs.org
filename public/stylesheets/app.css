@@ -3569,7 +3569,7 @@ ul li {
 }
 @media (min-width: 768px) {
   .home {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 }
 .home h1 {
@@ -3687,14 +3687,10 @@ ul li {
   overflow: hidden;
   padding: 0 20px;
 }
-@media (min-width: 768px) {
-  .features {
-    padding: 0 100px;
-  }
-}
 @media (min-width: 992px) {
   .features {
     margin-top: 80px;
+    padding: 0 30px;
   }
 }
 .features h1 {
@@ -3733,7 +3729,10 @@ ul li {
 }
 @media (min-width: 992px) {
   .features .col {
-    width: 450px;
+    width: 400px;
+  }
+  .features .col:nth-child(2n) {
+    margin-right: 0;
   }
 }
 .features .col article {
@@ -3780,8 +3779,8 @@ ul li {
 @media (min-width: 768px) {
   .features .col article p {
     padding-top: 26px;
-    font-size: 18px;
-    padding-left: 30px;
+    font-size: 16px;
+    padding-left: 20px;
   }
 }
 .features .col .item-1 {

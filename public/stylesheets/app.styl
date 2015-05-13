@@ -452,7 +452,7 @@ ul
   padding 0 20px
   box-sizing border-box
   +breakpoint("tablet")
-    margin-top 80px
+    margin-top 60px
   h1
     font-size 50px
     font-weight 100
@@ -541,11 +541,10 @@ ul
   overflow hidden
   padding 0 20px
 
-  +breakpoint("tablet")
-    padding 0 100px
 
   +breakpoint("desktop")
     margin-top 80px
+    padding: 0 30px;
 
   h1
     font-size 30px
@@ -575,7 +574,10 @@ ul
     margin-right: 30px;
     width: 100%;
     +breakpoint("desktop")
-      width: 450px
+      width: 400px
+
+      &:nth-child(2n)
+        margin-right: 0;
 
     article
       background-color yellow
@@ -616,8 +618,8 @@ ul
         padding-left: 10px;
         +breakpoint("tablet")
           padding-top: 26px
-          font-size: 18px;
-          padding-left: 30px;
+          font-size: 16px;
+          padding-left: 20px;
 
     .item-1
       background-color: #35DF79
