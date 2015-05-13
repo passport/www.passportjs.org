@@ -284,7 +284,7 @@ $(document).ready(function() {
     // cancel timer if toggle false
     // and remove pjax-loading flag
     if (!toggle) {
-      clearInterval(loadingTimeout);
+      clearTimeout(loadingTimeout);
       $('body').toggleClass('pjax-loading', false);
       return;
     }
