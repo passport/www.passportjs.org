@@ -50,6 +50,7 @@ $(document).ready(function() {
   var strategies = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    sorter: sorter,
     identify: function(item) {
       return item.label;
     },
@@ -222,16 +223,31 @@ $(document).ready(function() {
   }
 
   function renderFeaturedStrategies() {
-    var $featured = $.map(strategies.all(), function (strat) {
-      if (strat.featured) {
-        return templateItem(strat);
-      };
+    var $featured = $.map(strategies.all().sort(sorter), function (strat) {
+      return templateItem(strat);
     });
+
     $('.search-con .results section').html($featured);
   }
 
   function templateItem(item) {
     return '<article><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span><span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+  }
+
+  function starsSorter (a, b) {
+    return +b.stars - (+a.stars);
+  }
+
+  function featuredSorter (a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (b.featured && !a.featured) return 1;
+    return 0;
+  }
+
+  function sorter (a, b) {
+    var first = featuredSorter(a, b);
+    if (first) return first;
+    return starsSorter(a, b);
   }
 
 });
