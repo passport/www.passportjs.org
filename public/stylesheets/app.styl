@@ -242,11 +242,12 @@ ul
   +breakpoint("desktop")
     width 350px
   .menu-trigger
-    height 16px
+    height 10px
     width 23px
+    padding-top 7px
     cursor pointer
     float right
-    margin 51px 40px 0 0
+    margin 43px 40px 0 0
     span, span:before, span:after
       background white
       width 100%
@@ -468,28 +469,20 @@ ul
     color white
     font-weight 100
     line-height 1.4
-    margin 0 0 27px 0
+    margin 0 0 50px
     +breakpoint("desktop")
       font-size 36px
       margin 0 auto 24px
 
-  img
-    display block
-    margin auto
-    max-width 100%
-    +breakpoint("tablet")
-      // display none
-      height: 60px;
-
   & > p
     line-height 1.8
-    margin-top 30px
-    margin-bottom 30px
+    margin-top 50px
+    margin-bottom 50px
     color: rgba(255,255,255,.8)
     +breakpoint("tablet")
       -webkit-transform translateY(-120px)
       transform translateY(-120px)
-      margin 0 auto 0
+      margin 0 auto
       font-size: 18px;
 
   .window
@@ -869,21 +862,29 @@ ul
       font-size 16px
       line-height 22px
       padding-bottom 5px
+
+  .hold
+    text-align center
   form
-    width 314px
-    margin 0 20px
-    padding-left 56px
-    background url(../images/ico_seach2.svg) no-repeat 0 10px
-    background-size 30px 30px
     position relative
-    +breakpoint("tablet")
-      margin 0 auto
-      width 400px
-      padding-left 70px
-      background url(../images/ico_seach2.svg) no-repeat 0 26px
-      background-size auto auto
-      position relative
-      left 10px
+    display inline-block
+    margin-left 10%
+    .twitter-typeahead
+      &:before
+        content ""
+        width 48px
+        height 48px
+        background url(../images/ico_seach2.svg) no-repeat
+        background-size 50%
+        position absolute
+        display inline-block
+        left -30px
+        top 16px
+        +breakpoint("tablet")
+          background-size 100%
+          left -60px
+          top 20px
+
     .tt-menu
       display none !important
     .tt-hint

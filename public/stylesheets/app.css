@@ -3308,11 +3308,12 @@ ul li {
   }
 }
 #menu .menu-trigger {
-  height: 16px;
+  height: 10px;
   width: 23px;
+  padding-top: 7px;
   cursor: pointer;
   float: right;
-  margin: 51px 40px 0 0;
+  margin: 43px 40px 0 0;
 }
 #menu .menu-trigger span,
 #menu .menu-trigger span:before,
@@ -3590,7 +3591,7 @@ ul li {
   color: #fff;
   font-weight: 100;
   line-height: 1.4;
-  margin: 0 0 27px 0;
+  margin: 0 0 50px;
 }
 @media (min-width: 992px) {
   .home h2 {
@@ -3598,27 +3599,17 @@ ul li {
     margin: 0 auto 24px;
   }
 }
-.home img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-}
-@media (min-width: 768px) {
-  .home img {
-    height: 60px;
-  }
-}
 .home > p {
   line-height: 1.8;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   color: rgba(255,255,255,0.8);
 }
 @media (min-width: 768px) {
   .home > p {
     -webkit-transform: translateY(-120px);
     transform: translateY(-120px);
-    margin: 0 auto 0;
+    margin: 0 auto;
     font-size: 18px;
   }
 }
@@ -4094,23 +4085,30 @@ ul li {
     padding-bottom: 5px;
   }
 }
+.search-con .hold {
+  text-align: center;
+}
 .search-con form {
-  width: 314px;
-  margin: 0 20px;
-  padding-left: 56px;
-  background: url("../images/ico_seach2.svg") no-repeat 0 10px;
-  background-size: 30px 30px;
   position: relative;
+  display: inline-block;
+  margin-left: 10%;
+}
+.search-con form .twitter-typeahead:before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background: url("../images/ico_seach2.svg") no-repeat;
+  background-size: 50%;
+  position: absolute;
+  display: inline-block;
+  left: -30px;
+  top: 16px;
 }
 @media (min-width: 768px) {
-  .search-con form {
-    margin: 0 auto;
-    width: 400px;
-    padding-left: 70px;
-    background: url("../images/ico_seach2.svg") no-repeat 0 26px;
-    background-size: auto auto;
-    position: relative;
-    left: 10px;
+  .search-con form .twitter-typeahead:before {
+    background-size: 100%;
+    left: -60px;
+    top: 20px;
   }
 }
 .search-con form .tt-menu {
