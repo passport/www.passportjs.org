@@ -230,15 +230,14 @@ $(document).ready(function() {
   }
 
   function renderFeaturedStrategies() {
-    var $featured = $.map(strategies.all().sort(sorter), function (strat) {
-      return templateItem(strat);
-    });
+    var $featured = $.map(strategies.all().sort(sorter), templateItem);
 
     $('.search-con .results section').html($featured);
+    $(".search-con .info-line span").text($featured.length);
   }
 
   function templateItem(item) {
-    return '<article><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span><span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span><span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
   }
 
   function starsSorter (a, b) {
