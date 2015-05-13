@@ -4173,9 +4173,6 @@ ul li {
     height: 81px;
   }
 }
-.search-con form input {
-  opacity: 0;
-}
 .search-con .info-line {
   font-size: 12.8px;
   color: rgba(255,255,255,0.5);
@@ -4336,7 +4333,8 @@ ul li {
 .ui-helper-hidden-accessible {
   display: none !important;
 }
-.ui-autocomplete {
+.ui-autocomplete,
+.tt-menu {
   display: none !important;
 }
 @-webkit-keyframes blink {

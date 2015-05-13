@@ -17,12 +17,12 @@ router.get('/features', function(req, res, next) {
 });
 
 router.get('/repo.json', function (req, res, next) {
-  if (repo) { return res.json(200, repo); }
+  if (repo) { return res.status(200).json(repo); }
   var url = 'https://api.github.com/repos/jaredhanson/passport';
   request.get(url, function (err, resp) {
-    if (err) { return res.json(resp.status, resp.body); };
+    if (err) { return res.status(resp.status).json(resp.body); };
     repo = resp.body;
-    res.json(200, repo);
+    res.status(200).json(repo);
     setTimeout(function () { repo = null; }, 24 * 60 * 1000);
   });
 });
