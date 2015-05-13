@@ -154,7 +154,6 @@ $(document).ready(function() {
     var $el = $(this);
     var id = $el.attr('href');
     var scroll = $(id).offset().top - 30;
-
     $('html, body').animate({ scrollTop: scroll }, 500);
   });
   // end menu nav docs
@@ -196,13 +195,23 @@ $(document).ready(function() {
   }
 
   function initialize() {
+    // reset containers
     $submenu = $('.sub-menu nav');
     $gotop = $('.go-top');
     submenuOffset = $submenu.offset();
     gotopOffset = $gotop.offset();
+
+    // reset syntax highlight
     $('pre code').each(function (i, block) {
       hljs.highlightBlock(block);
     });
+
+    // animate docs scroll
+    if (/^\/docs/.test(window.location.pathname) && window.location.hash) {
+      var scroll = $(window.location.hash).offset().top - 30;
+      $('html, body').animate({ scrollTop: scroll }, 500);
+
+    }
   }
 
   function sidebarToggle() {
