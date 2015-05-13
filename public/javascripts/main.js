@@ -237,7 +237,7 @@ $(document).ready(function() {
   }
 
   function templateItem(item) {
-    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span><span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
   }
 
   function starsSorter (a, b) {

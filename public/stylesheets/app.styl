@@ -748,6 +748,8 @@ ul
 
   li
     line-height 2.5
+    +breakpoint("desktop")
+      line-height 1.9
     a
       color rgba(white,.8)
       font-size 14px
@@ -760,14 +762,14 @@ ul
     font-weight normal
     font-size 14px
     color #f1f1f1
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 11px;
-    margin-top: 20px;
+    font-weight bold
+    text-transform uppercase
+    letter-spacing 1px
+    font-size 11px
     line-height 4
-    &:first-child
-      margin-top: 0;
+    +breakpoint("desktop")
+      line-height 2.8
+      margin-top 20px
 
     i
       display inline-block
@@ -784,10 +786,14 @@ ul
     [data-control]
       position relative
 
-  .accordion.open
-    i
-      -webkit-transform rotate(90deg) translateX(5px)
-      transform rotate(90deg) translateY(5px)
+  .accordion
+    &:first-child
+      h5
+        margin-top 0
+    &.open
+      i
+        -webkit-transform rotate(90deg) translateX(5px)
+        transform rotate(90deg) translateY(5px)
 
   nav
     -webkit-transition padding .5s
