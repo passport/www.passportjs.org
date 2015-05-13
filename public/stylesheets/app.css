@@ -3033,6 +3033,9 @@ body {
     font-size: 16px;
   }
 }
+body.pjax-loading #page-content {
+  opacity: 0.3;
+}
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   body {
     -webkit-font-smoothing: antialiased;
@@ -3240,21 +3243,22 @@ ul li {
   display: block;
   cursor: pointer;
   background: url("../images/logo.svg") center left no-repeat;
-  background-size: auto 90%;
+  background-size: 40px auto;
   color: #fff;
   font-size: 14px;
   line-height: 44px;
   padding-left: 56px;
-  height: 60px;
-  margin: 24px 0 0 40px;
+  height: 100px;
+  margin: 0 0 0 40px;
   float: left;
 }
 @media (min-width: 768px) {
   #logo {
-    background-position: 50% 0;
+    background-position: center;
+    background-size: auto 80%;
     font-size: 16px;
     line-height: 22px;
-    margin: 60px auto 20px auto;
+    margin: 60px auto 10px auto;
     text-align: center;
     max-width: 130px;
     float: none;
@@ -3268,6 +3272,7 @@ ul li {
 .jared {
   color: #ccc;
   display: none;
+  font-size: 15px;
 }
 @media (min-width: 768px) {
   .jared {
@@ -3400,7 +3405,7 @@ ul li {
   display: inline-block;
   margin-left: 6px;
   margin-bottom: -8px;
-  background-image: url("../images/supported_logo.svg");
+  background: url("../images/supported_logo.svg") no-repeat;
 }
 .menu-hold {
   display: none;
@@ -3667,6 +3672,7 @@ ul li {
   padding: 0 20px;
   max-width: 890px;
   margin: auto;
+  margin-top: 120px;
 }
 @media (min-width: 992px) {
   .features {
@@ -3704,13 +3710,13 @@ ul li {
   padding-left: 30px;
 }
 .features .col {
-  display: inline-block;
+  display: block;
   margin-right: 30px;
-  width: 100%;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .features .col {
     width: 400px;
+    display: inline-block;
   }
 }
 .features .col article {
@@ -4333,6 +4339,18 @@ ul li {
 }
 .search-con article .stat .star {
   background: url("../images/ico_star.svg") no-repeat 0 -24px;
+}
+.search-con article.featured a {
+  border-color: #d4fd02;
+}
+.search-con article.featured a .featured-flag {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #d4fd02;
 }
 @media (min-width: 992px) {
   .ie .search-con .results {
