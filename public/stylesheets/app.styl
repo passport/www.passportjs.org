@@ -882,7 +882,10 @@ ul
   form
     position relative
     display inline-block
-    margin-left 10%
+
+    border-bottom 1px solid rgba(white,.2)
+
+    max-width 620px
     .twitter-typeahead
       &:before
         content ""
@@ -896,7 +899,7 @@ ul
         top 16px
         +breakpoint("tablet")
           background-size 100%
-          left -60px
+          left -80px
           top 20px
 
     .tt-menu
@@ -911,6 +914,8 @@ ul
       white-space nowrap
       background none !important
       border none !important
+
+      max-width 620px
       +breakpoint("tablet")
         font-size 70px
         line-height 95px
@@ -927,6 +932,8 @@ ul
       top 0
       left 0px
       border none
+
+      max-width 620px
       +breakpoint("tablet")
         font-size 70px
         line-height 95px
@@ -934,18 +941,26 @@ ul
 
       &::-webkit-input-placeholder {
         text-transform initial
+        text-align center
+        font-weight 200
       }
 
       &:-moz-placeholder {
         text-transform initial
+        text-align center
+        font-weight 200
       }
 
       &::-moz-placeholder {
         text-transform initial
+        text-align center
+        font-weight 200
       }
 
       &:-ms-input-placeholder {
         text-transform initial
+        text-align center
+        font-weight 200
       }
 
   .info-line

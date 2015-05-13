@@ -4117,7 +4117,8 @@ ul li {
 .search-con form {
   position: relative;
   display: inline-block;
-  margin-left: 10%;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  max-width: 620px;
 }
 .search-con form .twitter-typeahead:before {
   content: "";
@@ -4133,7 +4134,7 @@ ul li {
 @media (min-width: 768px) {
   .search-con form .twitter-typeahead:before {
     background-size: 100%;
-    left: -60px;
+    left: -80px;
     top: 20px;
   }
 }
@@ -4150,6 +4151,7 @@ ul li {
   white-space: nowrap;
   background: none !important;
   border: none !important;
+  max-width: 620px;
 }
 @media (min-width: 768px) {
   .search-con form .tt-hint {
@@ -4169,6 +4171,7 @@ ul li {
   top: 0;
   left: 0px;
   border: none;
+  max-width: 620px;
 }
 @media (min-width: 768px) {
   .search-con form .tt-input {
@@ -4179,15 +4182,23 @@ ul li {
 }
 .search-con form .tt-input::-webkit-input-placeholder {
   text-transform: initial;
+  text-align: center;
+  font-weight: 200;
 }
 .search-con form .tt-input:-moz-placeholder {
   text-transform: initial;
+  text-align: center;
+  font-weight: 200;
 }
 .search-con form .tt-input::-moz-placeholder {
   text-transform: initial;
+  text-align: center;
+  font-weight: 200;
 }
 .search-con form .tt-input:-ms-input-placeholder {
   text-transform: initial;
+  text-align: center;
+  font-weight: 200;
 }
 .search-con .info-line {
   font-size: 12.8px;
