@@ -884,7 +884,9 @@ ul
       background-size auto auto
       position relative
       left 10px
-    .autocomplete
+    .tt-menu
+      display none !important
+    .tt-hint
       font-size 36px
       min-height 60px
       display block
@@ -892,44 +894,28 @@ ul
       line-height 1.5
       text-transform lowercase
       white-space nowrap
+      background none !important
+      border none !important
       +breakpoint("tablet")
         font-size 70px
-        line-height 96px
-        min-height 96px
-    .input,
-    input
+        line-height 95px
+        min-height 95px
+
+    .tt-input
       font-size 36px
-      color #fff
+      min-height 60px
+      color yellow
       text-transform lowercase
       line-height 1.5
       background none
       position absolute
       top 0
-      left 55px
+      left 0px
       border none
       +breakpoint("tablet")
         font-size 70px
         line-height 95px
-        height 95px
-        left 70px
-    .input
-      float left
-      &:after
-        content ""
-        display block
-        width 2px
-        position absolute
-        top 0
-        right 0
-        height 55px
-        animation blink 1s steps(3, start) infinite
-        -webkit-animation blink 1s steps(3, start) infinite
-        background yellow
-        +breakpoint("tablet")
-          top 7px
-          height 81px
-    // input
-    //   opacity 0
+        min-height 95px
 
   .info-line
     font-size 12.8px
@@ -1023,14 +1009,6 @@ ul
   .ie .search-con .results,
   .ie .search-con .con-line
     width 1000px
-
-
-.ui-helper-hidden-accessible
-  display none !important
-
-.ui-autocomplete, .tt-menu
-  display none !important
-
 
 @keyframes blink {
   to {

@@ -4113,7 +4113,10 @@ ul li {
     left: 10px;
   }
 }
-.search-con form .autocomplete {
+.search-con form .tt-menu {
+  display: none !important;
+}
+.search-con form .tt-hint {
   font-size: 36px;
   min-height: 60px;
   display: block;
@@ -4121,54 +4124,33 @@ ul li {
   line-height: 1.5;
   text-transform: lowercase;
   white-space: nowrap;
+  background: none !important;
+  border: none !important;
 }
 @media (min-width: 768px) {
-  .search-con form .autocomplete {
+  .search-con form .tt-hint {
     font-size: 70px;
-    line-height: 96px;
-    min-height: 96px;
+    line-height: 95px;
+    min-height: 95px;
   }
 }
-.search-con form .input,
-.search-con form input {
+.search-con form .tt-input {
   font-size: 36px;
-  color: #fff;
+  min-height: 60px;
+  color: #d4fd02;
   text-transform: lowercase;
   line-height: 1.5;
   background: none;
   position: absolute;
   top: 0;
-  left: 55px;
+  left: 0px;
   border: none;
 }
 @media (min-width: 768px) {
-  .search-con form .input,
-  .search-con form input {
+  .search-con form .tt-input {
     font-size: 70px;
     line-height: 95px;
-    height: 95px;
-    left: 70px;
-  }
-}
-.search-con form .input {
-  float: left;
-}
-.search-con form .input:after {
-  content: "";
-  display: block;
-  width: 2px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 55px;
-  animation: blink 1s steps(3, start) infinite;
-  -webkit-animation: blink 1s steps(3, start) infinite;
-  background: #d4fd02;
-}
-@media (min-width: 768px) {
-  .search-con form .input:after {
-    top: 7px;
-    height: 81px;
+    min-height: 95px;
   }
 }
 .search-con .info-line {
@@ -4327,13 +4309,6 @@ ul li {
   .ie .search-con .con-line {
     width: 1000px;
   }
-}
-.ui-helper-hidden-accessible {
-  display: none !important;
-}
-.ui-autocomplete,
-.tt-menu {
-  display: none !important;
 }
 @-webkit-keyframes blink {
   to {
