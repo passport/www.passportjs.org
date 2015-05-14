@@ -10,6 +10,23 @@ $(document).ready(function() {
   hljs.configure({ classPrefix: '' });
 
   /**
+   * Strategies Search Engine initialization
+   */
+
+  var strategies = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    sorter: sorter,
+    identify: function(item) {
+      return item.label;
+    },
+    prefetch: {
+      url: '/data.json',
+      cache: false
+    }
+  });
+
+  /**
    * PJAX configuration
    */
 
@@ -52,19 +69,6 @@ $(document).ready(function() {
 
   $("body").toggleClass("ie", msieversion());
 
-  var strategies = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    sorter: sorter,
-    identify: function(item) {
-      return item.label;
-    },
-    prefetch: {
-      url: '/data.json',
-      cache: false
-    }
-  });
-
   // passing in `null` for the `options` arguments will result in the default
   // options being used
   $('.search-con form input').typeahead(null, {
@@ -88,12 +92,16 @@ $(document).ready(function() {
     };
   });
 
-  $(document).on('input', '.search-con form input', function (ev) {
-    if (!$(this).val().length) {
-      renderFeaturedStrategies();
-    };
-  });
+  $(document).on('input', '.search-con form input.tt-input', function (ev) {
+    var nonempty = !!$(this).val().length;
 
+    $(this).toggleClass('bigger', nonempty);
+    $('.tt-hint').toggleClass('bigger', nonempty);
+
+    if (!nonempty) {
+      renderFeaturedStrategies();
+    }
+  });
 
   $(document).on('click', '.menu-trigger', function(ev) {
     toggleResponsiveMenu();
@@ -126,17 +134,6 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on('keyup', '.tt-input', function() {
-    if($(this).val() !== "") {
-      $(this).addClass('bigger');
-      $('.tt-hint').addClass('bigger');
-    } else if($(this).val() == "") {
-      $(this).removeClass('bigger');
-      $('.tt-hint').removeClass('bigger');
-    }
-  });
-
-
   $(window).resize(function() {
     if ($('.search-con .results').hasScrollBar()) {
       $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
@@ -152,6 +149,7 @@ $(document).ready(function() {
   });
 
   page('/docs/:document', function (ctx, next) {
+    if ('providers' === ctx.params.document) return openSearch.call(document);
     var id = '#' + ctx.params.document;
     scrollToId(id);
   });
@@ -209,6 +207,7 @@ $(document).ready(function() {
     // animate docs scroll
     if (/^\/docs\/./.test(window.location.pathname)) {
       var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
+      if ('#providers' === id) return openSearch.call(document);
       scrollToId(id);
     }
   }
@@ -245,22 +244,27 @@ $(document).ready(function() {
   }
 
   function toggleResponsiveMenu(open) {
-    $("body").toggleClass("is-menu", open);
+    $("html").toggleClass("is-menu", open);
     $(".content, .top-site").toggleClass('blured', open);
     $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
   }
 
   function renderFeaturedStrategies() {
-    var $featured = $.map(strategies.all().sort(sorter), templateItem);
-    $('.search-con .results section').html($featured);
-    $(".search-con .info-line span").text($featured.length);
+    strategies.initPromise.done(loaded);
+    function loaded() {
+      var $featured = $.map(strategies.all().sort(sorter), templateItem);
+      $('.search-con .results section').html($featured);
+      $(".search-con .info-line span").text($featured.length);
+    }
   }
 
   function templateItem(item) {
-    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'" target="_blank"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
   }
 
   function starsSorter (a, b) {
+    if (a.stars && !b.stars) return -1;
+    if (b.stars && !a.stars) return 1;
     return +b.stars - (+a.stars);
   }
 
@@ -302,4 +306,5 @@ $(document).ready(function() {
     var scroll = $(id).offset().top - 30;
     $('html, body').animate({ scrollTop: scroll }, 500);
   }
+
 });
