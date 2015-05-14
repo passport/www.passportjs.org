@@ -5,6 +5,9 @@ site.set('base url', 'http://passportjs.org/');
 site.set('output', 'passportjs.org');
 
 site.engine('ejs', require('ejs-locals'));
+site.engine('jade', require('jade'));
+
+site.set('layout engine', 'jade');
 
 site.content('content');
 site.static('public');
