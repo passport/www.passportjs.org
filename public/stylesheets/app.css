@@ -3475,7 +3475,7 @@ ul li {
 }
 .menu-hold.is-active > ul {
   width: 100%;
-  top: 46%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   position: absolute;
@@ -3725,11 +3725,19 @@ ul li {
 }
 .features section {
   text-align: center;
-  padding-left: 30px;
+}
+@media (min-width: 992px) {
+  .features section {
+    padding-left: 30px;
+  }
 }
 .features .col {
   display: block;
-  margin-right: 30px;
+}
+@media (min-width: 992px) {
+  .features .col {
+    margin-right: 30px;
+  }
 }
 @media (min-width: 768px) {
   .features .col {
@@ -3746,43 +3754,46 @@ ul li {
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+}
+@media (min-width: 992px) {
+  .features .col article {
+    padding: 0;
+  }
 }
 .features .col article i {
-  width: 50px;
-  height: 50px;
   display: inline-block;
   vertical-align: middle;
   font-size: 20px;
   text-align: center;
-  line-height: 2.8;
-  float: left;
-  background: rgba(0,0,0,0.2);
+  margin-top: 10px;
 }
 @media (min-width: 768px) {
   .features .col article i {
     height: 80px;
     width: 80px;
+    margin: 0;
     line-height: 3.3;
     font-size: 28px;
+    background: rgba(0,0,0,0.2);
+    float: left;
   }
 }
 .features .col article p {
   color: #000;
   font-weight: 500;
-  padding: 0;
   margin: 0;
-  display: inline-block;
+  display: block;
   margin-bottom: 0px;
-  float: left;
-  padding-top: 11px;
-  font-size: 12px;
-  padding-left: 10px;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
   .features .col article p {
     padding-top: 26px;
     font-size: 16px;
     padding-left: 20px;
+    float: left;
   }
 }
 .features .col .item-1 {
@@ -4049,10 +4060,13 @@ ul li {
     transition: none;
   }
 }
-.is-menu {
+html.is-menu,
+html.is-menu body {
   overflow: hidden;
+  height: 100vh;
 }
-.is-menu .social {
+html.is-menu .social,
+html.is-menu body .social {
   display: block;
   position: fixed;
   bottom: 50px;
@@ -4061,10 +4075,12 @@ ul li {
   left: 0;
   text-align: center;
 }
-.is-menu .social .twitter {
+html.is-menu .social .twitter,
+html.is-menu body .social .twitter {
   margin-right: 30px;
 }
-.is-menu .social li:last-child {
+html.is-menu .social li:last-child,
+html.is-menu body .social li:last-child {
   margin-right: 0;
 }
 .is-search {
