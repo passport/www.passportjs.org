@@ -42,10 +42,13 @@ $(document).ready(function() {
    * Load for remote Data only once
    */
 
+  // No longer needed, rendered into page at static generation time.
+  /*
   $.getJSON('repo.json', function(data) {
     $(".social .stat").text(numberWithCommas(data.stargazers_count));
   });
-
+  */
+  
   // $.getJSON("data.json", function(qdata) {
   //   data = qdata;
   // });

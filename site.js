@@ -1,4 +1,5 @@
 var kerouac = require('kerouac');
+var request = require('request');
 var site = kerouac();
 
 site.set('base url', 'http://passportjs.org/');
@@ -40,10 +41,22 @@ site.plug(require('kerouac-robotstxt')());
 })();
 
 
-site.generate(function(err) {
+request.get('https://api.github.com/repos/jaredhanson/passport',
+            { headers: { 'User-Agent': 'node' }, json: true }, function (err, resp, json) {
   if (err) {
     console.error(err.message);
     console.error(err.stack);
     return;
   }
+  
+  site.locals.stargazersCount = json.stargazers_count;
+  
+  site.generate(function(err) {
+    if (err) {
+      console.error(err.message);
+      console.error(err.stack);
+      return;
+    }
+  });
 });
+
