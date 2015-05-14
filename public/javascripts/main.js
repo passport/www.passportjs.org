@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   var strategies = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.nonword,
     sorter: sorter,
     identify: function(item) {
       return item.label;
@@ -92,12 +92,16 @@ $(document).ready(function() {
     };
   });
 
-  $(document).on('input', '.search-con form input', function (ev) {
-    if (!$(this).val().length) {
-      renderFeaturedStrategies();
-    };
-  });
+  $(document).on('input', '.search-con form input.tt-input', function (ev) {
+    var nonempty = !!$(this).val().length;
 
+    $(this).toggleClass('bigger', nonempty);
+    $('.tt-hint').toggleClass('bigger', nonempty);
+
+    if (!nonempty) {
+      renderFeaturedStrategies();
+    }
+  });
 
   $(document).on('click', '.menu-trigger', function(ev) {
     toggleResponsiveMenu();
@@ -129,17 +133,6 @@ $(document).ready(function() {
       $input.val('').removeClass("placeholder");
     }
   });
-
-  $(document).on('keyup', '.tt-input', function() {
-    if($(this).val() !== "") {
-      $(this).addClass('bigger');
-      $('.tt-hint').addClass('bigger');
-    } else if($(this).val() == "") {
-      $(this).removeClass('bigger');
-      $('.tt-hint').removeClass('bigger');
-    }
-  });
-
 
   $(window).resize(function() {
     if ($('.search-con .results').hasScrollBar()) {
@@ -313,4 +306,5 @@ $(document).ready(function() {
     var scroll = $(id).offset().top - 30;
     $('html, body').animate({ scrollTop: scroll }, 500);
   }
+
 });
