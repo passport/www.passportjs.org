@@ -4141,12 +4141,12 @@ ul li {
 .search-con form {
   position: relative;
   display: inline-block;
-  max-width: 620px;
+  max-width: 600px;
   padding: 0 36px;
 }
 @media (min-width: 768px) {
   .search-con form {
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     padding: 0;
   }
 }
@@ -4171,76 +4171,57 @@ ul li {
 .search-con form .tt-menu {
   display: none !important;
 }
-.search-con form .tt-hint {
-  font-size: 36px;
-  min-height: 60px;
-  display: block;
-  color: #8d9095;
-  line-height: 1.5;
-  text-transform: lowercase;
-  white-space: nowrap;
+.search-con form .tt-hint,
+.search-con form .tt-input {
   background: none !important;
   border: none !important;
-  max-width: 620px;
-}
-@media (min-width: 768px) {
-  .search-con form .tt-hint {
-    font-size: 70px;
-    line-height: 95px;
-    min-height: 95px;
-  }
-}
-.search-con form .tt-input {
-  font-size: 36px;
-  min-height: 60px;
-  color: #d4fd02;
-  text-transform: lowercase;
+  max-width: 360px;
+  font-size: 32px;
   line-height: 1.5;
-  background: none;
-  position: absolute;
-  top: 0;
-  left: 0px;
-  border: none;
-  max-width: 620px;
+  min-height: 60px;
+  text-transform: lowercase;
 }
 @media (min-width: 768px) {
+  .search-con form .tt-hint,
   .search-con form .tt-input {
     font-size: 70px;
-    line-height: 95px;
-    min-height: 95px;
+    line-height: 1.3;
+    -webkit-transition: max-width 0.3s ease-out;
+    transition: max-width 0.3s ease-out;
   }
-  .search-con form .tt-input::-webkit-input-placeholder {
-    text-transform: initial;
-    text-align: center;
-    font-weight: 200;
+  .search-con form .tt-hint.bigger,
+  .search-con form .tt-input.bigger {
+    -webkit-transition: max-width 0.3s ease-out;
+    transition: max-width 0.3s ease-out;
+    max-width: 620px;
   }
-  .search-con form .tt-input:-moz-placeholder {
-    text-transform: initial;
-    text-align: center;
-    font-weight: 200;
-  }
-  .search-con form .tt-input::-moz-placeholder {
-    text-transform: initial;
-    text-align: center;
-    font-weight: 200;
-  }
-  .search-con form .tt-input:-ms-input-placeholder {
-    text-transform: initial;
-    text-align: center;
-    font-weight: 200;
-  }
+}
+.search-con form .tt-hint {
+  display: block;
+  color: #8d9095;
+  white-space: nowrap;
+}
+.search-con form .tt-input {
+  color: #d4fd02;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .search-con form .tt-input::-webkit-input-placeholder {
   text-transform: initial;
+  color: #8d9095;
 }
 .search-con form .tt-input:-moz-placeholder {
   text-transform: initial;
+  color: #8d9095;
 }
 .search-con form .tt-input::-moz-placeholder {
   text-transform: initial;
+  color: #8d9095;
 }
 .search-con form .tt-input:-ms-input-placeholder {
   text-transform: initial;
+  color: #8d9095;
 }
 .search-con .info-line {
   font-size: 12.8px;

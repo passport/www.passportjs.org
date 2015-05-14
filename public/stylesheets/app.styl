@@ -899,10 +899,10 @@ ul
   form
     position relative
     display inline-block
-    max-width 620px
+    max-width 600px
     padding 0 36px
     +breakpoint("tablet")
-      border-bottom 1px solid rgba(white,.2)
+      border-bottom 1px solid rgba(white,.1)
       padding 0
     .twitter-typeahead
       &:before
@@ -922,79 +922,55 @@ ul
 
     .tt-menu
       display none !important
-    .tt-hint
-      font-size 36px
+
+    .tt-hint, .tt-input
+      background none!important
+      border none!important
+      max-width 360px
+      font-size 32px
+      line-height 1.5
       min-height 60px
+      text-transform lowercase
+      +breakpoint("tablet")
+        font-size 70px
+        line-height 1.3
+        -webkit-transition max-width .3s ease-out
+        transition max-width .3s ease-out
+
+        &.bigger
+          -webkit-transition max-width .3s ease-out
+          transition max-width .3s ease-out
+          max-width 620px
+
+    .tt-hint
       display block
       color #8d9095
-      line-height 1.5
-      text-transform lowercase
       white-space nowrap
-      background none !important
-      border none !important
-
-      max-width 620px
-      +breakpoint("tablet")
-        font-size 70px
-        line-height 95px
-        min-height 95px
 
     .tt-input
-      font-size 36px
-      min-height 60px
       color yellow
-      text-transform lowercase
-      line-height 1.5
-      background none
       position absolute
       top 0
-      left 0px
-      border none
-
-      max-width 620px
-      +breakpoint("tablet")
-        font-size 70px
-        line-height 95px
-        min-height 95px
-
-        &::-webkit-input-placeholder {
-          text-transform initial
-          text-align center
-          font-weight 200
-        }
-
-        &:-moz-placeholder {
-          text-transform initial
-          text-align center
-          font-weight 200
-        }
-
-        &::-moz-placeholder {
-          text-transform initial
-          text-align center
-          font-weight 200
-        }
-
-        &:-ms-input-placeholder {
-          text-transform initial
-          text-align center
-          font-weight 200
-        }
+      left 0
 
       &::-webkit-input-placeholder {
         text-transform initial
+        color #8d9095
       }
 
       &:-moz-placeholder {
         text-transform initial
+        color #8d9095
       }
 
       &::-moz-placeholder {
         text-transform initial
+        color #8d9095
       }
 
       &:-ms-input-placeholder {
         text-transform initial
+        color #8d9095
       }
 
   .info-line
