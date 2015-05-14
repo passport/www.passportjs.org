@@ -1,0 +1,71 @@
+extends layout
+
+include mixins
+
+block content
+
+  .entry
+    .sub-menu
+      nav(data-accordion-group='')
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | General
+          ul(data-content='')
+            li
+              a(href='#overview').active Overview
+            li
+              a(href='#authenticate') Authenticate
+            li
+              a(href='#configure') Configure
+            li
+              a(href='#username-password') Username & Password
+            li
+              a(href='#openid') OpenID
+            li
+              a(href='#oauth') OAuth
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | Providers
+          ul(data-content='')
+            li
+              a(href='#facebook') Facebook
+            li
+              a(href='#twitter') Twitter
+            li
+              a(href='#google') Google
+            li
+              a(href='/', data-search='') Other
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | APIs
+          ul(data-content='')
+            li
+              a(href='#basic-digest') Basic & Digest
+            li
+              a(href='#oauth-api') OAuth
+            li
+              a(href='#oauth2-api') OAuth 2.0
+            li
+              a(href='#other-api') Other
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            | Operations
+          ul(data-content='')
+            li
+              a(href='#login') Log In
+            li
+              a(href='#logout') Log Out
+            li
+              a(href='#authorize') Authorize
+            li
+              a(href='#profile') User Profile
+
+    a.go-top(href='#top')
+      i.icon-budicon-462
