@@ -103,6 +103,11 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on('click', '.go-top', function(ev) {
+    scrollToId('#top');
+    return false;
+  });
+
   $(document).on('click', '.menu-trigger', function(ev) {
     toggleResponsiveMenu();
     return false;
