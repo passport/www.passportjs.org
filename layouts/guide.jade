@@ -13,17 +13,17 @@ block content
             | General
           ul(data-content='')
             li
-              a(href='#overview').active Overview
+              a(href='/guide/').active Overview
             li
-              a(href='#authenticate') Authenticate
+              a(href='/guide/authenticate/') Authenticate
             li
-              a(href='#configure') Configure
+              a(href='/guide/configure/') Configure
             li
-              a(href='#username-password') Username & Password
+              a(href='/guide/username-password/') Username & Password
             li
-              a(href='#openid') OpenID
+              a(href='/guide/openid/') OpenID
             li
-              a(href='#oauth') OAuth
+              a(href='/guide/oauth/') OAuth
 
         .accordion(data-accordion='')
           h5(data-control='')
@@ -31,11 +31,11 @@ block content
             | Providers
           ul(data-content='')
             li
-              a(href='#facebook') Facebook
+              a(href='/guide/facebook/') Facebook
             li
-              a(href='#twitter') Twitter
+              a(href='/guide/twitter/') Twitter
             li
-              a(href='#google') Google
+              a(href='/guide/google/') Google
             li
               a(href='/', data-search='') Other
 
@@ -45,13 +45,13 @@ block content
             | APIs
           ul(data-content='')
             li
-              a(href='#basic-digest') Basic & Digest
+              a(href='/guide/basic-digest/') Basic & Digest
             li
-              a(href='#oauth-api') OAuth
+              a(href='/guide/oauth-api/') OAuth
             li
-              a(href='#oauth2-api') OAuth 2.0
+              a(href='/guide/oauth2-api/') OAuth 2.0
             li
-              a(href='#other-api') Other
+              a(href='/guide/other-api/') Other
 
         .accordion(data-accordion='')
           h5(data-control='')
@@ -59,13 +59,16 @@ block content
             | Operations
           ul(data-content='')
             li
-              a(href='#login') Log In
+              a(href='/guide/login/') Log In
             li
-              a(href='#logout') Log Out
+              a(href='/guide/logout/') Log Out
             li
-              a(href='#authorize') Authorize
+              a(href='/guide/authorize/') Authorize
             li
-              a(href='#profile') User Profile
+              a(href='/guide/profile/') User Profile
 
     a.go-top(href='#top')
       i.icon-budicon-462
+
+    .guides
+      != content
