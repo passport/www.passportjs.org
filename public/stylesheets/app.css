@@ -3482,6 +3482,11 @@ ul li {
   padding-left: 0;
   margin-top: -44px;
 }
+@media (min-width: 568px) {
+  .menu-hold.is-active > ul {
+    margin-top: 0;
+  }
+}
 .menu-hold.is-active li {
   margin: 30px 0;
 }
