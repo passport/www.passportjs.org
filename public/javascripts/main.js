@@ -10,6 +10,23 @@ $(document).ready(function() {
   hljs.configure({ classPrefix: '' });
 
   /**
+   * Strategies Search Engine initialization
+   */
+
+  var strategies = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    sorter: sorter,
+    identify: function(item) {
+      return item.label;
+    },
+    prefetch: {
+      url: '/data.json',
+      cache: false
+    }
+  });
+
+  /**
    * PJAX configuration
    */
 
@@ -152,6 +169,7 @@ $(document).ready(function() {
   });
 
   page('/docs/:document', function (ctx, next) {
+    if ('providers' === ctx.params.document) return openSearch.call(document);
     var id = '#' + ctx.params.document;
     scrollToId(id);
   });
@@ -209,6 +227,7 @@ $(document).ready(function() {
     // animate docs scroll
     if (/^\/docs\/./.test(window.location.pathname)) {
       var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
+      if ('#providers' === id) return openSearch.call(document);
       scrollToId(id);
     }
   }
@@ -251,9 +270,12 @@ $(document).ready(function() {
   }
 
   function renderFeaturedStrategies() {
-    var $featured = $.map(strategies.all().sort(sorter), templateItem);
-    $('.search-con .results section').html($featured);
-    $(".search-con .info-line span").text($featured.length);
+    strategies.initPromise.done(loaded);
+    function loaded() {
+      var $featured = $.map(strategies.all().sort(sorter), templateItem);
+      $('.search-con .results section').html($featured);
+      $(".search-con .info-line span").text($featured.length);
+    }
   }
 
   function templateItem(item) {
