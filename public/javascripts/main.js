@@ -14,7 +14,7 @@ $(document).ready(function() {
    */
 
   var strategies = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     sorter: sorter,
     identify: function(item) {
@@ -68,19 +68,6 @@ $(document).ready(function() {
    */
 
   $("body").toggleClass("ie", msieversion());
-
-  var strategies = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    sorter: sorter,
-    identify: function(item) {
-      return item.label;
-    },
-    prefetch: {
-      url: '/data.json',
-      cache: false
-    }
-  });
 
   // passing in `null` for the `options` arguments will result in the default
   // options being used
