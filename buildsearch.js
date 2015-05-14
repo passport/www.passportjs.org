@@ -112,7 +112,8 @@ try {
         });
         iter();
       } else {
-        return iter(new Error('No repository for: ' + name));
+        console.log('WARN: No repository for: ' + name);
+        return iter();
       }
     });
     
