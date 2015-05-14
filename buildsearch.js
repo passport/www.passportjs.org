@@ -33,15 +33,36 @@ try {
     }
     
     
-    var url = githubUrl(strategy.repository);
-    var obj = gh(url);
+    var name = strategy.name
+      , url, obj;
+    if (!name) {
+      url = githubUrl(strategy.repository);
+      obj = gh(url);
+      name = obj.repo;
+    }
     
-    var name = strategy.name || obj.repo;
     
     npm.packages.get(name, function (err, npmData) {
       if (err) { return iter(err); }
       
+      var url, obj;
+      
       var pkg = npmData[0];
+      if (strategy.repository) {
+        url = githubUrl(strategy.repository);
+        obj = gh(url);
+      } else if (pkg.repository) {
+        if (typeof pkg.repository == 'string') {
+          url = githubUrl(pkg.repository);
+          obj = gh(url);
+        } else {
+          url = githubUrl(pkg.repository.url);
+          obj = gh(url);
+        }
+      } else {
+        // no repository, skip
+        return iter();
+      }
     
       request.get(obj.api_url,
                   { headers: { 'User-Agent': 'node' }, json: true }, function (err, resp, json) {
