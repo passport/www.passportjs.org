@@ -1,7 +1,10 @@
 var request = require('superagent');
 var express = require('express');
+var documents = getDocuments();
 var router = express.Router();
 var repo = null;
+
+module.exports = router;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,8 +12,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/docs', function(req, res, next) {
+
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
 });
+
+router.get('/docs/:document', function(req, res, next) {
+  if (!~documents.indexOf(req.params.document)) return next();
+  // setup canonical path
+  res.locals.context.canonical = '/docs';
+  // render docs layout
+  res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
+});
+
 
 router.get('/features', function(req, res, next) {
   res.render('features', { title: 'Features', page_class: 'page-features'});
@@ -27,4 +40,17 @@ router.get('/repo.json', function (req, res, next) {
   });
 });
 
-module.exports = router;
+function getDocuments() {
+  var path = require('path');
+  var resolve = path.resolve;
+  var fs = require('fs');
+  var read = fs.readdirSync;
+
+  var documents = read(resolve(__dirname, '../views/docs'));
+
+  return documents.filter(function (d) {
+    return /\.md$/.test(d);
+  }).map(function (d) {
+    return d.replace(/\.md$/, '');
+  });
+}
