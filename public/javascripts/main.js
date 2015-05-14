@@ -168,13 +168,6 @@ $(document).ready(function() {
   page.start();
   // end menu nav docs
 
-  /*
-   * Accordion
-   */
-  $('.accordion').accordion({
-    "transitionSpeed": 400
-  });
-
   /**
    * Contextual helpers
    * Depends on globally context variable values
@@ -214,6 +207,11 @@ $(document).ready(function() {
     // reset syntax highlight
     $('pre code').each(function (i, block) {
       hljs.highlightBlock(block);
+    });
+
+    // accordion
+    $('.accordion').accordion({
+      "transitionSpeed": 400
     });
 
     // animate docs scroll
