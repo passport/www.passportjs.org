@@ -3725,11 +3725,19 @@ ul li {
 }
 .features section {
   text-align: center;
-  padding-left: 30px;
+}
+@media (min-width: 992px) {
+  .features section {
+    padding-left: 30px;
+  }
 }
 .features .col {
   display: block;
-  margin-right: 30px;
+}
+@media (min-width: 992px) {
+  .features .col {
+    margin-right: 30px;
+  }
 }
 @media (min-width: 768px) {
   .features .col {
@@ -3746,17 +3754,20 @@ ul li {
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+}
+@media (min-width: 992px) {
+  .features .col article {
+    padding: 0;
+  }
 }
 .features .col article i {
-  width: 50px;
-  height: 50px;
   display: inline-block;
   vertical-align: middle;
   font-size: 20px;
   text-align: center;
-  line-height: 2.8;
-  float: left;
-  background: rgba(0,0,0,0.2);
+  margin-top: 10px;
 }
 @media (min-width: 768px) {
   .features .col article i {
@@ -3764,25 +3775,24 @@ ul li {
     width: 80px;
     line-height: 3.3;
     font-size: 28px;
+    background: rgba(0,0,0,0.2);
+    float: left;
   }
 }
 .features .col article p {
   color: #000;
   font-weight: 500;
-  padding: 0;
   margin: 0;
-  display: inline-block;
+  display: block;
   margin-bottom: 0px;
-  float: left;
-  padding-top: 11px;
-  font-size: 12px;
-  padding-left: 10px;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
   .features .col article p {
     padding-top: 26px;
     font-size: 16px;
     padding-left: 20px;
+    float: left;
   }
 }
 .features .col .item-1 {
