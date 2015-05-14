@@ -69,6 +69,19 @@ $(document).ready(function() {
 
   $("body").toggleClass("ie", msieversion());
 
+  var strategies = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    sorter: sorter,
+    identify: function(item) {
+      return item.label;
+    },
+    prefetch: {
+      url: '/data.json',
+      cache: false
+    }
+  });
+
   // passing in `null` for the `options` arguments will result in the default
   // options being used
   $('.search-con form input').typeahead(null, {
@@ -270,6 +283,8 @@ $(document).ready(function() {
   }
 
   function starsSorter (a, b) {
+    if (a.stars && !b.stars) return -1;
+    if (b.stars && !a.stars) return 1;
     return +b.stars - (+a.stars);
   }
 
