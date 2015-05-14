@@ -753,7 +753,7 @@ ul
     a
       color rgba(white,.8)
       font-size 14px
-      &.active, &:hover
+      &:hover, &.active
         +breakpoint("desktop")
           color blue
 
@@ -769,7 +769,7 @@ ul
     line-height 4
     +breakpoint("desktop")
       line-height 2.8
-      margin-top 20px
+      margin-top 10px
 
     i
       display inline-block
@@ -779,12 +779,13 @@ ul
         display none
 
   [data-accordion]
-    [data-content]
-      +breakpoint("desktop")
-        overflow auto!important
-        max-height 100%!important
     [data-control]
       position relative
+    [data-content]
+      +breakpoint("desktop")
+        @media screen and ( min-height: 751px )
+          max-height 100%!important
+          overflow visible!important
 
   .accordion
     &:first-child
@@ -805,9 +806,16 @@ ul
         padding-top 20px
         z-index 99
 
-        @media screen and ( max-height: 750px )
-          position relative
-          padding-top 0
+  @media screen and ( max-height: 750px )
+    [data-accordion]
+      [data-content]
+        max-height 0px!important
+        -webkit-transition none
+        transition none
+        &.active
+          max-height 100%!important
+          -webkit-transition none
+          transition none
 
 
 .desktop-only
@@ -1000,7 +1008,7 @@ ul
     +breakpoint("tablet")
       top 283px
       max-width 1050px
-      padding-top 50px
+      padding-top 20px
       margin auto
       clear both
 

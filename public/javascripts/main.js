@@ -185,11 +185,11 @@ $(document).ready(function() {
       var bottom = top + $(this).outerHeight();
 
       if (cur_pos >= top && cur_pos <= bottom) {
-        $submenu.find('a').removeClass('active');
+        $submenu.find('a').removeClass('active').closest('[data-content]').removeClass('active');
         sections.removeClass('active');
 
         $(this).addClass('active');
-        $submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active');
+        $submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
       }
     });
   }

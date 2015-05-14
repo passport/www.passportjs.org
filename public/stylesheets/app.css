@@ -3963,8 +3963,8 @@ ul li {
   font-size: 14px;
 }
 @media (min-width: 992px) {
-  .sub-menu li a.active,
-  .sub-menu li a:hover {
+  .sub-menu li a:hover,
+  .sub-menu li a.active {
     color: #01b7ee;
   }
 }
@@ -3982,7 +3982,7 @@ ul li {
 @media (min-width: 992px) {
   .sub-menu h5 {
     line-height: 2.8;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 .sub-menu h5 i {
@@ -3995,14 +3995,14 @@ ul li {
     display: none;
   }
 }
-@media (min-width: 992px) {
-  .sub-menu [data-accordion] [data-content] {
-    overflow: auto !important;
-    max-height: 100% !important;
-  }
-}
 .sub-menu [data-accordion] [data-control] {
   position: relative;
+}
+@media screen and (min-width: 992px) and (min-height: 751px) {
+  .sub-menu [data-accordion] [data-content] {
+    max-height: 100% !important;
+    overflow: visible !important;
+  }
 }
 .sub-menu .accordion:first-child h5 {
   margin-top: 0;
@@ -4023,10 +4023,16 @@ ul li {
     z-index: 99;
   }
 }
-@media screen and (min-width: 992px) and (max-height: 750px) {
-  .sub-menu nav.fixed {
-    position: relative;
-    padding-top: 0;
+@media screen and (max-height: 750px) {
+  .sub-menu [data-accordion] [data-content] {
+    max-height: 0px !important;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .sub-menu [data-accordion] [data-content].active {
+    max-height: 100% !important;
+    -webkit-transition: none;
+    transition: none;
   }
 }
 .desktop-only {
@@ -4254,7 +4260,7 @@ ul li {
   .search-con .results {
     top: 283px;
     max-width: 1050px;
-    padding-top: 50px;
+    padding-top: 20px;
     margin: auto;
     clear: both;
   }
