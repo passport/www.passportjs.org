@@ -1,3 +1,9 @@
+// Builds the data.json for search.  Run as:
+//   $ node buildsearch.js
+//
+// To increase rate limits for the GitHub API, run with a client ID and secret
+//   $ GITHUB_CLIENT_ID=x GITHUB_CLIENT_SECRET=foo node buildsearch.js
+
 var yaml = require('js-yaml');
 var fs = require('fs');
 var githubUrl = require('github-url-from-git');
@@ -28,8 +34,12 @@ try {
     
     strategy = strategies[i++];
     if (!strategy) {
-      fs.writeFileSync('test.json', JSON.stringify(data, null, 2));
+      fs.writeFileSync('public/data.json', JSON.stringify(data, null, 2));
       return;
+    }
+    
+    if (strategy.ignore) {
+      return iter();
     }
     
     
@@ -42,6 +52,7 @@ try {
     }
     
     
+    console.log('Fetching %s from npm...', name);
     npm.packages.get(name, function (err, npmData) {
       if (err) { return iter(err); }
       
@@ -64,23 +75,45 @@ try {
         return iter();
       }
     
-      request.get(obj.api_url,
-                  { headers: { 'User-Agent': 'node' }, json: true }, function (err, resp, json) {
-        if (err) { return iter(err); }
-        if (resp.statusCode !== 200) {
-          console.log('Failed to fetch from GitHub: ' + obj.api_url);
-          json = {};
-        }
       
+      // TODO: Better check for non-GitHub repos
+      if (obj) {
+        console.log('Fetching %s from GitHub...', name);
+        var rurl = obj.api_url;
+        
+        if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
+          rurl = rurl + '?client_id=' + process.env.GITHUB_CLIENT_ID + '&client_secret=' + process.env.GITHUB_CLIENT_SECRET;
+        }
+        
+        request.get(rurl,
+                    { headers: { 'User-Agent': 'node' }, json: true }, function (err, resp, json) {
+          if (err) { return iter(err); }
+          if (resp.statusCode !== 200) {
+            console.log('Failed to fetch from GitHub: ' + obj.api_url);
+            json = {};
+          }
+      
+          data.push({
+            label: obj.repo,
+            desc: pkg.description,
+            url: url,
+            stars: json.stargazers_count,
+            forks: json.forks_count,
+            featured: strategy.featured
+          });
+          iter();
+        });
+      } else if (strategy.repository) {
         data.push({
-          label: obj.repo,
+          label: name,
           desc: pkg.description,
-          url: url,
-          stars: json.stargazers_count,
-          forks: json.forks_count
+          url: strategy.repository,
+          featured: strategy.featured
         });
         iter();
-      });
+      } else {
+        return iter(new Error('No repository for: ' + name));
+      }
     });
     
   })();
