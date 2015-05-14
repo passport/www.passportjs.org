@@ -1014,19 +1014,17 @@ html.is-menu, html.is-menu body
     bottom 0
     +breakpoint("tablet")
       top 283px
-      max-width 1050px
-      padding-top 20px
-      margin auto
       clear both
+      grid(2, 20px, "article")
+    +breakpoint("desktop")
+      grid(3, 20px, "article")
 
 
   section
     text-align center
     padding 0 20px!important
-    +breakpoint("tablet")
-      grid(2, 20px, "article")
-    +breakpoint("desktop")
-      grid(3, 20px, "article")
+    max-width 1050px
+    margin 0 auto
   article
     padding-bottom 20px
     a
