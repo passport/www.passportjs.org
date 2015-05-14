@@ -1,14 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var redirect = require('express-redirect');
 var bodyParser = require('body-parser');
-var stylus = require('stylus');
-
+var favicon = require('serve-favicon');
 var routes = require('./routes/index');
+var express = require('express');
+var logger = require('morgan');
+var stylus = require('stylus');
+var path = require('path');
 
-var app = module.exports = express();
+
+var app = module.exports = redirect(express());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +25,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// setup redirects
+app.redirect('/guide', '/docs', 301);
+app.redirect('/guide/:page', '/docs/:page', 301);
+
+// mount routes
 app.use('/', routes);
 
 // catch 404 and forward to error handler
@@ -60,5 +66,5 @@ app.use(function(err, req, res, next) {
 
 
 if (app.get('env') === 'development') {
-    require('express-livereload')(app, {})
+  require('express-livereload')(app, {})
 }
