@@ -760,7 +760,7 @@ ul
     a
       color rgba(white,.8)
       font-size 14px
-      &.active, &:hover
+      &:hover, &.active
         +breakpoint("desktop")
           color blue
 
@@ -776,7 +776,15 @@ ul
     line-height 4
     +breakpoint("desktop")
       line-height 2.8
-      margin-top 20px
+      margin-top 10px
+
+    a
+      display none
+      +breakpoint("desktop")
+        display block
+        position absolute
+        width 100%
+        height 25px
 
     i
       display inline-block
@@ -786,12 +794,13 @@ ul
         display none
 
   [data-accordion]
-    [data-content]
-      +breakpoint("desktop")
-        overflow auto!important
-        max-height 100%!important
     [data-control]
       position relative
+    [data-content]
+      +breakpoint("desktop")
+        @media screen and ( min-height: 751px )
+          max-height 100%!important
+          overflow visible!important
 
   .accordion
     &:first-child
@@ -812,9 +821,19 @@ ul
         padding-top 20px
         z-index 99
 
-        @media screen and ( max-height: 750px )
-          position relative
-          padding-top 0
+  +breakpoint("desktop")
+    @media screen and ( max-height: 750px )
+      [data-accordion]
+        [data-content]
+          max-height 0px!important
+          overflow hidden!important
+          -webkit-transition none!important
+          transition none!important
+          &.active
+            max-height 100%!important
+            overflow visible!important
+            -webkit-transition none!important
+            transition none!important
 
 
 .desktop-only
@@ -1006,19 +1025,17 @@ html.is-menu, html.is-menu body
     bottom 0
     +breakpoint("tablet")
       top 283px
-      max-width 1050px
-      padding-top 50px
-      margin auto
       clear both
+      grid(2, 20px, "article")
+    +breakpoint("desktop")
+      grid(3, 20px, "article")
 
 
   section
     text-align center
     padding 0 20px!important
-    +breakpoint("tablet")
-      grid(2, 20px, "article")
-    +breakpoint("desktop")
-      grid(3, 20px, "article")
+    max-width 1050px
+    margin 0 auto
   article
     padding-bottom 20px
     a
