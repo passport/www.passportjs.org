@@ -42,13 +42,9 @@ $(document).ready(function() {
    * Load for remote Data only once
    */
 
-  $.getJSON('repo.json', function(data) {
+  $.getJSON('/repo.json', function(data) {
     $(".social .stat").text(numberWithCommas(data.stargazers_count));
   });
-
-  // $.getJSON("data.json", function(qdata) {
-  //   data = qdata;
-  // });
 
   /**
    * Bind plugins and even handlers
@@ -64,7 +60,7 @@ $(document).ready(function() {
       return item.label;
     },
     prefetch: {
-      url: 'data.json',
+      url: '/data.json',
       cache: false
     }
   });
@@ -150,12 +146,11 @@ $(document).ready(function() {
     toggleActiveSections(ev);
   });
 
-  $(document).on('click', '.sub-menu nav a:not([data-search])', function (ev) {
-    var $el = $(this);
-    var id = $el.attr('href');
-    var scroll = $(id).offset().top - 30;
-    $('html, body').animate({ scrollTop: scroll }, 500);
+  page('/docs/:document', function (ctx, next) {
+    var id = '#' + ctx.params.document;
+    scrollToId(id);
   });
+  page.start();
   // end menu nav docs
 
   /*
@@ -189,7 +184,7 @@ $(document).ready(function() {
         sections.removeClass('active');
 
         $(this).addClass('active');
-        $submenu.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+        $submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active');
       }
     });
   }
@@ -207,21 +202,22 @@ $(document).ready(function() {
     });
 
     // animate docs scroll
-    if (/^\/docs/.test(window.location.pathname) && window.location.hash) {
-      var scroll = $(window.location.hash).offset().top - 30;
-      $('html, body').animate({ scrollTop: scroll }, 500);
-
+    if (/^\/docs\/./.test(window.location.pathname)) {
+      var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
+      scrollToId(id);
     }
   }
 
   function sidebarToggle() {
     var $menu = $('#menu');
+    var pathname = window.location.pathname;
+    var base = '/' + pathname.split('/')[1];
 
     // reset active menu
     $menu.find('li.active').removeClass('active');
 
     // set current active menu
-    $menu.find('a[href="' + window.location.pathname + '"]').parent('li').addClass('active');
+    $menu.find('a[href="' + base + '"]').parent('li').addClass('active');
   }
 
   function closeSearch () {
@@ -249,7 +245,6 @@ $(document).ready(function() {
 
   function renderFeaturedStrategies() {
     var $featured = $.map(strategies.all().sort(sorter), templateItem);
-
     $('.search-con .results section').html($featured);
     $(".search-con .info-line span").text($featured.length);
   }
@@ -294,6 +289,10 @@ $(document).ready(function() {
     loadingTimeout = setTimeout(function () {
       $('body').toggleClass('pjax-loading', true);
     }, 300);
+  }
 
+  function scrollToId(id) {
+    var scroll = $(id).offset().top - 30;
+    $('html, body').animate({ scrollTop: scroll }, 500);
   }
 });

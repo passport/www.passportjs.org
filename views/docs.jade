@@ -13,17 +13,19 @@ block content
             | General
           ul(data-content='')
             li
-              a(href='#overview').active Overview
+              a(href='/docs/overview').active Overview
             li
-              a(href='#authenticate') Authenticate
+              a(href='/docs/authenticate') Authenticate
             li
-              a(href='#configure') Configure
+              a(href='/docs/configure') Configure
             li
-              a(href='#username-password') Username & Password
+              a(href='/docs/username-password') Username & Password
             li
-              a(href='#openid') OpenID
+              a(href='/docs/openid') OpenID
             li
-              a(href='#oauth') OAuth
+              a(href='/docs/oauth') OAuth
+            li
+              a(href='/docs/profile') User Profile
 
         .accordion(data-accordion='')
           h5(data-control='')
@@ -31,11 +33,11 @@ block content
             | Providers
           ul(data-content='')
             li
-              a(href='#facebook') Facebook
+              a(href='/docs/facebook') Facebook
             li
-              a(href='#twitter') Twitter
+              a(href='/docs/twitter') Twitter
             li
-              a(href='#google') Google
+              a(href='/docs/google') Google
             li
               a(href='/', data-search='') Other
 
@@ -45,13 +47,13 @@ block content
             | APIs
           ul(data-content='')
             li
-              a(href='#basic-digest') Basic & Digest
+              a(href='/docs/basic-digest') Basic & Digest
             li
-              a(href='#oauth-api') OAuth
+              a(href='/docs/oauth-api') OAuth
             li
-              a(href='#oauth2-api') OAuth 2.0
+              a(href='/docs/oauth2-api') OAuth 2.0
             li
-              a(href='#other-api') Other
+              a(href='/docs/other-api') Other
 
         .accordion(data-accordion='')
           h5(data-control='')
@@ -59,13 +61,11 @@ block content
             | Operations
           ul(data-content='')
             li
-              a(href='#login') Log In
+              a(href='/docs/login') Log In
             li
-              a(href='#logout') Log Out
+              a(href='/docs/logout') Log Out
             li
-              a(href='#authorize') Authorize
-            li
-              a(href='#profile') User Profile
+              a(href='/docs/authorize') Authorize
 
     a.go-top(href='#top')
       i.icon-budicon-462
@@ -83,6 +83,8 @@ block content
         include:markdown docs/openid.md
       section#oauth
         include:markdown docs/oauth.md
+      section#profile
+        include:markdown docs/profile.md
       section#facebook
         include:markdown docs/facebook.md
       section#twitter
@@ -103,5 +105,3 @@ block content
         include:markdown docs/logout.md
       section#authorize
         include:markdown docs/authorize.md
-      section#profile
-        include:markdown docs/profile.md
