@@ -53,7 +53,7 @@ $(document).ready(function() {
   $("body").toggleClass("ie", msieversion());
 
   var strategies = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     sorter: sorter,
     identify: function(item) {
@@ -261,6 +261,8 @@ $(document).ready(function() {
   }
 
   function starsSorter (a, b) {
+    if (a.stars && !b.stars) return -1;
+    if (b.stars && !a.stars) return 1;
     return +b.stars - (+a.stars);
   }
 
