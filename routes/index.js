@@ -12,11 +12,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/docs', function(req, res, next) {
+
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
 });
 
 router.get('/docs/:document', function(req, res, next) {
   if (!~documents.indexOf(req.params.document)) return next();
+  // setup canonical path
+  res.locals.context.canonical = '/docs';
+  // render docs layout
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
 });
 
