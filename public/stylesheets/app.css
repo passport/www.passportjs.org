@@ -3475,7 +3475,7 @@ ul li {
 }
 .menu-hold.is-active > ul {
   width: 100%;
-  top: 46%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   position: absolute;
@@ -4049,10 +4049,13 @@ ul li {
     transition: none;
   }
 }
-.is-menu {
+html.is-menu,
+html.is-menu body {
   overflow: hidden;
+  height: 100vh;
 }
-.is-menu .social {
+html.is-menu .social,
+html.is-menu body .social {
   display: block;
   position: fixed;
   bottom: 50px;
@@ -4061,10 +4064,12 @@ ul li {
   left: 0;
   text-align: center;
 }
-.is-menu .social .twitter {
+html.is-menu .social .twitter,
+html.is-menu body .social .twitter {
   margin-right: 30px;
 }
-.is-menu .social li:last-child {
+html.is-menu .social li:last-child,
+html.is-menu body .social li:last-child {
   margin-right: 0;
 }
 .is-search {

@@ -238,7 +238,7 @@ $(document).ready(function() {
   }
 
   function toggleResponsiveMenu(open) {
-    $("body").toggleClass("is-menu", open);
+    $("html").toggleClass("is-menu", open);
     $(".content, .top-site").toggleClass('blured', open);
     $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
   }
