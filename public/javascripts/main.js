@@ -146,13 +146,6 @@ $(document).ready(function() {
     } else {
       $(".search-con .results section").css({ paddingLeft: 0 })
     };
-
-    if ($(this).width() >= 1280) {
-      //do something
-    }
-    else if ($(this).width() <= 750) {
-      $('.accordion h5 a').addClass('pepe');
-    }
   });
 
   // menu nav docs
