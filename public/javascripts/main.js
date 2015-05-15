@@ -115,6 +115,7 @@ $(document).ready(function() {
 
   $(document).on('focus', '.search form input', function(ev) {
     openSearch.call(this, ev);
+    $(".search-con form input.tt-input").val().focus();
   });
 
   $(document).on('click', '[data-search]', function(ev) {
@@ -124,11 +125,13 @@ $(document).ready(function() {
 
   $(document).on('click', '.search-con .close-ico', function(ev) {
     closeSearch.call(this, ev);
+    $(".search-con form input.tt-input").blur();
   });
 
   $(document).keyup(function(ev) {
     if (ev.keyCode == 27) {
       closeSearch.call(this, ev);
+      $(".search-con form input.tt-input").blur();
     }
   });
 
@@ -237,8 +240,8 @@ $(document).ready(function() {
   function closeSearch () {
     $(".search form input").val("");
     $("body").removeClass("is-search");
-    $(".main-hold").removeClass('blured');
-    $(".search-con form .input").text('');
+    // $(".main-hold").removeClass('blured');
+    $(".search-con form input").text('');
     $(".results section").html('');
     $(".search-con .info-line span").text('0');
     $('.tt-input').removeClass('bigger');
@@ -247,9 +250,9 @@ $(document).ready(function() {
 
   function openSearch() {
     var val = $(this).val();
-    $(".main-hold").addClass('blured');
+    // $(".main-hold").addClass('blured');
     $("body").addClass("is-search");
-    $(".search-con form input").val(val).focus();
+    $(".search-con form input.tt-input").val(val).focus();
     renderFeaturedStrategies();
   }
 
