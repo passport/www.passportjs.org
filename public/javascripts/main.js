@@ -125,13 +125,11 @@ $(document).ready(function() {
 
   $(document).on('click', '.search-con .close-ico', function(ev) {
     closeSearch.call(this, ev);
-    $(".search-con form input.tt-input").blur();
   });
 
   $(document).keyup(function(ev) {
     if (ev.keyCode == 27) {
       closeSearch.call(this, ev);
-      $(".search-con form input.tt-input").blur();
     }
   });
 
@@ -238,9 +236,9 @@ $(document).ready(function() {
   }
 
   function closeSearch () {
-    $(".search form input").val("");
+    $(".search-con form input.tt-input").blur();
+    $(".search form input").val('');
     $("body").removeClass("is-search");
-    // $(".main-hold").removeClass('blured');
     $(".search-con form input").text('');
     $(".results section").html('');
     $(".search-con .info-line span").text('0');
@@ -250,7 +248,6 @@ $(document).ready(function() {
 
   function openSearch() {
     var val = $(this).val();
-    // $(".main-hold").addClass('blured');
     $("body").addClass("is-search");
     $(".search-con form input.tt-input").val(val).focus();
     renderFeaturedStrategies();
@@ -299,6 +296,8 @@ $(document).ready(function() {
     if (toggle && loadingTimeout) {
       return;
     }
+
+    closeSearch.call(toggle);
 
     // cancel timer if toggle false
     // and remove pjax-loading flag
