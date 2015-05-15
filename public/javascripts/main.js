@@ -115,7 +115,6 @@ $(document).ready(function() {
 
   $(document).on('focus', '.search form input', function(ev) {
     openSearch.call(this, ev);
-    $(".search-con form input.tt-input").val().focus();
   });
 
   $(document).on('click', '[data-search]', function(ev) {
