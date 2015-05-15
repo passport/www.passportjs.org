@@ -9,7 +9,8 @@ html
 
 body
   -webkit-text-size-adjust none
-  font 16px/30px 'Avenir'
+  font 16px/30px 'Avenir', Arial, sans-serif
+  font-weight 200
   color rgba(255,255,255,.8)
   background #000
   height 100%
@@ -28,7 +29,8 @@ body
 
 input, textarea, select, button
   outline none
-  font-family 'Avenir'
+  font-family 'Avenir', Arial, sans-serif
+  font-weight 200
 
 a
   color blue
@@ -291,25 +293,31 @@ ul
         display inline-block
         vertical-align middle
 
+  .supported
+    display none
+    +breakpoint("tablet")
+      display block
+
 .supported
   clear both
   padding 10px
   bottom 0
   left 0
-  font-size: 14px;
-  padding-bottom 50px
+  font-size 14px
   text-align center
   color #999
   z-index 10
-  display block
+  margin 0 auto
   +breakpoint("tablet")
-    position fixed
-    width 240px
-  +breakpoint("desktop")
-    width 330px
-
-    @media screen and ( max-height: 680px )
-      display none
+    width 100%
+    margin-left -10px
+    position absolute
+    bottom 20px
+  +breakpoint("tablet")
+    @media screen and ( max-height: 750px )
+      position relative
+      bottom auto
+      margin-top 80px
 
   .auth0
     width 24px
@@ -338,7 +346,8 @@ ul
       position relative
       -webkit-transform none
       transform none
-      top 80px
+      top auto
+      margin-top 80px
 
     li
       padding-left 26%
@@ -401,6 +410,7 @@ ul
       li
         margin 0 5px 0
 
+
 .rw-wrapper
   position: relative;
 
@@ -451,6 +461,12 @@ ul
     position relative
   +breakpoint("desktop")
     padding-left 350px
+
+  .supported
+    display block
+    margin-top 40px
+    +breakpoint("tablet")
+      display none
 
 .home
   max-width 840px
@@ -1097,11 +1113,6 @@ html.is-menu, html.is-menu body
         font-weight: bold;
         color: yellow;
 
-
-
-+breakpoint("desktop")
-  .ie .search-con .results
-    width 1000px
 
 @keyframes blink {
   to {
