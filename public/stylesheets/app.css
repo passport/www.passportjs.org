@@ -3022,7 +3022,8 @@ html {
 }
 body {
   -webkit-text-size-adjust: none;
-  font: 16px/30px 'Avenir';
+  font: 16px/30px 'Avenir W01', Arial, sans-serif;
+  font-weight: 200;
   color: rgba(255,255,255,0.8);
   background: #000;
   height: 100%;
@@ -3048,7 +3049,8 @@ textarea,
 select,
 button {
   outline: none;
-  font-family: 'Avenir';
+  font-family: 'Avenir W01', Arial, sans-serif;
+  font-weight: 200;
 }
 a {
   color: #01b7ee;
@@ -3376,6 +3378,14 @@ ul li {
   display: inline-block;
   vertical-align: middle;
 }
+#menu .supported {
+  display: none;
+}
+@media (min-width: 768px) {
+  #menu .supported {
+    display: block;
+  }
+}
 @media screen and (min-width: 992px) and (max-height: 750px) {
   #menu {
     overflow-y: scroll;
@@ -3387,21 +3397,17 @@ ul li {
   bottom: 0;
   left: 0;
   font-size: 14px;
-  padding-bottom: 50px;
   text-align: center;
   color: #999;
   z-index: 10;
-  display: block;
+  margin: 0 auto;
 }
 @media (min-width: 768px) {
   .supported {
-    position: fixed;
-    width: 240px;
-  }
-}
-@media (min-width: 992px) {
-  .supported {
-    width: 330px;
+    width: 100%;
+    margin-left: -10px;
+    position: absolute;
+    bottom: 20px;
   }
 }
 .supported .auth0 {
@@ -3412,9 +3418,11 @@ ul li {
   margin-bottom: -8px;
   background: url("../images/supported_logo.svg") no-repeat;
 }
-@media screen and (min-width: 992px) and (max-height: 680px) {
+@media screen and (min-width: 768px) and (max-height: 750px) {
   .supported {
-    display: none;
+    position: relative;
+    bottom: auto;
+    margin-top: 80px;
   }
 }
 .menu-hold {
@@ -3508,7 +3516,8 @@ ul li {
     position: relative;
     -webkit-transform: none;
     transform: none;
-    top: 80px;
+    top: auto;
+    margin-top: 80px;
   }
 }
 .rw-wrapper {
@@ -3575,6 +3584,15 @@ ul li {
 @media (min-width: 992px) {
   .content {
     padding-left: 350px;
+  }
+}
+.content .supported {
+  display: block;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .content .supported {
+    display: none;
   }
 }
 .home {
@@ -4420,11 +4438,6 @@ html.is-menu body .social li:last-child {
   font-size: 12px;
   font-weight: bold;
   color: #d4fd02;
-}
-@media (min-width: 992px) {
-  .ie .search-con .results {
-    width: 1000px;
-  }
 }
 @-webkit-keyframes blink {
   to {
