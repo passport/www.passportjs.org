@@ -35,6 +35,10 @@ $(document).ready(function() {
     timeout: 1200
   });
 
+  $(document).on('pjax:popstate', function () {
+    closeSearch.call(document);
+  })
+
   $(document).on('pjax:click', function () {
     togglePjaxLoading(true);
     toggleResponsiveMenu(false);
@@ -115,7 +119,6 @@ $(document).ready(function() {
 
   $(document).on('focus', '.search form input', function(ev) {
     openSearch.call(this, ev);
-    $(".search-con form input.tt-input").val().focus();
   });
 
   $(document).on('click', '[data-search]', function(ev) {
@@ -146,13 +149,6 @@ $(document).ready(function() {
     } else {
       $(".search-con .results section").css({ paddingLeft: 0 })
     };
-
-    if ($(this).width() >= 1280) {
-      //do something
-    }
-    else if ($(this).width() <= 750) {
-      $('.accordion h5 a').addClass('pepe');
-    }
   });
 
   // menu nav docs
@@ -161,8 +157,10 @@ $(document).ready(function() {
     toggleActiveSections(ev);
   });
 
-  page('/docs/:document', function (ctx, next) {
+  page.base('/docs');
+  page('/:document', function (ctx, next) {
     if ('providers' === ctx.params.document) return openSearch.call(document);
+    closeSearch.call(document);
     var id = '#' + ctx.params.document;
     scrollToId(id);
   });
@@ -236,20 +234,23 @@ $(document).ready(function() {
   }
 
   function closeSearch () {
-    $(".search-con form input.tt-input").blur();
-    $(".search form input").val('');
+    // closing search
     $("body").removeClass("is-search");
+    // cleaning inputs
     $(".search-con form input").text('');
+    $(".search-con form input").blur();
+    $('.tt-input, .tt-hint').removeClass('bigger');
+    // cleaning results
     $(".results section").html('');
     $(".search-con .info-line span").text('0');
-    $('.tt-input').removeClass('bigger');
-    $('.tt-hint').removeClass('bigger');
   }
 
   function openSearch() {
-    var val = $(this).val();
+    // open search
     $("body").addClass("is-search");
-    $(".search-con form input.tt-input").val(val).focus();
+    // focus input
+    $(".search-con form input.tt-input").focus();
+    // render results
     renderFeaturedStrategies();
   }
 
@@ -296,8 +297,6 @@ $(document).ready(function() {
     if (toggle && loadingTimeout) {
       return;
     }
-
-    closeSearch.call(toggle);
 
     // cancel timer if toggle false
     // and remove pjax-loading flag
