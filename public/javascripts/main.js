@@ -157,8 +157,7 @@ $(document).ready(function() {
     toggleActiveSections(ev);
   });
 
-  page.base('/docs');
-  page('/:document', function (ctx, next) {
+  page('/docs/:document', function (ctx, next) {
     if ('providers' === ctx.params.document) return openSearch.call(document);
     closeSearch.call(document);
     var id = '#' + ctx.params.document;
