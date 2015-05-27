@@ -89,11 +89,11 @@ $(document).ready(function() {
     var $results = $('.search-con .tt-menu .tt-dataset article').clone();
     $results.appendTo($('.search-con .results section').html(''));
     $(".search-con .info-line span").text($results.length);
-    if ($('.search-con .results').hasScrollBar()) {
-      $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-    } else {
-      $(".search-con .results section").css({ paddingLeft: 0 })
-    };
+    // if ($('.search-con .results').hasScrollBar()) {
+    //   $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
+    // } else {
+    //   $(".search-con .results section").css({ paddingLeft: 0 })
+    // };
   });
 
   $(document).on('input', '.search-con form input.tt-input', function (ev) {
@@ -143,13 +143,13 @@ $(document).ready(function() {
     }
   });
 
-  $(window).resize(function() {
-    if ($('.search-con .results').hasScrollBar()) {
-      $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-    } else {
-      $(".search-con .results section").css({ paddingLeft: 0 })
-    };
-  });
+  // $(window).resize(function() {
+  //   if ($('.search-con .results').hasScrollBar()) {
+  //     $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
+  //   } else {
+  //     $(".search-con .results section").css({ paddingLeft: 0 })
+  //   };
+  // });
 
   // menu nav docs
   $(window).on('scroll', function (ev) {

@@ -944,7 +944,8 @@ html.is-menu, html.is-menu body
     position relative
     display inline-block
     max-width 600px
-    padding 0 36px
+    padding 0
+    margin-left 50px
     +breakpoint("tablet")
       border-bottom 1px solid rgba(white,.1)
       padding 0
@@ -1034,34 +1035,37 @@ html.is-menu, html.is-menu body
       margin-right 5px
 
   .results
-    overflow-y auto
+    overflow-y scroll
+    overflow-x hidden
     -webkit-overflow-scrolling touch
     position absolute
     top 180px
-    left 0
-    right 0
-    bottom 0
+    height 100%
+    width 100%!important
     +breakpoint("tablet")
       top 283px
       clear both
-      grid(2, 20px, "article")
+      grid(2, 0, "article")
     +breakpoint("desktop")
-      grid(3, 20px, "article")
+      grid(3, 0, "article")
 
 
   section
     text-align center
-    padding 0 20px!important
+    padding 0 20px
     max-width 1050px
     margin 0 auto
   article
-    padding-bottom 20px
+    margin-bottom 20px
+    +breakpoint("tablet")
+      padding 0 10px!important
     a
       border 1px solid #4a4f55
-      min-height 100px
-      padding 17px 20px 45px 20px
+      min-height auto
+      padding 10px 15px 50px
       position relative
       display block
+      box-sizing content-box
       +breakpoint("tablet")
         min-height 140px
       &:hover
@@ -1089,7 +1093,7 @@ html.is-menu, html.is-menu body
       color #8e9196
     .stat
       position absolute
-      bottom 9px
+      bottom 10px
       left 20px
       span
         float left

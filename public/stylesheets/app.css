@@ -4202,7 +4202,8 @@ html.is-menu body .social li:last-child {
   position: relative;
   display: inline-block;
   max-width: 600px;
-  padding: 0 36px;
+  padding: 0;
+  margin-left: 50px;
 }
 @media (min-width: 768px) {
   .search-con form {
@@ -4303,13 +4304,13 @@ html.is-menu body .social li:last-child {
   margin-right: 5px;
 }
 .search-con .results {
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 180px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  height: 100%;
+  width: 100% !important;
 }
 @media (min-width: 768px) {
   .search-con .results {
@@ -4317,7 +4318,7 @@ html.is-menu body .social li:last-child {
     clear: both;
     *zoom: 1;
     width: auto;
-    margin-right: -20px;
+    margin-right: 0;
   }
   .search-con .results:after {
     clear: both;
@@ -4330,7 +4331,7 @@ html.is-menu body .social li:last-child {
   .search-con .results article {
     float: left;
     width: 50%;
-    padding-right: 20px;
+    padding-right: 0;
     background-clip: content-box;
     box-sizing: border-box;
   }
@@ -4339,7 +4340,7 @@ html.is-menu body .social li:last-child {
   .search-con .results {
     *zoom: 1;
     width: auto;
-    margin-right: -20px;
+    margin-right: 0;
   }
   .search-con .results:after {
     clear: both;
@@ -4352,26 +4353,32 @@ html.is-menu body .social li:last-child {
   .search-con .results article {
     float: left;
     width: 33.333333333333336%;
-    padding-right: 20px;
+    padding-right: 0;
     background-clip: content-box;
     box-sizing: border-box;
   }
 }
 .search-con section {
   text-align: center;
-  padding: 0 20px !important;
+  padding: 0 20px;
   max-width: 1050px;
   margin: 0 auto;
 }
 .search-con article {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .search-con article {
+    padding: 0 10px !important;
+  }
 }
 .search-con article a {
   border: 1px solid #4a4f55;
-  min-height: 100px;
-  padding: 17px 20px 45px 20px;
+  min-height: auto;
+  padding: 10px 15px 50px;
   position: relative;
   display: block;
+  box-sizing: content-box;
 }
 @media (min-width: 768px) {
   .search-con article a {
@@ -4412,7 +4419,7 @@ html.is-menu body .social li:last-child {
 }
 .search-con article .stat {
   position: absolute;
-  bottom: 9px;
+  bottom: 10px;
   left: 20px;
 }
 .search-con article .stat span {
