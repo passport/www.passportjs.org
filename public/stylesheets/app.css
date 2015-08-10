@@ -4147,15 +4147,19 @@ html.is-menu body .social li:last-child {
 }
 .search-con .head {
   position: fixed;
-  top: 21px;
+  padding-top: 21px;
+  top: 0;
   right: 0;
   left: 0;
   height: auto;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(20px);
 }
 @media (min-width: 768px) {
   .search-con .head {
     top: 0;
     padding-top: 41px;
+    padding-bottom: 20px;
   }
 }
 .search-con .close-ico {
@@ -4314,7 +4318,8 @@ html.is-menu body .social li:last-child {
 }
 @media (min-width: 768px) {
   .search-con .results {
-    top: 283px;
+    top: 0;
+    padding-top: 283px;
     clear: both;
     *zoom: 1;
     width: auto;

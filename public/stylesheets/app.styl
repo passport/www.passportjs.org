@@ -901,13 +901,17 @@ html.is-menu, html.is-menu body
   display none
   .head
     position fixed
-    top 21px
+    padding-top 21px
+    top: 0;
     right 0
     left 0
     height auto
+    z-index: 1000;
+    -webkit-backdrop-filter: blur(20px);
     +breakpoint("tablet")
       top 0
       padding-top 41px
+      padding-bottom: 20px;
   .close-ico
     position absolute
     top 10px
@@ -1043,7 +1047,8 @@ html.is-menu, html.is-menu body
     height 100%
     width 100%!important
     +breakpoint("tablet")
-      top 283px
+      top: 0;
+      padding-top 283px
       clear both
       grid(2, 0, "article")
     +breakpoint("desktop")
