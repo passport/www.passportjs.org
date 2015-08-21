@@ -12,9 +12,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/docs', function(req, res, next) {
-
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
 });
+
+router.get('/tutorials', function(req, res, next) {
+  res.render('tutorials', { title: 'Tutorials', page_class: 'page-tutorials'});
+});
+
 
 router.get('/docs/:document', function(req, res, next) {
   if (!~documents.indexOf(req.params.document)) return next();
