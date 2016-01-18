@@ -3767,7 +3767,8 @@ ul li {
 }
 @media (min-width: 768px) {
   .features .col {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     display: inline-block;
   }
 }
@@ -3783,7 +3784,7 @@ ul li {
   text-align: center;
   padding: 10px;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .features .col article {
     padding: 0;
   }
