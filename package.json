@@ -26,5 +26,13 @@
     "stylus": "*",
     "superagent": "^1.2.0",
     "supermarked": "^2.0.0"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "www"
+    },
+    "dependencies": {
+      "require": "github:requirejs/requirejs@^2.2.0"
+    }
   }
 }
