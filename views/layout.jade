@@ -32,7 +32,7 @@ html(lang="en")
     meta(property='og:image:height', content='630')
 
     // RequireJS
-    //script(data-main='js/main' src='/js/jspm_packages/github/requirejs/requirejs@2.2.0/require.js')
+    script(data-main='js/main' src='/js/jspm_packages/github/requirejs/requirejs@2.2.0/require.js')
 
     // SystemJS
     //script(src='/app/jspm_packages/system.js')
@@ -116,6 +116,8 @@ html(lang="en")
           h2 SEARCH FOR STRATEGIES
           form(action='/')
             input(value='', type='text', name="strategy" placeholder="Start typing")
+            // TODO: Hid this submit element
+            //input(type='submit', style='display:none;visibility:hidden')
           p.info-line
             span 0
             | STRATEGIES
