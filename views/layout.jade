@@ -32,7 +32,7 @@ html(lang="en")
     meta(property='og:image:height', content='630')
 
     // RequireJS
-    script(data-main='js/main' src='/js/jspm_packages/github/requirejs/requirejs@2.2.0/require.js')
+    //script(data-main='js/main' src='/js/jspm_packages/github/requirejs/requirejs@2.2.0/require.js')
 
     // SystemJS
     //script(src='/app/jspm_packages/system.js')
@@ -66,9 +66,9 @@ html(lang="en")
     .main-hold#top
       .top-site
         .search
-          form(action='#')
+          form(action='/search')
             button(type='submit')
-            input(type='text', placeholder='Search for Strategies')
+            input(type='text', name='q', placeholder='Search for Strategies')
 
         .social
           ul

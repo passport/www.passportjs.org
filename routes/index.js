@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Passport', page_class: 'page-home'});
 });
 
+router.get('/search', function(req, res, next) {
+  res.send('TODO: search - ' + req.query.q)
+});
+
 router.get('/docs', function(req, res, next) {
 
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
