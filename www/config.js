@@ -8,6 +8,7 @@ System.config({
   },
 
   map: {
+    "page": "github:visionmedia/page.js@1.7.1",
     "require": "github:requirejs/requirejs@2.2.0",
     "typeahead": "github:twitter/typeahead.js@0.11.1",
     "github:jspm/nodelibs-assert@0.1.0": {

@@ -1,9 +1,11 @@
-define(['jquery', 'highlight', 'bloodhound', 'jquery.typeahead', './search'],
-function($, hljs, Bloodhound, __$_typeahead, search) {
+define(['jquery', 'highlight', 'bloodhound', 'jquery.typeahead', './search', './docs', 'page'],
+function($, hljs, Bloodhound, __$_typeahead, search, docs, page) {
 
   $(document).ready(function() {
     
+    
     search('.search-con');
+    docs();
     
     $(document).on('click', '.go-top', function(ev) {
       scrollToId('#top');
