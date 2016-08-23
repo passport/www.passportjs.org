@@ -1,10 +1,17 @@
 define(['jquery', 'page'],
 function($, page) {
   
+  return function() {
   // docs nav (doesnt yet expand accoridon?)
   $(window).on('scroll', function (ev) {
     toggleFixedNavigation(ev);
     toggleActiveSections(ev);
+  });
+  
+  $(document).on('click', '.go-top', function(ev) {
+    console.log('scroll top');
+    scrollToId('#top');
+    return false;
   });
   
   page('/docs/:document', function (ctx, next) {
@@ -68,6 +75,8 @@ function($, page) {
     // cleaning results
     $(".results section").html('');
     $(".search-con .info-line span").text('0');
+  }
+  
   }
   
 });
