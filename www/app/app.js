@@ -21,34 +21,12 @@ function($, hljs, Bloodhound, __$_typeahead, search, docs, page) {
       $(".search-con form input.tt-input").focus();
     });
 
-    $(document).on('click', '.search-con .close-ico', function(ev) {
-      closeSearch.call(this, ev);
-    });
-
-    $(document).keyup(function(ev) {
-      if (ev.keyCode == 27) {
-        closeSearch.call(this, ev);
-      }
-    });
-
     $(document).on('focus', '[placeholder]', function () {
       var $input = $(this);
       if ($input.val() == $input.attr('placeholder')) {
         $input.val('').removeClass("placeholder");
       }
     });
-    
-    function closeSearch () {
-      // closing search
-      $("body").removeClass("is-search");
-      // cleaning inputs
-      $(".search-con form input").text('');
-      $(".search-con form input").blur();
-      $('.tt-input, .tt-hint').removeClass('bigger');
-      // cleaning results
-      $(".results section").html('');
-      $(".search-con .info-line span").text('0');
-    }
     
     
     // homepage

@@ -103,6 +103,28 @@ function(Bloodhound, $) {
       // };
     });
     
+    $(document).on('click', '.search-con .close-ico', function(ev) {
+      closeSearch.call(this, ev);
+    });
+
+    $(document).keyup(function(ev) {
+      if (ev.keyCode == 27) {
+        closeSearch.call(this, ev);
+      }
+    });
+    
+    function closeSearch () {
+      // closing search
+      $("body").removeClass("is-search");
+      // cleaning inputs
+      $(".search-con form input").text('');
+      $(".search-con form input").blur();
+      $('.tt-input, .tt-hint').removeClass('bigger');
+      // cleaning results
+      $(".results section").html('');
+      $(".search-con .info-line span").text('0');
+    }
+    
     /*
     $('form').submit(function( event ) {
       console.log('SUBMIT!');
