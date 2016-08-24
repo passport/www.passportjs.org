@@ -15,6 +15,8 @@ var app = module.exports = redirect(express());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.engine('md', require('marked-engine').renderFile);
+
 app.use(require('stylus').middleware(__dirname + '/public/stylesheets'));
 
 // uncomment after placing your favicon in /public

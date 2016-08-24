@@ -3,6 +3,7 @@ var express = require('express');
 var documents = getDocuments();
 var router = express.Router();
 var repo = null;
+var highlight = require('highlight.js');
 
 module.exports = router;
 
@@ -16,11 +17,37 @@ router.get('/search', function(req, res, next) {
 });
 
 router.get('/docs', function(req, res, next) {
+  console.log('GET DOCS');
+  console.log(req.headers);
+  console.log(req.query)
 
   res.render('docs', { title: 'Documentation', page_class: 'page-docs'});
 });
 
 router.get('/docs/:document', function(req, res, next) {
+  console.log('GET DOCS DOCUMENT');
+  console.log(req.headers);
+  console.log(req.query);
+  console.log(req.params)
+  
+  var opts = {
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    highlight: function(code, lang) {
+      //console.log('*** HIGHLIGHT CODE');
+      //return self.highlight(code, lang);
+      if (lang) return highlight.highlight(lang, code).value;
+      return highlight.highlightAuto(code).value;
+    }
+  }
+  
+  return res.render('docs/' + req.params.document + '.md', opts);
+  
+  var cont = 'menu';
+  return res.send('<div id="' + cont + '" data-title="Feat"><p>Hello</p></div>')
+  return;
+  
   if (!~documents.indexOf(req.params.document)) return next();
   // setup canonical path
   res.locals.context.canonical = '/docs';
@@ -30,7 +57,24 @@ router.get('/docs/:document', function(req, res, next) {
 
 
 router.get('/features', function(req, res, next) {
-  res.render('features', { title: 'Features', page_class: 'page-features'});
+  console.log('GET FEATURES');
+  console.log(req.headers);
+  console.log(req.query)
+  
+  //res.send('HELLO')
+  
+  var cont = req.headers['x-pjax-container'];
+  // TODO: Strip # from container
+  cont = 'page-content'
+  
+  // WORKs
+  //return res.send('<html><head></head><body><div id="' + cont + '"><p>Hello</p></div></body></html>')
+  //return res.send('<div id="' + cont + '" data-title="Feat"><p>Hello</p></div>')
+  
+  setTimeout(function() {
+    res.render('features', { title: 'Features', page_class: 'page-features' });
+  }, 1000)
+  //res.render('features', { title: 'Features', page_class: 'page-features' });
 });
 
 router.get('/repo.json', function (req, res, next) {

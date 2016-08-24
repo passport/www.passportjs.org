@@ -74,9 +74,42 @@ function($, hljs, Bloodhound, __$_pjax, __$_typeahead, search, docs, page) {
 
     $(document).on('pjax:end', function () {
       sidebarToggle();
-      // TODO
-      //initialize();
+      // FIXME, clean this up and remove initialize
+      initialize();
     });
+    
+    function initialize() {
+      // reset containers
+      $submenu = $('.sub-menu nav');
+      $gotop = $('.go-top');
+      submenuOffset = $submenu.offset();
+      gotopOffset = $gotop.offset();
+
+      // reset syntax highlight
+      $('pre code').each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+
+      /*
+      // accordion
+      $('.accordion').accordion({
+        "transitionSpeed": 400
+      });
+      */
+
+      // animate docs scroll
+      if (/^\/docs\/./.test(window.location.pathname)) {
+        var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
+        if ('#providers' === id) return openSearch.call(document);
+        scrollToId(id);
+      }
+    }
+    
+    function scrollToId(id) {
+      var scroll = $(id).offset().top - 30;
+      $('html, body').animate({ scrollTop: scroll }, 500);
+    }
+    
   
     function togglePjaxLoading(toggle) {
       // do not add pjax-loading flag twice

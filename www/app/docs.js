@@ -14,6 +14,25 @@ function($, page) {
     return false;
   });
   
+  
+  $(document).on('click', '.sub-menu a', function(ev) {
+    console.log('submenu click');
+    console.log(ev.currentTarget.href)
+    //return false;
+    
+    var container = $('#replace')
+    
+    //$.pjax.click(ev, {container: container})
+    $.pjax.click(ev, {container: container })
+    return false;
+    
+   // var id = '#' + ctx.params.document;
+    //var id = 'facebook';
+    //scrollToId(id);
+    //return false;
+  });
+  
+  /*
   page('/docs/:document', function (ctx, next) {
     // FIXME: open search is undefined
     if ('providers' === ctx.params.document) return openSearch.call(document);
@@ -22,6 +41,7 @@ function($, page) {
     scrollToId(id);
   });
   page.start();
+  */
   
   function scrollToId(id) {
     var scroll = $(id).offset().top - 30;
