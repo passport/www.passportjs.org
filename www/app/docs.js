@@ -1,11 +1,103 @@
 define(['jquery', 'page'],
 function($, page) {
   
+  var $toc, $section;
+  
+  
+  function visibleSection() {
+    var offset = $('.guides section').first().offset();
+    var x = offset.left;
+    var y = offset.top - $(window).scrollTop();
+    
+    var el = document.elementFromPoint(x, (y < 0 ? 0 : y));
+    var s = $(el).closest('section');
+    if (s.length) {
+      return s;
+    }
+  }
+  
+  
+  
+  
+  
+  
   return function() {
+    function onscroll(ev) {
+      toggleFixedNavigation(ev);
+      //toggleActiveSections(ev);
+    
+      //console.log('SCROLL!');
+    
+      var sections = $('.entry section');
+    
+    
+      var s = visibleSection();
+      if (s) {
+        console.log('VISIBLE SECTION IS!');
+        console.log('ATS: ' + s.attr('id'));
+        
+        $toc.find('a').removeClass('active').closest('[data-content]').removeClass('active');
+        sections.removeClass('active');
+      
+        s.addClass('active');
+        $toc.find('a[href="/docs/' + s.attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
+      }
+    
+    }
+    
+    
+    
+    $(document).ready(function() {
+      toggleFixedNavigation();
+      
+      console.log('DOCS READY! ' + $(window).scrollTop());
+      
+      
+      $toc = $('.sub-menu nav');
+      //$toc.find('a').removeClass('active').closest('[data-content]').removeClass('active');
+      
+      //$toc.find('a').removeClass('active');
+      
+      
+      var s = visibleSection();
+      if (s) {
+        //console.log('VISIBLE SECTION IS!');
+        console.log('AT: ' + s.attr('id'));
+      }
+      
+    });
+    
+    
   // docs nav (doesnt yet expand accoridon?)
   $(window).on('scroll', function (ev) {
-    toggleFixedNavigation(ev);
-    toggleActiveSections(ev);
+    onscroll(ev);
+    
+    return;
+    
+    // toggle active sections
+    var sections = $('.entry section');
+    var submenu_height = $submenu.outerHeight();
+    var cur_pos = $(window).scrollTop();
+    
+    //console.log('submenu_height: ' + submenu_height);
+    //console.log('cur_pos: ' + cur_pos);
+    
+    sections.each(function() {
+      var top = $(this).offset().top - 50;  // WTF: magic number?
+      var bottom = top + $(this).outerHeight();
+
+      //console.log($(this).attr('id'));
+
+      if (cur_pos >= top && cur_pos <= bottom) {
+        console.log('DO IT: ' + $(this).attr('id'));
+        //$submenu.find('a').removeClass('active').closest('[data-content]').removeClass('active');
+        //sections.removeClass('active');
+
+        //$(this).addClass('active');
+        //$submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
+      }
+    });
+    
   });
   
   $(document).on('click', '.go-top', function(ev) {
@@ -17,8 +109,9 @@ function($, page) {
   
   $(document).on('click', '.sub-menu a', function(ev) {
     console.log('submenu click');
+    console.log(ev.currentTarget);
     console.log(ev.currentTarget.href)
-    //return false;
+    return false;
     
     var container = $('#replace')
     

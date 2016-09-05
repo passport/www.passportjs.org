@@ -99,9 +99,9 @@ function($, hljs, Bloodhound, __$_pjax, __$_typeahead, search, docs, page) {
 
       // animate docs scroll
       if (/^\/docs\/./.test(window.location.pathname)) {
-        var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
-        if ('#providers' === id) return openSearch.call(document);
-        scrollToId(id);
+        //var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
+        //if ('#providers' === id) return openSearch.call(document);
+        //scrollToId(id);
       }
     }
     

@@ -11,7 +11,7 @@ block content
             i.icon-budicon-461
             a(href='/docs/overview')
             | General
-          ul(data-content='')
+          ul(data-content='').active
             li
               a(href='/docs/overview').active Overview
             li
@@ -32,7 +32,7 @@ block content
             i.icon-budicon-461
             a(href='/docs/facebook')
             | Providers
-          ul(data-content='')
+          ul(data-content='').active
             li
               a(href='/docs/facebook') Facebook
             li
@@ -47,7 +47,7 @@ block content
             i.icon-budicon-461
             a(href='/docs/basic-digest')
             | APIs
-          ul(data-content='')
+          ul(data-content='').active
             li
               a(href='/docs/basic-digest') Basic & Digest
             li
@@ -62,7 +62,7 @@ block content
             i.icon-budicon-461
             a(href='/docs/login')
             | Operations
-          ul(data-content='')
+          ul(data-content='').active
             li
               a(href='/docs/login') Log In
             li
@@ -75,7 +75,7 @@ block content
 
     .guides
       section#replace
-      section#overview
+      section#overview.active
         include:markdown docs/overview.md
       section#authenticate
         include:markdown docs/authenticate.md
