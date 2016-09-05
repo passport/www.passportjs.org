@@ -16,6 +16,30 @@ function($, page) {
     }
   }
   
+  function onready(ev) {
+    // Select the active section.
+    var s = $('.guides section.active');
+    if (!s.length) { return; }
+    
+    // Find the link within the table of contents to the active section.
+    var ls = $('.sub-menu nav').find('a[href="/docs/' + s.attr('id') + '"]');
+    
+    // Remove the `active` class from all chapters within the table of contents,
+    // except for the chapter containing the active section.
+    //
+    // Each chapter is displayed using an accordion control, which can be
+    // expanded or collapsed to reveal the sections within the chapter.
+    // Removing the `active` class has the effect of collapsing the chapter.
+    //
+    // The server renders all chapters within the table of contents as active,
+    // so that links are visible to all user agents, including those which do
+    // not support JavaScript or have JavaScript disabled.  When client-side
+    // scripting is available, the user experience is improved by collapsing
+    // non-active chapters.  This obeys the principle of progressive
+    // enhancement.
+    ls.closest('[data-accordion]').siblings().find('[data-content]').removeClass('active');
+  }
+  
   
   
   
@@ -36,17 +60,20 @@ function($, page) {
         console.log('VISIBLE SECTION IS!');
         console.log('ATS: ' + s.attr('id'));
         
-        $toc.find('a').removeClass('active').closest('[data-content]').removeClass('active');
+        $('.sub-menu nav').find('a').removeClass('active').closest('[data-content]').removeClass('active');
         sections.removeClass('active');
       
         s.addClass('active');
-        $toc.find('a[href="/docs/' + s.attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
+        $('.sub-menu nav').find('a[href="/docs/' + s.attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
       }
     
     }
     
     
     
+    $(document).ready(onready);
+    
+    /*
     $(document).ready(function() {
       toggleFixedNavigation();
       
@@ -66,6 +93,7 @@ function($, page) {
       }
       
     });
+    */
     
     
   // docs nav (doesnt yet expand accoridon?)
