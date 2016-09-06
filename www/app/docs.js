@@ -1,7 +1,8 @@
 define(['jquery', 'page'],
 function($, page) {
   
-  var $toc, $section;
+  var $toc, $gotop
+    , _tocOffset, _gotopOffset, _contentOffset;
   
   
   function visibleSection() {
@@ -16,13 +17,20 @@ function($, page) {
     }
   }
   
-  function onready(ev) {
+  function onready() {
+    $toc = $('.sub-menu nav');
+    $gotop = $('.go-top');
+    
+    _tocOffset = $toc.offset();
+    _gotopOffset = $gotop.offset();
+    _contentOffset = $('.guides section').first().offset();
+    
     // Select the active section.
     var s = $('.guides section.active');
     if (!s.length) { return; }
     
     // Find the link within the table of contents to the active section.
-    var ls = $('.sub-menu nav').find('a[href="/docs/' + s.attr('id') + '"]');
+    var sref = $toc.find('a[href="/docs/' + s.attr('id') + '"]');
     
     // Remove the `active` class from all chapters within the table of contents,
     // except for the chapter containing the active section.
@@ -37,7 +45,43 @@ function($, page) {
     // scripting is available, the user experience is improved by collapsing
     // non-active chapters.  This obeys the principle of progressive
     // enhancement.
-    ls.closest('[data-accordion]').siblings().find('[data-content]').removeClass('active');
+    sref.closest('[data-accordion]').siblings().find('[data-content]').removeClass('active');
+    
+    // TODO: Collapse general section if overview is active (ie, no active section)
+  }
+  
+  // TODO: Recompute offsets on resize event
+  
+  function onscroll(ev) {
+    var top = $(window).scrollTop();
+    
+    $toc.toggleClass('fixed', _tocOffset && _tocOffset.top < top);
+    $gotop.toggleClass('fixed', _gotopOffset && _gotopOffset.top < top);
+    
+    
+    // Select the section that has scrolled into the content viewport.
+    var x = _contentOffset.left;
+    var y = _contentOffset.top - top;
+    var el = document.elementFromPoint(x, (y < 0 ? 0 : y));
+    var s = $(el).closest('section');
+    if (!s.length) { return; }
+    
+    // If the section is alreday active, no further DOM manipulation is
+    // necessary.
+    if (s.hasClass('active')) { return; }
+    
+    // 
+    s.addClass('active');
+    s.siblings().removeClass('active');
+    
+    // Find the link within the table of contents to the active section.
+    var sref = $toc.find('a[href="/docs/' + s.attr('id') + '"]');
+    sref.addClass('active').closest('[data-content]').addClass('active');
+    sref.closest('li').siblings().find('a').removeClass('active');
+    
+    
+    sref.closest('[data-accordion]').siblings().find('a').removeClass('active')
+      .closest('[data-content]').removeClass('active');
   }
   
   
@@ -46,7 +90,10 @@ function($, page) {
   
   
   return function() {
+    /*
     function onscroll(ev) {
+      console.log(ev)
+      
       toggleFixedNavigation(ev);
       //toggleActiveSections(ev);
     
@@ -68,6 +115,7 @@ function($, page) {
       }
     
     }
+    */
     
     
     
@@ -95,8 +143,11 @@ function($, page) {
     });
     */
     
+    $(window).on('scroll', onscroll);
+    
     
   // docs nav (doesnt yet expand accoridon?)
+    /*
   $(window).on('scroll', function (ev) {
     onscroll(ev);
     
@@ -127,6 +178,7 @@ function($, page) {
     });
     
   });
+    */
   
   $(document).on('click', '.go-top', function(ev) {
     console.log('scroll top');
@@ -175,9 +227,9 @@ function($, page) {
    */
   
   $submenu = $('.sub-menu nav');
-  $gotop = $('.go-top');
+  //$gotop = $('.go-top');
   submenuOffset = $submenu.offset();
-  gotopOffset = $gotop.offset();
+  //gotopOffset = $gotop.offset();
 
   function toggleFixedNavigation(ev) {
     $submenu.toggleClass('fixed', submenuOffset && submenuOffset.top < $(window).scrollTop());
