@@ -6,7 +6,7 @@ function($, page) {
   
   
   
-  function onready() {
+  function onReady() {
     $toc = $('.sub-menu nav');
     $gotop = $('.go-top');
     
@@ -41,7 +41,7 @@ function($, page) {
   
   // TODO: Recompute offsets on resize event
   
-  function onscroll(ev) {
+  function onScroll(ev) {
     var top = $(window).scrollTop();
     
     $toc.toggleClass('fixed', _tocOffset && _tocOffset.top < top);
@@ -73,6 +73,28 @@ function($, page) {
       .closest('[data-content]').removeClass('active');
   }
   
+  function onToCClick(ev) {
+    console.log('ON CLICK!')
+    //console.log(ev)
+    console.log(ev.currentTarget.href)
+    
+    var segs = ev.currentTarget.href.split('/');
+    var slug = segs[segs.length - 1];
+    console.log(slug);
+    
+    var s = $('#' + slug);
+    console.log(s.length);
+    
+    return false;
+    
+    //var s = $('.guides section.active');
+    //if (!s.length) { return; }
+    
+    
+    
+    //return false;
+  }
+  
   
   
   
@@ -82,8 +104,8 @@ function($, page) {
     
     
     
-    $(document).ready(onready);
-    $(window).on('scroll', onscroll);
+    $(document).ready(onReady);
+    $(window).on('scroll', onScroll);
   
   $(document).on('click', '.go-top', function(ev) {
     console.log('scroll top');
@@ -91,7 +113,13 @@ function($, page) {
     return false;
   });
   
+  //$('a#logo').on('click', onToCClick);
+  $('.sub-menu a').on('click', onToCClick);
   
+  //$('.submenu a').on('click', onToCClick);
+  //$(document).on('click','.sub-menu a', onToCClick);
+  
+  /*
   $(document).on('click', '.sub-menu a', function(ev) {
     console.log('submenu click');
     console.log(ev.currentTarget);
@@ -109,6 +137,7 @@ function($, page) {
     //scrollToId(id);
     //return false;
   });
+  */
   
   /*
   page('/docs/:document', function (ctx, next) {
