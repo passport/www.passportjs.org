@@ -76,6 +76,27 @@ provided this functionality, however it was removed from Express 3.x.  Use of
 [connect-flash](https://github.com/jaredhanson/connect-flash) middleware is
 recommended to provide this functionality when using Express 3.x.
 
+## Failing with an Error
+
+For custom handling of authentication failures, setting the ``failWithError`` option to ``true`` instructs Passport to issue ``AuthenticationError`` exception, without breaking the middlewares chain.
+
+```javascript
+app.post('/login',
+  passport.authenticate('local', { failWithError: true })
+);
+```
+
+This option allows to define custom error handlers in the middlewares chain:
+
+```javascript
+function authErrorHandler(err, req, res, next) {
+  if (err.name === 'AuthenticationError') {
+    res.status(401);
+    res.render('error', { authentication: err });
+  }
+}
+```
+
 ## Disable Sessions
 
 After successful authentication, Passport will establish a persistent login
