@@ -1,4 +1,4 @@
-exports = module.exports = function(homeHandler, docsService, featuresHandler) {
+exports = module.exports = function(homeHandler, docsService, featuresHandler, repoHandler) {
   var express = require('express');
   var path = require('path');
   
@@ -28,6 +28,7 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler) {
   service.get('/', homeHandler);
   service.use('/docs', docsService);
   service.get('/features', featuresHandler);
+  service.get('/repo.json', repoHandler)
     
   return service;
 };
@@ -36,5 +37,6 @@ exports['@implements'] = 'http://i.bixbyjs.org/http/Service';
 exports['@require'] = [
   './handlers/home',
   './handlers/docs',
-  './handlers/features'
+  './handlers/features',
+  './handlers/repo'
 ];
