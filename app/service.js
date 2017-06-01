@@ -1,14 +1,22 @@
 exports = module.exports = function(homeHandler, docsService, featuresHandler, repoHandler, logging) {
   var express = require('express');
+  var redirect = require('express-redirect');
+  var bodyParser = require('body-parser');
+  var cookieParser = require('cookie-parser');
   var path = require('path');
   
   
-  var service = express();
+  var service = redirect(express());
   
   service.set('views', path.join(__dirname, '../views'));
   service.set('view engine', 'jade');
   
+  service.use(require('stylus').middleware(__dirname + '/../public/stylesheets'));
+  
   service.use(logging());
+  service.use(bodyParser.json());
+  service.use(bodyParser.urlencoded({ extended: false }));
+  service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
   
   service.use(function (req, res, next) {
@@ -24,11 +32,48 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
     next();
   });
   
+  // setup redirects
+  service.redirect('/guide', '/docs', 301);
+  service.redirect('/guide/:page', '/docs/:page', 301);
+  
   
   service.get('/', homeHandler);
   service.use('/docs', docsService);
   service.get('/features', featuresHandler);
-  service.get('/repo.json', repoHandler)
+  service.get('/repo.json', repoHandler);
+  
+  
+  // catch 404 and forward to error handler
+  service.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  });
+
+  // error handlers
+
+  // development error handler
+  // will print stacktrace
+  if ('development' === service.get('env')) {
+    service.use(function(err, req, res, next) {
+      res.status(err.status || 500);
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    });
+  }
+
+  // production error handler
+  // no stacktraces leaked to user
+  service.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
+  });
+  
     
   return service;
 };
