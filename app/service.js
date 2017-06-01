@@ -1,4 +1,4 @@
-exports = module.exports = function(docsService) {
+exports = module.exports = function(homeHandler, docsService, featuresHandler) {
   var express = require('express');
   var path = require('path');
   
@@ -25,12 +25,16 @@ exports = module.exports = function(docsService) {
   });
   
   
+  service.get('/', homeHandler);
   service.use('/docs', docsService);
+  service.get('/features', featuresHandler);
     
   return service;
 };
 
 exports['@implements'] = 'http://i.bixbyjs.org/http/Service';
 exports['@require'] = [
-  './handlers/docs'
+  './handlers/home',
+  './handlers/docs',
+  './handlers/features'
 ];
