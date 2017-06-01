@@ -1,4 +1,4 @@
-exports = module.exports = function(homeHandler, docsService, featuresHandler, repoHandler) {
+exports = module.exports = function(homeHandler, docsService, featuresHandler, repoHandler, logging) {
   var express = require('express');
   var path = require('path');
   
@@ -8,7 +8,7 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
   service.set('views', path.join(__dirname, '../views'));
   service.set('view engine', 'jade');
   
-  service.use(require('morgan')('common'));
+  service.use(logging());
   service.use(express.static(path.join(__dirname, '../public')));
   
   service.use(function (req, res, next) {
@@ -38,5 +38,6 @@ exports['@require'] = [
   './handlers/home',
   './handlers/docs',
   './handlers/features',
-  './handlers/repo'
+  './handlers/repo',
+  'http://i.bixbyjs.org/http/middleware/logging'
 ];
