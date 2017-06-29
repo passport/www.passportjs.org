@@ -51,3 +51,9 @@
   font-size: 9px;
   line-height: 1;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 770px) {
+  #carbonads {
+    display: none;
+  }
+}
