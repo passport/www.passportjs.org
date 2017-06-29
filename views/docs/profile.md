@@ -6,8 +6,8 @@ user profile information will often be available.  Each service tends to have
 a different way of encoding this information.  To make integration easier,
 Passport normalizes profile information to the extent possible.
 
-Normalized profile information conforms to the [contact schema](http://portablecontacts.net/draft-spec.html#schema)
-established by [Portable Contacts](http://portablecontacts.net/).  The common
+Normalized profile information conforms to the [contact schema][schema]
+established by [Joseph Smarr][schema-author].  The common
 fields available are outlined in the following table.
 
 <dl>
@@ -49,3 +49,6 @@ fields available are outlined in the following table.
 Note that not all of the above fields are available from every service provider.
 Some providers may contain additional information not described here.  Consult
 the provider-specific documentation for further details.
+
+[schema]: https://tools.ietf.org/html/draft-smarr-vcarddav-portable-contacts-00
+[shema-author]: http://josephsmarr.com/
