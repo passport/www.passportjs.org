@@ -6,13 +6,16 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@modulate/www-crawler": "0",
     "bixby": "^0.1.6",
     "bixby-common": "^0.1.3",
     "bixby-express": "^0.1.7",
     "bixby-http": "^0.1.4",
     "body-parser": "~1.12.0",
+    "clone": "^2.1.1",
     "cookie-parser": "~1.3.4",
     "debug": "~2.1.1",
+    "deep-equal": "^1.0.1",
     "express": "~4.12.2",
     "express-livereload": "*",
     "express-redirect": "^1.1.1",
