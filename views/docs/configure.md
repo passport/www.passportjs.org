@@ -114,6 +114,8 @@ recommended for most applications.  If enabled, be sure to use `express.session(
 *before*  `passport.session()` to ensure that the login session is restored in
 the correct order.
 
+Note that when using a custom callback with `passport.authenticate`, it becomes the application's responsibility to establish a session. See "Authenticate#Custom Callback" section.
+
 #### Sessions
 
 In a typical web application, the credentials used to authenticate a user will
