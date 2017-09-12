@@ -110,9 +110,24 @@ app.configure(function() {
 ```
 
 Note that enabling session support is entirely optional, though it is
-recommended for most applications.  If enabled, be sure to use `express.session()`
+recommended for most applications.  If enabled, be sure to use `session()`
 *before*  `passport.session()` to ensure that the login session is restored in
 the correct order.
+
+In Express 4.x, the Connect middleware is no longer included in the Express
+core, and the app.configure() method has been removed.  The same middleware
+can be found in their npm module equivalents.
+
+```javascript
+var session = require("express-session"),
+    bodyParser = require("body-parser");
+
+app.use(express.static("public"));
+app.use(session({ secret: "cats" }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+```
 
 #### Sessions
 
