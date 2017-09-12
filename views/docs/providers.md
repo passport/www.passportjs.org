@@ -195,6 +195,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Fellowship One](https://github.com/hairyhenderson/passport-fellowshipone)</td>
+      <td>OAuth</td>
+      <td>[Dave Henderson](https://github.com/hairyhenderson)</td>
+    </tr>
+    <tr>
       <td>[Fitbit](https://github.com/jaredhanson/passport-fitbit)</td>
       <td>OAuth</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
