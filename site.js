@@ -4,6 +4,7 @@ var site = kerouac();
 site.set('base url', 'http://www.passportjs.org');
 site.set('layout engine', 'jade');
 
+site.use('/packages', require('kerouac-npm-packages')());
 site.content('content');
 site.content('views', { layout: 'docs' });
 
