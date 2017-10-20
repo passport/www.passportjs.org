@@ -1,0 +1,144 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name='author', text="Passport")
+    meta(name='description', content='Simple, unobtrusive authentication for Node.js')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel="canonical", href='http://passportjs.org#{context.canonical}')
+
+    meta(name='msapplication-TileColor', content='#35DF79')
+    meta(name='msapplication-TileImage', content='/images/favicon/ms-icon-144x144.png')
+    meta(name='theme-color', content='#35DF79')
+
+    //- Twitter
+    meta(name='twitter:card', content='summary_large_image')
+    meta(name='twitter:site', content='@passportjs')
+    meta(name='twitter:creator', content='@jaredhanson')
+    meta(name='twitter:title', content='Passport')
+    meta(name='twitter:description', content='Simple, unobtrusive authentication for Node.js')
+    meta(name='twitter:image', content='http://passportjs.org/images/twitter-card.png')
+
+    //- OpenGraph
+    meta(property='og:type', content='website')
+    meta(property='og:title', content='Passport')
+    meta(property='og:description', content='Simple, unobtrusive authentication for Node.js')
+    meta(property='og:locale', content='en_US')
+    meta(property='og:url', content='http://passportjs.org#{context.canonical}')
+    meta(property='og:image', content='http://passportjs.org/images/facebook-card.png')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:width', content='1200')
+    meta(property='og:image:height', content='630')
+
+    //- CSS
+    link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
+    link(rel='stylesheet', href='/stylesheets/ads.css')
+
+    //- Favicons
+    link(rel='apple-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/images/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/images/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/images/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/images/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/images/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/images/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/images/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/images/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/images/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/images/favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/images/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/images/favicon/favicon-16x16.png')
+    link(rel='manifest', href='/images/favicon/manifest.json')
+
+    != LRScript
+  body(class=page_name)
+    .main-hold#top
+      .top-site
+        .search
+          form(action='#')
+            button(type='submit')
+            input(type='text', placeholder='Search for Strategies')
+
+        .social
+          ul
+            li.twitter
+              a(href='http://twitter.com/passportjs', target='_blank')
+            li.git
+              a(href='http://github.com/jaredhanson/passport', target='_blank')
+                span.stat 0
+
+
+      nav#menu
+        a#logo(href='/', title='JH', data-pjax="/").logo
+        a(href='http://twitter.com/jaredhanson', target="_blank").jared by Jared Hanson
+        .menu-trigger
+          span
+        .menu-hold
+          ul
+
+            li(class=(title === 'Passport' ? 'active' : ''))
+              a(href='/', data-pjax='/') Home
+            li(class=(title === 'Documentation' ? 'active' : ''))
+              a(href='/docs', data-pjax='/docs') Documentation
+            li(class=(title === 'Features' ? 'active' : ''))
+              a(href='/features', data-pjax='/features') Features
+            li
+              a(href='/', data-search='') Strategies
+
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+
+        a(href='http://auth0.com', target='_blank').supported
+          | Supported by
+          i.auth0
+
+
+      #page-content.content
+        block content
+
+
+        a(href='http://auth0.com', target='_blank').supported
+          | Supported by
+          i.auth0
+
+    .search-con
+      .head
+        span.close-ico
+        .hold
+          h2 SEARCH FOR STRATEGIES
+          form(action='/')
+            input(value='', type='text', name="strategy" placeholder="Start typing")
+          p.info-line
+            span 0
+            | STRATEGIES
+      .results
+        section
+
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js')
+    script(src='/javascripts/plugins.js')
+    script(src='/javascripts/helpers.js')
+    script(src='/javascripts/main.js')
+    script.
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-104798-10']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    // Google Tag Manager
+    noscript.
+      iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    // End Google Tag Manager
