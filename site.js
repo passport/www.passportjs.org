@@ -4,6 +4,8 @@ var site = kerouac();
 site.set('base url', 'http://www.passportjs.org');
 site.set('layout engine', 'pug');
 
+site.locals.pretty = true;
+
 //site.engine('jade', require('jade'));
 site.engine('pug', require('pug'));
 
