@@ -12,6 +12,9 @@ html(lang="en")
     meta(name='msapplication-TileImage', content='/images/favicon/ms-icon-144x144.png')
     meta(name='theme-color', content='#35DF79')
 
+    +twittercard_summary(title, description, { site: '@passport' })
+    +ogp(title, description, canonicalURL)
+
     //- Twitter
     meta(name='twitter:card', content='summary_large_image')
     meta(name='twitter:site', content='@passportjs')

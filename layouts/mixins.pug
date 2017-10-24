@@ -28,3 +28,28 @@ mixin browser(title)
 
     .browser-content
       block
+
+//-
+  The Open Graph protocol
+  
+  http://ogp.me/
+
+mixin ogp(title, description, url)
+  meta(property='og:type', content='website')
+  meta(property='og:url', content=url)
+  meta(property='og:title', content=title)
+  if description
+    meta(property='og:description', content=description)
+
+//-
+  Twiter Cards
+  
+  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/
+  
+mixin twittercard_summary(title, description, attrs)
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:title', content='title')
+  if description
+    meta(name='twitter:description', content=description)
+  if attrs.site
+    meta(name='twitter:site', content=attrs.site)
