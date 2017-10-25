@@ -46,10 +46,13 @@ mixin ogp(title, description, url)
   
   https://developer.twitter.com/en/docs/tweets/optimize-with-cards/
   
-mixin twittercard_summary(title, description, attrs)
+mixin twittercard_summary(title, description, author)
   meta(name='twitter:card', content='summary')
   meta(name='twitter:title', content='title')
   if description
     meta(name='twitter:description', content=description)
-  if attrs.site
-    meta(name='twitter:site', content=attrs.site)
+  if author
+    each account in author.accounts
+      if account.domain == 'twitter.com'
+        meta(name='twitter:creator', content='@'+account.username)
+  meta(name='twitter:site', content='@passportjs')
