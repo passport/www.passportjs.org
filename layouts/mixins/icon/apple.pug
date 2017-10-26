@@ -1,0 +1,39 @@
+//-
+  Apple Touch Icons
+  
+  Adds an icon that will be used by Safari on iOS when a link is added to the
+  Home screen. Such links are known as Web Clips.
+  
+  Multiple icons are specified for different device resolutions. Apple's
+  guidance on sizes is scattered, but the following table illustrates which size
+  is used by various devices.
+  
+    57x57    iPhone (iOS 6.1 and earlier)
+    60x60    iPhone
+    72x72    iPad (iOS 6.1 and earlier)
+    76x76    iPad
+    114x114  iPhone with Retina display (iOS 6.1 and earlier)
+    120x120  iPhone with Retina display
+    144x144  iPad with Retina display (iOS 6.1 and earlier)
+    152x152  iPad with Retina display
+    167x167  iPad Pro
+    180x180  iPhone with Retina HD display
+  
+  If not otherwise specified, the system searches for a file named
+  'apple-touch-icon.png'.
+  
+  References:
+  - [Specifying a Webpage Icon for Web Clip](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4)
+  - [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/content/qa/qa1686/_index.html)
+//-
+
+mixin apple-touch-icon()
+  link(rel='apple-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
+  link(rel='apple-touch-icon', sizes='60x60', href='/images/favicon/apple-icon-60x60.png')
+  link(rel='apple-touch-icon', sizes='72x72', href='/images/favicon/apple-icon-72x72.png')
+  link(rel='apple-touch-icon', sizes='76x76', href='/images/favicon/apple-icon-76x76.png')
+  link(rel='apple-touch-icon', sizes='114x114', href='/images/favicon/apple-icon-114x114.png')
+  link(rel='apple-touch-icon', sizes='120x120', href='/images/favicon/apple-icon-120x120.png')
+  link(rel='apple-touch-icon', sizes='144x144', href='/images/favicon/apple-icon-144x144.png')
+  link(rel='apple-touch-icon', sizes='152x152', href='/images/favicon/apple-icon-152x152.png')
+  link(rel='apple-touch-icon', sizes='180x180', href='/images/favicon/apple-icon-180x180.png')
