@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "git clone -b gh-pages --depth 1 https://github.com/passport/www.passportjs.org.git www"
+    "heroku-postbuild": "git clone -b gh-pages --depth 1 https://github.com/passport/www.passportjs.org.git www && rm -rf www/.git"
   },
   "dependencies": {
     "bixby": "^0.1.6",
