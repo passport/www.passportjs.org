@@ -18,6 +18,7 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
   service.use(bodyParser.urlencoded({ extended: false }));
   service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
+  service.use(express.static(path.join(__dirname, '../www')));
   
   service.use(function (req, res, next) {
     // default locals that can be overriden in routes
