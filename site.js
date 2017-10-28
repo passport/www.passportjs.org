@@ -13,6 +13,8 @@ site.engine('pug', require('pug'));
 site.content('content');
 site.content('views', { layout: 'docs' });
 
+//site.use('/', require('kerouac-manifest')());
+
 site.generate(function(err) {
   if (err) {
     console.error(err.message);
