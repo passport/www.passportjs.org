@@ -8,5 +8,6 @@
   https://msdn.microsoft.com/en-us/library/gg491740(v=vs.85).aspx
 //-
 
-mixin windows-web-app()
-  link(rel='windows-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
+mixin windows-web-app(manifest)
+  if manifest.themeColor
+    meta(name='msapplication-TileColor', content=manifest.themeColor)
