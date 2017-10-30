@@ -1,0 +1,11 @@
+//- https://developers.google.com/web/fundamentals/app-install-banners/
+//- https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+
+mixin web-app(manifest)
+  +html-icons(manifest)
+  
+mixin html-icons(manifest)
+  if manifest.icons
+    each icon in manifest.icons
+      if !icon.platform
+        link(rel='icon', sizes=icon.sizes.join(' '), type=icon.type, href=icon.src)
