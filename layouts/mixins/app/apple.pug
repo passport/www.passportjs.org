@@ -1,5 +1,6 @@
-mixin ios-web-app()
-  +apple-touch-icons()
+mixin ios-web-app(manifest)
+  +apple-touch-icons(manifest)
+
 
 //-
   Apple Touch Icons
@@ -30,13 +31,8 @@ mixin ios-web-app()
   - [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/content/qa/qa1686/_index.html)
 //-
 
-mixin apple-touch-icons()
-  link(rel='apple-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
-  link(rel='apple-touch-icon', sizes='60x60', href='/images/favicon/apple-icon-60x60.png')
-  link(rel='apple-touch-icon', sizes='72x72', href='/images/favicon/apple-icon-72x72.png')
-  link(rel='apple-touch-icon', sizes='76x76', href='/images/favicon/apple-icon-76x76.png')
-  link(rel='apple-touch-icon', sizes='114x114', href='/images/favicon/apple-icon-114x114.png')
-  link(rel='apple-touch-icon', sizes='120x120', href='/images/favicon/apple-icon-120x120.png')
-  link(rel='apple-touch-icon', sizes='144x144', href='/images/favicon/apple-icon-144x144.png')
-  link(rel='apple-touch-icon', sizes='152x152', href='/images/favicon/apple-icon-152x152.png')
-  link(rel='apple-touch-icon', sizes='180x180', href='/images/favicon/apple-icon-180x180.png')
+mixin apple-touch-icons(manifest)
+  if manifest.icons
+    each icon in manifest.icons
+      if icon.platform == 'ios'
+        link(rel='apple-touch-icon', sizes=icon.sizes.join(' '), href=icon.src)

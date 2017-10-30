@@ -16,5 +16,7 @@ mixin windows-web-app(manifest)
 mixin windows-tile-logos(manifest)
   if manifest.icons
     each icon in manifest.icons
-      if icon.sizes.length == 1 && icon.sizes[0] == '144x144'
-        meta(name='msapplication-TileImage', content=icon.src)
+      if icon.sizes.length == 1
+        case icon.sizes[0]
+          when '144x144'
+            meta(name='msapplication-TileImage', content=icon.src)
