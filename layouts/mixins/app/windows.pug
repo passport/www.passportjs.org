@@ -9,5 +9,12 @@
 //-
 
 mixin windows-web-app(manifest)
+  +windows-tile-logos(manifest)
   if manifest.themeColor
     meta(name='msapplication-TileColor', content=manifest.themeColor)
+
+mixin windows-tile-logos(manifest)
+  if manifest.icons
+    each icon in manifest.icons
+      if icon.sizes.length == 1 && icon.sizes[0] == '144x144'
+        meta(name='msapplication-TileImage', content=icon.src)
