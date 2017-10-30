@@ -38,9 +38,9 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
   service.redirect('/guide/:page', '/docs/:page', 301);
   
   
-  service.get('/', homeHandler);
+  //service.get('/', homeHandler);
   service.use('/docs', docsService);
-  service.get('/features', featuresHandler);
+  //service.get('/features', featuresHandler);
   service.get('/repo.json', repoHandler);
   
   
