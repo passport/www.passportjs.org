@@ -23,6 +23,9 @@ mixin ios-web-app(manifest)
     167x167  iPad Pro
     180x180  iPhone with Retina HD display
   
+  Icons may include an alpha channel, but should not include any transparent
+  regions.
+  
   If not otherwise specified, the system searches for a file named
   'apple-touch-icon.png'.
   
@@ -36,3 +39,7 @@ mixin apple-touch-icons(manifest)
     each icon in manifest.icons
       if icon.platform == 'ios'
         link(rel='apple-touch-icon', sizes=icon.sizes.join(' '), href=icon.src)
+
+//- TODO: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+//- TODO: http://blog.chrishannah.me/adding-a-touch-bar-icon-to-your-website/
+//- TODO: http://blog.iconfactory.com/2015/11/the-new-favicon/
