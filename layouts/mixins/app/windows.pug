@@ -9,9 +9,9 @@
 //-
 
 mixin windows-web-app(manifest)
-  +windows-tile-logos(manifest)
   if manifest.themeColor
     meta(name='msapplication-TileColor', content=manifest.themeColor)
+  +windows-tile-logos(manifest)
 
 mixin windows-tile-logos(manifest)
   if manifest.icons

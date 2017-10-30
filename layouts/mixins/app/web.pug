@@ -2,9 +2,15 @@
 //- https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
 
 mixin web-app(manifest)
-  +html-icons(manifest)
+  +html-meta(manifest)
+  +html-icon-links(manifest)
+
+mixin html-meta(manifest)
+  if manifest.themeColor
+    meta(name='theme-color', content=manifest.themeColor)
   
-mixin html-icons(manifest)
+//- https://stackoverflow.com/questions/2997437/what-size-should-apple-touch-icon-png-be-for-ipad-and-iphone-4
+mixin html-icon-links(manifest)
   if manifest.icons
     each icon in manifest.icons
       if !icon.platform
