@@ -1,15 +1,46 @@
-//- https://developers.google.com/web/fundamentals/app-install-banners/
-//- https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
-
-mixin web-app(manifest)
+//-
+  Web App Manifest
+  
+  Adds a link to a web app manifest containing metadata associated with a web
+  application.
+  
+  Chrome uses visit-frequency heuristics to show an "add to home screen" (A2HS)
+  prompt.  This prompt is only displayed when the app meets a set of criteria,
+  including having a suitable manifest.  Further details can be found at:
+    https://developers.google.com/web/fundamentals/app-install-banners/
+  
+//-
+mixin web-app(manifest, url)
+  if url
+    link(rel='manifest', href=url)
   +html-meta(manifest)
   +html-icon-links(manifest)
 
 mixin html-meta(manifest)
+  //- The 'theme-color' meta tag is part of the HTML standard.
+  //-   https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color
+  //-
+  //- The 'theme-color' meta tag is used to set the toolbar color on Chrome for
+  //- Android.
+  //-   https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+  //-   https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
   if manifest.themeColor
     meta(name='theme-color', content=manifest.themeColor)
+  //- The 'mobile-web-app-capable' meta tag used by Chrome M31, and deprecated
+  //- as of Chrome M39 in favor of a web app manifest with a 'display' property. 
+  //-   https://developer.chrome.com/multidevice/android/installtohomescreen
+  if manifest.display && manifest.display != 'browser'
+    meta(name='mobile-web-app-capable', content='yes')
   
 //- https://stackoverflow.com/questions/2997437/what-size-should-apple-touch-icon-png-be-for-ipad-and-iphone-4
+
+
+//-
+  Favicon
+  
+  Google recommends providing a 192x192 PNG file for use with Chrome for
+  Android.
+//-
 mixin html-icon-links(manifest)
   if manifest.icons
     each icon in manifest.icons
