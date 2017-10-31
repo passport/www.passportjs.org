@@ -1,8 +1,13 @@
+//-
+  iOS Web Application
+  
+  Adds meta and link tags that configure Safari on iOS to look and behave in a
+  manner similar to a native application.
+//-
 mixin ios-web-app(manifest)
   if manifest.display && manifest.display != 'browser'
     meta(name='apple-mobile-web-app-capable', content='yes')
   +apple-touch-icons(manifest)
-
 
 //-
   Apple Touch Icons
@@ -35,7 +40,6 @@ mixin ios-web-app(manifest)
   - [Specifying a Webpage Icon for Web Clip](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4)
   - [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/content/qa/qa1686/_index.html)
 //-
-
 mixin apple-touch-icons(manifest)
   if manifest.icons
     each icon in manifest.icons
