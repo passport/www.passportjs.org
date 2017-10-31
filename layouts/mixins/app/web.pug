@@ -29,8 +29,9 @@ mixin html-meta(manifest)
   //-   https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
   if manifest.themeColor
     meta(name='theme-color', content=manifest.themeColor)
-  //- The 'mobile-web-app-capable' meta tag used by Chrome M31, and deprecated
-  //- as of Chrome M39 in favor of a web app manifest with a 'display' property. 
+  //- The 'mobile-web-app-capable' meta tag is used by Chrome M31, and
+  //- deprecated as of Chrome M39 in favor of a web app manifest with a
+  //- 'display' property. 
   //-   https://developer.chrome.com/multidevice/android/installtohomescreen
   if manifest.display && manifest.display != 'browser'
     meta(name='mobile-web-app-capable', content='yes')
@@ -41,11 +42,27 @@ mixin html-meta(manifest)
 //-
   Favicon
   
+  Adds an icon that will be used by the user agent when representing the page in
+  a user interface.
+  
+  The 'icon' link type is part of the HTML standard.
+    https://html.spec.whatwg.org/multipage/links.html#rel-icon
+  
+  For historical reasons, an icon in ICO format will use a link relation of
+  'shortcut icon'.
+    https://en.wikipedia.org/wiki/Favicon
+    https://www.w3.org/2005/10/howto-favicon
+    https://mathiasbynens.be/notes/rel-shortcut-icon
+  
   Google recommends providing a 192x192 PNG file for use with Chrome for
   Android.
+    https://realfavicongenerator.net/blog/android-chrome-and-its-favicon/
 //-
 mixin html-icon-links(manifest)
   if manifest.icons
     each icon in manifest.icons
       if !icon.platform
-        link(rel='icon', sizes=icon.sizes.join(' '), type=icon.type, href=icon.src)
+        if (icon.type == 'image/x-icon')
+          link(rel='shortcut icon', href=icon.src)
+        else
+          link(rel='icon', sizes=icon.sizes.join(' '), type=icon.type, href=icon.src)

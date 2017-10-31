@@ -5,6 +5,11 @@
   manner similar to a native application.
 //-
 mixin ios-web-app(manifest)
+  //- The 'apple-mobile-web-app-capable' meta tag is only set when the display
+  //- mode is set to a value other than 'browser'. This prevents removing the
+  //- browser chrome from sites that don't provide in-page navigation, avoiding
+  //- user experience issues described in [Don’t use iOS meta tags
+  //- irresponsibly in your Progressive Web Apps](https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb).
   if manifest.display && manifest.display != 'browser'
     meta(name='apple-mobile-web-app-capable', content='yes')
   +apple-touch-icons(manifest)
@@ -39,6 +44,7 @@ mixin ios-web-app(manifest)
   References:
   - [Specifying a Webpage Icon for Web Clip](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4)
   - [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/content/qa/qa1686/_index.html)
+  - [Everything you always wanted to know about touch icons](https://mathiasbynens.be/notes/touch-icons)
 //-
 mixin apple-touch-icons(manifest)
   if manifest.icons
