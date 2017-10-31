@@ -1,13 +1,17 @@
 //-
-  [Browser configuration schema reference](https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx)
-  [Pinned site metadata reference](https://msdn.microsoft.com/en-us/library/dn255024(v=vs.85).aspx)
-
-  https://msdn.microsoft.com/en-us/library/gg491732(v=vs.85).aspx
-  http://www.buildmypinnedsite.com/
-
-  https://msdn.microsoft.com/en-us/library/gg491740(v=vs.85).aspx
+  Windows Web Application
+  
+  Adds meta and link tags that configure Internet Explorer on Windows to pin
+  sites to the Windows Start screen or taskbar.
+  
+  In addition to customizing icons and colors, pinned sites can provide
+  notifications and display badges.  Further details can be found at:
+    [Pinned Sites](https://msdn.microsoft.com/en-us/library/hh772707(v=vs.85).aspx)
+    [Browser configuration schema reference](https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx)
+    [Pinned site metadata reference](https://msdn.microsoft.com/en-us/library/dn255024(v=vs.85).aspx)
+    [Declaring Pinned Site Metadata](https://msdn.microsoft.com/en-us/library/gg491732(v=vs.85).aspx)
+    [Build My Pinned Site](http://www.buildmypinnedsite.com/)
 //-
-
 mixin windows-web-app(manifest, url)
   if url
     meta(name='msapplication-config', content=url)
