@@ -1,4 +1,6 @@
 mixin ios-web-app(manifest)
+  if manifest.display && manifest.display != 'browser'
+    meta(name='apple-mobile-web-app-capable', content='yes')
   +apple-touch-icons(manifest)
 
 
