@@ -35,9 +35,6 @@ mixin html-meta(manifest)
   //-   https://developer.chrome.com/multidevice/android/installtohomescreen
   if manifest.display && manifest.display != 'browser'
     meta(name='mobile-web-app-capable', content='yes')
-  
-//- https://stackoverflow.com/questions/2997437/what-size-should-apple-touch-icon-png-be-for-ipad-and-iphone-4
-
 
 //-
   Favicon
@@ -53,10 +50,15 @@ mixin html-meta(manifest)
     https://en.wikipedia.org/wiki/Favicon
     https://www.w3.org/2005/10/howto-favicon
     https://mathiasbynens.be/notes/rel-shortcut-icon
+    http://www.jonathantneal.com/blog/understand-the-favicon/
   
   Google recommends providing a 192x192 PNG file for use with Chrome for
   Android.
     https://realfavicongenerator.net/blog/android-chrome-and-its-favicon/
+    
+  RealFaviconGenerator provides a FAQ with detailed analysis of how favicons
+  are utilized by various user agents.
+    https://realfavicongenerator.net/faq
 //-
 mixin html-icon-links(manifest)
   if manifest.icons
