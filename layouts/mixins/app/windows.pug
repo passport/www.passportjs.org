@@ -8,7 +8,9 @@
   https://msdn.microsoft.com/en-us/library/gg491740(v=vs.85).aspx
 //-
 
-mixin windows-web-app(manifest)
+mixin windows-web-app(manifest, url)
+  if url
+    meta(name='msapplication-config', content=url)
   if manifest.themeColor
     meta(name='msapplication-TileColor', content=manifest.themeColor)
   +windows-tile-logos(manifest)
