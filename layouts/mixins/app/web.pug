@@ -1,0 +1,70 @@
+//-
+  Web App Manifest
+  
+  Adds a link to a web app manifest containing metadata associated with a web
+  application, as well as meta and link tags for user agents that do not support
+  manifests. 
+  
+  Chrome uses visit-frequency heuristics to show an "add to home screen" (A2HS)
+  prompt.  This prompt is only displayed when the app meets a set of criteria,
+  including having a suitable manifest.  Further details can be found at:
+    https://developers.google.com/web/fundamentals/app-install-banners/
+    https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android
+    https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android
+    https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen
+//-
+mixin web-app(manifest, url)
+  if url
+    link(rel='manifest', href=url)
+  +html-meta(manifest)
+  +html-icon-links(manifest)
+
+mixin html-meta(manifest)
+  //- The 'theme-color' meta tag is part of the HTML standard.
+  //-   https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color
+  //-
+  //- The 'theme-color' meta tag is used to set the toolbar color on Chrome for
+  //- Android.
+  //-   https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+  //-   https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  if manifest.themeColor
+    meta(name='theme-color', content=manifest.themeColor)
+  //- The 'mobile-web-app-capable' meta tag is used by Chrome M31, and
+  //- deprecated as of Chrome M39 in favor of a web app manifest with a
+  //- 'display' property. 
+  //-   https://developer.chrome.com/multidevice/android/installtohomescreen
+  if manifest.display && manifest.display != 'browser'
+    meta(name='mobile-web-app-capable', content='yes')
+
+//-
+  Favicon
+  
+  Adds an icon that will be used by the user agent when representing the page in
+  a user interface.
+  
+  The 'icon' link type is part of the HTML standard.
+    https://html.spec.whatwg.org/multipage/links.html#rel-icon
+  
+  For historical reasons, an icon in ICO format will use a link type of
+  'shortcut icon'.
+    https://en.wikipedia.org/wiki/Favicon
+    https://www.w3.org/2005/10/howto-favicon
+    https://mathiasbynens.be/notes/rel-shortcut-icon
+    http://www.jonathantneal.com/blog/understand-the-favicon/
+  
+  Google recommends providing a 192x192 PNG file for use with Chrome for
+  Android.
+    https://realfavicongenerator.net/blog/android-chrome-and-its-favicon/
+    
+  RealFaviconGenerator provides a FAQ with detailed analysis of how favicons
+  are utilized by various user agents.
+    https://realfavicongenerator.net/faq
+//-
+mixin html-icon-links(manifest)
+  if manifest.icons
+    each icon in manifest.icons
+      if !icon.platform
+        if (icon.type == 'image/x-icon')
+          link(rel='shortcut icon', href=icon.src)
+        else
+          link(rel='icon', sizes=icon.sizes.join(' '), type=icon.type, href=icon.src)

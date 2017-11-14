@@ -1,0 +1,58 @@
+mixin window(title)
+  .window
+    .window-toolbar
+      i.red
+      i.yellow
+      i.green
+
+      span=title
+
+    .window-content
+      block
+
+mixin browser(title)
+  .browser
+    .browser-toolbar
+      .btns
+        i.close
+        i.min
+        i.max
+      .location-bar
+        i.bi_user-lock
+        span=title
+
+      .menu-button
+        span
+        span
+        span
+
+    .browser-content
+      block
+
+//-
+  The Open Graph protocol
+  
+  http://ogp.me/
+
+mixin ogp(title, description, author, url)
+  meta(property='og:type', content='website')
+  meta(property='og:url', content=url)
+  meta(property='og:title', content=title)
+  if description
+    meta(property='og:description', content=description)
+
+//-
+  Twiter Cards
+  
+  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/
+  
+mixin twittercard_summary(title, description, author)
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:title', content='title')
+  if description
+    meta(name='twitter:description', content=description)
+  if author
+    each account in author.accounts
+      if account.domain == 'twitter.com'
+        meta(name='twitter:creator', content='@'+account.username)
+  meta(name='twitter:site', content='@passportjs')

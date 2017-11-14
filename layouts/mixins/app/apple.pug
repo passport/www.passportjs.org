@@ -1,0 +1,61 @@
+//-
+  iOS Web Application
+  
+  Adds meta and link tags that configure Safari on iOS to look and behave in a
+  manner similar to a native application.
+//-
+mixin ios-web-app(manifest)
+  //- The 'apple-mobile-web-app-capable' meta tag is only set when the display
+  //- mode is set to a value other than 'browser'. This prevents removing the
+  //- browser chrome from sites that don't provide in-page navigation, avoiding
+  //- user experience issues described in [Don’t use iOS meta tags
+  //- irresponsibly in your Progressive Web Apps](https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb).
+  if manifest.display && manifest.display != 'browser'
+    meta(name='apple-mobile-web-app-capable', content='yes')
+  +apple-touch-icons(manifest)
+
+//-
+  Apple Touch Icons
+  
+  Adds an icon that will be used by Safari on iOS when a link is added to the
+  Home screen. Such links are known as Web Clips.
+  
+  Multiple icons are specified for different device resolutions. Apple's
+  guidance on sizes is scattered, but the following table illustrates which size
+  is used by various devices.
+  
+    57x57    iPhone (iOS 6.1 and earlier)
+    60x60    iPhone
+    72x72    iPad (iOS 6.1 and earlier)
+    76x76    iPad
+    114x114  iPhone with Retina display (iOS 6.1 and earlier)
+    120x120  iPhone with Retina display
+    144x144  iPad with Retina display (iOS 6.1 and earlier)
+    152x152  iPad with Retina display
+    167x167  iPad Pro
+    180x180  iPhone with Retina HD display
+  
+  Icons may include an alpha channel, but should not include any transparent
+  regions.
+  
+  If not otherwise specified, the system searches for a file named
+  'apple-touch-icon.png'.
+  
+  References:
+  - [Specifying a Webpage Icon for Web Clip](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4)
+  - [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/content/qa/qa1686/_index.html)
+  - [Everything you always wanted to know about touch icons](https://mathiasbynens.be/notes/touch-icons)
+//-
+mixin apple-touch-icons(manifest)
+  if manifest.icons
+    each icon in manifest.icons
+      if icon.platform == 'ios'
+        case icon.sizes[0]
+          when '57x57'
+            link(rel='apple-touch-icon', href=icon.src)
+          default
+            link(rel='apple-touch-icon', sizes=icon.sizes.join(' '), href=icon.src)
+
+//- TODO: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+//- TODO: http://blog.chrishannah.me/adding-a-touch-bar-icon-to-your-website/
+//- TODO: http://blog.iconfactory.com/2015/11/the-new-favicon/
