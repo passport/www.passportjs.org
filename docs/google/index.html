@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="author" text="Passport">
+    <meta name="description" content="Simple, unobtrusive authentication for Node.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/docs/google/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@passportjs">
+    <meta name="twitter:creator" content="@jaredhanson">
+    <meta name="twitter:title" content="Passport">
+    <meta name="twitter:description" content="Simple, unobtrusive authentication for Node.js">
+    <meta name="twitter:image" content="http://passportjs.org/images/twitter-card.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Passport">
+    <meta property="og:description" content="Simple, unobtrusive authentication for Node.js">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="http://www.passportjs.org/docs/google/">
+    <meta property="og:image" content="http://passportjs.org/images/facebook-card.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/ads.css">
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH" data-pjax="/"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/" data-pjax="/">Home</a></li>
+            <li><a href="/docs" data-pjax="/docs">Documentation</a></li>
+            <li><a href="/features" data-pjax="/features">Features</a></li>
+            <li><a href="/" data-search="">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div class="content" id="page-content">
+        <div class="entry">
+          <div class="sub-menu">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/overview"></a>General</h5>
+                <ul data-content="">
+                  <li><a class="active" href="/docs/overview">Overview</a></li>
+                  <li><a href="/docs/authenticate">Authenticate</a></li>
+                  <li><a href="/docs/configure">Configure</a></li>
+                  <li><a href="/docs/username-password">Username & Password</a></li>
+                  <li><a href="/docs/openid">OpenID</a></li>
+                  <li><a href="/docs/oauth">OAuth</a></li>
+                  <li><a href="/docs/profile">User Profile</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/facebook"></a>Providers</h5>
+                <ul data-content="">
+                  <li><a href="/docs/facebook">Facebook</a></li>
+                  <li><a href="/docs/twitter">Twitter</a></li>
+                  <li><a href="/docs/google">Google</a></li>
+                  <li><a href="/" data-search="">Other</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/basic-digest"></a>APIs</h5>
+                <ul data-content="">
+                  <li><a href="/docs/basic-digest">Basic & Digest</a></li>
+                  <li><a href="/docs/oauth-api">OAuth</a></li>
+                  <li><a href="/docs/oauth2-api">OAuth 2.0</a></li>
+                  <li><a href="/docs/other-api">Other</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/login"></a>Operations</h5>
+                <ul data-content="">
+                  <li><a href="/docs/login">Log In</a></li>
+                  <li><a href="/docs/logout">Log Out</a></li>
+                  <li><a href="/docs/authorize">Authorize</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a class="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="guides"><h1 id="google">Google</h1>
+<p>The Google strategy allows users to sign in to a web application using their
+Google account.  Google <a href="https://developers.google.com/identity/protocols/OpenID2Migration#shutdown-timetable">used to support OpenID internally</a>, but it now works based on <a href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</a> and supports oAuth 1.0 and oAuth 2.0.</p>
+<p>Support for Google is implemented by the <a href="https://github.com/jaredhanson/passport-google-oauth">passport-google-oauth</a>
+module.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">$ npm install passport-google-oauth
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>The Client Id and Client Secret needed to authenticate with Google can be set up from the <a href="https://console.developers.google.com">Google Developers Console</a>. You may also need to enable Google+ API in the developer console, otherwise user profile data may not be fetched. Google supports authentication with both oAuth 1.0 and oAuth 2.0.</p>
+<h3 id="oauth-1-0">oAuth 1.0</h3>
+<p>The Google OAuth 1.0 authentication strategy authenticates users using a Google account and OAuth tokens. The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
+<h4 id="configuration">Configuration</h4>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> GoogleStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-oauth'</span>).OAuthStrategy;
+
+<span class="comment">// Use the GoogleStrategy within Passport.</span>
+<span class="comment">//   Strategies in passport require a `verify` function, which accept</span>
+<span class="comment">//   credentials (in this case, a token, tokenSecret, and Google profile), and</span>
+<span class="comment">//   invoke a callback with a user object.</span>
+passport.use(<span class="keyword">new</span> GoogleStrategy({
+    <span class="attr">consumerKey</span>: GOOGLE_CONSUMER_KEY,
+    <span class="attr">consumerSecret</span>: GOOGLE_CONSUMER_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/google/callback"</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
+      User.findOrCreate({ <span class="attr">googleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+        <span class="keyword">return</span> done(err, user);
+      });
+  }
+));
+</code></pre>
+<h4 id="routes">Routes</h4>
+<p>Use passport.authenticate(), specifying the &#39;google&#39; strategy, to authenticate requests. Authentication with Google requires an extra <code>scope</code> parameter. For information, go <a href="https://developers.google.com/identity/protocols/OpenIDConnect#scope-param">here</a>.</p>
+<pre><code class="lang-javascript"><span class="comment">// GET /auth/google</span>
+<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
+<span class="comment">//   request.  The first step in Google authentication will involve redirecting</span>
+<span class="comment">//   the user to google.com.  After authorization, Google will redirect the user</span>
+<span class="comment">//   back to this application at /auth/google/callback</span>
+app.get(<span class="string">'/auth/google'</span>,
+  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">scope</span>: <span class="string">'https://www.google.com/m8/feeds'</span> });
+
+<span class="comment">// GET /auth/google/callback</span>
+<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
+<span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
+<span class="comment">//   login page.  Otherwise, the primary route function function will be called,</span>
+<span class="comment">//   which, in this example, will redirect the user to the home page.</span>
+app.get(<span class="string">'/auth/google/callback'</span>, 
+  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre>
+<h3 id="oauth-2-0">oAuth 2.0</h3>
+<p>The Google OAuth 2.0 authentication strategy authenticates users using a Google account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
+<h4 id="configuration">Configuration</h4>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> GoogleStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-oauth'</span>).OAuth2Strategy;
+
+<span class="comment">// Use the GoogleStrategy within Passport.</span>
+<span class="comment">//   Strategies in Passport require a `verify` function, which accept</span>
+<span class="comment">//   credentials (in this case, an accessToken, refreshToken, and Google</span>
+<span class="comment">//   profile), and invoke a callback with a user object.</span>
+passport.use(<span class="keyword">new</span> GoogleStrategy({
+    <span class="attr">clientID</span>: GOOGLE_CLIENT_ID,
+    <span class="attr">clientSecret</span>: GOOGLE_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/google/callback"</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+       User.findOrCreate({ <span class="attr">googleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+         <span class="keyword">return</span> done(err, user);
+       });
+  }
+));
+</code></pre>
+<h4 id="routes">Routes</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the &#39;google&#39; strategy, to authenticate requests. Authentication with Google requires an extra <code>scope</code> parameter. For information, go <a href="https://developers.google.com/identity/protocols/OpenIDConnect#scope-param">here</a>.</p>
+<pre><code class="lang-javascript"><span class="comment">// GET /auth/google</span>
+<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
+<span class="comment">//   request.  The first step in Google authentication will involve</span>
+<span class="comment">//   redirecting the user to google.com.  After authorization, Google</span>
+<span class="comment">//   will redirect the user back to this application at /auth/google/callback</span>
+app.get(<span class="string">'/auth/google'</span>,
+  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">scope</span>: [<span class="string">'https://www.googleapis.com/auth/plus.login'</span>] }));
+
+<span class="comment">// GET /auth/google/callback</span>
+<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
+<span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
+<span class="comment">//   login page.  Otherwise, the primary route function function will be called,</span>
+<span class="comment">//   which, in this example, will redirect the user to the home page.</span>
+app.get(<span class="string">'/auth/google/callback'</span>, 
+  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre>
+<h2 id="link">Link</h2>
+<p>A link or button can be placed on a web page, allowing one-click sign in with
+Google.</p>
+<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/google"</span>&gt;</span>Sign In with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+</code></pre>
+</div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+    <script src="/javascripts/plugins.js"></script>
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

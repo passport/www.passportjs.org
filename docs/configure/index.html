@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="author" text="Passport">
+    <meta name="description" content="Simple, unobtrusive authentication for Node.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/docs/configure/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@passportjs">
+    <meta name="twitter:creator" content="@jaredhanson">
+    <meta name="twitter:title" content="Passport">
+    <meta name="twitter:description" content="Simple, unobtrusive authentication for Node.js">
+    <meta name="twitter:image" content="http://passportjs.org/images/twitter-card.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Passport">
+    <meta property="og:description" content="Simple, unobtrusive authentication for Node.js">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="http://www.passportjs.org/docs/configure/">
+    <meta property="og:image" content="http://passportjs.org/images/facebook-card.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/ads.css">
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH" data-pjax="/"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/" data-pjax="/">Home</a></li>
+            <li><a href="/docs" data-pjax="/docs">Documentation</a></li>
+            <li><a href="/features" data-pjax="/features">Features</a></li>
+            <li><a href="/" data-search="">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div class="content" id="page-content">
+        <div class="entry">
+          <div class="sub-menu">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/overview"></a>General</h5>
+                <ul data-content="">
+                  <li><a class="active" href="/docs/overview">Overview</a></li>
+                  <li><a href="/docs/authenticate">Authenticate</a></li>
+                  <li><a href="/docs/configure">Configure</a></li>
+                  <li><a href="/docs/username-password">Username & Password</a></li>
+                  <li><a href="/docs/openid">OpenID</a></li>
+                  <li><a href="/docs/oauth">OAuth</a></li>
+                  <li><a href="/docs/profile">User Profile</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/facebook"></a>Providers</h5>
+                <ul data-content="">
+                  <li><a href="/docs/facebook">Facebook</a></li>
+                  <li><a href="/docs/twitter">Twitter</a></li>
+                  <li><a href="/docs/google">Google</a></li>
+                  <li><a href="/" data-search="">Other</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/basic-digest"></a>APIs</h5>
+                <ul data-content="">
+                  <li><a href="/docs/basic-digest">Basic & Digest</a></li>
+                  <li><a href="/docs/oauth-api">OAuth</a></li>
+                  <li><a href="/docs/oauth2-api">OAuth 2.0</a></li>
+                  <li><a href="/docs/other-api">Other</a></li>
+                </ul>
+              </div>
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/docs/login"></a>Operations</h5>
+                <ul data-content="">
+                  <li><a href="/docs/login">Log In</a></li>
+                  <li><a href="/docs/logout">Log Out</a></li>
+                  <li><a href="/docs/authorize">Authorize</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a class="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="guides"><h1 id="configure">Configure</h1>
+<p>Three pieces need to be configured to use Passport for authentication:</p>
+<ol>
+<li>Authentication strategies</li>
+<li>Application middleware</li>
+<li>Sessions (<em>optional</em>)</li>
+</ol>
+<h2 id="strategies">Strategies</h2>
+<p>Passport uses what are termed <em>strategies</em> to authenticate requests.  Strategies
+range from verifying a username and password, delegated authentication using <a href="http://oauth.net/">OAuth</a>
+or federated authentication using <a href="http://openid.net/">OpenID</a>.</p>
+<p>Before asking Passport to authenticate a request, the strategy (or strategies)
+used by an application must be configured.</p>
+<p>Strategies, and their configuration, are supplied via the <code>use()</code> function.  For
+example, the following uses the <code>LocalStrategy</code> for username/password
+authentication.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
+  , LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> LocalStrategy(
+  <span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>{
+    User.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      <span class="keyword">if</span> (!user) {
+        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username.'</span> });
+      }
+      <span class="keyword">if</span> (!user.validPassword(password)) {
+        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect password.'</span> });
+      }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    });
+  }
+));
+</code></pre>
+<h2 id="verify-callback">Verify Callback</h2>
+<p>This example introduces an important concept.  Strategies require what is known
+as a <em>verify callback</em>.  The purpose of a verify callback is to find the user
+that possesses a set of credentials.</p>
+<p>When Passport authenticates a request, it parses the credentials contained in
+the request.  It then invokes the verify callback with those credentials as
+arguments, in this case <code>username</code> and <code>password</code>.  If the credentials are
+valid, the verify callback invokes <code>done</code> to supply Passport with the user that
+authenticated.</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, user);
+</code></pre>
+<p>If the credentials are not valid (for example, if the password is incorrect),
+<code>done</code> should be invoked with <code>false</code> instead of a user to indicate an
+authentication failure.</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+</code></pre>
+<p>An additional info message can be supplied to indicate the reason for the
+failure.  This is useful for displaying a flash message prompting the user to
+try again.</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect password.'</span> });
+</code></pre>
+<p>Finally, if an exception occurred while verifying the credentials (for example,
+if the database is not available), <code>done</code> should be invoked with an error, in
+conventional Node style.</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> done(err);
+</code></pre>
+<p>Note that it is important to distinguish the two failure cases that can occur.
+The latter is a server exception, in which <code>err</code> is set to a non-<code>null</code> value.
+Authentication failures are natural conditions, in which the server is operating
+normally.  Ensure that <code>err</code> remains <code>null</code>, and use the final argument to pass
+additional details.</p>
+<p>By delegating in this manner, the verify callback keeps Passport database
+agnostic.  Applications are free to choose how user information is stored,
+without any assumptions imposed by the authentication layer.</p>
+<h4 id="middleware">Middleware</h4>
+<p>In a <a href="http://senchalabs.github.com/connect/">Connect</a> or
+<a href="http://expressjs.com/">Express</a>-based application, <code>passport.initialize()</code>
+middleware is required to initialize Passport.  If your application uses
+persistent login sessions, <code>passport.session()</code> middleware must also be used.</p>
+<pre><code class="lang-javascript">app.configure(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  app.use(express.static(<span class="string">'public'</span>));
+  app.use(express.cookieParser());
+  app.use(express.bodyParser());
+  app.use(express.session({ <span class="attr">secret</span>: <span class="string">'keyboard cat'</span> }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(app.router);
+});
+</code></pre>
+<p>Note that enabling session support is entirely optional, though it is
+recommended for most applications.  If enabled, be sure to use <code>session()</code>
+<em>before</em>  <code>passport.session()</code> to ensure that the login session is restored in
+the correct order.</p>
+<p>In Express 4.x, the Connect middleware is no longer included in the Express
+core, and the app.configure() method has been removed.  The same middleware
+can be found in their npm module equivalents.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">"express-session"</span>),
+    bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
+
+app.use(express.static(<span class="string">"public"</span>));
+app.use(session({ <span class="attr">secret</span>: <span class="string">"cats"</span> }));
+app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">false</span> }));
+app.use(passport.initialize());
+app.use(passport.session());
+</code></pre>
+<h4 id="sessions">Sessions</h4>
+<p>In a typical web application, the credentials used to authenticate a user will
+only be transmitted during the login request.  If authentication succeeds, a
+session will be established and maintained via a cookie set in the user&#39;s
+browser.</p>
+<p>Each subsequent request will not contain credentials, but rather the unique
+cookie that identifies the session.  In order to support login sessions,
+Passport will serialize and deserialize <code>user</code> instances to and from the
+session.</p>
+<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+  done(<span class="literal">null</span>, user.id);
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, done</span>) </span>{
+  User.findById(id, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    done(err, user);
+  });
+});
+</code></pre>
+<p>In this example, only the user ID is serialized to the session, keeping the
+amount of data stored within the session small.  When subsequent requests are
+received, this ID is used to find the user, which will be restored to
+<code>req.user</code>.</p>
+<p>The serialization and deserialization logic is supplied by the application,
+allowing the application to choose an appropriate database and/or object mapper,
+without imposition by the authentication layer.</p>
+</div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+    <script src="/javascripts/plugins.js"></script>
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>
