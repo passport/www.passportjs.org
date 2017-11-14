@@ -18,7 +18,6 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
   service.use(bodyParser.urlencoded({ extended: false }));
   service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
-  service.use(express.static(path.join(__dirname, '../www')));
   
   service.use(function (req, res, next) {
     // default locals that can be overriden in routes
@@ -42,6 +41,8 @@ exports = module.exports = function(homeHandler, docsService, featuresHandler, r
   service.use('/docs', docsService);
   //service.get('/features', featuresHandler);
   service.get('/repo.json', repoHandler);
+  
+  service.use(express.static(path.join(__dirname, '../www')));
   
   
   // catch 404 and forward to error handler
