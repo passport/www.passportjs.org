@@ -11,11 +11,13 @@ site.engine('pug', require('pug'));
 
 //site.use('/packages', require('kerouac-npm-packages')());
 site.content('content');
-site.content('views', { layout: 'docs' });
+//site.content('views', { layout: 'docs' });
+site.use('/docs', require('kerouac-book')('docs', { layout: 'docs' }));
 
-//site.use('/', require('kerouac-manifest')());
+site.use('/', require('kerouac-manifest')());
 
 site.generate(function(err) {
+  console.log('DONE!');
   if (err) {
     console.error(err.message);
     console.error(err.stack);
