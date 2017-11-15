@@ -32,11 +32,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     /**
      * PJAX configuration
      */
-    $(document).pjax('a[data-pjax]', '#page-content', {
-      fragment: '#page-content',
-      timeout: 1200
-    });
-    
     $(document).on('pjax:popstate', function () {
       console.log('pjax:popstate');
       closeSearch.call(document);
