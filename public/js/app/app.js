@@ -37,21 +37,25 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       fragment: '#page-content',
       timeout: 1200
     });
-
+    
     $(document).on('pjax:popstate', function () {
+      console.log('pjax:popstate');
       closeSearch.call(document);
     })
 
     $(document).on('pjax:click', function () {
+      console.log('pjax:click');
       togglePjaxLoading(true);
       toggleResponsiveMenu(false);
     });
 
     $(document).on('pjax:beforeReplace', function () {
+      console.log('pjax:beforeReplace');
       togglePjaxLoading(false);
     });
 
     $(document).on('pjax:end', function () {
+      console.log('pjax:end');
       sidebarToggle();
       initialize();
     
@@ -164,14 +168,21 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       toggleFixedNavigation(ev);
       toggleActiveSections(ev);
     });
+    
+    page('/features', function(ctx, next) {
+      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
+    });
 
     page('/docs/:document', function (ctx, next) {
+      console.log('docs page...');
+      console.log(ctx)
+      
       if ('providers' === ctx.params.document) return openSearch.call(document);
       closeSearch.call(document);
       var id = '#' + ctx.params.document;
       scrollToId(id);
     });
-    page.start();
+    page.start({ dispatch: false });
     // end menu nav docs
 
     /**
