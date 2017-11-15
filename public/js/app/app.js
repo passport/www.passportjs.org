@@ -176,6 +176,8 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     */
     
     page('/', function(ctx, next) {
+      if (ctx.init) { return; }
+      
       $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
     });
     
@@ -195,6 +197,7 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
           }
         }
         
+        if (ctx.init) { return next(); }
         $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
          .done(function(data) {
            next();
@@ -205,6 +208,8 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       });
     
     page('/features', function(ctx, next) {
+      if (ctx.init) { return; }
+      
       $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
     });
 
@@ -217,7 +222,7 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       var id = '#' + ctx.params.document;
       scrollToId(id);
     });
-    page.start({ dispatch: false });
+    page.start();
     // end menu nav docs
 
     /**
@@ -257,11 +262,15 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       gotopOffset = $gotop.offset();
 
       // reset syntax highlight
+      // XXX
+      /*
       $('pre code').each(function (i, block) {
         hljs.highlightBlock(block);
       });
+      */
       
       // accordion
+      // XXX
       /*
       $('.accordion').accordion({
         "transitionSpeed": 400
@@ -269,11 +278,14 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       */
       
       // animate docs scroll
+      // XXX
+      /*
       if (/^\/docs\/./.test(window.location.pathname)) {
         var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
         if ('#providers' === id) return openSearch.call(document);
         scrollToId(id);
       }
+      */
     }
 
     function sidebarToggle() {
