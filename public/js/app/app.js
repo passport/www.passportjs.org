@@ -199,6 +199,12 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
         scrollToId(ctx.locals.id);
         sidebarToggle('/docs/');
         initialize();
+        
+        // TODO: Optimize to only do on first page load of full docs
+        $('pre code').each(function (i, block) {
+          hljs.highlightBlock(block);
+        });
+        
         reloadAd();
       });
     
@@ -262,14 +268,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       $gotop = $('.go-top');
       submenuOffset = $submenu.offset();
       gotopOffset = $gotop.offset();
-
-      // reset syntax highlight
-      // XXX
-      /*
-      $('pre code').each(function (i, block) {
-        hljs.highlightBlock(block);
-      });
-      */
       
       // accordion
       // XXX
@@ -277,16 +275,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       $('.accordion').accordion({
         "transitionSpeed": 400
       });
-      */
-      
-      // animate docs scroll
-      // XXX
-      /*
-      if (/^\/docs\/./.test(window.location.pathname)) {
-        var id = '#' + window.location.pathname.replace(/^\/docs\//, '');
-        if ('#providers' === id) return openSearch.call(document);
-        scrollToId(id);
-      }
       */
     }
 
