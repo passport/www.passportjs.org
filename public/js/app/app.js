@@ -53,17 +53,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       togglePjaxLoading(false);
     });
 
-    $(document).on('pjax:end', function () {
-      console.log('pjax:end');
-      sidebarToggle();
-      initialize();
-    
-      // If the ad hasn't loaded yet, don't refresh it while it's still loading, or it will return two (or more) ads
-      if (!$("#carbonads")[0]) return;
-      // If the script hasn't loaded, don't try calling it
-      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    });
-
     /**
      * Initialize page
      */
@@ -178,7 +167,15 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     page('/', function(ctx, next) {
       if (ctx.init) { return; }
       
-      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
+      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
+      .done(function(data) {
+        next();
+      });
+      
+    }, function(ctx, next) {
+      sidebarToggle('/');
+      initialize();
+      reloadAd();
     });
     
     page('/docs/:slug?',
@@ -205,12 +202,22 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       },
       function(ctx, next) {
         scrollToId(ctx.locals.id);
+        sidebarToggle('/docs/');
+        initialize();
+        reloadAd();
       });
     
     page('/features', function(ctx, next) {
       if (ctx.init) { return; }
       
-      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
+      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
+      .done(function(data) {
+        next();
+      });
+    }, function(ctx, next) {
+      sidebarToggle('/features/');
+      initialize();
+      reloadAd();
     });
 
     page('/docs/:document', function (ctx, next) {
@@ -288,16 +295,25 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       */
     }
 
-    function sidebarToggle() {
+    function sidebarToggle(url) {
       var $menu = $('#menu');
       var pathname = window.location.pathname;
       var base = '/' + pathname.split('/')[1];
+
+      if (url) { base = url; }
 
       // reset active menu
       $menu.find('li.active').removeClass('active');
 
       // set current active menu
       $menu.find('a[href="' + base + '"]').parent('li').addClass('active');
+    }
+    
+    function reloadAd() {
+      // If the ad hasn't loaded yet, don't refresh it while it's still loading, or it will return two (or more) ads
+      if (!$("#carbonads")[0]) return;
+      // If the script hasn't loaded, don't try calling it
+      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
     }
 
     function closeSearch () {
