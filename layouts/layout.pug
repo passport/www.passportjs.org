@@ -63,7 +63,7 @@ html(lang="en")
 
 
       nav#menu
-        a#logo(href='/', title='JH', data-pjax="/").logo
+        a#logo(href='/', title='JH').logo
         a(href='http://twitter.com/jaredhanson', target="_blank").jared by Jared Hanson
         .menu-trigger
           span
@@ -71,7 +71,7 @@ html(lang="en")
           ul
 
             li(class=(title === 'Passport' ? 'active' : ''))
-              a(href='/', data-pjax='/') Home
+              a(href='/') Home
             li(class=(title === 'Documentation' ? 'active' : ''))
               a(href='/docs/') Documentation
             li(class=(title === 'Features' ? 'active' : ''))

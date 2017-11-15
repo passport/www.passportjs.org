@@ -32,7 +32,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     /**
      * PJAX configuration
      */
-
     $(document).pjax('a[data-pjax]', '#page-content', {
       fragment: '#page-content',
       timeout: 1200
@@ -169,6 +168,17 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       toggleActiveSections(ev);
     });
     
+    /*
+    window.addEventListener('popstate', function(e){
+      console.log('^^^ ON POP STATE');
+      console.log(e.state);
+    }, false);
+    */
+    
+    page('/', function(ctx, next) {
+      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
+    });
+    
     page('/docs/:slug?',
       function(ctx, next) {
         ctx.locals = { id: '#' + (ctx.params.slug || 'overview') };
@@ -184,7 +194,7 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
             return next();
           }
         }
-      
+        
         $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
          .done(function(data) {
            next();
