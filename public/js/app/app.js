@@ -169,6 +169,31 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
       toggleActiveSections(ev);
     });
     
+    page('/docs/:slug?',
+      function(ctx, next) {
+        ctx.locals = { id: '#' + (ctx.params.slug || 'overview') };
+        next();
+      },
+      function(ctx, next) {
+        var referer = window.location.pathname
+          , section;
+        
+        if (referer == '/docs' || referer.indexOf('/docs/') == 0) {
+          section = $('.guides ' + ctx.locals.id).first();
+          if (section.length) {
+            return next();
+          }
+        }
+      
+        $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
+         .done(function(data) {
+           next();
+         });
+      },
+      function(ctx, next) {
+        scrollToId(ctx.locals.id);
+      });
+    
     page('/features', function(ctx, next) {
       $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false });
     });
