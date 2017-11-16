@@ -94,18 +94,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
       //openSearch.call(this, ev);
       page.show('/packages/');
     });
-    
-    /*
-    $(document).on('click', '[data-search]', function(ev) {
-      ev.preventDefault();
-      openSearch.call(this, ev);
-    });
-    */
-
-    $(document).on('click', '.search-con .close-ico', function(ev) {
-      window.history.back();
-      //closeSearch.call(this, ev);
-    });
 
     $(document).on('focus', '[placeholder]', function () {
       var $input = $(this);
@@ -169,16 +157,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
       sidebarToggle('/features/');
       initialize();
       reloadAd();
-    });
-
-    page('/docs/:document', function (ctx, next) {
-      console.log('docs page...');
-      console.log(ctx)
-      
-      if ('providers' === ctx.params.document) return openSearch.call(document);
-      closeSearch.call(document);
-      var id = '#' + ctx.params.document;
-      scrollToId(id);
     });
     page.start();
     // end menu nav docs
@@ -247,18 +225,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
       if (!$("#carbonads")[0]) return;
       // If the script hasn't loaded, don't try calling it
       if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    }
-
-    function closeSearch () {
-      // closing search
-      $("body").removeClass("is-search");
-      // cleaning inputs
-      $(".search-con form input").text('');
-      $(".search-con form input").blur();
-      $('.tt-input, .tt-hint').removeClass('bigger');
-      // cleaning results
-      $(".results section").html('');
-      $(".search-con .info-line span").text('0');
     }
 
     function openSearch() {
