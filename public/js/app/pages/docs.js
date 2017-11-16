@@ -1,4 +1,4 @@
-define(['./middleware/pjax', './middleware/nav', 'highlight', 'jquery'], function(pjax, nav, hljs, $) {
+define(['./middleware/pjax', './middleware/nav', './middleware/ad/refresh', 'highlight', 'jquery'], function(pjax, nav, adRefresh, hljs, $) {
   
   return [
     function(ctx, next) {
@@ -19,6 +19,7 @@ define(['./middleware/pjax', './middleware/nav', 'highlight', 'jquery'], functio
     },
     pjax('#page-content', '#page-content'),
     nav('/docs/'),
+    adRefresh(),
     function(ctx, next) {
       if (ctx.init || ctx.replacedHTML) {
         hljs.configure({ classPrefix: '' });

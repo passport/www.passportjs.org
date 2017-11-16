@@ -10,6 +10,8 @@ define(['jquery'], function($) {
       menu.find('li.active').removeClass('active');
       // set current active menu
       menu.find('a[href="' + url + '"]').parent('li').addClass('active');
+      
+      next();
     };
   };
   
