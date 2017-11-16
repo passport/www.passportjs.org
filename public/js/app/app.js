@@ -157,11 +157,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, searchEngine, $, __$_pjax
       sidebarToggle('/docs/');
       initialize();
       
-      // TODO: Optimize to only do on first page load of full docs
-      $('pre code').each(function (i, block) {
-        hljs.highlightBlock(block);
-      });
-      
       reloadAd();
     }
     

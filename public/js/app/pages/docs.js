@@ -1,4 +1,4 @@
-define(['./middleware/pjax', 'jquery'], function(pjax, $) {
+define(['./middleware/pjax', 'highlight', 'jquery'], function(pjax, hljs, $) {
   
   return [
     function(ctx, next) {
@@ -17,7 +17,21 @@ define(['./middleware/pjax', 'jquery'], function(pjax, $) {
       }
       next();
     },
-    pjax('#page-content', '#page-content')
+    pjax('#page-content', '#page-content'),
+    function(ctx, next) {
+      if (ctx.replacedHTML) {
+        console.log('REPLACED HTML!');
+        
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      }
+      next();
+    },
+    function(ctx, next) {
+      ctx.handled = true;
+      next();
+    }
   ];
   
 });

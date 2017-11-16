@@ -8,6 +8,7 @@ define(['jquery', 'jquery.pjax'], function($, __$_pjax) {
       
       $.pjax({ url: ctx.canonicalPath, fragment: fragment, container: container, push: false })
         .done(function(data) {
+          ctx.replacedHTML = true;
           next();
         });
     };
