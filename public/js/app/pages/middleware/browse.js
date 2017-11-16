@@ -1,10 +1,10 @@
 define(['../../shell'], function(shell) {
   
-  return function(url) {
+  return function(url, loaded) {
     
-    return function nav(ctx, next) {
+    return function browse(ctx, next) {
       if (ctx.init) { return next(); }
-      shell.browse(url);
+      shell.browse(url, loaded);
       next();
     };
   };

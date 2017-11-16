@@ -6,7 +6,7 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
   
   exports.menu = menu;
   
-  exports.browse = function(url) {
+  exports.browse = function(url, loaded) {
     if (_controller) {
       _controller.unload();
       _controller = null;
