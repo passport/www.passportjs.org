@@ -113,21 +113,26 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     });
 
     $(document).on('focus', '.search form input', function(ev) {
-      openSearch.call(this, ev);
+      //openSearch.call(this, ev);
+      page.show('/packages/');
     });
-
+    
+    /*
     $(document).on('click', '[data-search]', function(ev) {
       ev.preventDefault();
       openSearch.call(this, ev);
     });
+    */
 
     $(document).on('click', '.search-con .close-ico', function(ev) {
-      closeSearch.call(this, ev);
+      window.history.back();
+      //closeSearch.call(this, ev);
     });
 
     $(document).keyup(function(ev) {
       if (ev.keyCode == 27) {
-        closeSearch.call(this, ev);
+        window.history.back();
+        //closeSearch.call(this, ev);
       }
     });
 
@@ -208,6 +213,18 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
         reloadAd();
       });
     
+    page('/packages', function(ctx, next) {
+      openSearch.call(document);
+      
+      ctx.handled = true;
+      next();
+    });
+    
+    page.exit('/packages', function(ctx, next) {
+      closeSearch.call(document);
+      next();
+    })
+      
     page('/features', function(ctx, next) {
       if (ctx.init) { return; }
       
