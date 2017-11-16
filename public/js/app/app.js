@@ -32,11 +32,6 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     /**
      * PJAX configuration
      */
-    $(document).on('pjax:popstate', function () {
-      console.log('pjax:popstate');
-      closeSearch.call(document);
-    })
-
     $(document).on('pjax:click', function () {
       console.log('pjax:click');
       togglePjaxLoading(true);
