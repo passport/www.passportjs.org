@@ -1,4 +1,4 @@
-define(['jquery', 'jquery.pjax'], function($, __$_pjax) {
+define(['./middleware/pjax', 'jquery'], function(pjax, $) {
   
   return [
     function(ctx, next) {
@@ -12,16 +12,12 @@ define(['jquery', 'jquery.pjax'], function($, __$_pjax) {
       if (referer == '/docs' || referer.indexOf('/docs/') == 0) {
         section = $('.guides ' + ctx.locals.id).first();
         if (section.length) {
-          return next();
+          ctx.pjax = false;
         }
       }
-      
-      if (ctx.init) { return next(); }
-      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
-       .done(function(data) {
-         next();
-       });
+      next();
     },
+    pjax('#page-content', '#page-content')
   ];
   
 });
