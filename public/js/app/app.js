@@ -1,5 +1,5 @@
-define(['bloodhound', 'highlight', 'page', './pages/home', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(Bloodhound, hljs, page, homeRoute, $, __$_pjax, __$_typeahead) {
+define(['bloodhound', 'highlight', 'page', './pages/home', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(Bloodhound, hljs, page, homeRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -11,23 +11,6 @@ function(Bloodhound, hljs, page, homeRoute, $, __$_pjax, __$_typeahead) {
      */
 
     hljs.configure({ classPrefix: '' });
-
-    /**
-     * Strategies Search Engine initialization
-     */
-
-    var strategies = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
-      queryTokenizer: Bloodhound.tokenizers.nonword,
-      sorter: sorter,
-      identify: function(item) {
-        return item.label;
-      },
-      prefetch: {
-        url: '/data.json',
-        cache: false
-      }
-    });
 
     /**
      * PJAX configuration
@@ -69,7 +52,7 @@ function(Bloodhound, hljs, page, homeRoute, $, __$_pjax, __$_typeahead) {
       name: 'strategies',
       display: 'label',
       limit: Infinity,
-      source: strategies,
+      source: searchEngine,
       templates: {
         suggestion: templateItem
       }
@@ -334,9 +317,9 @@ function(Bloodhound, hljs, page, homeRoute, $, __$_pjax, __$_typeahead) {
     }
 
     function renderFeaturedStrategies() {
-      strategies.initPromise.done(loaded);
+      searchEngine.initPromise.done(loaded);
       function loaded() {
-        var $featured = $.map(strategies.all().sort(sorter), templateItem);
+        var $featured = $.map(searchEngine.all().sort(sorter), templateItem);
         $('.search-con .results section').html($featured);
         $(".search-con .info-line span").text($featured.length);
       }
