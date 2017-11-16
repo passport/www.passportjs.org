@@ -181,33 +181,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
     }
 
-    function renderFeaturedStrategies() {
-      searchEngine.initPromise.done(loaded);
-      function loaded() {
-        var $featured = $.map(searchEngine.all().sort(sorter), searchTemplate);
-        $('.search-con .results section').html($featured);
-        $(".search-con .info-line span").text($featured.length);
-      }
-    }
-
-    function starsSorter (a, b) {
-      if (a.stars && !b.stars) return -1;
-      if (b.stars && !a.stars) return 1;
-      return +b.stars - (+a.stars);
-    }
-
-    function featuredSorter (a, b) {
-      if (a.featured && !b.featured) return -1;
-      if (b.featured && !a.featured) return 1;
-      return 0;
-    }
-
-    function sorter (a, b) {
-      var first = featuredSorter(a, b);
-      if (first) return first;
-      return starsSorter(a, b);
-    }
-
     function togglePjaxLoading(toggle) {
       // do not add pjax-loading flag twice
       // wait for it to resolve or be canceled
