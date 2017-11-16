@@ -23,11 +23,20 @@ define(['jquery'], function($) {
   }
   
   
+  function onkeyup(ev) {
+    if (ev.keyCode == 27) {
+      window.history.back();
+    }
+  }
+  
   
   return {
     enter: [
       function(ctx, next) {
         openSearch();
+        
+        $(document).on('keyup', onkeyup);
+        
         next();
       },
       function(ctx, next) { ctx.handled = true; }
@@ -35,6 +44,8 @@ define(['jquery'], function($) {
   
     exit: [
       function(ctx, next) {
+        $(document).off('keyup', onkeyup);
+        
         closeSearch();
         next();
       },

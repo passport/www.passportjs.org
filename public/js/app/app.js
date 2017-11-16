@@ -107,13 +107,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
       //closeSearch.call(this, ev);
     });
 
-    $(document).keyup(function(ev) {
-      if (ev.keyCode == 27) {
-        window.history.back();
-        //closeSearch.call(this, ev);
-      }
-    });
-
     $(document).on('focus', '[placeholder]', function () {
       var $input = $(this);
       if ($input.val() == $input.attr('placeholder')) {
