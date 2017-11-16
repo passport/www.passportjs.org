@@ -1,4 +1,4 @@
-define(['bloodhound', './packages/sort'], function(Bloodhound, sort) {
+define(['bloodhound', './sort'], function(Bloodhound, sort) {
   
   /**
    * Strategies Search Engine initialization

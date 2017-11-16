@@ -1,4 +1,4 @@
-define(['../search/packages', '../search/packages/sort', '../search/packages/templates/result', 'page', 'jquery'], function(packages, sort, template, page, $) {
+define(['../search/packages/engine', '../search/packages/sort', '../search/packages/templates/result', 'page', 'jquery'], function(packages, sort, template, page, $) {
   
   function renderFeaturedStrategies() {
     packages.initPromise.done(loaded);
@@ -69,7 +69,6 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
   return {
     enter: [
       function(ctx, next) {
-        console.log('---');
         openSearch();
         
         $('.search-con form input.tt-input').on('input', dosearchinput);
