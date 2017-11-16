@@ -1,16 +1,10 @@
-define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './pages/packages', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
     var data = [];
     var loadingTimeout = 0;
-
-    /**
-     * highlight js configuration
-     */
-
-    hljs.configure({ classPrefix: '' });
 
     /**
      * PJAX configuration

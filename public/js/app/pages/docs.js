@@ -19,8 +19,8 @@ define(['./middleware/pjax', 'highlight', 'jquery'], function(pjax, hljs, $) {
     },
     pjax('#page-content', '#page-content'),
     function(ctx, next) {
-      if (ctx.replacedHTML) {
-        console.log('REPLACED HTML!');
+      if (ctx.init || ctx.replacedHTML) {
+        hljs.configure({ classPrefix: '' });
         
         $('pre code').each(function(i, block) {
           hljs.highlightBlock(block);

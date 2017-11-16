@@ -40,7 +40,7 @@ define(['../search/packages', '../search/packages/sort', 'jquery'], function(pac
   }
   
   function onkeyup(ev) {
-    if (ev.keyCode == 27) {
+    if (ev.keyCode == 27) { // esc
       window.history.back();
     }
   }
