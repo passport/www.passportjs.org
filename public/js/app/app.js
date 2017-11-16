@@ -117,7 +117,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     */
     
     function reinit(ctx, next) {
-      //sidebarToggle('/');
       initialize();
       reloadAd();
     }
@@ -128,7 +127,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     
     function reinitDocs(ctx, next) {
       scrollToId(ctx.locals.id);
-      //sidebarToggle('/docs/');
       initialize();
       
       reloadAd();
@@ -186,20 +184,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
         "transitionSpeed": 400
       });
       */
-    }
-
-    function sidebarToggle(url) {
-      var $menu = $('#menu');
-      var pathname = window.location.pathname;
-      var base = '/' + pathname.split('/')[1];
-
-      if (url) { base = url; }
-
-      // reset active menu
-      $menu.find('li.active').removeClass('active');
-
-      // set current active menu
-      $menu.find('a[href="' + base + '"]').parent('li').addClass('active');
     }
     
     function reloadAd() {
