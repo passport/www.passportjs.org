@@ -114,7 +114,10 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     
     
     function reinitDocs(ctx, next) {
-      scrollToId(ctx.locals.id);
+      console.log('REINIT DOCS?');
+      console.log(ctx.locals)
+      
+      //scrollToId(ctx.locals.id);
       initialize();
     }
     

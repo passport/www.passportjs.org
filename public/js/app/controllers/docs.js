@@ -1,5 +1,4 @@
-define(['highlight', 'jquery', 'jquery.pjax', 'exports'], function(hljs, $, __$_pjax, exports) {
-  
+define(['../shell', 'highlight', 'jquery', 'jquery.pjax', 'exports'], function(shell, hljs, $, __$_pjax, exports) {
   
   exports.basePath = '/docs/';
   
@@ -8,6 +7,11 @@ define(['highlight', 'jquery', 'jquery.pjax', 'exports'], function(hljs, $, __$_
       .done(function(data) {
         cb();
       });
+  }
+  
+  exports.scrollTo = function(id) {
+    if (!id) { return; }
+    shell.scrollToElementById(id);
   }
   
   exports.ready = function() {

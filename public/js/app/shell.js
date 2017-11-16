@@ -1,4 +1,4 @@
-define(['./shell/menu', 'exports'], function(menu, exports) {
+define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
   
   // static
   var _controller;
@@ -20,7 +20,7 @@ define(['./shell/menu', 'exports'], function(menu, exports) {
       loaded = false;
     }
     
-    if (_controller === controller) { return; }
+    if (_controller === controller) { return cb(); }
     _controller = controller;
     
     if (!loaded) {
@@ -34,6 +34,11 @@ define(['./shell/menu', 'exports'], function(menu, exports) {
       _controller.ready();
       cb();
     }
+  }
+  
+  exports.scrollToElementById = function(id) {
+    var units = $('#'+id).offset().top - 30;
+    $('html, body').animate({ scrollTop: units }, 500);
   }
   
 });
