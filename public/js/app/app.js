@@ -1,5 +1,5 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './ui', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, UI, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './shell', './ui', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell, UI, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     console.log('APP READY!');
@@ -8,6 +8,12 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     $(window).on('scroll', function (ev) {
       // TODO:
       //console.log('SCROLL!');
+    });
+    
+    
+    $(document).on('click', '.menu-trigger', function(ev) {
+      shell.menu.toggle();
+      return false;
     });
     
     $(document).on('click', 'a[href="#top"]', function(ev) {
@@ -70,11 +76,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       }
     });
 
-    $(document).on('click', '.menu-trigger', function(ev) {
-      toggleResponsiveMenu();
-      return false;
-    });
-
     $(document).on('focus', '.search form input', function(ev) {
       page.show('/packages/');
     });
@@ -101,6 +102,13 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
     
     /*
+    $(document).on('click', '.menu-trigger', function(ev) {
+      toggleResponsiveMenu();
+      return false;
+    });
+    */
+    
+    /*
     window.addEventListener('popstate', function(e){
       console.log('^^^ ON POP STATE');
       console.log(e.state);
@@ -111,6 +119,11 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       initialize();
     }
     
+    
+    page('*', function(ctx, next) {
+      shell.menu.close();
+      next();
+    });
     
     page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
     
