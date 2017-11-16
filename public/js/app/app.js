@@ -91,7 +91,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
     });
 
     $(document).on('focus', '.search form input', function(ev) {
-      //openSearch.call(this, ev);
       page.show('/packages/');
     });
 
@@ -225,15 +224,6 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngi
       if (!$("#carbonads")[0]) return;
       // If the script hasn't loaded, don't try calling it
       if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    }
-
-    function openSearch() {
-      // open search
-      $("body").addClass("is-search");
-      // focus input
-      $(".search-con form input.tt-input").focus();
-      // render results
-      renderFeaturedStrategies();
     }
 
     function toggleResponsiveMenu(open) {
