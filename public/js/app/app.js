@@ -1,5 +1,5 @@
-define(['bloodhound', 'highlight', 'page', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
+define(['bloodhound', 'highlight', 'page', './pages/home', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(Bloodhound, hljs, page, homeRoute, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -159,19 +159,14 @@ function(Bloodhound, hljs, page, $, __$_pjax, __$_typeahead) {
     }, false);
     */
     
-    page('/', function(ctx, next) {
-      if (ctx.init) { return; }
-      
-      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
-      .done(function(data) {
-        next();
-      });
-      
-    }, function(ctx, next) {
+    function reinit(ctx, next) {
       sidebarToggle('/');
       initialize();
       reloadAd();
-    });
+    }
+    
+    
+    page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
     
     page('/docs/:slug?',
       function(ctx, next) {
