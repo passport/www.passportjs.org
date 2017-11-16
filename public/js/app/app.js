@@ -10,7 +10,7 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       //console.log('SCROLL!');
     });
     
-    $('.go-top').on('click', function(ev) {
+    $(document).on('click', 'a[href="#top"]', function(ev) {
       UI.scrollToElementById('top');
       return false;
     });
