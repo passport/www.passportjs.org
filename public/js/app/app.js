@@ -1,5 +1,5 @@
-define(['bloodhound', 'highlight', 'page', './pages/home', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(Bloodhound, hljs, page, homeRoute, searchEngine, $, __$_pjax, __$_typeahead) {
+define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(Bloodhound, hljs, page, homeRoute, docsRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -151,40 +151,21 @@ function(Bloodhound, hljs, page, homeRoute, searchEngine, $, __$_pjax, __$_typea
     
     page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
     
-    page('/docs/:slug?',
-      function(ctx, next) {
-        ctx.locals = { id: '#' + (ctx.params.slug || 'overview') };
-        next();
-      },
-      function(ctx, next) {
-        var referer = window.location.pathname
-          , section;
-        
-        if (referer == '/docs' || referer.indexOf('/docs/') == 0) {
-          section = $('.guides ' + ctx.locals.id).first();
-          if (section.length) {
-            return next();
-          }
-        }
-        
-        if (ctx.init) { return next(); }
-        $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
-         .done(function(data) {
-           next();
-         });
-      },
-      function(ctx, next) {
-        scrollToId(ctx.locals.id);
-        sidebarToggle('/docs/');
-        initialize();
-        
-        // TODO: Optimize to only do on first page load of full docs
-        $('pre code').each(function (i, block) {
-          hljs.highlightBlock(block);
-        });
-        
-        reloadAd();
+    
+    function reinitDocs(ctx, next) {
+      scrollToId(ctx.locals.id);
+      sidebarToggle('/docs/');
+      initialize();
+      
+      // TODO: Optimize to only do on first page load of full docs
+      $('pre code').each(function (i, block) {
+        hljs.highlightBlock(block);
       });
+      
+      reloadAd();
+    }
+    
+    page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([reinitDocs]));
     
     page('/packages', function(ctx, next) {
       openSearch.call(document);
