@@ -1,5 +1,5 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -138,19 +138,8 @@ function(page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, _
     
     page.apply(page, ['/packages'].concat(packagesRoute.enter));
     page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
-      
-    page('/features', function(ctx, next) {
-      if (ctx.init) { return; }
-      
-      $.pjax({ url: ctx.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
-      .done(function(data) {
-        next();
-      });
-    }, function(ctx, next) {
-      sidebarToggle('/features/');
-      initialize();
-      reloadAd();
-    });
+    
+    page.apply(page, ['/features'].concat(featuresRoute).concat([reinit]));
     page.start();
     // end menu nav docs
 
