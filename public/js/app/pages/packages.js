@@ -1,4 +1,17 @@
-define(['jquery'], function($) {
+define(['../search/packages', '../search/packages/sort', 'jquery'], function(packages, sort, $) {
+  
+  function templateItem(item) {
+    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'" target="_blank"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+  }
+  
+  function renderFeaturedStrategies() {
+    packages.initPromise.done(loaded);
+    function loaded() {
+      var $featured = $.map(packages.all().sort(sort), templateItem);
+      $('.search-con .results section').html($featured);
+      $(".search-con .info-line span").text($featured.length);
+    }
+  }
   
   function openSearch() {
     // open search
@@ -6,8 +19,7 @@ define(['jquery'], function($) {
     // focus input
     $(".search-con form input.tt-input").focus();
     // render results
-    // XXX
-    //renderFeaturedStrategies();
+    renderFeaturedStrategies();
   }
   
   function closeSearch () {

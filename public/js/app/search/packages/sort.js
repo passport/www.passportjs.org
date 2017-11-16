@@ -1,4 +1,4 @@
-define(['bloodhound'], function(Bloodhound) {
+define(function() {
   
   function starsSorter (a, b) {
     if (a.stars && !b.stars) return -1;
@@ -18,24 +18,6 @@ define(['bloodhound'], function(Bloodhound) {
     return starsSorter(a, b);
   }
   
-  
-  /**
-   * Strategies Search Engine initialization
-   */
-  var engine = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.nonword('label'),
-    queryTokenizer: Bloodhound.tokenizers.nonword,
-    sorter: sorter,
-    identify: function(item) {
-      return item.label;
-    },
-    prefetch: {
-      url: '/data.json',
-      cache: false
-    }
-  });
-  
-  
-  return engine;
+  return sorter;
   
 });

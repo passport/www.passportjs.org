@@ -1,4 +1,4 @@
-define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './pages/packages', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './pages/packages', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
 function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
