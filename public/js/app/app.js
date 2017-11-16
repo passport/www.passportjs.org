@@ -52,20 +52,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       }
     });
 
-    $('.search-con form input').bind('typeahead:render', function (ev) {
-      console.log('typeahead:render');
-      //return;
-      
-      var $results = $('.search-con .tt-menu .tt-dataset article').clone();
-      $results.appendTo($('.search-con .results section').html(''));
-      $(".search-con .info-line span").text($results.length);
-      // if ($('.search-con .results').hasScrollBar()) {
-      //   $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-      // } else {
-      //   $(".search-con .results section").css({ paddingLeft: 0 })
-      // };
-    });
-
     $(document).on('click', '.go-top', function(ev) {
       scrollToId('#top');
       return false;

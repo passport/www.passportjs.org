@@ -31,7 +31,7 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
   }
   
   
-  function dosearch(ev) {
+  function dosearchinput(ev) {
     //ev.stopPropagation();
     //page.show('/search');
     
@@ -43,6 +43,17 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
     if (!nonempty) {
       renderFeaturedStrategies();
     }
+  }
+  
+  function dosearchresults(ev, suggestions, async, dataset) {
+    var results = $.map(suggestions, template);
+    $('.search-con .results section').html(results);
+    $(".search-con .info-line span").text(results.length);
+    // if ($('.search-con .results').hasScrollBar()) {
+    //   $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
+    // } else {
+    //   $(".search-con .results section").css({ paddingLeft: 0 })
+    // };
   }
   
   function doclose(ev) {
@@ -61,7 +72,8 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
         console.log('---');
         openSearch();
         
-        $('.search-con form input.tt-input').on('input', dosearch);
+        $('.search-con form input.tt-input').on('input', dosearchinput);
+        $('.search-con form input').on('typeahead:render', dosearchresults);
         $('.search-con .close-ico').on('click', doclose);
         $(document).on('keyup', onkeyup);
         
@@ -74,7 +86,8 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
       function(ctx, next) {
         $(document).off('keyup', onkeyup);
         $('.search-con .close-ico').off('click', doclose);
-        $('.search-con form input.tt-input').off('input', dosearch);
+        $('.search-con form input').off('typeahead:render', dosearchresults);
+        $('.search-con form input.tt-input').off('input', dosearchinput);
         
         closeSearch();
         next();
