@@ -1,4 +1,9 @@
-define(['./middleware/pjax', './middleware/nav', './middleware/ad/refresh', 'highlight', 'jquery'], function(pjax, nav, adRefresh, hljs, $) {
+define(['./middleware/pjax',
+        './middleware/nav',
+        './middleware/ad/refresh',
+        './middleware/handled',
+        'highlight', 'jquery'],
+function(pjax, nav, adRefresh, handled, hljs, $) {
   
   return [
     function(ctx, next) {
@@ -30,10 +35,7 @@ define(['./middleware/pjax', './middleware/nav', './middleware/ad/refresh', 'hig
       }
       next();
     },
-    function(ctx, next) {
-      ctx.handled = true;
-      next();
-    }
+    handled()
   ];
   
 });
