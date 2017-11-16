@@ -36,7 +36,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     $(document).on('pjax:click', function () {
       console.log('pjax:click');
       togglePjaxLoading(true);
-      toggleResponsiveMenu(false);
     });
 
     $(document).on('pjax:beforeReplace', function () {
@@ -100,20 +99,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       toggleFixedNavigation(ev);
       toggleActiveSections(ev);
     });
-    
-    /*
-    $(document).on('click', '.menu-trigger', function(ev) {
-      toggleResponsiveMenu();
-      return false;
-    });
-    */
-    
-    /*
-    window.addEventListener('popstate', function(e){
-      console.log('^^^ ON POP STATE');
-      console.log(e.state);
-    }, false);
-    */
     
     function reinit(ctx, next) {
       initialize();
@@ -187,12 +172,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
         "transitionSpeed": 400
       });
       */
-    }
-
-    function toggleResponsiveMenu(open) {
-      $("html").toggleClass("is-menu", open);
-      $(".content, .top-site").toggleClass('blured', open);
-      $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
     }
 
     function togglePjaxLoading(toggle) {
