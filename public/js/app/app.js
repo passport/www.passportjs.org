@@ -1,5 +1,23 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './ui', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, UI, $, __$_pjax, __$_typeahead) {
+  
+  $(document).ready(function() {
+    console.log('APP READY!');
+    
+    
+    $(window).on('scroll', function (ev) {
+      // TODO:
+      //console.log('SCROLL!');
+    });
+    
+    $('.go-top').on('click', function(ev) {
+      UI.scrollToElementById('top');
+      return false;
+    });
+    
+  });
+  
+  
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -50,11 +68,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       templates: {
         suggestion: searchTemplate
       }
-    });
-
-    $(document).on('click', '.go-top', function(ev) {
-      scrollToId('#top');
-      return false;
     });
 
     $(document).on('click', '.menu-trigger', function(ev) {
@@ -127,6 +140,8 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     }
 
     function toggleActiveSections(ev) {
+      //return;
+      
       var sections = $('.entry section');
       var submenu_height = $submenu.outerHeight();
       var cur_pos = $(window).scrollTop();
