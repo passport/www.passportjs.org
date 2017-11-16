@@ -1,10 +1,10 @@
-define(['../../shell/menu'], function(menu) {
+define(['../../shell'], function(shell) {
   
   return function(url) {
     
     return function nav(ctx, next) {
       if (ctx.init) { return next(); }
-      menu.active(url);
+      shell.browse(url);
       next();
     };
   };
