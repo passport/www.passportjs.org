@@ -1,5 +1,5 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages', './search/packages/template', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -48,7 +48,7 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       limit: Infinity,
       source: searchEngine,
       templates: {
-        suggestion: templateItem
+        suggestion: searchTemplate
       }
     });
 
@@ -192,14 +192,10 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     function renderFeaturedStrategies() {
       searchEngine.initPromise.done(loaded);
       function loaded() {
-        var $featured = $.map(searchEngine.all().sort(sorter), templateItem);
+        var $featured = $.map(searchEngine.all().sort(sorter), searchTemplate);
         $('.search-con .results section').html($featured);
         $(".search-con .info-line span").text($featured.length);
       }
-    }
-
-    function templateItem(item) {
-      return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'" target="_blank"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
     }
 
     function starsSorter (a, b) {
