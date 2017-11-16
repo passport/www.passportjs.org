@@ -1,4 +1,4 @@
-define(['exports'], function(exports) {
+define(['jquery', 'exports'], function($, exports) {
   
   function toggleMenu(open) {
     console.log('TOGGLE MENU');
@@ -10,6 +10,14 @@ define(['exports'], function(exports) {
   }
   
   
+  
+  exports.active = function(url) {
+    var menu = $('#menu');
+    // reset active menu
+    menu.find('li.active').removeClass('active');
+    // set current active menu
+    menu.find('a[href="' + url + '"]').parent('li').addClass('active');
+  }
   
   exports.open = function() {
     toggleMenu();
