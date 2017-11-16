@@ -117,7 +117,7 @@ function(page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, _
     */
     
     function reinit(ctx, next) {
-      sidebarToggle('/');
+      //sidebarToggle('/');
       initialize();
       reloadAd();
     }
@@ -128,7 +128,7 @@ function(page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, _
     
     function reinitDocs(ctx, next) {
       scrollToId(ctx.locals.id);
-      sidebarToggle('/docs/');
+      //sidebarToggle('/docs/');
       initialize();
       
       reloadAd();
