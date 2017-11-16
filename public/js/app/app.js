@@ -1,5 +1,5 @@
-define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(Bloodhound, hljs, page, homeRoute, docsRoute, searchEngine, $, __$_pjax, __$_typeahead) {
+define(['bloodhound', 'highlight', 'page', './pages/home', './pages/docs', './pages/packages', './search/engine', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(Bloodhound, hljs, page, homeRoute, docsRoute, packagesRoute, searchEngine, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     var $submenu, $gotop, submenuOffset, gotopOffset;
@@ -162,17 +162,8 @@ function(Bloodhound, hljs, page, homeRoute, docsRoute, searchEngine, $, __$_pjax
     
     page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([reinitDocs]));
     
-    page('/packages', function(ctx, next) {
-      openSearch.call(document);
-      
-      ctx.handled = true;
-      next();
-    });
-    
-    page.exit('/packages', function(ctx, next) {
-      closeSearch.call(document);
-      next();
-    })
+    page.apply(page, ['/packages'].concat(packagesRoute.enter));
+    page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
       
     page('/features', function(ctx, next) {
       if (ctx.init) { return; }
