@@ -1,4 +1,4 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages', './search/packages/template', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages', './search/packages/templates/suggestion', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
 function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {

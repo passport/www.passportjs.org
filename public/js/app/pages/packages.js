@@ -1,4 +1,4 @@
-define(['../search/packages', '../search/packages/sort', '../search/packages/template', 'page', 'jquery'], function(packages, sort, template, page, $) {
+define(['../search/packages', '../search/packages/sort', '../search/packages/templates/result', 'page', 'jquery'], function(packages, sort, template, page, $) {
   
   function renderFeaturedStrategies() {
     packages.initPromise.done(loaded);
