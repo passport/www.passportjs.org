@@ -53,6 +53,9 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
 
     $('.search-con form input').bind('typeahead:render', function (ev) {
+      console.log('typeahead:render');
+      //return;
+      
       var $results = $('.search-con .tt-menu .tt-dataset article').clone();
       $results.appendTo($('.search-con .results section').html(''));
       $(".search-con .info-line span").text($results.length);
@@ -61,17 +64,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       // } else {
       //   $(".search-con .results section").css({ paddingLeft: 0 })
       // };
-    });
-
-    $(document).on('input', '.search-con form input.tt-input', function (ev) {
-      var nonempty = !!$(this).val().length;
-
-      $(this).toggleClass('bigger', nonempty);
-      $('.tt-hint').toggleClass('bigger', nonempty);
-
-      if (!nonempty) {
-        renderFeaturedStrategies();
-      }
     });
 
     $(document).on('click', '.go-top', function(ev) {

@@ -1,4 +1,4 @@
-define(['../search/packages', '../search/packages/sort', '../search/packages/template', 'jquery'], function(packages, sort, template, $) {
+define(['../search/packages', '../search/packages/sort', '../search/packages/template', 'page', 'jquery'], function(packages, sort, template, page, $) {
   
   function renderFeaturedStrategies() {
     packages.initPromise.done(loaded);
@@ -31,6 +31,20 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
   }
   
   
+  function dosearch(ev) {
+    //ev.stopPropagation();
+    //page.show('/search');
+    
+    var q = $(this).val()
+      , nonempty = !!q.length;
+    $(this).toggleClass('bigger', nonempty);
+    $('.tt-hint').toggleClass('bigger', nonempty);
+    
+    if (!nonempty) {
+      renderFeaturedStrategies();
+    }
+  }
+  
   function doclose(ev) {
     window.history.back();
   }
@@ -44,8 +58,10 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
   return {
     enter: [
       function(ctx, next) {
+        console.log('---');
         openSearch();
         
+        $('.search-con form input.tt-input').on('input', dosearch);
         $('.search-con .close-ico').on('click', doclose);
         $(document).on('keyup', onkeyup);
         
@@ -58,6 +74,7 @@ define(['../search/packages', '../search/packages/sort', '../search/packages/tem
       function(ctx, next) {
         $(document).off('keyup', onkeyup);
         $('.search-con .close-ico').off('click', doclose);
+        $('.search-con form input.tt-input').off('input', dosearch);
         
         closeSearch();
         next();
