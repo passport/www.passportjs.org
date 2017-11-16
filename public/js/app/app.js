@@ -1,5 +1,5 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './shell', './ui', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell, UI, $, __$_pjax, __$_typeahead) {
+define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './shell', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell, $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     console.log('APP READY!');
@@ -17,7 +17,7 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
     
     $(document).on('click', 'a[href="#top"]', function(ev) {
-      UI.scrollToElementById('top');
+      shell.scrollToElementById('top');
       return false;
     });
     

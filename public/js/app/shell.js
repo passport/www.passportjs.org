@@ -59,7 +59,7 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
       $(document).off('keyup', onkeyup);
       _modalController = null;
     }
-  }
+  };
   
   exports.scrollToElementById = function(id) {
     var units = $('#'+id).offset().top - 30;

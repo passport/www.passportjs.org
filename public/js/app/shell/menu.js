@@ -15,18 +15,18 @@ define(['jquery', 'exports'], function($, exports) {
     menu.find('li.active').removeClass('active');
     // set current active menu
     menu.find('a[href="' + url + '"]').parent('li').addClass('active');
-  }
+  };
   
   exports.open = function() {
     toggleMenu();
-  }
+  };
   
   exports.close = function() {
     toggleMenu(false);
-  }
+  };
   
   exports.toggle = function() {
     toggleMenu();
-  }
+  };
   
 });
