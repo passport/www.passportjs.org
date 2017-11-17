@@ -10,8 +10,14 @@ define(['page',
 function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell,
          $, __$_pjax, __$_typeahead) {
   
+  // static
+  var _gotopOffset;
+  
+  
   $(document).ready(function() {
     console.log('APP READY!');
+    
+    _gotopOffset = $('.go-top').offset();
     
     
     $(window).on('scroll', function (ev) {
@@ -127,8 +133,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     function reinitDocs(ctx, next) {
       console.log('REINIT DOCS?');
       console.log(ctx.locals)
-      
-      //scrollToId(ctx.locals.id);
       initialize();
     }
     
@@ -187,11 +191,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       loadingTimeout = setTimeout(function () {
         $('body').toggleClass('pjax-loading', true);
       }, 300);
-    }
-
-    function scrollToId(id) {
-      var scroll = $(id).offset().top - 30;
-      $('html, body').animate({ scrollTop: scroll }, 500);
     }
 
   });
