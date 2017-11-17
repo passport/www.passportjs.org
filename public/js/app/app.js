@@ -12,17 +12,55 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   
   // static
   var _gotopOffset;
+  var _submenuOffset;
+  
+  function _trackLayout() {
+    _gotopOffset = $('.go-top').offset();
+    _submenuOffset = $('.sub-menu nav').offset();
+  }
+  
+  
+  
+  function reinit(ctx, next) {
+    _trackLayout();
+  }
+  
+  
+  page('*', function(ctx, next) {
+    shell.menu.close();
+    next();
+  });
+  
+  page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
+  
+  
+  function reinitDocs(ctx, next) {
+    console.log('REINIT DOCS?');
+    console.log(ctx.locals)
+    _trackLayout();
+  }
+  
+  page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([reinitDocs]));
+  
+  page.apply(page, ['/packages'].concat(packagesRoute.enter));
+  page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
+  
+  page.apply(page, ['/features'].concat(featuresRoute).concat([reinit]));
+  page.start();
+  // end menu nav docs
+  
   
   
   $(document).ready(function() {
     console.log('APP READY!');
     
-    _gotopOffset = $('.go-top').offset();
+    _trackLayout();
     
     
     $(window).on('scroll', function (ev) {
-      // TODO:
-      //console.log('SCROLL!');
+      // toggleFixedNavigation
+      $('.go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
+      $('.sub-menu nav').toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
     });
     
     // ----------------------------------------------------------------------
@@ -114,36 +152,8 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
 
     // menu nav docs
     $(window).on('scroll', function (ev) {
-      toggleFixedNavigation(ev);
+      //toggleFixedNavigation(ev);
     });
-    
-    function reinit(ctx, next) {
-      initialize();
-    }
-    
-    
-    page('*', function(ctx, next) {
-      shell.menu.close();
-      next();
-    });
-    
-    page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
-    
-    
-    function reinitDocs(ctx, next) {
-      console.log('REINIT DOCS?');
-      console.log(ctx.locals)
-      initialize();
-    }
-    
-    page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([reinitDocs]));
-    
-    page.apply(page, ['/packages'].concat(packagesRoute.enter));
-    page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
-    
-    page.apply(page, ['/features'].concat(featuresRoute).concat([reinit]));
-    page.start();
-    // end menu nav docs
 
     /**
      * Contextual helpers
