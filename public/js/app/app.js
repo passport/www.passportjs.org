@@ -97,7 +97,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     // menu nav docs
     $(window).on('scroll', function (ev) {
       toggleFixedNavigation(ev);
-      toggleActiveSections(ev);
     });
     
     function reinit(ctx, next) {
@@ -138,27 +137,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     function toggleFixedNavigation(ev) {
       $submenu.toggleClass('fixed', submenuOffset && submenuOffset.top < $(window).scrollTop());
       $gotop.toggleClass('fixed', gotopOffset && gotopOffset.top < $(window).scrollTop());
-    }
-
-    function toggleActiveSections(ev) {
-      //return;
-      
-      var sections = $('.entry section');
-      var submenu_height = $submenu.outerHeight();
-      var cur_pos = $(window).scrollTop();
-
-      sections.each(function() {
-        var top = $(this).offset().top - 50;
-        var bottom = top + $(this).outerHeight();
-
-        if (cur_pos >= top && cur_pos <= bottom) {
-          $submenu.find('a').removeClass('active').closest('[data-content]').removeClass('active');
-          sections.removeClass('active');
-
-          $(this).addClass('active');
-          $submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
-        }
-      });
     }
 
     function initialize() {
