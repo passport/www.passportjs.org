@@ -114,7 +114,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   
   
   $(document).ready(function() {
-    var data = [];
     var loadingTimeout = 0;
 
     /**
