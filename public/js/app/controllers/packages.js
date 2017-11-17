@@ -1,13 +1,16 @@
 define(['../search/packages/engine',
         '../search/packages/sort',
         '../search/packages/templates/result',
-        '../shell', 'jquery', 'exports'], function(packages, sort, template, shell, $, exports) {
+        '../shell',
+        'jquery',
+        'exports'],
+function(engine, sort, template, shell, $, exports) {
   
   
   function renderFeaturedStrategies() {
-    packages.initPromise.done(loaded);
+    engine.initPromise.done(loaded);
     function loaded() {
-      var $featured = $.map(packages.all().sort(sort), template);
+      var $featured = $.map(engine.all().sort(sort), template);
       $('.search-con .results section').html($featured);
       $(".search-con .info-line span").text($featured.length);
     }
@@ -70,7 +73,7 @@ define(['../search/packages/engine',
   exports.load = function(cb) {
     openSearch();
     cb();
-  }
+  };
   
   exports.ready = function() {
     console.log('READY PACKAGES...');
