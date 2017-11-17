@@ -10,17 +10,39 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       //console.log('SCROLL!');
     });
     
-    
+    // ----------------------------------------------------------------------
+    // Menu
+    // ----------------------------------------------------------------------
     $(document).on('click', '.menu-trigger', function(ev) {
       shell.menu.toggle();
       return false;
     });
     
+    // ----------------------------------------------------------------------
+    // Search
+    // ----------------------------------------------------------------------
+    $(document).on('focus', '.search form input', function(ev) {
+      page.show('/packages/');
+    });
+    
+    $(document).on('focus', '[placeholder]', function () {
+      if ($(this).val() == $(this).attr('placeholder')) {
+        $(this).val('').removeClass('placeholder');
+      }
+    });
+    
+    // ----------------------------------------------------------------------
+    // Navigation
+    // ----------------------------------------------------------------------
     $(document).on('click', 'a[href="#top"]', function(ev) {
       shell.scrollToElementById('top');
       return false;
     });
     
+    
+    $.getJSON('/repo.json', function(data) {
+      $(".social .stat").text(numberWithCommas(data.stargazers_count));
+    });
   });
   
   
@@ -50,14 +72,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     initialize();
 
     /**
-     * Load for remote Data only once
-     */
-
-    $.getJSON('/repo.json', function(data) {
-      $(".social .stat").text(numberWithCommas(data.stargazers_count));
-    });
-
-    /**
      * Bind plugins and even handlers
      */
 
@@ -72,17 +86,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       source: searchEngine,
       templates: {
         suggestion: searchTemplate
-      }
-    });
-
-    $(document).on('focus', '.search form input', function(ev) {
-      page.show('/packages/');
-    });
-
-    $(document).on('focus', '[placeholder]', function () {
-      var $input = $(this);
-      if ($input.val() == $input.attr('placeholder')) {
-        $input.val('').removeClass("placeholder");
       }
     });
 
