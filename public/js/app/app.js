@@ -17,6 +17,13 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   function _trackLayout() {
     _gotopOffset = $('.go-top').offset();
     _submenuOffset = $('.sub-menu nav').offset();
+    
+    // accordion
+    /*
+    $('.accordion').accordion({
+      "transitionSpeed": 400
+    });
+    */
   }
   
   
@@ -49,10 +56,7 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   
   
   $(document).ready(function() {
-    console.log('APP READY!');
-    
     _trackLayout();
-    
     
     $(window).on('scroll', function (ev) {
       // toggleFixedNavigation
@@ -110,7 +114,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   
   
   $(document).ready(function() {
-    var $submenu, $gotop, submenuOffset, gotopOffset;
     var data = [];
     var loadingTimeout = 0;
 
@@ -128,12 +131,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
 
     /**
-     * Initialize page
-     */
-
-    initialize();
-
-    /**
      * Bind plugins and even handlers
      */
 
@@ -146,37 +143,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     //     $(".search-con .results section").css({ paddingLeft: 0 })
     //   };
     // });
-
-    // menu nav docs
-    $(window).on('scroll', function (ev) {
-      //toggleFixedNavigation(ev);
-    });
-
-    /**
-     * Contextual helpers
-     * Depends on globally context variable values
-     */
-
-    function toggleFixedNavigation(ev) {
-      $submenu.toggleClass('fixed', submenuOffset && submenuOffset.top < $(window).scrollTop());
-      $gotop.toggleClass('fixed', gotopOffset && gotopOffset.top < $(window).scrollTop());
-    }
-
-    function initialize() {
-      // reset containers
-      $submenu = $('.sub-menu nav');
-      $gotop = $('.go-top');
-      submenuOffset = $submenu.offset();
-      gotopOffset = $gotop.offset();
-      
-      // accordion
-      // XXX
-      /*
-      $('.accordion').accordion({
-        "transitionSpeed": 400
-      });
-      */
-    }
 
     function togglePjaxLoading(toggle) {
       // do not add pjax-loading flag twice
