@@ -20,35 +20,32 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
   }
   
   
-  
-  function reinit(ctx, next) {
-    _trackLayout();
-  }
-  
-  
-  page('*', function(ctx, next) {
+  // ----------------------------------------------------------------------
+  // Routing
+  // ----------------------------------------------------------------------
+  function _page_closeMenu(ctx, next) {
     shell.menu.close();
     next();
-  });
-  
-  page.apply(page, ['/'].concat(homeRoute).concat([reinit]));
-  
-  
-  function reinitDocs(ctx, next) {
-    console.log('REINIT DOCS?');
-    console.log(ctx.locals)
-    _trackLayout();
   }
   
-  page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([reinitDocs]));
+  function _page_trackLayout(ctx, next) {
+    _trackLayout();
+    next();
+  }
   
+  page('*', _page_closeMenu);
+  // /
+  page.apply(page, ['/'].concat(homeRoute).concat([_page_trackLayout]));
+  // /docs
+  page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([_page_trackLayout]));
+  // /packages
   page.apply(page, ['/packages'].concat(packagesRoute.enter));
   page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
+  // /features
+  page.apply(page, ['/features'].concat(featuresRoute).concat([_page_trackLayout]));
   
-  page.apply(page, ['/features'].concat(featuresRoute).concat([reinit]));
   page.start();
-  // end menu nav docs
-  
+  // ----------------------------------------------------------------------
   
   
   $(document).ready(function() {
