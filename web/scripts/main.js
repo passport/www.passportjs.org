@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: '/js/lib',
+  baseUrl: '/scripts/lib',
   paths: {
     'app': '../app',
     'jquery': '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min',
