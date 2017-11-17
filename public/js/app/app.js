@@ -1,5 +1,14 @@
-define(['page', './pages/home', './pages/docs', './pages/packages', './pages/features', './search/packages/engine', './search/packages/templates/suggestion', './shell', 'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell, $, __$_pjax, __$_typeahead) {
+define(['page',
+        './pages/home',
+        './pages/docs',
+        './pages/packages',
+        './pages/features',
+        './search/packages/engine',
+        './search/packages/templates/suggestion',
+        './shell',
+        'jquery', 'jquery.pjax', 'jquery.typeahead'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell,
+         $, __$_pjax, __$_typeahead) {
   
   $(document).ready(function() {
     console.log('APP READY!');
@@ -23,6 +32,18 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     // ----------------------------------------------------------------------
     $(document).on('focus', '.search form input', function(ev) {
       page.show('/packages/');
+    });
+    
+    // passing in `null` for the `options` arguments will result in the default
+    // options being used
+    $('.search-con form input').typeahead(null, {
+      name: 'strategies',
+      display: 'label',
+      limit: Infinity,
+      source: searchEngine,
+      templates: {
+        suggestion: searchTemplate
+      }
     });
     
     $(document).on('focus', '[placeholder]', function () {
@@ -76,18 +97,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
      */
 
     $("body").toggleClass("ie", msieversion());
-
-    // passing in `null` for the `options` arguments will result in the default
-    // options being used
-    $('.search-con form input').typeahead(null, {
-      name: 'strategies',
-      display: 'label',
-      limit: Infinity,
-      source: searchEngine,
-      templates: {
-        suggestion: searchTemplate
-      }
-    });
 
     // $(window).resize(function() {
     //   if ($('.search-con .results').hasScrollBar()) {
