@@ -1,4 +1,10 @@
-define(['jquery', 'exports'], function($, exports) {
+define(['exports', 'jquery'], function(exports, $) {
+  
+  $(document).on('click', '.menu-trigger', function(ev) {
+    exports.toggle();
+    return false;
+  });
+  
   
   function toggleMenu(open) {
     $("html").toggleClass("is-menu", open);

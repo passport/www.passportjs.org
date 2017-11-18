@@ -65,14 +65,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
     
     // ----------------------------------------------------------------------
-    // Menu
-    // ----------------------------------------------------------------------
-    $(document).on('click', '.menu-trigger', function(ev) {
-      shell.menu.toggle();
-      return false;
-    });
-    
-    // ----------------------------------------------------------------------
     // Search
     // ----------------------------------------------------------------------
     $(document).on('focus', '.search form input', function(ev) {
