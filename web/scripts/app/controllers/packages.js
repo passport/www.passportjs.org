@@ -2,9 +2,11 @@ define(['../search/packages/engine',
         '../search/packages/sort',
         '../search/packages/templates/result',
         '../shell',
+        './base',
+        'class',
         'jquery',
         'exports'],
-function(engine, sort, template, shell, $, exports) {
+function(engine, sort, template, shell, Controller, clazz, $, exports) {
   
   
   function renderFeaturedStrategies() {
@@ -68,27 +70,31 @@ function(engine, sort, template, shell, $, exports) {
   
   
   
-  exports.basePath = '/packages/';
-  
-  exports.load = function(cb) {
-    openSearch();
-    cb();
-  };
-  
-  exports.ready = function() {
-    console.log('READY PACKAGES...');
+  function PackagesController() {
+    Controller.call(this, '/packages');
     
-    $('.search-con form input.tt-input').on('input', dosearchinput);
-    $('.search-con form input').on('typeahead:render', dosearchresults);
-    $('.search-con .close-ico').on('click', doclose);
+    this.on('ready', function() {
+      $('.search-con form input.tt-input').on('input', dosearchinput);
+      $('.search-con form input').on('typeahead:render', dosearchresults);
+      $('.search-con .close-ico').on('click', doclose);
+    });
+  }
+  clazz.inherits(PackagesController, Controller);
+  
+  PackagesController.prototype.load = function() {
+    openSearch();
+    this.emit('ready');
   };
   
-  exports.unload = function() {
+  PackagesController.prototype.unload = function() {
     $('.search-con .close-ico').off('click', doclose);
     $('.search-con form input').off('typeahead:render', dosearchresults);
     $('.search-con form input.tt-input').off('input', dosearchinput);
     
     closeSearch();
-  };
+  }
+  
+  
+  return new PackagesController();
   
 });

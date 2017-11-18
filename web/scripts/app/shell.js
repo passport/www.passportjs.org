@@ -62,6 +62,18 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
   
   exports.present = function(controller, cb) {
     _modalController = controller;
+    
+    controller.once('ready', function() {
+      console.log('MOADAL READY!');
+      cb();
+    });
+    
+    controller.shell = this;
+    controller.load();
+    
+    
+    //XXX
+    return;
     _modalController.load(function() {
       if (this !== _modalController) { return; }
       $(document).on('keyup', onkeyup);
