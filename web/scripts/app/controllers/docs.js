@@ -1,9 +1,10 @@
 define(['../shell',
+        './base',
         'highlight',
         'class',
         'jquery', 'jquery.pjax',
         'exports'],
-function(shell, hljs, clazz, $, __$_pjax, exports) {
+function(shell, Controller, hljs, clazz, $, __$_pjax, exports) {
   
   // static
   function onscroll(ev) {
@@ -27,31 +28,38 @@ function(shell, hljs, clazz, $, __$_pjax, exports) {
   }
   
   
-  exports.basePath = '/docs/';
+  function DocsController() {
+    Controller.call(this, '/docs');
+    
+    this.on('ready', function() {
+      $(window).on('scroll', onscroll);
+      
+      hljs.configure({ classPrefix: '' });
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+  }
+  clazz.inherits(DocsController, Controller);
   
-  exports.load = function(cb) {
+  DocsController.prototype.load = function() {
+    var self = this;
     $.pjax({ url: '/docs/', fragment: '#page-content', container: '#page-content', push: false })
       .done(function(data) {
-        cb();
+        self.emit('ready');
       });
   };
   
-  exports.scrollTo = function(id) {
-    if (!id) { return; }
-    shell.scrollToElementById(id);
-  };
-  
-  exports.ready = function() {
-    $(window).on('scroll', onscroll);
-    
-    hljs.configure({ classPrefix: '' });
-    $('pre code').each(function(i, block) {
-      hljs.highlightBlock(block);
-    });
-  };
-  
-  exports.unload = function() {
+  DocsController.prototype.unload = function() {
     $(window).off('scroll', onscroll);
+  }
+  
+  DocsController.prototype.scrollTo = function(slug) {
+    if (!slug) { return; }
+    shell.scrollToElementById(slug);
   };
+  
+  
+  return new DocsController();
   
 });

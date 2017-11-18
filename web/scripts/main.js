@@ -8,7 +8,8 @@ require.config({
     'page': '//cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page'
   },
   packages: [
-    { name: 'class', main: 'class', location: '../node_modules/class' }
+    { name: 'class', main: 'class', location: '../node_modules/class' },
+    { name: 'events', location: '../node_modules/events' }
   ],
   shim: {
     'jquery.pjax': ['jquery']

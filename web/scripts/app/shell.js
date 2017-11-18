@@ -22,6 +22,19 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
   };
   
   exports.show = function(controller, loaded, cb) {
+    if (_controller === controller) { return cb(); }
+    _controller = controller;
+    
+    controller.once('ready', function() {
+      menu.active(this.basePath + '/');
+      cb();
+    });
+    
+    controller.load();
+    
+    // XXX
+    return;
+    
     if (typeof loaded == 'function') {
       cb = loaded;
       loaded = false;
