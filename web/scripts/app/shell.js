@@ -64,22 +64,13 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
     _modalController = controller;
     
     controller.once('ready', function() {
-      console.log('MOADAL READY!');
+      if (this !== _modalController) { return; }
+      $(document).on('keyup', onkeyup);
       cb();
     });
     
     controller.shell = this;
     controller.load();
-    
-    
-    //XXX
-    return;
-    _modalController.load(function() {
-      if (this !== _modalController) { return; }
-      $(document).on('keyup', onkeyup);
-      this.ready();
-      cb();
-    }.bind(_modalController));
   };
   
   exports.dismiss = function() {
