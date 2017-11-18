@@ -24,7 +24,9 @@ define(['./shell/menu', 'jquery', 'exports'], function(menu, $, exports) {
   exports.show = function(controller, loaded, cb) {
     if (_controller === controller) { return cb(); }
     
-    // TODO: unload existing controller, if any
+    if (_controller) {
+      _controller.unload();
+    }
     
     _controller = controller;
     

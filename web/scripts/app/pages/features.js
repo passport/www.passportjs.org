@@ -1,12 +1,15 @@
-define(['./middleware/pjax',
-        './middleware/browse',
-        './middleware/ad/refresh',
-        './middleware/handled'],
-function(pjax, browse, adRefresh, handled) {
+define(['./middleware/ad/refresh',
+        './middleware/handled',
+        '../controllers/features',
+        '../shell'],
+function(adRefresh, handled, controller, shell) {
   
   return [
-    pjax('#page-content', '#page-content'),
-    browse('/features/', true),
+    function(ctx, next) {
+      shell.show(controller, ctx.init, function() {
+        next();
+      });
+    },
     adRefresh(),
     handled()
   ];
