@@ -1,8 +1,12 @@
 define(['exports', 'jquery'], function(exports, $) {
   
-  $(document).on('click', '.menu-trigger', function(ev) {
-    exports.toggle();
-    return false;
+  $(document).ready(function() {
+    
+    $(document).on('click', '.menu-trigger', function(ev) {
+      exports.toggle();
+      return false;
+    });
+  
   });
   
   
