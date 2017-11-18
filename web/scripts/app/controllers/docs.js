@@ -1,8 +1,9 @@
 define(['../shell',
         'highlight',
+        'class',
         'jquery', 'jquery.pjax',
         'exports'],
-function(shell, hljs, $, __$_pjax, exports) {
+function(shell, hljs, clazz, $, __$_pjax, exports) {
   
   // static
   function onscroll(ev) {

@@ -9,5 +9,8 @@
       'jquery.typeahead': '//cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.jquery',
       'page': '//cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page'
     },
+    packages: [
+      { name: 'class', main: 'class', location: '../node_modules/class' }
+    ],
     out: "../www/assets/scripts/main.js"
 })
