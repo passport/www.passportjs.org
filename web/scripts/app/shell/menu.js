@@ -6,15 +6,6 @@ define(['exports', 'jquery'], function(exports, $) {
   });
   
   
-  function toggleMenu(open) {
-    $("html").toggleClass("is-menu", open);
-    $(".content, .top-site").toggleClass('blured', open);
-    $('.menu-trigger').toggleClass("is-active", open).next().toggleClass("is-active", open);
-    
-  }
-  
-  
-  
   exports.active = function(url) {
     var menu = $('#menu');
     // reset active menu
@@ -24,15 +15,17 @@ define(['exports', 'jquery'], function(exports, $) {
   };
   
   exports.open = function() {
-    toggleMenu();
+    exports.toggle(true);
   };
   
   exports.close = function() {
-    toggleMenu(false);
+    exports.toggle(false);
   };
   
-  exports.toggle = function() {
-    toggleMenu();
+  exports.toggle = function(open) {
+    $('html').toggleClass('is-menu', open);
+    $('.content, .top-site').toggleClass('blured', open);
+    $('.menu-trigger').toggleClass('is-active', open).next().toggleClass('is-active', open);
   };
   
 });
