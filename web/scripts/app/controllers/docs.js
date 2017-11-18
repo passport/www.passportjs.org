@@ -1,10 +1,8 @@
-define(['exports',
-        '../shell',
-        './base',
-        'highlight',
+define(['./base',
         'class',
+        'highlight',
         'jquery', 'jquery.pjax'],
-function(exports, shell, Controller, hljs, clazz, $, __$_pjax) {
+function(Controller, clazz, hljs, $, __$_pjax) {
   
   // static
   function onscroll(ev) {
@@ -56,7 +54,7 @@ function(exports, shell, Controller, hljs, clazz, $, __$_pjax) {
   
   DocsController.prototype.scrollTo = function(slug) {
     if (!slug) { return; }
-    shell.scrollToElementById(slug);
+    this.shell.scrollToElementById(slug);
   };
   
   
