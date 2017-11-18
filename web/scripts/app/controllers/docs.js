@@ -1,10 +1,10 @@
-define(['../shell',
+define(['exports',
+        '../shell',
         './base',
         'highlight',
         'class',
-        'jquery', 'jquery.pjax',
-        'exports'],
-function(shell, Controller, hljs, clazz, $, __$_pjax, exports) {
+        'jquery', 'jquery.pjax'],
+function(exports, shell, Controller, hljs, clazz, $, __$_pjax) {
   
   // static
   function onscroll(ev) {
