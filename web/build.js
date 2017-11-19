@@ -1,5 +1,5 @@
 ({
-    baseUrl: "./scripts",
+    baseUrl: "./script",
     name: "main",
     paths: {
       'jquery': '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min',
@@ -10,7 +10,8 @@
       'page': '//cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page'
     },
     packages: [
-      { name: 'class', main: 'class', location: '../node_modules/class' }
+      { name: 'class', main: 'class', location: '../node_modules/class' },
+      { name: 'events', location: '../node_modules/events' }
     ],
-    out: "../www/assets/scripts/main.js"
+    out: "../www/script/main.js"
 })
