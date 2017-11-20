@@ -30,8 +30,9 @@ function(exports, menu, search, status, page, $) {
     _controller = controller;
     
     controller.once('ready', function() {
+      _gotopOffset = $('.go-top').offset();
+      
       menu.active(this.basePath + '/');
-      exports.trackLayout();
       cb();
     });
     
@@ -88,21 +89,9 @@ function(exports, menu, search, status, page, $) {
     $('html, body').animate({ scrollTop: units }, 500);
   };
   
-  // TODO: rename this to updateLayout, allow controller to handle it as well, if possible
-  exports.trackLayout = function() {
-    _gotopOffset = $('.go-top').offset();
-    
-    // accordion
-    /*
-    $('.accordion').accordion({
-      "transitionSpeed": 400
-    });
-    */
-  };
-  
   
   $(document).ready(function() {
-    exports.trackLayout();
+    _gotopOffset = $('.go-top').offset();
     
     $(window).on('scroll', function (ev) {
       // toggleFixedNavigation

@@ -39,6 +39,13 @@ function(PjaxController, clazz, hljs, $) {
       
       $(window).on('scroll', onscroll);
       
+      // accordion
+      /*
+      $('.accordion').accordion({
+        "transitionSpeed": 400
+      });
+      */
+      
       hljs.configure({ classPrefix: '' });
       $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
