@@ -42,6 +42,7 @@ function(Controller, clazz, hljs, $, __$_pjax) {
   
   DocsController.prototype.dispatch = function(ctx, done) {
     this.scrollTo(ctx.params.slug);
+    ctx.handled = true;
     done();
   }
   

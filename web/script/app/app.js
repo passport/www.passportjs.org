@@ -6,26 +6,25 @@ define(['page',
         './controllers/packages',
         './shell',
         './pages/middleware/controller',
-        './pages/middleware/handled',
         'jquery'],
-function(page, docsRoute, homeController, docsController, featuresController, packagesController, shell, controller, handled, $) {
+function(page, docsRoute, homeController, docsController, featuresController, packagesController, shell, controller, $) {
   
   // ----------------------------------------------------------------------
   // Routing
   // ----------------------------------------------------------------------
   // /
   //page.apply(page, ['/'].concat(homeRoute).concat([_page_trackLayout]));
-  page('/', controller(homeController, shell), handled());
+  page('/', controller(homeController, shell));
   // /docs
   //page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([_page_trackLayout]));
-  page('/docs/:slug?', controller(docsController, shell), handled());
+  page('/docs/:slug?', controller(docsController, shell));
   // /packages
   //page.apply(page, ['/packages'].concat(packagesRoute.enter));
   //page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
-  page('/packages', controller(packagesController, shell, true), handled());
+  page('/packages', controller(packagesController, shell, true));
   // /features
   //page.apply(page, ['/features'].concat(featuresRoute).concat([_page_trackLayout]));
-  page('/features', controller(featuresController, shell), handled());
+  page('/features', controller(featuresController, shell));
   
   page.start();
   // ----------------------------------------------------------------------
