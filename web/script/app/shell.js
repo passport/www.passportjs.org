@@ -5,6 +5,16 @@ define(['exports',
         'jquery'],
 function(exports, menu, search, status, $) {
   
+  $(document).ready(function() {
+    
+    $(document).on('click', 'a[href="#top"]', function(ev) {
+      exports.scrollToElementById('top');
+      return false;
+    });
+    
+  });
+  
+  
   // static
   var _controller;
   var _modalController;
@@ -17,14 +27,6 @@ function(exports, menu, search, status, $) {
   
   
   exports.menu = menu;
-  
-  exports.browse = function(url, loaded) {
-    if (_controller) {
-      _controller.unload();
-      _controller = null;
-    }
-    menu.active(url);
-  };
   
   exports.show = function(controller, loaded, cb) {
     if (_controller === controller) { return cb(); }

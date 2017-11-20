@@ -64,14 +64,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       $('.sub-menu nav').toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
     });
     
-    // ----------------------------------------------------------------------
-    // Navigation
-    // ----------------------------------------------------------------------
-    $(document).on('click', 'a[href="#top"]', function(ev) {
-      shell.scrollToElementById('top');
-      return false;
-    });
-    
     
     $.getJSON('/repo.json', function(data) {
       $(".social .stat").text(numberWithCommas(data.stargazers_count));
