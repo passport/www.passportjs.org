@@ -71,18 +71,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
       page.show('/packages/');
     });
     
-    // passing in `null` for the `options` arguments will result in the default
-    // options being used
-    $('.search-con form input').typeahead(null, {
-      name: 'strategies',
-      display: 'label',
-      limit: Infinity,
-      source: searchEngine,
-      templates: {
-        suggestion: searchTemplate
-      }
-    });
-    
     $(document).on('focus', '[placeholder]', function () {
       if ($(this).val() == $(this).attr('placeholder')) {
         $(this).val('').removeClass('placeholder');

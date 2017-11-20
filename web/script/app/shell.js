@@ -1,4 +1,9 @@
-define(['./shell/menu', './shell/status', 'jquery', 'exports'], function(menu, status, $, exports) {
+define(['exports',
+        './shell/menu',
+        './shell/search',
+        './shell/status',
+        'jquery'],
+function(exports, menu, search, status, $) {
   
   // static
   var _controller;
