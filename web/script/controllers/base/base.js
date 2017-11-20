@@ -9,12 +9,10 @@ function(Emitter, clazz) {
   }
   clazz.inherits(Controller, Emitter);
   
-  Controller.prototype.dispatch = function(ctx, next) {
-    ctx.handled = true;
-    return next();
-  }
   Controller.prototype.load = function() {};
   Controller.prototype.unload = function() {};
+  
+  Controller.prototype.dispatch = function(ctx, done) { return done(); }
   
   
   return Controller;

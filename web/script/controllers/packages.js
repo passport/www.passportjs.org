@@ -94,6 +94,11 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
     closeSearch();
   }
   
+  PackagesController.prototype.dispatch = function(ctx, done) {
+    ctx.handled = true;
+    PackagesController.super_.prototype.dispatch.call(this, ctx, done);
+  }
+  
   
   return new PackagesController();
   

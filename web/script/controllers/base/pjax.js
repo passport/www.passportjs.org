@@ -17,6 +17,11 @@ function(Controller, clazz, $, __$_pjax) {
       });
   };
   
+  PjaxController.prototype.dispatch = function(ctx, done) {
+    ctx.handled = true;
+    PjaxController.super_.prototype.dispatch.call(this, ctx, done);
+  }
+  
   
   return PjaxController;
   

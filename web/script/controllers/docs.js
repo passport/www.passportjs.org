@@ -1,8 +1,8 @@
-define(['./base/base',
+define(['./base/pjax',
         'class',
         'highlight',
-        'jquery', 'jquery.pjax'],
-function(Controller, clazz, hljs, $, __$_pjax) {
+        'jquery'],
+function(PjaxController, clazz, hljs, $) {
   
   // static
   function onscroll(ev) {
@@ -27,7 +27,7 @@ function(Controller, clazz, hljs, $, __$_pjax) {
   
   
   function DocsController() {
-    Controller.call(this, '/docs');
+    PjaxController.call(this, '/docs', '/docs/');
     
     this.on('ready', function() {
       $(window).on('scroll', onscroll);
@@ -38,30 +38,20 @@ function(Controller, clazz, hljs, $, __$_pjax) {
       });
     });
   }
-  clazz.inherits(DocsController, Controller);
-  
-  DocsController.prototype.dispatch = function(ctx, done) {
-    this.scrollTo(ctx.params.slug);
-    ctx.handled = true;
-    done();
-  }
-  
-  DocsController.prototype.load = function() {
-    var self = this;
-    $.pjax({ url: '/docs/', fragment: '#page-content', container: '#page-content', push: false })
-      .done(function(data) {
-        self.emit('ready');
-      });
-  };
+  clazz.inherits(DocsController, PjaxController);
   
   DocsController.prototype.unload = function() {
     $(window).off('scroll', onscroll);
   }
   
-  DocsController.prototype.scrollTo = function(slug) {
-    if (!slug) { return; }
-    this.shell.scrollToElementById(slug);
-  };
+  DocsController.prototype.dispatch = function(ctx, done) {
+    var slug = ctx.params.slug;
+    if (slug) {
+      this.shell.scrollToElementById(slug);
+    }
+    ctx.handled = true;
+    done();
+  }
   
   
   return new DocsController();
