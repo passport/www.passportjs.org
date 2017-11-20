@@ -4,8 +4,8 @@ function(Emitter, clazz) {
   
   function Controller(basePath) {
     Emitter.call(this);
-    this.basePath = basePath;
     this.shell = undefined;
+    this.basePath = basePath;
   }
   clazz.inherits(Controller, Emitter);
   

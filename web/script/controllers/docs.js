@@ -1,4 +1,4 @@
-define(['./base',
+define(['./base/base',
         'class',
         'highlight',
         'jquery', 'jquery.pjax'],

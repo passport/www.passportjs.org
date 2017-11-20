@@ -1,4 +1,4 @@
-define(['./base',
+define(['./base/base',
         'class',
         'jquery', 'jquery.pjax'],
 function(Controller, clazz, $, __$_pjax) {
