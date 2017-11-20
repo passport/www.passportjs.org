@@ -87,6 +87,7 @@ function(exports, menu, search, status, $) {
     $('html, body').animate({ scrollTop: units }, 500);
   };
   
+  // TODO: rename this to updateLayout, allow controller to handle it as well, if possible
   exports.trackLayout = function() {
     _gotopOffset = $('.go-top').offset();
     _submenuOffset = $('.sub-menu nav').offset();
