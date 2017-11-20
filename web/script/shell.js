@@ -21,45 +21,29 @@ function(exports, menu, search, status, page, $) {
   exports.menu = menu;
   
   exports.show = function(controller, loaded, cb) {
-    if (_controller === controller) { return cb(); }
-    
-    if (_controller) {
-      _controller.unload();
-    }
-    
-    _controller = controller;
-    
-    controller.once('ready', function() {
-      _gotopOffset = $('.go-top').offset();
-      
-      menu.active(this.basePath + '/');
-      cb();
-    });
-    
-    controller.shell = exports;
-    controller.load();
-    
-    // XXX
-    return;
-    
     if (typeof loaded == 'function') {
       cb = loaded;
       loaded = false;
     }
     
     if (_controller === controller) { return cb(); }
+    if (_controller) {
+      _controller.unload();
+    }
     _controller = controller;
     
-    if (!loaded) {
-      _controller.load(function() {
-        if (this !== _controller) { return; }
-        this.ready();
-        menu.active(this.basePath);
-        cb();
-      }.bind(_controller));
-    } else {
-      _controller.ready();
+    controller.once('ready', function() {
+      _gotopOffset = $('.go-top').offset();
+      
+      menu.active(this.canonicalPath || this.basePath);
       cb();
+    });
+    
+    controller.shell = exports;
+    if (!loaded) {
+      controller.load();
+    } else {
+      controller.emit('ready');
     }
   };
   
