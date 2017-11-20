@@ -2,19 +2,19 @@ define(['./controllers/home',
         './controllers/docs',
         './controllers/features',
         './controllers/packages',
+        './middleware/controller',
         './shell',
-        './pages/middleware/controller',
         'page',
         'jquery'],
-function(homeController, docsController, featuresController, packagesController, shell, controller, page, $) {
+function(homeController, docsController, featuresController, packagesController, controller, shell, page, $) {
   
   // ----------------------------------------------------------------------
   // Routing
   // ----------------------------------------------------------------------
-  page('/', controller(homeController, shell));
-  page('/docs/:slug?', controller(docsController, shell));
-  page('/packages', controller(packagesController, shell, true));
-  page('/features', controller(featuresController, shell));
+  page('/', controller(homeController));
+  page('/docs/:slug?', controller(docsController));
+  page('/packages', controller(packagesController, true));
+  page('/features', controller(featuresController));
   
   page.start();
   // ----------------------------------------------------------------------

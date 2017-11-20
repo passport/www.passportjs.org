@@ -1,6 +1,6 @@
-define(function() {
+define(['../shell'], function(shell) {
   
-  return function(ctrlr, shell, modal) {
+  return function(ctrlr, modal) {
     var show = modal ? shell.present : shell.show;
     
     return function controller(ctx, next) {
