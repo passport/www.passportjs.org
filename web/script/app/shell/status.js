@@ -1,16 +1,5 @@
 define(['exports', 'jquery', 'jquery.pjax'], function(exports, $, __$_pjax) {
   
-  $(document).ready(function() {
-    $(document).on('pjax:send', function () {
-      exports.activity(true);
-    });
-
-    $(document).on('pjax:beforeReplace', function () {
-      exports.activity(false);
-    });
-  });
-  
-  
   var _tid = 0;
   
   exports.activity = function(flag) {
@@ -34,5 +23,16 @@ define(['exports', 'jquery', 'jquery.pjax'], function(exports, $, __$_pjax) {
       $('body').toggleClass('pjax-loading', true);
     }, 300);
   };
+  
+  
+  $(document).ready(function() {
+    $(document).on('pjax:send', function () {
+      exports.activity(true);
+    });
+
+    $(document).on('pjax:beforeReplace', function () {
+      exports.activity(false);
+    });
+  });
   
 });

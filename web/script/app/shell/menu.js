@@ -1,15 +1,5 @@
 define(['exports', 'jquery'], function(exports, $) {
   
-  $(document).ready(function() {
-    
-    $(document).on('click', '.menu-trigger', function(ev) {
-      exports.toggle();
-      return false;
-    });
-  
-  });
-  
-  
   exports.active = function(url) {
     var menu = $('#menu');
     // reset active menu
@@ -31,5 +21,15 @@ define(['exports', 'jquery'], function(exports, $) {
     $('.content, .top-site').toggleClass('blured', open);
     $('.menu-trigger').toggleClass('is-active', open).next().toggleClass('is-active', open);
   };
+  
+  
+  $(document).ready(function() {
+    
+    $(document).on('click', '.menu-trigger', function(ev) {
+      exports.toggle();
+      return false;
+    });
+    
+  });
   
 });

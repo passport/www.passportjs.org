@@ -5,17 +5,9 @@ define(['exports',
         'jquery'],
 function(exports, menu, search, status, $) {
   
-  $(document).ready(function() {
-    
-    $(document).on('click', 'a[href="#top"]', function(ev) {
-      exports.scrollToElementById('top');
-      return false;
-    });
-    
-  });
-  
-  
   // static
+  var _gotopOffset;
+  var _submenuOffset;
   var _controller;
   var _modalController;
   
@@ -94,5 +86,33 @@ function(exports, menu, search, status, $) {
     var units = $('#'+id).offset().top - 30;
     $('html, body').animate({ scrollTop: units }, 500);
   };
+  
+  exports.trackLayout = function() {
+    _gotopOffset = $('.go-top').offset();
+    _submenuOffset = $('.sub-menu nav').offset();
+    
+    // accordion
+    /*
+    $('.accordion').accordion({
+      "transitionSpeed": 400
+    });
+    */
+  };
+  
+  
+  $(document).ready(function() {
+    exports.trackLayout();
+    
+    $(window).on('scroll', function (ev) {
+      // toggleFixedNavigation
+      $('.go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
+      $('.sub-menu nav').toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
+    });
+    
+    $(document).on('click', 'a[href="#top"]', function(ev) {
+      exports.scrollToElementById('top');
+      return false;
+    });
+  });
   
 });

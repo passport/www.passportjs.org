@@ -12,18 +12,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, shell,
   var _gotopOffset;
   var _submenuOffset;
   
-  function _trackLayout() {
-    _gotopOffset = $('.go-top').offset();
-    _submenuOffset = $('.sub-menu nav').offset();
-    
-    // accordion
-    /*
-    $('.accordion').accordion({
-      "transitionSpeed": 400
-    });
-    */
-  }
-  
   
   // ----------------------------------------------------------------------
   // Routing
@@ -34,7 +22,7 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, shell,
   }
   
   function _page_trackLayout(ctx, next) {
-    _trackLayout();
+    shell.trackLayout();
     next();
   }
   
@@ -54,15 +42,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, shell,
   
   
   $(document).ready(function() {
-    _trackLayout();
-    
-    $(window).on('scroll', function (ev) {
-      // toggleFixedNavigation
-      $('.go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
-      $('.sub-menu nav').toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
-    });
-    
-    
     $.getJSON('/repo.json', function(data) {
       $(".social .stat").text(numberWithCommas(data.stargazers_count));
     });
