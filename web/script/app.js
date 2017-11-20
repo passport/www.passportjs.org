@@ -3,18 +3,20 @@ define(['./controllers/home',
         './controllers/features',
         './controllers/packages',
         './middleware/controller',
+        './middleware/ad/refresh',
         './shell',
         'page',
         'jquery'],
-function(homeController, docsController, featuresController, packagesController, controller, shell, page, $) {
+function(homeController, docsController, featuresController, packagesController,
+        controller, adRefresh, shell, page, $) {
   
   // ----------------------------------------------------------------------
   // Routing
   // ----------------------------------------------------------------------
-  page('/', controller(homeController));
-  page('/docs/:slug?', controller(docsController));
+  page('/', controller(homeController), adRefresh());
+  page('/docs/:slug?', controller(docsController), adRefresh());
+  page('/features', controller(featuresController), adRefresh());
   page('/packages', controller(packagesController, true));
-  page('/features', controller(featuresController));
   
   page.start();
   // ----------------------------------------------------------------------
