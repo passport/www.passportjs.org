@@ -8,11 +8,6 @@ define(['page',
 function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, shell,
          $) {
   
-  // static
-  var _gotopOffset;
-  var _submenuOffset;
-  
-  
   // ----------------------------------------------------------------------
   // Routing
   // ----------------------------------------------------------------------
