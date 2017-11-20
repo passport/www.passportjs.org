@@ -32,10 +32,11 @@ function(exports, menu, search, status, page, $) {
     
     controller.once('ready', function() {
       menu.active(this.basePath + '/');
+      exports.trackLayout();
       cb();
     });
     
-    controller.shell = this;
+    controller.shell = exports;
     controller.load();
     
     // XXX
@@ -71,7 +72,7 @@ function(exports, menu, search, status, page, $) {
       cb();
     });
     
-    controller.shell = this;
+    controller.shell = exports;
     controller.load();
   };
   

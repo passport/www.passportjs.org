@@ -5,7 +5,7 @@ define(function() {
     
     return function controller(ctx, next) {
       show(ctrlr, ctx.init, function() {
-        next();
+        ctrlr.dispatch(ctx, next);
       });
     };
   };

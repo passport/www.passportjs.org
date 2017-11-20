@@ -40,6 +40,11 @@ function(Controller, clazz, hljs, $, __$_pjax) {
   }
   clazz.inherits(DocsController, Controller);
   
+  DocsController.prototype.dispatch = function(ctx, done) {
+    this.scrollTo(ctx.params.slug);
+    done();
+  }
+  
   DocsController.prototype.load = function() {
     var self = this;
     $.pjax({ url: '/docs/', fragment: '#page-content', container: '#page-content', push: false })

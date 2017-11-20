@@ -1,14 +1,14 @@
 define(['page',
         './pages/docs',
-        './pages/packages',
         './controllers/home',
+        './controllers/docs',
         './controllers/features',
         './controllers/packages',
         './shell',
         './pages/middleware/controller',
         './pages/middleware/handled',
         'jquery'],
-function(page, docsRoute, packagesRoute, homeController, featuresController, packagesController, shell, controller, handled, $) {
+function(page, docsRoute, homeController, docsController, featuresController, packagesController, shell, controller, handled, $) {
   
   // ----------------------------------------------------------------------
   // Routing
@@ -28,7 +28,8 @@ function(page, docsRoute, packagesRoute, homeController, featuresController, pac
   //page.apply(page, ['/'].concat(homeRoute).concat([_page_trackLayout]));
   page('/', controller(homeController, shell), handled());
   // /docs
-  page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([_page_trackLayout]));
+  //page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([_page_trackLayout]));
+  page('/docs/:slug?', controller(docsController, shell), handled());
   // /packages
   //page.apply(page, ['/packages'].concat(packagesRoute.enter));
   //page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
