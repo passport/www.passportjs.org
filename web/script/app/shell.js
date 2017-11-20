@@ -2,8 +2,9 @@ define(['exports',
         './shell/menu',
         './shell/search',
         './shell/status',
+        'page',
         'jquery'],
-function(exports, menu, search, status, $) {
+function(exports, menu, search, status, page, $) {
   
   // static
   var _gotopOffset;
@@ -61,7 +62,7 @@ function(exports, menu, search, status, $) {
     }
   };
   
-  exports.present = function(controller, cb) {
+  exports.present = function(controller, loaded, cb) {
     _modalController = controller;
     
     controller.once('ready', function() {
@@ -114,6 +115,13 @@ function(exports, menu, search, status, $) {
       exports.scrollToElementById('top');
       return false;
     });
+  });
+  
+  page.exit('*', function(ctx, next) {
+    if (_modalController) {
+      exports.dismiss();
+    }
+    next();
   });
   
 });

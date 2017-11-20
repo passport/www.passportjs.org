@@ -3,11 +3,12 @@ define(['page',
         './pages/packages',
         './controllers/home',
         './controllers/features',
+        './controllers/packages',
         './shell',
         './pages/middleware/controller',
         './pages/middleware/handled',
         'jquery'],
-function(page, docsRoute, packagesRoute, homeController, featuresController, shell, controller, handled, $) {
+function(page, docsRoute, packagesRoute, homeController, featuresController, packagesController, shell, controller, handled, $) {
   
   // ----------------------------------------------------------------------
   // Routing
@@ -29,8 +30,9 @@ function(page, docsRoute, packagesRoute, homeController, featuresController, she
   // /docs
   page.apply(page, ['/docs/:slug?'].concat(docsRoute).concat([_page_trackLayout]));
   // /packages
-  page.apply(page, ['/packages'].concat(packagesRoute.enter));
-  page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
+  //page.apply(page, ['/packages'].concat(packagesRoute.enter));
+  //page.exit.apply(page, ['/packages'].concat(packagesRoute.exit));
+  page('/packages', controller(packagesController, shell, true), handled());
   // /features
   //page.apply(page, ['/features'].concat(featuresRoute).concat([_page_trackLayout]));
   page('/features', controller(featuresController, shell), handled());
