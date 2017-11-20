@@ -1,21 +1,12 @@
-define(['./base/base',
+define(['./base/pjax',
         'class',
         'jquery', 'jquery.pjax'],
-function(Controller, clazz, $, __$_pjax) {
-  
+function(PjaxController, clazz, $, __$_pjax) {
   
   function FeaturesController() {
-    Controller.call(this, '/features');
+    PjaxController.call(this, '/features', '/features/');
   }
-  clazz.inherits(FeaturesController, Controller);
-  
-  FeaturesController.prototype.load = function() {
-    var self = this;
-    $.pjax({ url: '/features/', fragment: '#page-content', container: '#page-content', push: false })
-      .done(function(data) {
-        self.emit('ready');
-      });
-  };
+  clazz.inherits(FeaturesController, PjaxController);
   
   
   return new FeaturesController();
