@@ -18,11 +18,6 @@ function(page, docsRoute, homeController, docsController, featuresController, pa
     next();
   }
   
-  function _page_trackLayout(ctx, next) {
-    shell.trackLayout();
-    next();
-  }
-  
   page('*', _page_closeMenu);
   // /
   //page.apply(page, ['/'].concat(homeRoute).concat([_page_trackLayout]));
