@@ -9,7 +9,6 @@ function(exports, menu, search, status, page, $) {
   // static
   var _gotopOffset;
   var _controllers = [];
-  var _modalController;
   
   function onkeyup(ev) {
     if (ev.keyCode == 27) { // esc
@@ -49,23 +48,33 @@ function(exports, menu, search, status, page, $) {
   };
   
   exports.present = function(controller, loaded, cb) {
-    _modalController = controller;
+    if (typeof loaded == 'function') {
+      cb = loaded;
+      loaded = false;
+    }
+    
+    _controllers.push(controller)
     
     controller.once('ready', function() {
-      if (this !== _modalController) { return; }
+      this.isModal = true;
       $(document).on('keyup', onkeyup);
       cb();
     });
     
     controller.shell = exports;
-    controller.load();
+    if (!loaded) {
+      controller.load();
+    } else {
+      controller.emit('ready');
+    }
   };
   
   exports.dismiss = function() {
-    if (_modalController) {
-      _modalController.unload();
+    var ccontroller = _controllers.pop();
+    if (ccontroller) {
+      ccontroller.unload();
       $(document).off('keyup', onkeyup);
-      _modalController = null;
+      ccontroller.isModal = undefined;
     }
   };
   
@@ -90,7 +99,8 @@ function(exports, menu, search, status, page, $) {
   });
   
   page.exit('*', function(ctx, next) {
-    if (_modalController) {
+    var ccontroller = _controllers[_controllers.length - 1];
+    if (ccontroller && ccontroller.isModal) {
       exports.dismiss();
     }
     next();
