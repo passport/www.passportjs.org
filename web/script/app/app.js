@@ -13,12 +13,6 @@ function(page, docsRoute, homeController, docsController, featuresController, pa
   // ----------------------------------------------------------------------
   // Routing
   // ----------------------------------------------------------------------
-  function _page_closeMenu(ctx, next) {
-    shell.menu.close();
-    next();
-  }
-  
-  page('*', _page_closeMenu);
   // /
   //page.apply(page, ['/'].concat(homeRoute).concat([_page_trackLayout]));
   page('/', controller(homeController, shell), handled());
