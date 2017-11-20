@@ -65,19 +65,6 @@ function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine,
     });
     
     // ----------------------------------------------------------------------
-    // Search
-    // ----------------------------------------------------------------------
-    $(document).on('focus', '.search form input', function(ev) {
-      page.show('/packages/');
-    });
-    
-    $(document).on('focus', '[placeholder]', function () {
-      if ($(this).val() == $(this).attr('placeholder')) {
-        $(this).val('').removeClass('placeholder');
-      }
-    });
-    
-    // ----------------------------------------------------------------------
     // Navigation
     // ----------------------------------------------------------------------
     $(document).on('click', 'a[href="#top"]', function(ev) {

@@ -1,10 +1,15 @@
 define(['exports',
         '../search/packages/templates/suggestion',
         '../search/packages/engine',
+        'page',
         'jquery', 'jquery.typeahead'],
-function(exports, template, engine, $, __$_typeahead) {
+function(exports, template, engine, page, $, __$_typeahead) {
   
   $(document).ready(function() {
+    
+    $(document).on('focus', '.search form input', function(ev) {
+      page.show('/packages/');
+    });
     
     // passing in `null` for the `options` arguments will result in the default
     // options being used
@@ -15,6 +20,12 @@ function(exports, template, engine, $, __$_typeahead) {
       source: engine,
       templates: {
         suggestion: template
+      }
+    });
+    
+    $(document).on('focus', '[placeholder]', function () {
+      if ($(this).val() == $(this).attr('placeholder')) {
+        $(this).val('').removeClass('placeholder');
       }
     });
     
