@@ -5,11 +5,16 @@ define(['./base/pjax',
 function(PjaxController, clazz, hljs, $) {
   
   // static
+  var _submenuOffset;
+  
   function onscroll(ev) {
     // toggle active section
     var submenu = $('.sub-menu nav');
     var sections = $('.entry section');
     var cur_pos = $(window).scrollTop();
+
+    // toggleFixedNavigation
+    submenu.toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
 
     sections.each(function() {
       var top = $(this).offset().top - 50;
@@ -30,6 +35,8 @@ function(PjaxController, clazz, hljs, $) {
     PjaxController.call(this, '/docs', '/docs/');
     
     this.on('ready', function() {
+      _submenuOffset = $('.sub-menu nav').offset();
+      
       $(window).on('scroll', onscroll);
       
       hljs.configure({ classPrefix: '' });

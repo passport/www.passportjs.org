@@ -8,7 +8,6 @@ function(exports, menu, search, status, page, $) {
   
   // static
   var _gotopOffset;
-  var _submenuOffset;
   var _controller;
   var _modalController;
   
@@ -92,7 +91,6 @@ function(exports, menu, search, status, page, $) {
   // TODO: rename this to updateLayout, allow controller to handle it as well, if possible
   exports.trackLayout = function() {
     _gotopOffset = $('.go-top').offset();
-    _submenuOffset = $('.sub-menu nav').offset();
     
     // accordion
     /*
@@ -109,7 +107,6 @@ function(exports, menu, search, status, page, $) {
     $(window).on('scroll', function (ev) {
       // toggleFixedNavigation
       $('.go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
-      $('.sub-menu nav').toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
     });
     
     $(document).on('click', 'a[href="#top"]', function(ev) {
