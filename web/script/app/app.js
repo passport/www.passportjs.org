@@ -3,12 +3,10 @@ define(['page',
         './pages/docs',
         './pages/packages',
         './pages/features',
-        './search/packages/engine',
-        './search/packages/templates/suggestion',
         './shell',
-        'jquery', 'jquery.pjax', 'jquery.typeahead'],
-function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, searchEngine, searchTemplate, shell,
-         $, __$_pjax, __$_typeahead) {
+        'jquery'],
+function(page, homeRoute, docsRoute, packagesRoute, featuresRoute, shell,
+         $) {
   
   // static
   var _gotopOffset;
