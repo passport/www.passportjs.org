@@ -8,7 +8,7 @@ function(exports, menu, search, status, page, $) {
   
   // static
   var _gotopOffset;
-  var _controller;
+  var _controllers = [];
   var _modalController;
   
   function onkeyup(ev) {
@@ -26,11 +26,12 @@ function(exports, menu, search, status, page, $) {
       loaded = false;
     }
     
-    if (_controller === controller) { return cb(); }
-    if (_controller) {
-      _controller.unload();
+    var ccontroller = _controllers.pop();
+    if (ccontroller === controller) { return cb(); }
+    if (ccontroller) {
+      ccontroller.unload();
     }
-    _controller = controller;
+    _controllers.push(controller)
     
     controller.once('ready', function() {
       _gotopOffset = $('.go-top').offset();
