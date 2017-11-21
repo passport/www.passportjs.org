@@ -29,6 +29,14 @@ function(exports, template, engine, page, $, __$_typeahead) {
       }
     });
     
+    // $(window).resize(function() {
+    //   if ($('.search-con .results').hasScrollBar()) {
+    //     $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
+    //   } else {
+    //     $(".search-con .results section").css({ paddingLeft: 0 })
+    //   };
+    // });
+    
   });
   
 });

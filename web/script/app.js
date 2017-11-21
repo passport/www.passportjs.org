@@ -8,41 +8,22 @@ define(['./controllers/home',
         'page',
         'jquery'],
 function(homeController, docsController, featuresController, packagesController,
-        controller, adRefresh, shell, page, $) {
+         controller, adRefresh, shell, page, $) {
   
-  // ----------------------------------------------------------------------
-  // Routing
-  // ----------------------------------------------------------------------
   page('/', controller(homeController), adRefresh());
   page('/docs/:slug?', controller(docsController), adRefresh());
   page('/features', controller(featuresController), adRefresh());
   page('/packages', controller(packagesController, true));
-  // ----------------------------------------------------------------------
   
-  
-  $(document).ready(function() {
-    $.getJSON('/repo.json', function(data) {
-      $(".social .stat").text(numberWithCommas(data.stargazers_count));
-    });
-  });
   
   $(document).ready(function() {
     page.start();
     
-    /**
-     * Bind plugins and even handlers
-     */
-
+    $.getJSON('/repo.json', function(data) {
+      $(".social .stat").text(numberWithCommas(data.stargazers_count));
+    });
+    
     $("body").toggleClass("ie", msieversion());
-
-    // $(window).resize(function() {
-    //   if ($('.search-con .results').hasScrollBar()) {
-    //     $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
-    //   } else {
-    //     $(".search-con .results section").css({ paddingLeft: 0 })
-    //   };
-    // });
-
   });
   
   
