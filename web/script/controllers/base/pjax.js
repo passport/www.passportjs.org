@@ -4,6 +4,10 @@ define(['./base',
 function(Controller, clazz, $, __$_pjax) {
   
   function PjaxController(basePath, path) {
+    if (!path) {
+      path = basePath[basePath.length - 1] == '/' ? basePath : basePath + '/';
+    }
+    
     Controller.call(this, basePath);
     this.canonicalPath = path;
   }

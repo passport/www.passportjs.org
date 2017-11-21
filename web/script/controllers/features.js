@@ -3,7 +3,7 @@ define(['./base/pjax',
 function(PjaxController, clazz) {
   
   function FeaturesController() {
-    PjaxController.call(this, '/features', '/features/');
+    PjaxController.call(this, '/features');
   }
   clazz.inherits(FeaturesController, PjaxController);
   

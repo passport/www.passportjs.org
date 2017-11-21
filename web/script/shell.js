@@ -35,7 +35,7 @@ function(exports, menu, search, status, page, $) {
     controller.once('ready', function() {
       _gotopOffset = $('.go-top').offset();
       
-      menu.active(this.canonicalPath || this.basePath);
+      menu.active(this.basePath);
       cb();
     });
     

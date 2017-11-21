@@ -1,6 +1,8 @@
 define(['exports', 'jquery'], function(exports, $) {
   
   exports.active = function(url) {
+    if (url[url.length - 1] != '/') { url = url + '/'; }
+    
     var menu = $('#menu');
     // reset active menu
     menu.find('li.active').removeClass('active');
