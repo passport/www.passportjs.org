@@ -80,8 +80,10 @@ function(exports, menu, search, status, page, $) {
   };
   
   exports.scrollToElementById = function(id) {
-    var units = $('#'+id).offset().top - 30;
-    $('html, body').animate({ scrollTop: units }, 500);
+    var offset =  $('#'+id).offset();
+    if (!offset) { return; }
+    var px = offset.top - 30;
+    $('html, body').animate({ scrollTop: px }, 500);
   };
   
   
