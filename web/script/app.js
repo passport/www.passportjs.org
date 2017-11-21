@@ -17,8 +17,6 @@ function(homeController, docsController, featuresController, packagesController,
   page('/docs/:slug?', controller(docsController), adRefresh());
   page('/features', controller(featuresController), adRefresh());
   page('/packages', controller(packagesController, true));
-  
-  page.start();
   // ----------------------------------------------------------------------
   
   
@@ -28,12 +26,9 @@ function(homeController, docsController, featuresController, packagesController,
     });
   });
   
-  
-  
   $(document).ready(function() {
+    page.start();
     
-
-
     /**
      * Bind plugins and even handlers
      */

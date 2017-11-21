@@ -1,7 +1,6 @@
 define(['./base/pjax',
-        'class',
-        'jquery', 'jquery.pjax'],
-function(PjaxController, clazz, $, __$_pjax) {
+        'class'],
+function(PjaxController, clazz) {
   
   function FeaturesController() {
     PjaxController.call(this, '/features', '/features/');
