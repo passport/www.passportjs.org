@@ -5,10 +5,11 @@ define(['./controllers/home',
         './middleware/controller',
         './middleware/ad/refresh',
         './shell',
+        './utils',
         'page',
         'jquery'],
 function(homeController, docsController, featuresController, packagesController,
-         controller, adRefresh, shell, page, $) {
+         controller, adRefresh, shell, utils, page, $) {
   
   page('/', controller(homeController), adRefresh());
   page('/docs/:slug?', controller(docsController), adRefresh());
@@ -17,29 +18,13 @@ function(homeController, docsController, featuresController, packagesController,
   
   
   $(document).ready(function() {
+    $('body').toggleClass('ie', utils.isMSIE());
+    
     page.start();
     
     $.getJSON('/repo.json', function(data) {
-      $(".social .stat").text(numberWithCommas(data.stargazers_count));
+      $(".social .stat").text(utils.commaize(data.stargazers_count));
     });
-    
-    $("body").toggleClass("ie", msieversion());
   });
-  
-  
-  // helpers
-  
-  function msieversion() {
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) return true;
-
-   return false;
-  }
-  
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
   
 });
