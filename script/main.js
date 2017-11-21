@@ -159,6 +159,9 @@ define("controllers/base/base", [ "events", "class" ], function(Emitter, clazz) 
 
 define("controllers/base/pjax", [ "./base", "class", "jquery", "jquery.pjax" ], function(Controller, clazz, $, __$_pjax) {
     function PjaxController(basePath, path) {
+        if (!path) {
+            path = basePath[basePath.length - 1] == "/" ? basePath : basePath + "/";
+        }
         Controller.call(this, basePath);
         this.canonicalPath = path;
     }
@@ -184,7 +187,7 @@ define("controllers/base/pjax", [ "./base", "class", "jquery", "jquery.pjax" ], 
 
 define("controllers/home", [ "./base/pjax", "class" ], function(PjaxController, clazz) {
     function HomeController() {
-        PjaxController.call(this, "", "/");
+        PjaxController.call(this, "/");
     }
     clazz.inherits(HomeController, PjaxController);
     return new HomeController();
@@ -238,7 +241,7 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
 
 define("controllers/features", [ "./base/pjax", "class" ], function(PjaxController, clazz) {
     function FeaturesController() {
-        PjaxController.call(this, "/features", "/features/");
+        PjaxController.call(this, "/features");
     }
     clazz.inherits(FeaturesController, PjaxController);
     return new FeaturesController();
@@ -287,6 +290,9 @@ define("search/packages/templates/result", [], function() {
 
 define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
     exports.active = function(url) {
+        if (url[url.length - 1] != "/") {
+            url = url + "/";
+        }
         var menu = $("#menu");
         menu.find("li.active").removeClass("active");
         menu.find('a[href="' + url + '"]').parent("li").addClass("active");
@@ -378,17 +384,18 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
             cb = loaded;
             loaded = false;
         }
-        var ccontroller = _controllers.pop();
+        var ccontroller = _controllers[_controllers.length - 1];
         if (ccontroller === controller) {
             return cb();
         }
         if (ccontroller) {
+            _controllers.pop();
             ccontroller.unload();
         }
         _controllers.push(controller);
         controller.once("ready", function() {
             _gotopOffset = $(".go-top").offset();
-            menu.active(this.canonicalPath || this.basePath);
+            menu.active(this.basePath);
             cb();
         });
         controller.shell = exports;
