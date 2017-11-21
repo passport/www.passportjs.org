@@ -19,12 +19,7 @@ function(exports, menu, search, status, page, $) {
   
   exports.menu = menu;
   
-  exports.show = function(controller, loaded, cb) {
-    if (typeof loaded == 'function') {
-      cb = loaded;
-      loaded = false;
-    }
-    
+  exports.show = function(controller, ctx, cb) {
     var ccontroller = _controllers[_controllers.length - 1];
     if (ccontroller === controller) { return cb(); }
     if (ccontroller) {
@@ -41,19 +36,14 @@ function(exports, menu, search, status, page, $) {
     });
     
     controller.shell = exports;
-    if (!loaded) {
-      controller.load();
+    if (!ctx.init) {
+      controller.load(ctx);
     } else {
       controller.emit('ready');
     }
   };
   
-  exports.present = function(controller, loaded, cb) {
-    if (typeof loaded == 'function') {
-      cb = loaded;
-      loaded = false;
-    }
-    
+  exports.present = function(controller, ctx, cb) {
     _controllers.push(controller)
     
     controller.once('ready', function() {
@@ -63,8 +53,8 @@ function(exports, menu, search, status, page, $) {
     });
     
     controller.shell = exports;
-    if (!loaded) {
-      controller.load();
+    if (!ctx.init) {
+      controller.load(ctx);
     } else {
       controller.emit('ready');
     }

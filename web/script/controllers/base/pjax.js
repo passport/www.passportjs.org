@@ -13,14 +13,15 @@ function(Controller, clazz, $, __$_pjax) {
   }
   clazz.inherits(PjaxController, Controller);
   
-  PjaxController.prototype.load = function() {
-    var self = this;
+  PjaxController.prototype.load = function(ctx) {
+    var self = this
+      , url = (typeof this.canonicalPath == 'string') ? this.canonicalPath : ctx.canonicalPath;
     
     // XXX: workaround to prevent `jquery-pjax` from replacing state, and
     //      wreaking havoc with page's popstate handler.
     $.pjax.state = window.history.state;
     
-    $.pjax({ url: this.canonicalPath, fragment: '#page-content', container: '#page-content', push: false })
+    $.pjax({ url: url, fragment: '#page-content', container: '#page-content', push: false })
       .done(function(data) {
         self.emit('ready');
       });
