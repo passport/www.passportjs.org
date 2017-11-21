@@ -25,9 +25,10 @@ function(exports, menu, search, status, page, $) {
       loaded = false;
     }
     
-    var ccontroller = _controllers.pop();
+    var ccontroller = _controllers[_controllers.length - 1];
     if (ccontroller === controller) { return cb(); }
     if (ccontroller) {
+      _controllers.pop();
       ccontroller.unload();
     }
     _controllers.push(controller)
