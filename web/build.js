@@ -13,5 +13,12 @@
       { name: 'class', main: 'class', location: '../node_modules/class' },
       { name: 'events', location: '../node_modules/events' }
     ],
-    out: '../www/script/main.js'
+    out: '../www/script/main.js',
+    uglify2: {
+      compress: false,
+      mangle: false,
+      output: {
+        beautify: true
+      }
+    }
 })
