@@ -36,7 +36,7 @@ html(lang="en")
     
     meta(name='flattr:id', content='d5znvd')
 
-    script(data-main='/js/main' src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js')
+    script(data-main='/script/main' src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js')
 
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
@@ -63,7 +63,7 @@ html(lang="en")
 
 
       nav#menu
-        a#logo(href='/', title='JH', data-pjax="/").logo
+        a#logo(href='/', title='JH').logo
         a(href='http://twitter.com/jaredhanson', target="_blank").jared by Jared Hanson
         .menu-trigger
           span
@@ -71,13 +71,13 @@ html(lang="en")
           ul
 
             li(class=(title === 'Passport' ? 'active' : ''))
-              a(href='/', data-pjax='/') Home
+              a(href='/') Home
             li(class=(title === 'Documentation' ? 'active' : ''))
-              a(href='/docs', data-pjax='/docs') Documentation
+              a(href='/docs/') Documentation
             li(class=(title === 'Features' ? 'active' : ''))
-              a(href='/features', data-pjax='/features') Features
+              a(href='/features/') Features
             li
-              a(href='/', data-search='') Strategies
+              a(href='/packages/') Strategies
 
           <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
 
@@ -100,7 +100,7 @@ html(lang="en")
         .hold
           h2 SEARCH FOR STRATEGIES
           form(action='/')
-            input(value='', type='text', name="strategy" placeholder="Start typing")
+            input(value='', type='text', name="strategy" placeholder="Start typing", autocomplete="off")
           p.info-line
             span 0
             | STRATEGIES
