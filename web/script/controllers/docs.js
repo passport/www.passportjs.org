@@ -32,12 +32,24 @@ function(PjaxController, clazz, hljs, $) {
   
   
   function DocsController() {
-    PjaxController.call(this, '/docs', '/docs/');
+    PjaxController.call(this, '/docs', '/docs/downloads/html/');
     
     this.on('ready', function() {
       _submenuOffset = $('.sub-menu nav').offset();
       
       $(window).on('scroll', onscroll);
+      
+      if (window.matchMedia && window.matchMedia('screen and (min-width: 992px) and (max-height: 750px)')) {
+        $('.sub-menu [data-accordion] [data-content]').css({
+          'max-height': '0px',
+          'overflow': 'hidden'
+        });
+        
+        $('.sub-menu [data-accordion] [data-content] .active').closest('[data-content]').css({
+          'max-height': '100%',
+          'overflow': 'visible'
+        });
+      }
       
       // accordion
       /*
