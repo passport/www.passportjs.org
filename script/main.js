@@ -166,11 +166,11 @@ define("controllers/base/pjax", [ "./base", "class", "jquery", "jquery.pjax" ], 
         this.canonicalPath = path;
     }
     clazz.inherits(PjaxController, Controller);
-    PjaxController.prototype.load = function() {
-        var self = this;
+    PjaxController.prototype.load = function(ctx) {
+        var self = this, url = typeof this.canonicalPath == "string" ? this.canonicalPath : ctx.canonicalPath;
         $.pjax.state = window.history.state;
         $.pjax({
-            url: this.canonicalPath,
+            url: url,
             fragment: "#page-content",
             container: "#page-content",
             push: false
@@ -203,19 +203,30 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
         sections.each(function() {
             var top = $(this).offset().top - 50;
             var bottom = top + $(this).outerHeight();
+            var path = $(this).attr("id") + "/";
             if (cur_pos >= top && cur_pos <= bottom) {
                 submenu.find("a").removeClass("active").closest("[data-content]").removeClass("active");
                 sections.removeClass("active");
                 $(this).addClass("active");
-                submenu.find('a[href="/docs/' + $(this).attr("id") + '"]').addClass("active").closest("[data-content]").addClass("active");
+                submenu.find('a[href="/docs/' + path + '"]').addClass("active").closest("[data-content]").addClass("active");
             }
         });
     }
     function DocsController() {
-        PjaxController.call(this, "/docs", "/docs/");
+        PjaxController.call(this, "/docs", "/docs/downloads/html/");
         this.on("ready", function() {
             _submenuOffset = $(".sub-menu nav").offset();
             $(window).on("scroll", onscroll);
+            if (window.matchMedia && window.matchMedia("screen and (min-width: 992px) and (max-height: 750px)")) {
+                $(".sub-menu [data-accordion] [data-content]").css({
+                    "max-height": "0px",
+                    overflow: "hidden"
+                });
+                $(".sub-menu [data-accordion] [data-content] .active").closest("[data-content]").css({
+                    "max-height": "100%",
+                    overflow: "visible"
+                });
+            }
             hljs.configure({
                 classPrefix: ""
             });
@@ -229,12 +240,39 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
         $(window).off("scroll", onscroll);
     };
     DocsController.prototype.dispatch = function(ctx, done) {
-        var slug = ctx.params.slug;
-        if (slug) {
-            this.shell.scrollToElementById(slug);
+        if (ctx.init) {
+            ctx.handled = true;
+            return done();
         }
-        ctx.handled = true;
-        done();
+        var path = ctx.params[0];
+        if (path[path.length - 1] == "/") {
+            path = path.slice(0, -1);
+        }
+        var id = path || "README";
+        var el = $("#" + id);
+        if (el.length) {
+            this.shell.scrollToElementById(id);
+            ctx.handled = true;
+            return done();
+        }
+        $.pjax.state = window.history.state;
+        var self = this;
+        $.pjax({
+            url: this.canonicalPath,
+            fragment: ".guides",
+            container: ".guides",
+            push: false
+        }).done(function(data) {
+            hljs.configure({
+                classPrefix: ""
+            });
+            $("pre code").each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+            self.shell.scrollToElementById(id, false);
+            ctx.handled = true;
+            done();
+        });
     };
     return new DocsController();
 });
@@ -379,11 +417,7 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
         }
     }
     exports.menu = menu;
-    exports.show = function(controller, loaded, cb) {
-        if (typeof loaded == "function") {
-            cb = loaded;
-            loaded = false;
-        }
+    exports.show = function(controller, ctx, cb) {
         var ccontroller = _controllers[_controllers.length - 1];
         if (ccontroller === controller) {
             return cb();
@@ -399,17 +433,13 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
             cb();
         });
         controller.shell = exports;
-        if (!loaded) {
-            controller.load();
+        if (!ctx.init) {
+            controller.load(ctx);
         } else {
             controller.emit("ready");
         }
     };
-    exports.present = function(controller, loaded, cb) {
-        if (typeof loaded == "function") {
-            cb = loaded;
-            loaded = false;
-        }
+    exports.present = function(controller, ctx, cb) {
         _controllers.push(controller);
         controller.once("ready", function() {
             this.isModal = true;
@@ -417,8 +447,8 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
             cb();
         });
         controller.shell = exports;
-        if (!loaded) {
-            controller.load();
+        if (!ctx.init) {
+            controller.load(ctx);
         } else {
             controller.emit("ready");
         }
@@ -431,11 +461,19 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
             ccontroller.isModal = undefined;
         }
     };
-    exports.scrollToElementById = function(id) {
-        var units = $("#" + id).offset().top - 30;
-        $("html, body").animate({
-            scrollTop: units
-        }, 500);
+    exports.scrollToElementById = function(id, animate) {
+        var offset = $("#" + id).offset();
+        if (!offset) {
+            return;
+        }
+        var px = offset.top - 30;
+        if (animate === false) {
+            $("html, body").scrollTop(px);
+        } else {
+            $("html, body").animate({
+                scrollTop: px
+            }, 500);
+        }
     };
     $(document).ready(function() {
         _gotopOffset = $(".go-top").offset();
@@ -525,7 +563,7 @@ define("middleware/controller", [ "../shell" ], function(shell) {
         var show = modal ? shell.present : shell.show;
         return function controller(ctx, next) {
             shell.menu.close();
-            show(ctrlr, ctx.init, function() {
+            show(ctrlr, ctx, function() {
                 ctrlr.dispatch(ctx, next);
             });
         };
@@ -567,7 +605,7 @@ define("utils", [ "exports" ], function(exports) {
 
 define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, adRefresh, shell, utils, page, $) {
     page("/", controller(homeController), adRefresh());
-    page("/docs/:slug?", controller(docsController), adRefresh());
+    page("/docs/*", controller(docsController), adRefresh());
     page("/features", controller(featuresController), adRefresh());
     page("/packages", controller(packagesController, true));
     $(document).ready(function() {
