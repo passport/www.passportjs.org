@@ -38,7 +38,7 @@ exports = module.exports = function(docsService, repoHandler, logging) {
   service.redirect('/guide/:page', '/docs/:page', 301);
   
   
-  service.use('/docs', docsService);
+  //service.use('/docs', docsService);
   service.get('/repo.json', repoHandler);
   
   service.use(express.static(path.join(__dirname, '../www')));

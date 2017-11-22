@@ -1,4 +1,3 @@
-
 # Overview
 
 Passport is authentication middleware for [Node](http://nodejs.org/).  It is

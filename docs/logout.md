@@ -1,3 +1,6 @@
+---
+title: Log Out
+---
 
 # Log Out
 

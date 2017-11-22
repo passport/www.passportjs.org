@@ -1,3 +1,6 @@
+---
+title: Basic & Digest
+---
 
 # Basic & Digest
 

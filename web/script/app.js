@@ -12,7 +12,7 @@ function(homeController, docsController, featuresController, packagesController,
          controller, adRefresh, shell, utils, page, $) {
   
   page('/', controller(homeController), adRefresh());
-  page('/docs/:slug?', controller(docsController), adRefresh());
+  page('/docs/*', controller(docsController), adRefresh());
   page('/features', controller(featuresController), adRefresh());
   page('/packages', controller(packagesController, true));
   

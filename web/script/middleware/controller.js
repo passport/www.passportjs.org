@@ -5,7 +5,7 @@ define(['../shell'], function(shell) {
     
     return function controller(ctx, next) {
       shell.menu.close();
-      show(ctrlr, ctx.init, function() {
+      show(ctrlr, ctx, function() {
         ctrlr.dispatch(ctx, next);
       });
     };

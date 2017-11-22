@@ -1,3 +1,6 @@
+---
+title: Authenticate
+---
 
 # Authenticate
 
