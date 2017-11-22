@@ -1,3 +1,6 @@
+---
+title: OpenID
+---
 
 # OpenID
 
