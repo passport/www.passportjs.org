@@ -19,13 +19,14 @@ function(PjaxController, clazz, hljs, $) {
     sections.each(function() {
       var top = $(this).offset().top - 50;
       var bottom = top + $(this).outerHeight();
+      var path = $(this).attr('id') + '/';
 
       if (cur_pos >= top && cur_pos <= bottom) {
         submenu.find('a').removeClass('active').closest('[data-content]').removeClass('active');
         sections.removeClass('active');
 
         $(this).addClass('active');
-        submenu.find('a[href="/docs/' + $(this).attr('id') + '"]').addClass('active').closest('[data-content]').addClass('active');
+        submenu.find('a[href="/docs/' + path + '"]').addClass('active').closest('[data-content]').addClass('active');
       }
     });
   }
@@ -78,7 +79,8 @@ function(PjaxController, clazz, hljs, $) {
     
     var path = ctx.params[0];
     if (path[path.length - 1] == '/') { path = path.slice(0, -1); }
-    var id = path || 'top'; // TODO: id-ify the path
+    
+    var id = path || 'README'; // TODO: id-ify the path
     var el = $('#'+id);
     if (el.length) {
       this.shell.scrollToElementById(id);
