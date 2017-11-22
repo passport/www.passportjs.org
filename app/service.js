@@ -1,4 +1,4 @@
-exports = module.exports = function(docsService, repoHandler, logging) {
+exports = module.exports = function(repoHandler, logging) {
   var express = require('express');
   var redirect = require('express-redirect');
   var bodyParser = require('body-parser');
@@ -38,7 +38,6 @@ exports = module.exports = function(docsService, repoHandler, logging) {
   service.redirect('/guide/:page', '/docs/:page', 301);
   
   
-  //service.use('/docs', docsService);
   service.get('/repo.json', repoHandler);
   
   service.use(express.static(path.join(__dirname, '../www')));
@@ -81,7 +80,6 @@ exports = module.exports = function(docsService, repoHandler, logging) {
 
 exports['@implements'] = 'http://i.bixbyjs.org/http/Service';
 exports['@require'] = [
-  './handlers/docs',
   './handlers/repo',
   'http://i.bixbyjs.org/http/middleware/logging'
 ];
