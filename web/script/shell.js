@@ -69,11 +69,15 @@ function(exports, menu, search, status, page, $) {
     }
   };
   
-  exports.scrollToElementById = function(id) {
+  exports.scrollToElementById = function(id, animate) {
     var offset =  $('#'+id).offset();
     if (!offset) { return; }
     var px = offset.top - 30;
-    $('html, body').animate({ scrollTop: px }, 500);
+    if (animate === false) {
+      $('html, body').scrollTop(px);
+    } else {
+      $('html, body').animate({ scrollTop: px }, 500);
+    }
   };
   
   

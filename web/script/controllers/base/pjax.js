@@ -23,6 +23,7 @@ function(Controller, clazz, $, __$_pjax) {
     
     $.pjax({ url: url, fragment: '#page-content', container: '#page-content', push: false })
       .done(function(data) {
+        ctx.replacedHTML = true;
         self.emit('ready');
       });
   };
