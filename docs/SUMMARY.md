@@ -2,7 +2,7 @@
 
 ### General
 
-* [Overview](overview.md)
+* [Overview](README.md)
 * [Authenticate](authenticate.md)
 * [Configure](configure.md)
 * [Username & Password](username-password.md)
