@@ -78,25 +78,19 @@ function(PjaxController, clazz, hljs, $) {
     
     var path = ctx.params[0];
     if (path[path.length - 1] == '/') { path = path.slice(0, -1); }
-    
-    if (!path && ctx.replacedHTML) {
-      ctx.handled = true;
-      return done();
-    }
-    
-    var id = path; // TODO: id-ify this path
+    var id = path || 'top'; // TODO: id-ify the path
     var el = $('#'+id);
-    if (id && el.length) {
+    if (el.length) {
       this.shell.scrollToElementById(id);
       ctx.handled = true;
       return done();
     }
     
-    var self = this;
     // XXX: workaround to prevent `jquery-pjax` from replacing state, and
     //      wreaking havoc with page's popstate handler.
     $.pjax.state = window.history.state;
     
+    var self = this;
     $.pjax({ url: this.canonicalPath, fragment: '.guides', container: '.guides', push: false })
       .done(function(data) {
         hljs.configure({ classPrefix: '' });
