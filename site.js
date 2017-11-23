@@ -22,6 +22,9 @@ site.content('content');
 site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'docs' }));
 
 site.use('/', require('kerouac-manifest')());
+site.page('/sitemap.xml', require('kerouac-sitemap')());
+site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
+site.page('/robots.txt', require('kerouac-robotstxt')());
 
 site.generate(function(err) {
   console.log('DONE!');
