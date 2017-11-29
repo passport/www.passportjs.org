@@ -1,7 +1,5 @@
 define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
   
-  console.log(window.SearchIndex)
-  
   var engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
     queryTokenizer: Bloodhound.tokenizers.nonword,
@@ -10,22 +8,14 @@ define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
       return item._id;
     }
   });
-  
-  
   var loadPromise;
   
+  
   return function(options, onSuccess, onError) {
-    console.log('REMOTE SEARCH!');
-    console.log(options);
-    console.log(onSuccess)
-    console.log(onError)
-    
-    
     engine.initialize()
       .then(load)
       .done(search)
       .fail(function(){});
-    
     
     
     function _load(options) {
@@ -48,9 +38,6 @@ define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
     
     function search() {
       engine.search(options.query, function(datums) {
-        console.log('GOT DATUMS');
-        console.log(datums);
-        
         onSuccess(datums);
       });
     }
