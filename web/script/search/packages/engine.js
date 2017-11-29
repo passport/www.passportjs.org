@@ -1,4 +1,4 @@
-define(['bloodhound', './sort', './remote/transport/all', 'jquery'], function(Bloodhound, sort, transport, $) {
+define(['bloodhound', './sort', './remote/api-v1/all', 'jquery'], function(Bloodhound, sort, remote, $) {
   
   console.log(window.SearchIndex)
   
@@ -20,21 +20,7 @@ define(['bloodhound', './sort', './remote/transport/all', 'jquery'], function(Bl
       },
       cache: false
     },
-    remote: {
-      url: '/packages/-/v1/all.json',
-      prepare: function(query, settings) {
-        //console.log('PREPARE');
-        //console.log(query);
-        //console.log(settings);
-        settings.query = query;
-        
-        //settings.url += '?q=' + query;
-        return settings;
-      },
-      transport: transport,
-      cache: false,
-      _maxPendingRequests: 1
-    }
+    remote: remote
   });
   
   
