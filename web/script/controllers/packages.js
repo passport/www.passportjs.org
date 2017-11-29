@@ -18,15 +18,6 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
     }
   }
   
-  function openSearch() {
-    // open search
-    $("body").addClass("is-search");
-    // focus input
-    $(".search-con form input.tt-input").focus();
-    // render results
-    renderFeaturedStrategies();
-  }
-  
   function closeSearch () {
     // closing search
     $("body").removeClass("is-search");
@@ -55,7 +46,11 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
   
   function dosearchresults(ev, suggestions, async, dataset) {
     var results = $.map(suggestions, template);
-    $('.search-con .results section').html(results);
+    if (!async) {
+      $('.search-con .results section').html(results);
+    } else {
+      $('.search-con .results section').append(results);
+    }
     $(".search-con .info-line span").text(results.length);
     // if ($('.search-con .results').hasScrollBar()) {
     //   $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })
@@ -82,7 +77,13 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
   clazz.inherits(PackagesController, Controller);
   
   PackagesController.prototype.load = function() {
-    openSearch();
+    // open search
+    $("body").addClass("is-search");
+    // focus input
+    $(".search-con form input.tt-input").focus();
+    // render results
+    renderFeaturedStrategies();
+    
     this.emit('ready');
   };
   
@@ -91,7 +92,15 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
     $('.search-con form input').off('typeahead:render', dosearchresults);
     $('.search-con form input.tt-input').off('input', dosearchinput);
     
-    closeSearch();
+    // closing search
+    $("body").removeClass("is-search");
+    // cleaning inputs
+    $(".search-con form input").text('');
+    $(".search-con form input").blur();
+    $('.tt-input, .tt-hint').removeClass('bigger');
+    // cleaning results
+    $(".results section").html('');
+    $(".search-con .info-line span").text('0');
   }
   
   PackagesController.prototype.dispatch = function(ctx, done) {

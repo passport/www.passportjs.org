@@ -1,7 +1,7 @@
 define(function() {
   
   return function(item) {
-    return '<article' + (item.featured ? ' class="featured"' : '') + '><a href="'+ item.url +'" target="_blank"><span class="title">'+ item.label +'</span><span class="text">'+ item.desc +'</span>' + (item.featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ item.forks +'</span><span class="star">'+ item.stars +'</span></span></a></article>'
+    return '<article' + (item._featured ? ' class="featured"' : '') + '><a href="'+ item.homepage +'" target="_blank"><span class="title">'+ item.name +'</span><span class="text">'+ item.description +'</span>' + (item._featured ? '<span class="featured-flag">Featured</span>' : '') + '<span class="stat"><span class="download">'+ (item.repository ? (item.repository.forkCount || 0) : 0) +'</span><span class="star">'+ (item.repository ? (item.repository.favoriteCount || 0) : 0) +'</span></span></a></article>'
   };
   
 });
