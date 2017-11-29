@@ -14,10 +14,75 @@ define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
   
   var _fetched = false;
   
+  var loadPromise;
+  
+  function _loadRemote() {
+    var deferred;
+  }
+  
+  function remote(url) {
+    console.log('-- initi remote');
+    console.log(url);
+    
+    url = url || '/packages/-/v1/all.json';
+    
+    return $.ajax({ url: url, type: 'GET', dataType: 'json' })
+      .then(function(data, textStatus, request) {
+        console.log('done fetch');
+        
+        if (data.urls && data.urls.next) {
+          console.log('need to fetch: ' + data.urls.next);
+          return remote(data.urls.next)
+        }
+        
+      });
+  }
+  
+  
+  var loadPromise;
+  
   return function(options, onSuccess, onError) {
     console.log('REMOTE SEARCH!');
     console.log(options);
-    //return;
+    console.log(onSuccess)
+    console.log(onError)
+    
+    
+    engine.initialize()
+      .then(load)
+      .done(function() {
+        console.log('-- remote loaded');
+        
+        engine.search(options.query, function(datums) {
+          //onSuccess(datums);
+          
+          console.log('GOT DATUMS');
+          console.log(datums);
+          
+          onSuccess(datums);
+        });
+      })
+      .fail(function(){});
+    
+    
+    
+    function _load(options) {
+      return $.ajax(options).then(process);
+      
+      function process(data, textStatus, request) {
+        if (data.urls && data.urls.next) {
+          options.url = data.urls.next;
+          return _load(options);
+        }
+      }
+    }
+    
+    function load() {
+      loadPromise = loadPromise || _load(options);
+      return loadPromise;
+    }
+    
+    return;
     
     //console.log('TRANSPORT!');
     //console.log(options);
