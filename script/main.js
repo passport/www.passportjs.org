@@ -286,43 +286,96 @@ define("controllers/features", [ "./base/pjax", "class" ], function(PjaxControll
 });
 
 define("search/packages/sort", [], function() {
-    function starsSorter(a, b) {
-        if (a.stars && !b.stars) return -1;
-        if (b.stars && !a.stars) return 1;
-        return +b.stars - +a.stars;
+    function favoriteCountSorter(a, b) {
+        var afav = a.repository ? a.repository.favoriteCount || 0 : 0;
+        var bfav = b.repository ? b.repository.favoriteCount || 0 : 0;
+        if (afav && !bfav) return -1;
+        if (bfav && !afav) return 1;
+        return +bfav - +afav;
     }
     function featuredSorter(a, b) {
-        if (a.featured && !b.featured) return -1;
-        if (b.featured && !a.featured) return 1;
+        if (a._featured && !b._featured) return -1;
+        if (b._featured && !a._featured) return 1;
         return 0;
     }
     function sorter(a, b) {
         var first = featuredSorter(a, b);
         if (first) return first;
-        return starsSorter(a, b);
+        return favoriteCountSorter(a, b);
     }
     return sorter;
 });
 
-define("search/packages/engine", [ "bloodhound", "./sort" ], function(Bloodhound, sort) {
+define("search/packages/remote/api-v1/all", [ "bloodhound", "../../sort", "jquery" ], function(Bloodhound, sort, $) {
     var engine = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.nonword("label"),
+        datumTokenizer: Bloodhound.tokenizers.obj.nonword("name"),
         queryTokenizer: Bloodhound.tokenizers.nonword,
         sorter: sort,
         identify: function(item) {
-            return item.label;
+            return item._id;
+        }
+    });
+    var loadPromise;
+    return {
+        url: "/packages/-/v1/all.json",
+        prepare: function(query, settings) {
+            settings.query = query;
+            return settings;
+        },
+        transport: function(options, onSuccess, onError) {
+            engine.initialize().then(load).done(search).fail(function() {});
+            function _load(options) {
+                return $.ajax(options).then(process);
+                function process(data, textStatus, request) {
+                    engine.add(data.objects);
+                    if (data.urls && data.urls.next) {
+                        options.url = data.urls.next;
+                        return _load(options);
+                    }
+                }
+            }
+            function load() {
+                loadPromise = loadPromise || _load(options);
+                return loadPromise;
+            }
+            function search() {
+                engine.search(options.query, function(datums) {
+                    onSuccess(datums);
+                });
+            }
+        },
+        cache: false,
+        rateLimitWait: 0
+    };
+});
+
+define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all" ], function(Bloodhound, sort, remote) {
+    var engine = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.nonword("name"),
+        queryTokenizer: Bloodhound.tokenizers.nonword,
+        sorter: sort,
+        identify: function(item) {
+            return item._id;
         },
         prefetch: {
-            url: "/data.json",
+            url: "/packages/-/v1/feeds/featured.json",
+            transform: function(response) {
+                var objects = response.objects, i, len;
+                for (i = 0, len = objects.length; i < len; ++i) {
+                    objects[i]._featured = true;
+                }
+                return objects;
+            },
             cache: false
-        }
+        },
+        remote: remote
     });
     return engine;
 });
 
 define("search/packages/templates/result", [], function() {
     return function(item) {
-        return "<article" + (item.featured ? ' class="featured"' : "") + '><a href="' + item.url + '" target="_blank"><span class="title">' + item.label + '</span><span class="text">' + item.desc + "</span>" + (item.featured ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + item.forks + '</span><span class="star">' + item.stars + "</span></span></a></article>";
+        return "<article" + (item._featured ? ' class="featured"' : "") + '><a href="' + item.homepage + '" target="_blank"><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item._featured ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + (item.repository ? item.repository.forkCount || 0 : 0) + '</span><span class="star">' + (item.repository ? item.repository.favoriteCount || 0 : 0) + "</span></span></a></article>";
     };
 });
 
@@ -356,7 +409,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
 
 define("search/packages/templates/suggestion", [], function() {
     return function(item) {
-        return "<article" + (item.featured ? ' class="featured"' : "") + '><a href="' + item.url + '" target="_blank"><span class="title">' + item.label + '</span><span class="text">' + item.desc + "</span>" + (item.featured ? '<span class="featured-flag">Featured</span>' : "") + "</a></article>";
+        return "<article" + (item._featured ? ' class="featured"' : "") + '><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item._featured ? '<span class="featured-flag">Featured</span>' : "") + "</article>";
     };
 });
 
@@ -366,8 +419,8 @@ define("shell/search", [ "exports", "../search/packages/templates/suggestion", "
             page.show("/packages/");
         });
         $(".search-con form input").typeahead(null, {
-            name: "strategies",
-            display: "label",
+            name: "packages",
+            display: "name",
             limit: Infinity,
             source: engine,
             templates: {
@@ -503,11 +556,6 @@ define("controllers/packages", [ "../search/packages/engine", "../search/package
             $(".search-con .info-line span").text($featured.length);
         }
     }
-    function openSearch() {
-        $("body").addClass("is-search");
-        $(".search-con form input.tt-input").focus();
-        renderFeaturedStrategies();
-    }
     function closeSearch() {
         $("body").removeClass("is-search");
         $(".search-con form input").text("");
@@ -526,7 +574,11 @@ define("controllers/packages", [ "../search/packages/engine", "../search/package
     }
     function dosearchresults(ev, suggestions, async, dataset) {
         var results = $.map(suggestions, template);
-        $(".search-con .results section").html(results);
+        if (!async) {
+            $(".search-con .results section").html(results);
+        } else {
+            $(".search-con .results section").append(results);
+        }
         $(".search-con .info-line span").text(results.length);
     }
     function doclose(ev) {
@@ -542,14 +594,21 @@ define("controllers/packages", [ "../search/packages/engine", "../search/package
     }
     clazz.inherits(PackagesController, Controller);
     PackagesController.prototype.load = function() {
-        openSearch();
+        $("body").addClass("is-search");
+        $(".search-con form input.tt-input").focus();
+        renderFeaturedStrategies();
         this.emit("ready");
     };
     PackagesController.prototype.unload = function() {
         $(".search-con .close-ico").off("click", doclose);
         $(".search-con form input").off("typeahead:render", dosearchresults);
         $(".search-con form input.tt-input").off("input", dosearchinput);
-        closeSearch();
+        $("body").removeClass("is-search");
+        $(".search-con form input").text("");
+        $(".search-con form input").blur();
+        $(".tt-input, .tt-hint").removeClass("bigger");
+        $(".results section").html("");
+        $(".search-con .info-line span").text("0");
     };
     PackagesController.prototype.dispatch = function(ctx, done) {
         ctx.handled = true;
