@@ -1,4 +1,4 @@
-define(['bloodhound', './sort', './remote/api-v1/all', 'jquery'], function(Bloodhound, sort, remote, $) {
+define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sort, remote) {
   
   /**
    * Strategies Search Engine initialization
