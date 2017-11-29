@@ -1,7 +1,5 @@
 define(['bloodhound', './sort', './remote/api-v1/all', 'jquery'], function(Bloodhound, sort, remote, $) {
   
-  console.log(window.SearchIndex)
-  
   /**
    * Strategies Search Engine initialization
    */

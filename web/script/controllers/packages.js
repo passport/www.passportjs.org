@@ -55,7 +55,11 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
   
   function dosearchresults(ev, suggestions, async, dataset) {
     var results = $.map(suggestions, template);
-    $('.search-con .results section').html(results);
+    if (!async) {
+      $('.search-con .results section').html(results);
+    } else {
+      $('.search-con .results section').append(results);
+    }
     $(".search-con .info-line span").text(results.length);
     // if ($('.search-con .results').hasScrollBar()) {
     //   $(".search-con .results section").css({ paddingLeft: getScrollbarWidth() })

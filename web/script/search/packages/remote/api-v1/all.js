@@ -1,4 +1,4 @@
-define(['bloodhound', '../sort', 'jquery'], function(Bloodhound, sort, $) {
+define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
   
   var engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
@@ -48,7 +48,8 @@ define(['bloodhound', '../sort', 'jquery'], function(Bloodhound, sort, $) {
         });
       }
     },
-    cache: false
+    cache: false,
+    rateLimitWait: 0
   };
   
 });
