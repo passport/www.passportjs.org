@@ -14,7 +14,12 @@ define(['bloodhound', './sort', './remote/api-v1/all', 'jquery'], function(Blood
       //url: '/data.json',
       url: '/packages/-/v1/feeds/featured.json',
       transform: function(response) {
-        return response.objects;
+        var objects = response.objects
+          , i, len;
+        for (i = 0, len = objects.length; i < len; ++i) {
+          objects[i]._featured = true;
+        }
+        return objects;
       },
       cache: false
     },

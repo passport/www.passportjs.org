@@ -14,8 +14,8 @@ function(exports, template, engine, page, $, __$_typeahead) {
     // passing in `null` for the `options` arguments will result in the default
     // options being used
     $('.search-con form input').typeahead(null, {
-      name: 'strategies',
-      display: 'label',
+      name: 'packages',
+      display: 'name',
       limit: Infinity,
       source: engine,
       templates: {
