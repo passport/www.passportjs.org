@@ -11,7 +11,6 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
       return item._id;
     },
     prefetch: {
-      //url: '/data.json',
       url: '/packages/-/v1/feeds/featured.json',
       transform: function(response) {
         var objects = response.objects
