@@ -1,6 +1,29 @@
 {
   "objects": [
     {
+      "_id": "bypass-passport-strategy",
+      "name": "bypass-passport-strategy",
+      "description": "A passport authentication strategy specifically for Bypass",
+      "dist-tags": {
+        "latest": "1.0.2"
+      },
+      "homepage": "https://github.com/bypasslane/bypass-passport-strategy#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/bypasslane/bypass-passport-strategy.git",
+        "favoriteCount": 0,
+        "subscriberCount": 34,
+        "forkCount": 0,
+        "created": "2016-01-10T22:19:43.000Z",
+        "modified": "2017-09-19T21:36:27.000Z"
+      },
+      "license": "ISC",
+      "time": {
+        "created": "2017-06-29T16:15:22.689Z",
+        "modified": "2017-06-29T16:22:28.512Z"
+      }
+    },
+    {
       "_id": "heroku-passport",
       "name": "heroku-passport",
       "description": "Heroku authentication strategy for Passport.",
@@ -662,41 +685,9 @@
         "created": "2014-01-15T03:18:17.516Z",
         "modified": "2015-09-29T05:14:45.130Z"
       }
-    },
-    {
-      "_id": "passport-artycles",
-      "name": "passport-artycles",
-      "description": "OAuth2 client authentication for Artycles using passport.js",
-      "keywords": [
-        "artycles",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "http://artycl.es",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/artycles/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-11-21T21:06:12.000Z",
-        "modified": "2015-01-29T11:53:09.000Z"
-      },
-      "time": {
-        "created": "2014-11-22T18:40:40.101Z",
-        "modified": "2015-01-29T12:00:57.216Z"
-      }
     }
   ],
-  "total": 408,
+  "total": 428,
   "urls": {
     "next": "/packages/-/v1/all/2.json"
   }
