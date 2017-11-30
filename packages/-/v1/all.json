@@ -283,6 +283,36 @@
       }
     },
     {
+      "_id": "passport-acuity-oauth2",
+      "name": "passport-acuity-oauth2",
+      "description": "Acuity authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "authn",
+        "authentication",
+        "acuity",
+        "ehr"
+      ],
+      "dist-tags": {
+        "latest": "1.0.1"
+      },
+      "homepage": "https://github.com/Nimblr/passport-acuity-oauth2#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/Nimblr/passport-acuity-oauth2.git",
+        "favoriteCount": 1,
+        "subscriberCount": 2,
+        "forkCount": 0,
+        "created": "2017-05-16T16:54:30.000Z",
+        "modified": "2017-08-30T23:12:23.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-08-30T23:12:12.051Z",
+        "modified": "2017-08-30T23:12:12.051Z"
+      }
+    },
+    {
       "_id": "passport-allplayers",
       "name": "passport-allplayers",
       "description": "AllPlayers authentication strategy for Passport.",
@@ -443,6 +473,34 @@
       "time": {
         "created": "2013-07-16T19:32:58.721Z",
         "modified": "2013-07-30T16:42:12.958Z"
+      }
+    },
+    {
+      "_id": "passport-anonym-uuid",
+      "name": "passport-anonym-uuid",
+      "description": "Anonymous authentication strategy for Passport that supply an uuid.",
+      "keywords": [
+        "passport",
+        "authentication",
+        "anonymous",
+        "uuid"
+      ],
+      "dist-tags": {
+        "latest": "1.0.3"
+      },
+      "homepage": "https://github.com/nash403/passport-anonym-uuid#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/nash403/passport-anonym-uuid.git",
+        "favoriteCount": 1,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2017-02-23T12:26:30.000Z",
+        "modified": "2017-02-23T14:02:07.000Z"
+      },
+      "time": {
+        "created": "2017-02-23T12:38:01.905Z",
+        "modified": "2017-02-23T14:05:33.563Z"
       }
     },
     {
@@ -613,7 +671,7 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/jaredhanson/passport-linkedin.git",
-        "favoriteCount": 107,
+        "favoriteCount": 108,
         "subscriberCount": 8,
         "forkCount": 69,
         "created": "2011-10-30T22:59:38.000Z",
@@ -623,71 +681,9 @@
         "created": "2015-04-21T02:11:54.405Z",
         "modified": "2015-04-21T02:11:54.405Z"
       }
-    },
-    {
-      "_id": "passport-apptrack",
-      "name": "passport-apptrack",
-      "description": "OAuth2 client authentication for Apptrack using passport.js",
-      "keywords": [
-        "apptrack",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "http://apptrack.io",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/apptrack/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-11-21T21:51:12.000Z",
-        "modified": "2015-02-01T10:43:40.000Z"
-      },
-      "time": {
-        "created": "2014-11-22T21:30:26.308Z",
-        "modified": "2015-02-01T10:46:39.532Z"
-      }
-    },
-    {
-      "_id": "passport-arcgis",
-      "name": "passport-arcgis",
-      "description": "ArcGIS authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "arcgis",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.8"
-      },
-      "homepage": "https://github.com/DavidSpriggs/passport-arcgis",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/DavidSpriggs/passport-arcgis.git",
-        "favoriteCount": 8,
-        "subscriberCount": 2,
-        "forkCount": 2,
-        "created": "2014-01-14T20:28:16.000Z",
-        "modified": "2015-09-29T05:17:20.000Z"
-      },
-      "time": {
-        "created": "2014-01-15T03:18:17.516Z",
-        "modified": "2015-09-29T05:14:45.130Z"
-      }
     }
   ],
-  "total": 428,
+  "total": 463,
   "urls": {
     "next": "/packages/-/v1/all/2.json"
   }

@@ -1,6 +1,147 @@
 {
   "objects": [
     {
+      "_id": "passport-basecrm",
+      "name": "passport-basecrm",
+      "description": "BaseCRM authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "basecrm",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.1"
+      },
+      "homepage": "https://github.com/reydelleon/passport-basecrm",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/reydelleon/passport-basecrm.git",
+        "favoriteCount": 0,
+        "subscriberCount": 1,
+        "forkCount": 1,
+        "created": "2015-06-04T20:51:28.000Z",
+        "modified": "2015-06-05T17:25:41.000Z"
+      },
+      "time": {
+        "created": "2015-06-05T04:33:27.336Z",
+        "modified": "2015-06-05T04:54:55.610Z"
+      }
+    },
+    {
+      "_id": "passport-beatport",
+      "name": "passport-beatport",
+      "description": "Beatport.com authentication strategy for Passport.",
+      "dist-tags": {
+        "latest": "0.0.2"
+      },
+      "homepage": "https://github.com/fastman/passport-beatport",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/fastman/passport-beatport.git",
+        "favoriteCount": 0,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2013-09-02T22:37:22.000Z",
+        "modified": "2013-09-02T23:37:01.000Z"
+      },
+      "time": {
+        "created": "2013-09-02T22:39:28.733Z",
+        "modified": "2013-09-02T23:37:12.370Z"
+      }
+    },
+    {
+      "_id": "passport-beatsmusic",
+      "name": "passport-beatsmusic",
+      "description": "Beats Music authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "beats",
+        "music",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.2"
+      },
+      "homepage": "https://github.com/datmark/passport-beatsmusic",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/datmark/passport-beatsmusic.git",
+        "favoriteCount": 1,
+        "subscriberCount": 2,
+        "forkCount": 0,
+        "created": "2014-04-09T14:46:26.000Z",
+        "modified": "2014-04-10T14:35:22.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2014-04-09T15:23:49.317Z",
+        "modified": "2014-04-10T14:35:35.214Z"
+      }
+    },
+    {
+      "_id": "passport-behance",
+      "name": "passport-behance",
+      "description": "Behance authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "Behance",
+        "oauth",
+        "oauth2",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/metacommunications/passport-behance",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/metacommunications/passport-behance.git",
+        "favoriteCount": 3,
+        "subscriberCount": 5,
+        "forkCount": 2,
+        "created": "2014-04-25T08:35:05.000Z",
+        "modified": "2014-04-25T12:12:46.000Z"
+      },
+      "time": {
+        "created": "2014-04-25T12:15:04.025Z",
+        "modified": "2014-04-25T12:15:04.025Z"
+      }
+    },
+    {
+      "_id": "passport-bitauth",
+      "name": "passport-bitauth",
+      "description": "BitAuth authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "bitcoin",
+        "bitauth",
+        "auth",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.1.0"
+      },
+      "homepage": "https://github.com/bitpay/passport-bitauth",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/bitpay/passport-bitauth.git"
+      },
+      "time": {
+        "created": "2014-06-26T20:27:58.281Z",
+        "modified": "2014-06-26T20:27:58.281Z"
+      }
+    },
+    {
       "_id": "passport-bitbucket-oauth2",
       "name": "passport-bitbucket-oauth2",
       "description": "Bitbucket OAuth2 authentication strategy for Passport.",
@@ -28,6 +169,37 @@
       "time": {
         "created": "2015-07-29T18:41:42.813Z",
         "modified": "2017-04-22T01:44:43.725Z"
+      }
+    },
+    {
+      "_id": "passport-bitbucket-oauth20",
+      "name": "passport-bitbucket-oauth20",
+      "description": "Bitbucket OAuth2 authentication strategy for Passport. With emails.",
+      "keywords": [
+        "passport",
+        "bitbucket",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.1.0"
+      },
+      "homepage": "https://github.com/saintedlama/passport-bitbucket-oauth2#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/saintedlama/passport-bitbucket-oauth2.git",
+        "favoriteCount": 1,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2017-05-16T10:41:47.000Z",
+        "modified": "2017-06-13T14:04:30.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-05-16T13:55:34.933Z",
+        "modified": "2017-05-17T09:35:54.415Z"
       }
     },
     {
@@ -559,167 +731,9 @@
         "created": "2015-03-08T11:53:25.850Z",
         "modified": "2017-07-01T20:09:59.092Z"
       }
-    },
-    {
-      "_id": "passport-cloudfoundry-openidconnect",
-      "name": "passport-cloudfoundry-openidconnect",
-      "description": "Cloud Foundry UAA OpenID-Connect authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/rajaraodv/passport-cloudfoundry-openidconnect",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/rajaraodv/passport-cloudfoundry-openidconnect.git",
-        "favoriteCount": 4,
-        "subscriberCount": 2,
-        "forkCount": 1,
-        "created": "2013-01-08T19:36:31.000Z",
-        "modified": "2013-01-11T09:26:47.000Z"
-      },
-      "time": {
-        "created": "2013-01-08T22:05:38.532Z",
-        "modified": "2013-01-11T09:25:46.772Z"
-      }
-    },
-    {
-      "_id": "passport-cloudfoundry",
-      "name": "passport-cloudfoundry",
-      "description": "Cloud Foundry UAA OAuth2 authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.5"
-      },
-      "homepage": "https://github.com/rajaraodv/passport-cloudfoundry",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/rajaraodv/passport-cloudfoundry.git",
-        "favoriteCount": 13,
-        "subscriberCount": 2,
-        "forkCount": 6,
-        "created": "2013-01-04T21:10:40.000Z",
-        "modified": "2013-10-23T11:39:14.000Z"
-      },
-      "time": {
-        "created": "2013-01-04T21:08:08.701Z",
-        "modified": "2013-01-11T09:21:23.642Z"
-      }
-    },
-    {
-      "_id": "passport-cloudup",
-      "name": "passport-cloudup",
-      "description": "Cloudup authentication for Passport (http://passportjs.org)",
-      "keywords": [
-        "passport",
-        "cloudup",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/stevelacy/passport-cloudup",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/stevelacy/passport-cloudup.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-06-19T20:15:37.000Z",
-        "modified": "2015-02-06T07:07:51.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-06-19T20:53:33.571Z",
-        "modified": "2015-02-06T07:11:18.565Z"
-      }
-    },
-    {
-      "_id": "passport-cloudvisio",
-      "name": "passport-cloudvisio",
-      "description": "OAuth2 client authentication for Cloudvisio using passport.js",
-      "keywords": [
-        "cloudvisio",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "http://cloudvisio.com",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/cloudvisio/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-11-21T21:04:55.000Z",
-        "modified": "2014-11-22T16:41:29.000Z"
-      },
-      "time": {
-        "created": "2014-11-22T16:42:52.482Z",
-        "modified": "2014-11-22T16:42:52.482Z"
-      }
-    },
-    {
-      "_id": "passport-coinbase",
-      "name": "passport-coinbase",
-      "description": "Coinbase authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/idris/passport-coinbase",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/idris/passport-coinbase.git",
-        "favoriteCount": 5,
-        "subscriberCount": 0,
-        "forkCount": 6,
-        "created": "2014-02-17T17:56:46.000Z",
-        "modified": "2015-11-12T01:30:19.000Z"
-      },
-      "time": {
-        "created": "2014-02-17T19:20:19.848Z",
-        "modified": "2014-02-18T15:14:39.895Z"
-      }
-    },
-    {
-      "_id": "passport-comicsgl",
-      "name": "passport-comicsgl",
-      "description": "OAuth2 client authentication for ComicsGL using passport.js",
-      "keywords": [
-        "comicsgl",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "http://comicsgl.com",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/comicsgl/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-11-21T21:42:48.000Z",
-        "modified": "2015-02-01T05:10:24.000Z"
-      },
-      "time": {
-        "created": "2015-02-01T05:13:32.223Z",
-        "modified": "2015-02-01T05:13:32.223Z"
-      }
     }
   ],
-  "total": 428,
+  "total": 463,
   "urls": {
     "next": "/packages/-/v1/all/4.json",
     "prev": "/packages/-/v1/all/2.json"

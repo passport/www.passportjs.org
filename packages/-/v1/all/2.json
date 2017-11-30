@@ -1,6 +1,68 @@
 {
   "objects": [
     {
+      "_id": "passport-apptrack",
+      "name": "passport-apptrack",
+      "description": "OAuth2 client authentication for Apptrack using passport.js",
+      "keywords": [
+        "apptrack",
+        "passport",
+        "oauth2",
+        "auth",
+        "authentication",
+        "identity",
+        "api",
+        "json"
+      ],
+      "dist-tags": {
+        "latest": "0.2.0"
+      },
+      "homepage": "http://apptrack.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/apptrack/passport.git",
+        "favoriteCount": 0,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-11-21T21:51:12.000Z",
+        "modified": "2015-02-01T10:43:40.000Z"
+      },
+      "time": {
+        "created": "2014-11-22T21:30:26.308Z",
+        "modified": "2015-02-01T10:46:39.532Z"
+      }
+    },
+    {
+      "_id": "passport-arcgis",
+      "name": "passport-arcgis",
+      "description": "ArcGIS authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "arcgis",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.1.8"
+      },
+      "homepage": "https://github.com/DavidSpriggs/passport-arcgis",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/DavidSpriggs/passport-arcgis.git",
+        "favoriteCount": 8,
+        "subscriberCount": 2,
+        "forkCount": 2,
+        "created": "2014-01-14T20:28:16.000Z",
+        "modified": "2015-09-29T05:17:20.000Z"
+      },
+      "time": {
+        "created": "2014-01-15T03:18:17.516Z",
+        "modified": "2015-09-29T05:14:45.130Z"
+      }
+    },
+    {
       "_id": "passport-artycles",
       "name": "passport-artycles",
       "description": "OAuth2 client authentication for Artycles using passport.js",
@@ -106,6 +168,38 @@
       "time": {
         "created": "2015-01-29T06:35:51.664Z",
         "modified": "2015-01-29T06:35:51.664Z"
+      }
+    },
+    {
+      "_id": "passport-atlassian-connect",
+      "name": "passport-atlassian-connect",
+      "description": "Passport.js strategy for Atlassian products add-ons",
+      "keywords": [
+        "atlassian",
+        "atlassian-jira",
+        "atlassian-bitbucket",
+        "atlassian-connect",
+        "atlassian-connect-addon",
+        "atlassian-connect",
+        "passportjs"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/DanielHreben/passport-atlassian-connect#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/DanielHreben/passport-atlassian-connect.git",
+        "favoriteCount": 2,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2017-10-25T01:03:50.000Z",
+        "modified": "2017-11-23T14:22:08.000Z"
+      },
+      "license": "Apache-2.0",
+      "time": {
+        "created": "2017-10-26T08:58:34.057Z",
+        "modified": "2017-10-26T08:58:34.057Z"
       }
     },
     {
@@ -226,6 +320,42 @@
       "time": {
         "created": "2012-11-26T23:33:45.671Z",
         "modified": "2017-10-02T16:07:43.609Z"
+      }
+    },
+    {
+      "_id": "passport-authentiq",
+      "name": "passport-authentiq",
+      "description": "Authentiq authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "authentiq",
+        "authentiqid",
+        "auth",
+        "oauth",
+        "oidc",
+        "mfa",
+        "two-step verification",
+        "two-factor authentication",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/AuthentiqID/passport-authentiq#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/AuthentiqID/passport-authentiq.git",
+        "favoriteCount": 1,
+        "subscriberCount": 4,
+        "forkCount": 0,
+        "created": "2017-04-28T11:43:20.000Z",
+        "modified": "2017-08-23T13:28:43.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-05-16T11:46:53.625Z",
+        "modified": "2017-05-16T21:28:04.830Z"
       }
     },
     {
@@ -535,98 +665,12 @@
       }
     },
     {
-      "_id": "passport-basecrm",
-      "name": "passport-basecrm",
-      "description": "BaseCRM authentication strategy for Passport.",
+      "_id": "passport-basecamp",
+      "name": "passport-basecamp",
+      "description": "Basecamp auth strategy for Passport, based on Jared Hanson's passport-github.",
       "keywords": [
         "passport",
-        "basecrm",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/reydelleon/passport-basecrm",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/reydelleon/passport-basecrm.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 1,
-        "created": "2015-06-04T20:51:28.000Z",
-        "modified": "2015-06-05T17:25:41.000Z"
-      },
-      "time": {
-        "created": "2015-06-05T04:33:27.336Z",
-        "modified": "2015-06-05T04:54:55.610Z"
-      }
-    },
-    {
-      "_id": "passport-beatport",
-      "name": "passport-beatport",
-      "description": "Beatport.com authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/fastman/passport-beatport",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/fastman/passport-beatport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2013-09-02T22:37:22.000Z",
-        "modified": "2013-09-02T23:37:01.000Z"
-      },
-      "time": {
-        "created": "2013-09-02T22:39:28.733Z",
-        "modified": "2013-09-02T23:37:12.370Z"
-      }
-    },
-    {
-      "_id": "passport-beatsmusic",
-      "name": "passport-beatsmusic",
-      "description": "Beats Music authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "beats",
-        "music",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.2"
-      },
-      "homepage": "https://github.com/datmark/passport-beatsmusic",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/datmark/passport-beatsmusic.git",
-        "favoriteCount": 1,
-        "subscriberCount": 2,
-        "forkCount": 0,
-        "created": "2014-04-09T14:46:26.000Z",
-        "modified": "2014-04-10T14:35:22.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-04-09T15:23:49.317Z",
-        "modified": "2014-04-10T14:35:35.214Z"
-      }
-    },
-    {
-      "_id": "passport-behance",
-      "name": "passport-behance",
-      "description": "Behance authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "Behance",
-        "oauth",
-        "oauth2",
+        "basecamp",
         "auth",
         "authn",
         "authentication",
@@ -635,48 +679,24 @@
       "dist-tags": {
         "latest": "1.0.0"
       },
-      "homepage": "https://github.com/metacommunications/passport-behance",
+      "homepage": "https://github.com/janbaykara/passport-basecamp#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/metacommunications/passport-behance.git",
-        "favoriteCount": 3,
-        "subscriberCount": 5,
-        "forkCount": 2,
-        "created": "2014-04-25T08:35:05.000Z",
-        "modified": "2014-04-25T12:12:46.000Z"
+        "url": "git://github.com/janbaykara/passport-basecamp.git",
+        "favoriteCount": 0,
+        "subscriberCount": 0,
+        "forkCount": 0,
+        "created": "2017-09-25T23:31:15.000Z",
+        "modified": "2017-09-28T00:39:04.000Z"
       },
+      "license": "MIT",
       "time": {
-        "created": "2014-04-25T12:15:04.025Z",
-        "modified": "2014-04-25T12:15:04.025Z"
-      }
-    },
-    {
-      "_id": "passport-bitauth",
-      "name": "passport-bitauth",
-      "description": "BitAuth authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "bitcoin",
-        "bitauth",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/bitpay/passport-bitauth",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/bitpay/passport-bitauth.git"
-      },
-      "time": {
-        "created": "2014-06-26T20:27:58.281Z",
-        "modified": "2014-06-26T20:27:58.281Z"
+        "created": "2017-09-28T00:39:13.371Z",
+        "modified": "2017-09-28T00:39:13.371Z"
       }
     }
   ],
-  "total": 428,
+  "total": 463,
   "urls": {
     "next": "/packages/-/v1/all/3.json",
     "prev": "/packages/-/v1/all.json"
