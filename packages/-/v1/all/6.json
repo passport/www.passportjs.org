@@ -1,6 +1,95 @@
 {
   "objects": [
     {
+      "_id": "passport-google-oauth2",
+      "name": "passport-google-oauth2",
+      "description": "Passport strategy for Google OAuth 2.0",
+      "keywords": [
+        "auth",
+        "google",
+        "google+",
+        "passportjs",
+        "oauth2"
+      ],
+      "dist-tags": {
+        "latest": "0.1.6"
+      },
+      "homepage": "https://github.com/mstade/passport-google-oauth2",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mstade/passport-google-oauth2.git",
+        "favoriteCount": 44,
+        "subscriberCount": 0,
+        "forkCount": 63,
+        "created": "2014-11-06T15:16:18.000Z",
+        "modified": "2017-10-12T13:37:00.000Z"
+      },
+      "license": "ISC",
+      "time": {
+        "created": "2014-11-06T16:20:38.538Z",
+        "modified": "2016-11-27T00:54:50.015Z"
+      }
+    },
+    {
+      "_id": "passport-google-oauth20",
+      "name": "passport-google-oauth20",
+      "description": "Google (OAuth 2.0) authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "google",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/jaredhanson/passport-google-oauth2#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jaredhanson/passport-google-oauth2.git",
+        "favoriteCount": 126,
+        "subscriberCount": 9,
+        "forkCount": 43,
+        "created": "2016-02-03T23:21:10.000Z",
+        "modified": "2017-10-23T21:29:40.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2016-02-04T01:11:12.327Z",
+        "modified": "2017-06-27T17:50:55.893Z"
+      }
+    },
+    {
+      "_id": "passport-google-plus",
+      "name": "passport-google-plus",
+      "description": "Passport strategy for using G+ Sign-In",
+      "keywords": [
+        "google",
+        "g+",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "0.5.1"
+      },
+      "homepage": "https://github.com/sqrrrl/passport-google-plus",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/sqrrrl/passport-google-plus.git",
+        "favoriteCount": 31,
+        "subscriberCount": 6,
+        "forkCount": 19,
+        "created": "2013-07-19T05:29:58.000Z",
+        "modified": "2016-02-17T07:30:02.000Z"
+      },
+      "license": "Apache 2",
+      "time": {
+        "created": "2013-09-19T00:34:57.559Z",
+        "modified": "2015-01-06T02:04:50.252Z"
+      }
+    },
+    {
       "_id": "passport-google",
       "name": "passport-google",
       "description": "Google (OpenID) authentication strategy for Passport.",
@@ -592,91 +681,9 @@
         "created": "2014-05-14T19:30:10.836Z",
         "modified": "2014-05-14T21:20:37.626Z"
       }
-    },
-    {
-      "_id": "passport-instagram",
-      "name": "passport-instagram",
-      "description": "Instagram authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "instagram",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-instagram",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-instagram.git",
-        "favoriteCount": 97,
-        "subscriberCount": 4,
-        "forkCount": 46,
-        "created": "2011-11-24T06:55:59.000Z",
-        "modified": "2017-11-18T22:31:28.000Z"
-      },
-      "time": {
-        "created": "2011-11-25T20:22:36.160Z",
-        "modified": "2017-04-22T01:42:15.442Z"
-      }
-    },
-    {
-      "_id": "passport-intuit-oauth",
-      "name": "passport-intuit-oauth",
-      "description": "Intuit (OAuth) authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "intuit",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-intuit-oauth",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-intuit-oauth.git",
-        "favoriteCount": 14,
-        "subscriberCount": 3,
-        "forkCount": 8,
-        "created": "2012-05-05T21:35:56.000Z",
-        "modified": "2017-09-17T20:01:54.000Z"
-      },
-      "time": {
-        "created": "2012-05-05T21:47:58.024Z",
-        "modified": "2017-01-26T21:27:26.046Z"
-      }
-    },
-    {
-      "_id": "passport-intuit",
-      "name": "passport-intuit",
-      "description": "Intuit (OpenID) authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-intuit",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-intuit.git",
-        "favoriteCount": 7,
-        "subscriberCount": 2,
-        "forkCount": 7,
-        "created": "2012-05-05T19:24:37.000Z",
-        "modified": "2017-09-17T20:41:28.000Z"
-      },
-      "time": {
-        "created": "2012-05-05T21:43:02.730Z",
-        "modified": "2017-01-26T21:27:53.369Z"
-      }
     }
   ],
-  "total": 358,
+  "total": 369,
   "urls": {
     "next": "/packages/-/v1/all/7.json",
     "prev": "/packages/-/v1/all/5.json"

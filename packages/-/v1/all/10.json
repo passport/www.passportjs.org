@@ -1,6 +1,200 @@
 {
   "objects": [
     {
+      "_id": "passport-opentoken",
+      "name": "passport-opentoken",
+      "description": "Passport strategy for authenticating with PingFederate using the OpenToken API",
+      "keywords": [
+        "passport",
+        "authentication",
+        "opentoken"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/73rhodes/passport-opentoken",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/73rhodes/passport-opentoken.git",
+        "favoriteCount": 3,
+        "subscriberCount": 2,
+        "forkCount": 1,
+        "created": "2014-10-10T14:46:32.000Z",
+        "modified": "2015-07-15T15:39:02.000Z"
+      },
+      "license": "ISC",
+      "time": {
+        "created": "2014-10-10T21:45:28.313Z",
+        "modified": "2017-03-13T21:08:57.533Z"
+      }
+    },
+    {
+      "_id": "passport-orcid",
+      "name": "passport-orcid",
+      "description": "Passport strategy for authentication with ORCID (orcid.org)",
+      "dist-tags": {
+        "latest": "0.0.2"
+      },
+      "homepage": "https://gitlab.coko.foundation/pubsweet/passport-orcid",
+      "repository": {
+        "type": "git",
+        "url": "https://gitlab.coko.foundation/pubsweet/passport-orcid.git"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-03-20T13:14:50.371Z",
+        "modified": "2017-03-20T13:27:51.333Z"
+      }
+    },
+    {
+      "_id": "passport-oschina",
+      "name": "passport-oschina",
+      "description": "OSChina authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "oschina",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.0.2"
+      },
+      "homepage": "https://github.com/geminiyellow/passport-oschina",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/ilivebox/passport-oschina.git",
+        "favoriteCount": 2,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2015-01-26T04:39:52.000Z",
+        "modified": "2016-05-06T02:54:20.000Z"
+      },
+      "time": {
+        "created": "2015-01-26T05:13:17.827Z",
+        "modified": "2015-01-27T02:24:46.922Z"
+      }
+    },
+    {
+      "_id": "passport-outlook",
+      "name": "passport-outlook",
+      "description": "Outlook REST API v2 authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "microsoft",
+        "outlook",
+        "msn",
+        "hotmail",
+        "windowslive",
+        "auth",
+        "oauth",
+        "oauth2",
+        "authorization",
+        "authorisation",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "2.1.0"
+      },
+      "homepage": "https://github.com/clocked0ne/passport-outlook#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/clocked0ne/passport-outlook.git",
+        "favoriteCount": 3,
+        "subscriberCount": 1,
+        "forkCount": 7,
+        "created": "2015-12-15T11:38:40.000Z",
+        "modified": "2016-09-27T16:19:24.000Z"
+      },
+      "time": {
+        "created": "2015-12-17T11:47:12.850Z",
+        "modified": "2016-09-27T16:32:20.449Z"
+      }
+    },
+    {
+      "_id": "passport-oz",
+      "name": "passport-oz",
+      "description": "Passport strategy for authenticating with OZ using the OAuth 2.0 API.",
+      "dist-tags": {
+        "latest": "0.3.0"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/oz/passport-oz"
+      },
+      "time": {
+        "created": "2013-08-11T18:59:35.086Z",
+        "modified": "2013-11-20T03:14:54.084Z"
+      }
+    },
+    {
+      "_id": "passport-parse",
+      "name": "passport-parse",
+      "description": "Passport Strategy for Parse.com",
+      "keywords": [
+        "authentication",
+        "parse authentication",
+        "parse",
+        "parse.com",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "0.0.5"
+      },
+      "homepage": "https://github.com/malikov/passport-parse",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/malikov/passport-parse.git",
+        "favoriteCount": 12,
+        "subscriberCount": 1,
+        "forkCount": 5,
+        "created": "2014-08-14T14:34:12.000Z",
+        "modified": "2015-11-11T03:21:40.000Z"
+      },
+      "license": "Apache-2.0",
+      "time": {
+        "created": "2014-08-15T18:24:56.881Z",
+        "modified": "2014-09-24T04:08:46.404Z"
+      }
+    },
+    {
+      "_id": "passport-passprint",
+      "name": "passport-passprint",
+      "description": "PassPrint (OAuth2) authentication strategies for Passport.",
+      "keywords": [
+        "passport",
+        "passprint",
+        "fingerprint",
+        "biometrics",
+        "onyx",
+        "onyxauth",
+        "auth",
+        "authn",
+        "oauth",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.1.2"
+      },
+      "homepage": "https://github.com/DFTinc/passport-passprint",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/DFTinc/passport-passprint.git",
+        "favoriteCount": 0,
+        "subscriberCount": 8,
+        "forkCount": 1,
+        "created": "2015-04-07T16:50:00.000Z",
+        "modified": "2015-10-23T22:21:04.000Z"
+      },
+      "time": {
+        "created": "2015-07-02T04:02:07.790Z",
+        "modified": "2017-05-22T16:32:15.255Z"
+      }
+    },
+    {
       "_id": "passport-paypal-oauth",
       "name": "passport-paypal-oauth",
       "description": "PayPal (OAuth) authentication strategy for Passport.",
@@ -310,6 +504,71 @@
       }
     },
     {
+      "_id": "passport-predix-oauth",
+      "name": "passport-predix-oauth",
+      "description": "Predix UAA authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "cloudfoundry",
+        "auth",
+        "authn",
+        "authentication",
+        "identity",
+        "oauth2",
+        "oauth 2.0",
+        "predix"
+      ],
+      "dist-tags": {
+        "latest": "0.1.15"
+      },
+      "homepage": "https://github.com/PredixDev/passport-predix-oauth",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/PredixDev/passport-predix-oauth.git",
+        "favoriteCount": 5,
+        "subscriberCount": 34,
+        "forkCount": 9,
+        "created": "2016-04-11T23:33:28.000Z",
+        "modified": "2017-05-05T18:16:53.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2016-08-22T17:50:04.749Z",
+        "modified": "2017-09-02T00:08:46.290Z"
+      }
+    },
+    {
+      "_id": "passport-predix",
+      "name": "passport-predix",
+      "description": "GE Predix authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "predix",
+        "auth",
+        "oauth",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.1.0"
+      },
+      "homepage": "https://github.com/combsco/passport-predix",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/combsco/passport-predix.git",
+        "favoriteCount": 1,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2016-06-12T04:47:27.000Z",
+        "modified": "2016-06-23T03:10:44.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2016-06-23T03:04:27.631Z",
+        "modified": "2016-06-23T03:04:27.631Z"
+      }
+    },
+    {
       "_id": "passport-product-hunt",
       "name": "passport-product-hunt",
       "description": "Product hunt authentication strategy for Passport.",
@@ -417,228 +676,9 @@
         "created": "2013-02-17T03:31:40.362Z",
         "modified": "2013-02-17T04:49:26.060Z"
       }
-    },
-    {
-      "_id": "passport-raven",
-      "name": "passport-raven",
-      "description": "Raven (University of Cambridge) authentication module for passport",
-      "dist-tags": {
-        "latest": "1.1.2"
-      },
-      "homepage": "https://github.com/ForbesLindesay/passport-raven",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/ForbesLindesay/passport-raven.git",
-        "favoriteCount": 2,
-        "subscriberCount": 2,
-        "forkCount": 4,
-        "created": "2013-02-20T13:47:18.000Z",
-        "modified": "2017-02-24T18:39:31.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-02-20T17:20:56.207Z",
-        "modified": "2015-12-02T19:45:23.304Z"
-      }
-    },
-    {
-      "_id": "passport-rdio",
-      "name": "passport-rdio",
-      "description": "Rdio authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-rdio",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-rdio.git",
-        "favoriteCount": 6,
-        "subscriberCount": 2,
-        "forkCount": 4,
-        "created": "2011-11-29T05:27:14.000Z",
-        "modified": "2015-07-08T14:39:25.000Z"
-      },
-      "time": {
-        "created": "2011-11-29T05:36:17.659Z",
-        "modified": "2013-01-25T16:04:09.786Z"
-      }
-    },
-    {
-      "_id": "passport-readability",
-      "name": "passport-readability",
-      "description": "Readability authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-readability",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-readability.git",
-        "favoriteCount": 4,
-        "subscriberCount": 2,
-        "forkCount": 1,
-        "created": "2011-11-24T07:03:02.000Z",
-        "modified": "2013-01-25T16:29:18.000Z"
-      },
-      "time": {
-        "created": "2011-11-26T19:01:13.358Z",
-        "modified": "2013-01-25T16:27:50.334Z"
-      }
-    },
-    {
-      "_id": "passport-redbooth",
-      "name": "passport-redbooth",
-      "description": "RedBooth authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "redbooth",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/octoblu/passport-redbooth",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/octoblu/passport-redbooth.git",
-        "favoriteCount": 0,
-        "subscriberCount": 19,
-        "forkCount": 0,
-        "created": "2014-10-13T23:05:39.000Z",
-        "modified": "2014-10-13T23:13:57.000Z"
-      },
-      "time": {
-        "created": "2014-10-13T23:14:44.037Z",
-        "modified": "2014-10-13T23:14:44.037Z"
-      }
-    },
-    {
-      "_id": "passport-reddit",
-      "name": "passport-reddit",
-      "description": "Reddit authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.2.4"
-      },
-      "homepage": "https://github.com/Slotos/passport-reddit",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/Slotos/passport-reddit.git",
-        "favoriteCount": 34,
-        "subscriberCount": 3,
-        "forkCount": 12,
-        "created": "2013-02-28T22:04:46.000Z",
-        "modified": "2016-07-10T23:07:44.000Z"
-      },
-      "time": {
-        "created": "2013-03-02T16:03:05.091Z",
-        "modified": "2013-10-27T15:13:54.988Z"
-      }
-    },
-    {
-      "_id": "passport-redgate",
-      "name": "passport-redgate",
-      "description": "A passport provider for Red Gate ID",
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/ForbesLindesay/passport-redgate",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/ForbesLindesay/passport-redgate.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2013-09-04T15:41:12.000Z",
-        "modified": "2017-02-24T19:19:26.000Z"
-      },
-      "time": {
-        "created": "2013-09-05T08:41:34.410Z",
-        "modified": "2013-09-06T11:08:17.500Z"
-      }
-    },
-    {
-      "_id": "passport-remember-me",
-      "name": "passport-remember-me",
-      "description": "Remember Me cookie authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-remember-me",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-remember-me.git",
-        "favoriteCount": 189,
-        "subscriberCount": 11,
-        "forkCount": 79,
-        "created": "2013-05-15T03:58:57.000Z",
-        "modified": "2017-11-08T22:47:36.000Z"
-      },
-      "time": {
-        "created": "2013-05-15T06:06:08.413Z",
-        "modified": "2017-05-10T08:32:29.181Z"
-      }
-    },
-    {
-      "_id": "passport-renren-new",
-      "name": "passport-renren-new",
-      "description": "copied and revised from passport-github",
-      "keywords": [
-        "passport-renren",
-        "passport-renren-new"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/chloetina/passport-renren-new",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/xr/passport-renren-new.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-07-26T09:35:02.000Z",
-        "modified": "2014-07-26T09:36:53.000Z"
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2014-07-26T09:56:03.816Z",
-        "modified": "2014-08-16T20:11:31.576Z"
-      }
-    },
-    {
-      "_id": "passport-renren",
-      "name": "passport-renren",
-      "description": "Renren authentication strategy for Passport. Supports API 2.0",
-      "keywords": [
-        "passport",
-        "renren",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.3"
-      },
-      "homepage": "https://github.com/xinbenlv/passport-renren",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/xinbenlv/passport-renren.git",
-        "favoriteCount": 4,
-        "subscriberCount": 0,
-        "forkCount": 6,
-        "created": "2013-06-15T04:44:17.000Z",
-        "modified": "2014-09-20T07:01:04.000Z"
-      },
-      "time": {
-        "created": "2013-06-15T04:45:08.295Z",
-        "modified": "2014-08-28T12:02:47.557Z"
-      }
     }
   ],
-  "total": 358,
+  "total": 369,
   "urls": {
     "next": "/packages/-/v1/all/11.json",
     "prev": "/packages/-/v1/all/9.json"
