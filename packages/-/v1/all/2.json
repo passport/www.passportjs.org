@@ -1,6 +1,119 @@
 {
   "objects": [
     {
+      "_id": "passport-appc",
+      "name": "passport-appc",
+      "description": "Appcelerator authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "appcelerator",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.2.1"
+      },
+      "homepage": "https://github.com/appcelerator/passport-appc",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/appcelerator-archive/passport-appc.git",
+        "favoriteCount": 2,
+        "subscriberCount": 44,
+        "forkCount": 2,
+        "created": "2015-03-03T16:57:33.000Z",
+        "modified": "2015-03-15T06:28:45.000Z"
+      },
+      "license": "Appcelerator Commercial",
+      "time": {
+        "created": "2015-03-03T18:59:41.823Z",
+        "modified": "2015-03-09T15:07:52.631Z"
+      }
+    },
+    {
+      "_id": "passport-appdotnet",
+      "name": "passport-appdotnet",
+      "description": "App.net authentication strategy for Passport.",
+      "dist-tags": {
+        "latest": "0.1.1"
+      },
+      "homepage": "https://github.com/mko/passport-appdotnet",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mko/passport-appdotnet.git",
+        "favoriteCount": 3,
+        "subscriberCount": 1,
+        "forkCount": 2,
+        "created": "2012-08-17T23:57:13.000Z",
+        "modified": "2012-10-04T19:54:34.000Z"
+      },
+      "time": {
+        "created": "2012-08-18T01:16:11.077Z",
+        "modified": "2012-10-04T19:46:18.741Z"
+      }
+    },
+    {
+      "_id": "passport-appfigures",
+      "name": "passport-appfigures",
+      "description": "App figures authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "appfigures",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.1"
+      },
+      "homepage": "https://github.com/SpiderStrategies/passport-appfigures",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/SpiderStrategies/passport-appfigures.git",
+        "favoriteCount": 1,
+        "subscriberCount": 14,
+        "forkCount": 0,
+        "created": "2014-04-01T13:38:42.000Z",
+        "modified": "2014-04-01T15:59:26.000Z"
+      },
+      "time": {
+        "created": "2014-04-01T15:41:00.385Z",
+        "modified": "2014-04-01T15:59:51.752Z"
+      }
+    },
+    {
+      "_id": "passport-applywithlinkedin",
+      "name": "passport-applywithlinkedin",
+      "description": "LinkedIn authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "linkedin",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.1.3"
+      },
+      "homepage": "https://github.com/jaredhanson/passport-linkedin",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jaredhanson/passport-linkedin.git",
+        "favoriteCount": 108,
+        "subscriberCount": 8,
+        "forkCount": 69,
+        "created": "2011-10-30T22:59:38.000Z",
+        "modified": "2017-09-16T18:20:40.000Z"
+      },
+      "time": {
+        "created": "2015-04-21T02:11:54.405Z",
+        "modified": "2015-04-21T02:11:54.405Z"
+      }
+    },
+    {
       "_id": "passport-apptrack",
       "name": "passport-apptrack",
       "description": "OAuth2 client authentication for Apptrack using passport.js",
@@ -581,122 +694,9 @@
         "created": "2015-01-21T17:52:13.278Z",
         "modified": "2015-01-21T17:52:13.278Z"
       }
-    },
-    {
-      "_id": "passport-azure-store",
-      "name": "passport-azure-store",
-      "description": "Passport strategy for Windows Azure store SSO",
-      "keywords": [
-        "passport",
-        "azure",
-        "sso",
-        "store"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/auth0/passport-azure-store",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/auth0/passport-azure-store.git",
-        "favoriteCount": 1,
-        "subscriberCount": 7,
-        "forkCount": 1,
-        "created": "2013-02-13T02:08:34.000Z",
-        "modified": "2016-07-28T13:49:40.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-02-13T02:19:49.603Z",
-        "modified": "2016-08-27T20:14:25.377Z"
-      }
-    },
-    {
-      "_id": "passport-baidu",
-      "name": "passport-baidu",
-      "description": "Baidu authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/xiaoao/passport-baidu",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/xiaoao/passport-baidu.git",
-        "favoriteCount": 3,
-        "subscriberCount": 3,
-        "forkCount": 2,
-        "created": "2013-07-09T11:39:54.000Z",
-        "modified": "2016-05-17T22:59:00.000Z"
-      },
-      "time": {
-        "created": "2013-07-09T11:26:24.116Z",
-        "modified": "2013-07-09T11:26:31.182Z"
-      }
-    },
-    {
-      "_id": "passport-bamboohr",
-      "name": "passport-bamboohr",
-      "description": "Bamboohr authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "bamboohr",
-        "auth",
-        "authn",
-        "authentication",
-        "username",
-        "password"
-      ],
-      "dist-tags": {
-        "latest": "0.0.6"
-      },
-      "homepage": "https://github.com/thinkerous/passport-bamboohr",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/thinkerous/passport-bamboohr.git",
-        "favoriteCount": 0,
-        "subscriberCount": 2,
-        "forkCount": 0,
-        "created": "2014-07-02T19:30:55.000Z",
-        "modified": "2014-08-24T00:36:16.000Z"
-      },
-      "time": {
-        "created": "2014-07-15T20:29:07.964Z",
-        "modified": "2014-08-24T00:34:47.906Z"
-      }
-    },
-    {
-      "_id": "passport-basecamp",
-      "name": "passport-basecamp",
-      "description": "Basecamp auth strategy for Passport, based on Jared Hanson's passport-github.",
-      "keywords": [
-        "passport",
-        "basecamp",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/janbaykara/passport-basecamp#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/janbaykara/passport-basecamp.git",
-        "favoriteCount": 0,
-        "subscriberCount": 0,
-        "forkCount": 0,
-        "created": "2017-09-25T23:31:15.000Z",
-        "modified": "2017-09-28T00:39:04.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-09-28T00:39:13.371Z",
-        "modified": "2017-09-28T00:39:13.371Z"
-      }
     }
   ],
-  "total": 463,
+  "total": 489,
   "urls": {
     "next": "/packages/-/v1/all/3.json",
     "prev": "/packages/-/v1/all.json"

@@ -1,6 +1,119 @@
 {
   "objects": [
     {
+      "_id": "passport-azure-store",
+      "name": "passport-azure-store",
+      "description": "Passport strategy for Windows Azure store SSO",
+      "keywords": [
+        "passport",
+        "azure",
+        "sso",
+        "store"
+      ],
+      "dist-tags": {
+        "latest": "0.1.0"
+      },
+      "homepage": "https://github.com/auth0/passport-azure-store",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/auth0/passport-azure-store.git",
+        "favoriteCount": 1,
+        "subscriberCount": 7,
+        "forkCount": 1,
+        "created": "2013-02-13T02:08:34.000Z",
+        "modified": "2016-07-28T13:49:40.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2013-02-13T02:19:49.603Z",
+        "modified": "2016-08-27T20:14:25.377Z"
+      }
+    },
+    {
+      "_id": "passport-baidu",
+      "name": "passport-baidu",
+      "description": "Baidu authentication strategy for Passport.",
+      "dist-tags": {
+        "latest": "0.0.1"
+      },
+      "homepage": "https://github.com/xiaoao/passport-baidu",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/xiaoao/passport-baidu.git",
+        "favoriteCount": 3,
+        "subscriberCount": 3,
+        "forkCount": 2,
+        "created": "2013-07-09T11:39:54.000Z",
+        "modified": "2016-05-17T22:59:00.000Z"
+      },
+      "time": {
+        "created": "2013-07-09T11:26:24.116Z",
+        "modified": "2013-07-09T11:26:31.182Z"
+      }
+    },
+    {
+      "_id": "passport-bamboohr",
+      "name": "passport-bamboohr",
+      "description": "Bamboohr authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "bamboohr",
+        "auth",
+        "authn",
+        "authentication",
+        "username",
+        "password"
+      ],
+      "dist-tags": {
+        "latest": "0.0.6"
+      },
+      "homepage": "https://github.com/thinkerous/passport-bamboohr",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/thinkerous/passport-bamboohr.git",
+        "favoriteCount": 0,
+        "subscriberCount": 2,
+        "forkCount": 0,
+        "created": "2014-07-02T19:30:55.000Z",
+        "modified": "2014-08-24T00:36:16.000Z"
+      },
+      "time": {
+        "created": "2014-07-15T20:29:07.964Z",
+        "modified": "2014-08-24T00:34:47.906Z"
+      }
+    },
+    {
+      "_id": "passport-basecamp",
+      "name": "passport-basecamp",
+      "description": "Basecamp auth strategy for Passport, based on Jared Hanson's passport-github.",
+      "keywords": [
+        "passport",
+        "basecamp",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/janbaykara/passport-basecamp#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/janbaykara/passport-basecamp.git",
+        "favoriteCount": 0,
+        "subscriberCount": 0,
+        "forkCount": 0,
+        "created": "2017-09-25T23:31:15.000Z",
+        "modified": "2017-09-28T00:39:04.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-09-28T00:39:13.371Z",
+        "modified": "2017-09-28T00:39:13.371Z"
+      }
+    },
+    {
       "_id": "passport-basecrm",
       "name": "passport-basecrm",
       "description": "BaseCRM authentication strategy for Passport.",
@@ -442,6 +555,37 @@
       }
     },
     {
+      "_id": "passport-browserid",
+      "name": "passport-browserid",
+      "description": "BrowserID authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "browserid",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "0.2.0"
+      },
+      "homepage": "https://github.com/jaredhanson/passport-browserid#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jaredhanson/passport-browserid.git",
+        "favoriteCount": 51,
+        "subscriberCount": 4,
+        "forkCount": 9,
+        "created": "2011-11-22T16:34:04.000Z",
+        "modified": "2017-09-17T01:26:07.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2011-11-25T21:51:13.231Z",
+        "modified": "2016-11-22T19:54:02.714Z"
+      }
+    },
+    {
       "_id": "passport-bufferapp",
       "name": "passport-bufferapp",
       "description": "Bufferapp authentication strategy for Passport.",
@@ -578,162 +722,9 @@
         "created": "2016-05-26T22:35:46.230Z",
         "modified": "2016-05-26T23:17:04.570Z"
       }
-    },
-    {
-      "_id": "passport-citrix",
-      "name": "passport-citrix",
-      "description": "Citrix authentication strategy for Passport, supports Goto* products",
-      "keywords": [
-        "passport",
-        "citrix",
-        "gotomeeting",
-        "auth"
-      ],
-      "dist-tags": {
-        "latest": "2.0.1"
-      },
-      "homepage": "https://github.com/octoblu/passport-citrix",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/octoblu/passport-citrix.git",
-        "favoriteCount": 1,
-        "subscriberCount": 8,
-        "forkCount": 1,
-        "created": "2014-09-26T18:29:12.000Z",
-        "modified": "2016-12-06T22:56:07.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-09-26T18:52:00.242Z",
-        "modified": "2017-11-08T16:41:59.914Z"
-      }
-    },
-    {
-      "_id": "passport-citrix2",
-      "name": "passport-citrix2",
-      "description": "Citrix online authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "citrix",
-        "citrix online"
-      ],
-      "dist-tags": {
-        "latest": "1.0.2"
-      },
-      "homepage": "https://github.com/kenbell/passport-citrix",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/kenbell/passport-citrix.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-04-14T23:18:00.000Z",
-        "modified": "2015-04-17T00:07:46.000Z"
-      },
-      "time": {
-        "created": "2015-04-14T23:35:54.135Z",
-        "modified": "2015-04-17T00:06:48.060Z"
-      }
-    },
-    {
-      "_id": "passport-civic",
-      "name": "passport-civic",
-      "description": "[Passport](http://passportjs.org/) strategy for authenticating with [Civic](https://www.civic.com/)",
-      "keywords": [
-        "passport",
-        "civic",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.5"
-      },
-      "homepage": "https://github.com/SpringRole/passport-civic",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/SpringRole/passport-civic.git",
-        "favoriteCount": 1,
-        "subscriberCount": 2,
-        "forkCount": 1,
-        "created": "2017-09-14T21:16:30.000Z",
-        "modified": "2017-10-09T14:57:16.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-09-14T20:51:06.657Z",
-        "modified": "2017-10-09T14:55:42.950Z"
-      }
-    },
-    {
-      "_id": "passport-clevercloud",
-      "name": "passport-clevercloud",
-      "description": "Passportjs strategy for CleverCloud",
-      "keywords": [
-        "passport",
-        "passportjs",
-        "clevercloud",
-        "sso"
-      ],
-      "dist-tags": {
-        "latest": "0.0.6"
-      },
-      "homepage": "https://github.com/Redsmin/passport-clevercloud",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/Redsmin/passport-clevercloud.git",
-        "favoriteCount": 4,
-        "subscriberCount": 5,
-        "forkCount": 0,
-        "created": "2014-02-18T11:45:19.000Z",
-        "modified": "2016-10-24T06:56:09.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-02-18T17:17:33.785Z",
-        "modified": "2015-05-15T16:37:37.908Z"
-      }
-    },
-    {
-      "_id": "passport-client-cert",
-      "name": "passport-client-cert",
-      "description": "Passport.js strategy for TLS client certificate authentication",
-      "keywords": [
-        "pki",
-        "passport",
-        "ssl",
-        "tls",
-        "certificate",
-        "cert",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "2.1.0"
-      },
-      "homepage": "https://github.com/ripjar/passport-client-cert",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/ripjar/passport-client-cert.git",
-        "favoriteCount": 25,
-        "subscriberCount": 19,
-        "forkCount": 7,
-        "created": "2014-07-07T15:54:58.000Z",
-        "modified": "2017-07-27T17:22:15.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-03-08T11:53:25.850Z",
-        "modified": "2017-07-01T20:09:59.092Z"
-      }
     }
   ],
-  "total": 463,
+  "total": 489,
   "urls": {
     "next": "/packages/-/v1/all/4.json",
     "prev": "/packages/-/v1/all/2.json"

@@ -107,6 +107,37 @@
       }
     },
     {
+      "_id": "passport-2fa-totp",
+      "name": "passport-2fa-totp",
+      "description": "TOTP based Two-Factor Authentication for Passport and Node.js",
+      "keywords": [
+        "totp",
+        "opt",
+        "auth",
+        "authentication",
+        "security",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "0.0.1"
+      },
+      "homepage": "https://github.com/ilich/passport-2fa-totp#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/ilich/passport-2fa-totp.git",
+        "favoriteCount": 10,
+        "subscriberCount": 2,
+        "forkCount": 4,
+        "created": "2016-01-21T22:44:41.000Z",
+        "modified": "2016-02-15T23:34:25.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2016-02-15T23:39:52.788Z",
+        "modified": "2016-10-17T01:14:27.318Z"
+      }
+    },
+    {
       "_id": "passport-37signals",
       "name": "passport-37signals",
       "description": "37signals authentication strategy for Passport.",
@@ -283,6 +314,38 @@
       }
     },
     {
+      "_id": "passport-activedirectory",
+      "name": "passport-activedirectory",
+      "description": "Active Directory strategy for passport.js",
+      "keywords": [
+        "passport",
+        "active",
+        "directory",
+        "ad",
+        "ldap",
+        "authentication",
+        "strategy"
+      ],
+      "dist-tags": {
+        "latest": "1.0.4"
+      },
+      "homepage": "https://github.com/bhoriuchi/passport-activedirectory#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/bhoriuchi/passport-activedirectory.git",
+        "favoriteCount": 6,
+        "subscriberCount": 2,
+        "forkCount": 3,
+        "created": "2016-07-29T20:35:50.000Z",
+        "modified": "2016-09-02T14:33:56.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2016-07-29T21:42:58.450Z",
+        "modified": "2017-11-07T21:08:53.928Z"
+      }
+    },
+    {
       "_id": "passport-acuity-oauth2",
       "name": "passport-acuity-oauth2",
       "description": "Acuity authentication strategy for Passport.",
@@ -310,6 +373,67 @@
       "time": {
         "created": "2017-08-30T23:12:12.051Z",
         "modified": "2017-08-30T23:12:12.051Z"
+      }
+    },
+    {
+      "_id": "passport-addressix-oauth2",
+      "name": "passport-addressix-oauth2",
+      "description": "Passport Strategy for using Addressix OAuth2",
+      "keywords": [
+        "Passport",
+        "Addressix",
+        "oauth2"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/addressix/passport-addressix-oauth2#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/addressix/passport-addressix-oauth2.git",
+        "favoriteCount": 0,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2017-11-13T17:38:49.000Z",
+        "modified": "2017-11-13T18:35:06.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2017-11-13T18:35:17.247Z",
+        "modified": "2017-11-13T18:35:17.247Z"
+      }
+    },
+    {
+      "_id": "passport-akera",
+      "name": "passport-akera",
+      "description": "Akera authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "akera",
+        "auth",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/akera-io/passport-akera#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/akera-io/passport-akera.git",
+        "favoriteCount": 0,
+        "subscriberCount": 3,
+        "forkCount": 1,
+        "created": "2015-12-16T08:33:44.000Z",
+        "modified": "2016-04-28T07:33:41.000Z"
+      },
+      "license": {
+        "type": "MIT",
+        "url": "https://github.com/akera-io/passport-akera/raw/master/LICENSE"
+      },
+      "time": {
+        "created": "2015-12-16T08:41:27.345Z",
+        "modified": "2017-03-24T08:37:00.137Z"
       }
     },
     {
@@ -568,122 +692,9 @@
         "created": "2012-05-06T00:25:20.812Z",
         "modified": "2013-02-11T16:25:41.905Z"
       }
-    },
-    {
-      "_id": "passport-appc",
-      "name": "passport-appc",
-      "description": "Appcelerator authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "appcelerator",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.1"
-      },
-      "homepage": "https://github.com/appcelerator/passport-appc",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/appcelerator-archive/passport-appc.git",
-        "favoriteCount": 2,
-        "subscriberCount": 44,
-        "forkCount": 2,
-        "created": "2015-03-03T16:57:33.000Z",
-        "modified": "2015-03-15T06:28:45.000Z"
-      },
-      "license": "Appcelerator Commercial",
-      "time": {
-        "created": "2015-03-03T18:59:41.823Z",
-        "modified": "2015-03-09T15:07:52.631Z"
-      }
-    },
-    {
-      "_id": "passport-appdotnet",
-      "name": "passport-appdotnet",
-      "description": "App.net authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.1"
-      },
-      "homepage": "https://github.com/mko/passport-appdotnet",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/mko/passport-appdotnet.git",
-        "favoriteCount": 3,
-        "subscriberCount": 1,
-        "forkCount": 2,
-        "created": "2012-08-17T23:57:13.000Z",
-        "modified": "2012-10-04T19:54:34.000Z"
-      },
-      "time": {
-        "created": "2012-08-18T01:16:11.077Z",
-        "modified": "2012-10-04T19:46:18.741Z"
-      }
-    },
-    {
-      "_id": "passport-appfigures",
-      "name": "passport-appfigures",
-      "description": "App figures authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "appfigures",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/SpiderStrategies/passport-appfigures",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/SpiderStrategies/passport-appfigures.git",
-        "favoriteCount": 1,
-        "subscriberCount": 14,
-        "forkCount": 0,
-        "created": "2014-04-01T13:38:42.000Z",
-        "modified": "2014-04-01T15:59:26.000Z"
-      },
-      "time": {
-        "created": "2014-04-01T15:41:00.385Z",
-        "modified": "2014-04-01T15:59:51.752Z"
-      }
-    },
-    {
-      "_id": "passport-applywithlinkedin",
-      "name": "passport-applywithlinkedin",
-      "description": "LinkedIn authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "linkedin",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.3"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-linkedin",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-linkedin.git",
-        "favoriteCount": 108,
-        "subscriberCount": 8,
-        "forkCount": 69,
-        "created": "2011-10-30T22:59:38.000Z",
-        "modified": "2017-09-16T18:20:40.000Z"
-      },
-      "time": {
-        "created": "2015-04-21T02:11:54.405Z",
-        "modified": "2015-04-21T02:11:54.405Z"
-      }
     }
   ],
-  "total": 463,
+  "total": 489,
   "urls": {
     "next": "/packages/-/v1/all/2.json"
   }

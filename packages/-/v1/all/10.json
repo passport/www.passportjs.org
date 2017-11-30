@@ -1,6 +1,385 @@
 {
   "objects": [
     {
+      "_id": "passport-ldapauth",
+      "name": "passport-ldapauth",
+      "description": "LDAP authentication strategy for Passport",
+      "keywords": [
+        "ldap",
+        "passport",
+        "authentication",
+        "ldapauth"
+      ],
+      "dist-tags": {
+        "latest": "2.0.0"
+      },
+      "homepage": "https://github.com/vesse/passport-ldapauth#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/vesse/passport-ldapauth.git",
+        "favoriteCount": 187,
+        "subscriberCount": 12,
+        "forkCount": 65,
+        "created": "2013-04-13T16:56:03.000Z",
+        "modified": "2017-06-14T12:12:40.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2013-04-13T21:50:59.298Z",
+        "modified": "2017-06-13T17:36:15.604Z"
+      }
+    },
+    {
+      "_id": "passport-lds-connect",
+      "name": "passport-lds-connect",
+      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+      "keywords": [
+        "LDSAuth",
+        "LDSConnect",
+        "LDS-Connect",
+        "LDSOrg",
+        "LDS.org",
+        "LDS",
+        "OAuth2",
+        "OAuth",
+        "auth",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "1.2.0"
+      },
+      "homepage": "https://github.com/LDSorg/passport-lds-connect",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/LDSorg/passport-lds-io.git",
+        "favoriteCount": 4,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-02-08T01:42:05.000Z",
+        "modified": "2015-04-03T01:36:01.000Z"
+      },
+      "license": "Apache2",
+      "time": {
+        "created": "2014-02-27T21:52:09.498Z",
+        "modified": "2015-03-02T22:13:46.152Z"
+      }
+    },
+    {
+      "_id": "passport-lds-io",
+      "name": "passport-lds-io",
+      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+      "keywords": [
+        "LDSAuth",
+        "LDSConnect",
+        "LDS-Connect",
+        "LDSOrg",
+        "LDS.org",
+        "LDS",
+        "OAuth2",
+        "OAuth",
+        "auth",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "2.0.2"
+      },
+      "homepage": "https://github.com/LDSorg/passport-lds-connect",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/LDSorg/passport-lds-io.git",
+        "favoriteCount": 4,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-02-08T01:42:05.000Z",
+        "modified": "2015-04-03T01:36:01.000Z"
+      },
+      "license": "Apache2",
+      "time": {
+        "created": "2015-03-26T23:06:26.573Z",
+        "modified": "2015-04-01T22:05:07.216Z"
+      }
+    },
+    {
+      "_id": "passport-lds",
+      "name": "passport-lds",
+      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+      "keywords": [
+        "LDSAuth",
+        "LDSConnect",
+        "LDS-Connect",
+        "LDSOrg",
+        "LDS.org",
+        "LDS",
+        "OAuth2",
+        "OAuth",
+        "auth",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "1.2.0"
+      },
+      "homepage": "https://github.com/LDSorg/passport-lds-connect",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/LDSorg/passport-lds-io.git",
+        "favoriteCount": 4,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-02-08T01:42:05.000Z",
+        "modified": "2015-04-03T01:36:01.000Z"
+      },
+      "license": "Apache2",
+      "time": {
+        "created": "2014-02-27T22:06:47.026Z",
+        "modified": "2015-03-02T22:18:01.257Z"
+      }
+    },
+    {
+      "_id": "passport-ldsauth",
+      "name": "passport-ldsauth",
+      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+      "keywords": [
+        "LDSAuth",
+        "LDSConnect",
+        "LDS-Connect",
+        "LDSOrg",
+        "LDS.org",
+        "LDS",
+        "OAuth2",
+        "OAuth",
+        "auth",
+        "passport"
+      ],
+      "dist-tags": {
+        "latest": "1.2.0"
+      },
+      "homepage": "https://github.com/LDSorg/passport-lds-connect",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/LDSorg/passport-lds-io.git",
+        "favoriteCount": 4,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-02-08T01:42:05.000Z",
+        "modified": "2015-04-03T01:36:01.000Z"
+      },
+      "license": "Apache2",
+      "time": {
+        "created": "2014-02-08T03:13:03.762Z",
+        "modified": "2015-03-02T22:18:08.549Z"
+      }
+    },
+    {
+      "_id": "passport-learningstudio",
+      "name": "passport-learningstudio",
+      "description": "A Passport Strategy for Pearson's Learning Studio.",
+      "keywords": [
+        "passport",
+        "strategy",
+        "pearson",
+        "learningstudio",
+        "learning",
+        "studio"
+      ],
+      "dist-tags": {
+        "latest": "1.0.2"
+      },
+      "homepage": "https://github.com/PearsonAPI/passport-learningstudio",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/PearsonAPI/passport-learningstudio.git"
+      },
+      "time": {
+        "created": "2014-07-07T20:07:31.749Z",
+        "modified": "2014-07-09T16:26:58.263Z"
+      }
+    },
+    {
+      "_id": "passport-lims",
+      "name": "passport-lims",
+      "description": "Lims authentication strategy for Passport.",
+      "keywords": [
+        "lims",
+        "passport",
+        "auth",
+        "authn",
+        "authentication",
+        "authz",
+        "authorization",
+        "oauth",
+        "oauth2"
+      ],
+      "dist-tags": {
+        "latest": "0.1.1"
+      },
+      "homepage": "https://github.com/taoyuan/passport-lims#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/taoyuan/passport-lims.git",
+        "favoriteCount": 0,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2015-08-12T03:06:23.000Z",
+        "modified": "2017-05-04T14:07:45.000Z"
+      },
+      "time": {
+        "created": "2017-05-04T14:07:27.234Z",
+        "modified": "2017-05-04T14:07:27.234Z"
+      }
+    },
+    {
+      "_id": "passport-linkedin-oauth2",
+      "name": "passport-linkedin-oauth2",
+      "description": "Passport for LinkedIn Oauth2",
+      "keywords": [
+        "passport",
+        "linkedin",
+        "auth0"
+      ],
+      "dist-tags": {
+        "latest": "1.5.0"
+      },
+      "homepage": "https://github.com/auth0/passport-linkedin-oauth2",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/auth0/passport-linkedin-oauth2.git",
+        "favoriteCount": 63,
+        "subscriberCount": 8,
+        "forkCount": 47,
+        "created": "2013-03-28T22:17:51.000Z",
+        "modified": "2017-10-04T14:09:27.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2013-05-08T10:21:38.345Z",
+        "modified": "2017-11-07T00:00:38.404Z"
+      }
+    },
+    {
+      "_id": "passport-linkedin",
+      "name": "passport-linkedin",
+      "description": "LinkedIn authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "linkedin",
+        "auth",
+        "authn",
+        "authentication",
+        "identity"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/jaredhanson/passport-linkedin",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jaredhanson/passport-linkedin.git",
+        "favoriteCount": 108,
+        "subscriberCount": 8,
+        "forkCount": 69,
+        "created": "2011-10-30T22:59:38.000Z",
+        "modified": "2017-09-16T18:20:40.000Z"
+      },
+      "time": {
+        "created": "2011-11-01T15:21:43.363Z",
+        "modified": "2015-09-14T23:50:19.681Z"
+      }
+    },
+    {
+      "_id": "passport-local-htpasswd",
+      "name": "passport-local-htpasswd",
+      "description": "Local username and password authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "local",
+        "auth",
+        "authn",
+        "authentication",
+        "username",
+        "password",
+        "htpasswd"
+      ],
+      "dist-tags": {
+        "latest": "0.1.1"
+      },
+      "homepage": "https://github.com/morungos/passport-local-htpasswd#readme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/morungos/passport-local-htpasswd.git",
+        "favoriteCount": 2,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2015-02-16T23:40:52.000Z",
+        "modified": "2017-07-06T14:43:44.000Z"
+      },
+      "time": {
+        "created": "2015-02-17T02:47:41.268Z",
+        "modified": "2017-07-06T14:43:34.362Z"
+      }
+    },
+    {
+      "_id": "passport-local-token",
+      "name": "passport-local-token",
+      "description": "Local token authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "local",
+        "auth",
+        "authn",
+        "authentication",
+        "token"
+      ],
+      "dist-tags": {
+        "latest": "1.0.1"
+      },
+      "homepage": "https://github.com/pferretti/passport-local-token",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/pferretti/passport-local-token.git",
+        "favoriteCount": 4,
+        "subscriberCount": 1,
+        "forkCount": 0,
+        "created": "2014-10-15T08:43:52.000Z",
+        "modified": "2014-10-18T13:49:35.000Z"
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2014-10-15T10:31:31.030Z",
+        "modified": "2017-04-28T09:12:41.747Z"
+      }
+    },
+    {
+      "_id": "passport-local",
+      "name": "passport-local",
+      "description": "Local username and password authentication strategy for Passport.",
+      "keywords": [
+        "passport",
+        "local",
+        "auth",
+        "authn",
+        "authentication",
+        "username",
+        "password"
+      ],
+      "dist-tags": {
+        "latest": "1.0.0"
+      },
+      "homepage": "https://github.com/jaredhanson/passport-local",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jaredhanson/passport-local.git",
+        "favoriteCount": 1568,
+        "subscriberCount": 52,
+        "forkCount": 430,
+        "created": "2011-10-16T17:26:25.000Z",
+        "modified": "2017-11-03T17:33:30.000Z"
+      },
+      "time": {
+        "created": "2011-10-23T22:11:05.106Z",
+        "modified": "2017-11-30T04:10:40.908Z"
+      }
+    },
+    {
       "_id": "passport-localapikey",
       "name": "passport-localapikey",
       "description": "Local api key authentication strategy for Passport.",
@@ -20,6 +399,33 @@
       "time": {
         "created": "2012-12-08T05:30:51.587Z",
         "modified": "2017-10-19T21:09:35.720Z"
+      }
+    },
+    {
+      "_id": "passport-lti",
+      "name": "passport-lti",
+      "description": "Passport-based LTI authorization",
+      "keywords": [
+        "passport",
+        "strategy",
+        "lti"
+      ],
+      "dist-tags": {
+        "latest": "0.0.7"
+      },
+      "homepage": "https://github.com/civitaslearning/passport-lti",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/civitaslearning/passport-lti.git",
+        "favoriteCount": 20,
+        "subscriberCount": 80,
+        "forkCount": 10,
+        "created": "2014-09-03T16:43:44.000Z",
+        "modified": "2016-08-12T15:50:17.000Z"
+      },
+      "time": {
+        "created": "2014-09-15T16:35:50.334Z",
+        "modified": "2016-08-12T15:18:54.187Z"
       }
     },
     {
@@ -298,366 +704,9 @@
         "created": "2013-08-23T23:38:39.934Z",
         "modified": "2013-08-23T23:38:40.956Z"
       }
-    },
-    {
-      "_id": "passport-meetup-oauth2",
-      "name": "passport-meetup-oauth2",
-      "description": "Meetup OAuth2 authentication strategy for Passport.",
-      "keywords": [
-        "meetup",
-        "passport",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/joewoodhouse/passport-meetup-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/joewoodhouse/passport-meetup-oauth2.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-04-30T11:18:13.000Z",
-        "modified": "2015-11-06T16:52:33.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-01-30T16:14:48.579Z",
-        "modified": "2015-04-30T11:32:41.598Z"
-      }
-    },
-    {
-      "_id": "passport-meetup",
-      "name": "passport-meetup",
-      "description": "Meetup authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "meetup",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-meetup",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-meetup.git",
-        "favoriteCount": 14,
-        "subscriberCount": 3,
-        "forkCount": 0,
-        "created": "2011-11-24T07:40:52.000Z",
-        "modified": "2017-09-17T20:00:41.000Z"
-      },
-      "time": {
-        "created": "2011-11-24T20:02:41.195Z",
-        "modified": "2015-09-24T01:37:44.405Z"
-      }
-    },
-    {
-      "_id": "passport-meituan",
-      "name": "passport-meituan",
-      "description": "meituan sso passport strategy",
-      "keywords": [
-        "passport",
-        "node",
-        "strategy"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-05-12T09:22:27.123Z",
-        "modified": "2014-05-12T09:22:27.123Z"
-      }
-    },
-    {
-      "_id": "passport-mentalvein",
-      "name": "passport-mentalvein",
-      "description": "OAuth2 client authentication for Mental Vein using passport.js",
-      "keywords": [
-        "mentalvein",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "http://mentalvein.com",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/mentalvein/passport.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-11-21T20:48:17.000Z",
-        "modified": "2015-02-01T09:02:44.000Z"
-      },
-      "time": {
-        "created": "2015-02-01T09:05:53.814Z",
-        "modified": "2015-02-01T09:05:53.814Z"
-      }
-    },
-    {
-      "_id": "passport-mercadolibre-2",
-      "name": "passport-mercadolibre-2",
-      "description": "MercadoLibre OAuth2 strategy for Passport.",
-      "keywords": [
-        "passport",
-        "mercadolibre",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/andreskir/passport-mercadolibre",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/andreskir/passport-mercadolibre.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 2,
-        "created": "2013-12-22T13:58:32.000Z",
-        "modified": "2016-04-09T00:14:30.000Z"
-      },
-      "license": "BSD-2-Clause",
-      "time": {
-        "created": "2014-05-13T11:57:23.754Z",
-        "modified": "2014-05-13T11:57:28.039Z"
-      }
-    },
-    {
-      "_id": "passport-mercadolibre",
-      "name": "passport-mercadolibre",
-      "description": "MercadoLibre OAuth2 strategy for Passport.",
-      "keywords": [
-        "passport",
-        "mercadolibre",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/sdurandeu/passport-mercadolibre#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/sdurandeu/passport-mercadolibre.git",
-        "favoriteCount": 1,
-        "subscriberCount": 0,
-        "forkCount": 5,
-        "created": "2013-10-30T03:06:32.000Z",
-        "modified": "2016-10-01T22:02:02.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-11-07T02:55:47.141Z",
-        "modified": "2016-10-01T21:59:02.988Z"
-      }
-    },
-    {
-      "_id": "passport-metocean",
-      "name": "passport-metocean",
-      "description": "MetOcean authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "metocean",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/metocean/passport-metocean",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/metocean/passport-metocean.git",
-        "favoriteCount": 1,
-        "subscriberCount": 20,
-        "forkCount": 0,
-        "created": "2014-04-11T03:29:36.000Z",
-        "modified": "2014-07-23T20:30:19.000Z"
-      },
-      "time": {
-        "created": "2014-06-23T20:12:19.698Z",
-        "modified": "2015-09-16T22:58:58.464Z"
-      }
-    },
-    {
-      "_id": "passport-misfit",
-      "name": "passport-misfit",
-      "description": "Misfit authentication strategy for Passport and Node.js.",
-      "keywords": [
-        "passport",
-        "misfit",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/cquartier/passport-misfit",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/cquartier/passport-misfit.git",
-        "favoriteCount": 1,
-        "subscriberCount": 0,
-        "forkCount": 0,
-        "created": "2014-11-17T20:15:19.000Z",
-        "modified": "2014-11-19T17:06:45.000Z"
-      },
-      "time": {
-        "created": "2014-11-17T23:16:11.120Z",
-        "modified": "2014-11-17T23:16:11.120Z"
-      }
-    },
-    {
-      "_id": "passport-mixcloud",
-      "name": "passport-mixcloud",
-      "description": "MixCloud OAuth2 strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/mjpearson/passport-mixcloud",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/mjpearson/passport-mixcloud.git",
-        "favoriteCount": 3,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2013-12-10T02:13:00.000Z",
-        "modified": "2013-12-15T19:19:23.000Z"
-      },
-      "time": {
-        "created": "2013-12-15T19:19:28.561Z",
-        "modified": "2013-12-15T19:19:30.806Z"
-      }
-    },
-    {
-      "_id": "passport-mixi",
-      "name": "passport-mixi",
-      "description": "Mixi authentification strategy for Passport",
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://fumito_ito@bitbucket.org/fumito_ito/passport-mixi.git"
-      },
-      "time": {
-        "created": "2012-11-20T16:14:39.179Z",
-        "modified": "2012-11-21T08:30:03.423Z"
-      }
-    },
-    {
-      "_id": "passport-mojeid",
-      "name": "passport-mojeid",
-      "description": "MojeID (OpenID) authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "mojeid",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/xmikus01/passport-mojeid",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/xmikus01/passport-mojeid.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-08-09T21:55:37.000Z",
-        "modified": "2014-08-09T22:41:36.000Z"
-      },
-      "time": {
-        "created": "2014-08-09T22:43:55.648Z",
-        "modified": "2014-08-09T22:43:55.648Z"
-      }
-    },
-    {
-      "_id": "passport-monarch",
-      "name": "passport-monarch",
-      "description": "Monarch authentication module for Express/Passport",
-      "keywords": [
-        "express",
-        "passport",
-        "module",
-        "monarch"
-      ],
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/monarchapis/passport-monarch",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/monarchapis/passport-monarch.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-07-17T18:36:49.000Z",
-        "modified": "2014-07-17T18:36:50.000Z"
-      },
-      "time": {
-        "created": "2014-07-17T18:31:54.148Z",
-        "modified": "2014-07-28T17:37:11.888Z"
-      }
-    },
-    {
-      "_id": "passport-mondo-oauth2",
-      "name": "passport-mondo-oauth2",
-      "description": "Mondo (OAuth 2.0) authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "mondo",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/timReynolds/passport-mondo-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/timReynolds/passport-mondo-oauth2.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2016-03-19T17:33:44.000Z",
-        "modified": "2016-03-19T17:47:28.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-03-19T17:35:41.948Z",
-        "modified": "2016-03-19T17:35:41.948Z"
-      }
     }
   ],
-  "total": 463,
+  "total": 489,
   "urls": {
     "next": "/packages/-/v1/all/11.json",
     "prev": "/packages/-/v1/all/9.json"
