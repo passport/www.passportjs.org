@@ -99,7 +99,7 @@ exports = module.exports = function(repoHandler, logging) {
   service.use(express.static(path.join(__dirname, '../www')));
   
   
-  service.use(require('../lib/middleware/manifest')(path.join(__dirname, '../manifest.yaml')));
+  service.use(require('../lib/middleware/loadmanifest')(path.join(__dirname, '../manifest.yaml')));
   
   // catch 404 and forward to error handler
   service.use(function(req, res, next) {
