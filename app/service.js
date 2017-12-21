@@ -8,8 +8,9 @@ exports = module.exports = function(repoHandler, logging) {
   
   var service = express();
   
-  service.set('views', path.join(__dirname, '../views'));
-  service.set('view engine', 'jade');
+  service.set('views', path.join(__dirname, '../layouts'));
+  service.set('view engine', 'pug');
+  service.locals.pretty = true;
   
   service.use(require('stylus').middleware(__dirname + '/../public/stylesheets'));
   
@@ -19,19 +20,6 @@ exports = module.exports = function(repoHandler, logging) {
   service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
   //service.use(express.static(path.join(__dirname, '../web')));
-  
-  service.use(function (req, res, next) {
-    // default locals that can be overriden in routes
-    res.locals = res.locals || {};
-    res.locals.context = res.locals.context || {};
-    res.locals.context.env = process.env.NODE_ENV;
-    res.locals.context.protocol = req.protocol;
-    res.locals.context.path = req.path;
-    res.locals.context.url = req.url;
-    res.locals.context.hostname = req.hostname;
-    res.locals.context.canonical = req.path;
-    next();
-  });
   
   service.use(redirect({
     // The following set of redirects were defined in the initial commit to this
@@ -110,6 +98,8 @@ exports = module.exports = function(repoHandler, logging) {
   
   service.use(express.static(path.join(__dirname, '../www')));
   
+  
+  service.use(require('../lib/middleware/manifest')(path.join(__dirname, '../manifest.yaml')));
   
   // catch 404 and forward to error handler
   service.use(function(req, res, next) {
