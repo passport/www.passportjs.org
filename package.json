@@ -1,7 +1,20 @@
 {
   "name": "www.passportjs.org",
   "version": "0.0.0",
+  "description": "The official website of Passport.js.",
   "private": true,
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/passport/www.passportjs.org.git"
+  },
+  "bugs": {
+    "url": "http://github.com/passport/www.passportjs.org/issues"
+  },
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "git clone -b gh-pages --depth 1 https://github.com/passport/www.passportjs.org.git www && rm -rf www/.git"
