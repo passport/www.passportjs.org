@@ -12,8 +12,6 @@ exports = module.exports = function(repoHandler, logging) {
   service.set('view engine', 'pug');
   service.locals.pretty = true;
   
-  service.use(require('stylus').middleware(__dirname + '/../public/stylesheets'));
-  
   service.use(logging());
   service.use(bodyParser.json());
   service.use(bodyParser.urlencoded({ extended: false }));
