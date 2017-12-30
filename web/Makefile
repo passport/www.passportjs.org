@@ -7,7 +7,7 @@ STYLUS ?= $(BIN)/stylus
 all: css js
 
 css: node_modules
-	$(STYLUS) styles/app.styl -o ../public/stylesheets/app.css
+	$(STYLUS) styles/app.styl -o ../www/assets/styles/all.css
 
 js: node_modules
 	$(RJS) -o build.js
