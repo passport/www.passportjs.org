@@ -8,62 +8,6 @@
 @import 'elements/button'
 @import 'layout'
 
-.social
-  text-decoration none
-  display none
-  +breakpoint("tablet")
-    display inline-block
-    float right
-    margin-top 10px
-
-  li
-    width 26px
-    height 26px
-    display inline-block
-    vertical-align middle
-    margin-right 5px
-    &:last-child
-      margin-right 62px
-      padding-left 4px
-      img
-        width 100%
-  a
-    display block
-    background url(../../images/ico_social.svg) no-repeat
-    position relative
-    height 26px
-    width 25px
-    .stat
-      display none
-      +breakpoint("tablet")
-        display block
-        background #333
-        border-radius 3px
-        position absolute
-        left 33px
-        top 2px
-        font-size 12px
-        color rgba(255,255,255,.8)
-        line-height 23px
-        height 22px
-        font-weight: bold;
-        padding 0 10px
-      &:after
-        +breakpoint("tablet")
-          width 0
-          height 0
-          border-style solid
-          border-width 3px 3px 3px 0
-          border-color transparent #333 transparent transparent
-          position absolute
-          content ""
-          left -3px
-          top 50%
-          margin-top -3px
-  .git
-    a
-      background-position -51px 0
-
 .search
   background #212121
   width 100%
