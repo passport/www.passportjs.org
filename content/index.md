@@ -1,5 +1,5 @@
 ---
-layout: "index"
+layout: "home"
 
 title: "Passport"
 description: "Simple, unobtrusive authentication for Node.js"
