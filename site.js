@@ -18,15 +18,16 @@ site.locals.site = {
 //site.engine('jade', require('jade'));
 site.engine('pug', require('pug'));
 
-site.use('/packages', require('kerouac-npm-packages')());
+//site.use('/packages', require('kerouac-npm-packages')());
 site.content('content');
 //site.content('views', { layout: 'docs' });
-site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'docs' }));
+site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
 
 site.use('/', require('kerouac-manifest')());
 site.page('/sitemap.xml', require('kerouac-sitemap')());
 site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
 site.page('/robots.txt', require('kerouac-robotstxt')());
+// TODO: .well-known/security.txt
 
 site.generate(function(err) {
   console.log('DONE!');
