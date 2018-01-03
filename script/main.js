@@ -171,8 +171,8 @@ define("controllers/base/pjax", [ "./base", "class", "jquery", "jquery.pjax" ], 
         $.pjax.state = window.history.state;
         $.pjax({
             url: url,
-            fragment: "#page-content",
-            container: "#page-content",
+            fragment: "#content",
+            container: "#content",
             push: false
         }).done(function(data) {
             self.emit("ready");
@@ -396,7 +396,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
     };
     exports.toggle = function(open) {
         $("html").toggleClass("is-menu", open);
-        $(".content, .top-site").toggleClass("blured", open);
+        $("#content, .top-site").toggleClass("blured", open);
         $(".menu-trigger").toggleClass("is-active", open).next().toggleClass("is-active", open);
     };
     $(document).ready(function() {
