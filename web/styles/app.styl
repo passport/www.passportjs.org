@@ -91,28 +91,6 @@
       margin 0 auto
       font-size: 18px;
 
-  .window
-    max-width 330px
-    margin-bottom 30px
-    box-sizing border-box
-    margin 0 auto
-    +breakpoint("tablet")
-      max-width 500px
-      margin-bottom 0
-      -webkit-transform translateY(180px)
-      transform translateY(210px)
-    +breakpoint("desktop")
-      -webkit-transform translateY(180px)
-      transform translateY(180px)
-
-    .window-content
-      +breakpoint("tablet")
-        padding-top 40px
-        padding-bottom 40px
-    p
-      margin 0
-      text-align left
-
   .strategies
     +breakpoint("tablet")
       margin-top 150px
@@ -133,6 +111,8 @@
 
   a
     color: white;
+
+@import 'components/window'
 
 .features
   text-align center
