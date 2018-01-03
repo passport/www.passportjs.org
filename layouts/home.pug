@@ -13,11 +13,8 @@ block content
         .rw-sentence
           p passport.authenticate
             span.rw-words.rw-words-1
-              span.twitter ('twitter');
-              span.facebook ('facebook');
-              span.google ('google');
-              span.linkedin ('linkedin');
-              span.github ('github');
+              each scheme in authenticationSchemes
+                span(style='color: ' + scheme.color + ';') ('#{scheme.name}');
 
     |!{content}
 

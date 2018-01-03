@@ -3,6 +3,17 @@ layout: "home"
 
 title: "Passport"
 description: "Simple, unobtrusive authentication for Node.js"
+authenticationSchemes:
+  - name: twitter
+    color: "#55acee"
+  - name: facebook
+    color: "#3b5998"
+  - name: google
+    color: "#dd4b39"
+  - name: linkedin
+    color: "#0976b4"
+  - name: github
+    color: "#333"
 packageCount: 480
 
 
