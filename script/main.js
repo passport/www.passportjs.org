@@ -196,7 +196,7 @@ define("controllers/home", [ "./base/pjax", "class" ], function(PjaxController, 
 define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], function(PjaxController, clazz, hljs, $) {
     var _submenuOffset;
     function onscroll(ev) {
-        var submenu = $(".sub-menu nav");
+        var submenu = $(".toc nav");
         var sections = $(".entry section");
         var cur_pos = $(window).scrollTop();
         submenu.toggleClass("fixed", _submenuOffset && _submenuOffset.top < $(window).scrollTop());
@@ -215,14 +215,14 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
     function DocsController() {
         PjaxController.call(this, "/docs", "/docs/downloads/html/");
         this.on("ready", function() {
-            _submenuOffset = $(".sub-menu nav").offset();
+            _submenuOffset = $(".toc nav").offset();
             $(window).on("scroll", onscroll);
             if (window.matchMedia && window.matchMedia("screen and (min-width: 992px) and (max-height: 750px)")) {
-                $(".sub-menu [data-accordion] [data-content]").css({
+                $(".toc [data-accordion] [data-content]").css({
                     "max-height": "0px",
                     overflow: "hidden"
                 });
-                $(".sub-menu [data-accordion] [data-content] .active").closest("[data-content]").css({
+                $(".toc [data-accordion] [data-content] .active").closest("[data-content]").css({
                     "max-height": "100%",
                     overflow: "visible"
                 });
