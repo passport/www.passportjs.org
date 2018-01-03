@@ -171,8 +171,8 @@ define("controllers/base/pjax", [ "./base", "class", "jquery", "jquery.pjax" ], 
         $.pjax.state = window.history.state;
         $.pjax({
             url: url,
-            fragment: "#content",
             container: "#content",
+            fragment: "#content",
             push: false
         }).done(function(data) {
             self.emit("ready");
@@ -259,8 +259,8 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
         var self = this;
         $.pjax({
             url: this.canonicalPath,
-            fragment: ".guides",
-            container: ".guides",
+            container: ".chapter",
+            fragment: ".chapter",
             push: false
         }).done(function(data) {
             hljs.configure({

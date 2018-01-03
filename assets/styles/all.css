@@ -3868,7 +3868,7 @@ ul li {
     display: none;
   }
 }
-.guides {
+.chapter {
   max-width: 840px;
   width: 100%;
   padding: 0 20px;
@@ -3877,17 +3877,17 @@ ul li {
   box-sizing: border-box;
 }
 @media (min-width: 768px) {
-  .guides {
+  .chapter {
     float: left;
   }
 }
 @media (min-width: 992px) {
-  .guides {
+  .chapter {
     margin: 0;
     width: 70%;
   }
 }
-.guides h1 {
+.chapter h1 {
   font-size: 30px;
   color: #01b7ee;
   line-height: 1;
@@ -3895,13 +3895,13 @@ ul li {
   padding: 0;
 }
 @media (min-width: 768px) {
-  .guides h1 {
+  .chapter h1 {
     font-size: 40px;
     font-weight: 400;
     margin-bottom: 30px;
   }
 }
-.guides h2 {
+.chapter h2 {
   font-size: 22px;
   color: #fff;
   font-weight: 100;
@@ -3909,37 +3909,37 @@ ul li {
   margin: 0 0 27px 0;
 }
 @media (min-width: 992px) {
-  .guides h2 {
+  .chapter h2 {
     font-size: 26px;
     margin: 50px 0 30px;
   }
 }
-.guides h4 {
+.chapter h4 {
   color: #fff;
 }
-.guides p {
+.chapter p {
   line-height: 30px;
   margin-bottom: 30px;
 }
-.guides .pic {
+.chapter .pic {
   margin: 0 -17px;
   text-align: center;
 }
 @media (min-width: 768px) {
-  .guides .pic {
+  .chapter .pic {
     margin: 0;
   }
 }
-.guides .pic img {
+.chapter .pic img {
   max-width: 100%;
 }
 @media (min-width: 768px) {
-  .guides .pic img {
+  .chapter .pic img {
     display: none;
     max-width: 100%;
   }
 }
-.guides > section {
+.chapter > section {
   margin-bottom: 80px;
 }
 .sub-menu {
