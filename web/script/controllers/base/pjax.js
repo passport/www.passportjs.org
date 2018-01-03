@@ -21,7 +21,7 @@ function(Controller, clazz, $, __$_pjax) {
     //      wreaking havoc with page's popstate handler.
     $.pjax.state = window.history.state;
     
-    $.pjax({ url: url, fragment: '#page-content', container: '#page-content', push: false })
+    $.pjax({ url: url, fragment: '#content', container: '#content', push: false })
       .done(function(data) {
         self.emit('ready');
       });
