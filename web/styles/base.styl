@@ -35,6 +35,38 @@ body
     -moz-osx-font-smoothing: grayscale;
     color: white;
 
+
+
+
+/* Typography
+   -------------------------------------------------------------------------- */
+
+h1
+  margin: 0
+  padding: 0
+  font-size: 30px
+  line-height: 1
+  color: blue
+  +breakpoint("tablet")
+    margin-bottom: 30px
+    font-size: 40px
+    font-weight: 400
+
+h2
+  margin: 0 0 27px 0
+  font-size: 22px
+  font-weight: 100
+  line-height: 1.4
+  color: white
+  +breakpoint("desktop")
+    font-size: 26px
+    margin: 50px 0 30px
+
+h4
+  color: white
+
+
+
 input, textarea, select, button
   outline none
   font-family 'Avenir', Arial, sans-serif
