@@ -2990,6 +2990,36 @@ body.pjax-loading #content {
     color: #fff;
   }
 }
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  line-height: 1;
+  color: #01b7ee;
+}
+@media (min-width: 768px) {
+  h1 {
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 400;
+  }
+}
+h2 {
+  margin: 0 0 27px 0;
+  font-size: 22px;
+  font-weight: 100;
+  line-height: 1.4;
+  color: #fff;
+}
+@media (min-width: 992px) {
+  h2 {
+    font-size: 26px;
+    margin: 50px 0 30px;
+  }
+}
+h4 {
+  color: #fff;
+}
 input,
 textarea,
 select,
@@ -3886,36 +3916,6 @@ ul li {
     margin: 0;
     width: 70%;
   }
-}
-.chapter h1 {
-  font-size: 30px;
-  color: #01b7ee;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-}
-@media (min-width: 768px) {
-  .chapter h1 {
-    font-size: 40px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-}
-.chapter h2 {
-  font-size: 22px;
-  color: #fff;
-  font-weight: 100;
-  line-height: 1.4;
-  margin: 0 0 27px 0;
-}
-@media (min-width: 992px) {
-  .chapter h2 {
-    font-size: 26px;
-    margin: 50px 0 30px;
-  }
-}
-.chapter h4 {
-  color: #fff;
 }
 .chapter p {
   line-height: 30px;
