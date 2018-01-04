@@ -4,10 +4,11 @@ include mixins
 include mixins/app
 
 block content
-  .entry
-
-    a.go-top(href='#top')
-      i.icon-budicon-462
-
-    .guides
+  .package
+    .readme
       |!{ readme }
+    .metadata
+      .vcard
+        a(class='url', href=author.url)
+          img(src=author.photo)
+          span.nickname #{author.username}
