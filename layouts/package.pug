@@ -1,14 +1,43 @@
+//-
+  Package layout
+  
+  This layout is used when rendering a package.  The rendered page contains the
+  package's metadata and README.
+  
+  The HTML produced by this layout conform to the [hProduct](http://microformats.org/wiki/hproduct)
+  microformat.
+  
+  The contents of the README are selectable using a `.description` class selector.
+  
+  The author of the package is selectable using a `.author` class selector, and
+  the contents of that element conform to [hCard](http://microformats.org/wiki/hcard).
+  Note that `.author` is not formally specified as part of the hProduct
+  microformat, but its use here was borrowed from [hAtom](http://microformats.org/wiki/hatom).
+  
+  Additional software-related metadata conform to the [downloads](http://microformats.org/wiki/downloads)
+  microformat, which, while still exploratory, is comprehensive and usable.  The
+  latest version information is selectable using `.version` and `.updated` class
+  selectors.
+//-
+
 extends layout
 
 include mixins
 include mixins/app
 
 block content
-  .package
-    .readme
+  div#package.hproduct
+    .description
       |!{ readme }
     .metadata
-      .vcard
+      .vcard.author.p-author
         a(class='url', href=author.url)
-          img(src=author.photo)
+          img(class='photo', src=author.photo)
           span.nickname #{author.username}
+      div
+        p
+          span.version #{version}
+          | #{' '}published#{' '}
+          abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
+      div
+        a(class='url', href=repository.url) #{repository.url}
