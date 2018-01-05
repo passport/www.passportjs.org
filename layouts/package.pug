@@ -18,6 +18,12 @@
   microformat, which, while still exploratory, is comprehensive and usable.  The
   latest version information is selectable using `.version` and `.updated` class
   selectors.
+  
+  License information is indicating using [rel=license](http://microformats.org/wiki/rel-license).
+  Note that the license information in this situation is indicating the license
+  of the _package_ only, and not the page itself.  This ambiguity is a known
+  [issue](http://microformats.org/wiki/rel-license-issues), but its impact is
+  not considered severe enough to warrant an alternative.
 //-
 
 extends layout
@@ -43,4 +49,4 @@ block content
         li
           a(class='url', href=repository.url) #{homepage}
         li
-          a(class='licence', href=license.url) #{license.name}
+          a(rel='licence', href=license.url) #{license.name}
