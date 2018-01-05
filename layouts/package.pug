@@ -30,14 +30,17 @@ block content
     .description
       |!{ readme }
     .metadata
-      .vcard.author.p-author
-        a(class='url', href=author.url)
-          img(class='photo', src=author.photo)
-          span.nickname #{author.username}
-      div
-        p
-          span.version #{version}
-          | #{' '}published#{' '}
-          abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
-      div
-        a(class='url', href=repository.url) #{repository.url}
+      ul
+        li.vcard.author.p-author
+          a(class='url', href=author.url)
+            img(class='photo', src=author.photo)
+            span.nickname #{author.username}
+        li
+          p
+            span.version #{version}
+            | #{' '}published#{' '}
+            abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
+        li
+          a(class='url', href=repository.url) #{homepage}
+        li
+          a(class='licence', href=license.url) #{license.name}
