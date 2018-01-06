@@ -3269,14 +3269,14 @@ body.is-loading #content {
 }
 @media (min-width: 768px) {
   #menu {
-    width: 260px;
-    background: #000;
-    border-right: 1px solid #222;
-    height: 100%;
-    text-align: center;
     position: fixed;
     top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
     z-index: 10;
+    border-right: 1px solid #222;
+    text-align: center;
   }
 }
 @media (min-width: 992px) {
