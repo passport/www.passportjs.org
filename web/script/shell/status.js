@@ -13,14 +13,14 @@ define(['exports', 'jquery', 'jquery.pjax'], function(exports, $, __$_pjax) {
     // and remove pjax-loading flag
     if (!flag) {
       clearTimeout(_tid); _tid = 0;
-      $('body').toggleClass('pjax-loading', false);
+      $('body').toggleClass('is-loading', false);
       return;
     }
     
     // save timeout timer and await to add
     // pjax-loading flag
     _tid = setTimeout(function () {
-      $('body').toggleClass('pjax-loading', true);
+      $('body').toggleClass('is-loading', true);
     }, 300);
   };
   
