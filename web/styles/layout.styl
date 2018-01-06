@@ -179,6 +179,16 @@
   +breakpoint('tablet')
     display: block;
 
+
+/**
+ * Menu.
+ *
+ * Example HTML:
+ *
+ * <nav id="menu">
+ * </nav>
+ */
+
 #menu
   height 100px
   +breakpoint("tablet")
@@ -232,26 +242,6 @@
         &:after
           -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
-
-  .design
-    display none
-    +breakpoint("tablet")
-      display block
-      position absolute
-      bottom 35px
-      left 0
-      width 260px
-      font-size 14px
-      color white
-      line-height 16px
-    +breakpoint("desktop")
-      width 350px
-    a
-      color white
-      img
-        margin-left 5px
-        display inline-block
-        vertical-align middle
 
   .supported
     display none
