@@ -3333,34 +3333,6 @@ body.is-loading #content {
   -webkit-transform: translate(0, -7px) rotate(45deg);
   transform: translate(0, -7px) rotate(45deg);
 }
-#menu .design {
-  display: none;
-}
-@media (min-width: 768px) {
-  #menu .design {
-    display: block;
-    position: absolute;
-    bottom: 35px;
-    left: 0;
-    width: 260px;
-    font-size: 14px;
-    color: #fff;
-    line-height: 16px;
-  }
-}
-@media (min-width: 992px) {
-  #menu .design {
-    width: 350px;
-  }
-}
-#menu .design a {
-  color: #fff;
-}
-#menu .design a img {
-  margin-left: 5px;
-  display: inline-block;
-  vertical-align: middle;
-}
 #menu .supported {
   display: none;
 }
