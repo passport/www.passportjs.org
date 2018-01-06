@@ -36,17 +36,31 @@ block content
     .description
       |!{ readme }
     .metadata
+      div.install
+        code npm install#{' '}
+          span.fn #{name}
+        
       ul
         li.vcard.author.p-author
           a(class='url', href=author.url)
             img(class='photo', src=author.photo)
             span.nickname #{author.username}
         li
-          p
-            span.version #{version}
-            | #{' '}published#{' '}
-            abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
+          span.version #{version}
+          | #{' '}published#{' '}
+          abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
         li
           a(class='url', href=repository.url) #{homepage}
         li
           a(rel='licence', href=license.url) #{license.name}
+
+      ul
+        li
+          b #{downloads['last-day'].toLocaleString()}
+          | #{' '}downloads in the last day
+        li
+          b #{downloads['last-week'].toLocaleString()}
+          | #{' '}downloads in the last week
+        li
+          b #{downloads['last-month'].toLocaleString()}
+          | #{' '}downloads in the last month
