@@ -444,11 +444,11 @@ define("shell/status", [ "exports", "jquery", "jquery.pjax" ], function(exports,
         if (!flag) {
             clearTimeout(_tid);
             _tid = 0;
-            $("body").toggleClass("pjax-loading", false);
+            $("body").toggleClass("is-loading", false);
             return;
         }
         _tid = setTimeout(function() {
-            $("body").toggleClass("pjax-loading", true);
+            $("body").toggleClass("is-loading", true);
         }, 300);
     };
     $(document).ready(function() {

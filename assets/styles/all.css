@@ -2980,9 +2980,6 @@ body {
     font-size: 16px;
   }
 }
-body.pjax-loading #content {
-  opacity: 0.3;
-}
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   body {
     color: #fff;
@@ -3045,6 +3042,9 @@ ul {
 }
 ul li {
   list-style: none;
+}
+body.is-loading #content {
+  opacity: 0.3;
 }
 .btn {
   text-transform: uppercase;
