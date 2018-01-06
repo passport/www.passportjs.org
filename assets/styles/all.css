@@ -2967,13 +2967,13 @@ html {
   height: 100%;
 }
 body {
-  -webkit-text-size-adjust: none;
-  font: 16px/30px 'Avenir', Arial, sans-serif;
-  font-weight: 200;
-  color: rgba(255,255,255,0.8);
-  background: #000;
   height: 100%;
   margin: 0;
+  color: rgba(255,255,255,0.8);
+  background: #000;
+  font: 16px/30px 'Avenir', Arial, sans-serif;
+  font-weight: 200;
+  -webkit-text-size-adjust: none;
 }
 @media (min-width: 768px) {
   body {
@@ -2985,9 +2985,9 @@ body.pjax-loading #content {
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   body {
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #fff;
   }
 }
 h1 {
