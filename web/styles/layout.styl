@@ -183,6 +183,13 @@
 /**
  * Menu.
  *
+ * 1. Set the height to 100 pixels, in accordance with mobile-first responsive
+ *    design.
+ * 2. On tablet devices, fix the position to the top left of the viewport, with
+ *    a width of 260 pixels and full height.
+ * 3. On desktop devices, expand the width to 350 pixels, maintaining the same
+ *    positioning as tablet devices.
+ *
  * Example HTML:
  *
  * <nav id="menu">
@@ -190,20 +197,19 @@
  */
 
 #menu
-  height 100px
+  height: 100px // [1]
   +breakpoint("tablet")
-    width 260px
-    background black
-    border-right 1px solid #222
-    height 100%
-    text-align center
-    position fixed
-    top 0
-    z-index 10
+    position: fixed // [2]
+    top: 0
+    left: 0
+    width: 260px
+    height: 100%
+    z-index: 10
+    border-right: 1px solid #222
+    text-align: center
   +breakpoint("desktop")
-    width 350px
-
-    @media screen and ( max-height: 750px )
+    width: 350px // [3]
+    @media screen and (max-height: 750px)
       overflow-y scroll
 
   .menu-trigger
