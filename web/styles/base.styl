@@ -16,13 +16,13 @@ html
   height: 100%
 
 body
-  -webkit-text-size-adjust none
-  font 16px/30px 'Avenir', Arial, sans-serif
-  font-weight 200
-  color rgba(255,255,255,.8)
-  background #000
-  height 100%
-  margin 0
+  height: 100%
+  margin: 0
+  color: rgba(255,255,255,.8)
+  background: #000
+  font: 16px/30px 'Avenir', Arial, sans-serif
+  font-weight: 200
+  -webkit-text-size-adjust: none
   +breakpoint("tablet")
     font-size 16px
 
@@ -31,9 +31,9 @@ body
       opacity .3
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: white;
+    color: white
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
 
 
 
