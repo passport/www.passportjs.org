@@ -3836,7 +3836,7 @@ body.is-loading #content {
 .features .hide {
   opacity: 0;
 }
-.entry .go-top {
+.go-top {
   background-color: rgba(255,255,255,0.3);
   width: 50px;
   height: 50px;
@@ -3850,12 +3850,12 @@ body.is-loading #content {
   line-height: 1.9;
   display: none;
 }
-.entry .go-top.fixed {
+.go-top.fixed {
   display: block;
   z-index: 99;
 }
 @media (min-width: 992px) {
-  .entry .go-top.fixed {
+  .go-top.fixed {
     display: none;
   }
 }
