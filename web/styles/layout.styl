@@ -182,7 +182,6 @@
   +breakpoint('tablet')
     display: block;
 
-
 /**
  * Menu.
  *
@@ -367,3 +366,25 @@
       bottom 40px
       li
         margin 0 5px 0
+
+/**
+ * Content.
+ *
+ * 1. On tablet devices, apply 260 pixels of padding to the left, to account for
+ *    the fixed positioned menu, which has a 260 pixel width.
+ * 2. On desktop devices, increase the padding to 350 pixels, to account for the
+ *    expanded width of the menu.
+ */
+#content
+  clearfix()
+  +breakpoint("tablet")
+    position: relative
+    padding-left: 260px // [1]
+  +breakpoint("desktop")
+    padding-left: 350px // [2]
+
+  .supported
+    display block
+    margin-top 40px
+    +breakpoint("tablet")
+      display none
