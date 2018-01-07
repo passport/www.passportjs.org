@@ -3476,6 +3476,7 @@ body.is-loading #content {
 }
 #content {
   *zoom: 1;
+  margin-top: 120px;
 }
 #content:after {
   clear: both;
@@ -3489,6 +3490,7 @@ body.is-loading #content {
   #content {
     position: relative;
     padding-left: 260px;
+    margin-top: 60px;
   }
 }
 @media (min-width: 992px) {
@@ -3538,14 +3540,9 @@ body.is-loading #content {
   max-width: 840px;
   width: 100%;
   text-align: center;
-  margin: 120px auto 0;
+  margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
-}
-@media (min-width: 768px) {
-  .home {
-    margin-top: 60px;
-  }
 }
 .home h1 {
   font-size: 50px;
@@ -3702,17 +3699,10 @@ body.is-loading #content {
 }
 .features {
   text-align: center;
-  margin-top: 120px;
-  overflow: hidden;
+  margin: 0 auto;
   padding: 0 20px;
+  overflow: hidden;
   max-width: 890px;
-  margin: auto;
-  margin-top: 120px;
-}
-@media (min-width: 992px) {
-  .features {
-    margin-top: 80px;
-  }
 }
 .features h1 {
   font-size: 30px;
@@ -3846,11 +3836,6 @@ body.is-loading #content {
 .features .hide {
   opacity: 0;
 }
-@media (min-width: 992px) {
-  .entry {
-    margin-top: 80px;
-  }
-}
 .entry .go-top {
   background-color: rgba(255,255,255,0.3);
   width: 50px;
@@ -3878,7 +3863,6 @@ body.is-loading #content {
   max-width: 840px;
   width: 100%;
   padding: 0 20px;
-  margin: 20px 0 0;
   position: relative;
   box-sizing: border-box;
 }
