@@ -93,7 +93,7 @@ function(PjaxController, clazz, hljs, $) {
     $.pjax.state = window.history.state;
     
     var self = this;
-    $.pjax({ url: this.canonicalPath, container: '.chapter', fragment: '.chapter', push: false })
+    $.pjax({ url: this.canonicalPath, container: '.contents', fragment: '.contents', push: false })
       .done(function(data) {
         hljs.configure({ classPrefix: '' });
         $('pre code').each(function(i, block) {
