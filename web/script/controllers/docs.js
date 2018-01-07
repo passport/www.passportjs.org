@@ -10,7 +10,7 @@ function(PjaxController, clazz, hljs, $) {
   function onscroll(ev) {
     // toggle active section
     var submenu = $('.toc nav');
-    var sections = $('.entry section');
+    var sections = $('.contents section');
     var cur_pos = $(window).scrollTop();
 
     // toggleFixedNavigation
