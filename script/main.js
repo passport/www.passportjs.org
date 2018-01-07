@@ -259,8 +259,8 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
         var self = this;
         $.pjax({
             url: this.canonicalPath,
-            container: ".chapter",
-            fragment: ".chapter",
+            container: ".contents",
+            fragment: ".contents",
             push: false
         }).done(function(data) {
             hljs.configure({

@@ -124,7 +124,8 @@
               </div>
             </nav>
           </div><a class="go-top" href="#top"><i class="icon-budicon-462"></i></a>
-          <div class="chapter"><h1 id="log-out">Log Out</h1>
+          <div class="contents">
+            <section class="chapter"><h1 id="log-out">Log Out</h1>
 <p>Passport exposes a <code>logout()</code> function on <code>req</code> (also aliased as <code>logOut()</code>)
 that can be called from any route handler which needs to terminate a login
 session.  Invoking <code>logout()</code> will remove the <code>req.user</code> property and clear the
@@ -134,7 +135,8 @@ login session (if any).</p>
   res.redirect(<span class="string">'/'</span>);
 });
 </code></pre>
-</div>
+</section>
+          </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
       </div>
     </div>

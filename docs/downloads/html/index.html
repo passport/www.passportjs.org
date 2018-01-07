@@ -124,7 +124,7 @@
               </div>
             </nav>
           </div><a class="go-top" href="#top"><i class="icon-budicon-462"></i></a>
-          <div class="chapter"><section id="README"><h1 id="overview">Overview</h1>
+          <div class="contents"><section class="chapter" id="README"><h1 id="overview">Overview</h1>
 <p>Passport is authentication middleware for <a href="http://nodejs.org/">Node</a>.  It is
 designed to serve a singular purpose: authenticate requests.  When writing
 modules, encapsulation is a virtue, so Passport delegates all other
@@ -149,7 +149,7 @@ complicated.</p>
 <h2 id="install">Install</h2>
 <pre><code class="lang-bash">$ npm install passport
 </code></pre>
-</section><section id="authenticate"><h1 id="authenticate">Authenticate</h1>
+</section><section class="chapter" id="authenticate"><h1 id="authenticate">Authenticate</h1>
 <p>Authenticating requests is as simple as calling <code>passport.authenticate()</code> and
 specifying which strategy to employ.  <code>authenticate()</code>&#39;s function signature is
 standard <a href="http://www.senchalabs.org/connect/">Connect</a> middleware, which makes it
@@ -241,7 +241,7 @@ containing additional details provided by the strategy&#39;s verify callback.</p
 as desired.  Note that when using a custom callback, it becomes the
 application&#39;s responsibility to establish a session (by calling <code>req.login()</code>)
 and send a response.</p>
-</section><section id="configure"><h1 id="configure">Configure</h1>
+</section><section class="chapter" id="configure"><h1 id="configure">Configure</h1>
 <p>Three pieces need to be configured to use Passport for authentication:</p>
 <ol>
 <li>Authentication strategies</li>
@@ -366,7 +366,7 @@ received, this ID is used to find the user, which will be restored to
 <p>The serialization and deserialization logic is supplied by the application,
 allowing the application to choose an appropriate database and/or object mapper,
 without imposition by the authentication layer.</p>
-</section><section id="username-password"><h1 id="username-password">Username &amp; Password</h1>
+</section><section class="chapter" id="username-password"><h1 id="username-password">Username &amp; Password</h1>
 <p>The most widely used way for websites to authenticate users is via a username
 and password.  Support for this mechanism is provided by the <a href="https://github.com/jaredhanson/passport-local">passport-local</a>
 module.</p>
@@ -435,7 +435,7 @@ differently, options are available to change the defaults.</p>
     <span class="comment">// ...</span>
   }
 ));
-</code></pre></section><section id="openid"><h1 id="openid">OpenID</h1>
+</code></pre></section><section class="chapter" id="openid"><h1 id="openid">OpenID</h1>
 <p><a href="http://openid.net/">OpenID</a> is an open standard for federated authentication.
 When visiting a website, users present their OpenID to sign in.  The user then
 authenticates with their chosen OpenID provider, which issues an assertion to
@@ -517,7 +517,7 @@ option to <code>true</code>.</p>
 accepts an additional <code>profile</code> argument containing user profile information
 provided by the OpenID provider; refer to <a href="/guide/profile/">User Profile</a> for
 further information.</p>
-</section><section id="oauth"><h1 id="oauth">OAuth</h1>
+</section><section class="chapter" id="oauth"><h1 id="oauth">OAuth</h1>
 <p><a href="http://oauth.net/">OAuth</a> is a standard protocol that allows users to authorize
 API access to web and desktop or mobile applications.  Once access has been
 granted, the authorized application can utilize the API on behalf of the user.
@@ -668,7 +668,7 @@ documentation for details regarding supported scopes.</p>
 authentication process when clicked.</p>
 <pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/provider"</span>&gt;</span>Log In with OAuth 2.0 Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
-</section><section id="profile"><h1 id="user-profile">User Profile</h1>
+</section><section class="chapter" id="profile"><h1 id="user-profile">User Profile</h1>
 <p>When authenticating using a third-party service such as Facebook or Twitter,
 user profile information will often be available.  Each service tends to have
 a different way of encoding this information.  To make integration easier,
@@ -715,7 +715,7 @@ fields available are outlined in the following table.</p>
 <p>Note that not all of the above fields are available from every service provider.
 Some providers may contain additional information not described here.  Consult
 the provider-specific documentation for further details.</p>
-</section><section id="facebook"><h1 id="facebook">Facebook</h1>
+</section><section class="chapter" id="facebook"><h1 id="facebook">Facebook</h1>
 <p>The Facebook strategy allows users to log in to a web application using their
 Facebook account.  Internally, Facebook authentication works using OAuth 2.0.</p>
 <p>Support for Facebook is implemented by the <a href="https://github.com/jaredhanson/passport-facebook">passport-facebook</a>
@@ -787,7 +787,7 @@ the <code>scope</code> option.</p>
 Facebook.</p>
 <pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/facebook"</span>&gt;</span>Login with Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
-</section><section id="twitter"><h1 id="twitter">Twitter</h1>
+</section><section class="chapter" id="twitter"><h1 id="twitter">Twitter</h1>
 <p>The Twitter strategy allows users to sign in to a web application using their
 Twitter account.  Internally, Twitter authentication works using OAuth 1.0a.</p>
 <p>Support for Twitter is implemented by the <a href="https://github.com/jaredhanson/passport-twitter">passport-twitter</a>
@@ -845,7 +845,7 @@ specified when configuring the strategy.</p>
 Twitter.</p>
 <pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/twitter"</span>&gt;</span>Sign in with Twitter<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
-</section><section id="google"><h1 id="google">Google</h1>
+</section><section class="chapter" id="google"><h1 id="google">Google</h1>
 <p>The Google strategy allows users to sign in to a web application using their
 Google account.  Google <a href="https://developers.google.com/identity/protocols/OpenID2Migration#shutdown-timetable">used to support OpenID internally</a>, but it now works based on <a href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</a> and supports oAuth 1.0 and oAuth 2.0.</p>
 <p>Support for Google is implemented by the <a href="https://github.com/jaredhanson/passport-google-oauth">passport-google-oauth</a>
@@ -946,7 +946,7 @@ app.get(<span class="string">'/auth/google/callback'</span>,
 Google.</p>
 <pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/google"</span>&gt;</span>Sign In with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
-</section><section id="basic-digest"><h1 id="basic-digest">Basic &amp; Digest</h1>
+</section><section class="chapter" id="basic-digest"><h1 id="basic-digest">Basic &amp; Digest</h1>
 <p>Along with defining HTTP&#39;s authentication framework, <a href="http://tools.ietf.org/html/rfc2617">RFC 2617</a>
 also defined the Basic and Digest authentications schemes.  These two schemes
 both use usernames and passwords as credentials to authenticate users, and are
@@ -1022,7 +1022,7 @@ checked to avoid replay attacks.</p>
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
-</section><section id="oauth-api"><h1 id="oauth">OAuth</h1>
+</section><section class="chapter" id="oauth-api"><h1 id="oauth">OAuth</h1>
 <p><a href="http://oauth.net/">OAuth</a> (formally specified by <a href="http://tools.ietf.org/html/rfc5849">RFC 5849</a>)
 provides a means for users to grant third-party applications access to their
 data without exposing their password to those applications.</p>
@@ -1108,7 +1108,7 @@ attacks by checking the timestamp and nonce used in the request.</p>
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
-</section><section id="oauth2-api"><h1 id="oauth-2-0">OAuth 2.0</h1>
+</section><section class="chapter" id="oauth2-api"><h1 id="oauth-2-0">OAuth 2.0</h1>
 <p>OAuth 2.0 (formally specified by <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>)
 provides an authorization framework which allows users to authorize access to
 third-party applications.  When authorized, the application is issued a token to
@@ -1179,7 +1179,7 @@ token, and can be used when making access control checks.</p>
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
-</section><section id="other-api"><h1 id="api-schemes">API Schemes</h1>
+</section><section class="chapter" id="other-api"><h1 id="api-schemes">API Schemes</h1>
 <p>The following is a list of strategies that implement authentication schemes used
 when protecting API endpoints.</p>
 <table class="table table-condensed table-striped">
@@ -1248,7 +1248,7 @@ when protecting API endpoints.</p>
     </tr>
   </tbody>
 </table>
-</section><section id="login"><h1 id="log-in">Log In</h1>
+</section><section class="chapter" id="login"><h1 id="log-in">Log In</h1>
 <p>Passport exposes a <code>login()</code> function on <code>req</code> (also aliased as <code>logIn()</code>) that
 can be used to establish a login session.</p>
 <pre><code class="lang-javascript">req.login(user, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
@@ -1260,7 +1260,7 @@ can be used to establish a login session.</p>
 <p>Note: <code>passport.authenticate()</code> middleware invokes <code>req.login()</code> automatically.
 This function is primarily used when users sign up, during which <code>req.login()</code>
 can be invoked to automatically log in the newly registered user.</p>
-</section><section id="logout"><h1 id="log-out">Log Out</h1>
+</section><section class="chapter" id="logout"><h1 id="log-out">Log Out</h1>
 <p>Passport exposes a <code>logout()</code> function on <code>req</code> (also aliased as <code>logOut()</code>)
 that can be called from any route handler which needs to terminate a login
 session.  Invoking <code>logout()</code> will remove the <code>req.user</code> property and clear the
@@ -1270,7 +1270,7 @@ login session (if any).</p>
   res.redirect(<span class="string">'/'</span>);
 });
 </code></pre>
-</section><section id="authorize"><h1 id="authorize">Authorize</h1>
+</section><section class="chapter" id="authorize"><h1 id="authorize">Authorize</h1>
 <p>An application may need to incorporate information from multiple third-party
 services.  In this case, the application will request the user to &quot;connect&quot;, for
 example, both their Facebook and Twitter accounts.</p>

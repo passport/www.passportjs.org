@@ -3859,7 +3859,7 @@ body.is-loading #content {
     display: none;
   }
 }
-.chapter {
+.contents {
   max-width: 840px;
   width: 100%;
   padding: 0 20px;
@@ -3867,17 +3867,17 @@ body.is-loading #content {
   box-sizing: border-box;
 }
 @media (min-width: 768px) {
-  .chapter {
+  .contents {
     float: left;
   }
 }
 @media (min-width: 992px) {
-  .chapter {
+  .contents {
     margin: 0;
     width: 70%;
   }
 }
-.chapter > section {
+.contents > section {
   margin-bottom: 80px;
 }
 .toc {

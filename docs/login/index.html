@@ -124,7 +124,8 @@
               </div>
             </nav>
           </div><a class="go-top" href="#top"><i class="icon-budicon-462"></i></a>
-          <div class="chapter"><h1 id="log-in">Log In</h1>
+          <div class="contents">
+            <section class="chapter"><h1 id="log-in">Log In</h1>
 <p>Passport exposes a <code>login()</code> function on <code>req</code> (also aliased as <code>logIn()</code>) that
 can be used to establish a login session.</p>
 <pre><code class="lang-javascript">req.login(user, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
@@ -136,7 +137,8 @@ can be used to establish a login session.</p>
 <p>Note: <code>passport.authenticate()</code> middleware invokes <code>req.login()</code> automatically.
 This function is primarily used when users sign up, during which <code>req.login()</code>
 can be invoked to automatically log in the newly registered user.</p>
-</div>
+</section>
+          </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
       </div>
     </div>
