@@ -197,7 +197,7 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery" ], fu
     var _submenuOffset;
     function onscroll(ev) {
         var submenu = $(".toc nav");
-        var sections = $(".entry section");
+        var sections = $(".contents section");
         var cur_pos = $(window).scrollTop();
         submenu.toggleClass("fixed", _submenuOffset && _submenuOffset.top < $(window).scrollTop());
         sections.each(function() {
