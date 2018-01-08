@@ -29,7 +29,7 @@ function(exports, menu, search, status, page, $) {
     _controllers.push(controller)
     
     controller.once('ready', function() {
-      _gotopOffset = $('.go-top').offset();
+      _gotopOffset = $('#go-top').offset();
       
       menu.active(this.basePath);
       cb();
@@ -82,11 +82,11 @@ function(exports, menu, search, status, page, $) {
   
   
   $(document).ready(function() {
-    _gotopOffset = $('.go-top').offset();
+    _gotopOffset = $('#go-top').offset();
     
     $(window).on('scroll', function (ev) {
       // toggleFixedNavigation
-      $('.go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
+      $('#go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
     });
     
     $(document).on('click', 'a[href="#top"]', function(ev) {

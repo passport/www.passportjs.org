@@ -394,3 +394,23 @@
     margin-top 40px
     +breakpoint("tablet")
       display none
+
+.go-top
+  background-color rgba(white,.3)
+  width 50px
+  height 50px
+  position fixed
+  right 10px
+  bottom 10px
+  border-radius 50%
+  text-align center
+  color white
+  font-size 30px
+  line-height 1.9
+  display none
+
+  &.fixed
+    display block
+    z-index 99
+    +breakpoint("desktop")
+      display none
