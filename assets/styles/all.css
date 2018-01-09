@@ -3530,6 +3530,27 @@ body.is-loading #content {
     display: none;
   }
 }
+#package {
+  margin: 0 auto;
+}
+#package .description {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #package .description {
+    float: left;
+    width: 70%;
+  }
+}
+#package .metadata {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #package .metadata {
+    float: left;
+    width: 25%;
+  }
+}
 .rw-wrapper {
   position: relative;
 }
@@ -4005,6 +4026,37 @@ body.is-loading #content {
     -webkit-transition: none !important;
     transition: none !important;
   }
+}
+.package .description {
+  padding: 0 20px;
+}
+.package .metadata abbr {
+  text-decoration: none;
+}
+.package .metadata code {
+  font-family: Menlo, Courier New;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.package .metadata ul {
+  margin: 30px auto;
+}
+.package .metadata li {
+  overflow: hidden;
+  border-bottom: 1px solid #444;
+  line-height: 2.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.package .metadata li:last-child {
+  border-bottom: none;
+}
+.package .metadata .version {
+  font-weight: bold;
+}
+.package .metadata .install {
+  padding-left: 22px;
+  background: url("../../images/ico_download.svg") no-repeat 0 -22px;
 }
 .desktop-only {
   display: none !important;
