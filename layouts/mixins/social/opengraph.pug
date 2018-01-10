@@ -1,8 +1,23 @@
-mixin opengraph_metadata(title, description, author, url, manifest)
-  meta(property='og:type', content='website')
-  meta(property='og:url', content=url)
+//-
+  Open Graph protocol
+  
+  References:
+    [The Open Graph protocol](http://ogp.me/)
+//-
+mixin opengraph_metadata(title, description, images, author, type, url, manifest)
+  if type
+    meta(property='og:type', content=type)
+  else
+    meta(property='og:type', content='website')
   meta(property='og:title', content=title)
-  //- og:image is required, default to something in manifest?
   if description
     meta(property='og:description', content=description)
+  meta(property='og:url', content=url)
+  if !images
+    each image in manifest.covers
+      if image.domain == 'facebook.com'
+        meta(property='og:image', content=settings['base url'] + image.src)
+        meta(property='og:image:type', content=image.type)
+        meta(property='og:image:width', content=image.sizes[0].split('x')[0])
+        meta(property='og:image:height', content=image.sizes[0].split('x')[1])
   meta(property='og:site_name', content=manifest.name)
