@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-uwshib</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport authentication strategy for University of Washington's Shibboleth service">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-uwshib/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-uwshib"/>
+    <meta property="og:description" content="Passport authentication strategy for University of Washington's Shibboleth service"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-uwshib/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-uwshib"/>
+    <meta name="twitter:description" content="Passport authentication strategy for University of Washington's Shibboleth service"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-uwshib">Passport-UWShib</h1>
+<p>Passport authentication strategy that works with the University of Washington&#39;s Shibboleth single-sign on service. This uses the fabulous <a href="https://github.com/bergie/passport-saml">passport-saml</a> module for all the heavy lifting, but sets all the default options so that it works properly with the UW Shibboleth Identity Provider (IdP).</p>
+<p>Note that in order to use the UW IdP for authentication, <strong>you must <a href="https://iam-tools.u.washington.edu/spreg/">register your server</a></strong>. During the registration process, it will attempt to gather your server&#39;s metadata via the route /Shibboleth.sso/Metadata. This module provides an implementation for that route, but you have to set that up in your main server script (see <a href="https://github.com/drstearns/passport-uwshib/blob/master/example/server.js">/example/server.js</a>).</p>
+<p>While registering, you must also specify which user profile attributes you want. See the <a href="https://wiki.cac.washington.edu/display/infra/Guide+to+Attributes+Available+from+the+UW+IdP">Guide to Attributes Available from the UW IdP</a> for more information.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>npm <span class="keyword">install</span> passport-uwshib
+</code></pre><p>or if using a <a href="https://www.npmjs.org/doc/package.json.html">package.json file</a>, add this line to your dependencies hash:</p>
+<pre><code><span class="string">"passport-uwshib"</span>: <span class="string">"*"</span>
+</code></pre><p>and do an <code>npm install</code> or <code>npm update</code> to get the most current version.</p>
+<h2 id="usage">Usage</h2>
+<p>There is a fully-working example server script in <a href="https://github.com/drstearns/passport-uwshib/blob/master/example/server.js">/example/server.js</a>, and an associated <a href="ttps://github.com/drstearns/passport-uwshib/blob/master/example/package.json">package.json</a>, which you can use to install all the necessary packages to make the example script run (express, express middleware, passport, etc.). Refer to that as I explain what it is doing.</p>
+<p>This module provides a Strategy for the <a href="http://passportjs.org/">Passport</a> framework, which is typically used with <a href="http://expressjs.com/">Express</a>. Thus, there are several modules you need to require in your server script in addition to this module.</p>
+<pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);                     <span class="comment">//http server</span>
+<span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">'https'</span>);                   <span class="comment">//https server</span>
+<span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);                         <span class="comment">//file system</span>
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);               <span class="comment">//express middleware</span>
+<span class="keyword">var</span> morgan = <span class="built_in">require</span>(<span class="string">'morgan'</span>);                 <span class="comment">//logger for express</span>
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);        <span class="comment">//body parsing middleware</span>
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);    <span class="comment">//cookie parsing middleware</span>
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);       <span class="comment">//express session management</span>
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);             <span class="comment">//authentication middleware</span>
+<span class="keyword">var</span> uwshib = <span class="built_in">require</span>(<span class="string">'passport-uwshib'</span>);        <span class="comment">//UW Shibboleth auth strategy</span>
+</code></pre><p>The example script then gets the server&#39;s domain name from an environment variable. This allows you to run the example script without modification. Simply export a value for <code>DOMAIN</code> and run the script.</p>
+<pre><code>export <span class="attr">DOMAIN=</span>mydomain.uw.edu
+<span class="keyword">node</span> <span class="title">server</span>.js
+</code></pre><p>You can also override the default HTTP and HTTPS ports if you wish by specifying <code>HTTPPORT</code> and <code>HTTPSPORT</code> environment variables.</p>
+<p>The example script then loads a public certificate and associated private key from two files in a <code>/security</code> subdirectory.</p>
+<pre><code><span class="attribute">var publicCert</span> = fs.readFileSync(<span class="string">'./security/server-cert.pem'</span>, <span class="string">'utf-8'</span>);
+<span class="attribute">var privateKey</span> = fs.readFileSync(<span class="string">'./security/server-pvk.pem'</span>, <span class="string">'utf-8'</span>);
+</code></pre><p>These are used not only for the HTTPS server, but also to sign requests sent to the UW IdP. You can use <a href="http://www.sslshopper.com/article-most-common-openssl-commands.html">openssl</a> to generate keys and certificate signing requests. The UW IdP seems to require that your server responds to HTTPS requests, so you should get a signed certificate for your server before trying to register it.</p>
+<p>The script continues by creating a typical Express application and registering the typical middleware. For more information on this, see the <a href="http://passportjs.org/">Passport.js site</a>.</p>
+<p>Then the script creates the UW Shibboleth Strategy, and tells Passport to use it.</p>
+<pre><code>//<span class="keyword">create</span> the UW Shibboleth Strategy <span class="keyword">and</span> tell Passport <span class="keyword">to</span> <span class="keyword">use</span> it
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> uwshib.Strategy({
+    entityId: <span class="keyword">domain</span>,
+    privateKey: privateKey,
+    callbackUrl: loginCallbackUrl,
+    <span class="keyword">domain</span>: <span class="keyword">domain</span>
+});
+
+passport.use(strategy);
+</code></pre><p>In addition to the properties shown above, you may also pass any <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">configuration properties accepted by the passport-saml library</a>.</p>
+<p><strong>Note:</strong> When the UW IdP sends back Shibboleth assertions, they contain timestamps that declare when and for how long those assertions are valid. The passport-saml library will compare these timestamps against your server&#39;s clock, and will not allow any time skewing by default. If your server&#39;s clock is not synchronized with the UW IdP server, you may want to add the <code>acceptedClockSkewMs</code> property to the object you pass to the <code>uwshib.Strategy()</code> constructor. This property is defined and interpreted by the passport-saml library, and may be set to a number of milliseconds that the clocks are allowed to be off from one another. If you don&#39;t want any timestamp checking at all, you may set this property to <code>-1</code>. See the <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">passport-saml configuration properties</a> for more details.</p>
+<p>The name of the strategy is <code>&#39;uwsaml&#39;</code>, but you can use the <code>.name</code> property of the Strategy to refer to that.</p>
+<p>You will typically want to use sessions to allow users to authenticate only once per-sesion. The next functions are called by Passport to serialize and deserialize the user to the session. As noted in the comments, you would typically want to serialize only the unique ID (<code>.netID</code>) and reconstitute the user from your database during deserialzie. But to keep things simple, the script serializes the entire user and deserializes it again.</p>
+<pre><code>passport.serializeUser(<span class="function"><span class="keyword">function</span><span class="params">(user, done)</span></span>{
+    done(<span class="literal">null</span>, user);
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span><span class="params">(user, done)</span></span>{
+    done(<span class="literal">null</span>, user);
+});
+</code></pre><p>Next, the script registers a few routes to handle login, the login callback, and the standard metadata. This module provides implementations for the metadata route, and you use passport.authenticate for the login and login callback routes. The login route will redirect the user to the UW single sign-on page, and the UW IdP will then redirect the user back to the login callback route.</p>
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="selector-tag">loginUrl</span>, <span class="selector-tag">passport</span><span class="selector-class">.authenticate</span>(<span class="selector-tag">strategy</span><span class="selector-class">.name</span>), <span class="selector-tag">uwshib</span><span class="selector-class">.backToUrl</span>());
+<span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="selector-tag">loginCallbackUrl</span>, <span class="selector-tag">passport</span><span class="selector-class">.authenticate</span>(<span class="selector-tag">strategy</span><span class="selector-class">.name</span>), <span class="selector-tag">uwshib</span><span class="selector-class">.backToUrl</span>());
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="selector-tag">uwshib</span><span class="selector-class">.urls</span><span class="selector-class">.metadata</span>, <span class="selector-tag">uwshib</span><span class="selector-class">.metadataRoute</span>(<span class="selector-tag">strategy</span>, <span class="selector-tag">publicCert</span>));
+</code></pre><p>The <code>uwshib.backToUrl()</code> is a convenience middleware that will redirect the browser back to the URL that was originally requested before authentication.</p>
+<p>Lastly, the script tells Express to use the <code>ensureAuth()</code> middleware provided by this module to secure all routes declared after this.</p>
+<pre><code><span class="comment">//secure all routes following this</span>
+<span class="keyword">app</span>.<span class="keyword">use</span>(uwshib.ensureAuth(loginUrl));
+</code></pre><p>Any route requested after this middleware will require authentication. When requested, those routes will automatically redirect to the <code>loginUrl</code> if the user has not already authenticated. After successful authentication, the browser will be redirected back to the original URL, and the user information will be available via the <code>.user</code> property on the request object.</p>
+<p>Note that <code>ensureAuth</code> can also be used to selectively secure routes. For example:</p>
+<pre><code>app.get('protected/resource', ensureAuth(loginUrl), function(req, res) {
+    //<span class="keyword">user</span> <span class="title">has</span> authenticated, do normal route processing
+    //<span class="keyword">user</span> <span class="title">is</span> available via req.<span class="keyword">user</span>
+<span class="title">});</span>
+</code></pre></div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-uwshib</span></code></div>
+            <ul>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2016-10-14T22:29:19Z">a year ago</abbr></li>
+              <li><a class="url" href="git://github.com/drstearns/passport-uwshib.git">https://github.com/drstearns/passport-uwshib</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>9</b> downloads in the last day</li>
+              <li><b>28</b> downloads in the last week</li>
+              <li><b>43</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

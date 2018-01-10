@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-akera</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Akera authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-akera/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-akera"/>
+    <meta property="og:description" content="Akera authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-akera/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-akera"/>
+    <meta name="twitter:description" content="Akera authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-akera">passport-akera</h1>
+<p><a href="http://passportjs.org/">Passport</a> authentication strategy against Akera.io application server. 
+This module is a Passport strategy wrapper for <a href="http://akera.io">akera-api</a></p>
+<h2 id="install">Install</h2>
+<pre><code>npm <span class="keyword">install</span> passport-akera
+</code></pre><h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure strategy</h3>
+<pre><code class="lang-javascript"><span class="keyword">var</span> AkeraStrategy = <span class="built_in">require</span>(<span class="string">'passport-akera'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> AkeraStrategy({
+    <span class="attr">server</span>: {
+      <span class="attr">host</span>: <span class="string">'localhost'</span>,
+      <span class="attr">port</span>: <span class="number">8383</span>,
+      <span class="attr">useSSL</span>: <span class="literal">true</span>
+    },
+    ...
+  }));
+</code></pre>
+<ul>
+<li><code>server</code>: Akera.io settings. These are passed directly to <a href="http://akera.io">akera-api</a> connect method. See its documentation for all available options.<ul>
+<li><code>host</code>: Akera.io application server host name or ip address, e.g. <code>localhost</code></li>
+<li><code>port</code>: Akera.io application server port number, e.g. <code>cn=&#39;root&#39;</code></li>
+<li><code>useSSL</code>: Akera.io application server SSL connection flag</li>
+</ul>
+</li>
+<li><code>usernameField</code>: Field name where the user name is found, defaults to <em>username</em></li>
+<li><code>passwordField</code>: Field name where the password is found, defaults to <em>password</em></li>
+<li><p><code>passReqToCallback</code>: When <code>true</code>, <code>req</code> is the first argument to the verify callback (default: <code>false</code>):</p>
+<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> LdapStrategy(..., <span class="keyword">function</span>(req, user, <span class="keyword">done</span>) {
+      ...
+      <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+    }
+  ));
+</code></pre></li>
+</ul>
+<p>Note: you can pass a function instead of an object as <code>options</code>, see the <a href="#options-as-function">example below</a></p>
+<h3 id="authenticate-requests">Authenticate requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;akeraAuth&#39;</code> strategy, to authenticate requests.</p>
+<h4 id="-authenticate-options"><code>authenticate()</code> options</h4>
+<p>In addition to <a href="http://passportjs.org/guide/authenticate/">default authentication options</a> the following flash message options are available for <code>passport.authenticate()</code>:</p>
+<ul>
+<li><code>badRequestMessage</code>: missing username/password (default: &#39;Missing credentials&#39;)</li>
+<li><code>invalidCredentials</code>: <code>InvalidCredentialsError</code> (default: error returned by akera-api connect)</li>
+</ul>
+<h2 id="express-example">Express example</h2>
+<pre><code class="lang-javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">'express'</span>),
+    passport     = <span class="built_in">require</span>(<span class="string">'passport'</span>),
+    bodyParser   = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
+    AkeraStrategy = <span class="built_in">require</span>(<span class="string">'passport-akera'</span>).Strategy;
+
+<span class="keyword">var</span> OPTS = {
+  <span class="attr">server</span>: {
+    <span class="attr">host</span>: <span class="string">'localhost'</span>,
+    <span class="attr">port</span>: <span class="string">'8383'</span>,
+    <span class="attr">useSSL</span>: <span class="literal">true</span>
+  }
+};
+
+<span class="keyword">var</span> app = express();
+
+passport.use(<span class="keyword">new</span> AkeraStrategy(OPTS));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}));
+app.use(passport.initialize());
+
+app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'akeraAuth'</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  res.send({<span class="attr">status</span>: <span class="string">'ok'</span>});
+});
+
+app.listen(<span class="number">8080</span>);
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-akera</span></code></div>
+            <ul>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-03-24T08:37:00Z">10 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/akera-io/passport-akera.git">https://github.com/akera-io/passport-akera#readme</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

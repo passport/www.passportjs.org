@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-saml-too</title>
+    <meta charset="utf-8">
+    <meta name="description" content="SAML 2.0 authentication strategy for Passport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-saml-too/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-saml-too"/>
+    <meta property="og:description" content="SAML 2.0 authentication strategy for Passport"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-saml-too/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-saml-too"/>
+    <meta name="twitter:description" content="SAML 2.0 authentication strategy for Passport"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-saml">Passport-SAML</h1>
+<p>This is a <a href="http://en.wikipedia.org/wiki/SAML_2.0">SAML 2.0</a> authentication provider for <a href="http://passportjs.org/">Passport</a>, the Node.js authentication library.</p>
+<p>The code was originally based on Michael Bosworth&#39;s <a href="https://github.com/bozzltron/express-saml">express-saml</a> library.</p>
+<p>Passport-SAML has been tested to work with both <a href="http://simplesamlphp.org/">SimpleSAMLphp</a> based Identity Providers, and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Active Directory Federation Services</a>.</p>
+<h2 id="installation">Installation</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-saml</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure strategy</h3>
+<p>This example utilizes the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
+<p>The SAML identity provider will redirect you to the URL provided by the <code>path</code> configuration.</p>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> SamlStrategy(
+  {
+    <span class="attr">path</span>: <span class="string">'/login/callback'</span>,
+    <span class="attr">entryPoint</span>: <span class="string">'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php'</span>,
+    <span class="attr">issuer</span>: <span class="string">'passport-saml'</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
+    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> done(err);
+      }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    });
+  })
+));
+</code></pre>
+<h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
+<p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login/callback'</span>,
+  passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  }
+);
+</code></pre>
+<h3 id="authenticate-requests">Authenticate requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying <code>saml</code> as the strategy:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
+  passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  }
+);
+</code></pre>
+<h2 id="security-and-signatures">Security and signatures</h2>
+<p>Passport-SAML uses the HTTP Redirect Binding for its <code>AuthnRequest</code>s, and expects to receive the messages back via the HTTP POST binding.</p>
+<p>Authentication requests sent by Passport-SAML can be signed using RSA-SHA1. To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key. For example:</p>
+<pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./cert.pem'</span>, <span class="string">'utf-8'</span>)
+</code></pre>
+<p>It is a good idea to validate the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s certificate using the <code>cert</code> confguration key:</p>
+<pre><code class="lang-javascript">    cert: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>
+</code></pre>
+<h2 id="usage-with-active-directory-federation-services">Usage with Active Directory Federation Services</h2>
+<p>Here is a configuration that has been proven to work with ADFS:</p>
+<pre><code class="lang-javascript">  {
+    <span class="attr">entryPoint</span>: <span class="string">'https://ad.example.net/adfs/ls/'</span>,
+    <span class="attr">issuer</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
+    <span class="attr">callbackUrl</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
+    <span class="attr">cert</span>: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>,
+    <span class="attr">identifierFormat</span>: <span class="literal">null</span>
+  }
+</code></pre>
+<p>Please note that ADFS needs to have a trust established to your service in order for this to work.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-saml-too</span></code></div>
+            <ul>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2014-01-27T18:50:41Z">4 years ago</abbr></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>13</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

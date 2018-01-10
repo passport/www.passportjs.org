@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-stanford</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport-SAML wrapper for Stanford.EDU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-stanford/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-stanford"/>
+    <meta property="og:description" content="Passport-SAML wrapper for Stanford.EDU"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-stanford/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-stanford"/>
+    <meta name="twitter:description" content="Passport-SAML wrapper for Stanford.EDU"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-stanford">Passport-Stanford</h1>
+<p><em>Passport-Stanford</em> is a <a href="http://passportjs.org/">Passport</a>
+authentication strategy to make it easier to work with <a href="http://www.stanford.edu">Stanford
+University</a>&#39;s <a href="https://wikipedia.org/wiki/SAML_2.0">SAML
+2.0</a> authentication
+infrastructure. It&#39;s built on top of
+<a href="https://github.com/bergie/passport-saml">passport-saml</a> and steals
+many ideas from
+<a href="https://github.com/drstearns/passport-uwshib.git">Passport-UWShib</a>.</p>
+<h2 id="idp-access">IdP Access</h2>
+<p>While this module contains configurations for most of Stanford&#39;s SAML
+IdPs, only <code>itlabv2</code> is currently usable without registration. Each IdP
+can be referenced in the Passport configuration by its SAML <em>entityID</em>
+or a short alias:</p>
+<h3 id="itlabv2-https-idp-itlab-stanford-edu-idp-shibboleth-">itlabv2 (<a href="https://idp.itlab.stanford.edu/idp/shibboleth">https://idp.itlab.stanford.edu/idp/shibboleth</a>)</h3>
+<p><code>idp.itlab</code> is a very trusting Shibboleth v2.x IdP run by the Emerging
+Technology group, and will work with any SP that includes its ACS URL
+in its <code>AuthnRequest</code>s - it also has three <a href="https://idp.itlab.stanford.edu/">test
+users</a>.</p>
+<h3 id="itlab-https-weblogin-itlab-stanford-edu-idp-shibboleth-">itlab (<a href="https://weblogin.itlab.stanford.edu/idp/shibboleth">https://weblogin.itlab.stanford.edu/idp/shibboleth</a>)</h3>
+<p><code>weblogin.itlab</code> is a Shibboleth v3.x IdP run by the Emerging
+Technology group, and will eventually replace <code>idp.itlab</code>.</p>
+<h3 id="dev-https-idp-dev-stanford-edu-">dev (<a href="https://idp-dev.stanford.edu/">https://idp-dev.stanford.edu/</a>)</h3>
+<p><code>dev</code> is the development IdP run by the Authentication Services team,
+and requires <a href="https://shibboleth.stanford.edu/">registration</a>. <code>dev</code>
+used to be the main system for testing, but is being replaced by <code>uat</code>.</p>
+<h3 id="uat-https-idp-uat-stanford-edu-">uat (<a href="https://idp-uat.stanford.edu/">https://idp-uat.stanford.edu/</a>)</h3>
+<p><code>uat</code> is the test IdP run by the Authentication Services team, and
+requires <a href="https://shibboleth.stanford.edu/">registration</a>.</p>
+<h3 id="prod-https-idp-stanford-edu-">prod (<a href="https://idp.stanford.edu/">https://idp.stanford.edu/</a>)</h3>
+<p><code>prod</code> is the production IdP run by the Authentication Services team,
+and requires <a href="https://shibboleth.stanford.edu/">registration</a>.</p>
+<h1 id="installation">Installation</h1>
+<p>You can install with <code>npm</code>:</p>
+<pre><code>npm <span class="keyword">install</span> passport-stanford
+</code></pre><p>or, to add it to your
+<a href="https://www.npmjs.org/doc/package.json.html">package.json</a> file: this</p>
+<pre><code>npm <span class="keyword">install</span> <span class="comment">--save passport-stanford</span>
+</code></pre><h1 id="usage">Usage</h1>
+<p>There is a fully-working example server script in
+<a href="/scottylogan/passport-stanford/blob/master/test/app.js">/test/app.js</a>,
+and an associated
+<a href="/scottylogan/passport-stanford/blob/master/test/package.json">package.json</a>,
+which you can use to install all the necessary
+packages to make the example script run (express, express middleware,
+passport, etc.).</p>
+<p>Typically, <code>passport</code> is used in conjunction with
+<a href="https://expressjs.org/">express</a> middleware, so you&#39;ll need to include
+several <code>node</code> modules, in addition to the <code>http</code> and <code>https</code> modules:</p>
+<ul>
+<li><code>express</code> - Express middleware</li>
+<li><code>body-parser</code> - parse request bodies, required by <code>passport-saml</code></li>
+<li><code>cookie-parser</code> - parse cookies, required by <code>passport</code></li>
+<li><code>express-session</code> - session management</li>
+<li><code>passport</code> - authentication middleware</li>
+<li><code>morgan</code> - logger</li>
+<li><code>passport-stanford</code> - this module</li>
+</ul>
+<p>Once the <code>passport-stanford</code> module is loaded, it can be used to create
+a new Passport Strategy:</p>
+<pre><code><span class="built_in">var</span> suSAML = <span class="keyword">require</span>(<span class="string">'passport-stanford'</span>);
+
+<span class="params">...</span>
+
+<span class="comment">// create a Stanford SAML Strategy and tell Passport to use it</span>
+<span class="built_in">var</span> saml = <span class="literal">new</span> suSAML.Strategy({
+  idp:        <span class="string">'itlabv2'</span>,
+  entityId:   <span class="string">'http://localhost/'</span>,
+  path:       acsPath,
+  loginPath:  loginPath,
+});
+
+passport.use(saml);
+</code></pre><p>To use a different IdP, just change the <code>idp</code> setting, or use the
+<code>cert</code> and <code>entryPoint</code> <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">settings</a>.</p>
+<p><code>acsPath</code> is the path to the SAML 2.0 Assertion Consumer Service -
+where the IdP will send SAML Assertions. The default is <code>/saml/consume</code>.</p>
+<p><code>loginPath</code> is the path to your login page, where SAML authentication
+is triggered. The default is <code>/login</code>.</p>
+<p>In addition to the properties shown above, you may also pass any
+settings accepted by <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">passport-saml</a>.</p>
+<p>The name of the strategy is <code>suSAML</code>, but you can use the <code>.name</code>
+property of the Strategy to refer to that.</p>
+<p>Apps have to create routes to handle login requests and responses from
+the IdP. Logins will be GET requests, and response will be POST
+requests:</p>
+<pre><code>app.<span class="keyword">get</span>(loginPath,
+  passport.authenticate(saml.name),
+  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+);
+
+app.post(acsPath,
+  passport.authenticate(saml.name),
+  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+);
+</code></pre><p><code>return</code> is a method from the Strategy object to return either to the
+URL that triggered the authentication request, or to the URL passed
+into <code>return</code>, or to <code>/</code>.</p>
+<p>There&#39;s also a <code>metadata</code> method that can be used to provide SAML 2.0
+metadata for your SP; it&#39;s also configured as a GET:</p>
+<pre><code>app.<span class="built_in">get</span>(<span class="string">'/metadata'</span>,
+  saml.metadata()
+);
+</code></pre><p>Normally, to protect a route with Passport, you have to write code like
+this:</p>
+<pre><code>app.<span class="builtin-name">get</span>(<span class="string">"/profile"</span>, function(req, res) {
+  <span class="keyword">if</span> (req.isAuthenticated()) {
+    res.render(<span class="string">"profile"</span>, {<span class="built_in"> user </span>: req.user });
+  } <span class="keyword">else</span> {
+    res.redirect(<span class="string">"/login"</span>);
+  }
+});
+</code></pre><p>Since this is a common requirement, this module provides a <code>protect</code>
+method to enforces SAML authentication:</p>
+<pre><code>app.get(<span class="string">'/profile'</span>, 
+  saml.protect(),
+  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+    res.render(<span class="string">'profile'</span>, { user : req.user    });
+  }
+);
+</code></pre><p>You can also protect a set of routes by calling <code>protect</code> from
+<code>app.use</code>:</p>
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.use</span>(<span class="selector-tag">saml</span><span class="selector-class">.protect</span>());
+</code></pre><p>Any route requested after this middleware will require authentication.</p>
+<h2 id="signed-responses">Signed Responses</h2>
+<p><code>passport-stanford</code> includes the public certs used by the Stanford IdPs
+to sign SAML responses and/or assertions, so signature verification is
+enabled by default.</p>
+<h2 id="encrypted-assertions">Encrypted Assertions</h2>
+<p>To use encrypted assertions you will need a private / public X.509 key
+pair. The test app
+<a href="/scottylogan/passport-stanford/blob/master/test/pac
+kage.json">/test/package.json</a> contains a <code>gencert</code> script to generate a key and
+self-signed certificate. To configure encryption, add the paths to your
+key and cert to the config:</p>
+<pre><code><span class="string">saml</span> <span class="string">=</span> <span class="string">new</span> <span class="string">suSAML.Strategy({</span>
+<span class="attr">  protocol:</span>           <span class="string">'http://'</span><span class="string">,</span>
+<span class="attr">  idp:</span>                <span class="string">'itlab'</span><span class="string">,</span>
+<span class="attr">  entityId:</span>           <span class="string">'https://github.com/scottylogan/passport-stanford'</span><span class="string">,</span>
+<span class="attr">  path:</span>               <span class="string">acsPath,</span>
+<span class="attr">  loginPath:</span>          <span class="string">loginPath,</span>
+<span class="attr">  passReqToCallback:</span>  <span class="literal">true</span><span class="string">,</span>
+<span class="attr">  passport:</span>           <span class="string">passport,</span>
+<span class="attr">  decryptionPvkPath:</span>  <span class="string">'./private.pem'</span><span class="string">,</span>
+<span class="attr">  decryptionCertPath:</span> <span class="string">'./public.pem'</span><span class="string">,</span>
+<span class="string">});</span>
+</code></pre><p>The public certificate will be included in the automatically generated
+metadata. You will need to provide the metadata to your IdP.</p>
+<h2 id="user-information">User Information</h2>
+<p><code>passport-stanford</code> uses the mappings in <code>lib/attributes.js</code> to rewrite
+the attributes received from the IdP - which are often OIDs - into more
+friendly names. After authentication, both the original- and
+friendly-named attributes are available in <code>req.user</code>.</p>
+<h2 id="pretending-to-be-shibboleth">Pretending to be Shibboleth</h2>
+<p>To make your SP look more like a Shibboleth SP, you can use different
+paths for the ACS and Metadata:</p>
+<pre><code>app.post(<span class="string">'/Shibboleth.sso/SAML2/POST'</span>,
+  passport.authenticate(saml.name),
+  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+);
+
+app.<span class="keyword">get</span>(<span class="string">'/Shibboleth.sso/Metadata'</span>,
+  saml.metadata()
+);
+</code></pre></div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-stanford</span></code></div>
+            <ul>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2017-10-11T18:00:15Z">3 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/scottylogan/passport-stanford.git">https://github.com/scottylogan/passport-stanford</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>6</b> downloads in the last day</li>
+              <li><b>14</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

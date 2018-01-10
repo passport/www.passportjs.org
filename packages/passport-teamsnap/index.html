@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-teamsnap</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Teamsnap OAuth 2.0 authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-teamsnap/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-teamsnap"/>
+    <meta property="og:description" content="Teamsnap OAuth 2.0 authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-teamsnap/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-teamsnap"/>
+    <meta name="twitter:description" content="Teamsnap OAuth 2.0 authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-teamsnap-build-status-https-travis-ci-org-7elephants-passport-teamsnap-svg-branch-master-https-travis-ci-org-7elephants-passport-teamsnap-dependencies-https-david-dm-org-7elephants-passport-teamsnap-svg-https-david-dm-org-7elephants-passport-teamsnap-">passport-teamsnap <a href="https://travis-ci.org/7elephants/passport-teamsnap"><img src="https://travis-ci.org/7elephants/passport-teamsnap.svg?branch=master" alt="Build Status"></a> <a href="https://david-dm.org/7elephants/passport-teamsnap"><img src="https://david-dm.org/7elephants/passport-teamsnap.svg" alt="Dependencies"></a></h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with the <a href="https://www.teamsnap.com/">Teamsnap</a>
+API using the OAuth 2.0 protocol.</p>
+<p>This module lets you authenticate using Teamsnap in your Node.js applications.
+By plugging into Passport, Teamsnap authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-teamsnap</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>The Teamsnap authentication strategy authenticates users using a Teamsnap account
+and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
+these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
+specifying a API version, client ID, client secret, and callback URL. The library
+defaults to version 3 of Teamsnap&#39;s API.</p>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TeamsnapStrategy({
+    apiVersion: <span class="string">'3'</span>,
+    clientID: TEAMSNAP_APPLICATION_ID,
+    clientSecret: TEAMSNAP_APPLICATION_SECRET,
+    callbackURL: <span class="string">"https://www.example.net/auth/teamsnap/callback"</span>
+  },
+  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
+    User.findOrCreate({ providerId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+      <span class="keyword">return</span> done(err, user);
+    });
+  }
+));
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;teamsnap&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code>app.get(<span class="string">'/auth/teamsnap'</span>,
+  passport.authenticate(<span class="string">'teamsnap'</span>));
+
+app.get(<span class="string">'/auth/teamsnap/callback'</span>, 
+  passport.authenticate(<span class="string">'teamsnap'</span>, { failureRedirect: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre><h2 id="tests">Tests</h2>
+<p>To have your tests run against your Teamsnap application, you must supply your Client ID and secret via environment variables.</p>
+<pre><code>export TEAMSNAP_CLIENT_ID=&lt;<span class="string">...YOUR</span> APPLICATION ID.<span class="string">..</span>&gt;
+export TEAMSNAP_SECRET=&lt;<span class="string">...YOUR</span> APPLICATION SECRET.<span class="string">..</span>&gt;
+
+mocha <span class="params">--require</span> <span class="string">../test/bootstrap/node</span> <span class="string">../test/</span>*<span class="string">.test.js</span> <span class="string">../test/</span>**/*<span class="string">.test.js</span>
+</code></pre><h2 id="credits-and-license">Credits and License</h2>
+<p>This strategy is based on Jared Hanson&#39;s GitHub strategy for passport: <a href="http://github.com/jaredhanson">Jared Hanson</a> and specifically his work on <a href="http://github.com/jaredhanson/passport-oauth2">passport-oauth2</a></p>
+<p>Copyright (c) 2017 Andrew Steiger</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-teamsnap</span></code></div>
+            <ul>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2017-10-29T19:39:55Z">2 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/7elephants/passport-teamsnap.git">https://github.com/7elephants/passport-teamsnap#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>26</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

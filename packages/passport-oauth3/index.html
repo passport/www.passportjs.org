@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-oauth3</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Node.js / ExpressJS / PassportJS Strategy for OAuth2 / OAuth3 providers">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-oauth3/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-oauth3"/>
+    <meta property="og:description" content="Node.js / ExpressJS / PassportJS Strategy for OAuth2 / OAuth3 providers"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-oauth3/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-oauth3"/>
+    <meta name="twitter:description" content="Node.js / ExpressJS / PassportJS Strategy for OAuth2 / OAuth3 providers"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-oauth3">passport-oauth3</h1>
+<p>Node.js / ExpressJS / PassportJS Strategy for OAuth2 / OAuth3 providers</p>
+<p>OAuth3 (aka OAuthn) is a 100% backwards compatible, more strict subset of OAuth2.
+It easier to implement, test, debug.
+It also has the advantages of being federated, delegated, cacheable, and more private.</p>
+<p>Unlike OAuth2, OAuth3 does not require any knowledge of the implementation details
+of either party.</p>
+<p>Also, OAuth3 may use JavaScript to perform many client-side functions,
+including issuing tokens.</p>
+<h1 id="example">Example</h1>
+<pre><code class="lang-javascript"><span class="meta">'use strict'</span>;
+
+<span class="keyword">var</span> Passport = <span class="built_in">require</span>(<span class="string">'passport'</span>).Passport;
+<span class="keyword">var</span> passport = <span class="keyword">new</span> Passport();
+<span class="keyword">var</span> PromiseA = <span class="built_in">require</span>(<span class="string">'bluebird'</span>).Promise;
+
+<span class="keyword">var</span> OAuth3Strategy = <span class="built_in">require</span>(<span class="string">'passport-oauth3'</span>).Strategy;
+<span class="comment">// These strings are arbitrary</span>
+<span class="keyword">var</span> authorizationRedirect = <span class="string">"/api/oauth3/authorization_redirect"</span>;
+<span class="keyword">var</span> authorizationCodeCallback = <span class="string">"/api/oauth3/authorization_code_callback"</span>;
+<span class="keyword">var</span> accessTokenCallback = <span class="string">"/api/oauth3/access_token_callback"</span>;
+
+<span class="comment">// Note that "App", "Client", and "Consumer" are different names for the same thing</span>
+<span class="comment">// One site's docs will say "App ID" another will say "Consumer Public Key", etc - but they're the same.</span>
+<span class="comment">//</span>
+<span class="comment">// For sites that don't support OAuth3 automatic registration</span>
+<span class="comment">// you can provide the pre-registered OAuth2 client id and secret here</span>
+<span class="keyword">var</span> providerConfig = {
+  <span class="string">'example.org'</span>: {
+    <span class="attr">id</span>: <span class="string">'my-app-id'</span>
+  , <span class="attr">secret</span>: <span class="string">'my-app-secret'</span>
+  }
+, <span class="string">'facebook.com'</span>: {
+    <span class="attr">id</span>: <span class="string">'other-app-id'</span>
+  , <span class="attr">secret</span>: <span class="string">'other-app-secret'</span>
+  }
+};
+
+<span class="comment">//</span>
+<span class="comment">// Example for getting and setting registration information</span>
+<span class="comment">// (OAuth3 can automatically register app id / app secret)</span>
+<span class="comment">//</span>
+<span class="function"><span class="keyword">function</span> <span class="title">stripLeadingProtocolAndTrailingSlash</span>(<span class="params">uri</span>) </span>{
+  <span class="keyword">return</span> uri.replace(<span class="regexp">/^(https?:\/\/)?(www\.)?/</span>, <span class="string">''</span>).replace(<span class="regexp">/\/$/</span>, <span class="string">''</span>);
+}
+
+<span class="comment">//</span>
+<span class="comment">// Automatic Registration</span>
+<span class="comment">//</span>
+<span class="comment">// For services that support automatic registration, </span>
+<span class="comment">// tell the service your security policy.</span>
+<span class="comment">//</span>
+<span class="comment">// DRAFT (this is not yet spec'd)</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getRegistrationOptions</span>(<span class="params">providerUri</span>) </span>{
+  <span class="keyword">return</span> {
+    <span class="attr">allowed_domains</span>: [ <span class="string">"https://awesome.com"</span>, <span class="string">"https://partner-site.com"</span> ]
+  , <span class="attr">allowed_ips</span>: [ <span class="string">"10.0.0.0/24"</span>, <span class="string">"10.100.100.100"</span> ]
+  , <span class="attr">allowed_redirects</span>: [ <span class="string">"https://awesome.com/oauth3.html"</span>, <span class="string">"https://api.awesome.com/oauth3/"</span> ]
+  };
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getRegistrationValues</span>(<span class="params">providerUri</span>) </span>{
+  <span class="keyword">var</span> key = stripLeadingProtocolAndTrailingSlash(providerUri);
+
+  <span class="keyword">return</span> PromiseA.resolve(providerConfig[key]);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">setRegistrationValues</span>(<span class="params">providerUri, registration</span>) </span>{
+  <span class="comment">// registration is not yet implemented</span>
+  <span class="keyword">var</span> key = stripLeadingProtocolAndTrailingSlash(providerUri);
+
+  providerConfig[key] = registration;
+
+  <span class="keyword">return</span> PromiseA.resolve();
+}
+
+<span class="comment">//</span>
+<span class="comment">// This will be used by passport to set `req.user`</span>
+<span class="comment">//</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getUserFromToken</span>(<span class="params">req, providerUri, info, params</span>) </span>{
+  <span class="comment">// info = { accessToken, refreshToken, appScopedId, grantedScopes, profile }</span>
+  <span class="keyword">return</span> PromiseA.resolve({ <span class="attr">user</span>: info.profile, <span class="attr">info</span>: info });
+}
+
+<span class="comment">// Note that you don't need to provide any urls or client ids</span>
+<span class="comment">// You don't need separate routes for different providers either</span>
+passport.use(<span class="string">'oauth3-strategy-1'</span>, <span class="keyword">new</span> OAuth3Strategy({
+  <span class="attr">providerCallback</span>: getRegistrationValues 
+, <span class="attr">registrationCallback</span>: setRegistrationValues
+, <span class="attr">authorizationCodeCallbackUrl</span>: <span class="string">"https://my-awesome-consumer.com"</span> + authorizationCodeCallback 
+, <span class="attr">accessTokenCallbackUrl</span>: <span class="string">"https://my-awesome-consumer.com"</span> + authorizationCodeCallback 
+}
+, getUserFromToken
+));
+
+app.get(authorizationRedirect, passport.authenticate(<span class="string">'oauth3-strategy-1'</span>));
+
+app.get(authorizationCodeCallback, passport.authenticate(<span class="string">'oauth3-strategy-1'</span>));
+
+<span class="comment">// This looks a little convoluted only because passport doesn't have a method</span>
+<span class="comment">// for passing some of the necessary parameters back to the caller and there's</span>
+<span class="comment">// no way to wrap it inside of OAuth3Strategy#authenticate</span>
+<span class="function"><span class="keyword">function</span> <span class="title">handleOauth3Response</span>(<span class="params">req, res, next, err, user, info, status</span>) </span>{
+  <span class="comment">// info = { accessToken, refreshToken, grantedScopes, appScopedId, profile }</span>
+  <span class="comment">// req.query = { provider_uri, code, state }</span>
+  <span class="comment">// user = { ... } // profile</span>
+
+  <span class="keyword">var</span> params = { <span class="string">'provider_uri'</span>: req.query.provider_uri };
+  <span class="keyword">var</span> challenge;
+
+  <span class="keyword">if</span> (err) {
+    params.error = err.message;
+    params.error_description = err.message;
+  }
+
+  <span class="keyword">if</span> (!user) {
+    challenge = info; <span class="comment">// info is overloaded as challenge on error</span>
+    <span class="keyword">return</span> PromiseA.reject(params);
+  }
+
+  <span class="keyword">return</span> <span class="keyword">new</span> PromiseA(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{
+    req.login({ <span class="attr">profile</span>: user, <span class="attr">info</span>: info }, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+      <span class="keyword">if</span> (err) {
+        params.error = err.message;
+        params.error_description = err.message;
+        reject(params);
+        <span class="keyword">return</span>;
+      }
+
+      <span class="comment">// <span class="doctag">NOTE:</span> refreshToken does *not* go to the browser</span>
+      params.access_token = info.accessToken;
+      params.expires_at = info.expiresAt;
+      params.app_scoped_id = info.appScopedId;
+      params.granted_scopes = info.grantedScopes;
+
+      resolve(params);
+    });
+  });
+}
+
+app.get(accessTokenCallback, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>{
+  passport.authenticate(<span class="string">'oauth3-strategy-1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, user, info, status</span>) </span>{
+    <span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);
+
+    handleOauth3Response(req, res, next, err, user, info, status).then(<span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>{
+      res.redirect(<span class="string">'/oauth-close.html?'</span> + querystring.stringify(params));
+    }, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+      <span class="keyword">var</span> params;
+      <span class="keyword">if</span> (err.error_description) {
+        params = err;
+        res.redirect(<span class="string">'/oauth-close.html?'</span> + querystring.stringify(params));
+      } <span class="keyword">else</span> {
+        res.end(<span class="string">"Error: "</span> + err.message);
+      }
+    });
+  })(req, res, next);
+});
+</code></pre>
+<h2 id="authorization-dialog">Authorization Dialog</h2>
+<p>Imagine you&#39;re on the site &quot;Wally&#39;s Widgets&quot; and there&#39;s a button &quot;Login with Foo&quot;.</p>
+<p>When you click that button, one of two things should happen:</p>
+<ol>
+<li>It goes to your server to perform a redirect for a code (a waste, if you ask me)</li>
+<li>You open the dialog from your browser to request a token</li>
+</ol>
+<p>This module applies to situation 1.</p>
+<p>It seems like you could skip #1 and open the authorization dialog directly,
+but since you&#39;re setting up a session on the server there&#39;s some session state
+stuff that happens to... can&#39;t remember, gotta look back at the code... later...</p>
+<h3 id="server-redirect-to-dialog">Server Redirect to Dialog</h3>
+<pre><code class="lang-javascript"><span class="keyword">var</span> url = <span class="string">'https://consumer-api.com/api/oauth3/authorization_redirect'</span>
+  + <span class="string">'?provider_uri='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://provider-api.com'</span>)
+  + <span class="string">'&amp;scope='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'login email phone'</span>)
+  ;
+</code></pre>
+<p>&#39;provider_uri&#39; is used as part of the state as well as where it will find <code>oauth.json</code>.</p>
+<h3 id="browser-open-dialog">Browser Open Dialog</h3>
+<pre><code><span class="keyword">var</span> myAppId = <span class="string">'some-app-id'</span>;
+<span class="keyword">var</span> requestedScope = <span class="string">'login email phone'</span>;
+<span class="keyword">var</span> <span class="built_in">url</span> = <span class="string">'https://provider-api.com/api/oauth3/authorization_dialog'</span>
+  + <span class="string">'?response_type=token'</span>
+  + <span class="string">'&amp;client_id='</span> + myAppId
+  + <span class="string">'&amp;redirect_uri='</span>
+    + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://consumer-fronted.com/oauth-close.html'</span>
+        + <span class="string">'?provider_uri='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://provider-api.com'</span>)
+      )
+  + <span class="string">'&amp;scope='</span> + <span class="built_in">encodeURIComponent</span>(requestedScope)
+  + <span class="string">'&amp;state='</span> + <span class="built_in">Math</span>.random().toString().replace(<span class="regexp">/^0./</span>, <span class="string">''</span>)
+  ;
+</code></pre><h2 id="oauth3-urls">OAuth3 URLs</h2>
+<p>The provder&#39;s frontend <em>must</em> have a file <code>/oauth3.json</code>, which should be static.</p>
+<p>It should be CORS enabled such that any web client can access it as well.</p>
+<p>It should have a long <code>Expires</code> header and cached in the app manifest.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> <span class="string">'https://provider-fronteend.com/oauth3.json'</span>
+</code></pre>
+<pre><code class="lang-javascript">{ <span class="string">"authorization_dialog"</span>: {
+    <span class="string">"method"</span>: <span class="string">"GET"</span>
+  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/authorization_dialog"</span>
+  }
+, <span class="string">"access_token"</span>: {
+    <span class="string">"method"</span>: <span class="string">"POST"</span>
+  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/access_token"</span>
+  }
+, <span class="string">"profile"</span>: {
+    <span class="string">"method"</span>: <span class="string">"GET"</span>
+  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/me"</span>
+  }
+, <span class="string">"authn_scope"</span>: <span class="string">"me"</span>
+}
+</code></pre>
+<p>&#39;authn_scope&#39; defines the least possible scope required to authenticate
+and get &#39;app_scoped_id&#39;. </p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-oauth3</span></code></div>
+            <ul>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2015-04-22T21:17:34Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/OAuth3/node-passport-oauth3.git">https://github.com/OAuth3/passport-oauth3</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>11</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

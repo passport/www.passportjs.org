@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-tistory</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Tistory authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-tistory/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-tistory"/>
+    <meta property="og:description" content="Tistory authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-tistory/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-tistory"/>
+    <meta name="twitter:description" content="Tistory authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-tistory">passport-tistory</h1>
+<p><strong><em>passport-tistory</em></strong> 는 <a href="http://www.tistory.com">Tistory</a> 블로그의 API를 사용하기 위해서 <code>passport</code>를 사용해 복잡한 인증과정을 간단하게 구현한 인증구현체 모듈이다.
+Tistory 인증 API는 OAuth 2.0 기반의 인증 방식을 사용하고 있다. 그래서 <code>passport-oauth2</code>를 상속받아 만들어져 있다.</p>
+<p>Tistory 오픈 API를 사용하기 위해서는 다음과 같은 과정이 필요하다.</p>
+<ol>
+<li>Tistory 사이트에서 클라이언트(웹, 앱 서비스 등록)를 등록</li>
+<li>웹 프레임워크 설치 (express.js)</li>
+<li><code>passport-tistory</code> 설치</li>
+<li>웹 프레임워크에서 <code>passport-tistory</code> 연동</li>
+<li>Tistory 인증처리 테스트 후 accessToken 획득</li>
+<li>accessToken으로 Tistory 오픈 API 사용</li>
+</ol>
+<h1 id="-">설치</h1>
+<p>passport-tistory 은 npm으로 간단히 설치 할 수 있다.</p>
+<pre><code>npm <span class="keyword">install</span> passport-tistory
+</code></pre><h1 id="-">사용방법</h1>
+<p>passport-tistory 사용 방법은 <code>passport</code> 모듈과 <code>passport-tistory</code> 모듈을 로드해서 다음과 같이 인증이 필요한 부분에 <code>passport.use()</code> 사용한다.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
+    TistoryStrategy= <span class="built_in">require</span>(<span class="string">'passport-tistory'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> TistoryStrategy({
+    <span class="attr">clientID</span> : clientID,
+    <span class="attr">callbackURL</span> : callbackURL
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
+    <span class="comment">// 사용자의 정보는 profile에 들어있다.</span>
+    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      done(<span class="literal">null</span>, user);
+    });
+  }
+));
+</code></pre>
+<h1 id="tistory-client-">Tistory Client 등록하기</h1>
+<p><code>passport-tistory</code> 는 Tistory API를 사용하기 위해서 인증을 처리하는 모듈로 Tistory API를 사용하기 위해서는 가장먼저 티스토리에서 클라이언트를 등록해야한다.</p>
+<p>Tistory 오픈 API를 사용하기 위해서는 다음 문서를 먼저 확인한다.</p>
+<ul>
+<li><a href="http://www.tistory.com/guide/api/oauth">Tistory 인증가이드</a></li>
+<li><a href="http://www.tistory.com/guide/api/index">Tistory API가이드</a></li>
+</ul>
+<p>위 두 문서를 참조하고 난 후 <a href="http://www.tistory.com/guide/api/manage/register">Tistory 클라이언트트 등록</a>을 한다.</p>
+<p>클라인트 등록을 필드 속성은 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>필드명</th>
+<th>설명</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>서비스 명</td>
+<td>Tistory 클리언트 이름을 입력한다</td>
+<td></td>
+</tr>
+<tr>
+<td>설명</td>
+<td>설명을 입력한다</td>
+<td></td>
+</tr>
+<tr>
+<td>로그</td>
+<td>로고가 될 파일을 업로드한다</td>
+<td></td>
+</tr>
+<tr>
+<td>서비스형태</td>
+<td>웹서비스, PC애프리케이션, 모바일 중에 선택을 한다</td>
+<td></td>
+</tr>
+<tr>
+<td>서비스 권한</td>
+<td>읽기전용, 읽기/쓰기 중에 선택을 한다</td>
+<td>읽기전용을하면 블로그에 글을 등록, 수정, 삭제를 할 수 없다</td>
+</tr>
+<tr>
+<td>서비스URL</td>
+<td>Tistory 클라이언트를 만들어서 사용할 host의 URL을 입력합니다.</td>
+<td>개발할 때는 <a href="http://127.0.0.1">http://127.0.0.1</a> 로 지정한다</td>
+</tr>
+<tr>
+<td>CallBack 경로</td>
+<td>Tistory 인증 후에 보여진 URL을 한다</td>
+<td>개발할 때는 <a href="http://127.0.0.1/auth/tistory/callback">http://127.0.0.1/auth/tistory/callback</a> 으로 지정한다</td>
+</tr>
+</tbody>
+</table>
+<h1 id="express-js-">Express.js와 연동하기</h1>
+<p>웹 서비스를 만들기 위해서 Express.js 를 사용하고 있다면 다음과 같인 <code>passport-tistory</code>를 연동해서 사용할 수 있다.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
+    , passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
+    , util = <span class="built_in">require</span>(<span class="string">'util'</span>)
+    , TistoryStrategy = <span class="built_in">require</span>(<span class="string">'passport-tistory'</span>).Strategy;
+
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
+<span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+
+
+<span class="keyword">var</span> TISTORY_CLIENT_ID = <span class="string">""</span>        <span class="comment">// 티스토리 API를 사용하기 위해서 등록한 Client의 Client ID</span>
+<span class="keyword">var</span> TISTORY_CLIENT_SECRET = <span class="string">""</span>;   <span class="comment">// 티스토리 API를 사용하기 이해서 등록한 Client의 Clietn Secret</span>
+
+passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+  done(<span class="literal">null</span>, user);
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">obj, done</span>) </span>{
+  done(<span class="literal">null</span>, obj);
+});
+
+
+passport.use(<span class="keyword">new</span> TistoryStrategy({
+      <span class="attr">clientID</span>: TISTORY_CLIENT_ID,
+      <span class="attr">clientSecret</span>: TISTORY_CLIENT_SECRET,
+      <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/tistory/callback"</span>
+    },
+    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+      <span class="comment">// asynchronous verification, for effect...</span>
+      <span class="built_in">console</span>.log(<span class="string">"accessToken: "</span> + accessToken);
+      <span class="built_in">console</span>.log(<span class="string">"refreshToken: "</span> +refreshToken);
+
+      process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+        <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+      });
+    }
+));
+
+<span class="keyword">var</span> app = express();
+
+app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));
+app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);
+app.use(logger(<span class="string">'dev'</span>));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(session({ <span class="attr">secret</span>: <span class="string">'keyboard cat'</span> }))
+app.use(passport.initialize());
+app.use(passport.session())
+
+<span class="comment">// GET /</span>
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+  res.render(<span class="string">'index'</span>, { <span class="attr">user</span>: req.user });
+});
+
+<span class="comment">// GET /account</span>
+app.get(<span class="string">'/account'</span>, ensureAuthenticated, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+  res.render(<span class="string">'account'</span>, { <span class="attr">user</span>: req.user });
+});
+
+<span class="comment">// GET /login</span>
+app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+  res.render(<span class="string">'login'</span>, { <span class="attr">user</span>: req.user });
+});
+
+<span class="comment">// GET /auth/tistory</span>
+app.get(<span class="string">'/auth/tistory'</span>,
+    passport.authenticate(<span class="string">'tistory'</span>),
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+      <span class="built_in">console</span>.log(req);
+    });
+
+<span class="comment">// GET /auth/tistory/callback</span>
+app.get(<span class="string">'/auth/tistory/callback'</span>,
+    passport.authenticate(<span class="string">'tistory'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+      <span class="built_in">console</span>.log(req);
+      res.redirect(<span class="string">'/'</span>);
+    });
+<span class="comment">// GET /logout</span>
+app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+  req.logout();
+  res.redirect(<span class="string">'/'</span>);
+});
+
+app.listen(<span class="number">3000</span>);
+
+<span class="function"><span class="keyword">function</span> <span class="title">ensureAuthenticated</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="keyword">if</span> (req.isAuthenticated()) { <span class="keyword">return</span> next(); }
+  res.redirect(<span class="string">'/login'</span>)
+}
+</code></pre>
+<h1 id="profile-">profile 프로퍼티</h1>
+<p>Tistory는 user 고유 정보를 가져오는 API가 존재하지 않는다. 그래서 다른 passport plugins과 달리 profile 정보로 Tistory의 blogInfo를 가져오게 했다.</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>provider</td>
+<td>String</td>
+<td>tistory 고정</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>Tistory 블로그 계정</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>String</td>
+<td>Tistory 계정 userId</td>
+</tr>
+<tr>
+<td>tistory</td>
+<td>Object</td>
+<td>Tistory 정보</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>결과 상태 값</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Array</td>
+<td>Tistory에 만들어진 블로그의 정보</td>
+</tr>
+</tbody>
+</table>
+<h1 id="copyright-and-license">Copyright and License</h1>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2014 SungKwang Song</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-tistory</span></code></div>
+            <ul>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2014-07-15T02:11:50Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/saltfactory/passport-tistory.git">https://github.com/saltfactory/passport-tistory</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

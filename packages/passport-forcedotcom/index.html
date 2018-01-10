@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-forcedotcom</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Salesforce.com/Force.com/Database.com authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-forcedotcom/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-forcedotcom"/>
+    <meta property="og:description" content="Salesforce.com/Force.com/Database.com authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-forcedotcom/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-forcedotcom"/>
+    <meta name="twitter:description" content="Salesforce.com/Force.com/Database.com authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-forcedotcom">passport-forcedotcom</h1>
+<p align="center">
+  <img src="https://raw.github.com/joshbirk/passport-forcedotcom/master/images/sf.png" alt="SalesForce" />
+</p>
+
+<p>This is a Strategy for use with <a href="http://passportjs.org">PassportJS</a> with the
+Force.com platform (meaning you can use it with Saleforce CRM, your Force.com
+applications and Database.com).</p>
+<p><strong>Please Note</strong> that as of version 0.1.0, successful authentication now results
+in a standard <a href="http://passportjs.org/guide/profile/">PassportJS User Profile</a>
+object.</p>
+<h3 id="usage">Usage</h3>
+<ol>
+<li>Download this npm module</li>
+</ol>
+<pre><code class="lang-sh">npm install --save passport-forcedotcom
+</code></pre>
+<ol>
+<li>Import it into your app</li>
+</ol>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> ForceDotComStrategy = <span class="built_in">require</span>(<span class="string">'passport-forcedotcom'</span>).Strategy;
+</code></pre>
+<ol>
+<li>Define the strategy with your application credentials and information</li>
+</ol>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> ForceDotComStrategy({
+  <span class="attr">clientID</span>: <span class="string">'{client_id}'</span>,
+  <span class="attr">clientSecret</span>: <span class="string">'{client_secret}'</span>,
+  <span class="attr">scope</span>: [<span class="string">'id'</span>,<span class="string">'chatter_api'</span>],
+  <span class="attr">callbackURL</span>: <span class="string">'https://my.example.com/auth/forcedotcom/callback'</span>
+}, <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">token, refreshToken, profile, done</span>) </span>{
+  <span class="built_in">console</span>.log(profile);
+  <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+}));
+</code></pre>
+<ol>
+<li>And then setup some routes to hande the flow</li>
+</ol>
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/forcedotcom'</span>, passport.authenticate(<span class="string">'forcedotcom'</span>), {
+  <span class="attr">display</span>: <span class="string">"page"</span>, <span class="comment">// valid values are: "page", "popup", "touch", "mobile"</span>
+  prompt: <span class="string">""</span>, <span class="comment">// valid values are: "login", "consent", or "login consent"</span>
+  login_hint: <span class="string">""</span>
+});
+<span class="comment">// this should match the callbackURL parameter above:</span>
+app.get(<span class="string">'/auth/forcedotcom/callback'</span>,
+  passport.authenticate(<span class="string">'forcedotcom'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/error'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+    res.render(<span class="string">"index"</span>,checkSession(req));
+  }
+);
+</code></pre>
+<p>And as usual with passport, you can update the user serialization/de-serialization.</p>
+<h3 id="creating-a-connected-app">Creating a Connected App</h3>
+<p>In order to use this Strategy, you&#39;ll need to have a <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm">Connected
+App</a>
+inside of Salesforce.  See <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_create.htm">this
+article</a>
+for detailed and up-to-date Connected App creation instructions.</p>
+<p>Tips:</p>
+<ul>
+<li>Please note that the <code>client_id</code> is referred to as &quot;Consumer Key&quot; and the
+<code>client_secret</code> is referred to as the &quot;Consumer Secret&quot; in some of the UI and
+documentation.</li>
+<li>Be sure to set the Connected App&#39;s callback URL to the same setting you
+provided in the <code>new ForceDotComStrategy</code> constructor.  If you&#39;re using
+<code>express</code>, then the route you attach must also correspond to this URL (e.g.
+<code>app.get(&#39;/auth/forcedotcom/callback&#39;, ...)</code></li>
+<li>to get a <code>photos</code> section in the <a href="http://passportjs.org/guide/profile/">User
+Profile</a> you need to set up the <code>api</code>
+or <code>chatter_api</code> scope when creating the Connected App.<ul>
+<li>the URL to the photo lasts for ~30 days</li>
+<li>if you do not need the photos, supply a <code>skipPhoto: true</code> option to the
+<code>ForceDotComStrategy</code> constructor and only enable the <code>id</code> scope.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<p>There is an example app called <code>simple-example</code> in: <code>examples/</code> folder. This shows how to use ForceDotCom-Passport with lots of comments.
+To run locally:</p>
+<ol>
+<li>Open <code>app.js</code> in <code>examples/simple-example</code></li>
+<li>Set <code>CF_CLIENT_ID</code>, <code>CF_CLIENT_SECRET</code>, <code>CF_CALLBACK_URL</code> and optionally, <code>SF_AUTHORIZE_URL</code>,  <code>SF_TOKEN_URL</code> to match your connected app&#39;s settings.</li>
+<li>Install npm modules by running <code>npm install</code></li>
+<li>Run: <code>node app.js</code></li>
+<li>Open <code>localhost:3000</code> in the browser and try to login using OAuth.</li>
+</ol>
+<h3 id="authors">Authors</h3>
+<ul>
+<li><a href='https://twitter.com/joshbirk' target='_blank'>Joshua Birk</a></li>
+<li><a href='https://twitter.comrajaraodv' target='_blank'> Raja Rao DV </a></li>
+<li><a href='https://twitter.com/jaredhanson' target='_blank'>Jared Hanson</a> -
+whose help resolved a previous issue with handling the incoming OAuth
+information so that things like the <code>instance_url</code> can be readily available.</li>
+<li>The team at GoInstant (now Salesforce) who made sure it was production worthy.</li>
+<li>Updates, quality of life additions, enhancements from <a href="http://absurdnerd.co">Jason Ghent</a> and <a href="https://c9.io">Fabian Jakobs</a>.</li>
+</ul>
+<h3 id="legal">Legal</h3>
+<p>©2013-2014 salesforce.com, All Rights Reserved.</p>
+<p>Use and distribution is licensed under the 3-Clause BSD License.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-forcedotcom</span></code></div>
+            <ul>
+              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2016-05-20T19:09:12Z">2 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/joshbirk/passport-forcedotcom.git">https://github.com/joshbirk/passport-forcedotcom</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/BSD-3-Clause">BSD 3-clause &quot;New&quot; or &quot;Revised&quot; License</a></li>
+            </ul>
+            <ul>
+              <li><b>216</b> downloads in the last day</li>
+              <li><b>1,072</b> downloads in the last week</li>
+              <li><b>4,076</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

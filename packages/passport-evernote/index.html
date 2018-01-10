@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-evernote</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Evernote authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-evernote/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-evernote"/>
+    <meta property="og:description" content="Evernote authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-evernote/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-evernote"/>
+    <meta name="twitter:description" content="Evernote authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-evernote">passport-evernote</h1>
+<p><a href="https://travis-ci.org/jaredhanson/passport-evernote"><img src="https://img.shields.io/travis/jaredhanson/passport-evernote.svg" alt="Build"></a>
+<a href="https://coveralls.io/r/jaredhanson/passport-evernote"><img src="https://img.shields.io/coveralls/jaredhanson/passport-evernote.svg" alt="Coverage"></a>
+<a href="https://codeclimate.com/github/jaredhanson/passport-evernote"><img src="https://img.shields.io/codeclimate/github/jaredhanson/passport-evernote.svg?label=quality" alt="Quality"></a>
+<a href="https://david-dm.org/jaredhanson/passport-evernote"><img src="https://img.shields.io/david/jaredhanson/passport-evernote.svg" alt="Dependencies"></a></p>
+<p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
+with <a href="http://www.evernote.com/">Evernote</a> using the OAuth 1.0a API.</p>
+<p>This module lets you authenticate using Evernote in your Node.js applications.
+By plugging into Passport, Evernote authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-evernote</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="create-an-application">Create an Application</h4>
+<p>Before using <code>passport-evernote</code>, you must first get an Evernote API key. If you
+have not already done so, an API key can be requested at <a href="https://dev.evernote.com/">Evernote Developers</a>.
+Your will be issued an API key and secret, which need to be provided to the
+strategy.</p>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The Evernote authentication strategy authenticates users using an Evernote
+account and OAuth tokens.  The API key secret obtained from Evernote are
+supplied as options when creating the strategy.  The strategy also requires a
+<code>verify</code> callback, which receives the access token and corresponding secret as
+arguments, as well as <code>profile</code> which contains the authenticated user&#39;s Evernote
+profile.   The <code>verify</code> callback must call <code>cb</code> providing a user to complete
+authentication.</p>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> EvernoteStrategy({
+    consumerKey: EVERNOTE_CONSUMER_KEY,
+    consumerSecret: EVERNOTE_CONSUMER_SECRET,
+    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/evernote/callback"</span>
+  },
+  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, cb)</span> </span>{
+    User.findOrCreate({ evernoteId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+      <span class="keyword">return</span> cb(err, user);
+    });
+  }
+));
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;evernote&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code>app.get(<span class="string">'/auth/evernote'</span>,
+  passport.authenticate(<span class="string">'evernote'</span>));
+
+app.get(<span class="string">'/auth/evernote/callback'</span>, 
+  passport.authenticate(<span class="string">'evernote'</span>, { failureRedirect: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre><h2 id="examples">Examples</h2>
+<p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
+refer to an <a href="https://github.com/passport/express-4.x-evernote-example">example</a>
+as a starting point for their own web applications.  The example shows how to
+authenticate users using Twitter.  However, because both Twitter and Evernote
+use OAuth 1.0, the code is similar.  Simply replace references to Twitter with
+corresponding references to Evernote.</p>
+<h2 id="faq">FAQ</h2>
+<h5 id="how-do-i-test-against-the-evernote-sandbox-">How do I test against the Evernote sandbox?</h5>
+<p>Supply the sandbox endpoint URLs as options to the strategy, as follows:</p>
+<pre><code class="lang-js"><span class="keyword">new</span> EvernoteStrategy({
+  <span class="attr">requestTokenURL</span>: <span class="string">'https://sandbox.evernote.com/oauth'</span>,
+  <span class="attr">accessTokenURL</span>: <span class="string">'https://sandbox.evernote.com/oauth'</span>,
+  <span class="attr">userAuthorizationURL</span>: <span class="string">'https://sandbox.evernote.com/OAuth.action'</span>,
+  <span class="attr">consumerKey</span>: EVERNOTE_CONSUMER_KEY,
+  <span class="attr">consumerSecret</span>: EVERNOTE_CONSUMER_SECRET,
+  <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/evernote/callback"</span>
+}
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<h4 id="tests">Tests</h4>
+<p>The test suite is located in the <code>test/</code> directory.  All new features are
+expected to have corresponding test cases.  Ensure that the complete test suite
+passes by executing:</p>
+<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+</code></pre>
+<h4 id="coverage">Coverage</h4>
+<p>The test suite covers 100% of the code base.  All new feature development is
+expected to maintain that level.  Coverage reports can be viewed by executing:</p>
+<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+$ make view-cov
+</code></pre>
+<h2 id="support">Support</h2>
+<h4 id="funding">Funding</h4>
+<p>This software is provided to you as open source, free of charge.  The time and
+effort to develop and maintain this project is dedicated by <a href="https://github.com/jaredhanson">@jaredhanson</a>.
+If you (or your employer) benefit from this project, please consider a financial
+contribution.  Your contribution helps continue the efforts that produce this
+and other open source software.</p>
+<p>Funds are accepted via <a href="https://paypal.me/jaredhanson">PayPal</a>, <a href="https://venmo.com/jaredhanson">Venmo</a>,
+and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appreciated.</p>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2011-2016 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-evernote</span></code></div>
+            <ul>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2017-04-22T01:46:28Z">9 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/jaredhanson/passport-evernote.git">https://github.com/jaredhanson/passport-evernote#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>39</b> downloads in the last day</li>
+              <li><b>141</b> downloads in the last week</li>
+              <li><b>662</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

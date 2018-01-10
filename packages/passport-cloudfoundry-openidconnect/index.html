@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-cloudfoundry-openidconnect</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Cloud Foundry UAA OpenID-Connect authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-cloudfoundry-openidconnect/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-cloudfoundry-openidconnect"/>
+    <meta property="og:description" content="Cloud Foundry UAA OpenID-Connect authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-cloudfoundry-openidconnect/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-cloudfoundry-openidconnect"/>
+    <meta name="twitter:description" content="Cloud Foundry UAA OpenID-Connect authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-cloudfoundry-openidconnect">passport-cloudfoundry-openidconnect</h1>
+<p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
+with <a href="http://cloudfoundry.com/">Cloud Foundry open PaaS</a> using OpenID-Connect.</p>
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page3.png" height="400px"  />
+</p>
+
+
+
+<p>##OpenID-Connect 
+(From: <a href="http://openid.net/connect/">http://openid.net/connect/</a>)</p>
+<p>####What is OpenID Connect ?
+OpenID Connect is a suite of lightweight specifications that provide a framework for identity interactions via REST like APIs. The simplest deployment of OpenID Connect allows for clients of all types including browser-based, mobile, and javascript clients, to request and receive information about identities and currently authenticated sessions. The specification suite is extensible, allowing participants to optionally also support encryption of identity data, discovery of the OpenID Provider, and advanced session management, including logout. </p>
+<p>####How is OpenID Connect different than OpenID 2.0?
+OpenID Connect performs many of the same tasks as OpenID 2.0, but does so in a way that is API-friendly. OpenID Connect can also be extended to include more robust mechanisms for signing and encryption. Integration of OAuth 1.0a and OpenID 2.0 required an extension (called the OpenID/OAuth hybrid); in OpenID Connect, OAuth 2.0 capability is built into the protocol itself.</p>
+<p>##OpenID-Connect (my definition)
+It&#39;s OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it just like we would do for OAuth 2.0, but the consumer will see it work like an openID.</p>
+<p>##OpenID-Connect (High-level steps):</p>
+<ol>
+<li><p>Perform OAuth 2.0 as usual. And after authentication dance, your app will get an <code>access_token</code>, a <code>refresh_token</code> just like in OAuth 2.0 but in addition an extra token called <code>token_id</code>.  </p>
+</li>
+<li><p>Then, we must take the <code>token_id</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a></p>
+</li>
+<li><p>After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;openid-server&gt;/userinfo</code> end point. </p>
+</li>
+</ol>
+<p>BTW, the access_token you get won&#39;t be able to do anything other than get user&#39;s profile (open id aspect).</p>
+<p>(I think they should have named it &quot;OAuth-ID&quot; :) )</p>
+<p>##CloudFoundry User Account and Authentication (UAA) Server</p>
+<p>&quot;The UAA is the identity management service for Cloud Foundry. It&#39;s primary role is as an OAuth2 provider, issuing tokens for client applications to use when they act on behalf of Cloud Foundry users. It can also authenticate users with their Cloud Foundry credentials, and can act as an SSO service using those credentials (or others). It has endpoints for managing user accounts and for registering OAuth2 clients, as well as various other management functions&quot; - <a href="https://github.com/cloudfoundry/uaa">https://github.com/cloudfoundry/uaa</a></p>
+<p>In essence, Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-variation of OpenID-Connect and is easily extensible for other kinds of auth mechanisms.</p>
+<p>####High-level steps for UAA OpenID:</p>
+<ol>
+<li>Register your app to only have scope <code>openid</code> or during OAuth 2.0 dance, send <code>{scope: &#39;oauth.2.0&#39;}</code>.</li>
+<li><p>Perform OAuth 2.0 as usual. And after authentication dance, your app will get an <code>access_token</code>, a <code>refresh_token</code> just like in OAuth 2.0 <del>but in addition an extra token called <code>token_id</code></del>.  <code>access_token</code> itself acts similar to <code>token_id</code>.</p>
+</li>
+<li><p>Then, we must take the <del>token_id</del> <code>access_token</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a>. </p>
+</li>
+</ol>
+<pre><code>access_token (Before):
+abc.<span class="number">123.456</span>
+
+Decode: Take everything after first <span class="string">"."</span> (= <span class="string">"123.456"</span>) <span class="keyword">and</span> <span class="keyword">do</span> Base64-decode.
+
+acess_token (After)
+{<span class="string">"exp"</span>:<span class="number">1357672585</span>,<span class="string">"user_name"</span>:<span class="string">"bla@yahoo.com"</span>,<span class="string">"scope"</span>:[<span class="string">"openid"</span>],<span class="string">"email"</span>:<span class="string">"bla@yahoo.com"</span>,<span class="string">"aud"</span>:[<span class="string">"openid"</span>],<span class="string">"jti"</span>:<span class="string">"123-c545-4775-ad27-123"</span>,<span class="string">"user_id"</span>:<span class="string">"123-2c45-111-8f37-123"</span>,<span class="string">"client_id"</span>:<span class="string">"YOUR_APP_ID"</span>}
+</code></pre><p>Validate client_id is actually your app&#39;s id. Expiration (exp) is at a later date. <del>Issuer(iss) is UAA (not supported yet).</del></p>
+<p>4.After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;uaa-server&gt;/userinfo</code> end point. </p>
+<p>#####Notes: </p>
+<ul>
+<li>The access_token you get won&#39;t be able to do anything other than get user&#39;s profile (open id aspect).</li>
+<li><strong><em>This passport-cloudfoundry-openidconnect</em></strong> already does all these things for you.</li>
+<li>Accurate as of Jan 8th 2012.</li>
+</ul>
+<p>####CloudFoundry.com &#39;s default endpoints####</p>
+<ul>
+<li>Authorize: <a href="https://uaa.cloudfoundry.com/oauth/authoriz">https://uaa.cloudfoundry.com/oauth/authorize</a></li>
+<li>Token: <a href="https://uaa.cloudfoundry.com/oauth/token">https://uaa.cloudfoundry.com/oauth/token</a></li>
+<li>User Info: <a href="https://uaa.cloudfoundry.com/userinfo">https://uaa.cloudfoundry.com/userinfo</a></li>
+</ul>
+<p>####For more, please refer:####</p>
+<p><strong><em>UAA related blogs</em></strong></p>
+<ul>
+<li><a href="http://blog.cloudfoundry.org/2012/07/23/uaa-intro/">Introducing the UAA and Security for Cloud Foundry</a></li>
+<li><a href="http://blog.cloudfoundry.org/2012/07/24/high-level-features-of-the-uaa/">High Level Features of the UAA</a></li>
+<li><a href="http://blog.cloudfoundry.org/2012/11/05/how-to-integrate-an-application-with-cloud-foundry-using-oauth2/">How to Integrate an Application with Cloud Foundry using OAuth2</a></li>
+</ul>
+<p><strong><em>UAA API details &amp; Github</em></strong></p>
+<ul>
+<li><a href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst">User Account and Authentication Service APIs doc</a></li>
+<li><a href="https://github.com/cloudfoundry/uaa">UAA Github</a></li>
+</ul>
+<p><strong><em>OpenID Connect</em></strong></p>
+<ul>
+<li><a href="http://openid.net">OpenID.net website</a></li>
+<li><a href="http://openid.net/specs/openid-connect-basic-1_0.html">OpenID Basic-Connect spec</a></li>
+</ul>
+<h2 id="-br-"><br></h2>
+<h1 id="passport-cloudfoundry-openidconnect-installation">passport-cloudfoundry-openidconnect Installation</h1>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-cloudfoundry-openidconnect</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The CloudFoundry authentication strategy authenticates users using a CloudFoundry
+account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
+accepts these credentials and calls <code>done</code> providing a user, as well as
+<code>options</code> specifying a client ID, client secret, and callback URL.</p>
+<pre><code class="lang-javascript">var CloudFoundryStrategy = require('passport-cloudfoundry-openidconnect').Strategy;
+
+
+var cfStrategy = new CloudFoundryStrategy({
+    clientID: CF_CLIENT_ID,
+    clientSecret: CF_CLIENT_SECRET,
+    callbackURL: CF_CALLBACK_URL
+}, function(accessToken, refreshToken, profile, done) { //verify callback
+    // asynchronous verification, for effect...
+    process.nextTick(function() {
+
+        // To keep the example simple, the user's CloudFoundry profile is returned to
+        // represent the logged-in user.  In a typical application, you would want
+        // to associate the CloudFoundry account with a user record in your database,
+        // and return that user instead.
+        return done(null, profile);
+    });
+});
+
+//****************************************
+// Examples 2 (w/ 'state' parameter):
+//****************************************
+
+var CloudFoundryStrategy = require('passport-cloudfoundry-openidconnect').Strategy;
+var cfStrategy = new CloudFoundryStrategy({
+    clientID: '123-456-789',
+    clientSecret: 'shhh-its-a-secret'
+    callbackURL: 'https://myapp.cloudfoundry.com/auth/cloudfoundry/callback',
+    passReqToCallback: true //&lt;---- Pass this to get req (as 1st param)from CF.com to callback
+  },
+  function(req, accessToken, refreshToken, profile, done) {
+
+    //Verify things like 'state' in req.query (be sure to set: passReqToCallback=true)
+    if(req.query.state === 'stateValueIpreviouslySent') {
+        User.findOrCreate(..., function (err, user) {
+           done(err, user);
+       });
+    } else {
+       done({error: 'state value didnt match.. possible CSRF?'});
+    }
+  });
+
+
+ // Set a callback to generate 'state' value.
+ cfStrategy.setStateParamCallBack(generateState);
+
+ Where.. 'generateState' generates new state and stores is somwhere
+ and returns that random value back.
+
+ // Temporarily store `state` ids
+ var states = {};
+
+ // Generates a random value to be used as 'state' param during authorization
+  function generateStateParam() {
+    var state = uuid.v4();
+    states[state] = true;
+    return state;
+  }
+
+ // Finally, in your 'finalCallback',check if that state exists
+ if(req.query.state &amp;&amp; states[req.query.state]) {
+   done(null, user);
+   //delete it from memory
+   delete states[req.query.state];
+ } else {
+   done({"error": 'state value didn't match. possible CSRF?'})
+ }
+
+ // Pass the strategy
+ passport.use(cfStrategy);
+</code></pre>
+<h4 id="express-middlewares">Express middlewares</h4>
+<p>In Express apps, you need to add the below middlewares. Also make sure to add them after Express&#39; session middleware</p>
+<pre><code class="lang-javascript"><span class="comment">// Initialize Passport!  Also use passport.session() middleware, to support</span>
+<span class="comment">// persistent login sessions (recommended).</span>
+    app.use(passport.initialize());
+    app.use(passport.session());
+</code></pre>
+<h4 id="express-routes">Express routes</h4>
+<p>For passport to work, you need to add two routes.</p>
+<ol>
+<li><code>app.get(&#39;/auth/cloudfoundry&#39;…</code> to start OAuth</li>
+<li><code>app.get(&#39;/auth/cloudfoundry/callback&#39;…</code> to receive OAuth callback back from Cloud Foundry.<ul>
+<li>NOTE: This must match your callback url&#39;s path that you used to register the app.</li>
+</ul>
+</li>
+</ol>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-javascript">
+    app.get(<span class="string">'/auth/cloudfoundry'</span>,
+      passport.authenticate(<span class="string">'cloudfoundry'</span>, {<span class="attr">scope</span>: <span class="string">'openid'</span>}),
+      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+        <span class="comment">// The request will be redirected to CloudFoundry for authentication, so</span>
+        <span class="comment">// this function will not be called.</span>
+      });
+
+    app.get(<span class="string">'/auth/cloudfoundry/callback'</span>,
+      passport.authenticate(<span class="string">'cloudfoundry'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+        <span class="comment">// Successful authentication, redirect home.</span>
+        res.redirect(<span class="string">'/'</span>);
+      });
+
+      w/ <span class="string">'state'</span> parameter (&amp; verify/match it <span class="keyword">in</span> the main callback to ensure no CSRF)
+      app.get(<span class="string">'/auth/cloudfoundry'</span>,
+      passport.authenticate(<span class="string">'cloudfoundry'</span>, {<span class="attr">state</span>: <span class="string">'generateSomeRandomStateString'</span>}),
+      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+        <span class="comment">// The request will be redirected to CloudFoundry for authentication, so</span>
+        <span class="comment">// this function will not be called.</span>
+      });
+</code></pre>
+<h4 id="logging-out">Logging out</h4>
+<p>To logout, call <code>req.logout()</code> AND <code>cfStrategy.reset()</code> like below:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="keyword">if</span>(!req.user) {
+        req.session.destroy();
+        req.logout();
+        cfStrategy.reset(); <span class="comment">//required!</span>
+
+        <span class="keyword">return</span> res.redirect(<span class="string">'/login'</span>);
+    }
+    res.render(<span class="string">'index'</span>, {
+        <span class="attr">user</span>: req.user
+    });
+});
+</code></pre>
+<hr>
+<h2 id="an-example-oauth2-app">An Example OAuth2 App</h2>
+<p>The example app is located in the <a href="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/tree/master/examples/login">/examples</a> folder. But here are the details.</p>
+<h3 id="running-the-example-app">Running the example app</h3>
+<ul>
+<li>Git clone this repo to <code>passport-cloudfoundry-openidconnect</code> folder (note <code>npm install</code> won&#39;t download examples, docs etc).</li>
+<li><code>cd passport-cloudfoundry-openidconnect/examples/login</code></li>
+<li><code>npm install</code></li>
+<li>Open <code>login/app.js</code> and set <code>CF_CLIENT_ID</code>, <code>CF_CLIENT_SECRET</code> &amp; <code>CF_CALLBACK_URL</code><ul>
+<li>You will get these info when you register your app (see below).</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+//<span class="keyword">Set</span> Cloud Foundry app<span class="string">'s clientID
+var CF_CLIENT_ID = '</span><span class="comment">--insert-cloudfoundry-client-id-here--';</span>
+
+//<span class="keyword">Set</span> Cloud Foundry app<span class="string">'s clientSecret
+var CF_CLIENT_SECRET = '</span><span class="comment">--insert-cloudfoundry-client-secret-here--';</span>
+
+// Note: You should have a app.get(..) <span class="keyword">for</span> this callback <span class="keyword">to</span> receive callback <span class="keyword">from</span> Cloud Foundry
+// <span class="keyword">For</span> example: <span class="keyword">If</span> your callback <span class="keyword">url</span> <span class="keyword">is</span>: https://myKoolapp.cloudfoundry.com/auth/cloudfoundry/callback
+// <span class="keyword">then</span>, you should have a <span class="keyword">HTTP</span> <span class="keyword">GET</span> endpoint <span class="keyword">like</span>: app.get(<span class="string">'/auth/cloudfoundry/callback'</span>, callback))
+//
+<span class="keyword">var</span> CF_CALLBACK_URL = <span class="string">'--insert-cloudfoundry--url--/auth/cloudfoundry/callback'</span>;
+</code></pre><ul>
+<li><code>node app.js</code> to run app on <code>localhost:3000</code><ul>
+<li>PS: You should run this app at a pre-registered location that you provided during registering your app.</li>
+</ul>
+</li>
+<li>Open up browser &amp; open the app.</li>
+</ul>
+<h3 id="registering-your-app">Registering your app</h3>
+<OL>
+    <li>Register your app at Cloud Foundry at: <a href="http://support.cloudfoundry.com/">http://support.cloudfoundry.com/</a></li>
+    <li>Provide your app name. e.g. MyCoolApp</li>
+    <li>Provide a app&#39;s server domain for callback. e.g. mycoolapp.cloudfoundry.com</li>
+</OL>
+
+<h3 id="app-workflow">App Workflow</h3>
+<p> Once the app is up and running, here is how it works:</p>
+<h4 id="1-you-will-see-login-page-like-below-click-on-login-with-cloud-foundry-link-">1. You will see login page like below (Click on &#39;Login with Cloud Foundry&#39; link):</h4>
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page1.png" height="400px" width="550px" />
+</p>
+
+<p>####2. Your browser will be redirected to <a href="https://uaa.cloudfoundry.com/login">https://uaa.cloudfoundry.com/login</a> (default auth url): ####
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page2.png" height="400px" width="550px" />
+</p></p>
+<p>####3. If you Sign-in using your cloudfoundry.com account, you will see ####
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page3.png" height="400px" width="550px" />
+</p></p>
+<h4 id="4-if-you-approve-browser-will-redirect-you-to-your-app-w-access_token-user-info-and-you-will-see-">4. If you Approve, browser will redirect you to your app w/ access_token &amp; user info. And you will see:</h4>
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page4.png" height="400px" width="550px" />
+</p>
+
+<hr>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
+<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+</code></pre><h2 id="credits">Credits</h2>
+<ul>
+<li><a href="http://github.com/rajaraodv">Raja Rao DV</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>(MIT)
+VMware</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-cloudfoundry-openidconnect</span></code></div>
+            <ul>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2013-01-11T09:25:46Z">5 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/rajaraodv/passport-cloudfoundry-openidconnect.git"></a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>20</b> downloads in the last week</li>
+              <li><b>25</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-auth-token</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Authentication token strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-auth-token/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-auth-token"/>
+    <meta property="og:description" content="Authentication token strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-auth-token/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-auth-token"/>
+    <meta name="twitter:description" content="Authentication token strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-auth-token">passport-auth-token</h1>
+<p><a href="https://travis-ci.org/mbell8903/passport-auth-token"><img src="https://travis-ci.org/mbell8903/passport-auth-token.png" alt="Build"></a>
+<a href="https://coveralls.io/r/mbell8903/passport-auth-token"><img src="https://coveralls.io/repos/mbell8903/passport-auth-token/badge.png" alt="Coverage Status"></a>
+<a href="https://codeclimate.com/github/mbell8903/passport-auth-token"><img src="https://codeclimate.com/github/mbell8903/passport-auth-token.png" alt="Quality"></a>
+<a href="https://david-dm.org/mbell8903/passport-auth-token"><img src="https://david-dm.org/mbell8903/passport-auth-token.png" alt="Dependencies"></a></p>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with an authentication token.</p>
+<p>This module lets you authenticate using a token in your Node.js
+applications. It is based on passport-local module by Jared Hanson.
+By plugging into Passport, token authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-auth-token</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The token authentication strategy authenticates users using a token.
+The strategy requires a <code>verify</code> callback, which accepts these
+credentials and calls <code>done</code> providing a user.
+Here is the pseudo code.</p>
+<pre><code>passport.use(<span class="string">'authtoken'</span>, <span class="keyword">new</span> AuthTokenStrategy(
+  function(token, done) {
+    AccessToken.findOne({
+      id: token
+    }, function(<span class="keyword">error</span>, accessToken) {
+      <span class="keyword">if</span> (<span class="keyword">error</span>) {
+        <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">error</span>)</span></span>;
+      }
+
+      <span class="keyword">if</span> (accessToken) {
+        <span class="keyword">if</span> (!token.isValid(accessToken)) {
+          <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">null</span>, <span class="keyword">false</span>)</span></span>;
+        }
+
+        User.findOne({
+          id: accessToken.userId
+        }, function(<span class="keyword">error</span>, user) {
+          <span class="keyword">if</span> (<span class="keyword">error</span>) {
+            <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">error</span>)</span></span>;
+          }
+
+          <span class="keyword">if</span> (!user) {
+            <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">null</span>, <span class="keyword">false</span>)</span></span>;
+          }
+
+          <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">null</span>, user)</span></span>;
+        });
+      } <span class="keyword">else</span> {
+        <span class="function"><span class="keyword">return</span> <span class="title">done</span><span class="params">(<span class="keyword">null</span>)</span></span>;
+      }
+    });
+  }
+));
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;authtoken&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code>app.post(<span class="string">'/login'</span>,
+  passport.authenticate(
+    <span class="string">'authtoken'</span>,
+    {
+      session: <span class="literal">false</span>,
+      optional: <span class="literal">false</span>
+    }
+  ),
+  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+    res.redirect(<span class="string">'/'</span>);
+  }
+);
+</code></pre><p>You can also set the parameter <code>optional</code> to true, so the same call can be both authenticated and not authenticated.</p>
+<h2 id="examples">Examples</h2>
+<p>For complete, working examples, refer to the multiple <a href="https://github.com/jaredhanson/passport-token/tree/master/examples">examples</a> included. (NOT UPDATED)</p>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
+<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+</code></pre><h2 id="credits">Credits</h2>
+<ul>
+<li><a href="http://github.com/mbell8903">Mike Bell</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2014 Mike Bell</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-auth-token</span></code></div>
+            <ul>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2015-02-24T18:25:29Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/mbell8903/passport-auth-token.git">https://github.com/mbell8903/passport-auth-token</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

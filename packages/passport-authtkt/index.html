@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-authtkt</title>
+    <meta charset="utf-8">
+    <meta name="description" content="mod_auth_tkt based authentication.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-authtkt/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-authtkt"/>
+    <meta property="og:description" content="mod_auth_tkt based authentication."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-authtkt/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-authtkt"/>
+    <meta name="twitter:description" content="mod_auth_tkt based authentication."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-authtkt">Passport-AuthTkt</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with a
+<a href="http://www.openfusion.com.au/labs/mod_auth_tkt/">mod_auth_tkt</a> ticket cookie.</p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-authtkt</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The AuthTkt authentication strategy authenticates requests based on the
+presence and validity of an auth_tkt cookie. To use it, you should configure
+the <code>cookieParser</code> middleware as well as Passport:</p>
+<pre><code>app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span></span> {
+    ...
+    app.<span class="keyword">use</span>(express.cookieParser());
+    app.<span class="keyword">use</span>(passport.initialize());
+    ...
+});
+</code></pre><p>To use the strategy:</p>
+<pre><code>authtkt = <span class="keyword">require</span>(<span class="string">'passport-authtkt'</span>);
+
+<span class="params">...</span>
+
+passport.use(<span class="literal">new</span> authtkt.Strategy(<span class="string">'mysecret'</span>, {
+    timeout: <span class="number">60</span>*<span class="number">60</span>, <span class="comment">// 1 hour timeout; omit to not have a timeout</span>
+    encodeUserData: <span class="literal">true</span>,
+    jsonUserData: <span class="literal">true</span>
+}));
+</code></pre><p>The first argument is the authentication secret that is used to sign cookies.
+This should be a secret string, and should ideally be <em>different</em> from any
+session secret passed to the Express <code>session</code> middleware.</p>
+<p>Valid options include:</p>
+<ul>
+<li><code>key</code> - name of the cookie.</li>
+<li>`encodeUserData - encode and decode the userData string using base64.
+ Defaults to true.</li>
+<li><code>jsonUserData</code> - encode and decode the userData string as JSON.
+ Defaults to false.</li>
+<li><code>ip</code> - use the given IP address (a dotted quad string) to create/validate
+tickets.</li>
+<li><code>timeout</code> - time, in seconds, for ticket validation.</li>
+</ul>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;authtkt&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code>app.post(<span class="string">'/foo'</span>, 
+    passport.authenticate(<span class="string">'authtkt'</span>, { failureRedirect: <span class="string">'/login'</span> }),
+    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+        ...
+    }
+);
+</code></pre><p>Note that the authenticator does not need to store anything in the session.
+If you do not configure any session middleware, you should pass
+<code>session: false</code> in the options to the authentication hook:</p>
+<pre><code>app.post(<span class="string">'/foo'</span>, 
+    passport.authenticate(<span class="string">'authtkt'</span>, { session: <span class="literal">false</span>, failureRedirect: <span class="string">'/login'</span> }),
+    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+        ...
+    }
+);
+</code></pre><p>When the authenticator is used, <code>req.authInfo</code> will be the parsed ticket,
+assuming authentication was successful. This is an object with the keys:</p>
+<ul>
+<li><code>userid</code>, the user id encoded in the authentication cookie</li>
+<li><code>userData</code>, the user data encoded in the cookie. If the strategy is set up
+with <code>jsonUserData</code>, this may be an object containing user information;
+otherwise it will be a string.</li>
+<li><code>tokens</code>, a list of authentication tokens, if set in the authentication cookie</li>
+<li><code>timestamp</code>, the timestamp (as seconds from the epoch) of the cookie</li>
+</ul>
+<p><code>req.user</code> will be the same as <code>req.authInfo.userData</code>.</p>
+<p>The <code>AuthTkt</code> instance configured with the secret and options is available
+as <code>strategy.authtkt</code>. This can be used e.g. to call <code>createTicket()</code> during
+login - see below.</p>
+<p>When <code>req.authInfo</code> is set on requests where the authenticator is used, the
+authentication cookie will be set if either there is a timeout configured, or
+the user id, user data or tokens for the ticket in <code>req.authInfo</code> has changed.
+This also applies if authentication was unsuccessful, i.e. if <code>req.authInfo</code>
+is set later by other middleware or routes.</p>
+<h4 id="saving-the-ticket-cookie">Saving the ticket cookie</h4>
+<p>To create a cookie, use the helper functions <code>createTicket()</code> and
+<code>encodeCookieValue()</code> on an <code>AuthTkt</code> instance. For example, a login route
+may do the following:</p>
+<pre><code><span class="keyword">var</span> strategy = req._passport.instance._strategy(<span class="string">'authtkt'</span>);
+<span class="keyword">var</span> ticket = strategy.authtkt.createTicket(user.id, {userData: user});
+<span class="keyword">return</span> res.cookie(strategy.key, strategy.authtkt.base64Encode(ticket));
+</code></pre><p>In this example, <code>user</code> is an object or string representing a user that has
+been validated (e.g. looked up in a database and authenticated). If <code>user</code>
+an object, <code>jsonUserData: true</code> should be set in the strategy options (see
+above). <code>user.id</code> is the user&#39;s id.</p>
+<p>The example may be shortned further using the <code>getCookieValue()</code> helper:</p>
+<pre><code><span class="symbol">var</span> <span class="keyword">strategy </span>= req._passport.instance._strategy(<span class="string">'authtkt'</span>)<span class="comment">;</span>
+<span class="symbol">res.cookie</span>(<span class="keyword">strategy.key, </span><span class="keyword">strategy.authtkt.getCookieValue(user.id, </span>{userData: user}))<span class="comment">;</span>
+</code></pre><p>To log the user out, simply clear the cookie:</p>
+<pre><code><span class="selector-tag">res</span><span class="selector-class">.clearCookie</span>(<span class="selector-tag">strategy</span><span class="selector-class">.key</span>);
+</code></pre><p>See <code>authtkt.js</code> for more details about the methods available on the <code>authtkt</code>
+object, which is an instance of the <code>AuthTkt</code> prototype found in that file.
+This is in fact a generic utiltiy for creating and parsing <code>auth_tkt</code> tickets,
+and so may be useful in other contexts.</p>
+<h4 id="parsing-cookies-client-or-server-side">Parsing cookies client or server side</h4>
+<p>Sometimes, it may be useful to parse an <code>auth_tkt</code> cookie on the client. The
+cookie format allows user id, tokens and the user data string to be extracted
+without knowing the authentication secret (which should be known to the server
+only).</p>
+<p>To aid this, <code>passport-authtkt</code> ships with a module called <code>authtktutils.js</code>
+that defines an object with functions <code>splitTicket()</code>, <code>base64Encode()</code> and
+<code>base64Decode()</code>. This may be loaded as either a Node module, a RequireJS
+module, or a JavaScript source file (which will define a global <code>authtktUtils</code>
+with the above functions).</p>
+<p>A typical usage pattern may be:</p>
+<pre><code><span class="keyword">var</span> cookieValue = $.cookie(<span class="string">'auth_tkt'</span>); <span class="comment">// Using the jQuery.cookie plugin</span>
+<span class="keyword">var</span> ticket = authtktUtils.base64Decode(cookieValue);
+<span class="keyword">var</span> ticketData = authtktUtils.splitCookie(cookieValue, {<span class="attr">jsonUserData</span>: <span class="literal">true</span>});
+<span class="keyword">var</span> userData = ticketData.userData;
+</code></pre><p>See <code>authtktutils.js</code> for more details.</p>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
+<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+</code></pre><p><a href="http://travis-ci.org/optilude/passport-authtkt"><img src="https://secure.travis-ci.org/optilude/passport-authtkt.png" alt="Build Status"></a></p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="http://github.com/optilude">Martin Aspeli</a></li>
+<li>Based heavily on <a href="https://github.com/jaredhanson/passport-local">passport-local</a>
+by Jared Hanson</li>
+<li>Laurence Rowe provided the Python implementation of the <code>mod_auth_tkt</code>
+algorithm used as the basis for the JavaScript port in <code>authtkt.js</code>.</li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2013 Martin Aspeli</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-authtkt</span></code></div>
+            <ul>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2013-03-10T10:19:51Z">5 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/optilude/passport-authtkt.git"></a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>14</b> downloads in the last week</li>
+              <li><b>20</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

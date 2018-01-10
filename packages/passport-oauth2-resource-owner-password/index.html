@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-oauth2-resource-owner-password</title>
+    <meta charset="utf-8">
+    <meta name="description" content="OAuth 2.0 resource owner password authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-oauth2-resource-owner-password/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-oauth2-resource-owner-password"/>
+    <meta property="og:description" content="OAuth 2.0 resource owner password authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-oauth2-resource-owner-password/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-oauth2-resource-owner-password"/>
+    <meta name="twitter:description" content="OAuth 2.0 resource owner password authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-oauth2-resource-owner-password">passport-oauth2-resource-owner-password</h1>
+<p>OAuth 2.0 resource owner password authentication strategy for <a href="https://github.com/jaredhanson/passport">Passport</a>.</p>
+<p>This module lets you authenticate requests containing resource owner credentials in the
+request body, as <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-27#section-1.3.3">defined</a>
+by the OAuth 2.0 specification.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">npm install passport-oauth2-resource-owner-password
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The OAuth 2.0 resource owner password authentication strategy authenticates clients
+using a client ID, username, and password
+The strategy requires a <code>verify</code> callback,
+which accepts those credentials and calls <code>done</code> providing a client.</p>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> ResourceOwnerPasswordStrategy(
+  <span class="function"><span class="keyword">function</span>(<span class="params">clientId, clientSecret, username, password, done</span>) </span>{
+    Clients.findOne({ <span class="attr">clientId</span>: clientId }, <span class="function"><span class="keyword">function</span> (<span class="params">err, client</span>) </span>{
+      <span class="comment">// this strategy does not require clientSecret as it is intended to be used in cases</span>
+      <span class="comment">// (such as mobile apps) which are inherintly insecure</span>
+
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+
+      Users.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+        <span class="keyword">if</span> (hashsum(user.salt + password) !== user.secret) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+
+        <span class="keyword">return</span> done(<span class="literal">null</span>, { <span class="attr">client</span>: client, <span class="attr">user</span>: user });
+      })
+    });
+  }
+));
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;oauth2-resource-owner-password&#39;</code>
+strategy, to authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
+middleware to implement the token endpoint:</p>
+<pre><code class="lang-javascript">app.get(
+  <span class="string">'/oauth/token'</span>
+, passport.authenticate(
+    [ <span class="string">'basic'</span>
+    , <span class="string">'oauth2-client-password'</span>
+    , <span class="string">'oauth2-resource-owner-password'</span>
+    ]
+  , { <span class="attr">session</span>: <span class="literal">false</span> }
+  )
+, oauth2orize.token()
+, oauth2orize.errorHandler()
+);
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>The <a href="https://github.com/coolaj86/oauth2orize/tree/master/examples/express2">example</a>
+included with <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
+demonstrates how to implement a complete OAuth 2.0 authorization server.
+<code>ResourceOwnerPasswordStrategy</code> is used to authenticate clients as they request access
+tokens from the token endpoint.</p>
+<h2 id="tests">Tests</h2>
+<p>TODO</p>
+<pre><code class="lang-bash">npm install --dev
+make <span class="built_in">test</span>
+</code></pre>
+<p><a href="http://travis-ci.org/coolaj86/passport-oauth2-resource-owner-password"><img src="https://secure.travis-ci.org/coolaj86/passport-oauth2-resource-owner-password.png" alt="Build Status"></a></p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="http://github.com/coolaj86">AJ ONeal</a></li>
+</ul>
+<p>The Client Password Strategy by <a href="http://github.com/jaredhanson">Jared Hanson</a> was used as a template to create this.</p>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2012-2014 AJ ONeal <a href="[http://coolaj86.com/](http://coolaj86.com/)">[http://coolaj86.com/](http://coolaj86.com/)</a></p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-oauth2-resource-owner-password</span></code></div>
+            <ul>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2014-10-07T08:51:20Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/coolaj86/passport-oauth2-resource-owner-password.git">https://github.com/coolaj86/passport-oauth2-resource-owner-password</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>12</b> downloads in the last day</li>
+              <li><b>83</b> downloads in the last week</li>
+              <li><b>253</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

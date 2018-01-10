@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-lti</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport-based LTI authorization">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-lti/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-lti"/>
+    <meta property="og:description" content="Passport-based LTI authorization"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-lti/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-lti"/>
+    <meta name="twitter:description" content="Passport-based LTI authorization"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-lti">passport-lti</h1>
+<p><a href="https://travis-ci.org/civitaslearning/passport-lti"><img src="https://travis-ci.org/civitaslearning/passport-lti.svg" alt="Build Status"></a>
+<a href="http://badge.fury.io/js/passport-lti"><img src="https://badge.fury.io/js/passport-lti.svg" alt="npm version"></a></p>
+<p>Passport-flavored LTI authentication middleware for express.</p>
+<h2 id="ltistrategy">LTIStrategy</h2>
+<p>Options : </p>
+<ul>
+<li><p><code>createProvider</code> :
+ <code>createProvider</code> is an optional function, which delegate the check of a
+ Tool Consumer&#39;s identity to an higher level.</p>
+<p> This function is assumed to request a database to retrieve 
+ the consumer secret based on the consumer key,
+ and call the callback parameter with an LTI provider, 
+ or a standard node error in <code>err</code> if a system error occured,
+ or a string error if the error is handled at an higher level, 
+ and the process is just intended to stop.
+ Use either this function or the hardcoded key / secret. 
+ This one gets priority over the hardcoded key / secret.</p>
+<pre><code> <span class="meta">@param</span> {<span class="built_in">Function</span>} createProvider 
+     <span class="meta">@param</span> {<span class="built_in">Object</span>} req
+     <span class="meta">@param</span> {<span class="built_in">Function</span>} callback
+         <span class="meta">@param</span> {<span class="built_in">Object</span> || <span class="built_in">String</span>} err
+         <span class="meta">@param</span> {<span class="built_in">Object</span>} provider
+</code></pre></li>
+<li><code>consumerKey</code> : Hardcoded consumer key.</li>
+<li><code>consumerSecret</code> : Hardcoded consumer secret.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="with-hardcoded-key-secret">With hardcoded key / secret</h3>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> LTIStrategy = <span class="built_in">require</span>(<span class="string">'passport-lti'</span>);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> LTIStrategy({
+    <span class="attr">consumerKey</span>: <span class="string">'testconsumerkey'</span>,
+    <span class="attr">consumerSecret</span>: <span class="string">'testconsumersecret'</span>
+    <span class="comment">// pass the req object to callback</span>
+    <span class="comment">// passReqToCallback: true,</span>
+    <span class="comment">// https://github.com/omsmith/ims-lti#nonce-stores</span>
+    <span class="comment">// nonceStore: new RedisNonceStore('testconsumerkey', redisClient)</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">lti, done</span>) </span>{
+    <span class="comment">// LTI launch parameters</span>
+    <span class="comment">// console.dir(lti);</span>
+    <span class="comment">// Perform local authentication if necessary</span>
+    <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+});
+passport.use(strategy);
+</code></pre>
+<h3 id="with-dynamic-provider">With dynamic provider</h3>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> lti = <span class="built_in">require</span>(<span class="string">"ims-lti"</span>);
+<span class="keyword">var</span> LTIStrategy = <span class="built_in">require</span>(<span class="string">'passport-lti'</span>);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> LTIStrategy({
+    <span class="attr">createProvider</span> : <span class="function"><span class="keyword">function</span> (<span class="params">req, done</span>) </span>{
+        <span class="comment">// Lookup your LTI customer in your DB with req's params, and get its secret</span>
+        <span class="comment">// Dummy DB lookup</span>
+        DAO.getConsumer(
+            req.body.oauth_consumer_key,
+            <span class="function"><span class="keyword">function</span> <span class="title">callback</span> (<span class="params">err, consumer</span>)</span>{
+                <span class="keyword">if</span>(err){
+                    <span class="comment">// Standard error, will crash the process</span>
+                    <span class="keyword">return</span> done(err);
+                }
+
+                <span class="keyword">if</span>(consumer.is_authorized){
+                    <span class="keyword">var</span> consumer = <span class="keyword">new</span> lti.Provider(consumer_db.oauth_consumer_key, consumer_db.oauth_consumer_secret);
+                    <span class="keyword">return</span> done(<span class="literal">null</span>, consumer);
+                }
+                <span class="keyword">else</span> {
+                    <span class="comment">// String error, will fail the strategy (and not crash it)</span>
+                    <span class="keyword">return</span> done(<span class="string">"not_authorized"</span>);
+                }
+            }
+        );
+    }
+);
+
+passport.use(strategy);
+</code></pre>
+<h2 id="tests">Tests</h2>
+<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+</code></pre>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-lti</span></code></div>
+            <ul>
+              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2016-08-12T15:18:54Z">a year ago</abbr></li>
+              <li><a class="url" href="git://github.com/civitaslearning/passport-lti.git">https://github.com/civitaslearning/passport-lti</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>24</b> downloads in the last day</li>
+              <li><b>166</b> downloads in the last week</li>
+              <li><b>797</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

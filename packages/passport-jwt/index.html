@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-jwt</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport authentication strategy using JSON Web Tokens">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-jwt/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-jwt"/>
+    <meta property="og:description" content="Passport authentication strategy using JSON Web Tokens"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-jwt/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-jwt"/>
+    <meta name="twitter:description" content="Passport authentication strategy using JSON Web Tokens"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-jwt">passport-jwt</h1>
+<p><a href="https://travis-ci.org/themikenicholson/passport-jwt"><img src="https://travis-ci.org/themikenicholson/passport-jwt.svg?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/themikenicholson/passport-jwt"><img src="https://codeclimate.com/github/themikenicholson/passport-jwt/badges/gpa.svg" alt="Code Climate"></a></p>
+<p>A <a href="http://passportjs.org/">Passport</a> strategy for authenticating with a
+<a href="http://jwt.io">JSON Web Token</a>.</p>
+<p>This module lets you authenticate endpoints using a JSON web token. It is
+intended to be used to secure RESTful endpoints without sessions.</p>
+<h2 id="install">Install</h2>
+<pre><code>npm <span class="keyword">install</span> passport-jwt
+</code></pre><h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>The JWT authentication strategy is constructed as follows:</p>
+<pre><code><span class="keyword">new</span> JwtStrategy(<span class="keyword">options</span>, verify)
+</code></pre><p><code>options</code> is an object literal containing options to control how the token is
+extracted from the request or verified.</p>
+<ul>
+<li><code>secretOrKey</code> is a string or buffer containing the secret
+(symmetric) or PEM-encoded public key (asymmetric) for verifying the token&#39;s
+signature. REQUIRED unless <code>secretOrKeyProvider</code> is provided.</li>
+<li><code>secretOrKeyProvider</code> is a callback in the format <code>function secretOrKeyProvider(request, rawJwtToken, done)</code>,
+which should call <code>done</code> with a secret or PEM-encoded public key (asymmetric) for the given key and request combination.
+<code>done</code> accepts arguments in the format <code>function done(err, secret)</code>. Note it is up to the implementer to decode rawJwtToken.
+REQUIRED unless <code>secretOrKey</code> is provided.</li>
+<li><code>jwtFromRequest</code> (REQUIRED) Function that accepts a request as the only
+parameter and returns either the JWT as a string or <em>null</em>. See
+<a href="#extracting-the-jwt-from-the-request">Extracting the JWT from the request</a> for
+more details.</li>
+<li><code>issuer</code>: If defined the token issuer (iss) will be verified against this
+value.</li>
+<li><code>audience</code>: If defined, the token audience (aud) will be verified against
+this value.</li>
+<li><code>algorithms</code>: List of strings with the names of the allowed algorithms. For instance, [&quot;HS256&quot;, &quot;HS384&quot;].</li>
+<li><code>ignoreExpiration</code>: if true do not validate the expiration of the token.</li>
+<li><code>passReqToCallback</code>: If true the request will be passed to the verify
+callback. i.e. verify(request, jwt_payload, done_callback).</li>
+<li><code>jsonWebTokenOptions</code>: passport-jwt is verifying the token using <a href="https://github.com/auth0/node-jsonwebtoken">jsonwebtoken</a>.
+Pass here an options object for any other option you can pass the jsonwebtoken verifier. (i.e maxAge)</li>
+</ul>
+<p><code>verify</code> is a function with the parameters <code>verify(jwt_payload, done)</code></p>
+<ul>
+<li><code>jwt_payload</code> is an object literal containing the decoded JWT payload.</li>
+<li><code>done</code> is a passport error first callback accepting arguments
+done(error, user, info)</li>
+</ul>
+<p>An example configuration which reads the JWT from the http
+Authorization header with the scheme &#39;bearer&#39;:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> JwtStrategy = <span class="built_in">require</span>(<span class="string">'passport-jwt'</span>).Strategy,
+    ExtractJwt = <span class="built_in">require</span>(<span class="string">'passport-jwt'</span>).ExtractJwt;
+<span class="keyword">var</span> opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = <span class="string">'secret'</span>;
+opts.issuer = <span class="string">'accounts.examplesoft.com'</span>;
+opts.audience = <span class="string">'yoursite.net'</span>;
+passport.use(<span class="keyword">new</span> JwtStrategy(opts, <span class="function"><span class="keyword">function</span>(<span class="params">jwt_payload, done</span>) </span>{
+    User.findOne({<span class="attr">id</span>: jwt_payload.sub}, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">if</span> (err) {
+            <span class="keyword">return</span> done(err, <span class="literal">false</span>);
+        }
+        <span class="keyword">if</span> (user) {
+            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+            <span class="comment">// or you could create a new account</span>
+        }
+    });
+}));
+</code></pre>
+<h3 id="extracting-the-jwt-from-the-request">Extracting the JWT from the request</h3>
+<p>There are a number of ways the JWT may be included in a request.  In order to remain as flexible as
+possible the JWT is parsed from the request by a user-supplied callback passed in as the
+<code>jwtFromRequest</code> parameter.  This callback, from now on referred to as an extractor,
+accepts a request object as an argument and returns the encoded JWT string or <em>null</em>.</p>
+<h4 id="included-extractors">Included extractors</h4>
+<p>A number of extractor factory functions are provided in passport-jwt.ExtractJwt. These factory
+functions return a new extractor configured with the given parameters.</p>
+<ul>
+<li><code>fromHeader(header_name)</code> creates a new extractor that looks for the JWT in the given http
+header</li>
+<li><code>fromBodyField(field_name)</code> creates a new extractor that looks for the JWT in the given body
+field.  You must have a body parser configured in order to use this method.</li>
+<li><code>fromUrlQueryParameter(param_name)</code> creates a new extractor that looks for the JWT in the given
+URL query parameter.</li>
+<li><code>fromAuthHeaderWithScheme(auth_scheme)</code> creates a new extractor that looks for the JWT in the
+authorization header, expecting the scheme to match auth_scheme.</li>
+<li><code>fromAuthHeaderAsBearerToken()</code> creates a new extractor that looks for the JWT in the authorization header
+with the scheme &#39;bearer&#39;</li>
+<li><code>fromExtractors([array of extractor functions])</code> creates a new extractor using an array of
+extractors provided. Each extractor is attempted in order until one returns a token.</li>
+</ul>
+<h3 id="writing-a-custom-extractor-function">Writing a custom extractor function</h3>
+<p>If the supplied extractors don&#39;t meet your needs you can easily provide your own callback. For
+example, if you are using the cookie-parser middleware and want to extract the JWT in a cookie
+you could use the following function as the argument to the jwtFromRequest option:</p>
+<pre><code><span class="keyword">var</span> cookieExtractor = <span class="function"><span class="keyword">function</span><span class="params">(req)</span> </span>{
+    <span class="keyword">var</span> token = <span class="literal">null</span>;
+    <span class="keyword">if</span> (req &amp;&amp; req.cookies)
+    {
+        token = req.cookies[<span class="string">'jwt'</span>];
+    }
+    <span class="keyword">return</span> token;
+};
+</code></pre><h3 id="authenticate-requests">Authenticate requests</h3>
+<p>Use <code>passport.authenticate()</code> specifying <code>&#39;JWT&#39;</code> as the strategy.</p>
+<pre><code class="lang-js">app.post(<span class="string">'/profile'</span>, passport.authenticate(<span class="string">'jwt'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+        res.send(req.user.profile);
+    }
+);
+</code></pre>
+<h3 id="include-the-jwt-in-requests">Include the JWT in requests</h3>
+<p>The strategy will first check the request for the standard <em>Authorization</em>
+header. If this header is present and the scheme matches <code>options.authScheme</code>
+or &#39;JWT&#39; if no auth scheme was specified then the token will be retrieved from
+it. e.g.</p>
+<pre><code>Authorization: JWT JSON_WEB_TOKEN_STRING.....
+</code></pre><p>If the authorization header with the expected scheme is not found, the request
+body will be checked for a field matching either <code>options.tokenBodyField</code> or
+<code>auth_token</code> if the option was not specified.</p>
+<p>Finally, the URL query parameters will be checked for a field matching either
+<code>options.tokenQueryParameterName</code> or <code>auth_token</code> if the option was not
+specified.</p>
+<h2 id="supported-by">Supported By</h2>
+<p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/overview?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=passport-jwt&amp;utm_content=auth">auth0.com/overview</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
+<h2 id="migrating">Migrating</h2>
+<p>The the <a href="docs/migrating.md">Migration Guide</a> for help upgrading to the latest
+major version of passport-jwt</p>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="built_in">npm</span> install
+<span class="built_in">npm</span> test
+</code></pre><p>To generate test-coverage reports:</p>
+<pre><code>npm install -g istanbul
+npm <span class="keyword">run</span><span class="bash">-script testcov
+</span>istanbul report
+</code></pre><h2 id="license">License</h2>
+<p>The <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+<p>Copyright (c) 2015 Mike Nicholson</p>
+<p><a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/wkA4NAa5HS7HRsfBixR5saSs/themikenicholson/passport-jwt'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/wkA4NAa5HS7HRsfBixR5saSs/themikenicholson/passport-jwt.svg' />
+</a></p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-jwt</span></code></div>
+            <ul>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2017-12-30T05:10:30Z">11 days ago</abbr></li>
+              <li><a class="url" href="git://github.com/themikenicholson/passport-jwt.git">https://github.com/themikenicholson/passport-jwt</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>5,821</b> downloads in the last day</li>
+              <li><b>31,371</b> downloads in the last week</li>
+              <li><b>117,841</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

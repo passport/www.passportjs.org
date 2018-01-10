@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-raven</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Raven (University of Cambridge) authentication module for passport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-raven/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-raven"/>
+    <meta property="og:description" content="Raven (University of Cambridge) authentication module for passport"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-raven/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-raven"/>
+    <meta name="twitter:description" content="Raven (University of Cambridge) authentication module for passport"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-raven">passport-raven</h1>
+<p><img src="http://i.imgur.com/EtxtRb0.png" align="right"/></p>
+<p>Raven (University of Cambridge) authentication module for passport.</p>
+<p>This allows you to authenticate students of the University of Cambridge.</p>
+<p>It works for both current and past students and staff.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>npm <span class="keyword">install</span> passport passport-raven
+</code></pre><h2 id="example">Example</h2>
+<p>See <code>test/server.js</code></p>
+<h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<pre><code class="lang-js"><span class="keyword">var</span> RavenStrategy = <span class="built_in">require</span>(<span class="string">'passport-raven'</span>);
+
+passport.use(<span class="keyword">new</span> RavenStrategy({
+  <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
+  <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
+  <span class="comment">// use demonstration raven server in development</span>
+  debug: process.env.NODE_ENV !== <span class="string">'production'</span>
+}, <span class="function"><span class="keyword">function</span> (<span class="params">crsid, params, callback</span>) </span>{
+  <span class="comment">// You can skip this check if you want to support ex students and staff as well</span>
+  <span class="keyword">if</span> (params.isCurrent) {
+    callback(<span class="literal">null</span>, {<span class="attr">id</span>: crsid});
+  } <span class="keyword">else</span> {
+    callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'My Raven application is only for current students and staff'</span>));
+  }
+}));
+</code></pre>
+<p><strong>Options:</strong></p>
+<ul>
+<li><code>desc</code> (String) - a description of the website to be displayed on the raven login page</li>
+<li><code>msg</code> (String) - a description of why authentication is being requested</li>
+<li><code>iact</code> (Boolean) - Set to <code>true</code> to force users to type their username and password even if they are already logged in. Set to <code>false</code> to only login if it can be done without user interaction.  Defaults to <code>null</code>.</li>
+<li><code>passReqToCallback</code> (Boolean) - If set the request object is provided as the first argument to the verify function. The verify callback can therefore use the state of the request to tailer further handling.</li>
+</ul>
+<pre><code class="lang-js">
+passport.use(<span class="keyword">new</span> RavenStrategy({
+  <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
+  <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
+  <span class="comment">// use demonstration raven server in development</span>
+  debug: process.env.NODE_ENV !== <span class="string">'production'</span>,
+  <span class="attr">passReqToCallback</span> : <span class="literal">true</span>
+}, <span class="function"><span class="keyword">function</span> (<span class="params">req, crsid, params, callback</span>) </span>{
+  <span class="comment">// this function could be defined elsewhere eg in a Sails app services protocol</span>
+     ....
+  }
+});
+<span class="string">`</span>
+</code></pre>
+<p><strong>Params:</strong></p>
+<p>Params include all the info returned from the server, here are two examples:</p>
+<p>Current Students/Staff:</p>
+<pre><code>{ <span class="attribute">ver</span>: <span class="string">'3'</span>,
+  <span class="attribute">status</span>: <span class="string">'200'</span>,
+  <span class="attribute">msg</span>: <span class="string">''</span>,
+  <span class="attribute">issue</span>: <span class="string">'20141007T144208Z'</span>,
+  <span class="attribute">id</span>: <span class="string">'1412692928-14998-17'</span>,
+  <span class="attribute">url</span>: <span class="string">'http://localhost:3000/login'</span>,
+  <span class="attribute">principal</span>: <span class="string">'test0001'</span>,
+  <span class="attribute">ptags</span>: <span class="string">'current'</span>,
+  <span class="attribute">auth</span>: <span class="string">'pwd'</span>,
+  <span class="attribute">sso</span>: <span class="string">''</span>,
+  <span class="attribute">life</span>: <span class="string">'36000'</span>,
+  <span class="attribute">params</span>: <span class="string">''</span>,
+  <span class="attribute">kid</span>: <span class="string">'901'</span>,
+  <span class="attribute">sig</span>: <span class="string">'qEK1GusOfnfh6D8BkmTi2iIsEXLmrfOd2TMEXStedOgaDXF7BQnN1nQvD8mudXhLO-rDLhp3JetrAded1XNeNaJPwdU5ZNIf5bJrvln2iqwbY280B4nGusvcOQjDoD1UJQ-J3hEpTDe7miDzGwSB-7zvdkpzt56qPgmUIIYHWs4_'</span>,
+  <span class="attribute">isCurrent</span>: true }
+</code></pre><p>Past Students/Staff:</p>
+<pre><code>{ <span class="attribute">ver</span>: <span class="string">'3'</span>,
+  <span class="attribute">status</span>: <span class="string">'200'</span>,
+  <span class="attribute">msg</span>: <span class="string">''</span>,
+  <span class="attribute">issue</span>: <span class="string">'20141007T144128Z'</span>,
+  <span class="attribute">id</span>: <span class="string">'1412692886-14816-35'</span>,
+  <span class="attribute">url</span>: <span class="string">'http://localhost:3000/login'</span>,
+  <span class="attribute">principal</span>: <span class="string">'test0450'</span>,
+  <span class="attribute">ptags</span>: <span class="string">''</span>,
+  <span class="attribute">auth</span>: <span class="string">''</span>,
+  <span class="attribute">sso</span>: <span class="string">'pwd'</span>,
+  <span class="attribute">life</span>: <span class="string">'35960'</span>,
+  <span class="attribute">params</span>: <span class="string">''</span>,
+  <span class="attribute">kid</span>: <span class="string">'901'</span>,
+  <span class="attribute">sig</span>: <span class="string">'otTWl-KZbXbRUMLjwpkoiT.nu8J7GnoHu6V8JzXjAu.XPGBBxRAJXEzCEQfc05jcoFmGWdHWPLjmJgNgom2vnltCu-CZOlAd9105v-k.9.dZQJAc65ugIlHDvPPT2icXiT1zo9.wzkCA.5vwLeUrhA8oKAa-6cuxbbzkwH-.Cc8_'</span>,
+  <span class="attribute">isCurrent</span>: false }
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
+<pre><code class="lang-js">app.get(<span class="string">'/auth/raven'</span>, passport.authenticate(<span class="string">'raven'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="comment">// Successful authentication, redirect home.</span>
+  res.redirect(<span class="string">'/'</span>);
+});
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-raven</span></code></div>
+            <ul>
+              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2015-12-02T19:45:23Z">2 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/ForbesLindesay/passport-raven.git">https://github.com/ForbesLindesay/passport-raven</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>12</b> downloads in the last week</li>
+              <li><b>21</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

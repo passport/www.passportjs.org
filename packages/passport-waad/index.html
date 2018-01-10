@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-waad</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Windows Azure Active Directory provider with graph api support">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-waad/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-waad"/>
+    <meta property="og:description" content="Windows Azure Active Directory provider with graph api support"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-waad/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-waad"/>
+    <meta name="twitter:description" content="Windows Azure Active Directory provider with graph api support"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><p>﻿# Windows Azure Active Directory Passport.js Plug-In - Modified by Colin Rhodes</p>
+<p><a href="http://passportjs.org/">Passport</a> is authentication middleware for Node.js. Passport can be used in any Express-based web application. A comprehensive and large set of strategies support authentication using a username and password, Facebook, Twitter, and more. In order to enable you to quickly integrate Windows Azure Active Directory in to your website quickly, we have developed a strategy for Windows Azure Active Directory.</p>
+<p>This code is based on passport-azure-ad, a Microsoft open source project (apache license).</p>
+<h2 id="configuration">Configuration</h2>
+<p>This module relies on a great deal of configuration at Azure and also the provision of a configuration file.</p>
+<pre><code class="lang-javascript">{
+    <span class="string">"appUrl"</span>: <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/"</span>,
+    <span class="string">"identityMetadata"</span> : <span class="string">"https://login.windows.net/1ad458eb-55b8-484b-b1b7-379be2dd07f6/federationmetadata/2007-06/federationmetadata.xml"</span>,
+    <span class="string">"loginCallback"</span> :<span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/login/callback/"</span>,
+    <span class="string">"issuer"</span> : <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/"</span>,
+    <span class="string">"logoutCallback"</span> : <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/logout/callback/"</span>,
+    <span class="string">"privateCert"</span> : <span class="string">"./passportConfig/private.pem"</span>,
+    <span class="string">"publicCert"</span> : <span class="string">"./passportConfig/public.pem"</span>,
+    <span class="string">"tenant"</span>:  <span class="string">"ehtTest.onmicrosoft.com"</span>,
+    <span class="string">"clientId"</span>: <span class="string">"e20b5f78-4e8c-4dc2-b891-70d9b6ac4bfb"</span>,
+    <span class="string">"clientSecret"</span>: <span class="string">"bLnXHFXGNGOZ8qU+fe+rekcIZBS5rW6PUOTRlxoS7qA="</span>,
+    <span class="string">"testGroups"</span> : [ { <span class="string">"name"</span> : <span class="string">"ReferralGatewayCoordinator"</span> } ],
+    <span class="string">"testUser"</span> : <span class="string">"colin.rhodes@ehealthtechnologies.com"</span>,
+    <span class="string">"testUserName"</span> : <span class="string">"Colin Rhodes"</span>
+}
+</code></pre>
+<h2 id="installation">Installation</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-waad</span>
+</code></pre><h2 id="usage">Usage</h2>
+<p>This sample uses a SAML protocol with express.  Please pay close attention to the order of the calls - they are order specific!</p>
+<p>Please use the middleware <code>ensureAuthenticated</code> on routes to ensure users cannot access them without passing auth.</p>
+<pre><code class="lang-javascript"><span class="comment">/////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">//  passport-waad sample code.</span>
+<span class="comment">//</span>
+<span class="comment">/////////////////////////////////////////////c</span>
+
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),
+    path = <span class="built_in">require</span>(<span class="string">'path'</span>),
+    favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>),
+    logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>),
+    cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>),
+    bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
+    expressSession = <span class="built_in">require</span>(<span class="string">'express-session'</span>),
+    waad = <span class="built_in">require</span>(<span class="string">'../../lib/passport-waad'</span>).waadPassport ,
+    passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+
+<span class="keyword">var</span> sessionSecret = <span class="string">'#$&amp;#*(*)#$*(&amp;'</span>;
+<span class="keyword">var</span> app = express();
+
+<span class="comment">//</span>
+<span class="comment">//  Middleware</span>
+<span class="comment">//</span>
+<span class="comment">//app.use(favicon(__dirname + '/public/favicon.ico'));</span>
+app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(logger(<span class="string">'dev'</span>));
+app.use(cookieParser(sessionSecret));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+
+app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));
+app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);
+app.use(<span class="built_in">require</span>(<span class="string">'stylus'</span>).middleware(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(expressSession({ <span class="attr">secret</span>: sessionSecret }));
+
+<span class="comment">// Creating the auth object wires passport under the hood.</span>
+<span class="keyword">var</span> auth = <span class="keyword">new</span> waad.waadPassport({
+  <span class="attr">configurationFile</span> : <span class="string">'passportConfig/config.json'</span>,
+  <span class="attr">passport</span> : passport,
+  <span class="attr">name</span> : <span class="string">'saml'</span>,    <span class="comment">//set to test for dev</span>
+  app : app
+});
+
+<span class="keyword">var</span> router = express.Router();
+
+router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+
+  <span class="keyword">if</span>(req.user) {
+    res.render(<span class="string">'index'</span>, { 
+      <span class="attr">user</span> : req.user,
+      <span class="attr">method</span> : auth.name
+    });
+  } <span class="keyword">else</span> {
+    res.render(<span class="string">'notLoggedIn'</span>, { } );
+  }
+});
+
+
+<span class="comment">// Order of routes is important!!</span>
+auth.setSSORoutes(
+  router,
+  <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>) </span>{ 
+    next();
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>{ 
+    next();
+  }
+);
+router.get(<span class="string">'/user'</span>,
+  auth.ensureAuthenticated,
+  auth.memberOf(<span class="string">"User"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
+      res.render(<span class="string">'notWorthy'</span>, { <span class="attr">group</span> : <span class="string">'User'</span> } );
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
+    res.render(<span class="string">'worthy'</span>, {  <span class="attr">group</span> : <span class="string">'User'</span> });
+  });
+
+router.get(<span class="string">'/nouser'</span>,
+  auth.ensureAuthenticated,
+  auth.memberOf(<span class="string">"NoUser"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
+      res.render(<span class="string">'notWorthy'</span>, { <span class="attr">group</span> : <span class="string">'NoUser'</span> } );
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
+    res.render(<span class="string">'worthy'</span>, {  <span class="attr">group</span> : <span class="string">'NoUser'</span> });
+  });
+
+
+app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(<span class="string">'/'</span>, router);
+
+app.listen(process.env.PORT);
+</code></pre>
+<h2 id="license">License</h2>
+<p>Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved. Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); </p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-waad</span></code></div>
+            <ul>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2015-02-02T01:52:09Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/ColinEdwardRhodes/passport-waad.git">https://github.com/ColinEdwardRhodes/azure-waad.git</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>16</b> downloads in the last week</li>
+              <li><b>23</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

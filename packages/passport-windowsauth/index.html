@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-windowsauth</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport strategy for Windows Integrated Authentication (NTLM)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-windowsauth/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-windowsauth"/>
+    <meta property="og:description" content="Passport strategy for Windows Integrated Authentication (NTLM)"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-windowsauth/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-windowsauth"/>
+    <meta name="twitter:description" content="Passport strategy for Windows Integrated Authentication (NTLM)"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><p>Windows Authentication strategy for Passport.js.</p>
+<h2 id="install">Install</h2>
+<pre><code>npm <span class="keyword">install</span> passport-windowsauth
+</code></pre><h2 id="introduction">Introduction</h2>
+<p>This module authenticate user with a LDAP directory. It works in two modes <strong>Integrated Authentication</strong> (often refer as NTLM) or <strong>Form Authentication</strong>.</p>
+<h2 id="integrated-authentication-iis-">Integrated Authentication (IIS)</h2>
+<p>In this mode, this strategy reads an special server variable from IIS (more info about this <a href="https://github.com/tjanczuk/iisnode/issues/87">here</a>) and then generate a profile. You can <strong>optionally</strong> pass LDAP credentials to fetch the profile from Active Directory.</p>
+<p><strong>In your IIS application authentication settings, disable Anonymous and enable Windows Authentication.</strong></p>
+<p>Configure iisnode to pass the special variable <code>LOGON_USER</code> from IIS to node</p>
+<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">system.webServer</span>&gt;</span>
+    <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="name">iisnode</span> <span class="attr">promoteServerVars</span>=<span class="string">"LOGON_USER"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="name">system.webServer</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span>
+</code></pre>
+<p>If you want to use it with LDAP:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+
+passport.use(<span class="keyword">new</span> WindowsStrategy({
+  <span class="attr">ldap</span>: {
+    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+  }
+}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
+  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    done(err, user);
+  });
+}));
+</code></pre>
+<p>If you want to use without LDAP:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+
+passport.use(<span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
+  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    done(err, user);
+  });
+});
+</code></pre>
+<p>NOTE: in this case profile only has <code>displayName</code> and <code>id</code>, both containing just the logon name.</p>
+<p>Then use the strategy in a route as follows:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/express-passport'</span>,
+  passport.authenticate(<span class="string">'WindowsAuthentication'</span>),
+  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>)</span>{
+    res.json(req.user);
+  });
+</code></pre>
+<h2 id="integrated-authentication-with-apache-and-mod_auth_kerb">Integrated Authentication with Apache and mod_auth_kerb</h2>
+<p>You can take advantage of <a href="http://modauthkerb.sourceforge.net/">mod_auth_kerb</a> in linux by using apache as a reverse proxy to your node application. The configuration is not a <em>walk in the park</em> but after you have everything configured it just works.</p>
+<p>####1-Generate a keytab in windows</p>
+<pre><code>ktpass
+-<span class="ruby">princ service/server.CONTOSO.COM@CONTOSO.COM
+</span>-<span class="ruby">mapuser user@CONTOSO.COM
+</span>-<span class="ruby">crypto RC4-HMAC-NT
+</span>-<span class="ruby">ptype KRB5_NT_PRINCIPAL
+</span>-<span class="ruby">pass passssswwword
+</span>-<span class="ruby">out FILE.keytab</span>
+</code></pre><p>####2-Check your /etc/krb5.conf</p>
+<pre><code><span class="selector-tag">kinit</span> <span class="selector-tag">user</span>@<span class="keyword">CONTOSO</span>.<span class="keyword">COM</span>
+</code></pre><p>You should be able to login from the linux machine.</p>
+<p>####3-Check your keytab is okay</p>
+<pre><code>kinit -V -kt FILE<span class="selector-class">.keytab</span> service/server<span class="selector-class">.CONTOSO</span><span class="selector-class">.COM</span>@CONTOSO.COM
+</code></pre><p>####4-Install apache with the modules</p>
+<p>The modules you need are <code>mod-auth-kerb</code>, <code>proxy</code>, <code>proxy_http</code>, <code>headers</code>, <code>rewrite</code>.</p>
+<p>####5-Configure your apache</p>
+<pre><code>&lt;VirtualHost *:<span class="number">8001</span>&gt;
+  ServerAdmin webmaster@localhost
+
+  ProxyPassInterpolateEnv On
+  ProxyPass / http:<span class="comment">//localhost:3000/          # this is the node.js app</span>
+  ProxyPassReverse / http:<span class="comment">//localhost:3000/   # this is the node.js app</span>
+  RewriteEngine On
+  RewriteCond %{LA-U:REMOTE_USER} (.+)
+  RewriteRule . - [E=RU:%<span class="number">1</span>]
+  RequestHeader <span class="keyword">set</span> X-Forwarded-User <span class="comment">%{RU}e</span>
+
+  &lt;Proxy <span class="comment">*&gt;</span>
+      Order <span class="comment">deny,allow</span>
+      Allow <span class="comment">from all</span>
+  &lt;/Proxy&gt;
+
+  &lt;Location /&gt;
+      AuthName <span class="comment">"Kerberos Login"</span>
+      AuthType <span class="comment">Kerberos</span>
+      Krb5Keytab /path/<span class="comment">to</span>/your/<span class="comment">FILE.keytab    # VERY IMPORTANT</span>
+      KrbAuthRealm <span class="comment">CONTOSO.COM</span>
+      KrbMethodNegotiate <span class="comment">on</span>
+      KrbSaveCredentials <span class="comment">off</span>
+      KrbVerifyKDC <span class="comment">off</span>
+      KrbServiceName <span class="comment">SERVICE</span>/server.CONTOSO.COM
+      Require valid-user
+  &lt;/<span class="comment">Location&gt;</span>
+
+  ScriptAlias /cgi-bin/ /usr/<span class="comment">lib</span>/cgi-bin/
+  &lt;Directory <span class="comment">"/usr/lib/cgi-bin"</span><span class="comment">&gt;</span>
+    AllowOverride <span class="comment">None</span>
+    Options <span class="comment">+ExecCGI -MultiViews +SymLinksIfOwnerMatch</span>
+    Order <span class="comment">allow,deny</span>
+    Allow <span class="comment">from all</span>
+  &lt;/Directory&gt;
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+
+  CustomLog <span class="comment">${APACHE_LOG_DIR}</span>/access.<span class="built-in">log</span> combined
+&lt;/<span class="comment">VirtualHost&gt;</span>
+</code></pre><p>####6-Configure Passport.js</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+
+passport.use(<span class="keyword">new</span> WindowsStrategy({
+  <span class="attr">ldap</span>: {
+    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+  },
+  <span class="attr">getUserNameFromHeader</span>: <span class="function"><span class="keyword">function</span> (<span class="params">req</span>) </span>{
+    <span class="comment">//in the above apache config we set the x-forwarded-user header.</span>
+    <span class="comment">//mod_auth_kerb uses user@domain</span>
+    <span class="keyword">return</span> req.headers[<span class="string">'x-forwarded-user'</span>].split(<span class="string">'@'</span>)[<span class="number">0</span>];
+  }
+}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
+  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    done(err, user);
+  });
+}));
+</code></pre>
+<h2 id="non-integrated-authentication">Non-integrated authentication</h2>
+<p>You can use this module to authenticate users against a LDAP server without integrated authentication.
+You will prompt the user for his username and password in a form like this:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span>&gt;</span>Username:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Log In"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
+<p>and then have a route like this:</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>,
+  passport.authenticate(<span class="string">'WindowsAuthentication'</span>, {
+                                  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
+                                  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>,
+                                  <span class="attr">failureFlash</span>:    <span class="literal">true</span> })
+);
+</code></pre>
+<p>The same configuration as explained above is required with the <code>integrated</code> option in false:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+
+passport.use(<span class="keyword">new</span> WindowsStrategy({
+  <span class="attr">ldap</span>: {
+    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
+    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+  },
+  <span class="attr">integrated</span>:      <span class="literal">false</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
+  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    done(err, user);
+  });
+}));
+</code></pre>
+<h2 id="example-profile-from-ldap">Example profile from LDAP</h2>
+<p>When you use the LDAP integration the profile follows the <a href="http://passportjs.org/guide/profile/">Passport.js user profile convention</a> and you have also a _json property with all the profile.</p>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  <span class="attr">"id"</span>: <span class="string">"fe59e96-4d82-431e-816a-5a688e4ab547"</span>,
+  <span class="attr">"displayName"</span>: <span class="string">"Jose Romaniello"</span>,
+  <span class="attr">"name"</span>: {
+    <span class="attr">"familyName"</span>: <span class="string">"Romaniello"</span>,
+    <span class="attr">"givenName"</span>: <span class="string">"Jose"</span>
+  },
+  <span class="attr">"emails"</span>: [
+    {
+      <span class="attr">"value"</span>: <span class="string">"jromaniello@wellscordoba.com"</span>
+    }
+  ],
+  <span class="attr">"_json"</span>: {
+    <span class="attr">"dn"</span>: <span class="string">"CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com"</span>,
+    <span class="attr">"controls"</span>: [],
+    <span class="attr">"objectClass"</span>: [
+      <span class="string">"top"</span>,
+      <span class="string">"person"</span>,
+      <span class="string">"organizationalPerson"</span>,
+      <span class="string">"user"</span>
+    ],
+    <span class="attr">"cn"</span>: <span class="string">"Jose Romaniello"</span>,
+    <span class="attr">"sn"</span>: <span class="string">"Romaniello"</span>,
+    <span class="attr">"title"</span>: <span class="string">"cantante desafinado - programador"</span>,
+    <span class="attr">"physicalDeliveryOfficeName"</span>: <span class="string">"Chief Architect"</span>,
+    <span class="attr">"telephoneNumber"</span>: <span class="string">"+543519998822"</span>,
+    <span class="attr">"givenName"</span>: <span class="string">"Jose"</span>,
+    <span class="attr">"distinguishedName"</span>: <span class="string">"CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com"</span>,
+    <span class="attr">"instanceType"</span>: <span class="string">"4"</span>,
+    <span class="attr">"whenCreated"</span>: <span class="string">"20130220172116.0Z"</span>,
+    <span class="attr">"whenChanged"</span>: <span class="string">"20130220183149.0Z"</span>,
+    <span class="attr">"displayName"</span>: <span class="string">"Jose Romaniello"</span>,
+    <span class="attr">"uSNCreated"</span>: <span class="string">"12717"</span>,
+    <span class="attr">"uSNChanged"</span>: <span class="string">"12792"</span>,
+    <span class="attr">"company"</span>: <span class="string">"Wells Cordoba Bank"</span>,
+    <span class="attr">"name"</span>: <span class="string">"Jose Romaniello"</span>,
+    <span class="attr">"objectGUID"</span>: <span class="string">"fe59e96-4d82-431e-816a-5a688e4ab547"</span>,
+    <span class="attr">"userAccountControl"</span>: <span class="string">"66048"</span>,
+    <span class="attr">"badPwdCount"</span>: <span class="string">"0"</span>,
+    <span class="attr">"codePage"</span>: <span class="string">"0"</span>,
+    <span class="attr">"countryCode"</span>: <span class="string">"0"</span>,
+    <span class="attr">"badPasswordTime"</span>: <span class="string">"0"</span>,
+    <span class="attr">"lastLogoff"</span>: <span class="string">"0"</span>,
+    <span class="attr">"lastLogon"</span>: <span class="string">"0"</span>,
+    <span class="attr">"pwdLastSet"</span>: <span class="string">"130058544776047558"</span>,
+    <span class="attr">"primaryGroupID"</span>: <span class="string">"513"</span>,
+    <span class="attr">"objectSid"</span>: <span class="string">"\u0001\u0005\u0000\u0000\u0000\u0000\u0000\u0005\u0015\u0000\u0000\u0000��=��\u001d��uQ��O\u0004\u0000\u0000"</span>,
+    <span class="attr">"accountExpires"</span>: <span class="string">"9223372036854775807"</span>,
+    <span class="attr">"logonCount"</span>: <span class="string">"0"</span>,
+    <span class="attr">"sAMAccountName"</span>: <span class="string">"jromaniello"</span>,
+    <span class="attr">"sAMAccountType"</span>: <span class="string">"805306368"</span>,
+    <span class="attr">"userPrincipalName"</span>: <span class="string">"jromaniello@wellscordobabank.com"</span>,
+    <span class="attr">"objectCategory"</span>: <span class="string">"CN=Person,CN=Schema,CN=Configuration,DC=wellscordobabank,DC=com"</span>,
+    <span class="attr">"dSCorePropagationData"</span>: [
+      <span class="string">"20130220172118.0Z"</span>,
+      <span class="string">"16010101000000.0Z"</span>
+    ],
+    <span class="attr">"lastLogonTimestamp"</span>: <span class="string">"130058572786126285"</span>,
+    <span class="attr">"mail"</span>: <span class="string">"jromaniello@wellscordobabank.com"</span>
+  }
+}
+</code></pre>
+<h2 id="issue-reporting">Issue Reporting</h2>
+<p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
+<h2 id="author">Author</h2>
+<p><a href="auth0.com">Auth0</a></p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT license. See the <a href="LICENSE">LICENSE</a> file for more info.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-windowsauth</span></code></div>
+            <ul>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2017-04-26T18:31:24Z">8 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/auth0/passport-windowsauth.git">https://github.com/auth0/passport-windowsauth#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>188</b> downloads in the last week</li>
+              <li><b>733</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

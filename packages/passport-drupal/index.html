@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-drupal</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Drupal authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-drupal/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-drupal"/>
+    <meta property="og:description" content="Drupal authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-drupal/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-drupal"/>
+    <meta name="twitter:description" content="Drupal authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-drupal">Passport-Drupal</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://drupal.org/">Drupal</a>
+websites that use the <a href="http://drupal.org/project/services">Services</a> and
+<a href="http://drupal.org/project/oauth">OAuth</a> modules.</p>
+<p>This module lets you authenticate using a Drupal website in your Node.js
+applications. By plugging into Passport, Drupal authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="installation">Installation</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-drupal</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The Drupal OAuth authentication strategy authenticates users using a Drupal
+account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
+accepts these credentials and calls <code>done</code> providing a user, as well as
+<code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new Strategy({
+    <span class="attribute">consumerKey</span>: DRUPAL_CONSUMER_KEY,
+    <span class="attribute">consumerSecret</span>: DRUPAL_CONSUMER_SECRET,
+    <span class="attribute">providerURL</span>: <span class="string">"http://drupal.example.com"</span>,
+    <span class="attribute">providerBackendURL</span>: <span class="string">"http://private.drupal.example.com"</span>, <span class="comment">// &lt;---- Used for server to server requests such as token verification and profile requests. Defaults to providerURL.</span>
+    <span class="attribute">resourceEndpoint</span>: <span class="string">"oauthlogin/api/user/info"</span> <span class="comment">// &lt;---- optional. Defaults to `rest/system/connect`</span>
+  },
+  function(token, tokenSecret, profile, done) {
+    profile.oauth = { <span class="attribute">token</span>: token, <span class="attribute">token_secret</span>: tokenSecret };
+    done(null, profile);
+  }
+));
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;drupal&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-JavaScript">app.get(<span class="string">'/auth/drupal'</span>,
+  passport.authenticate(<span class="string">'drupal'</span>),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// The request will be redirected to the Drupal website for</span>
+    <span class="comment">// authentication, so this function will not be called.</span>
+});
+
+app.get(<span class="string">'/auth/drupal/callback'</span>,
+  passport.authenticate(<span class="string">'drupal'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
+    res.redirect(<span class="string">'/'</span>);
+});
+</code></pre>
+<p>If you want to store access tokens locally (e.g. in a persistent session store),
+you can add something like the following to prevent requesting new ones every
+time:</p>
+<pre><code class="lang-JavaScript">app.get(<span class="string">'/auth/drupal/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="keyword">var</span> tokens = req.session[<span class="string">'my-session-key'</span>];
+  <span class="keyword">if</span> (req.cookies[<span class="string">'my-cookie-key'</span>] &amp;&amp; tokens) {
+    <span class="comment">// If all the data is there, load user profile</span>
+    strategy.userProfile(tokens.oauth_token, tokens.oauth_token_secret, {}, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) <span class="keyword">return</span> res.redirect(<span class="string">'/auth/drupal'</span>);
+      req.session.user = user;
+      res.redirect(<span class="string">'/'</span>);
+    });
+  } <span class="keyword">else</span> {
+    <span class="comment">// If not, start OAuth authentication</span>
+    res.redirect(<span class="string">'/auth/drupal'</span>);
+  }
+});
+</code></pre>
+<h2 id="drupal-configuration">Drupal configuration</h2>
+<p><em>These instructions are for Drupal 7. For Drupal 6, refer to this issue: <a href="https://github.com/mixmarket/passport-drupal/issues/1#issuecomment-19986969">https://github.com/mixmarket/passport-drupal/issues/1</a></em></p>
+<ul>
+<li>Install the following modules:<ul>
+<li>oauth_common (bundled with <a href="http://drupal.org/project/oauth">OAuth</a>)</li>
+<li>oauth_common_providerui (bundled with <a href="http://drupal.org/project/oauth">OAuth</a>)</li>
+<li><a href="http://drupal.org/project/services">Services</a></li>
+<li>rest_server (bundled with <a href="http://drupal.org/project/services">Services</a>)</li>
+<li>services_oauth (bundled with <a href="http://drupal.org/project/services">Services</a>)</li>
+</ul>
+</li>
+<li>Go to <code>admin/config/services/oauth</code> and check on <em>Enable the oauth provider</em>.</li>
+<li>On that same page, click on Add Context<ul>
+<li>Under <em>Signature Methods</em>, check <em>HMAC-SHA1</em> only</li>
+<li>Under <em>Authorization Options</em>, check on <em>Disable authorization level selection</em>.</li>
+<li>Add an <em>Authorization Level</em> and check on <em>Selected by default</em>.</li>
+</ul>
+</li>
+<li>Go to <code>admin/structure/services</code> and click <em>Add</em><ul>
+<li>Enter an endpoint path as both your machine name and path (<em>rest</em> is a good option).</li>
+<li>Select <em>REST</em> as your Server.</li>
+<li>Under <em>Authentication</em>, check <em>OAuth authentication</em>.</li>
+<li>Save</li>
+</ul>
+</li>
+<li>On the resulting page, click to Edit your new Service<ul>
+<li>On the <em>Server</em> tab<ul>
+<li>Under <em>Response formatters</em>, select <em>json</em>.</li>
+<li>Under <em>Request parsing</em>, select <em>application/json</em> and <em>application/x-www-form-urlencoded</em>.</li>
+</ul>
+</li>
+<li>On the <em>Authentication</em> tab<ul>
+<li>OAuth context: select context created above</li>
+<li>Default required OAuth Authorization level: select level created above</li>
+<li>Default required authentication: <em>Consumer key and access token, also known as 3-legged OAuth</em></li>
+</ul>
+</li>
+<li>On the <em>Resources</em> tab<ul>
+<li>Check on <em>system &gt; connect</em></li>
+<li>Select <em>Default</em> for the authentication options</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Go to <code>user/1/oauth/consumer</code> and click <em>Add consumer</em><ul>
+<li>On <em>Callback url</em>, enter your node.js callback URL (typically <em><a href="http://node.example.com/auth/drupal/callback">http://node.example.com/auth/drupal/callback</a></em>)</li>
+<li>On <em>Application context</em>, select the context created above</li>
+</ul>
+</li>
+<li>Go back to <code>user/1/oauth/consumer</code> and click <em>Edit</em> on the new consumer to view the consumer Key and Secret.</li>
+</ul>
+<h2 id="credits">Credits</h2>
+<p>This module is developed by <a href="http://github.com/vkareh">Victor Kareh</a> and is
+heavily based on work by <a href="http://github.com/jaredhanson">Jared Hanson</a></p>
+<h2 id="license">License</h2>
+<p>(The MIT License)</p>
+<p>Copyright (c) 2011 Victor Kareh</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-drupal</span></code></div>
+            <ul>
+              <li><span class="version">0.3.3</span> published <abbr class="updated" title="2014-11-07T16:07:43Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/mixmarket/passport-drupal.git"></a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>20</b> downloads in the last week</li>
+              <li><b>58</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

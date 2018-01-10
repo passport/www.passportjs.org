@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-stormpath</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Official Stormpath Passport Strategy">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-stormpath/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-stormpath"/>
+    <meta property="og:description" content="Official Stormpath Passport Strategy"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-stormpath/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-stormpath"/>
+    <meta name="twitter:description" content="Official Stormpath Passport Strategy"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-stormpath">passport-stormpath</h1>
+<p><a href="https://npmjs.org/package/passport-stormpath"><img src="https://img.shields.io/npm/v/passport-stormpath.svg?style=flat" alt="NPM Version"></a>
+<a href="https://npmjs.org/package/passport-stormpath"><img src="http://img.shields.io/npm/dm/passport-stormpath.svg?style=flat" alt="NPM Downloads"></a>
+<a href="https://travis-ci.org/stormpath/passport-stormpath"><img src="https://img.shields.io/travis/stormpath/passport-stormpath.svg?style=flat" alt="Build Status"></a></p>
+<p><em>A passport strategy for Stormpath, the simple user management API.</em></p>
+<p><a href="https://stormpath.com/">Stormpath</a> extends Passport.js, adding a full set of user features:</p>
+<ul>
+<li>Create, register and authenticate users.</li>
+<li>Store custom user data with each account.</li>
+<li>Create and assign permissions (groups, roles, etc.).</li>
+<li>Handle complex authentication and authorization patterns, like multi-tenancy.</li>
+<li>Log users in via social login with Facebook and Google OAuth.</li>
+<li>Cache user information for quick access.</li>
+<li>Secure all your passwords.</li>
+<li>Automate all your password reset and account verification workflows.</li>
+</ul>
+<p><strong>NOTE</strong>: If you&#39;re building an Express.js web application, you might want to
+use our <a href="https://docs.stormpath.com/nodejs/express/index.html">express-stormpath</a>
+library instead -- it provides a simpler integration experience.</p>
+<h2 id="documentation">Documentation</h2>
+<p>All of this library&#39;s documentation can be found here:
+<a href="https://docs.stormpath.com/nodejs/passport/">https://docs.stormpath.com/nodejs/passport/</a></p>
+<p>If you&#39;d like to hop right in and get started immediately, please take a look at
+the <a href="https://docs.stormpath.com/nodejs/passport/quickstart.html">Quickstart Guide</a>.
+(<em>It&#39;s ridiculously easy to get started with.</em>)</p>
+<h2 id="links">Links</h2>
+<p>Below are some resources you might find useful!</p>
+<ul>
+<li><a href="https://docs.stormpath.com/nodejs/passport/">passport-stormpath documentation</a></li>
+<li><a href="https://stormpath.com/blog/build-app-nodejs-express-passport-stormpath/">15-Minute Tutorial: Build a Webapp With Node.js, Express, Passport and Stormpath</a></li>
+<li><a href="https://github.com/stormpath/stormpath-passport-express-sample">stormpath-passport-express Sample App repo</a></li>
+<li><a href="https://github.com/stormpath/stormpath-sdk-node">Stormpath Node.js library</a></li>
+<li><a href="https://stormpath.com/">Stormpath website</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>To get started, you need to install this package via
+<a href="https://www.npmjs.org/package/passport-stormpath">npm</a>:</p>
+<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> npm install passport-stormpath</span>
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>To use this module, you first need to export some environment variables -- these
+will be used by the <code>passport-stormpath</code> library to connect to the Stormpath API
+service:</p>
+<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> STORMPATH_API_KEY_ID=xxx</span>
+<span class="meta">$</span><span class="bash"> <span class="built_in">export</span> STORMPATH_API_KEY_SECRET=xxx</span>
+<span class="meta">$</span><span class="bash"> <span class="built_in">export</span> STORMPATH_APP_HREF=xxx</span>
+</code></pre>
+<p><strong>NOTE</strong>: These variables can be found in your
+<a href="https://api.stormpath.com/ui/dashboard">Stormpath Admin Console</a>.</p>
+<p>Once you&#39;ve set the environment variables above, you can then initialize the
+<code>passport-stormpath</code> strategy like so:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> StormpathStrategy = <span class="built_in">require</span>(<span class="string">'passport-stormpath'</span>);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> StormpathStrategy();
+
+passport.use(strategy);
+passport.serializeUser(strategy.serializeUser);
+passport.deserializeUser(strategy.deserializeUser);
+</code></pre>
+<h2 id="options">Options</h2>
+<p>There are several options you can define when you are creating the strategy,
+each is listed in this section.</p>
+<h4 id="api-keys">Api Keys</h4>
+<p>If you&#39;d like to explicitly define your Stormpath API keys and application href
+settings, you can do so when creating the strategy object:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> strategy = <span class="keyword">new</span> StormpathStrategy({
+  <span class="attr">apiKeyId</span>:     <span class="string">'STORMPATH_API_KEY_ID'</span>,
+  <span class="attr">apiKeySecret</span>: <span class="string">'STORMPATH_API_KEY_SECRET'</span>,
+  <span class="attr">appHref</span>:      <span class="string">'STORMPATH_APP_HREF'</span>,
+});
+</code></pre>
+<h4 id="account-store">Account Store</h4>
+<p>If you wish to authenticate against a particular directory, you can configure
+this for all authentication attempts when constructing the strategy.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> strategy = <span class="keyword">new</span> StormpathStrategy({
+  <span class="attr">accountStore</span>: {
+    <span class="attr">href</span>: <span class="string">'http://api.stormpath.com/v1/directorys/your-directory'</span>
+  }
+});
+</code></pre>
+<p>If you need to dynamically supply the account store, you can pass it
+on a per-call basis by manually invoking passport.</p>
+<pre><code class="lang-javascript"><span class="comment">// Authenticate a user.</span>
+router.post(<span class="string">'/login'</span>,
+  passport.authenticate(<span class="string">'stormpath'</span>,
+    {
+      <span class="attr">successRedirect</span>: <span class="string">'/dashboard'</span>,
+      <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>,
+      <span class="attr">failureFlash</span>: <span class="string">'Invalid email or password.'</span>,
+      <span class="attr">accountStore</span>: {
+        <span class="attr">href</span>: <span class="string">'http://api.stormpath.com/v1/directorys/your-directory'</span>
+      }
+    }
+  )
+);
+</code></pre>
+<h4 id="expansions">Expansions</h4>
+<p>Account resources (<em>e.g. Custom Data, Groups</em>) can be automatically expanded
+during the authentication process.  Declare which resources you would like to
+expand by providing a comma separated list as the <code>expansions</code> option:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> strategy = <span class="keyword">new</span> StormpathStrategy({
+  <span class="attr">expansions</span>: <span class="string">'groups,customData'</span>
+});
+</code></pre>
+<h4 id="stormpath-client">Stormpath Client</h4>
+<p>You can also provide your own Stormpath client instance by constructing it
+manually and then passing it and an application reference to the strategy
+constructor:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> stormpath = <span class="built_in">require</span>(<span class="string">'stormpath'</span>);
+
+<span class="keyword">var</span> spClient, spApp, strategy;
+
+spClient = <span class="keyword">new</span> stormpath.Client({
+  <span class="attr">apiKey</span>: <span class="keyword">new</span> stormpath.ApiKey(
+      process.env[<span class="string">'STORMPATH_API_KEY_ID'</span>],
+      process.env[<span class="string">'STORMPATH_API_KEY_SECRET'</span>]
+  )
+});
+
+spClient.getApplication(process.env[<span class="string">'STORMPATH_APP_HREF'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">err, app</span>) </span>{
+  <span class="keyword">if</span> (err) {
+    <span class="keyword">throw</span> err;
+  }
+  spApp = app;
+  strategy = <span class="keyword">new</span> StormpathStrategy({
+    <span class="attr">spApp</span>: spApp,
+    <span class="attr">spClient</span>: spClient
+  });
+  passport.use(strategy);
+});
+</code></pre>
+<h2 id="build-documentation">Build Documentation</h2>
+<p>All project documentation is written using <a href="http://sphinx-doc.org/">Sphinx</a>.  To
+build the documentation, you&#39;ll need to have Python installed and working.</p>
+<p>To install Sphinx and all other dependencies, run:</p>
+<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> pip install -r requirements.txt</span>
+</code></pre>
+<p>This will install all the Python packages necessary to build the docs.</p>
+<p>Once you have Sphinx installed, go into the <code>docs</code> directory to build the
+documentation:</p>
+<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> docs</span>
+<span class="meta">$</span><span class="bash"> make html</span>
+</code></pre>
+<p>When this process is finished, you&#39;ll see that all project documentation has
+been built into HTML available at <code>docs/_build/html</code>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>You can make your own contributions by forking the <code>develop</code> branch, making
+your changes, and issuing pull-requests on the <code>develop</code> branch.</p>
+<p>We regularly maintain this repository, and are quick to review pull requests
+and accept changes!</p>
+<p>We &lt;333 contributions!</p>
+<h2 id="copyright">Copyright</h2>
+<p>Copyright &copy; 2014 Stormpath, Inc. and contributors.</p>
+<p>This project is open-source via the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-stormpath</span></code></div>
+            <ul>
+              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2015-04-21T15:51:50Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/stormpath/passport-stormpath.git">https://github.com/stormpath/passport-stormpath</a></li>
+              <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
+            </ul>
+            <ul>
+              <li><b>15</b> downloads in the last day</li>
+              <li><b>47</b> downloads in the last week</li>
+              <li><b>92</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

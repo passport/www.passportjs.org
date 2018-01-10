@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-unilogin</title>
+    <meta charset="utf-8">
+    <meta name="description" content="UNI-login authentication strategy for Passport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-unilogin/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-unilogin"/>
+    <meta property="og:description" content="UNI-login authentication strategy for Passport"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-unilogin/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-unilogin"/>
+    <meta name="twitter:description" content="UNI-login authentication strategy for Passport"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-unilogin">passport-unilogin</h1>
+<p><a href="https://travis-ci.org/DBCDK/passport-unilogin"><img src="https://travis-ci.org/DBCDK/passport-unilogin.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.bithound.io/github/DBCDK/passport-unilogin"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/score.svg" alt="bitHound Overall Score"></a>
+<a href="https://www.bithound.io/github/DBCDK/passport-unilogin/master/dependencies/npm"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/dependencies.svg" alt="bitHound Dependencies"></a>
+<a href="https://www.bithound.io/github/DBCDK/passport-unilogin/master/dependencies/npm"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/devDependencies.svg" alt="bitHound Dev Dependencies"></a></p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">  $ npm install passport-unilogin --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h4 id="create-an-application">Create an Application</h4>
+<p>Before using <code>passport-unilogin</code>, you must register an application with UNI-Login.</p>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The following paramteres are mandatory when configuring the UniloginStrategy:  </p>
+<ul>
+<li>id<br>The application <code>id</code> as agreed with UNI-Login when registrering the application.  </li>
+<li>secret<br>The application <code>secret</code> as agreed with UNI-Login when registrering the application.  </li>
+<li>uniloginBasePath<br>The base path for the UNI-Login submission form. Typically it will be <code>https://sso.emu.dk/unilogin/login.cgi</code></li>
+</ul>
+<p>Optional parameters:</p>
+<ul>
+<li>maxTicketAge<br>If <code>maxTicketAge</code> is set to or above <code>1</code> the age of the ticket returned from UNI-Login will be asured that the age of ticket is not higer than the given amount in seconds.<br>I.e. if <code>maxTicketAge: 30</code> the error object returned to the application from <code>passport-unilogin</code> will contain an error.   </li>
+</ul>
+<p>The strategy also requires a <code>verify</code> callback, which receives any errors, the ticket and the <code>req</code>object.
+The <code>verify</code> callback must call <code>done</code> providing a user to complete authentication.</p>
+<h4 id="verify-callback">Verify callback</h4>
+<p>The verify callback is passed as second parameter to the constructor when instantiating the strategy.<br>The verify callback should be a function accepting four parameters:  </p>
+<ol>
+<li>error<br>An error object. If no errors the <code>null</code> is returned.  </li>
+<li>req<br>The req object passed from express  </li>
+<li>ticket<br>The ticket returned from UNI-Login structured a as below:  </li>
+<li>done callback<br>Callback to passport to inform passport whether the authentification is valid or not.</li>
+</ol>
+<h5 id="ticket-structure">Ticket structure</h5>
+<pre><code class="lang-js">  {
+    <span class="attr">auth</span>: <span class="string">'some hash token'</span>,
+    <span class="attr">timestamp</span>: <span class="string">'YYYYMMDDHHmmss'</span>,
+    <span class="attr">user</span>: <span class="string">'UNI-Login username'</span>
+  }
+</code></pre>
+<h4 id="implementation">Implementation</h4>
+<pre><code class="lang-js">    passport.use(<span class="string">'unilogin'</span>, <span class="keyword">new</span> UniloginStrategy({
+        <span class="attr">id</span>: UNILOGIN_APPLICATION_ID,
+        <span class="attr">secret</span>: UNILOGIN_APPLICATION_SECRET,
+        <span class="attr">uniloginBasePath</span>: <span class="string">"https://sso.emu.dk/unilogin/login.cgi"</span>,
+        <span class="attr">maxTicketAge</span>: <span class="number">60</span>
+      },
+      (error, req, ticket, done) =&gt; {
+
+        <span class="keyword">if</span>(error) { 
+          <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, <span class="string">'Some error message'</span>);
+        }
+
+        <span class="keyword">return</span> done(<span class="literal">null</span>, {<span class="attr">unilogin</span>: ticket.user});
+      }
+    ));
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;unilogin&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-js">  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'unilogin'</span>),
+    (req, res) =&gt; {
+      res.redirect(<span class="string">'/'</span>);
+     }
+  );
+</code></pre>
+<p>For an actually example of usage see <a href="https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies">https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies</a></p>
+<h4 id="building">Building</h4>
+<p>The source code in <code>src/</code> is written in ES6 and transpiled using babel to ES5 and placed in <code>dist/</code> which is the code exposed to the application.
+Therefore, if not installed using <code>$ npm run install passport-unilogin</code> but i.e. cloned from GitHub remember to execute <code>$ npm run build</code> before using the <code>passport-unilogin</code>module.
+See the <code>scripts</code> clause in <code>package.json</code> for more handy scripts.</p>
+<h4 id="tests">Tests</h4>
+<p>The test suite is located in the <code>src/__tests__/</code> directory.  All new features are
+expected to have corresponding test cases.  Ensure that the complete test suite
+passes by executing:</p>
+<pre><code class="lang-bash">  $ npm run <span class="built_in">test</span>
+</code></pre>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-unilogin</span></code></div>
+            <ul>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2017-01-23T15:53:21Z">a year ago</abbr></li>
+              <li><a class="url" href="git://github.com/DBCDK/passport-unilogin.git">https://github.com/DBCDK/passport-unilogin#readme</a></li>
+              <li><a rel="licence" href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GNU General Public License v3.0 only</a></li>
+            </ul>
+            <ul>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

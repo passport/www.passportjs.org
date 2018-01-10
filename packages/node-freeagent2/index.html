@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>node-freeagent2</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Node.js OAuth2 REST Library for use with the FreeAgent v2 API, with Passport Authentication Strategy">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/node-freeagent2/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="node-freeagent2"/>
+    <meta property="og:description" content="Node.js OAuth2 REST Library for use with the FreeAgent v2 API, with Passport Authentication Strategy"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/node-freeagent2/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="node-freeagent2"/>
+    <meta name="twitter:description" content="Node.js OAuth2 REST Library for use with the FreeAgent v2 API, with Passport Authentication Strategy"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="node-freeagent2-build-status-https-travis-ci-org-joestanton-node-freeagent2-png-https-travis-ci-org-joestanton-node-freeagent2-">Node-FreeAgent2 <a href="https://travis-ci.org/JoeStanton/Node-FreeAgent2"><img src="https://travis-ci.org/JoeStanton/Node-FreeAgent2.png" alt="Build Status"></a></h1>
+<p>Node.js OAuth2 REST Library for use with the FreeAgent v2 API. It provides a very thin wrapper around the API to deal with all of the boring stuff without sacrificing on flexibility.  </p>
+<p>Includes a passport strategy for plugging into the node-passport authentication library.  </p>
+<p><strong>Note: This library provides a foundation for interacting with the REST API but is not complete.</strong></p>
+<p>##Install</p>
+<pre><code class="lang-bash">npm install node-freeagent2
+</code></pre>
+<p>##Usage </p>
+<p>The two components of this library - the API and the Authentication Strategy, can be used independently. First require the module.</p>
+<pre><code class="lang-coffeescript">FreeAgent = <span class="built_in">require</span> <span class="string">'node-freeagent2'</span>
+</code></pre>
+<p>###API</p>
+<pre><code class="lang-coffeescript">freeAgent = <span class="keyword">new</span> FreeAgent.Api <span class="string">'auth_token'</span>
+
+freeAgent.getProjects (error, projects) -&gt;
+  <span class="keyword">unless</span> error
+    <span class="built_in">console</span>.log projects
+  <span class="keyword">else</span>
+    <span class="built_in">console</span>.log error
+</code></pre>
+<p>Each REST resource has a corresponding method for GET. Requests using other HTTP verbs have not yet been implemented.
+Each method of the type <code>GET</code> has a consistent signature of:</p>
+<pre><code class="lang-coffeescript">getProjects : <span class="function"><span class="params">(optionsOrCallback, callback)</span> -&gt;</span>
+</code></pre>
+<p>Except where the method is a convenience function for getById or something similar, in which case it takes the form:</p>
+<pre><code class="lang-coffeescript">getProjectById : <span class="function"><span class="params">(id, optionsOrCallback, callback)</span> -&gt;</span>
+</code></pre>
+<p>###Passport Strategy</p>
+<pre><code class="lang-coffeescript">FreeAgentStrategy = FreeAgent.AuthenticationStragegy
+passport.use <span class="string">'freeagent'</span>, <span class="keyword">new</span> FreeagentStrategy(options, ...)
+</code></pre>
+<p>##Contributing </p>
+<p>Please help make this a better library, Pull requests and Issues are very welcome.  </p>
+<p>The project is written in CoffeeScript and built into JS, both sources are currently committed but I may change this.<br>The CoffeeScript and JS should be kept in sync at all times.  </p>
+<ul>
+<li>Use <code>cake watch</code> during development. </li>
+<li>Place tests in <code>/tests</code>, execute with mocha using <code>cake test</code> </li>
+<li>Try to conform to coffeelint, check by regularly running <code>cake lint</code> </li>
+</ul>
+<h2 id="license">License</h2>
+<p>(The MIT License)</p>
+<p>Copyright (c) 2012 Joe Stanton &lt;joe.stanton@red-badger.com&gt;</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&#39;Software&#39;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">node-freeagent2</span></code></div>
+            <ul>
+              <li><span class="version">0.0.11</span> published <abbr class="updated" title="2015-02-11T12:29:54Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/JoeStanton/node-freeagent2.git">https://github.com/JoeStanton/node-freeagent2</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>35</b> downloads in the last week</li>
+              <li><b>99</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

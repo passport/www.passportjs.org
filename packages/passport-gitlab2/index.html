@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-gitlab2</title>
+    <meta charset="utf-8">
+    <meta name="description" content="GitLab authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-gitlab2/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-gitlab2"/>
+    <meta property="og:description" content="GitLab authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-gitlab2/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-gitlab2"/>
+    <meta name="twitter:description" content="GitLab authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-gitlab2">passport-gitlab2</h1>
+<p>The original Passport-GitLab module has not been maintained for a long time.
+Due to the unclear license situation and issues in the code, this library was
+rewritten based on Passport-Facebook and published under the MIT license.</p>
+<p><a href="http://badge.fury.io/js/passport-gitlab2"><img src="https://badge.fury.io/js/passport-gitlab2.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/fh1ch/passport-gitlab2"><img src="https://travis-ci.org/fh1ch/passport-gitlab2.svg?branch=master&amp;style=flat" alt="Build Status"></a>
+<a href="https://coveralls.io/r/fh1ch/passport-gitlab2?branch=master"><img src="https://coveralls.io/repos/fh1ch/passport-gitlab2/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://codeclimate.com/github/fh1ch/passport-gitlab2"><img src="https://codeclimate.com/github/fh1ch/passport-gitlab2/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://david-dm.org/fh1ch/passport-gitlab2"><img src="https://david-dm.org/fh1ch/passport-gitlab2.svg?theme=shields.io" alt="Dependency Status"></a></p>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with
+<a href="https://gitlab.com/">GitLab</a> using the OAuth2 authentication provider service.</p>
+<p>This module lets you authenticate using GitLab in your Node.js applications.
+By plugging into Passport, GitLab authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">$ npm install passport-gitlab2
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>Passport-GitLab requires GitLab 7.7.0 or higher to work. Before using the OAuth2
+authentication provider service, you have register a new application in your
+<a href="https://gitlab.com/profile/applications">user profile</a> or in the administrator
+portal. GitLab will then issue an application ID and a secret, which need to be
+provided to the strategy. You will also need to configure a redirect URI which
+matches the route in your application.</p>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The GitLab authentication strategy authenticates users using a GitLab
+account and OAuth 2.0 tokens. The app ID and secret obtained when creating an
+application are supplied as options when creating the strategy. The strategy
+also requires a <code>verify</code> callback, which receives the access token and optional
+refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
+GitLab profile. The <code>verify</code> callback must call <code>cb</code> providing a user to
+complete authentication.</p>
+<pre><code class="lang-js">passport.use(<span class="keyword">new</span> GitLabStrategy({
+    <span class="attr">clientID</span>: GITLAB_APP_ID,
+    <span class="attr">clientSecret</span>: GITLAB_APP_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/gitlab/callback"</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+    User.findOrCreate({<span class="attr">gitlabId</span>: profile.id}, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">return</span> cb(err, user);
+    });
+  }
+));
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;gitlab&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/auth/gitlab'</span>, passport.authenticate(<span class="string">'gitlab'</span>));
+
+app.get(<span class="string">'/auth/gitlab/callback'</span>,
+  passport.authenticate(<span class="string">'gitlab'</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre>
+<h2 id="faq">FAQ</h2>
+<h5 id="how-do-i-use-my-own-gitlab-instance-rather-than-gitlab-com-">How do I use my own GitLab instance rather than gitlab.com?</h5>
+<p>Passport-GitLab automatically uses <a href="http://gitlab.com/">GitLab.com</a> as
+authentication endpoint when not configured otherwise. You can use the <code>baseURL</code>
+parameter to point to any other GitLab instance as following:</p>
+<pre><code class="lang-js"><span class="keyword">new</span> GitLabStrategy({
+  <span class="attr">clientID</span>: GITLAB_APP_ID,
+  <span class="attr">clientSecret</span>: GITLAB_APP_SECRET,
+  <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/gitlab/callback"</span>,
+  <span class="attr">baseURL</span>: <span class="string">"https://gitlab.example.com/"</span>
+}), ...)
+</code></pre>
+<p>All URLs (e.g. token-url, authorization-url, profile-url) are automatically
+adapted to utilize the configured instance. You can of course overwrite all
+URLs manually if needed.</p>
+<h5 id="how-do-i-change-permissions-scope-when-obtaining-a-user-profile-">How do I change permissions / scope when obtaining a user profile?</h5>
+<p>GitLab supports two scopes at the moment which are <code>read_user</code> and <code>api</code>. By
+default, the <code>read_user</code> scope is used which was introduced with <strong>GitLab
+version 8.15</strong> and requires at least this version. If you have an older version
+or you need full read/write access to all API resources, use the <code>api</code> scope
+instead. Changing the OAuth2 scope to <code>api</code> works as following:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/auth/gitlab'</span>,
+  passport.authenticate(<span class="string">'gitlab'</span>, {
+    <span class="attr">scope</span>: [<span class="string">'api'</span>]
+  }));
+</code></pre>
+<p>More information can be found in the <a href="https://docs.gitlab.com/ce/integration/oauth_provider.html#authorized-applications">official GitLab documentation</a>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>We appreciate contributions in several forms, e.g. documentation, testing,
+coding, issues, etc. Please follow the best practice contribution guide as
+mentioned below when submitting code changes:</p>
+<h4 id="code-style">Code style</h4>
+<p>This module uses the <a href="https://google.github.io/styleguide/javascriptguide.xml">Google JavaScript Code-Style</a>
+and enforces it using <a href="http://jscs.info/">JSCS</a> as additional linter beneath
+<a href="http://jshint.com/">JSHint</a>. These measures ensuring a high level of code
+quality and easy maintainability of it. You can test if your changes comply
+with the code style by executing:</p>
+<pre><code class="lang-bash">$ make lint
+</code></pre>
+<h4 id="tests">Tests</h4>
+<p>The test suite is located in the <code>test/</code> directory. All new features are
+expected to have corresponding test cases. Ensure that the complete test suite
+passes by executing:</p>
+<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+</code></pre>
+<h4 id="coverage">Coverage</h4>
+<p>The test suite covers 100% of the code base. All new feature development is
+expected to maintain that level. Coverage reports can be viewed by executing:</p>
+<pre><code class="lang-bash">$ make coverage-view
+</code></pre>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2016-2017 Fabio Huser <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x66;&#97;&#x62;&#x69;&#111;&#64;&#x66;&#104;&#x31;&#x2e;&#x63;&#x68;">&#x66;&#97;&#x62;&#x69;&#111;&#64;&#x66;&#104;&#x31;&#x2e;&#x63;&#x68;</a></p>
+<p>Copyright (c) 2011-2016 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-gitlab2</span></code></div>
+            <ul>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2017-04-02T15:54:32Z">9 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/fh1ch/passport-gitlab2.git">https://github.com/fh1ch/passport-gitlab2#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>63</b> downloads in the last day</li>
+              <li><b>417</b> downloads in the last week</li>
+              <li><b>1,920</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-unique-token</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Unique Token authentication strategy for Passport - modified from passport-local.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-unique-token/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-unique-token"/>
+    <meta property="og:description" content="Unique Token authentication strategy for Passport - modified from passport-local."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-unique-token/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-unique-token"/>
+    <meta name="twitter:description" content="Unique Token authentication strategy for Passport - modified from passport-local."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-unique-token-strategy">Passport Unique Token Strategy</h1>
+<p>==============</p>
+<p><a href="https://drone.io/github.com/Lughino/passport-unique-token/latest"><img src="https://drone.io/github.com/Lughino/passport-unique-token/status.png" alt="Build Status"></a></p>
+<p>Unique token authentication strategy for Passport - modified from <a href="https://github.com/jaredhanson/passport-local">passport-local</a>.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ npm install passport-<span class="built_in">unique</span>-<span class="built_in">token</span>
+</code></pre><h2 id="usage">Usage</h2>
+<p>The unique token authentication strategy authenticates users with a unique token. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.</p>
+<pre><code><span class="keyword">var</span> UniqueTokenStrategy = <span class="keyword">require</span>(<span class="string">'passport-unique-token'</span>).Strategy;
+
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> UniqueTokenStrategy(
+    <span class="function"><span class="keyword">function</span> <span class="params">(token, done)</span> </span>{
+        User.findOne({ uniqueToken: token, expireToken: { $gt: Date.now() } }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+            <span class="keyword">if</span> (err) {
+                <span class="keyword">return</span> done(err);
+            }
+
+            <span class="keyword">if</span> (!user) {
+                <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
+            }
+
+            <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
+        });
+    }
+));
+</code></pre><p>By default, passport-unique-token checks for <code>token</code> credentials in either the params url or request body in these locations:</p>
+<h3 id="url-params">Url params</h3>
+<pre><code><span class="attribute">token</span>
+</code></pre><h3 id="body-fields">Body fields</h3>
+<pre><code><span class="attribute">token</span>
+</code></pre><h3 id="query-fields">Query fields</h3>
+<pre><code><span class="attribute">token</span>
+</code></pre><h3 id="header-fields">Header fields</h3>
+<pre><code><span class="attribute">token</span>
+</code></pre><h3 id="configure">Configure</h3>
+<p>These credential locations can be configured when defining the strategy as follows:</p>
+<pre><code><span class="keyword">var</span> UniqueTokenStrategy   = <span class="keyword">require</span>(<span class="string">'passport-unique-token'</span>).Strategy;
+<span class="keyword">var</span> strategyOptions = {
+    tokenQuery:    <span class="string">'custom-token'</span>,
+    tokenParams:     <span class="string">'custom-token'</span>,
+    tokenField:     <span class="string">'custom-token'</span>,
+    tokenHeader:     <span class="string">'custom-token'</span>,
+    failedOnMissing: <span class="keyword">false</span>
+};
+
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> UniqueTokenStrategy(strategyOptions,
+    <span class="function"><span class="keyword">function</span> <span class="params">(token, done)</span> </span>{
+        User.findOne({ uniqueToken: token, expireToken: { $gt: Date.now() } }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+            <span class="keyword">if</span> (err) {
+                <span class="keyword">return</span> done(err);
+            }
+
+            <span class="keyword">if</span> (!user) {
+                <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
+            }
+
+            <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
+        });
+    }
+</code></pre><p><code>failedOnMissing</code> option allows you to queue multiple strategy, customizing the behavior.
+By default it is set to <code>true</code>, if set to<code>false</code> it lets move on to the next strategy on failure.</p>
+<h2 id="authenticate">Authenticate</h2>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>token</code> strategy to authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
+<pre><code>app.put('/animals/dogs', passport.authenticate('token'), function (req, res) {
+    // <span class="keyword">User</span> <span class="title">authenticated</span> <span class="keyword">and</span> can be found <span class="keyword">in</span> req.<span class="keyword">user</span>
+<span class="title">});</span>
+</code></pre><p>If authentication fails in the above example then a 401 response will be given. However there may be times you wish a bit more control and delegate the failure to your application:</p>
+<pre><code>app.put(<span class="string">'/animals/dogs'</span>, authenticate, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span></span> {
+       // User authenticated <span class="keyword">and</span> can be found <span class="keyword">in</span> req.user
+});
+
+<span class="function"><span class="keyword">function</span> <span class="title">authenticate</span><span class="params">(req, res, next)</span></span> {
+    passport.authenticate(<span class="string">'token'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, user, info)</span></span> {
+        <span class="keyword">if</span> (err) {
+            <span class="keyword">return</span> <span class="built_in">next</span>(err);
+        }
+
+        <span class="keyword">if</span> (!user) {
+            res.<span class="built_in">status</span>(<span class="number">401</span>).json({message: <span class="string">"Incorrect token credentials"</span>});
+        }
+
+        req.user = user;
+        <span class="built_in">next</span>();
+    });
+}
+</code></pre><h2 id="credits">Credits</h2>
+<p><a href="http://github.com/Lughino">Luca Pau</a></p>
+<h2 id="license">License</h2>
+<p>(The MIT License)</p>
+<p>Copyright (c) 2014 Luca Pau</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-unique-token</span></code></div>
+            <ul>
+              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2015-12-25T01:10:06Z">2 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/Lughino/passport-unique-token.git">https://github.com/Lughino/passport-unique-token</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>442</b> downloads in the last week</li>
+              <li><b>1,957</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-tmobileid</title>
+    <meta charset="utf-8">
+    <meta name="description" content="T-Moblie ID authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-tmobileid/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-tmobileid"/>
+    <meta property="og:description" content="T-Moblie ID authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-tmobileid/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-tmobileid"/>
+    <meta name="twitter:description" content="T-Moblie ID authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-tmobileid">passport-tmobileid</h1>
+<p>A <a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://www.t-mobile.com/">T-Mobile ID</a>
+using a method similar to OAuth 2.0 API.</p>
+<p>This module lets you authenticate using T-Mobile ID in your Node.js applications.
+By plugging into Passport, T-Mobile ID authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, like
+<a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-tmobileid</span>
+</code></pre><h2 id="usage">Usage</h2>
+<p>The T-Mobile ID authentication strategy authenticates users using their phone number or T-Mobile
+ID username. Developers wishing to utilize this plugin must first redirect their users to the T-Mobile
+authorization endpoint with the appropriate params.</p>
+<pre><code><span class="keyword">var</span> <span class="keyword">params</span> = {<span class="string">'access_type'</span>: <span class="string">'ONLINE'</span>,
+  <span class="string">'redirect_uri'</span>: <span class="string">'https://localhost:3000/auth/tmoid/callback'</span>,
+  <span class="string">'scope'</span>: <span class="string">'TMO_ID_profile,associated_lines,billing_information,entitlements'</span>,
+  <span class="string">'client_id'</span>: TMOBILE_CLIENT_ID,
+  <span class="string">'response_type'</span> : <span class="string">'code'</span>};
+
+res.redirect(<span class="string">'https://auth.tmus.net/oauth2/v1/auth?'</span> + qs.stringify(<span class="keyword">params</span>));
+</code></pre><h4 id="configure-strategy">Configure Strategy</h4>
+<p>The strategy requires four elements in order to properly process the
+authentication request, these are:</p>
+<ol>
+<li>redirect_uri - The callback URL local to your server</li>
+<li>tokenURL - The URL to the token request server</li>
+<li>clientID - Your client ID provied by T-Mobile</li>
+<li>clientSecret - Your client secret key provided by T-Mobile</li>
+</ol>
+<p><em>Note: The strategy supports other standard passport arguments such as passReqToCallback.</em></p>
+<pre><code><span class="keyword">var</span> TMobileIDStrategy = <span class="keyword">require</span>(<span class="string">'passport-tmobileid'</span>).Strategy;
+
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> TMobileIDStrategy({
+    redirect_uri : LOCAL_CALLBACK_URL,
+    tokenURL : <span class="string">'https://token.tmus.net/oauth2/v1/token'</span>,
+    clientID : TMOBILE_CLIENT_ID,
+    clientSecret : TMOBILE_CLIENT_SECRET,
+    passReqToCallback : <span class="keyword">true</span> <span class="comment">//to get the req back from passport</span>
+},
+<span class="function"><span class="keyword">function</span><span class="params">(req, token, expiry, id, done)</span></span>{
+  <span class="keyword">if</span>(err){<span class="keyword">return</span> done(err);}
+  <span class="keyword">if</span>(!token){<span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);} <span class="comment">//No token could be retrieved from the server</span>
+  <span class="keyword">if</span>(id) {
+    <span class="comment">//A T-Mobile access token has been provided</span>
+    User.findOne({<span class="string">'user.tmobileid'</span> : id}, <span class="function"><span class="keyword">function</span><span class="params">(err,user)</span></span>{
+      <span class="keyword">if</span>(user) { <span class="comment">//a user with this id has been found in your database</span>
+        user.tmobile.access_token = token; <span class="comment">//add the tmobile access token to this user</span>
+        user.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>{
+          <span class="comment">//handle the error</span>
+        }
+        <span class="keyword">return</span> done(<span class="keyword">null</span>, user); <span class="comment">//success</span>
+    });
+  }
+};
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;tmoid&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/tmoid'</span>,
+  res.redirect(<span class="string">'https://uat.auth.tmus.net/oauth2/v1/auth?'</span> + qs.stringify(params)));
+
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/tmoid/callback'</span>,
+  passport.authenticate(<span class="string">'tmoid'</span>, {
+    <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>,
+    <span class="attribute">successRedirect</span>: <span class="string">'/profile'</span>
+  }),
+    function(req, res) {
+      <span class="comment">// Successful authentication, do nothing.</span>
+  });
+</code></pre><h2 id="examples">Examples</h2>
+<p>For a complete, working example, refer to the <a href="https://github.com/tmobile/passport-tmobileid/tree/master/examples">example</a>.</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="https://github.com/drakar">Aaron Drake</a></li>
+<li><a href="https://github.com/MichaelBrew">Michael Brew</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="https://github.com/tmobile/passport-tmobileid/blob/master/LICENSE">T-Mobile Terms and Conditions</a></p>
+<p>(c) 2014 T-Mobile USA, Inc. All Rights Reserved.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-tmobileid</span></code></div>
+            <ul>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2015-02-04T04:07:27Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/tmobile/passport-tmobileid.git">https://github.com/tmobile/passport-tmobileid</a></li>
+              <li><a rel="licence"></a></li>
+            </ul>
+            <ul>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>15</b> downloads in the last week</li>
+              <li><b>22</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

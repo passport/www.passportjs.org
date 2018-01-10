@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-taccounts-oauth2</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-taccounts-oauth2/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-taccounts-oauth2"/>
+    <meta property="og:description" content="Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-taccounts-oauth2/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-taccounts-oauth2"/>
+    <meta name="twitter:description" content="Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-taccounts-oauth2">passport-taccounts-oauth2</h1>
+<p>Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API</p>
+<p><a href="http://badge.fury.io/js/passport-taccounts-oauth2"><img src="https://badge.fury.io/js/passport-taccounts-oauth2.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/TDAF/passport-taccounts-oauth2"><img src="https://travis-ci.org/TDAF/passport-taccounts-oauth2.svg" alt="Build Status"></a>
+<a href="https://coveralls.io/r/TDAF/passport-taccounts-oauth2"><img src="https://img.shields.io/coveralls/TDAF/passport-taccounts-oauth2.svg" alt="Coverage Status"></a></p>
+<h2 id="basic-usage">Basic usage</h2>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
+    TAccountsStrategy = <span class="built_in">require</span>(<span class="string">'passport-taccounts-oauth2'</span>);
+
+<span class="keyword">var</span> options = {
+  <span class="attr">clientID</span>: <span class="string">'2b8672be-5c80-ac91-96da-f4b922105431'</span>,
+  <span class="attr">clientSecret</span>: <span class="string">'f5d689ac-fc2c-4e32-ac8a-321212ca1a8d'</span>,
+  <span class="attr">callbackURL</span>: <span class="string">'http://localhost/auth/taccounts/callback'</span>
+};
+
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> TAccountsStrategy(options, verify);
+
+<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">accessToken, refreshToken, user, done</span>) </span>{
+  <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+}
+
+passport.use(strategy);
+</code></pre>
+<h2 id="user-profile">User profile</h2>
+<p>To make integrations easier, the user profile is normalized according to <a href="http://passportjs.org/docs/profile">passport recommendations</a>.
+The original payload is also returned for those who need additional information from Telefonica Accounts. For example:</p>
+<pre><code class="lang-json">{
+  <span class="attr">"email"</span>: <span class="string">"frodo.bolson@telefonica.com"</span>,
+  <span class="attr">"local_company_alias"</span>: <span class="string">"HI_frodo"</span>,
+  <span class="attr">"company"</span>: <span class="string">"Telefónica S.A."</span>,
+  <span class="attr">"tags"</span>: [
+      <span class="string">"ldap_auth"</span>,
+      <span class="string">"telefonica_user"</span>
+  ],
+  <span class="attr">"sub"</span>: <span class="string">"9d2ccf1f-746d-4455-9793-44e1bc8caaa6"</span>,
+  <span class="attr">"locale"</span>: <span class="string">"es"</span>,
+  <span class="attr">"email_verified"</span>: <span class="literal">true</span>,
+  <span class="attr">"updated_at"</span>: <span class="string">"2016-10-25T10:28:35.289Z"</span>,
+  <span class="attr">"name"</span>: <span class="string">"FRODO BOLSON"</span>,
+  <span class="attr">"phone_number"</span>: <span class="string">"+34666666666"</span>,
+  <span class="attr">"phone_number_verified"</span>: <span class="literal">true</span>
+}
+</code></pre>
+<h2 id="advanced-options">Advanced options</h2>
+<p>You can pass extra parameters as options. They are usually not needed, unless you
+are running your own TAccounts service:</p>
+<ul>
+<li>authorizationURL</li>
+<li>tokenURL</li>
+<li>profileURL</li>
+<li>authorizeParams: supports prompt=&#39;login&#39;</li>
+</ul>
+<h3 id="logout-from-telef-nica-accounts">Logout from Telefónica Accounts</h3>
+<p>The strategy exposes a new method <code>logout</code> as an addition to the common passportJS ones. Use this method to create a middleware that logouts the user directly from
+Telefónica Accounts and redirects back to the specified <code>logoutCallbackURL</code></p>
+<pre><code class="lang-js">
+<span class="keyword">var</span> options = {
+   <span class="comment">// Other options</span>
+  logoutCallbackURL: <span class="string">'http://localhost/auth/logout'</span>
+};
+
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> TAccountsStrategy(options, verify);
+
+passport.use(strategy);
+
+app.get(<span class="string">'/auth/taccounts/'</span>, passport.authenticate(<span class="string">'taccounts'</span>));
+app.get(<span class="string">'/auth/taccounts/callback'</span>, passport.authenticate(<span class="string">'taccounts'</span>));
+app.get(<span class="string">'/auth/taccounts/logout'</span>, strategy.logout());
+
+app.get(<span class="string">'/auth/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="comment">// Gets redirected here after logging out from Telefónica Accounts</span>
+  req.logout();
+  res.redirect(<span class="string">'/'</span>);
+});
+</code></pre>
+<h2 id="license">License</h2>
+<p>Copyright 2015 <a href="http://www.tid.es">Telefónica Investigación y Desarrollo, S.A.U</a></p>
+<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-taccounts-oauth2</span></code></div>
+            <ul>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2017-05-16T10:06:06Z">8 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/Telefonica/passport-taccounts-oauth2.git">https://github.com/TDAF/passport-taccounts-oauth2#readme</a></li>
+              <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
+            </ul>
+            <ul>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

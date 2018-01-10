@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-kakao</title>
+    <meta charset="utf-8">
+    <meta name="description" content="kakao oauth2 login module">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-kakao/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-kakao"/>
+    <meta property="og:description" content="kakao oauth2 login module"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-kakao/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-kakao"/>
+    <meta name="twitter:description" content="kakao oauth2 login module"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-kakao">passport-kakao</h1>
+<p>kakao oauth2 로그인과 passport 모듈 연결체.</p>
+<h2 id="install">install</h2>
+<pre><code class="lang-sh">npm install passport-kakao
+</code></pre>
+<h2 id="how-to-use">how to use</h2>
+<ul>
+<li><a href="https://developers.kakao.com/">https://developers.kakao.com/</a> 에서 애플리케이션을 등록한다.</li>
+<li>방금 추가한 애플리케이션의 설정 - 사용자 관리에 들어가서 사용을 ON으로 한 뒤 저장한다.</li>
+<li>설정 - 일반에서, 플랫폼 추가를 누른 후 웹 플랫폼을 추가한다.</li>
+<li>웹 플랫폼 설정의 사이트 도메인에 자신의 사이트 도메인을 추가한다. (ex : <a href="http://localhost:3000">http://localhost:3000</a>)</li>
+<li>프로그램 상에서는 아래와 같이 사용한다.</li>
+</ul>
+<blockquote>
+<p>clientSecret을 활성화 한 경우 해당 파라메터를 같이 넘겨줘야한다.</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
+    KakaoStrategy = <span class="built_in">require</span>(<span class="string">'passport-kakao'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> KakaoStrategy({
+    <span class="attr">clientID</span> : clientID,
+    <span class="attr">clientSecret</span>: clientSecret, <span class="comment">// clientSecret을 사용하지 않는다면 넘기지 말거나 빈 스트링을 넘길 것</span>
+    callbackURL : callbackURL
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
+    <span class="comment">// 사용자의 정보는 profile에 들어있다.</span>
+    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      done(<span class="literal">null</span>, user);
+    });
+  }
+));
+</code></pre>
+<blockquote>
+<p>기본 callbackPath는 <code>/oauth</code> 이고 <a href="https://developers.kakao.com">https://developers.kakao.com</a> 에서 수정할 수 있다. 하지만 callbackURL은 <code>사이트 도메인/oauth</code> 로 설정하는 것을 권장함. (ex : <a href="http://myhomepage.com:3000/oauth">http://myhomepage.com:3000/oauth</a> )</p>
+</blockquote>
+<p>##</p>
+<h2 id="profile-property">profile property</h2>
+<p>profile에는 아래의 property들이 설정되어 넘겨진다.</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>provider</td>
+<td>String</td>
+<td>kakao 고정</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>사용자의 kakao id</td>
+</tr>
+<tr>
+<td>_raw</td>
+<td>String</td>
+<td>사용자 정보 조회로 얻어진 json string</td>
+</tr>
+<tr>
+<td>_json</td>
+<td>Object</td>
+<td>사용자 정보 조회로 얻어진 json 원본 데이터</td>
+</tr>
+</tbody>
+</table>
+<h2 id="simple-sample">simple sample</h2>
+<h3 id="-">설치 &amp; 실행</h3>
+<ol>
+<li><code>./sample/sample.js</code> 의 <code>appKey</code> 를 <a href="https://developers.kakao.com">https://developers.kakao.com</a> 에서 발급받은 JS appKey 값으로 셋팅.</li>
+<li>command line 에서 아래의 커맨드 실행</li>
+<li>브라우져를 열고 <code>127.0.0.1:3000/login</code> 을 입력 후 이후 과정을 진행한다.<pre><code>cd ./sample
+npm install
+<span class="keyword">node</span> <span class="title">app</span>
+</code></pre></li>
+</ol>
+<h2 id="mean-io-">mean.io 와 쉽게 연동하기</h2>
+<p>수정해야하는 파일들은 아래와 같다.</p>
+<table>
+<thead>
+<tr>
+<th>file path</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server/config/env/development.js</td>
+<td>개발환경 설정파일</td>
+</tr>
+<tr>
+<td>server/config/env/production.js</td>
+<td>운영환경 설정파일</td>
+</tr>
+<tr>
+<td>server/config/models/user.js</td>
+<td>사용자 모델</td>
+</tr>
+<tr>
+<td>server/config/passport.js</td>
+<td>passport script</td>
+</tr>
+<tr>
+<td>server/routes/users.js</td>
+<td>사용자 로그인 관련 routes file</td>
+</tr>
+<tr>
+<td>public/auth/views/index.html</td>
+<td>로그인 화면</td>
+</tr>
+</tbody>
+</table>
+<p>(1) <strong>mean.io app을 생성</strong> 한다. (ex : mean init kakaoTest)</p>
+<p>(2) 해당 모듈을 연동할 mean.io app에 설치한다.(npm install passport-kakao --save)</p>
+<p>(3) <strong>server/config/env/development.js</strong> 와 <strong>production.js</strong> 에 kakao 관련 설정을 아래와 같이 추가한다.</p>
+<pre><code class="lang-javascript"><span class="meta">'use strict'</span>;
+
+<span class="built_in">module</span>.exports = {
+    <span class="attr">db</span>: <span class="string">'mongodb'</span>,
+    <span class="attr">app</span>: {
+        <span class="attr">name</span>: <span class="string">'passport-kakao'</span>
+    },
+    <span class="comment">// 그외 설정들....,</span>
+    kakao: {
+        <span class="attr">clientID</span> : <span class="string">'kakao app rest api key'</span>,
+        <span class="attr">callbackURL</span>: <span class="string">'http://localhost:3000/oauth'</span>
+    }
+};
+</code></pre>
+<p>(4) <strong>server/config/models/users.js</strong> 의 사용자 스키마 정의에 <strong>kakao: {}</strong> 를 추가한다.</p>
+<p>(5) <strong>server/config/passport.js</strong> 파일에 아래 구문을 추가한다.</p>
+<pre><code class="lang-javascript"><span class="comment">// 최상단 require되는 구문에 추가</span>
+<span class="keyword">var</span> KakaoStrategy = <span class="built_in">require</span>(<span class="string">'passport-kakao'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> KakaoStrategy({
+        <span class="attr">clientID</span>: config.kakao.clientID,
+        <span class="attr">callbackURL</span>: config.kakao.callbackURL
+    }, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
+        User.findOne({
+            <span class="string">'kakao.id'</span> : profile.id
+        }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>)</span>{
+            <span class="keyword">if</span>(err){
+                <span class="keyword">return</span> done(err);
+            }
+            <span class="keyword">if</span>(!user){
+                user = <span class="keyword">new</span> User({
+                    <span class="attr">name</span>: profile.username,
+                    <span class="attr">username</span>: profile.id,
+                    <span class="attr">roles</span> : [<span class="string">'authenticated'</span>],
+                    <span class="attr">provider</span>: <span class="string">'kakao'</span>,
+                    <span class="attr">kakao</span>: profile._json
+                });
+
+                user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
+                    <span class="keyword">if</span>(err){
+                        <span class="built_in">console</span>.log(err);
+                    }
+                    <span class="keyword">return</span> done(err, user);
+                });
+            }<span class="keyword">else</span>{
+                <span class="keyword">return</span> done(err, user);
+            }
+        });
+    }
+));
+</code></pre>
+<p>(6) <strong>server/routes/users.js</strong> 에 아래와 같은 구문을 추가한다.</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/kakao'</span>, passport.authenticate(<span class="string">'kakao'</span>,{
+    <span class="attr">failureRedirect</span>: <span class="string">'#!/login'</span>
+}), users.signin);
+
+app.get(<span class="string">'/oauth'</span>, passport.authenticate(<span class="string">'kakao'</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">'#!/login'</span>
+}), users.authCallback);
+</code></pre>
+<p>(7) <strong>public/auth/views/index.html</strong> 에 kakao login을 연결한다.</p>
+<pre><code class="lang-html"><span class="comment">&lt;!-- 아래는 예시 --&gt;</span>
+<span class="tag">&lt;<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-offset-1 col-md-5"</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/facebook"</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/public/auth/assets/img/icons/facebook.png"</span>/&gt;</span>
+            <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/twitter"</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/public/auth/assets/img/icons/twitter.png"</span>/&gt;</span>
+            <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+
+            <span class="comment">&lt;!-- kakao login --&gt;</span>
+            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/kakao"</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"</span>/&gt;</span>
+            <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+<p>(8) grunt로 mean.io app 실행 후, 실제 로그인 연동 테스트를 해본다.</p>
+<h2 id="-">기타</h2>
+<p>passport-oauth 모듈과 passport-facebook 모듈을 참고함.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-kakao</span></code></div>
+            <ul>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2017-09-11T07:17:56Z">4 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/rotoshine/passport-kakao.git">https://github.com/rotoshine/passport-kakao#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>805</b> downloads in the last day</li>
+              <li><b>2,046</b> downloads in the last week</li>
+              <li><b>2,375</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

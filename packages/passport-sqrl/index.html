@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-sqrl</title>
+    <meta charset="utf-8">
+    <meta name="description" content="ExpressJS and PassportJS implementation of the Secure Quick Reliable Login protocol from Gibson Research">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-sqrl/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-sqrl"/>
+    <meta property="og:description" content="ExpressJS and PassportJS implementation of the Secure Quick Reliable Login protocol from Gibson Research"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-sqrl/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-sqrl"/>
+    <meta name="twitter:description" content="ExpressJS and PassportJS implementation of the Secure Quick Reliable Login protocol from Gibson Research"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-sqrl">Passport-SQRL</h1>
+<p>An <a href="http://expressjs.com/">ExpressJS</a> and <a href="https://github.com/jaredhanson/passport">PassportJS</a> implementation of the <a href="https://www.grc.com/sqrl/sqrl.htm">SQRL authentication protocol</a>.</p>
+<p>The code is written in TypeScript, with the transcoded JavaScript outputs targeted to ES6 for modern Node.js compatibility. The resulting output is published as NPM module &#39;passport-sqrl&#39;.</p>
+<h1 id="using-the-package">Using the Package</h1>
+<p>SQRL does not present its credentials in the HTTP Authenticate header, and so requires several integration points in a site:</p>
+<ol>
+<li>ExpressJS middleware is needed to handle SQRL API calls like &#39;query&#39;, &#39;ident&#39;, &#39;disable&#39;, &#39;enable&#39;, &#39;remove&#39;.</li>
+<li>A PassportJS Strategy pairs with the API handler.</li>
+<li>The site must implement an ISQRLIdentityStorage implementation to store user profile information and SQRL &quot;nut&quot; mappings for use by the passport-sqrl components.</li>
+<li>For best effect, the site&#39;s login page should poll for login completion to handle the SQRL app case, e.g. phone login or the separate SQRL desktop app. Because the app data flow does not integrate with the user&#39;s browser (by design - the phone login case is important for insecure Internet cafe scenarios), the browser will not be able to tell when the login has been completed - and get an ambient auth cookie - without polling the site.</li>
+</ol>
+<p>The demo site code in the passport-sqrl Git repo (<a href="https://github.com/erikma/passport-sqrl/tree/master/src/testSite">https://github.com/erikma/passport-sqrl/tree/master/src/testSite</a> especially TestSiteHandler.ts and login.ejs) demonstrates the integration steps above. See the section below on using the test site for browser testing.</p>
+<h1 id="release-history-and-release-notes">Release History and Release Notes</h1>
+<h2 id="0-2-1-25-nov-2017">0.2.1 25 Nov 2017</h2>
+<ul>
+<li>Doc update for test site HTTP port (5859).</li>
+</ul>
+<h2 id="0-2-0-25-nov-2017">0.2.0 25 Nov 2017</h2>
+<ul>
+<li>Breaking change in ISQRLIdentityStorage - function names updated for consistent Async suffix, e.g. query -&gt; queryAsync</li>
+<li>Removed AuthCallback from module exports (obsolete).</li>
+<li>Fixed bug in SQRL URL generator - base64 encoding was mistakenly used for the nut in 0.1.0, causing problems with &#39;+&#39; values in the base64 string  being interpreted as spaces. Updated to issue URLs with base64url values.</li>
+<li>Test site security updates: CSP header and IFRAME embed protection. Refactored inline scripts to /Scripts directory to match CSP needs.</li>
+<li>Updated min Node version to new LTR 8.9.1</li>
+</ul>
+<h2 id="0-1-0-15-nov-2017">0.1.0 15 Nov 2017</h2>
+<ul>
+<li>Initial release with &#39;query&#39; and &#39;ident&#39; API calls supported</li>
+<li>Successful login using mid-November desktop SQRL client. No successful logins with Android phone app yet. iOS app not tried.</li>
+<li>Integration test web site (esp. TestSiteHandler.ts) in package&#39;s repo demonstrates how to use the package.</li>
+<li>SQRL v1 spec still in flux, expect breakage.</li>
+</ul>
+<h1 id="using-the-test-site">Using the Test Site</h1>
+<p>You&#39;ll need to clone the package&#39;s home repo from <a href="https://github.com/erikma/passport-sqrl">https://github.com/erikma/passport-sqrl</a> to get all the sample code.</p>
+<h2 id="dev-environment-setup">Dev Environment Setup</h2>
+<ol>
+<li>Install the latest SQRL desktop client from <a href="https://www.grc.com/dev/sqrl.exe">GRC&#39;s site</a></li>
+<li>Install Git from <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (for Windows), or <a href="https://git-scm.com/download">https://git-scm.com/download</a> for other operating systems. Be sure you&#39;re using at least version 2.14.1 to get an important security patch.</li>
+<li>Install Node.js from <a href="https://nodejs.org">https://nodejs.org</a> (click the Current button to get the latest - you need at least version 8.9.1).</li>
+<li>(Windows) Install Python version 2.7 from <a href="https://www.python.org/">https://www.python.org/</a> . You can install just for your local user account or for all users. Version 2.7 is required for building the Ed25519 native code package.</li>
+<li>(Windows) Install Visual Studio 2017 Build Tools from <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15</a> - also needed for building native code. Select the Visual C++ Build Tools suite from the Workloads tab.</li>
+<li><p>(Windows) Install the latest Win64 version of the full (non-Lite) installer for OpenSSL from <a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a> to its default install location (c:\OpenSSL-Win64). This is needed to link the Ed25519 native code package. Select the option to install binaries to the OpenSSL bin directory. Donate $10.</p>
+</li>
+<li><p>We recommend Visual Studio Code from <a href="https://www.visualstudio.com/products/code-vs">https://www.visualstudio.com/products/code-vs</a> - run <code>code .</code> in the repo root folder. You should install the &quot;TSLint&quot; extension which runs the lint tool as you type.</p>
+</li>
+<li>(Windows) The <code>Setup.cmd</code> command should be run after any pull from GitHub to install latest packages.</li>
+<li>(Windows) The <code>Init.cmd</code> command (which is run by Setup.cmd or can be run separately) sets up some useful command shortcuts.</li>
+</ol>
+<h2 id="building-code">Building code</h2>
+<p>We use <a href="https://gulpjs.org/">Gulp</a> as a build system. We have integrated Gulp into Visual Studio Code to make life easier. To run a build, press <code>Ctrl+Shift+B</code> and ensure you have no errors showing in VSCode.</p>
+<p>Building the code places package contents and test code into the out/ folder.</p>
+<p>You can also run the build in the console if you need to by running the command <code>gulp</code>.</p>
+<h2 id="unit-tests">Unit tests</h2>
+<p>A &quot;pure&quot; unit test suite for the passport-sqrl code is under the src/SqrlTests directory and built into the build. Its failure causes the build to fail.</p>
+<h2 id="integration-tests">Integration tests</h2>
+<p>There is a suite of tests that start up a Node server with Express, Passport, and passport-sqrl for integration testing. These are not &quot;pure&quot; unit tests but they also cause the build to fail if they are not working.</p>
+<p>You&#39;ll need to be on a network for these to work. (Running in airplane mode will cause failures. But many flights have wifi. :)</p>
+<p>The integration tests also make use of a mock SQRL client that knows how to run the client side of the protocol. This could be useful in its own right if you want to extract it for general purpose use in a JavaScript based client environment.</p>
+<h2 id="browser-testing-with-the-test-site">Browser Testing with the Test Site</h2>
+<p>The same NodeJS + Express + Passport + passport-sqrl web site can be run from VSCode. It uses HTTPS on port 5858 and HTTP on port 5859.</p>
+<h3 id="installing-the-test-site-trusted-root-certificate">Installing the Test Site Trusted Root Certificate</h3>
+<p>The test site uses a certificate chain generated in a custom Certificate Authority under the src\Certs directory. It includes a root, intermediate, and leaf cert. The site uses the leaf as its HTTPS identity. To allow your device&#39;s browser to trust the site&#39;s cert chain, you need to add the root certificate as a trusted certificate authority.</p>
+<p>A small HTTP-only site is started when you build and run the test site. Navigate to <a href="http://your-machine-IP:5859/certs">http://your-machine-IP:5859/certs</a> from your computer or device. (If the connection times out, check your Windows computer&#39;s firewall settings and ensure node.exe is allowed to listen on ports 5858 and 5859 for private networks.) Follow the instructions on the page to install RootCert.Cert.pem (Android) or RootCert.Cert.cer (Windows) as a trusted root.</p>
+<p>Note that <a href="http://your-machine-IP:5859">http://your-machine-IP:5859</a> will redirect from the HTTP to the HTTPS site; only the /certs page noted above is open for browsing under HTTP.</p>
+<h3 id="to-run-the-site">To Run the Site</h3>
+<ol>
+<li>Press the F5 key while in VSCode.</li>
+<li>If a firewall popup appears, allow Node.js to open port 5858 and 5859</li>
+<li>Wait for the orange debugging color to appear in the status bar.</li>
+</ol>
+<h3 id="testing-with-a-browser">Testing with a Browser</h3>
+<ol>
+<li>Open a browser and navigate to <a href="https://your-machine-IP:5858">https://your-machine-IP:5858</a></li>
+<li>Allow a security exception for the certificate (if needed).</li>
+<li>You should be redirected to the /login page and see a SQRL QR-Code that can be clicked to launch the desktop app, or snapshotted from a phone app.</li>
+<li>When clicked, the desktop SQRL client should activate to handle the sqrl:// URL and allow you to log in.</li>
+<li>After login is completed, the /login page on the site should soon realize the login is done and automatically redirect to the site root, showing your SQRL public key that is acting as your identity.</li>
+</ol>
+<h1 id="useful-links">Useful Links</h1>
+<ul>
+<li>SQRL main page: <a href="https://www.grc.com/sqrl/sqrl.htm">https://www.grc.com/sqrl/sqrl.htm</a></li>
+<li>SQRL link protocol to a site login page: <a href="https://www.grc.com/sqrl/protocol.htm">https://www.grc.com/sqrl/protocol.htm</a> and <a href="https://www.grc.com/sqrl/semantics.htm">https://www.grc.com/sqrl/semantics.htm</a></li>
+<li>SQRL web server expected behavior: <a href="https://www.grc.com/sqrl/server.htm">https://www.grc.com/sqrl/server.htm</a></li>
+</ul>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-sqrl</span></code></div>
+            <ul>
+              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2017-11-26T04:59:10Z">a month ago</abbr></li>
+              <li><a class="url" href="git://github.com/erikma/passport-sqrl.git">https://github.com/erikma/passport-sqrl</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>9</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

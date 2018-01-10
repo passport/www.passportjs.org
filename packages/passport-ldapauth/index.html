@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-ldapauth</title>
+    <meta charset="utf-8">
+    <meta name="description" content="LDAP authentication strategy for Passport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-ldapauth/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-ldapauth"/>
+    <meta property="og:description" content="LDAP authentication strategy for Passport"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-ldapauth/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-ldapauth"/>
+    <meta name="twitter:description" content="LDAP authentication strategy for Passport"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-ldapauth">passport-ldapauth</h1>
+<p><a href="https://travis-ci.org/vesse/passport-ldapauth"><img src="https://travis-ci.org/vesse/passport-ldapauth.svg" alt="Build Status"></a>
+<a href="https://gemnasium.com/vesse/passport-ldapauth"><img src="https://gemnasium.com/vesse/passport-ldapauth.svg" alt="Dependency Status"></a>
+<a href="http://npmjs.com/package/passport-ldapauth"><img src="https://img.shields.io/npm/dm/passport-ldapauth.svg" alt="npm"></a>
+<a href="https://leonidasoy.fi/open-source"><img src="https://img.shields.io/badge/sponsored%20by-leonidas-389fc1.svg" alt="Sponsored by Leonidas"></a></p>
+<p><a href="http://passportjs.org/">Passport</a> authentication strategy against LDAP / AD server. This module is a Passport strategy wrapper for <a href="https://github.com/vesse/node-ldapauth-fork">ldapauth-fork</a>.</p>
+<p>This module lets you authenticate using LDAP or AD in your Node.js applications. By plugging into Passport, LDAP authentication can be integrated into any framework that supports Connect-style middleware.</p>
+<h2 id="install">Install</h2>
+<pre><code>npm <span class="keyword">install</span> passport-ldapauth
+</code></pre><h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure strategy</h3>
+<pre><code class="lang-javascript"><span class="keyword">var</span> LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+
+passport.use(<span class="keyword">new</span> LdapStrategy({
+    <span class="attr">server</span>: {
+      <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
+      ...
+    }
+  }));
+</code></pre>
+<ul>
+<li><code>server</code>: LDAP settings. These are passed directly to <a href="https://github.com/vesse/node-ldapauth-fork">ldapauth-fork</a>. See its documentation for all available options.<ul>
+<li><code>url</code>: e.g. <code>ldap://localhost:389</code></li>
+<li><code>bindDN</code>: e.g. <code>cn=&#39;root&#39;</code></li>
+<li><code>bindCredentials</code>: Password for bindDN</li>
+<li><code>searchBase</code>: e.g. <code>o=users,o=example.com</code></li>
+<li><code>searchFilter</code>:  LDAP search filter, e.g. <code>(uid={{username}})</code>. Use literal <code>{{username}}</code> to have the given username used in the search.</li>
+<li><code>searchAttributes</code>: Optional array of attributes to fetch from LDAP server, e.g. <code>[&#39;displayName&#39;, &#39;mail&#39;]</code>. Defaults to <code>undefined</code>, i.e. fetch all attributes</li>
+<li><code>tlsOptions</code>: Optional object with options accepted by Node.js <a href="http://nodejs.org/api/tls.html#tls_tls_connect_options_callback">tls</a> module.</li>
+</ul>
+</li>
+<li><code>usernameField</code>: Field name where the username is found, defaults to <em>username</em></li>
+<li><code>passwordField</code>: Field name where the password is found, defaults to <em>password</em></li>
+<li><code>credentialsLookup</code>: Optional, synchronous function that provides the login credentials from <code>req</code>. See <a href="#credentialslookup">below</a> for more.</li>
+<li><code>handleErrorsAsFailures</code>: When <code>true</code>, unknown errors and ldapjs emitted errors are handled as authentication failures instead of errors (default: <code>false</code>).</li>
+<li><code>failureErrorCallback</code>: Optional, synchronous function that is called with the received error when <code>handleErrorsAsFailures</code> is enabled.</li>
+<li><p><code>passReqToCallback</code>: When <code>true</code>, <code>req</code> is the first argument to the verify callback (default: <code>false</code>):</p>
+<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> LdapStrategy(..., <span class="keyword">function</span>(req, user, <span class="keyword">done</span>) {
+      ...
+      <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+    }
+  ));
+</code></pre></li>
+</ul>
+<p>Note: you can pass a function instead of an object as <code>options</code>, see the <a href="#asynchronous-configuration-retrieval">example below</a></p>
+<h3 id="authenticate-requests">Authenticate requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;ldapauth&#39;</code> strategy, to authenticate requests.</p>
+<h4 id="-authenticate-options"><code>authenticate()</code> options</h4>
+<p>In addition to <a href="http://passportjs.org/guide/authenticate/">default authentication options</a> the following flash message options are available for <code>passport.authenticate()</code>:</p>
+<ul>
+<li><code>badRequestMessage</code>: missing username/password (default: &#39;Missing credentials&#39;)</li>
+<li><code>invalidCredentials</code>: <code>InvalidCredentialsError</code>, <code>NoSuchObjectError</code>, and <code>/no such user/i</code> LDAP errors (default: &#39;Invalid username/password&#39;)</li>
+<li><code>userNotFound</code>: LDAP returns no error but also no user (default: &#39;Invalid username/password&#39;)</li>
+<li><code>constraintViolation</code>: user account is locked (default: &#39;Exceeded password retry limit, account locked&#39;)</li>
+</ul>
+<p>And for <a href="http://www-01.ibm.com/support/docview.wss?uid=swg21290631">Microsoft AD messages</a>, these flash message options can also be used (used instead of <code>invalidCredentials</code> if matching error code is found):</p>
+<ul>
+<li><code>invalidLogonHours</code>: not being allowed to login at this current time (default: &#39;Not Permitted to login at this time&#39;)</li>
+<li><code>invalidWorkstation</code>: not being allowed to login from this current location (default: &#39;Not permited to logon at this workstation&#39;)</li>
+<li><code>passwordExpired</code>: expired password (default: &#39;Password expired&#39;)</li>
+<li><code>accountDisabled</code>: disabled account (default: &#39;Account disabled&#39;)</li>
+<li><code>accountExpired</code>: expired account (default: &#39;Account expired&#39;)</li>
+<li><code>passwordMustChange</code>: password change (default: &#39;User must reset password&#39;)</li>
+<li><code>accountLockedOut</code>: locked out account (default: &#39;User account locked&#39;)</li>
+</ul>
+<h2 id="express-example">Express example</h2>
+<pre><code class="lang-javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">'express'</span>),
+    passport     = <span class="built_in">require</span>(<span class="string">'passport'</span>),
+    bodyParser   = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
+    LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+
+<span class="keyword">var</span> OPTS = {
+  <span class="attr">server</span>: {
+    <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
+    <span class="attr">bindDN</span>: <span class="string">'cn=root'</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
+    <span class="attr">searchBase</span>: <span class="string">'ou=passport-ldapauth'</span>,
+    <span class="attr">searchFilter</span>: <span class="string">'(uid={{username}})'</span>
+  }
+};
+
+<span class="keyword">var</span> app = express();
+
+passport.use(<span class="keyword">new</span> LdapStrategy(OPTS));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}));
+app.use(passport.initialize());
+
+app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'ldapauth'</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  res.send({<span class="attr">status</span>: <span class="string">'ok'</span>});
+});
+
+app.listen(<span class="number">8080</span>);
+</code></pre>
+<h3 id="active-directory-over-ssl-example">Active Directory over SSL example</h3>
+<p>Simple example config for connecting over <code>ldaps://</code> to a server requiring some internal CA certificate (often the case in corporations using Windows AD).</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+<span class="keyword">var</span> opts = {
+  <span class="attr">server</span>: {
+    <span class="attr">url</span>: <span class="string">'ldaps://ad.corporate.com:636'</span>,
+    <span class="attr">bindDN</span>: <span class="string">'cn=non-person,ou=system,dc=corp,dc=corporate,dc=com'</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
+    <span class="attr">searchBase</span>: <span class="string">'dc=corp,dc=corporate,dc=com'</span>,
+    <span class="attr">searchFilter</span>: <span class="string">'(&amp;(objectcategory=person)(objectclass=user)(|(samaccountname={{username}})(mail={{username}})))'</span>,
+    <span class="attr">searchAttributes</span>: [<span class="string">'displayName'</span>, <span class="string">'mail'</span>],
+    <span class="attr">tlsOptions</span>: {
+      <span class="attr">ca</span>: [
+        fs.readFileSync(<span class="string">'/path/to/root_ca_cert.crt'</span>)
+      ]
+    }
+  }
+};
+...
+</code></pre>
+<h2 id="-credentialslookup-"><code>credentialsLookup</code></h2>
+<p>A synchronous function that receives the <code>req</code> object and returns an objec with keys <code>username</code> and <code>password</code> (or <code>name</code> and <code>pass</code>) can be provided. Note, that when this is provided the default lookup is not performed. This can be used to eg. enable basic auth header support:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> basicAuth = <span class="built_in">require</span>(<span class="string">'basic-auth'</span>);
+<span class="keyword">var</span> ldapOpts = {
+  <span class="attr">server</span>: { ... },
+  <span class="attr">credentialsLookup</span>: basicAuth
+}
+</code></pre>
+<h2 id="asynchronous-configuration-retrieval">Asynchronous configuration retrieval</h2>
+<p>Instead of providing a static configuration object, you can pass a function as <code>options</code> that will take care of fetching the configuration. It will be called with the <code>req</code> object and a callback function having the standard <code>(err, result)</code> signature. Notice that the provided function will be called on every authenticate request.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> getLDAPConfiguration = <span class="function"><span class="keyword">function</span>(<span class="params">req, callback</span>) </span>{
+  <span class="comment">// Fetching things from database or whatever</span>
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">var</span> opts = {
+      <span class="attr">server</span>: {
+        <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
+        <span class="attr">bindDN</span>: <span class="string">'cn=root'</span>,
+        <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
+        <span class="attr">searchBase</span>: <span class="string">'ou=passport-ldapauth'</span>,
+        <span class="attr">searchFilter</span>: <span class="string">'(uid={{username}})'</span>
+      }
+    };
+
+    callback(<span class="literal">null</span>, opts);
+  });
+};
+
+<span class="keyword">var</span> LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+
+passport.use(<span class="keyword">new</span> LdapStrategy(getLDAPConfiguration,
+  <span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+    ...
+    return done(<span class="literal">null</span>, user);
+  }
+));
+</code></pre>
+<h2 id="-ldapsearch-"><code>ldapsearch</code></h2>
+<p><a href="http://linux.die.net/man/1/ldapsearch">ldapsearch</a> is a great command line tool for testing your config. The user search query performed in the Express example above when user logging in has uid <code>john</code> is the same as the following <code>ldapsearch</code> call:</p>
+<pre><code class="lang-bash">ldapsearch \
+  -H ldap://localhost:389 \
+  -x \
+  -D cn=root \
+  -w secret \
+  -b ou=passport-ldapauth \
+  <span class="string">"(uid=john)"</span>
+</code></pre>
+<p>If the query does not return expected user the configuration is likely incorrect.</p>
+<h2 id="license">License</h2>
+<p>MIT</p>
+<p><code>passport-ldapauth</code> has been partially sponsored by <a href="https://leonidasoy.fi/open-source">Leonidas Ltd</a>.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-ldapauth</span></code></div>
+            <ul>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2017-06-13T17:36:15Z">7 months ago</abbr></li>
+              <li><a class="url" href="git://github.com/vesse/passport-ldapauth.git">https://github.com/vesse/passport-ldapauth#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>951</b> downloads in the last day</li>
+              <li><b>4,080</b> downloads in the last week</li>
+              <li><b>16,439</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

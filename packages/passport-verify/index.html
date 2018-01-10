@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-verify</title>
+    <meta charset="utf-8">
+    <meta name="description" content="A passport.js strategy for authenticating with Verify and Verify Service Provider">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-verify/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-verify"/>
+    <meta property="og:description" content="A passport.js strategy for authenticating with Verify and Verify Service Provider"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-verify/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-verify"/>
+    <meta name="twitter:description" content="A passport.js strategy for authenticating with Verify and Verify Service Provider"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-verify">passport-verify</h1>
+<p><a href="https://travis-ci.org/alphagov/passport-verify"><img src="https://travis-ci.org/alphagov/passport-verify.svg?branch=master" alt="Build Status"></a>
+<a href="https://snyk.io/test/github/alphagov/passport-verify"><img src="https://snyk.io/test/github/alphagov/passport-verify/badge.svg" alt="Known Vulnerabilities"></a>
+<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/alphagov/passport-verify.svg" alt="Greenkeeper badge"></a></p>
+<p><code>passport-verify</code> is the best way to integrate with GOV.UK Verify if you are using node and <a href="http://passportjs.org/">passport.js</a>.</p>
+<h2 id="usage">Usage</h2>
+<ol>
+<li><p>Install <code>passport-verify</code></p>
+<pre><code class="lang-bash">npm install --save passport-verify
+</code></pre>
+</li>
+<li><p>Install <a href="https://github.com/alphagov/verify-service-provider">Verify Service Provider</a>.</p>
+</li>
+<li><p>Configure <code>passport-verify</code> <a href="http://passportjs.org/docs/configure#strategies">strategy</a>.</p>
+<p>See <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createstrategy">createStrategy</a> in the API documentation.</p>
+<pre><code class="lang-javascript"><span class="keyword">const</span> passportVerify = <span class="built_in">require</span>(<span class="string">'passport-verify'</span>)
+<span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)
+
+<span class="comment">// Real applications should have a real backend for storing users.</span>
+<span class="keyword">const</span> fakeUserDatabase = {}
+
+<span class="comment">// Passport-Verify dependes on any bodyParser</span>
+<span class="comment">// to be configured as a middleware.</span>
+app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}))
+
+passport.use(passportVerify.createStrategy(
+
+  <span class="comment">// verifyServiceProviderHost</span>
+  <span class="string">'http://localhost:50400'</span>,
+
+  <span class="comment">// A callback for a new user authentication.</span>
+  <span class="comment">// This function is called at the end of the authentication flow</span>
+  <span class="comment">// with a user user object that contains details of the user in attributes.</span>
+  <span class="comment">// it should either return a user object or false if the user is not</span>
+  <span class="comment">// accepted by the application for whatever reason. It can also return a</span>
+  <span class="comment">// Promise in case it is asynchronous.</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">createUser</span> (<span class="params">user</span>) </span>{
+
+    <span class="comment">// This should be an error case if the local matching strategy is</span>
+    <span class="comment">// done correctly.</span>
+    <span class="keyword">if</span> (fakeUserDatabase[user.pid]) {
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(
+        <span class="string">'Local matching strategy has defined '</span> +
+        <span class="string">'the user to be new to the application, '</span> +
+        <span class="string">'but the User PID already exists.'</span>)
+    }
+
+    fakeUserDatabase[user.pid] = <span class="built_in">Object</span>.assign({<span class="attr">id</span>: user.pid}, user.attributes)
+    <span class="keyword">return</span> <span class="built_in">Object</span>.assign({ <span class="attr">levelOfAssurance</span>: user.levelOfAssurance }, fakeUserDatabase[user.pid])
+  },
+
+  <span class="comment">// A callback for an existing user authentication.</span>
+  <span class="comment">// This function is called at the end of the authentication flow with</span>
+  <span class="comment">// an object that contains the user pid. </span>
+  <span class="comment">// The function should either return a user object or false if the user is not</span>
+  <span class="comment">// accepted by the application for whatever reason. It can also return a</span>
+  <span class="comment">// Promise in case it is asynchronous.</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">verifyUser</span> (<span class="params">user</span>) </span>{
+
+    <span class="comment">// This should be an error case if the local matching strategy is</span>
+    <span class="comment">// done correctly.</span>
+    <span class="keyword">if</span> (!fakeUserDatabase[user.pid]) {
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(
+        <span class="string">'Local matching strategy has defined '</span> +
+        <span class="string">'that the user exists, but the PID could '</span> +
+        <span class="string">'not be found in the database.'</span>)
+    }
+
+    <span class="keyword">return</span> <span class="built_in">Object</span>.assign({ <span class="attr">levelOfAssurance</span>: user.levelOfAssurance }, fakeUserDatabase[user.pid])
+  },
+
+ <span class="comment">// A callback that saves the unique request ID associated with the SAML messages</span>
+ <span class="comment">// to the user's session.</span>
+ <span class="comment">// This function is called after the Verify Service Provider has generated and</span>
+ <span class="comment">// returned the AuthnRequest and associated RequestID.</span>
+ <span class="comment">// The requestID should be saved in a secure manner, and such that it</span>
+ <span class="comment">// corresponds to the user's current session and can be retrieved in order to validate</span>
+ <span class="comment">// that SAML response that is returned from the IDP corresponds to the original AuthnRequest.</span>
+ <span class="function"><span class="keyword">function</span> <span class="title">saveRequestId</span> (<span class="params">requestId, request</span>) </span>{
+
+   <span class="comment">// The following is an example that saves the requestId using the express-session middleware</span>
+   <span class="comment">// This would require express-session to be initialised with a secure secret e.g:</span>
+
+   <span class="comment">// const session = require('express-session')</span>
+   <span class="comment">//</span>
+   <span class="comment">// app.use(session({</span>
+   <span class="comment">//  secret: 'super secret secure token',</span>
+   <span class="comment">//  resave: true,</span>
+   <span class="comment">//  saveUninitialized: true</span>
+   <span class="comment">// }))</span>
+
+   request.session.requestId = requestId
+ },
+
+ <span class="comment">// A callback that returns the requestId that corresponds to the user's session.</span>
+ <span class="comment">// This is used by the Verify Service Provider to ensure SAMLResponses received from IDPS</span>
+ <span class="comment">// correspond to a the user's active session.</span>
+ <span class="function"><span class="keyword">function</span> <span class="title">loadRequestId</span> (<span class="params">request</span>) </span>{
+
+   <span class="comment">// The following is an example that retrieves the request ID from the aforementioned </span>
+   <span class="comment">// express-session object.</span>
+   <span class="keyword">return</span> request.session.requestId
+ },
+ <span class="comment">// Service Entity Id</span>
+ <span class="string">'http://your-service-entity-id'</span>
+ <span class="comment">// This is only required when your Verify Service Provider is set up to be multi tenanted.</span>
+ <span class="comment">// If it is provided, it is passed to the Verify Service Provider with each request, and</span>
+ <span class="comment">// used to identify this service.</span>
+))
+</code></pre>
+</li>
+<li><p>Configure routes for the authentication flow</p>
+<p>See <a href="https://alphagov.github.io/passport-verify/modules/_create_response_handler_.html#createresponsehandler">createResponseHandler</a>
+and its <a href="https://alphagov.github.io/passport-verify/interfaces/_create_response_handler_.responsescenarios.html#onauthnfailed">callbacks</a> in the API documentation.</p>
+<pre><code class="lang-javascript"><span class="comment">// route for authenticating a user</span>
+app.post(<span class="string">'/verify/start'</span>, passport.authenticate(<span class="string">'verify'</span>))
+
+<span class="comment">// route for handling a callback from verify</span>
+app.post(<span class="string">'/verify/response'</span>, (req, res, next) =&gt; (
+
+  <span class="comment">// in this example, authenticate() is being called from within the route handler</span>
+  <span class="comment">// rather than being used as middleware, this provides access to the request</span>
+  <span class="comment">// and response objects through closure</span>
+  <span class="keyword">const</span> authMiddleware = passport.authenticate(<span class="string">'verify'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, user, infoOrError, status</span>) </span>{
+
+   <span class="keyword">if</span> (error) {
+     <span class="keyword">return</span> res.send(<span class="string">`TODO: render error-page with message <span class="subst">${error: error.message}</span>`</span>)
+   }
+
+   <span class="keyword">if</span> (user) {
+     <span class="comment">// passport-verify requires the use of a custom callback to handle successful</span>
+     <span class="comment">// authentication</span>
+     <span class="keyword">return</span> req.logIn(user, () =&gt; res.send(<span class="string">'TODO: redirect to service landing page'</span>)))
+   }
+
+   <span class="keyword">return</span> res.send(<span class="string">`TODO: redirect to authentication failed page with <span class="subst">${error: infoOrError}</span>`</span>)
+
+ })
+ authMiddleware(req, res, next)
+</code></pre>
+<p>See <a href="https://github.com/alphagov/passport-verify-stub-relying-party/blob/master/src/app.ts">the example implementation</a> for
+a more detailed example with session support.</p>
+</li>
+</ol>
+<h2 id="logging">Logging</h2>
+<p><code>passport-verify</code> uses the <a href="https://www.npmjs.com/package/debug"><em>debug</em></a> package for logging, using <code>passport-verify:log</code> for infomation and <code>passport-verify:requests</code> to log api requests sent.</p>
+<p>The package enables logging based on the environment variable <code>DEBUG</code>.
+To enable logs, set this variable;</p>
+<ul>
+<li>For just information level logging, use <code>passport-verify:log</code></li>
+<li>For request logging, use <code>passport-verify:requests</code></li>
+<li>For both, use <code>passport-verify:*</code></li>
+</ul>
+<p>If you are using this package for your application, note that the <code>DEBUG</code> variable will be read as a comma seperated list, so you can add or remove passport-verify logs as necessary without changing your own.</p>
+<h2 id="api">API</h2>
+<p>See <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_.html">the API documentation</a> for more details.</p>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><em>Identity Provider</em> is a Service that can authenticate users</li>
+<li><em>Relying party</em> is a Service that needs to authenticate users</li>
+<li><a href="https://github.com/alphagov/verify-service-provider"><em>Verify Service Provider</em></a>
+ is a service that consumes and produces SAML messages that can be used to communicate with GOV.UK Verify</li>
+<li><a href="http://passportjs.org/"><em>Passport.js</em></a> is a node js library that provides a generic authentication framework for various authentication providers. </li>
+</ul>
+<h2 id="development">Development</h2>
+<p>If you want to make changes to <code>passport-verify</code> itself, fork the repository then:</p>
+<p><strong>Install the dependencies</strong></p>
+<pre><code>npm <span class="keyword">install</span>
+</code></pre><p><strong>Compile and test the code</strong></p>
+<pre><code>npm <span class="built_in">test</span>
+</code></pre><p><strong>Install dependencies, compile and test the code - run this before commiting</strong></p>
+<pre><code>npm <span class="keyword">run</span><span class="bash"> pre-commit</span>
+</code></pre><h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>If you think you have discovered a security issue in this code please email disclosure@digital.cabinet-office.gov.uk with details.</p>
+<p>For non-security related bugs and feature requests please <a href="https://github.com/alphagov/passport-verify/issues/new">raise an issue</a> in the github issue tracker.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-verify</span></code></div>
+            <ul>
+              <li><span class="version">0.12.0</span> published <abbr class="updated" title="2018-01-05T14:03:40Z">5 days ago</abbr></li>
+              <li><a class="url" href="git://github.com/alphagov/passport-verify.git">https://github.com/alphagov/passport-verify#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>18</b> downloads in the last day</li>
+              <li><b>239</b> downloads in the last week</li>
+              <li><b>286</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>

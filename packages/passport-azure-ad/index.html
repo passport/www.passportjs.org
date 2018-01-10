@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-azure-ad</title>
+    <meta charset="utf-8">
+    <meta name="description" content="OIDC and Bearer Passport strategies for Azure Active Directory">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-azure-ad/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-azure-ad"/>
+    <meta property="og:description" content="OIDC and Bearer Passport strategies for Azure Active Directory"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-azure-ad/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-azure-ad"/>
+    <meta name="twitter:description" content="OIDC and Bearer Passport strategies for Azure Active Directory"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd">
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div class="main-hold" id="top">
+      <div class="top-site">
+        <div class="search">
+          <form action="#">
+            <button type="submit"></button>
+            <input type="text" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter"><a href="http://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="git"><a href="http://github.com/jaredhanson/passport" target="_blank"><span class="stat">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="logo" id="logo" href="/" title="JH"></a><a class="jared" href="http://twitter.com/jaredhanson" target="_blank">by Jared Hanson</a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-hold">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="microsoft-azure-active-directory-passport-js-plug-in">Microsoft Azure Active Directory Passport.js Plug-In</h1>
+<p>=============</p>
+<p><em>passport-azure-ad</em> is a collection of <a href="http://passportjs.org/">Passport</a> Strategies 
+to help you integrate with Azure Active Directory. It includes OpenID Connect, 
+WS-Federation, and SAML-P authentication and authorization. These providers let you 
+integrate your Node app with Microsoft Azure AD so you can use its many features, 
+including web single sign-on (WebSSO), Endpoint Protection with OAuth, and JWT token 
+issuance and validation.</p>
+<p><em>passport-azure-ad</em> has been tested to work with both <a href="https://azure.microsoft.com/en-us/services/active-directory/">Microsoft Azure Active Directory</a> 
+and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Microsoft Active Directory Federation Services</a>.</p>
+<h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
+<p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
+<h2 id="2-versions">2. Versions</h2>
+<p>Current version - 3.0.9<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
+<h2 id="3-contribution-history">3. Contribution History</h2>
+<p><a href="https://waffle.io/AzureAD/passport-azure-ad"><img src="https://badge.waffle.io/AzureAD/passport-azure-ad.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
+<p><a href="https://waffle.io/AzureAD/passport-azure-ad/metrics"><img src="https://graphs.waffle.io/AzureAD/passport-azure-ad/throughput.svg" alt="Throughput Graph"></a></p>
+<h2 id="4-installation">4. Installation</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-azure-ad</span>
+</code></pre><h2 id="5-usage">5. Usage</h2>
+<p>This library contains two strategies: OIDCStrategy and BearerStrategy.</p>
+<p>OIDCStrategy uses OpenID Connect protocol for web application login purposes. It works in the following manner:
+If a user is not logged in, passport sends an authentication request to AAD (Azure Active Directory), and AAD prompts the user for his or her sign-in credentials. On successful authentication, depending on the flow you choose, web application will eventually get an id_token back either directly from the AAD authorization endpoint or by redeeming a code at the AAD token endpoint. Passport then validates the id_token and propagates the claims in id_token back to the verify callback, and let the framework finish the remaining authentication procedure. If the whole process is successful, passport adds the user information to <code>req.user</code> and passes it to the next middleware. In case of error, passport either sends back an unauthorized response or redirects the user to the page you specified (such as homepage or login page).</p>
+<p>BearerStrategy uses Bearer Token protocol to protect web resource/api. It works in the following manner:
+User sends a request to the protected web api which contains an access_token in either the authorization header or body. Passport extracts and validates the access_token, and propagates the claims in access_token to the verify callback and let the framework finish the remaining authentication procedure. On successful authentication, passport adds the user information to <code>req.user</code> and passes it to the next middleware, which is usually the business logic of the web resource/api. In case of error, passport sends back an unauthorized response.</p>
+<p>We support AAD v1, v2 and B2C tenants for both strategies. Please check out section 7 for the samples. You can manage v1 tenants and register applications at <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>. For v2 tenants and applications, you should go to <a href="https://apps.dev.microsoft.com">https://apps.dev.microsoft.com</a>. For B2C tenants, go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> and click &#39;Manage B2C settings&#39; to register applications and policies. </p>
+<h3 id="5-1-oidcstrategy">5.1 OIDCStrategy</h3>
+<h4 id="5-1-1-configure-strategy-and-provide-callback-function">5.1.1 Configure strategy and provide callback function</h4>
+<h5 id="5-1-1-1-sample-using-the-oidcstrategy">5.1.1.1 Sample using the OIDCStrategy</h5>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> OIDCStrategy({
+    <span class="attr">identityMetadata</span>: config.creds.identityMetadata,
+    <span class="attr">clientID</span>: config.creds.clientID,
+    <span class="attr">responseType</span>: config.creds.responseType,
+    <span class="attr">responseMode</span>: config.creds.responseMode,
+    <span class="attr">redirectUrl</span>: config.creds.redirectUrl,
+    <span class="attr">allowHttpForRedirectUrl</span>: config.creds.allowHttpForRedirectUrl,
+    <span class="attr">clientSecret</span>: config.creds.clientSecret,
+    <span class="attr">validateIssuer</span>: config.creds.validateIssuer,
+    <span class="attr">isB2C</span>: config.creds.isB2C,
+    <span class="attr">issuer</span>: config.creds.issuer,
+    <span class="attr">passReqToCallback</span>: config.creds.passReqToCallback,
+    <span class="attr">scope</span>: config.creds.scope,
+    <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
+    <span class="attr">nonceLifetime</span>: config.creds.nonceLifetime,
+    <span class="attr">nonceMaxAmount</span>: config.creds.nonceMaxAmount,
+    <span class="attr">useCookieInsteadOfSession</span>: config.creds.useCookieInsteadOfSession,
+    <span class="attr">cookieEncryptionKeys</span>: config.creds.cookieEncryptionKeys,
+    <span class="attr">clockSkew</span>: config.creds.clockSkew,
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">iss, sub, profile, accessToken, refreshToken, done</span>) </span>{
+    <span class="keyword">if</span> (!profile.oid) {
+      <span class="keyword">return</span> done(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No oid found"</span>), <span class="literal">null</span>);
+    }
+    <span class="comment">// asynchronous verification, for effect...</span>
+    process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+      findByOid(profile.oid, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">if</span> (err) {
+          <span class="keyword">return</span> done(err);
+        }
+        <span class="keyword">if</span> (!user) {
+          <span class="comment">// "Auto-registration"</span>
+          users.push(profile);
+          <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+        }
+        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      });
+    });
+  }
+));
+</code></pre>
+<h5 id="5-1-1-2-options">5.1.1.2 Options</h5>
+<ul>
+<li><p><code>identityMetadata</code> (Required)</p>
+<p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
+<ul>
+<li>v1 tenant-specific endpoint<pre><code>http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_name.onmicrosoft.<span class="keyword">com</span>/.well-known/openid-configuration
+http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_guid/.well-known/openid-configuration
+</code></pre></li>
+<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known<span class="regexp">/openid-configuration</span>
+</code></pre></li>
+<li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
+https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre></li>
+<li>v2 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre></li>
+</ul>
+<p>For B2C, you cannot use v2 common endpoint unless you specify the tenant in <code>passport.authenticate</code> using <code>tenantIdOrName</code> option. See section 5.1.3 for more details.</p>
+</li>
+<li><p><code>clientID</code> (Required)</p>
+<p>The client ID of your application in AAD (Azure Active Directory)</p>
+</li>
+<li><p><code>responseType</code> (Required)</p>
+<p>Must be &#39;code&#39;, &#39;code id_token&#39;, &#39;id_token code&#39; or &#39;id_token&#39;. For login only flows you can use &#39;id_token&#39;; if you want access_token, use &#39;code&#39;, &#39;code id_token&#39; or &#39;id_token code&#39;.</p>
+</li>
+<li><p><code>responseMode</code> (Required)</p>
+<p>Must be &#39;query&#39; or &#39;form_post&#39;. This is how you get code or id_token back. &#39;form_post&#39; is recommended for all scenarios.</p>
+</li>
+<li><p><code>redirectUrl</code>  (Required)</p>
+<p>Must be a https url string, unless you set <code>allowHttpForRedirectUrl</code> to true. This is the reply URL registered in AAD for your app. Production environment should always use https for <code>redirectUrl</code>.</p>
+</li>
+<li><p><code>passReqToCallback</code>  (Required)</p>
+<p>Whether you want to use <code>req</code> as the first parameter in the verify callback. See section 5.1.1.3 for more details.</p>
+</li>
+<li><p><code>allowHttpForRedirectUrl</code>  (Conditional) </p>
+<p>Required to set to true if you want to use http url for redirectUrl like <code>http://localhost:3000</code>. </p>
+</li>
+<li><p><code>clientSecret</code>  (Conditional)</p>
+<p>When <code>responseType</code> is not <code>id_token</code>, we have to provide client credential to redeem the authorization code. This credential could be client secret or client assertion. Non-B2C tenant supports both flows, but B2C tenant only supports client secret flow.</p>
+<p>For B2C tenant: <code>clientSecret</code> is required if the <code>responseType</code> is not &#39;id_token&#39;.</p>
+<p>For non-B2C tenant: If <code>responseType</code> is not <code>id_token</code>, developer must provide either <code>clientSecret</code>, or <code>thumbprint</code> and <code>privatePEMKey</code>. We use <code>clientSecret</code> if it is provided; otherwise we use <code>thumbprint</code> and <code>privatePEMKey</code> for client assertion flow.</p>
+<p><code>clientSecret</code> is the app key of your app in AAD. For B2C, the app key sometimes contains \, please replace \ with two \&#39;s in the app key, otherwise \ will be treated as the beginning of an escaping character.</p>
+</li>
+<li><p><code>thumbprint</code>  (Conditional)</p>
+<p>Required if you want to use client assertion flow. <code>thumbprint</code> is the base64url format of the thumbprint (hash value) of the public key.</p>
+</li>
+<li><p><code>privatePEMKey</code>  (Conditional)</p>
+<p>Required if you want to use client assertion flow. <code>privatePEMKey</code> is the private pem key string.</p>
+</li>
+<li><p><code>isB2C</code>  (Conditional)</p>
+<p>Required to set to true if you are using B2C tenant.</p>
+</li>
+<li><p><code>validateIssuer</code>  (Conditional)</p>
+<p>Required to set to false if you don&#39;t want to validate issuer, default value is true. We validate the <code>iss</code> claim in id_token against user provided <code>issuer</code> values and the issuer value we get from tenant-specific endpoint. If you use common endpoint for <code>identityMetadata</code> and you want to validate issuer, then you have to either provide <code>issuer</code>, or provide the tenant for each login request using <code>tenantIdOrName</code> option in <code>passport.authenticate</code> (see section 5.1.3 for more details).</p>
+</li>
+<li><p><code>issuer</code>  (Conditional)</p>
+<p>This can be a string or an array of strings. See <code>validateIssuer</code> for the situation that requires <code>issuer</code>.</p>
+</li>
+<li><p><code>jweKeyStore</code>  (Conditional)</p>
+<p>This option is required if you want to accept and decrypt id_token in JWE Compact Serialization format. See 
+section 5.1.1.4 for more details.</p>
+</li>
+<li><p><code>useCookieInsteadOfSession</code>  (Conditional)</p>
+<p>Passport-azure-ad saves state and nonce in session by default for validation purpose. If <code>useCookieInsteadOfSession</code> is set to true, passport-azure-ad will encrypt the state/nonce and
+put them into cookie instead. This is helpful when we want to be completely session-free, in other words, when you use { session: false } option in passport.authenticate function.
+If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code> for cookie encryption and decryption.</p>
+</li>
+<li><p><code>cookieEncryptionKeys</code>  (Conditional)</p>
+<p>If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code>. It is an array of the following format: [ {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, ...]. key could be any string of length 32, and iv could be any string of length 12. We always use the first set of key/iv to encrypt cookie, but we try all the key/iv to decrypt cookie.
+This is helpful if you want to do key rollover. The encryption/decryption algorithm we use is aes-256-gcm. You can limit the cookie amount and expiration using <code>nonceLifetime</code> and <code>nonceMaxAmount</code> options. </p>
+</li>
+<li><p><code>scope</code>  (Optional)</p>
+<p>List of scope values besides <code>openid</code> indicating the required scope of the access token for accessing the requested resource. For example, [&#39;email&#39;, &#39;profile&#39;]. If you need refresh_token for v2 endpoint, then you have to include the &#39;offline_access&#39; scope.</p>
+</li>
+<li><p><code>loggingLevel</code>  (Optional)</p>
+<p>Logging level. &#39;info&#39;, &#39;warn&#39; or &#39;error&#39;.</p>
+</li>
+<li><p><code>nonceLifetime</code>  (Optional)</p>
+<p>The lifetime of nonce in session in seconds. The default value is 3600 seconds.</p>
+</li>
+<li><p><code>nonceMaxAmount</code>  (Optional)</p>
+<p>The max amount of nonce you want to keep in session or cookies. The default number is 10. The oldest nonce(s) will be removed if the total number exceeds. (You can keep this number very small because nonce will be removed from session or cookies after validation. This mainly handles the case when user opens more than one login tabs at once and wants to go back to the first login page to type user credentials. Each login tab results in a nonce in session or cookie, so we only honor the most recent nonceMaxAmount many login tabs.)</p>
+</li>
+<li><p><code>clockSkew</code>  (Optional)</p>
+<p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
+</li>
+</ul>
+<h5 id="5-1-1-3-verify-callback">5.1.1.3 Verify callback</h5>
+<p>If you set <code>passReqToCallback</code> option to false, you can use one of the following signatures for the verify callback</p>
+<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, jwtClaims, access_token, refresh_token, params, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, access_token, refresh_token, params, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, access_token, refresh_token, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span></span>
+</code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use one of the following signatures for the verify callback</p>
+<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, jwtClaims, access_token, refresh_token, params, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, access_token, refresh_token, params, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, access_token, refresh_token, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, done)</span></span>
+  <span class="function"><span class="keyword">function</span><span class="params">(req, profile, done)</span></span>
+</code></pre><h4 id="5-1-1-4-jwe-support">5.1.1.4 JWE support</h4>
+<p>  We support encrypted id_token in JWE Compact Serialization format. </p>
+<p>  The key encryption algorithms supported are: </p>
+<p>  <code>RSA1_5</code>, <code>RSA-OAEP</code>, <code>A128KW</code>, <code>A256KW</code>, <code>dir</code>.</p>
+<p>  The content encryption algorithms supported are:</p>
+<p>  <code>A128CBC-HS256</code>, <code>A192CBC-HS384</code>, <code>A256CBC-HS512</code>, <code>A128GCM</code>, and <code>A256GCM</code>.</p>
+<p>  In order to decrypt the id_token, keys have to be provided in JWK format using <code>jweKeyStore</code> option. We will first
+  try the key with the corresponding kid. If decryption fails, we will try every possible key in <code>jweKeyStore</code>. 
+  The following is an example of <code>jweKeyStore</code>:</p>
+<pre><code class="lang-javascript">
+    jweKeyStore: [ 
+      { <span class="string">'kid'</span>: <span class="string">'sym_key_256'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE='</span> }, 
+      { <span class="string">'kid'</span>: <span class="string">'sym_key_128'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'GawgguFyGrWKav7AX4VKUg'</span>}, 
+      { <span class="string">'kid'</span>: <span class="string">'sym_key_384'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v'</span>},
+      { <span class="string">'kid'</span>: <span class="string">'rsa_key'</span>, 
+        <span class="string">'kty'</span>: <span class="string">'RSA'</span>, 
+        <span class="string">"n"</span>:<span class="string">"6-FrFkt_TByQ_L5d7or-9PVAowpswxUe3dJeYFTY0Lgq7zKI5OQ5RnSrI0\n\
+             T9yrfnRzE9oOdd4zmVj9txVLI-yySvinAu3yQDQou2Ga42ML_-K4Jrd5cl\n\
+             MUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5\n\
+             n6x5r2y1C_8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u_mIdyw\n\
+             yGfgiT3tw0FsWvki_KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyB\n\
+             VuNY-J_elq-HgJ_dZK6g7vMNvXz2_vT-SykIkzwiD9eSI9UWfsjw"</span>,
+        <span class="string">"e"</span>:<span class="string">"AQAB"</span>,
+        <span class="string">"d"</span>:<span class="string">"C6EGZYf9U6RI5Z0BBoSlwy_gKumVqRx-dBMuAfPM6KVbwIUuSJKT3ExeL5\n\
+             P0Ky1b4p-j2S3u7Afnvrrj4HgVLnC1ks6rEOc2ne5DYQq8szST9FMutyul\n\
+             csNUKLOM5cVromALPz3PAqE2OCLChTiQZ5XZ0AiH-KcG-3hKMa-g1MVnGW\n\
+             -SSmm27XQwRtUtFQFfxDuL0E0fyA9O9ZFBV5201ledBaLdDcPBF8cHC53G\n\
+             m5G6FRX3QVpoewm3yGk28Wze_YvNl8U3hvbxei2Koc_b9wMbFxvHseLQrx\n\
+             vFg_2byE2em8FrxJstxgN7qhMsYcAyw1qGJY-cYX-Ab_1bBCpdcQ"</span>,
+        <span class="string">"p"</span>:<span class="string">"_avCCyuo7hHlqu9Ec6R47ub_Ul_zNiS-xvkkuYwW-4lNnI66A5zMm_BOQV\n\
+             MnaCkBua1OmOgx7e63-jHFvG5lyrhyYEmkA2CS3kMCrI-dx0fvNMLEXInP\n\
+             xd4np_7GUd1_XzPZEkPxBhqf09kqryHMj_uf7UtPcrJNvFY-GNrzlJk"</span>,
+        <span class="string">"q"</span>:<span class="string">"7gvYRkpqM-SC883KImmy66eLiUrGE6G6_7Y8BS9oD4HhXcZ4rW6JJKuBzm\n\
+             7FlnsVhVGro9M-QQ_GSLaDoxOPQfHQq62ERt-y_lCzSsMeWHbqOMci_pbt\n\
+             vJknpMv4ifsQXKJ4Lnk_AlGr-5r5JR5rUHgPFzCk9dJt69ff3QhzG2c"</span>,
+        <span class="string">"dp"</span>:<span class="string">"ErP3OpudePAY3uGFSoF16Sde69PnOra62jDEZGnPx_v3nPNpA5sr-tNc8\n\
+              bQP074yQl5kzSFRjRlstyW0TpBVMP0ocbD8RsN4EKsgJ1jvaSIEoP87Ox\n\
+              duGkim49wFA0Qxf_NyrcYUnz6XSidY3lC_pF4JDJXg5bP_x0MUkQCTtQE"</span>,
+        <span class="string">"dq"</span>:<span class="string">"YbBsthPt15Pshb8rN8omyfy9D7-m4AGcKzqPERWuX8bORNyhQ5M8JtdXc\n\
+              u8UmTez0j188cNMJgkiN07nYLIzNT3Wg822nhtJaoKVwZWnS2ipoFlgrB\n\
+              gmQiKcGU43lfB5e3qVVYUebYY0zRGBM1Fzetd6Yertl5Ae2g2CakQAcPs"</span>,
+        <span class="string">"qi"</span>:<span class="string">"lbljWyVY-DD_Zuii2ifAz0jrHTMvN-YS9l_zyYyA_Scnalw23fQf5WIcZ\n\
+              ibxJJll5H0kNTIk8SCxyPzNShKGKjgpyZHsJBKgL3iAgmnwk6k8zrb_lq\n\
+              a0sd1QWSB-Rqiw7AqVqvNUdnIqhm-v3R8tYrxzAqkUsGcFbQYj4M5_F_4"</span>
+      },
+      { <span class="string">'kid'</span>: <span class="string">'ras_key_2'</span>,
+        <span class="string">'kty'</span>: <span class="string">'RSA'</span>,
+        <span class="string">'privatePemKey'</span>: 
+          <span class="string">'-----BEGIN RSA PRIVATE KEY-----\n\
+          MIIEowIBAAKCAQEA6+FrFkt/TByQ/L5d7or+9PVAowpswxUe3dJeYFTY0Lgq7zKI\n\
+          5OQ5RnSrI0T9yrfnRzE9oOdd4zmVj9txVLI+yySvinAu3yQDQou2Ga42ML/+K4Jr\n\
+          d5clMUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5n6\n\
+          x5r2y1C/8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u/mIdywyGfgiT3t\n\
+          w0FsWvki/KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyBVuNY+J/elq+HgJ\n\
+          /dZK6g7vMNvXz2/vT+SykIkzwiD9eSI9UWfsjwIDAQABAoIBAAuhBmWH/VOkSOWd\n\
+          AQaEpcMv4CrplakcfnQTLgHzzOilW8CFLkiSk9xMXi+T9CstW+Kfo9kt7uwH5766\n\
+          4+B4FS5wtZLOqxDnNp3uQ2EKvLM0k/RTLrcrpXLDVCizjOXFa6JgCz89zwKhNjgi\n\
+          woU4kGeV2dAIh/inBvt4SjGvoNTFZxlvkkpptu10MEbVLRUBX8Q7i9BNH8gPTvWR\n\
+          QVedtNZXnQWi3Q3DwRfHBwudxpuRuhUV90FaaHsJt8hpNvFs3v2LzZfFN4b28Xot\n\
+          iqHP2/cDGxcbx7Hi0K8bxYP9m8hNnpvBa8SbLcYDe6oTLGHAMsNahiWPnGF/gG/9\n\
+          WwQqXXECgYEA/avCCyuo7hHlqu9Ec6R47ub/Ul/zNiS+xvkkuYwW+4lNnI66A5zM\n\
+          m/BOQVMnaCkBua1OmOgx7e63+jHFvG5lyrhyYEmkA2CS3kMCrI+dx0fvNMLEXInP\n\
+          xd4np/7GUd1/XzPZEkPxBhqf09kqryHMj/uf7UtPcrJNvFY+GNrzlJkCgYEA7gvY\n\
+          RkpqM+SC883KImmy66eLiUrGE6G6/7Y8BS9oD4HhXcZ4rW6JJKuBzm7FlnsVhVGr\n\
+          o9M+QQ/GSLaDoxOPQfHQq62ERt+y/lCzSsMeWHbqOMci/pbtvJknpMv4ifsQXKJ4\n\
+          Lnk/AlGr+5r5JR5rUHgPFzCk9dJt69ff3QhzG2cCgYASs/c6m5148Bje4YVKgXXp\n\
+          J17r0+c6trraMMRkac/H+/ec82kDmyv601zxtA/TvjJCXmTNIVGNGWy3JbROkFUw\n\
+          /ShxsPxGw3gQqyAnWO9pIgSg/zs7F24aSKbj3AUDRDF/83KtxhSfPpdKJ1jeUL+k\n\
+          XgkMleDls//HQxSRAJO1AQKBgGGwbLYT7deT7IW/KzfKJsn8vQ+/puABnCs6jxEV\n\
+          rl/GzkTcoUOTPCbXV3LvFJk3s9I9fPHDTCYJIjdO52CyMzU91oPNtp4bSWqClcGV\n\
+          p0toqaBZYKwYJkIinBlON5XweXt6lVWFHm2GNM0RgTNRc3rXemHq7ZeQHtoNgmpE\n\
+          AHD7AoGBAJW5Y1slWPgw/2bootonwM9I6x0zLzfmEvZf88mMgP0nJ2pcNt30H+Vi\n\
+          HGYm8SSZZeR9JDUyJPEgscj8zUoShio4KcmR7CQSoC94gIJp8JOpPM62/5amtLHd\n\
+          UFkgfkaosOwKlarzVHZyKoZvr90fLWK8cwKpFLBnBW0GI+DOfxf+\n\
+          -----END RSA PRIVATE KEY-----\n'</span>;
+      }
+  ]
+</code></pre>
+<h4 id="5-1-2-use-passport-authenticate-to-protect-routes">5.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
+<p>To complete the sample, provide a route that corresponds to the path 
+configuration parameter that is sent to the strategy:</p>
+<pre><code class="lang-javascript">
+app.get(<span class="string">'/login'</span>, 
+  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    log.info(<span class="string">'Login was called in the Sample'</span>);
+    res.redirect(<span class="string">'/'</span>);
+});
+
+<span class="comment">// POST /auth/openid/return</span>
+<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
+<span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
+<span class="comment">//   home page.  Otherwise, the primary route function function will be called,</span>
+<span class="comment">//   which, in this example, will redirect the user to the home page.</span>
+app.post(<span class="string">'/auth/openid/return'</span>,
+  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{ 
+    res.redirect(<span class="string">'/'</span>);
+  });
+
+app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+  req.logout();
+  res.redirect(<span class="string">'/'</span>);
+});
+</code></pre>
+<h4 id="5-1-3-options-available-for-passport-authenticate-">5.1.3 Options available for <code>passport.authenticate</code></h4>
+<ul>
+<li><p><code>failureRedirect</code>: the url redirected to when the authentication fails</p>
+</li>
+<li><p><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</p>
+</li>
+<li><p><code>customState</code>: if you want to use a custom state value instead of a random generated one</p>
+</li>
+<li><p><code>resourceURL</code>: if you need access_token for some resource. Note this option is only for v1 endpoint and <code>code</code>, <code>code id_token</code>, <code>id_token code</code> flow. For v2 endpoint, resource is considered as a scope, so it should be specified in the <code>scope</code> field when you create
+the strategy.</p>
+</li>
+<li><p><code>tenantIdOrName</code>: if you want to specify the tenant to use for this request. You can use the tenant guid or tenant name (like &#39;contoso.onmicrosoft.com&#39;). Note: </p>
+<ul>
+<li>You must use common endpoint for <code>identityMetadata</code>, otherwise this option will be ignored. We will fetch and use the metadata from the tenant you specify for this request.</li>
+<li>This option only applies to the login request, in other words, the request which is not supposed to contain code or id_token. Passport saves the <code>tenantIdOrName</code> value in session before sending the authentication request. When we receive a request containing code or id_token, we retrieve the saved <code>tenantIdOrName</code> value from session and use that value.</li>
+<li>If you are using B2C common endpoint, then <code>tenantIdOrName</code> must be used for every login request.</li>
+</ul>
+</li>
+<li><p><code>domain_hint</code>: if you want to specify the domain that the user should use to sign in. This option is not supported for B2C tenant.</p>
+</li>
+<li><p><code>login_hint</code>: if you want to prefill the username with a given value in the login page. The value should be the <code>upn</code> of a user, not the email (most times they are the same though). </p>
+</li>
+<li><p><code>prompt</code>: v1 and v2 endpoint support <code>login</code>, <code>consent</code> and <code>admin_consent</code>; B2C endpoint only supports <code>login</code>. </p>
+</li>
+<li><p><code>response</code>: this is required if you want to use cookie instead of session to save state/nonce. See section 5.1.4.</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code>  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">failureRedirect:</span> <span class="string">'/'</span>, <span class="string">session:</span> <span class="literal">false</span>, <span class="string">customState:</span> <span class="string">'my_state'</span>, <span class="string">resourceURL:</span> <span class="string">'https://graph.microsoft.com/mail.send'</span>});
+
+  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">tenantIdOrName:</span> <span class="string">'contoso.onmicrosoft.com'</span> });
+</code></pre><h4 id="5-1-4-session-free-support">5.1.4 Session free support</h4>
+<p>Passport framework uses session to keep a persistent login session. As a plug in, we also use session to store state and nonce by default, regardless whether you use { session: false } option in passport.authenticate or not. To be completely session free, you must configure passport-azure-ad to create state/nonce cookie instead of saving them in session. Please follow the following example:</p>
+<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> OIDCStrategy({
+    ...
+    nonceLifetime: <span class="number">600</span>,  <span class="comment">// state/nonce cookie expiration in seconds</span>
+    nonceMaxAmount: <span class="number">5</span>,   <span class="comment">// max amount of state/nonce cookie you want to keep (cookie is deleted after validation so this can be very small)</span>
+    useCookieInsteadOfSession: <span class="keyword">true</span>,  <span class="comment">// use cookie, not session</span>
+    cookieEncryptionKeys: [ { key: <span class="string">'12345678901234567890123456789012'</span>, <span class="string">'iv'</span>: <span class="string">'123456789012'</span> }],  <span class="comment">// encrypt/decrypt key and iv, see `cookieEncryptionKeys` instruction in section 5.1.1.2</span>
+  },
+    <span class="comment">// any supported verify callback</span>
+    <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, accessToken, refreshToken, done)</span> </span>{
+    ...
+  });
+
+  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { session: <span class="keyword">false</span> }));
+</code></pre><h3 id="5-2-bearerstrategy">5.2 BearerStrategy</h3>
+<h4 id="5-2-1-configure-strategy-and-provide-callback-function">5.2.1 Configure strategy and provide callback function</h4>
+<h5 id="5-2-1-1-sample-using-the-bearerstrategy">5.2.1.1 Sample using the BearerStrategy</h5>
+<pre><code class="lang-javascript">
+<span class="comment">// We pass these options in to the ODICBearerStrategy.</span>
+
+<span class="keyword">var</span> options = {
+  <span class="attr">identityMetadata</span>: config.creds.identityMetadata,
+  <span class="attr">clientID</span>: config.creds.clientID,
+  <span class="attr">validateIssuer</span>: config.creds.validateIssuer,
+  <span class="attr">issuer</span>: config.creds.issuer,
+  <span class="attr">passReqToCallback</span>: config.creds.passReqToCallback,
+  <span class="attr">isB2C</span>: config.creds.isB2C,
+  <span class="attr">policyName</span>: config.creds.policyName,
+  <span class="attr">allowMultiAudiencesInToken</span>: config.creds.allowMultiAudiencesInToken,
+  <span class="attr">audience</span>: config.creds.audience,
+  <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
+  <span class="attr">clockSkew</span>: config.creds.clockSkew,
+  <span class="attr">scope</span>: config.creds.scope
+};
+
+<span class="keyword">var</span> bearerStrategy = <span class="keyword">new</span> BearerStrategy(options,
+  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
+    log.info(<span class="string">'verifying the user'</span>);
+    log.info(token, <span class="string">'was the token retreived'</span>);
+    findById(token.oid, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> done(err);
+      }
+      <span class="keyword">if</span> (!user) {
+        <span class="comment">// "Auto-registration"</span>
+        log.info(<span class="string">'User was added automatically as they were new. Their oid is: '</span>, token.oid);
+        users.push(token);
+        owner = token.oid;
+        <span class="keyword">return</span> done(<span class="literal">null</span>, token);
+      }
+      owner = token.oid;
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user, token);
+    });
+  }
+);
+</code></pre>
+<h5 id="5-2-1-2-options">5.2.1.2 Options</h5>
+<ul>
+<li><p><code>identityMetadata</code> (Required)</p>
+<p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
+<ul>
+<li>v1 tenant-specific endpoint<pre><code>http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_name.onmicrosoft.<span class="keyword">com</span>/.well-known/openid-configuration
+http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_guid/.well-known/openid-configuration
+</code></pre></li>
+<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known<span class="regexp">/openid-configuration</span>
+</code></pre></li>
+<li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
+https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre></li>
+<li>v2 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre></li>
+</ul>
+<p>For B2C, you can only use v2 tenant-specific endpoint.</p>
+</li>
+<li><p><code>clientID</code> (Required)</p>
+<p>The client ID of your application in AAD (Azure Active Directory)</p>
+</li>
+<li><p><code>passReqToCallback</code>  (Required)</p>
+<p>Whether you want to use <code>req</code> as the first parameter in the verify callback. See section 5.2.1.3 for more details.</p>
+</li>
+<li><p><code>isB2C</code>  (Conditional)</p>
+<p>Required to set to true if you are using B2C tenant.</p>
+</li>
+<li><p><code>policyName</code>  (Conditional)</p>
+<p>Required if you are using B2C tenant. It is a string starting with &#39;B2C<em>1</em>&#39; (case insensitive).</p>
+</li>
+<li><p><code>validateIssuer</code>  (Conditional)</p>
+<p>Required to set to false if you don&#39;t want to validate issuer, default value is true. We validate the <code>iss</code> claim in id_token against user provided <code>issuer</code> values and the issuer value we get from tenant-specific endpoint. If you use common endpoint for <code>identityMetadata</code> and you want to validate issuer, then you must provide <code>issuer</code>.</p>
+</li>
+<li><p><code>issuer</code>  (Conditional)</p>
+<p>This can be a string or an array of strings. See <code>validateIssuer</code> for the situation that requires <code>issuer</code>.</p>
+</li>
+<li><p><code>allowMultiAudiencesInToken</code>  (Conditional)</p>
+<p>Required if you allow access_token whose <code>aud</code> claim contains multiple values.</p>
+</li>
+<li><p><code>scope</code>  (Optional)</p>
+<p>This value is an array of scopes you accept. If this value is provided, we will check if the token contains one of
+these accepted scopes. If this value is not provided, we won&#39;t check token scopes.</p>
+</li>
+<li><p><code>audience</code>  (Optional)</p>
+<p>Must be a string or an array of strings. We invalidate the <code>aud</code> claim in access_token against <code>audience</code>. The default value for <code>audience</code> is <code>clientID</code>.</p>
+</li>
+<li><p><code>loggingLevel</code>  (Optional)</p>
+<p>Logging level. &#39;info&#39;, &#39;warn&#39; or &#39;error&#39;.</p>
+</li>
+<li><p><code>clockSkew</code>  (Optional)</p>
+<p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
+</li>
+</ul>
+<h5 id="5-2-1-3-verify-callback">5.2.1.3 Verify callback</h5>
+<p>If you set <code>passReqToCallback</code> option to false, you can use the following verify callback</p>
+<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span></span>
+</code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use the following verify callback</p>
+<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(req, token, done)</span></span>
+</code></pre><h4 id="5-2-2-use-passport-authenticate-to-protect-resources-or-apis">5.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
+<p>In the following example, we are using passport to protect &#39;/api/tasks&#39;. User sends a GET request to &#39;/api/tasks&#39; with access_token in authorization header or body. Passport validates the access_token, adds the related claims from access_token to <code>req.user</code>, and passes the request to listTasks middleware. The listTasks middleware can then read the user information in <code>req.user</code> and list all the tasks related to this user. Note that we do authentication every time, so we don&#39;t need to keep this user in session, and this can be achieved  by using <code>session: false</code> option.</p>
+<pre><code class="lang-javascript">  server.get(<span class="string">'/api/tasks'</span>, passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
+</code></pre>
+<h4 id="5-2-3-options-available-for-passport-authenticate-">5.2.3 Options available for <code>passport.authenticate</code></h4>
+<ul>
+<li><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</li>
+</ul>
+<p>Example:</p>
+<pre><code>  passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="string">session:</span> <span class="literal">false</span> });
+</code></pre><h2 id="6-test">6. Test</h2>
+<p>In the library root folder, type the following command to install the dependency packages:</p>
+<pre><code>    $ npm <span class="keyword">install</span>
+</code></pre><h3 id="6-1-run-all-tests-except-the-end-to-end-tests">6.1. Run all tests except the end to end tests</h3>
+<p>Type the following command to run tests:</p>
+<pre><code>    $ npm <span class="built_in">test</span>
+</code></pre><h3 id="6-2-run-all-tests-including-the-end-to-end-tests">6.2. Run all tests including the end to end tests</h3>
+<h4 id="6-2-1-create-test-applications">6.2.1. Create test applications</h4>
+<p>First you need to register one application in v1 tenant, one in v2 tenant and one in B2C tenant. </p>
+<p>For the v2 application, you should register it at <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a> instead of Azure Portal.</p>
+<p>For the B2C application, create policies named &#39;B2C_1_signin&#39;, &#39;B2C_1_signup&#39;. For each policy, select &#39;Local Account&#39; as the identity provider, and select the
+following:</p>
+<ul>
+<li><p>&#39;B2C_1_signup&#39;: </p>
+<ul>
+<li><p>Sign-up attributes: &#39;Display Name&#39;, &#39;Email Address&#39;, &#39;Given Name&#39;, &#39;Surname&#39;</p>
+</li>
+<li><p>Application claims: &#39;Display Name&#39;, Email Addresses&#39;, &#39;Given Name&#39;, &#39;Identity Provider&#39;, &#39;Surname&#39;, &#39;Users Object ID&#39;</p>
+</li>
+</ul>
+</li>
+<li><p>&#39;B2C_1_signin&#39;: </p>
+<ul>
+<li>Application claims: &#39;Display Name&#39;, Email Addresses&#39;, &#39;Given Name&#39;, &#39;Identity Provider&#39;, &#39;Surname&#39;, &#39;Users Object ID&#39;</li>
+</ul>
+</li>
+</ul>
+<p>You will also need to click the &#39;Run now&#39; button in the &#39;B2C_1_signup&#39; blade to create an user.</p>
+<p>For B2C application, you will also need to create at least one scope and provide it to test parameters. See <a href="https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview/">how to create scope for B2C access token</a>. In the bearer_b2c_test, We will use OIDCStrategy to get a B2C
+access token for the scope, and use BearerStrategy to validate the scope. Note for scope we use the full url in
+ <code>b2c_params.scopeForOIDC</code> but only the name in <code>b2c_params.scopeForBearer</code>. For example, 
+ <code>b2c_params.scopeForOIDC=[&#39;https://sijun1b2c.onmicrosoft.com/oidc-b2c/read&#39;]</code> and <code>b2c_params.scopeForBearer=[&#39;read&#39;]</code>. </p>
+<h4 id="6-2-2-fill-the-test-parameters">6.2.2. Fill the test parameters</h4>
+<p>Open <code>test/End_to_end_test/script.js</code>, set <code>is_test_parameters_completed</code> parameter to true. For <code>test_parameters</code> variable, fill in the tenant id/client id/client secret of your applications, and the username/password of your application user. </p>
+<p>For <code>thumbprint</code> and <code>privatePEMKey</code> parameters, you need to specify a certificate for your app and register the public key in Azure Active Directory. <code>thumbprint</code> is the base64url format of the thumbprint of the public key, and <code>privatePEMKey</code> is the private pem key string. For a v1 tenant, you can follow <a href="http://www.andrewconnell.com/blog/user-app-app-only-permissions-client-credentials-grant-flow-in-azure-ad-office-365-apis">this post</a> to generate a certificate and register the public key. For a v2 tenant, you can go to your application page in the <a href="https://apps.dev.microsoft.com">v2 portal</a> and click <code>Generate New Key Pair</code>. A certificate will be generated for you to download. The corresponding public key is automatically registered in this case.  </p>
+<h4 id="6-2-3-run-the-tests">6.2.3. Run the tests</h4>
+<p>Type the following commands to run the tests:</p>
+<pre><code>    <span class="variable">$ </span>cd test/End_to_end_test
+    <span class="variable">$ </span>npm install
+    <span class="variable">$ </span>npm install grunt -g
+    <span class="variable">$ </span>grunt run_tests_with_e2e
+</code></pre><p>Tests will run automatically and in the terminal you can see how many tests are passing/failing. More details can be found <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">here</a>.</p>
+<h2 id="7-samples-and-documentation">7. Samples and Documentation</h2>
+<p><a href="https://azure.microsoft.com/en-us/documentation/samples/?service=active-directory">We provide a full suite of sample applications and documentation on GitHub</a> 
+to help you get started with learning the Azure Identity system. This includes 
+tutorials for native clients such as Windows, Windows Phone, iOS, OSX, Android, 
+and Linux. We also provide full walkthroughs for authentication flows such as 
+OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
+<p>Azure Identity samples for this plug-in can be found in the following links:</p>
+<h3 id="7-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
+<ul>
+<li><p><a href="https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS">sample using v1 endpoint</a></p>
+</li>
+<li><p><a href="https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs">sample using v2 endpoint</a></p>
+</li>
+<li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS">sample using B2C tenant</a></p>
+</li>
+</ul>
+<h3 id="7-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
+<ul>
+<li><p><a href="https://github.com/AzureADQuickStarts/WebAPI-Bearer-NodeJS">sample using v1 endpoint</a></p>
+</li>
+<li><p><a href="https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs">sample using v2 endpoint</a></p>
+</li>
+<li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApi-Nodejs">sample using B2C tenant</a></p>
+</li>
+</ul>
+<h2 id="8-community-help-and-support">8. Community Help and Support</h2>
+<p>We leverage <a href="http://stackoverflow.com/">Stack Overflow</a> to work with the community on supporting Azure Active Directory and its SDKs, including this one. We highly recommend you ask your questions on Stack Overflow (we&#39;re all on there!) Also browser existing issues to see if someone has had your question before. </p>
+<p>We recommend you use the &quot;adal&quot; tag so we can see it! Here is the latest Q&amp;A on Stack Overflow for ADAL: <a href="http://stackoverflow.com/questions/tagged/adal">http://stackoverflow.com/questions/tagged/adal</a></p>
+<h2 id="9-security-reporting">9. Security Reporting</h2>
+<p>If you find a security issue with our libraries or services please report it to <a href="mailto:secure@microsoft.com">secure@microsoft.com</a> with as much detail as possible. Your submission may be eligible for a bounty through the <a href="http://aka.ms/bugbounty">Microsoft Bounty</a> program. Please do not post security issues to GitHub Issues or any other public site. We will contact you shortly upon receiving the information. We encourage you to get notifications of when security incidents occur by visiting <a href="https://technet.microsoft.com/en-us/security/dd252948">this page</a> and subscribing to Security Advisory Alerts.</p>
+<h2 id="10-contributing">10. Contributing</h2>
+<p>All code is licensed under the MIT license and we triage actively on GitHub. We enthusiastically welcome contributions and feedback. You can clone the repo and start contributing now. </p>
+<p>More details <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">about contribution</a> </p>
+<h2 id="11-releases">11. Releases</h2>
+<p>Please check the <a href="https://github.com/AzureAD/passport-azure-ad/releases">releases</a> for updates.</p>
+<h2 id="12-acknowledgements">12. Acknowledgements</h2>
+<p>The code is based on Henri Bergius&#39;s <a href="https://github.com/bergie/passport-saml">passport-saml</a> library and Matias Woloski&#39;s <a href="https://github.com/auth0/passport-wsfed-saml2">passport-wsfed-saml2</a> library as well as Kiyofumi Kondoh&#39;s <a href="https://github.com/kkkon/passport-google-openidconnect">passport-openid-google</a>.</p>
+<h2 id="13-license">13. License</h2>
+<p>Copyright (c) Microsoft Corp.  All rights reserved. Licensed under the MIT License;</p>
+<h2 id="14-microsoft-open-source-code-of-conduct">14. Microsoft Open Source Code of Conduct</h2>
+<p>We Value and Adhere to the Microsoft Open Source Code of Conduct</p>
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
+            <ul>
+              <li><span class="version">3.0.9</span> published <abbr class="updated" title="2017-12-27T22:22:36Z">13 days ago</abbr></li>
+              <li><a class="url" href="git://github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>825</b> downloads in the last day</li>
+              <li><b>3,614</b> downloads in the last week</li>
+              <li><b>12,829</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-104798-10']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <!-- End Google Tag Manager-->
+  </body>
+</html>
