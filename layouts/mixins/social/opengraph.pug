@@ -1,0 +1,8 @@
+mixin opengraph_metadata(title, description, author, url, manifest)
+  meta(property='og:type', content='website')
+  meta(property='og:url', content=url)
+  meta(property='og:title', content=title)
+  //- og:image is required, default to something in manifest?
+  if description
+    meta(property='og:description', content=description)
+  meta(property='og:site_name', content=manifest.name)

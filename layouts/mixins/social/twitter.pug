@@ -1,0 +1,9 @@
+mixin twitter_metadata(title, description, author, url, manifest)
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:title', content=title)
+  if description
+    meta(name='twitter:description', content=description)
+  if author
+    each account in author.accounts
+      if account.domain == 'twitter.com'
+        meta(name='twitter:creator', content='@'+account.username)
