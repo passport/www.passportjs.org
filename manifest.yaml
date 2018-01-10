@@ -1,6 +1,10 @@
 name: Passport.js
 description: "Simple, unobtrusive authentication for Node.js"
 
+accounts:
+  - domain: "twitter.com"
+    username: "passportjs"
+
 themeColor: "#35DF79"
 
 # TODO: https://daringfireball.net/2013/01/retina_favicons
@@ -106,3 +110,8 @@ covers:
     sizes:
       - 1200x630
     domain: facebook.com
+  - src: /images/twitter-card.png
+    type: image/png
+    sizes:
+      - 3010x1612
+    domain: twitter.com
