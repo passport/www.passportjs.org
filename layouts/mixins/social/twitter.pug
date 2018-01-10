@@ -1,8 +1,32 @@
-mixin twitter_metadata(title, description, author, url, manifest)
-  meta(name='twitter:card', content='summary')
+//-
+  Twitter Cards
+  
+  References:
+    [About Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
+//-
+mixin twitter_metadata(title, description, images, author, url, manifest)
+  - 
+    images = images || manifest.covers || [];
+    var type = 'summary'
+      , image, dim, i, len;
+    for (i = 0, len = images.length; i < len; ++i) {
+      if (images[i].domain == 'twitter.com') {
+        image = images[i];
+        dim = image.sizes[0].split('x');
+        if (dim[0] != dim[1]) { type = 'summary_large_image'; }
+        break;
+      }
+    }
+
+  meta(name='twitter:card', content=type)
+  each account in manifest.accounts
+    if account.domain == 'twitter.com'
+      meta(name='twitter:site', content='@'+account.username)
   meta(name='twitter:title', content=title)
   if description
     meta(name='twitter:description', content=description)
+  if image
+    meta(name='twitter:image', content=content=settings['base url'] + image.src)
   if author
     each account in author.accounts
       if account.domain == 'twitter.com'
