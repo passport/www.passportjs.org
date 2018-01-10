@@ -27,7 +27,7 @@ mixin twitter_metadata(title, description, images, author, url, manifest)
     meta(name='twitter:description', content=description)
   if image
     meta(name='twitter:image', content=settings['base url'] + image.src)
-  if author
+  if author && author.accounts
     each account in author.accounts
       if account.domain == 'twitter.com'
         meta(name='twitter:creator', content='@'+account.username)
