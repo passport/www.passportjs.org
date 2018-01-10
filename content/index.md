@@ -1,7 +1,7 @@
 ---
 layout: "home"
 
-title: "Passport"
+title: "Passport.js"
 description: "Simple, unobtrusive authentication for Node.js"
 authenticationSchemes:
   - name: twitter
