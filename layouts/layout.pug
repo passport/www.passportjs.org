@@ -1,10 +1,12 @@
 doctype html
-html(lang="en")
+html(prefix='og: http://ogp.me/ns#', lang='en')
   head
     title= title
     meta(charset="utf-8")
-    meta(name='author', text="Passport")
-    meta(name='description', content='Simple, unobtrusive authentication for Node.js')
+    if description
+      meta(name='description', content=description)
+    if author && author.name
+      meta(name='author', text=author.name)
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     link(rel="canonical", href=canonicalURL)
 
@@ -12,37 +14,18 @@ html(lang="en")
     +ios-web-app(manifest)
     +windows-web-app(manifest, '/browserconfig.xml')
 
-    //- +twittercard_summary(title, description, author, canonicalURL)
-    //- +ogp(title, description, author, canonicalURL)
-
-    //- Twitter
-    meta(name='twitter:card', content='summary_large_image')
-    meta(name='twitter:site', content='@passportjs')
-    meta(name='twitter:creator', content='@jaredhanson')
-    meta(name='twitter:title', content='Passport')
-    meta(name='twitter:description', content='Simple, unobtrusive authentication for Node.js')
-    meta(name='twitter:image', content='http://passportjs.org/images/twitter-card.png')
-
-    //- OpenGraph
-    meta(property='og:type', content='website')
-    meta(property='og:title', content='Passport')
-    meta(property='og:description', content='Simple, unobtrusive authentication for Node.js')
-    meta(property='og:locale', content='en_US')
-    meta(property='og:url', content=canonicalURL)
-    meta(property='og:image', content='http://passportjs.org/images/facebook-card.png')
-    meta(property='og:image:type', content='image/png')
-    meta(property='og:image:width', content='1200')
-    meta(property='og:image:height', content='630')
+    +opengraph_metadata(title, description, images, author, type, canonicalURL, manifest)
+    +twitter_metadata(title, description, images, author, canonicalURL, manifest)
     
     //- Attention-based funding
     meta(name='flattr:id', content='d5znvd')
-
-    script(data-main='/script/main' src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js')
 
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css')
     link(rel='stylesheet', href='/assets/styles/all.css')
+    
+    script(data-main='/script/main' src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js')
 
     != LRScript
   body(class=page_name)
