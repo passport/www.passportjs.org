@@ -42,16 +42,18 @@ block content
           span.fn #{name}
         
       ul
-        li.vcard.author.p-author
-          a(class='url', href=author.url)
-            img(class='photo', src=author.photo)
-            span.nickname #{author.username}
+        if author
+          li.vcard.author.p-author
+            a(class='url', href=author.url)
+              img(class='photo', src=author.photo)
+              span.nickname #{author.username}
         li
           span.version #{version}
           | #{' '}published#{' '}
           abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
-        li
-          a(class='url', href=repository.url) #{homepage}
+        if repository
+          li
+            a(class='url', href=repository.url) #{homepage}
         li
           a(rel='licence', href=license.url) #{license.name}
 
