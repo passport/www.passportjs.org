@@ -1,0 +1,20 @@
+//-
+  Blog layout
+//-
+
+extends layout
+
+include mixins
+include mixins/app
+include mixins/social
+
+block content
+  article.hentry
+    h1.entry-title= title
+    |
+    |!{ content }
+    div
+      span.author
+        span.fn Jared
+      abbr(class='published', title=createdAt.toISOString().substring(0,19)+'Z') #{createdAt}
+      
