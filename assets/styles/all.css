@@ -3063,12 +3063,12 @@ body.is-loading #content {
 .btn:hover {
   background: #1ebf5e;
 }
-.main-hold {
+#container {
   position: relative;
   padding-bottom: 30px;
 }
 @media (min-width: 768px) {
-  .main-hold {
+  #container {
     margin: 0 auto;
     padding-bottom: 60px;
   }
@@ -3507,26 +3507,26 @@ body.is-loading #content {
     display: none;
   }
 }
-.go-top {
-  background-color: rgba(255,255,255,0.3);
+#go-top {
+  position: fixed;
   width: 50px;
   height: 50px;
-  position: fixed;
   right: 10px;
   bottom: 10px;
   border-radius: 50%;
-  text-align: center;
-  color: #fff;
+  background-color: rgba(255,255,255,0.3);
   font-size: 30px;
+  text-align: center;
   line-height: 1.9;
+  color: #fff;
   display: none;
 }
-.go-top.fixed {
+#go-top.is-visible {
   display: block;
   z-index: 99;
 }
 @media (min-width: 992px) {
-  .go-top.fixed {
+  #go-top.is-visible {
     display: none;
   }
 }

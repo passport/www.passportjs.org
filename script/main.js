@@ -531,7 +531,7 @@ define("shell", [ "exports", "./shell/menu", "./shell/search", "./shell/status",
     $(document).ready(function() {
         _gotopOffset = $("#go-top").offset();
         $(window).on("scroll", function(ev) {
-            $("#go-top").toggleClass("fixed", _gotopOffset && _gotopOffset.top < $(window).scrollTop());
+            $("#go-top").toggleClass("is-visible", _gotopOffset && _gotopOffset.top < $(window).scrollTop());
         });
         $(document).on("click", 'a[href="#top"]', function(ev) {
             exports.scrollToElementById("top");
