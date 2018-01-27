@@ -20,12 +20,27 @@
   margin 20px 0 0
 */
 
-.main-hold
-  position relative
-  padding-bottom 30px
+/**
+ * Container.
+ *
+ * The container element encapsulates all other visual elements on the page.
+ *
+ * Example HTML:
+ *
+ * <div id="container">
+ * </div>
+ *
+ * References:
+ *   - [Why should I use a container div in HTML?](https://stackoverflow.com/questions/354739/why-should-i-use-a-container-div-in-html)
+ *   - [What is the correct way to do a CSS Wrapper?](https://stackoverflow.com/questions/5275410/what-is-the-correct-way-to-do-a-css-wrapper)
+ *   - [The Best Way to Implement a “Wrapper” in CSS](https://css-tricks.com/best-way-implement-wrapper-css/)
+ */
+#container
+  position: relative
+  padding-bottom: 30px
   +breakpoint("tablet")
-    margin 0 auto
-    padding-bottom 60px
+    margin: 0 auto
+    padding-bottom: 60px
 
 .top-site
   +breakpoint("tablet")
