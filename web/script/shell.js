@@ -86,7 +86,7 @@ function(exports, menu, search, status, page, $) {
     
     $(window).on('scroll', function (ev) {
       // toggleFixedNavigation
-      $('#go-top').toggleClass('fixed', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
+      $('#go-top').toggleClass('is-visible', _gotopOffset && _gotopOffset.top < $(window).scrollTop());
     });
     
     $(document).on('click', 'a[href="#top"]', function(ev) {

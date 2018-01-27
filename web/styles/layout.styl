@@ -410,22 +410,35 @@
     +breakpoint("tablet")
       display none
 
+/**
+ * Go to Top control.
+ *
+ * The Go to Top control is used to scroll the page to the top of the document.
+ *
+ * 1. Fix the position of the control...
+ * 2. to the bottom right hand corner of the viewport and...
+ * 3. do not display.
+ * 4. The `.is-visible` state can be toggled by JavaScript to make the control
+ *    visible, however...
+ * 5. on desktop devices, the control is always hidden, giving preference to
+ *    scroll bars.
+ */
 .go-top
-  background-color rgba(white,.3)
-  width 50px
-  height 50px
-  position fixed
-  right 10px
-  bottom 10px
-  border-radius 50%
-  text-align center
-  color white
-  font-size 30px
-  line-height 1.9
-  display none
+  position: fixed // [1]
+  width: 50px
+  height: 50px
+  right: 10px // [2]
+  bottom: 10px // [2]
+  border-radius: 50%
+  background-color: rgba(white, .3)
+  font-size: 30px
+  text-align: center
+  line-height: 1.9
+  color: white
+  display: none // [3]
 
-  &.fixed
-    display block
-    z-index 99
+  &.is-visible // [4]
+    display: block
+    z-index: 99
     +breakpoint("desktop")
-      display none
+      display: none
