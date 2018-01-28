@@ -21,7 +21,7 @@ define(['exports', 'jquery'], function(exports, $) {
   exports.toggle = function(open) {
     $('html').toggleClass('is-menu', open);
     $('#toolbar, #content').toggleClass('blured', open);
-    $('.menu-trigger').toggleClass('is-active', open).next().toggleClass('is-active', open);
+    $('.menu-trigger').toggleClass('is-open', open).next().toggleClass('is-active', open);
   };
   
   

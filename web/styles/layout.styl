@@ -280,41 +280,61 @@
     width: 350px // [3]
     @media screen and (max-height: 750px)
       overflow-y scroll
-
+  
+  /**
+   * Menu trigger.
+   *
+   * The menu trigger is used on mobile devices to reveal the menu.
+   *
+   * The trigger is displayed as a hamburger button, mimicing UI patterns common
+   * to mobile applications.
+   *
+   * 1. On tablet and desktop devices, hide the menu trigger, as the menu items
+   *    are always visible on the left side of the screen.
+   * 2. The `.is-open` state can be toggled by JavaScript to indicate whether
+   *    the menu is open or closed.
+   * 3. Transform the hamburger button into an X button.
+   *
+   * Example HTML:
+   *
+   * <div id="menu-trigger">
+   *   <span></span>
+   * </div>
+   */
   .menu-trigger
-    height 10px
-    width 23px
-    padding-top 7px
-    cursor pointer
-    float right
-    margin 43px 40px 0 0
+    float: right
+    width: 23px
+    height: 10px
+    padding-top: 7px
+    margin: 43px 40px 0 0
+    cursor: pointer
     span, span:before, span:after
-      background white
-      width 100%
-      height 2px
-      display block
-      -webkit-transition .3s ease-out
-      transition .3s ease-out
-      backface-visibility hidden
+      display: block
+      width: 100%
+      height: 2px
+      background: white
+      -webkit-transition: .3s ease-out
+      transition: .3s ease-out
+      backface-visibility: hidden
     span
-      position relative
+      position: relative
       &:before, &:after
-        content ""
-        position absolute
+        position: absolute
+        content: ""
       &:before
-        top -7px
+        top: -7px
       &:after
-        top 7px
+        top: 7px
     +breakpoint("tablet")
-      display none
+      display: none // [1]
 
-    &.is-active
+    &.is-open // [2]
       span
         background transparent
-        &:before
+        &:before // [3]
           -webkit-transform translate(0, 7px) rotate(-45deg)
           transform translate(0, 7px) rotate(-45deg)
-        &:after
+        &:after // [3]
           -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
 
