@@ -42,7 +42,7 @@
     margin: 0 auto
     padding-bottom: 60px
 
-.top-site
+#toolbar
   +breakpoint("tablet")
     clearfix()
     padding-top 60px
@@ -52,61 +52,98 @@
     padding-right 50px
     padding-left 400px
 
+
+/**
+ * Social networking.
+ *
+ * The social section of the toolbar provides links to social networks where
+ * people can interact.
+ *
+ * The social networks represented should be contained in an unordered list,
+ * where each network is a list item.  Each item can, optionally, have an
+ * associated count to display a number of follows, favorites, or other
+ * statistic applicable to the network.
+ *
+ * 1. On mobile devices, do not display social networks.  The search field is
+ *    given the full width on mobile devices, as that is more important
+ *    functionality.
+ * 2. On tablet and desktop devices, display social networks.
+ * 3. Set anchor element positioning to releative, so that...
+ * 4. any count can be absolutely positioned next to the social network.
+ * 5. Increase the margin of the last item, to allow room for the count which is
+ *    absolutely positioned to its right.
+ * 6. Shift the background position, so that the Facebook icon within the image
+ *    sprite is displayed.
+ * 7. Shift the background position, so that the GitHub icon within the image
+ *    sprite is displayed.
+ *
+ * Example HTML:
+ *
+ * <div id="toolbar">
+ *   <div class="social">
+ *     <ul>
+ *       <li class="twitter"><a href="https://twitter.com/passportjs"></a></li>
+ *       <li class="github"><a href="http://github.com/jaredhanson/passport"><span class="count">42</span></a></li>
+ *     </ul>
+ *   </div>
+ * </div>
+ */
+
 .social
-  text-decoration none
-  display none
+  display: none // [1]
+  text-decoration: none
   +breakpoint("tablet")
-    display inline-block
-    float right
-    margin-top 10px
+    display: inline-block // [2]
+    float: right
+    margin-top: 10px
 
   li
-    width 26px
-    height 26px
-    display inline-block
-    vertical-align middle
-    margin-right 5px
+    display: inline-block
+    width: 26px
+    height: 26px
+    margin-right: 5px
+    vertical-align: middle
     &:last-child
-      margin-right 62px
-      padding-left 4px
-      img
-        width 100%
+      margin-right: 68px // [5]
   a
-    display block
-    background url(../../images/ico_social.svg) no-repeat
-    position relative
-    height 26px
-    width 25px
-    .stat
-      display none
+    position: relative // [3]
+    display: block
+    height: 26px
+    width: 25px
+    background: url(../../images/ico_social.svg) no-repeat
+    .count
+      display: none
       +breakpoint("tablet")
-        display block
-        background #333
-        border-radius 3px
-        position absolute
-        left 33px
-        top 2px
-        font-size 12px
-        color rgba(255,255,255,.8)
-        line-height 23px
-        height 22px
-        font-weight: bold;
-        padding 0 10px
+        position: absolute // [4]
+        top: 2px
+        left: 33px
+        display: block
+        height: 22px
+        padding: 0 10px
+        border-radius: 3px
+        background: #333
+        font-size: 12px
+        font-weight: bold
+        line-height: 23px
+        color: rgba(255,255,255,.8)
       &:after
         +breakpoint("tablet")
-          width 0
-          height 0
-          border-style solid
-          border-width 3px 3px 3px 0
-          border-color transparent #333 transparent transparent
-          position absolute
-          content ""
-          left -3px
-          top 50%
-          margin-top -3px
-  .git
+          position: absolute
+          top: 50%
+          left: -3px
+          width: 0
+          height: 0
+          border-width: 3px 3px 3px 0
+          border-style: solid
+          border-color: transparent #333 transparent transparent
+          margin-top: -3px
+          content: ""
+  .facebook
     a
-      background-position -51px 0
+      background-position: -25px 0 // [6]
+  .github
+    a
+      background-position: -51px 0 // [7]
 
 /**
  * Search.
@@ -382,6 +419,7 @@
       li
         margin 0 5px 0
 
+
 /**
  * Content.
  *
@@ -399,6 +437,7 @@
  * 4. On desktop devices, increase the padding to 350 pixels, to account for the
  *    expanded width of the menu.
  */
+
 #content
   clearfix()
   margin-top: 120px // [1]
@@ -432,17 +471,17 @@
 
 #go-top
   position: fixed // [1]
-  width: 50px
-  height: 50px
   right: 10px // [2]
   bottom: 10px // [2]
+  display: none // [3]
+  width: 50px
+  height: 50px
   border-radius: 50%
-  background-color: rgba(white, .3)
-  font-size: 30px
+  background-color: rgba(white,.3)
   text-align: center
+  font-size: 30px
   line-height: 1.9
   color: white
-  display: none // [3]
 
   &.is-visible // [4]
     display: block
