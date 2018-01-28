@@ -33,9 +33,9 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
       span#top
       #toolbar
         .search
-          form(action='#')
+          form(action='/search')
             button(type='submit')
-            input(type='text', placeholder='Search for Strategies')
+            input(type='text', name='q', placeholder='Search for Strategies')
 
         .social
           ul

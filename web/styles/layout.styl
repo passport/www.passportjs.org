@@ -42,6 +42,12 @@
     margin: 0 auto
     padding-bottom: 60px
 
+
+
+
+/* Toolbar
+   -------------------------------------------------------------------------- */
+
 #toolbar
   +breakpoint("tablet")
     clearfix()
@@ -68,7 +74,7 @@
  *    given the full width on mobile devices, as that is more important
  *    functionality.
  * 2. On tablet and desktop devices, display social networks.
- * 3. Set anchor element positioning to releative, so that...
+ * 3. Set anchor element positioning to relative, so that...
  * 4. any count can be absolutely positioned next to the social network.
  * 5. Increase the margin of the last item, to allow room for the count which is
  *    absolutely positioned to its right.
@@ -147,60 +153,69 @@
 
 /**
  * Search.
+ *
+ * 1. ???
+ * 2. Translate the search field 100 pixels down the Y-axis, accounting for the
+ *    menu above it, which has a height of 100 pixels.
+ * 3. On mobile devices, add a dark grey border around the search field, setting
+ *    it off from the menu above and content below.  This mimics UI patterns
+ *    common to mobile applications.
+ * 4. On tablet and desktop devices, reset the box model and background, as the
+ *    search box moves into the now visible toolbar along with other controls.
  */
+
 .search
-  position: absolute
+  position: absolute // [1]
+  display: inline-block
   width: 100%
-  background: #212121
-  padding 20px
-  box-sizing border-box
-  display inline-block
-  -webkit-transform translateY(100px)
-  transform translateY(100px)
-  +breakpoint("tablet")
-    background none
-    width 200px
-    -webkit-transform none
-    transform none
-    box-sizing initial
-    padding 0
+  padding: 20px
+  box-sizing: border-box
+  background: #212121 // [3]
+  -webkit-transform: translateY(100px) // [2]
+  transform: translateY(100px) // [2]
+  +breakpoint("tablet") // [4]
+    width: 200px
+    padding: 0
+    box-sizing: initial
+    background: none
+    -webkit-transform: none
+    transform: none
 
   form
-    border 1px solid rgba(white,.2)
-    border-radius 48px
-    margin 0
-    padding 0
-    width 100%
-    text-align center
-    height 46px
+    width: 100%
+    height: 46px
+    padding: 0
+    border: 1px solid rgba(white,.2)
+    border-radius: 48px
+    margin: 0
+    text-align: center
     input
-      display inline-block
-      text-align left
-      font-size 14px
-      height 44px
-      background none
-      color white
-      border none
-      padding-left 0px
-      width 145px
+      display: inline-block
+      width: 145px
+      height: 44px
+      padding-left: 0
+      border: none
+      background: none
+      text-align: left
+      font-size: 14px
+      color: white
       &::-webkit-input-placeholder
-        color rgba(white,1)
+        color: rgba(white,1)
       &:-moz-placeholder
-        color rgba(white,1)
+        color: rgba(white,1)
       &:-ms-input-placeholder
-        color rgba(white,1)
-
+        color: rgba(white,1)
     button
-      display inline-block
-      background url(../../images/ico_search.svg) no-repeat
-      height 18px
-      width 18px
-      border none
-      vertical-align: top;
-      position relative
-      top 14px
+      position: relative
+      top: 14px
+      display: inline-block
+      width: 18px
+      height: 18px
+      border: none
+      background: url(../../images/ico_search.svg) no-repeat
       margin-left: 10px
-      margin-right: 14px;
+      margin-right: 14px
+      vertical-align: top
 
 #logo
   display block
