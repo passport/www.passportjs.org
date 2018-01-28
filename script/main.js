@@ -396,7 +396,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
     };
     exports.toggle = function(open) {
         $("html").toggleClass("is-menu", open);
-        $("#content, .top-site").toggleClass("blured", open);
+        $("#toolbar, #content").toggleClass("blured", open);
         $(".menu-trigger").toggleClass("is-active", open).next().toggleClass("is-active", open);
     };
     $(document).ready(function() {
@@ -671,7 +671,7 @@ define("app", [ "./controllers/home", "./controllers/docs", "./controllers/featu
         $("body").toggleClass("ie", utils.isMSIE());
         page.start();
         $.getJSON("/repo.json", function(data) {
-            $(".social .stat").text(utils.commaize(data.stargazers_count));
+            $(".github .count").text(utils.commaize(data.stargazers_count));
         });
     });
 });

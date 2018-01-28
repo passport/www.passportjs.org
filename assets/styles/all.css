@@ -3074,30 +3074,30 @@ body.is-loading #content {
   }
 }
 @media (min-width: 768px) {
-  .top-site {
+  #toolbar {
     *zoom: 1;
     padding-top: 60px;
     padding-right: 20px;
     padding-left: 280px;
   }
-  .top-site:after {
+  #toolbar:after {
     clear: both;
   }
-  .top-site:after,
-  .top-site:before {
+  #toolbar:after,
+  #toolbar:before {
     content: "";
     display: table;
   }
 }
 @media (min-width: 992px) {
-  .top-site {
+  #toolbar {
     padding-right: 50px;
     padding-left: 400px;
   }
 }
 .social {
-  text-decoration: none;
   display: none;
+  text-decoration: none;
 }
 @media (min-width: 768px) {
   .social {
@@ -3107,60 +3107,59 @@ body.is-loading #content {
   }
 }
 .social li {
+  display: inline-block;
   width: 26px;
   height: 26px;
-  display: inline-block;
-  vertical-align: middle;
   margin-right: 5px;
+  vertical-align: middle;
 }
 .social li:last-child {
-  margin-right: 62px;
-  padding-left: 4px;
-}
-.social li:last-child img {
-  width: 100%;
+  margin-right: 68px;
 }
 .social a {
-  display: block;
-  background: url("../../images/ico_social.svg") no-repeat;
   position: relative;
+  display: block;
   height: 26px;
   width: 25px;
+  background: url("../../images/ico_social.svg") no-repeat;
 }
-.social a .stat {
+.social a .count {
   display: none;
 }
 @media (min-width: 768px) {
-  .social a .stat {
-    display: block;
-    background: #333;
-    border-radius: 3px;
+  .social a .count {
     position: absolute;
-    left: 33px;
     top: 2px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.8);
-    line-height: 23px;
+    left: 33px;
+    display: block;
     height: 22px;
-    font-weight: bold;
     padding: 0 10px;
+    border-radius: 3px;
+    background: #333;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 23px;
+    color: rgba(255,255,255,0.8);
   }
 }
 @media (min-width: 768px) {
-  .social a .stat:after {
+  .social a .count:after {
+    position: absolute;
+    top: 50%;
+    left: -3px;
     width: 0;
     height: 0;
-    border-style: solid;
     border-width: 3px 3px 3px 0;
+    border-style: solid;
     border-color: transparent #333 transparent transparent;
-    position: absolute;
-    content: "";
-    left: -3px;
-    top: 50%;
     margin-top: -3px;
+    content: "";
   }
 }
-.social .git a {
+.social .facebook a {
+  background-position: -25px 0;
+}
+.social .github a {
   background-position: -51px 0;
 }
 .search {
@@ -3509,17 +3508,17 @@ body.is-loading #content {
 }
 #go-top {
   position: fixed;
-  width: 50px;
-  height: 50px;
   right: 10px;
   bottom: 10px;
+  display: none;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: rgba(255,255,255,0.3);
-  font-size: 30px;
   text-align: center;
+  font-size: 30px;
   line-height: 1.9;
   color: #fff;
-  display: none;
 }
 #go-top.is-visible {
   display: block;
@@ -4066,13 +4065,13 @@ body.is-loading #content {
     display: block !important;
   }
 }
-.top-site,
+#toolbar,
 #content {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 @media (min-width: 768px) {
-  .top-site,
+  #toolbar,
   #content {
     -webkit-transition: none;
     transition: none;
@@ -4093,8 +4092,8 @@ html.is-menu body .social {
   left: 0;
   text-align: center;
 }
-html.is-menu .social .twitter,
-html.is-menu body .social .twitter {
+html.is-menu .social .x-twitter,
+html.is-menu body .social .x-twitter {
   margin-right: 30px;
 }
 html.is-menu .social li:last-child,
