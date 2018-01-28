@@ -3385,12 +3385,12 @@ body.is-loading #content {
 }
 @media (min-width: 768px) {
   .menu-items {
+    position: absolute;
+    top: 55%;
     display: block;
     height: auto;
     background: none;
     text-align: left;
-    position: absolute;
-    top: 55%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
@@ -3421,9 +3421,9 @@ body.is-loading #content {
     color: #d4fd02;
   }
   .menu-items li a {
-    color: #fff;
     font-size: 24px;
     line-height: 2.5;
+    color: #fff;
   }
 }
 .menu-items.is-active {
@@ -3467,10 +3467,10 @@ body.is-loading #content {
 @media screen and (min-width: 768px) and (max-height: 750px) {
   .menu-items {
     position: relative;
-    -webkit-transform: none;
-    transform: none;
     top: auto;
     margin-top: 80px;
+    -webkit-transform: none;
+    transform: none;
   }
 }
 #content {
