@@ -3284,20 +3284,20 @@ body.is-loading #content {
   }
 }
 #menu .menu-trigger {
-  height: 10px;
-  width: 23px;
-  padding-top: 7px;
-  cursor: pointer;
   float: right;
+  width: 23px;
+  height: 10px;
+  padding-top: 7px;
   margin: 43px 40px 0 0;
+  cursor: pointer;
 }
 #menu .menu-trigger span,
 #menu .menu-trigger span:before,
 #menu .menu-trigger span:after {
-  background: #fff;
+  display: block;
   width: 100%;
   height: 2px;
-  display: block;
+  background: #fff;
   -webkit-transition: 0.3s ease-out;
   transition: 0.3s ease-out;
   backface-visibility: hidden;
@@ -3307,8 +3307,8 @@ body.is-loading #content {
 }
 #menu .menu-trigger span:before,
 #menu .menu-trigger span:after {
-  content: "";
   position: absolute;
+  content: "";
 }
 #menu .menu-trigger span:before {
   top: -7px;
@@ -3321,14 +3321,14 @@ body.is-loading #content {
     display: none;
   }
 }
-#menu .menu-trigger.is-active span {
+#menu .menu-trigger.is-open span {
   background: transparent;
 }
-#menu .menu-trigger.is-active span:before {
+#menu .menu-trigger.is-open span:before {
   -webkit-transform: translate(0, 7px) rotate(-45deg);
   transform: translate(0, 7px) rotate(-45deg);
 }
-#menu .menu-trigger.is-active span:after {
+#menu .menu-trigger.is-open span:after {
   -webkit-transform: translate(0, -7px) rotate(45deg);
   transform: translate(0, -7px) rotate(45deg);
 }
