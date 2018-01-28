@@ -252,9 +252,9 @@
 /**
  * Menu.
  *
- * The menu trigger is used on mobile devices to reveal the menu.  The trigger
- * is displayed as a hamburger button, mimicking UI patterns common to mobile
- * applications.
+ * On mobile devices, the menu trigger is used on mobile devices to reveal the
+ * menu.  The trigger is displayed as a hamburger button, mimicking UI patterns
+ * common to mobile applications.
  *
  * 1. Set the height to 100 pixels, in accordance with mobile-first responsive
  *    design.
@@ -263,7 +263,7 @@
  * 3. On desktop devices, expand the width to 350 pixels, maintaining the same
  *    positioning as tablet devices.
  * 4. On tablet and desktop devices, hide the menu trigger, as the menu items
- *    are always visible on the left side of the screen.
+ *    are always visible on the left side of the viewport.
  * 5. The `.is-open` state can be toggled by JavaScript to indicate whether
  *    the menu is open or closed.
  * 6. Transform the hamburger button into an X button.
@@ -363,40 +363,51 @@
     background url(../../images/supported_logo.svg) no-repeat
 
 
+/**
+ * 7. On mobile devices, hide the menu items.  The menu trigger is visible and
+ *    can be used to reveal the menu.
+ * 8. On mobile devices, set the width to 100%, so that the menu fills the
+ *    entire width of the screen when revealed.
+ * 9. On tablet and desktop devices, display the menu items.  The menu itself
+ *    is fixed to the left side of the viewport.
+ * 10. On tablet and desktop devices where the screen is taller than 750 pixels,
+ *     display the menu items in the middle of the available vertical space.
+ * 11. On tablet and desktop devices where the screen is shorter than 750
+ *     pixels, display the menu items below the logo.
+ */
 .menu-items
-  display none
-  width 100%
-  z-index 99
+  display: none // [7]
+  width: 100% // [8]
+  z-index: 99
   +breakpoint("tablet")
-    display block
-    height auto
-    background none
-    text-align left
-    position absolute
-    top 55%
-    -webkit-transform translateY(-50%)
-    transform translateY(-50%)
-
+    position: absolute
+    top: 55% // [10]
+    display: block // [9]
+    height: auto // [10]
+    background: none
+    text-align: left
+    -webkit-transform translateY(-50%) // [10]
+    transform translateY(-50%)  // [10]
     @media screen and ( max-height: 750px )
-      position relative
-      -webkit-transform none
-      transform none
-      top auto
-      margin-top 80px
+      position: relative
+      top: auto // [11]
+      margin-top: 80px
+      -webkit-transform: none // [11]
+      transform: none // [11]
 
     li
-      padding-left 26%
-      margin-bottom 15px
-      -webkit-transition box-shadow .3s ease-in-out
-      transition box-shadow .3s ease-in-out
+      padding-left: 26%
+      margin-bottom: 15px
+      -webkit-transition: box-shadow .3s ease-in-out
+      transition: box-shadow .3s ease-in-out
       &.active:nth-child(1)
-        box-shadow inset 5px 0 0 0 green
+        box-shadow: inset 5px 0 0 0 green
         a
-          color green
+          color: green
       &.active:nth-child(2)
-        box-shadow inset 5px 0 0 0 blue
-        -webkit-transition .5s
-        transition .5s
+        box-shadow: inset 5px 0 0 0 blue
+        -webkit-transition: .5s
+        transition: .5s
         a
           color blue
       &.active:nth-child(3)
@@ -408,9 +419,7 @@
         font-size 24px
         line-height 2.5
 
-
-
-  &.is-active
+  &.is-active // [5]
     background rgba(#121212,.98)
     height calc(100vh - 100px)
     position absolute
