@@ -252,16 +252,27 @@
 /**
  * Menu.
  *
+ * The menu trigger is used on mobile devices to reveal the menu.  The trigger
+ * is displayed as a hamburger button, mimicking UI patterns common to mobile
+ * applications.
+ *
  * 1. Set the height to 100 pixels, in accordance with mobile-first responsive
  *    design.
  * 2. On tablet devices, fix the position to the top left of the viewport, with
  *    a width of 260 pixels and full height.
  * 3. On desktop devices, expand the width to 350 pixels, maintaining the same
  *    positioning as tablet devices.
+ * 4. On tablet and desktop devices, hide the menu trigger, as the menu items
+ *    are always visible on the left side of the screen.
+ * 5. The `.is-open` state can be toggled by JavaScript to indicate whether
+ *    the menu is open or closed.
+ * 6. Transform the hamburger button into an X button.
+ *
  *
  * Example HTML:
  *
  * <nav id="menu">
+ *   <div class="menu-trigger"><span></span></div>
  * </nav>
  */
 
@@ -281,26 +292,6 @@
     @media screen and (max-height: 750px)
       overflow-y scroll
   
-  /**
-   * Menu trigger.
-   *
-   * The menu trigger is used on mobile devices to reveal the menu.
-   *
-   * The trigger is displayed as a hamburger button, mimicing UI patterns common
-   * to mobile applications.
-   *
-   * 1. On tablet and desktop devices, hide the menu trigger, as the menu items
-   *    are always visible on the left side of the screen.
-   * 2. The `.is-open` state can be toggled by JavaScript to indicate whether
-   *    the menu is open or closed.
-   * 3. Transform the hamburger button into an X button.
-   *
-   * Example HTML:
-   *
-   * <div id="menu-trigger">
-   *   <span></span>
-   * </div>
-   */
   .menu-trigger
     float: right
     width: 23px
@@ -326,15 +317,15 @@
       &:after
         top: 7px
     +breakpoint("tablet")
-      display: none // [1]
+      display: none // [4]
 
-    &.is-open // [2]
+    &.is-open // [5]
       span
         background transparent
-        &:before // [3]
+        &:before // [6]
           -webkit-transform translate(0, 7px) rotate(-45deg)
           transform translate(0, 7px) rotate(-45deg)
-        &:after // [3]
+        &:after // [6]
           -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
 
