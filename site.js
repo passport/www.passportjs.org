@@ -18,7 +18,7 @@ site.locals.site = {
 //site.engine('jade', require('jade'));
 site.engine('pug', require('pug'));
 
-//site.use('/packages', require('kerouac-npm-packages')());
+site.use('/packages', require('kerouac-npm-packages')());
 site.content('content');
 //site.content('views', { layout: 'docs' });
 site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
