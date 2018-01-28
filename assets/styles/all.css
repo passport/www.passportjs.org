@@ -3378,13 +3378,13 @@ body.is-loading #content {
     margin-top: 80px;
   }
 }
-.menu-hold {
+.menu-items {
   display: none;
   width: 100%;
   z-index: 99;
 }
 @media (min-width: 768px) {
-  .menu-hold {
+  .menu-items {
     display: block;
     height: auto;
     background: none;
@@ -3394,39 +3394,39 @@ body.is-loading #content {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .menu-hold li {
+  .menu-items li {
     padding-left: 26%;
     margin-bottom: 15px;
     -webkit-transition: box-shadow 0.3s ease-in-out;
     transition: box-shadow 0.3s ease-in-out;
   }
-  .menu-hold li.active:nth-child(1) {
+  .menu-items li.active:nth-child(1) {
     box-shadow: inset 5px 0 0 0 #35df79;
   }
-  .menu-hold li.active:nth-child(1) a {
+  .menu-items li.active:nth-child(1) a {
     color: #35df79;
   }
-  .menu-hold li.active:nth-child(2) {
+  .menu-items li.active:nth-child(2) {
     box-shadow: inset 5px 0 0 0 #01b7ee;
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
-  .menu-hold li.active:nth-child(2) a {
+  .menu-items li.active:nth-child(2) a {
     color: #01b7ee;
   }
-  .menu-hold li.active:nth-child(3) {
+  .menu-items li.active:nth-child(3) {
     box-shadow: inset 5px 0 0 0 #d4fd02;
   }
-  .menu-hold li.active:nth-child(3) a {
+  .menu-items li.active:nth-child(3) a {
     color: #d4fd02;
   }
-  .menu-hold li a {
+  .menu-items li a {
     color: #fff;
     font-size: 24px;
     line-height: 2.5;
   }
 }
-.menu-hold.is-active {
+.menu-items.is-active {
   background: rgba(18,18,18,0.98);
   height: calc(100vh - 100px);
   position: absolute;
@@ -3434,7 +3434,7 @@ body.is-loading #content {
   text-align: center;
   display: block;
 }
-.menu-hold.is-active > ul {
+.menu-items.is-active > ul {
   width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -3444,28 +3444,28 @@ body.is-loading #content {
   margin-top: -44px;
 }
 @media (min-width: 568px) {
-  .menu-hold.is-active > ul {
+  .menu-items.is-active > ul {
     margin-top: 0;
   }
 }
-.menu-hold.is-active li {
+.menu-items.is-active li {
   margin: 30px 0;
 }
-.menu-hold.is-active a {
+.menu-items.is-active a {
   color: #fff;
   font-size: 30px;
 }
-.menu-hold.is-active .social {
+.menu-items.is-active .social {
   display: inherit;
   position: absolute;
   width: 100%;
   bottom: 40px;
 }
-.menu-hold.is-active .social li {
+.menu-items.is-active .social li {
   margin: 0 5px 0;
 }
 @media screen and (min-width: 768px) and (max-height: 750px) {
-  .menu-hold {
+  .menu-items {
     position: relative;
     -webkit-transform: none;
     transform: none;
@@ -4465,10 +4465,10 @@ html.is-menu body .social li:last-child {
 .supported {
   margin-top: 20px !important;
 }
-.menu-hold li {
+.menu-items li {
   margin-bottom: 0 !important;
 }
-.menu-hold {
+.menu-items {
   margin-top: 40px !important;
 }
 #carbonads {
