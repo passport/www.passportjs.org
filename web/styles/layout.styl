@@ -400,24 +400,24 @@
       margin-bottom: 15px
       -webkit-transition: box-shadow .3s ease-in-out
       transition: box-shadow .3s ease-in-out
-      &.active:nth-child(1)
+      &.active:nth-child(1) // Home
         box-shadow: inset 5px 0 0 0 green
         a
           color: green
-      &.active:nth-child(2)
+      &.active:nth-child(2) // Documentation
         box-shadow: inset 5px 0 0 0 blue
         -webkit-transition: .5s
         transition: .5s
         a
-          color blue
-      &.active:nth-child(3)
-        box-shadow inset 5px 0 0 0 yellow
+          color: blue
+      &.active:nth-child(3) // Features
+        box-shadow: inset 5px 0 0 0 yellow
         a
-          color yellow
+          color: yellow
       a
-        color white
-        font-size 24px
-        line-height 2.5
+        font-size: 24px
+        line-height: 2.5
+        color: white
 
   &.is-active // [5]
     background rgba(#121212,.98)
