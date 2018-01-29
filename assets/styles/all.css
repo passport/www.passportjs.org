@@ -3430,39 +3430,6 @@ body.is-loading #content {
 #toolbar .toolbar-social .github a {
   background-position: -51px 0;
 }
-.supported {
-  clear: both;
-  padding: 10px;
-  bottom: 0;
-  left: 0;
-  font-size: 14px;
-  text-align: center;
-  color: #999;
-  z-index: 10;
-  margin: 0 auto;
-}
-@media (min-width: 768px) {
-  .supported {
-    width: 100%;
-    position: absolute;
-    bottom: 20px;
-  }
-}
-.supported .auth0 {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  margin-left: 6px;
-  margin-bottom: -8px;
-  background: url("../../images/supported_logo.svg") no-repeat;
-}
-@media screen and (min-width: 768px) and (max-height: 750px) {
-  .supported {
-    position: relative;
-    bottom: auto;
-    margin-top: 80px;
-  }
-}
 #content {
   *zoom: 1;
   margin-top: 120px;
@@ -3517,6 +3484,39 @@ body.is-loading #content {
 @media (min-width: 992px) {
   #go-top.is-visible {
     display: none;
+  }
+}
+.supported {
+  clear: both;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  text-align: center;
+  color: #999;
+  z-index: 10;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .supported {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+  }
+}
+.supported .auth0 {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-left: 6px;
+  margin-bottom: -8px;
+  background: url("../../images/supported_logo.svg") no-repeat;
+}
+@media screen and (min-width: 768px) and (max-height: 750px) {
+  .supported {
+    position: relative;
+    bottom: auto;
+    margin-top: 80px;
   }
 }
 #package {
