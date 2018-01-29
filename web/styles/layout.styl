@@ -433,37 +433,6 @@
 
 
 
-.supported
-  clear both
-  padding 10px
-  bottom 0
-  left 0
-  font-size 14px
-  text-align center
-  color #999
-  z-index 10
-  margin 0 auto
-  +breakpoint("tablet")
-    width 100%
-    position absolute
-    bottom 20px
-  +breakpoint("tablet")
-    @media screen and ( max-height: 750px )
-      position relative
-      bottom auto
-      margin-top 80px
-
-  .auth0
-    width 24px
-    height 24px
-    display inline-block
-    margin-left: 6px;
-    margin-bottom: -8px;
-    background url(../../images/supported_logo.svg) no-repeat
-
-
-
-
 /* Content
    -------------------------------------------------------------------------- */
 
@@ -540,3 +509,32 @@
     z-index: 99
     +breakpoint("desktop")
       display: none
+
+
+.supported
+  clear both
+  padding 10px
+  bottom 0
+  left 0
+  font-size 14px
+  text-align center
+  color #999
+  z-index 10
+  margin 0 auto
+  +breakpoint("tablet")
+    width 100%
+    position absolute
+    bottom 20px
+  +breakpoint("tablet")
+    @media screen and ( max-height: 750px )
+      position relative
+      bottom auto
+      margin-top 80px
+
+  .auth0
+    width 24px
+    height 24px
+    display inline-block
+    margin-left: 6px;
+    margin-bottom: -8px;
+    background url(../../images/supported_logo.svg) no-repeat
