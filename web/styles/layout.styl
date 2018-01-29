@@ -217,31 +217,37 @@
       margin-right: 14px
       vertical-align: top
 
+/**
+ * Logo.
+ *
+ * 1. On mobile devices, float the logo to the left.  The menu trigger is
+ *    correspondingly floated to the right.
+ */
 #logo
-  display block
-  cursor pointer
-  background  url(../../images/logo.svg) center left no-repeat
-  background-size 40px auto;
-  color #fff
-  font-size 14px
-  line-height 44px
-  padding-left 56px
-  height: 100px;
-  margin 0 0 0 40px
-  float left
+  display: block
+  float: left // [1]
+  height: 100px
+  padding-left: 56px
+  background: url(../../images/logo.svg) center left no-repeat
+  background-size: 40px auto
+  margin: 0 0 0 40px
+  font-size: 14px
+  line-height: 44px
+  color: #fff
+  cursor: pointer
   +breakpoint("tablet")
-    background-position center
-    background-size auto 80%;
-    font-size 16px
-    line-height 22px
-    margin 60px auto 10px auto;
-    text-align center
-    max-width 130px
-    float none
-    position relative
-    z-index 101
+    position: relative
+    float: none
+    max-width: 130px
+    z-index: 101
+    background-position: center
+    background-size: auto 80%
+    margin: 60px auto 10px auto
+    text-align: center
+    font-size: 16px
+    line-height: 22px
   &:hover
-    text-decoration none
+    text-decoration: none
 .jared
   color: #ccc;
   display: none;
