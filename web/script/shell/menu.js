@@ -27,7 +27,7 @@ define(['exports', 'jquery'], function(exports, $) {
   
   $(document).ready(function() {
     
-    $(document).on('click', '.menu-trigger', function(ev) {
+    $(document).on('click', '#menu .menu-trigger', function(ev) {
       exports.toggle();
       return false;
     });

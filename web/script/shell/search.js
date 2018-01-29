@@ -7,7 +7,7 @@ function(exports, template, engine, page, $, __$_typeahead) {
   
   $(document).ready(function() {
     
-    $(document).on('focus', '.search form input', function(ev) {
+    $(document).on('focus', '#toolbar .toolbar-search form input', function(ev) {
       page.show('/packages/');
     });
     

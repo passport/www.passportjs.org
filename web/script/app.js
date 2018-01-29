@@ -23,7 +23,7 @@ function(homeController, docsController, featuresController, packagesController,
     page.start();
     
     $.getJSON('/repo.json', function(data) {
-      $('.github .count').text(utils.commaize(data.stargazers_count));
+      $('#toolbar .github .count').text(utils.commaize(data.stargazers_count));
     });
   });
   
