@@ -267,12 +267,27 @@
  * 5. The `.is-open` state can be toggled by JavaScript to indicate whether
  *    the menu is open or closed.
  * 6. Transform the hamburger button into an X button.
- *
+ * 7. On mobile devices, hide the menu items.  The menu trigger is visible and
+ *    can be used to reveal the menu.
+ * 8. On mobile devices, set the width to 100%, so that the menu fills the
+ *    entire width of the screen when revealed.
+ * 9. On tablet and desktop devices, display the menu items.  The menu itself
+ *    is fixed to the left side of the viewport.
+ * 10. On tablet and desktop devices where the screen is taller than 750 pixels,
+ *     display the menu items in the middle of the available vertical space.
+ * 11. On tablet and desktop devices where the screen is shorter than 750
+ *     pixels, display the menu items below the logo.
  *
  * Example HTML:
  *
  * <nav id="menu">
  *   <div class="menu-trigger"><span></span></div>
+ *   <div class="menu-items">
+ *     <ul>
+ *       <li><a href="/">Home</a></li>
+ *       <li><a href="/docs/">Documentation</a></li>
+ *     </ul>
+ *   </div>
  * </nav>
  */
 
@@ -318,7 +333,6 @@
         top: 7px
     +breakpoint("tablet")
       display: none // [4]
-
     &.is-open // [5]
       span
         background transparent
@@ -328,6 +342,85 @@
         &:after // [6]
           -webkit-transform translate(0, -7px) rotate(45deg)
           transform translate(0, -7px) rotate(45deg)
+          
+  .menu-items
+    display: none // [7]
+    width: 100% // [8]
+    z-index: 99
+    +breakpoint("tablet")
+      position: absolute
+      top: 55% // [10]
+      display: block // [9]
+      height: auto // [10]
+      background: none
+      text-align: left
+      -webkit-transform translateY(-50%) // [10]
+      transform translateY(-50%)  // [10]
+      @media screen and (max-height: 750px)
+        position: relative
+        top: auto // [11]
+        margin-top: 80px
+        -webkit-transform: none // [11]
+        transform: none // [11]
+
+      li
+        padding-left: 26%
+        margin-bottom: 15px
+        -webkit-transition: box-shadow .3s ease-in-out
+        transition: box-shadow .3s ease-in-out
+        &.active:nth-child(1) // Home
+          box-shadow: inset 5px 0 0 0 green
+          a
+            color: green
+        &.active:nth-child(2) // Documentation
+          box-shadow: inset 5px 0 0 0 blue
+          -webkit-transition: .5s
+          transition: .5s
+          a
+            color: blue
+        &.active:nth-child(3) // Features
+          box-shadow: inset 5px 0 0 0 yellow
+          a
+            color: yellow
+        a
+          font-size: 24px
+          line-height: 2.5
+          color: white
+
+    &.is-active // [5]
+      background rgba(#121212,.98)
+      height calc(100vh - 100px)
+      position absolute
+      top 100px
+      text-align center
+      display block
+
+      & > ul
+        width 100%
+        top 50%
+        -webkit-transform translateY(-50%)
+        transform translateY(-50%)
+        position absolute
+        padding-left 0
+        margin-top: -44px;
+        +breakpoint("mobile-landscape")
+          margin-top: 0;
+
+      li
+        margin 30px 0
+
+
+      a
+        color white
+        font-size 30px
+
+      .social
+        display inherit
+        position absolute
+        width 100%
+        bottom 40px
+        li
+          margin 0 5px 0
 
   .supported
     display none
@@ -361,98 +454,6 @@
     margin-left: 6px;
     margin-bottom: -8px;
     background url(../../images/supported_logo.svg) no-repeat
-
-
-/**
- * 7. On mobile devices, hide the menu items.  The menu trigger is visible and
- *    can be used to reveal the menu.
- * 8. On mobile devices, set the width to 100%, so that the menu fills the
- *    entire width of the screen when revealed.
- * 9. On tablet and desktop devices, display the menu items.  The menu itself
- *    is fixed to the left side of the viewport.
- * 10. On tablet and desktop devices where the screen is taller than 750 pixels,
- *     display the menu items in the middle of the available vertical space.
- * 11. On tablet and desktop devices where the screen is shorter than 750
- *     pixels, display the menu items below the logo.
- */
-.menu-items
-  display: none // [7]
-  width: 100% // [8]
-  z-index: 99
-  +breakpoint("tablet")
-    position: absolute
-    top: 55% // [10]
-    display: block // [9]
-    height: auto // [10]
-    background: none
-    text-align: left
-    -webkit-transform translateY(-50%) // [10]
-    transform translateY(-50%)  // [10]
-    @media screen and ( max-height: 750px )
-      position: relative
-      top: auto // [11]
-      margin-top: 80px
-      -webkit-transform: none // [11]
-      transform: none // [11]
-
-    li
-      padding-left: 26%
-      margin-bottom: 15px
-      -webkit-transition: box-shadow .3s ease-in-out
-      transition: box-shadow .3s ease-in-out
-      &.active:nth-child(1) // Home
-        box-shadow: inset 5px 0 0 0 green
-        a
-          color: green
-      &.active:nth-child(2) // Documentation
-        box-shadow: inset 5px 0 0 0 blue
-        -webkit-transition: .5s
-        transition: .5s
-        a
-          color: blue
-      &.active:nth-child(3) // Features
-        box-shadow: inset 5px 0 0 0 yellow
-        a
-          color: yellow
-      a
-        font-size: 24px
-        line-height: 2.5
-        color: white
-
-  &.is-active // [5]
-    background rgba(#121212,.98)
-    height calc(100vh - 100px)
-    position absolute
-    top 100px
-    text-align center
-    display block
-
-    & > ul
-      width 100%
-      top 50%
-      -webkit-transform translateY(-50%)
-      transform translateY(-50%)
-      position absolute
-      padding-left 0
-      margin-top: -44px;
-      +breakpoint("mobile-landscape")
-        margin-top: 0;
-
-    li
-      margin 30px 0
-
-
-    a
-      color white
-      font-size 30px
-
-    .social
-      display inherit
-      position absolute
-      width 100%
-      bottom 40px
-      li
-        margin 0 5px 0
 
 
 /**
