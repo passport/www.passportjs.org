@@ -3095,39 +3095,39 @@ body.is-loading #content {
     padding-left: 400px;
   }
 }
-.social {
+#toolbar .toolbar-social {
   display: none;
   text-decoration: none;
 }
 @media (min-width: 768px) {
-  .social {
+  #toolbar .toolbar-social {
     display: inline-block;
     float: right;
     margin-top: 10px;
   }
 }
-.social li {
+#toolbar .toolbar-social li {
   display: inline-block;
   width: 26px;
   height: 26px;
   margin-right: 5px;
   vertical-align: middle;
 }
-.social li:last-child {
+#toolbar .toolbar-social li:last-child {
   margin-right: 68px;
 }
-.social a {
+#toolbar .toolbar-social a {
   position: relative;
   display: block;
   height: 26px;
   width: 25px;
   background: url("../../images/ico_social.svg") no-repeat;
 }
-.social a .count {
+#toolbar .toolbar-social a .count {
   display: none;
 }
 @media (min-width: 768px) {
-  .social a .count {
+  #toolbar .toolbar-social a .count {
     position: absolute;
     top: 2px;
     left: 33px;
@@ -3143,7 +3143,7 @@ body.is-loading #content {
   }
 }
 @media (min-width: 768px) {
-  .social a .count:after {
+  #toolbar .toolbar-social a .count:after {
     position: absolute;
     top: 50%;
     left: -3px;
@@ -3156,13 +3156,13 @@ body.is-loading #content {
     content: "";
   }
 }
-.social .facebook a {
+#toolbar .toolbar-social .facebook a {
   background-position: -25px 0;
 }
-.social .github a {
+#toolbar .toolbar-social .github a {
   background-position: -51px 0;
 }
-.search {
+#toolbar .toolbar-search {
   position: absolute;
   display: inline-block;
   width: 100%;
@@ -3173,7 +3173,7 @@ body.is-loading #content {
   transform: translateY(100px);
 }
 @media (min-width: 768px) {
-  .search {
+  #toolbar .toolbar-search {
     width: 200px;
     padding: 0;
     box-sizing: initial;
@@ -3182,7 +3182,7 @@ body.is-loading #content {
     transform: none;
   }
 }
-.search form {
+#toolbar .toolbar-search form {
   width: 100%;
   height: 46px;
   padding: 0;
@@ -3191,7 +3191,7 @@ body.is-loading #content {
   margin: 0;
   text-align: center;
 }
-.search form input {
+#toolbar .toolbar-search form input {
   display: inline-block;
   width: 145px;
   height: 44px;
@@ -3202,16 +3202,16 @@ body.is-loading #content {
   font-size: 14px;
   color: #fff;
 }
-.search form input::-webkit-input-placeholder {
+#toolbar .toolbar-search form input::-webkit-input-placeholder {
   color: #fff;
 }
-.search form input:-moz-placeholder {
+#toolbar .toolbar-search form input:-moz-placeholder {
   color: #fff;
 }
-.search form input:-ms-input-placeholder {
+#toolbar .toolbar-search form input:-ms-input-placeholder {
   color: #fff;
 }
-.search form button {
+#toolbar .toolbar-search form button {
   position: relative;
   top: 14px;
   display: inline-block;

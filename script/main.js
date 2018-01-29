@@ -400,7 +400,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
         $(".menu-trigger").toggleClass("is-open", open).next().toggleClass("is-active", open);
     };
     $(document).ready(function() {
-        $(document).on("click", ".menu-trigger", function(ev) {
+        $(document).on("click", "#menu .menu-trigger", function(ev) {
             exports.toggle();
             return false;
         });
@@ -415,7 +415,7 @@ define("search/packages/templates/suggestion", [], function() {
 
 define("shell/search", [ "exports", "../search/packages/templates/suggestion", "../search/packages/engine", "page", "jquery", "jquery.typeahead" ], function(exports, template, engine, page, $, __$_typeahead) {
     $(document).ready(function() {
-        $(document).on("focus", ".search form input", function(ev) {
+        $(document).on("focus", "#toolbar .toolbar-search form input", function(ev) {
             page.show("/packages/");
         });
         $(".search-con form input").typeahead(null, {
@@ -671,7 +671,7 @@ define("app", [ "./controllers/home", "./controllers/docs", "./controllers/featu
         $("body").toggleClass("ie", utils.isMSIE());
         page.start();
         $.getJSON("/repo.json", function(data) {
-            $(".github .count").text(utils.commaize(data.stargazers_count));
+            $("#toolbar .github .count").text(utils.commaize(data.stargazers_count));
         });
     });
 });
