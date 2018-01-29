@@ -217,37 +217,10 @@
       margin-right: 14px
       vertical-align: top
 
-/**
- * Logo.
- *
- * 1. On mobile devices, float the logo to the left.  The menu trigger is
- *    correspondingly floated to the right.
- */
-#logo
-  display: block
-  float: left // [1]
-  height: 100px
-  padding-left: 56px
-  background: url(../../images/logo.svg) center left no-repeat
-  background-size: 40px auto
-  margin: 0 0 0 40px
-  font-size: 14px
-  line-height: 44px
-  color: #fff
-  cursor: pointer
-  +breakpoint("tablet")
-    position: relative
-    float: none
-    max-width: 130px
-    z-index: 101
-    background-position: center
-    background-size: auto 80%
-    margin: 60px auto 10px auto
-    text-align: center
-    font-size: 16px
-    line-height: 22px
-  &:hover
-    text-decoration: none
+
+
+/* Menu
+   -------------------------------------------------------------------------- */
 
 /**
  * Menu.
@@ -256,6 +229,8 @@
  * menu.  The trigger is displayed as a hamburger button, mimicking UI patterns
  * common to mobile applications.
  *
+ * 0. On mobile devices, float the logo to the left.  The menu trigger is
+ *    correspondingly floated to the right.
  * 1. Set the height to 100 pixels, in accordance with mobile-first responsive
  *    design.
  * 2. On tablet devices, fix the position to the top left of the viewport, with
@@ -306,6 +281,32 @@
     width: 350px // [3]
     @media screen and (max-height: 750px)
       overflow-y scroll
+  
+  .menu-logo
+    display: block
+    float: left // [0]
+    height: 100px
+    padding-left: 56px
+    background: url(../../images/logo.svg) center left no-repeat
+    background-size: 40px auto
+    margin: 0 0 0 40px
+    font-size: 14px
+    line-height: 44px
+    color: #fff
+    cursor: pointer
+    +breakpoint("tablet")
+      position: relative
+      float: none
+      max-width: 130px
+      z-index: 101
+      background-position: center
+      background-size: auto 80%
+      margin: 60px auto 10px auto
+      text-align: center
+      font-size: 16px
+      line-height: 22px
+    &:hover
+      text-decoration: none
   
   .menu-trigger
     float: right
