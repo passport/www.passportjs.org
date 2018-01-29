@@ -3223,36 +3223,6 @@ body.is-loading #content {
   margin-right: 14px;
   vertical-align: top;
 }
-#logo {
-  display: block;
-  float: left;
-  height: 100px;
-  padding-left: 56px;
-  background: url("../../images/logo.svg") center left no-repeat;
-  background-size: 40px auto;
-  margin: 0 0 0 40px;
-  font-size: 14px;
-  line-height: 44px;
-  color: #fff;
-  cursor: pointer;
-}
-@media (min-width: 768px) {
-  #logo {
-    position: relative;
-    float: none;
-    max-width: 130px;
-    z-index: 101;
-    background-position: center;
-    background-size: auto 80%;
-    margin: 60px auto 10px auto;
-    text-align: center;
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-#logo:hover {
-  text-decoration: none;
-}
 #menu {
   height: 100px;
 }
@@ -3272,6 +3242,36 @@ body.is-loading #content {
   #menu {
     width: 350px;
   }
+}
+#menu .menu-logo {
+  display: block;
+  float: left;
+  height: 100px;
+  padding-left: 56px;
+  background: url("../../images/logo.svg") center left no-repeat;
+  background-size: 40px auto;
+  margin: 0 0 0 40px;
+  font-size: 14px;
+  line-height: 44px;
+  color: #fff;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  #menu .menu-logo {
+    position: relative;
+    float: none;
+    max-width: 130px;
+    z-index: 101;
+    background-position: center;
+    background-size: auto 80%;
+    margin: 60px auto 10px auto;
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+#menu .menu-logo:hover {
+  text-decoration: none;
 }
 #menu .menu-trigger {
   float: right;
