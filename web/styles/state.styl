@@ -9,3 +9,18 @@ body
   &.is-loading
     #content
       opacity: .3
+      
+/**
+ * Packages viewer state.
+ *
+ * The `.is-search` state can be toggled by JavaScript to make the on-page
+ * packages viewer visible.
+ *
+ * 1. Set overflow to hidden in order to hide any scroll bars that may be
+ *    present in the browser's chrome.
+ * 2. Make the packages viewer visible.
+ */
+body.is-search
+  overflow: hidden // [1]
+  .search-con
+    display: block // [2]

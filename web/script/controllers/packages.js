@@ -18,18 +18,6 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
     }
   }
   
-  function closeSearch () {
-    // closing search
-    $("body").removeClass("is-search");
-    // cleaning inputs
-    $(".search-con form input").text('');
-    $(".search-con form input").blur();
-    $('.tt-input, .tt-hint').removeClass('bigger');
-    // cleaning results
-    $(".results section").html('');
-    $(".search-con .info-line span").text('0');
-  }
-  
   function dosearchinput(ev) {
     //ev.stopPropagation();
     //page.show('/search');
