@@ -10,18 +10,28 @@
  * Menu state.
  *
  * The `.is-menu` state can be toggled by JavaScript to make menu visible.
- * This is primarily used on mobile devices.  On tablet and desktop devices,
- * the menu is always visible.
+ *
+ * This state is primarily used on mobile devices.  On tablet and desktop
+ * devices, the menu is always visible.
  */
 html.is-menu, html.is-menu body
   height: 100vh
   overflow: hidden
 
 
-body
-  &.is-loading
-    #content
-      opacity: .3
+/**
+ * Loading state.
+ *
+ * The `.is-loading` state can be toggled by JavaScript to indicate when
+ * resources are being loaded or other asynchronous operations are taking
+ * place.
+ *
+ * This state is primarily used when PJAX techniques are being used to
+ * partially load and replace the content of a page.
+ */
+body.is-loading
+  #content
+    opacity: .3
 
 
 /**
