@@ -46,7 +46,16 @@
     <meta name="twitter:title" content="openid-client"/>
     <meta name="twitter:description" content="OpenID Connect Relying Party (RP, Client) implementation for Node.js servers, supports passportjs"/>
     <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
-    <meta name="flattr:id" content="d5znvd">
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -87,7 +96,6 @@
 <p>openid-client is a server side <a href="http://openid.net/connect/">OpenID</a> Relying Party (RP, Client) implementation for
 Node.js, supports <a href="http://passportjs.org">passport</a>.</p>
 <p><strong>Table of Contents</strong></p>
-<!-- TOC START min:2 max:2 link:true update:true -->
 <ul>
 <li><a href="#implemented-specs--features">Implemented specs &amp; features</a></li>
 <li><a href="#certification">Certification</a></li>
@@ -97,7 +105,6 @@ Node.js, supports <a href="http://passportjs.org">passport</a>.</p>
 <li><a href="#usage-with-passport">Usage with passport</a></li>
 <li><a href="#configuration">Configuration</a></li>
 </ul>
-<!-- TOC END -->
 <h2 id="implemented-specs-features">Implemented specs &amp; features</h2>
 <p>The following client/RP features from OpenID Connect/OAuth2.0 specifications are implemented by
 openid-client.</p>
@@ -126,7 +133,7 @@ openid-client.</p>
 </li>
 <li><a href="http://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0 incorporating errata set 1</a><ul>
 <li>Discovery of OpenID Provider (Issuer) Metadata</li>
-<li>Discovery of OpenID Provider (Issuer) Metadata via user provided inputs (see #WebFinger)</li>
+<li>Discovery of OpenID Provider (Issuer) Metadata via user provided inputs (see <a href="#webfinger-discovery">WebFinger</a>)</li>
 </ul>
 </li>
 <li><a href="http://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 1</a><ul>
@@ -148,6 +155,21 @@ openid-client.</p>
 conforms to the RP Basic, RP Implicit, RP Hybrid, RP Config and RP Dynamic profiles
 of the OpenID Connect™ protocol.</p>
 <p><a href="https://github.com/panva/openid-client-conformance-tests"><img src="https://img.shields.io/travis/panva/openid-client-conformance-tests/master.svg?style=flat-square&amp;maxAge=7200&amp;label=conformance%20build" alt="build"></a></p>
+<h2 id="sponsor">Sponsor</h2>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <img alt="auth0-logo" src="https://avatars.githubusercontent.com/u/2824157?s=75&v=4" style="max-width:100%;">
+      </td>
+      <td colspan="2">
+        If you want to quickly add OpenID Connect authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/overview?utm_source=GHsponsor&utm_medium=GHsponsor&utm_campaign=openid-client&utm_content=auth">auth0.com/overview</a>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
 <h2 id="example">Example</h2>
 <p>Head over to the example folder to see the library in use. This example is deployed and configured
 to use an example OpenID Connect Provider <a href="https://tranquil-reef-95185.herokuapp.com/client">here</a>. The provider is using
@@ -483,14 +505,14 @@ to your package.json bundle:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">openid-client</span></code></div>
             <ul>
-              <li><span class="version">1.19.3</span> published <abbr class="updated" title="2018-01-22T17:25:57Z">7 days ago</abbr></li>
+              <li><span class="version">1.19.4</span> published <abbr class="updated" title="2018-01-30T13:52:02Z">5 hours ago</abbr></li>
               <li><a class="url" href="git://github.com/panva/node-openid-client.git">https://github.com/panva/node-openid-client</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>143</b> downloads in the last day</li>
-              <li><b>4,661</b> downloads in the last week</li>
-              <li><b>16,542</b> downloads in the last month</li>
+              <li><b>965</b> downloads in the last day</li>
+              <li><b>5,100</b> downloads in the last week</li>
+              <li><b>18,279</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -510,18 +532,6 @@ to your package.json bundle:</p>
         <section></section>
       </div>
     </div>
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-104798-10']);
-      _gaq.push(['_trackPageview']);
-      
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-      
-    </script>
     <!-- Google Tag Manager-->
     <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
     <script>

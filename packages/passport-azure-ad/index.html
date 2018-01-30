@@ -46,7 +46,16 @@
     <meta name="twitter:title" content="passport-azure-ad"/>
     <meta name="twitter:description" content="OIDC and Bearer Passport strategies for Azure Active Directory"/>
     <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
-    <meta name="flattr:id" content="d5znvd">
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -83,7 +92,7 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="microsoft-azure-active-directory-passport-js-plug-in">Microsoft Azure Active Directory Passport.js Plug-In</h1>
-<p>=============</p>
+<hr>
 <p><em>passport-azure-ad</em> is a collection of <a href="http://passportjs.org/">Passport</a> Strategies 
 to help you integrate with Azure Active Directory. It includes OpenID Connect, 
 WS-Federation, and SAML-P authentication and authorization. These providers let you 
@@ -95,7 +104,7 @@ and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Servi
 <h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
 <p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
-<p>Current version - 3.0.9<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
+<p>Current version - 3.0.10<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
 <h2 id="3-contribution-history">3. Contribution History</h2>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad"><img src="https://badge.waffle.io/AzureAD/passport-azure-ad.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad/metrics"><img src="https://graphs.waffle.io/AzureAD/passport-azure-ad/throughput.svg" alt="Throughput Graph"></a></p>
@@ -477,7 +486,7 @@ https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp
 <p>Required if you are using B2C tenant. It is a string starting with &#39;B2C<em>1</em>&#39; (case insensitive).</p>
 </li>
 <li><p><code>validateIssuer</code>  (Conditional)</p>
-<p>Required to set to false if you don&#39;t want to validate issuer, default value is true. We validate the <code>iss</code> claim in id_token against user provided <code>issuer</code> values and the issuer value we get from tenant-specific endpoint. If you use common endpoint for <code>identityMetadata</code> and you want to validate issuer, then you must provide <code>issuer</code>.</p>
+<p>Required to set to false if you don&#39;t want to validate issuer, default value is true. We validate the <code>iss</code> claim in id_token against user provided <code>issuer</code> values and the issuer value we get from tenant-specific endpoint. If you use common endpoint for <code>identityMetadata</code> and you want to validate issuer, then you must provide <code>issuer</code>, or provide <code>tenantIdOrName</code> in passport.authenticate.</p>
 </li>
 <li><p><code>issuer</code>  (Conditional)</p>
 <p>This can be a string or an array of strings. See <code>validateIssuer</code> for the situation that requires <code>issuer</code>.</p>
@@ -510,7 +519,10 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </code></pre>
 <h4 id="5-2-3-options-available-for-passport-authenticate-">5.2.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
-<li><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</li>
+<li><p><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</p>
+</li>
+<li><p><code>tenantIdOrName</code>: if you use common endpoint, you can use this option to dynamically provide the tenant.</p>
+</li>
 </ul>
 <p>Example:</p>
 <pre><code>  passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="string">session:</span> <span class="literal">false</span> });
@@ -602,14 +614,14 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">3.0.9</span> published <abbr class="updated" title="2017-12-27T22:22:36Z">a month ago</abbr></li>
+              <li><span class="version">3.0.10</span> published <abbr class="updated" title="2018-01-30T01:08:25Z">17 hours ago</abbr></li>
               <li><a class="url" href="git://github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>158</b> downloads in the last day</li>
-              <li><b>4,384</b> downloads in the last week</li>
-              <li><b>15,234</b> downloads in the last month</li>
+              <li><b>859</b> downloads in the last day</li>
+              <li><b>5,100</b> downloads in the last week</li>
+              <li><b>16,705</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -629,18 +641,6 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
         <section></section>
       </div>
     </div>
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-104798-10']);
-      _gaq.push(['_trackPageview']);
-      
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-      
-    </script>
     <!-- Google Tag Manager-->
     <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
     <script>
