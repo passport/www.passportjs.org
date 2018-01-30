@@ -5,11 +5,25 @@
      - [State Rules](https://smacss.com/book/type-state)
    ========================================================================== */
 
+
+/**
+ * Menu state.
+ *
+ * The `.is-menu` state can be toggled by JavaScript to make menu visible.
+ * This is primarily used on mobile devices.  On tablet and desktop devices,
+ * the menu is always visible.
+ */
+html.is-menu, html.is-menu body
+  height: 100vh
+  overflow: hidden
+
+
 body
   &.is-loading
     #content
       opacity: .3
-      
+
+
 /**
  * Packages viewer state.
  *
@@ -24,3 +38,4 @@ body.is-search
   overflow: hidden // [1]
   .search-con
     display: block // [2]
+
