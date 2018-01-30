@@ -1,3 +1,4 @@
+include mixins/analytics
 include mixins/verification
 
 doctype html
@@ -20,6 +21,7 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     +twitter_metadata(title, description, images, author, canonicalURL, manifest)
     
     +verifications()
+    +google_analytics('UA-73332146-2')
 
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
@@ -97,16 +99,6 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     //-script(src='/javascripts/plugins.js')
     //-script(src='/javascripts/helpers.js')
     //-script(src='/javascripts/main.js')
-    script.
-     var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', 'UA-104798-10']);
-     _gaq.push(['_trackPageview']);
-
-     (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-     })();
 
     // Google Tag Manager
     noscript.
