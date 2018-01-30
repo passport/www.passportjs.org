@@ -1,3 +1,5 @@
+include mixins/verification
+
 doctype html
 html(prefix='og: http://ogp.me/ns#', lang='en')
   head
@@ -17,8 +19,7 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     +opengraph_metadata(title, description, images, author, type, canonicalURL, manifest)
     +twitter_metadata(title, description, images, author, canonicalURL, manifest)
     
-    //- Attention-based funding
-    meta(name='flattr:id', content='d5znvd')
+    +verifications()
 
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')

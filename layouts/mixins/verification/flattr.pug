@@ -1,0 +1,17 @@
+//-
+  Flattr Verification
+  
+  Flattr is a microdonation service.  Flattr contributors setup a monthly
+  subscription, which is an amount of money that will be contributed to creators
+  for the content they publish on the web.  Contributors install a browser
+  extension which measures attention, and uses that measurement to determine
+  how the subscription amount is divided amongst creators.
+  
+  The `flattr:id` meta tag is used to verify page ownership, so that
+  contributions are credited to the creator's account.
+  
+  References:
+    [Flattr](https://flattr.com/)
+//-
+mixin flattr_verification(token)
+  meta(name='flattr:id', content=token)
