@@ -556,14 +556,6 @@ define("controllers/packages", [ "../search/packages/engine", "../search/package
             $(".search-con .info-line span").text($featured.length);
         }
     }
-    function closeSearch() {
-        $("body").removeClass("is-search");
-        $(".search-con form input").text("");
-        $(".search-con form input").blur();
-        $(".tt-input, .tt-hint").removeClass("bigger");
-        $(".results section").html("");
-        $(".search-con .info-line span").text("0");
-    }
     function dosearchinput(ev) {
         var q = $(this).val(), nonempty = !!q.length;
         $(this).toggleClass("bigger", nonempty);

@@ -3046,6 +3046,12 @@ ul li {
 body.is-loading #content {
   opacity: 0.3;
 }
+body.is-search {
+  overflow: hidden;
+}
+body.is-search .search-con {
+  display: block;
+}
 .btn {
   text-transform: uppercase;
   border-radius: 60px;
@@ -4062,12 +4068,6 @@ html.is-menu,
 html.is-menu body {
   overflow: hidden;
   height: 100vh;
-}
-.is-search {
-  overflow: hidden;
-}
-.is-search .search-con {
-  display: block;
 }
 .search-con {
   position: fixed;
