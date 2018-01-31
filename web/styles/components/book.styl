@@ -27,6 +27,25 @@
  *
  * The table of contents displays the parts, chapters, and subchapters within
  * the book.
+ *
+ * 1. Set 18 pixels of left padding, so that the chapter names site below the
+ *    part names, which are indented due to an arrow icon being displayed next
+ *    to them.
+ *
+ * Example HTML:
+ *
+ * <nav class="toc">
+ *   <h5>Social</h5>
+ *   <ul>
+ *     <li><a href="/docs/facebook/">Facebook</a></li>
+ *     <li><a href="/docs/twitter/">Twitter</a></li>
+ *   </ul>
+ *   <h5>Federated</h5>
+ *   <ul>
+ *     <li><a href="/docs/openid-connect/">OpenID Connect</a></li>
+ *     <li><a href="/docs/saml/">SAML</a></li>
+ *   </ul>
+ * </div>
  */
 .toc
   padding: 20px
@@ -41,28 +60,27 @@
     min-height: 1px
     padding: 0 0 0 30px
     background-color transparent
-
     -webkit-animation: fadeInLeft .4s ease-in-out
     animation: fadeInLeft .4s ease-in-out
 
   ul
-    padding-left 18px
+    padding-left: 18px // [1]
     +breakpoint("desktop")
-      padding-left 0
+      padding-left: 0
 
   li
-    line-height 2.5
+    line-height: 2.5
     +breakpoint("desktop")
-      line-height 1.9
+      line-height: 1.9
     a
-      color rgba(white,.8)
-      font-size 14px
+      font-size: 14px
+      color: rgba(white,.8)
       &:hover, &.active
         +breakpoint("desktop")
-          color blue
+          color: blue
 
   h5
-    margin 0
+    margin: 0
     font-weight normal
     font-size 14px
     color #f1f1f1
