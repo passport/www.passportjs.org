@@ -17,11 +17,12 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     +ios-web-app(manifest)
     +windows-web-app(manifest, '/browserconfig.xml')
 
-    +opengraph_metadata(title, description, images, author, type, canonicalURL, manifest)
-    +twitter_metadata(title, description, images, author, canonicalURL, manifest)
+    +opengraph-metadata(title, description, images, author, type, canonicalURL, manifest)
+    +twitter-metadata(title, description, images, author, canonicalURL, manifest)
     
     +verifications()
-    +google_analytics('UA-73332146-2')
+    +google-analytics('UA-73332146-2')
+    +google-tag-manager('GTM-M5S3PH')
 
     //- CSS
     link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')
@@ -100,13 +101,4 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     //-script(src='/javascripts/helpers.js')
     //-script(src='/javascripts/main.js')
 
-    // Google Tag Manager
-    noscript.
-      iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')
-    script.
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    // End Google Tag Manager
+    +google-tag-manager-noscript('GTM-M5S3PH')
