@@ -1,8 +1,8 @@
 define(['./base/pjax',
         'class',
         'highlight',
-        'jquery'],
-function(PjaxController, clazz, hljs, $) {
+        'jquery', 'jquery.accordion'],
+function(PjaxController, clazz, hljs, $, __$_accordion) {
   
   // static
   var _submenuOffset;
@@ -53,11 +53,9 @@ function(PjaxController, clazz, hljs, $) {
       }
       
       // accordion
-      /*
       $('.accordion').accordion({
         "transitionSpeed": 400
       });
-      */
       
       hljs.configure({ classPrefix: '' });
       $('pre code').each(function(i, block) {
