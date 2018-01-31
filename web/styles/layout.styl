@@ -214,32 +214,29 @@
           line-height: 2.5
           color: white
 
-    &.is-active // [5]
-      background rgba(#121212,.98)
-      height calc(100vh - 100px)
-      position absolute
-      top 100px
-      text-align center
-      display block
+    &.is-open // [5]
+      position: absolute
+      top: 60px
+      display: block
+      height: calc(100vh - 60px)
+      background: rgba(#121212,.98)
+      text-align: center
 
       & > ul
-        width 100%
-        top 50%
-        -webkit-transform translateY(-50%)
-        transform translateY(-50%)
-        position absolute
-        padding-left 0
-        margin-top: -44px;
+        position: absolute
+        top: 50%
+        width: 100%
+        padding-left: 0
+        margin-top: -44px
+        -webkit-transform: translateY(-50%)
+        transform: translateY(-50%)
         +breakpoint("mobile-landscape")
-          margin-top: 0;
-
+          margin-top: 0
       li
-        margin 30px 0
-
-
+        margin: 30px 0
       a
-        color white
-        font-size 30px
+        font-size: 30px
+        color: white
 
   .supported
     display none
