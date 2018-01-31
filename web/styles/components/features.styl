@@ -1,0 +1,135 @@
+/**
+ * Features component.
+ *
+ * This component is used to display a list of features.
+ *
+ * Example HTML:
+ *
+ * <div class="window">
+ *   <div class="window-titlebar">
+ *     <i class="close"/>
+ *     <i class="min"/>
+ *     <i class="max"/>
+ *     <span>bash</span>
+ *   </div>
+ *   <div class="window-content">
+ *   </div>
+ * </div>
+ */
+
+.features
+  max-width: 890px
+  padding: 0 20px
+  margin: 0 auto
+  text-align: center
+  overflow: hidden
+
+  h1
+    padding: 0
+    margin: 0 0 40px
+    font-size: 30px
+    font-weight: 400
+    line-height: 1
+    color: yellow
+    +breakpoint("tablet")
+      font-size: 50px
+      margin-bottom: 60px
+
+  p.page-description
+    margin-top: 40px
+    margin-bottom: 30px;
+    color: #ccc;
+    font-size: 18px;
+    +breakpoint("tablet")
+      margin-bottom: 60px;
+
+  section
+    text-align: center;
+    +breakpoint("desktop")
+      padding-left: 30px
+
+  .col
+    display: block;
+    +breakpoint("desktop")
+      margin-right: 30px;
+
+    +breakpoint("tablet")
+      width: 400px
+      display: inline-block
+
+    article
+      background-color yellow
+      margin: auto;
+      text-align: left;
+      color: black;
+      margin-bottom 4px
+      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 3px;
+      text-align: center;
+      padding 10px
+      +breakpoint("desktop")
+        padding: 0;
+
+      i
+        display inline-block
+        vertical-align middle
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+
+        +breakpoint("tablet")
+          height: 80px;
+          width: 80px
+          margin: 0;
+          line-height 3.3
+          font-size 28px
+          background: rgba(0,0,0,.2)
+          float left;
+
+      p
+        color black
+        font-weight: 500;
+        margin: 0;
+        display: block;
+        margin-bottom: 0px;
+        font-size: 14px;
+
+        +breakpoint("tablet")
+          padding-top: 26px
+          font-size: 16px;
+          padding-left: 20px;
+          float left;
+
+    .item-1
+      background-color: #35DF79
+
+    .item-2
+      background-color: #42E26F
+
+    .item-3
+      background-color: #62E858
+
+    .item-4
+      background-color: #6CE94F
+
+    .item-5
+      background-color: #7DED43
+
+    .item-5
+      background-color: #8DF038
+
+    .item-6
+      background-color: #A1F328
+
+    .item-7
+      background-color: #B4F71B
+
+    .item-8
+      background-color: #D3FD03
+
+    .item-9
+      background-color: lighten(#D3FD03, 20%)
+
+  .hide
+    opacity: 0;
