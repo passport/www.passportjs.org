@@ -437,8 +437,9 @@
  *    which are stacked vertically above the content on mobile devices.
  * 2. On tablet and desktop devices, reduce the margin to 60px as the menu is
  *    repositioned to the left, leaving only the search field above the content.
- * 3. On tablet devices, apply 260 pixels of padding to the left, to account for
- *    the fixed positioned menu, which has a 260 pixel width.
+ * 3. On tablet devices, apply 280 pixels of padding to the left, to account for
+ *    the fixed positioned menu, which has a 260 pixel width.  An additional 20
+ *    pixels is added for padding between the menu and content.
  * 4. On desktop devices, increase the padding to 350 pixels, to account for the
  *    expanded width of the menu.
  */
@@ -448,10 +449,11 @@
   margin-top: 120px // [1]
   +breakpoint("tablet")
     position: relative
-    padding-left: 260px // [3]
+    padding-left: 280px // [3]
+    padding-right: 20px
     margin-top: 60px // [2]
   +breakpoint("desktop")
-    padding-left: 350px // [4]
+    padding-left: 370px // [4]
 
   .supported
     display block
