@@ -3733,20 +3733,19 @@ body.is-search .search-con {
   text-align: left;
 }
 .features {
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 20px;
-  overflow: hidden;
   max-width: 890px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
 }
 .features h1 {
+  padding: 0;
+  margin: 0 0 40px;
   font-size: 30px;
   font-weight: 400;
-  color: #fff;
   line-height: 1;
-  margin: 0 0 40px;
   color: #d4fd02;
-  padding: 0;
 }
 @media (min-width: 768px) {
   .features h1 {
