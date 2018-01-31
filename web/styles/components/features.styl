@@ -5,15 +5,13 @@
  *
  * Example HTML:
  *
- * <div class="window">
- *   <div class="window-titlebar">
- *     <i class="close"/>
- *     <i class="min"/>
- *     <i class="max"/>
- *     <span>bash</span>
- *   </div>
- *   <div class="window-content">
- *   </div>
+ * <div class="features">
+ *   <ul>
+ *     <li class="item-1">
+ *       <i class="icon-budicon-285"></i>
+ *       <p>300+ authentication strategies</p>
+ *     </li>
+ *   </ul>
  * </div>
  */
 
@@ -32,104 +30,85 @@
     line-height: 1
     color: yellow
     +breakpoint("tablet")
-      font-size: 50px
       margin-bottom: 60px
+      font-size: 50px
 
-  p.page-description
-    margin-top: 40px
-    margin-bottom: 30px;
-    color: #ccc;
-    font-size: 18px;
-    +breakpoint("tablet")
-      margin-bottom: 60px;
-
-  section
+  ul
     text-align: center;
     +breakpoint("desktop")
       padding-left: 30px
 
-  .col
-    display: block;
-    +breakpoint("desktop")
-      margin-right: 30px;
-
+  li
+    display: block
+    padding: 10px
+    border-radius: 3px
+    background-color: yellow
+    margin: auto
+    margin-bottom: 20px
+    text-align: center
+    color: black
+    overflow: hidden
     +breakpoint("tablet")
-      width: 400px
       display: inline-block
+      width: 400px
+    +breakpoint("desktop")
+      padding: 0
+      margin-right: 30px
 
-    article
-      background-color yellow
-      margin: auto;
-      text-align: left;
-      color: black;
-      margin-bottom 4px
-      overflow: hidden;
-      margin-bottom: 20px;
-      border-radius: 3px;
-      text-align: center;
-      padding 10px
-      +breakpoint("desktop")
-        padding: 0;
+    i
+      display: inline-block
+      margin-top: 10px
+      text-align: center
+      vertical-align: middle
+      font-size: 20px
+      +breakpoint("tablet")
+        float: left
+        width: 80px
+        height: 80px
+        margin: 0
+        font-size: 28px
+        line-height: 3.3
+        background: rgba(0,0,0,.2)
 
-      i
-        display inline-block
-        vertical-align middle
-        font-size: 20px;
-        text-align: center;
-        margin-top: 10px;
+    p
+      display: block
+      margin: 0
+      margin-bottom: 0px
+      font-size: 14px
+      font-weight: 500
+      color: black
+      +breakpoint("tablet")
+        float: left
+        padding-top: 26px
+        padding-left: 20px
+        font-size: 16px
 
-        +breakpoint("tablet")
-          height: 80px;
-          width: 80px
-          margin: 0;
-          line-height 3.3
-          font-size 28px
-          background: rgba(0,0,0,.2)
-          float left;
+  .item-1
+    background-color: #35DF79
 
-      p
-        color black
-        font-weight: 500;
-        margin: 0;
-        display: block;
-        margin-bottom: 0px;
-        font-size: 14px;
+  .item-2
+    background-color: #42E26F
 
-        +breakpoint("tablet")
-          padding-top: 26px
-          font-size: 16px;
-          padding-left: 20px;
-          float left;
+  .item-3
+    background-color: #62E858
 
-    .item-1
-      background-color: #35DF79
+  .item-4
+    background-color: #6CE94F
 
-    .item-2
-      background-color: #42E26F
+  .item-5
+    background-color: #7DED43
 
-    .item-3
-      background-color: #62E858
+  .item-5
+    background-color: #8DF038
 
-    .item-4
-      background-color: #6CE94F
+  .item-6
+    background-color: #A1F328
 
-    .item-5
-      background-color: #7DED43
+  .item-7
+    background-color: #B4F71B
 
-    .item-5
-      background-color: #8DF038
+  .item-8
+    background-color: #D3FD03
 
-    .item-6
-      background-color: #A1F328
-
-    .item-7
-      background-color: #B4F71B
-
-    .item-8
-      background-color: #D3FD03
-
-    .item-9
-      background-color: lighten(#D3FD03, 20%)
-
-  .hide
-    opacity: 0;
+  .item-9
+    background-color: lighten(#D3FD03, 20%)
