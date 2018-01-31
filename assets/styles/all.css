@@ -3231,34 +3231,34 @@ body.is-search .search-con {
     color: #fff;
   }
 }
-#menu .menu-items.is-active {
-  background: rgba(18,18,18,0.98);
-  height: calc(100vh - 100px);
+#menu .menu-items.is-open {
   position: absolute;
-  top: 100px;
-  text-align: center;
+  top: 60px;
   display: block;
+  height: calc(100vh - 60px);
+  background: rgba(18,18,18,0.98);
+  text-align: center;
 }
-#menu .menu-items.is-active > ul {
-  width: 100%;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+#menu .menu-items.is-open > ul {
   position: absolute;
+  top: 50%;
+  width: 100%;
   padding-left: 0;
   margin-top: -44px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media (min-width: 568px) {
-  #menu .menu-items.is-active > ul {
+  #menu .menu-items.is-open > ul {
     margin-top: 0;
   }
 }
-#menu .menu-items.is-active li {
+#menu .menu-items.is-open li {
   margin: 30px 0;
 }
-#menu .menu-items.is-active a {
-  color: #fff;
+#menu .menu-items.is-open a {
   font-size: 30px;
+  color: #fff;
 }
 @media screen and (min-width: 768px) and (max-height: 750px) {
   #menu .menu-items {

@@ -397,7 +397,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
     exports.toggle = function(open) {
         $("html").toggleClass("is-menu", open);
         $("#toolbar, #content").toggleClass("blured", open);
-        $(".menu-trigger").toggleClass("is-open", open).next().toggleClass("is-active", open);
+        $(".menu-trigger").toggleClass("is-open", open).next().toggleClass("is-open", open);
     };
     $(document).ready(function() {
         $(document).on("click", "#menu .menu-trigger", function(ev) {
