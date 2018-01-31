@@ -1,31 +1,46 @@
+/* ==========================================================================
+   Book
+  
+   These styles are used when displaying documents that are structured as a
+   book, with a table of contents and sequence of chapters.
+   ========================================================================== */
+
+
 .contents
   max-width 840px
   width 100%
-  padding 0 20px
+  padding 0 30px 0 20px
   position relative
   box-sizing border-box
   +breakpoint("tablet")
     float left
   +breakpoint("desktop")
     margin 0
-    width 74%
+    box-sizing: border-box
+    width 80%
 
   & > section
     margin-bottom 80px
 
+/**
+ * Table of Contents
+ *
+ * The table of contents displays the parts, chapters, and subchapters within
+ * the book.
+ */
 .toc
-  padding 20px
-  margin-top 87px
+  padding: 20px
+  margin-top: 20px
   +breakpoint("tablet")
-    margin-top 0
+    margin-top: 0
   +breakpoint("desktop")
+    display: block
+    float: left
+    box-sizing: border-box
+    width: 20%
+    min-height: 1px
+    padding: 0 0 0 30px
     background-color transparent
-    width 20%
-    min-height 1px
-    padding 0
-    margin-left 30px
-    float left
-    display block
 
     -webkit-animation: fadeInLeft .4s ease-in-out
     animation: fadeInLeft .4s ease-in-out
