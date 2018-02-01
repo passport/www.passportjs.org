@@ -3893,6 +3893,18 @@ body.is-search .search-con {
     animation: fadeInLeft 0.4s ease-in-out;
   }
 }
+.toc nav {
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+}
+@media (min-width: 992px) {
+  .toc nav.is-fixed {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    padding-top: 20px;
+  }
+}
 .toc h5 {
   margin: 0;
   text-transform: uppercase;
@@ -3970,18 +3982,6 @@ body.is-search .search-con {
 .toc .accordion.open i {
   -webkit-transform: rotate(90deg) translateX(5px);
   transform: rotate(90deg) translateY(5px);
-}
-.toc nav {
-  -webkit-transition: padding 0.5s;
-  transition: padding 0.5s;
-}
-@media (min-width: 992px) {
-  .toc nav.fixed {
-    position: fixed;
-    top: 0;
-    padding-top: 20px;
-    z-index: 99;
-  }
 }
 @media screen and (min-width: 992px) and (max-height: 750px) {
   .toc [data-accordion] [data-content] {

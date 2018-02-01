@@ -199,7 +199,7 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery", "jqu
         var submenu = $(".toc nav");
         var sections = $(".contents section");
         var cur_pos = $(window).scrollTop();
-        submenu.toggleClass("fixed", _submenuOffset && _submenuOffset.top < $(window).scrollTop());
+        submenu.toggleClass("is-fixed", _submenuOffset && _submenuOffset.top < $(window).scrollTop());
         sections.each(function() {
             var top = $(this).offset().top - 50;
             var bottom = top + $(this).outerHeight();
