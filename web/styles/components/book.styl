@@ -30,9 +30,12 @@
  *
  * 1. On desktop device, float the entire table of contents to the left where
  *    it will be displayed alongside the contents.
- * 2. On desktop devices, hide the arrow icon next to the part name in order to
+ * 2. On mobile devices, don't show the anchor tag which links to a chapter in
+ *    the book.  Instead, the part name is used as an accordian, which can be
+ *    clicked to expand and view the list of chapters in that part of the book.
+ * 3. On desktop devices, hide the arrow icon next to the part name in order to
  *    narrow the amount of space required for the table of contents.
- * 3. Set 18 pixels of left padding, so that the chapter names site below the
+ * 4. Set 18 pixels of left padding, so that the chapter names site below the
  *    part names, which are indented due to an arrow icon being displayed next
  *    to them.
  *
@@ -79,7 +82,7 @@
       margin-top: 10px
       line-height: 2.8
     a
-      display: none
+      display: none // [2]
       +breakpoint("desktop")
         position: absolute
         display: block
@@ -90,10 +93,10 @@
       margin-right: 5px
       transition: transform .3s ease-in-out
       +breakpoint("desktop")
-        display: none // [2]
+        display: none // [3]
 
   ul
-    padding-left: 18px // [3]
+    padding-left: 18px // [4]
     +breakpoint("desktop")
       padding-left: 0
 
