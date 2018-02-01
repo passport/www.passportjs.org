@@ -30,12 +30,22 @@
  *
  * 1. On desktop device, float the entire table of contents to the left where
  *    it will be displayed alongside the contents.
- * 2. On mobile devices, don't show the anchor tag which links to a chapter in
+ * 2. The `nav` element is wrapped by a parent `div.toc` element.  It would be
+ *    ideal if the `.toc` class were present directly on the `nav`, and the
+ *    `div` wrapper could be eliminated.  However, the wrapper remains in order
+ *    to allow for the table of contents to be support fixed postioning, yet
+ *    preserve floating of the contents along side.
+ * 3. The `.is-fixed` state can be toggled by JavaScript (on desktop devices)
+ *    to fix the position of the table of contents.  This allows the table of
+ *    contents to remain visible, regardless of what position the document has
+ *    been scrolled in the viewpart.
+ * 4. On mobile devices, don't show the anchor tag which links to a chapter in
  *    the book.  Instead, the part name is used as an accordian, which can be
  *    clicked to expand and view the list of chapters in that part of the book.
- * 3. On desktop devices, hide the arrow icon next to the part name in order to
- *    narrow the amount of space required for the table of contents.
- * 4. Set 18 pixels of left padding, so that the chapter names site below the
+ * 5. On desktop devices, hide the arrow icon next to the part name in order to
+ *    narrow the amount of space required for the table of contents, which is
+ *    always visible on the left side.
+ * 6. Set 18 pixels of left padding, so that the chapter names site below the
  *    part names, which are indented due to an arrow icon being displayed next
  *    to them.
  *
@@ -70,6 +80,16 @@
     -webkit-animation: fadeInLeft .4s ease-in-out
     animation: fadeInLeft .4s ease-in-out
 
+  nav // [2]
+    -webkit-transition: padding .5s
+    transition: padding .5s
+    &.is-fixed // [3]
+      +breakpoint("desktop")
+        position: fixed
+        top: 0
+        z-index: 99
+        padding-top: 20px
+
   h5
     margin: 0
     text-transform: uppercase
@@ -82,7 +102,7 @@
       margin-top: 10px
       line-height: 2.8
     a
-      display: none // [2]
+      display: none // [4]
       +breakpoint("desktop")
         position: absolute
         display: block
@@ -93,10 +113,10 @@
       margin-right: 5px
       transition: transform .3s ease-in-out
       +breakpoint("desktop")
-        display: none // [3]
+        display: none // [5]
 
   ul
-    padding-left: 18px // [4]
+    padding-left: 18px // [6]
     +breakpoint("desktop")
       padding-left: 0
 
@@ -128,16 +148,6 @@
       i
         -webkit-transform rotate(90deg) translateX(5px)
         transform rotate(90deg) translateY(5px)
-
-  nav
-    -webkit-transition padding .5s
-    transition padding .5s
-    &.fixed
-      +breakpoint("desktop")
-        position fixed
-        top 0
-        padding-top 20px
-        z-index 99
 
   +breakpoint("desktop")
     @media screen and ( max-height: 750px )

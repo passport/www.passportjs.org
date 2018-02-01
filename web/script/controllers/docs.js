@@ -14,7 +14,7 @@ function(PjaxController, clazz, hljs, $, __$_accordion) {
     var cur_pos = $(window).scrollTop();
 
     // toggleFixedNavigation
-    submenu.toggleClass('fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
+    submenu.toggleClass('is-fixed', _submenuOffset && _submenuOffset.top < $(window).scrollTop());
 
     sections.each(function() {
       var top = $(this).offset().top - 50;
