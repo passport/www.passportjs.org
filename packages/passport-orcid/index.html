@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -105,7 +112,8 @@
 <pre><code class="lang-javascript"><span class="keyword">var</span> OrcidStrategy = <span class="built_in">require</span>(<span class="string">'passport-orcid'</span>).Strategy;
 
 passport.use(<span class="keyword">new</span> OrcidStrategy({
-    <span class="attr">clientID</span>: ORCID_CLIENT_ID,
+    <span class="attr">sandbox</span>: process.env.NODE_ENV !== <span class="string">'production'</span>, <span class="comment">// use the sandbox for non-production environments</span>
+    clientID: ORCID_CLIENT_ID,
     <span class="attr">clientSecret</span>: ORCID_CLIENT_SECRET,
     <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/orcid/callback"</span>
   },
@@ -136,14 +144,14 @@ app.get(<span class="string">'/auth/orcid/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-orcid</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2017-03-20T13:27:51Z">10 months ago</abbr></li>
-              <li><a class="url" href="https://gitlab.coko.foundation/pubsweet/passport-orcid.git">https://gitlab.coko.foundation/pubsweet/passport-orcid</a></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2018-02-09T09:15:14Z">19 days ago</abbr></li>
+              <li><a class="url" href="git://github.com/hubgit/passport-orcid.git">https://github.com/hubgit/passport-orcid#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>6</b> downloads in the last day</li>
-              <li><b>47</b> downloads in the last week</li>
-              <li><b>345</b> downloads in the last month</li>
+              <li><b>13</b> downloads in the last day</li>
+              <li><b>72</b> downloads in the last week</li>
+              <li><b>366</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -163,15 +171,8 @@ app.get(<span class="string">'/auth/orcid/callback'</span>,
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>

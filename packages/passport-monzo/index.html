@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +101,7 @@
           <div class="description"><h1 id="passport-monzo">passport-monzo</h1>
 <p><a href="http://passportjs.org">Passport</a> strategy for authenticating with
 <a href="https://monzo.com">Monzo</a> using the OAuth 2.0 API.</p>
-<p>This module lets you authenticate using Monzo in your Node.js applications. By
+<p>This module lets you authenticate using Monzo in your Node applications. By
 plugging into Passport, Monzo authentication can be easily and unobtrusively
 integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect">Connect</a>-style middleware, including
@@ -102,9 +109,6 @@ integrated into any application or framework that supports
 <h2 id="install">Install</h2>
 <p>Using <code>npm</code>:</p>
 <pre><code class="lang-bash">$ npm install passport-monzo
-</code></pre>
-<p>Or <code>yarn</code>:</p>
-<pre><code class="lang-bash">$ yarn install passport-monzo
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
@@ -122,8 +126,8 @@ as well as <code>profile</code> which contains the authenticated user&#39;s Monz
 <pre><code class="lang-js"><span class="keyword">var</span> MonzoStrategy = <span class="built_in">require</span>(<span class="string">'passport-monzo'</span>).Strategy;
 
 passport.use(<span class="keyword">new</span> MonzoStrategy({
-    <span class="attr">clientID</span>: MONDO_CLIENT_ID,
-    <span class="attr">clientSecret</span>: MONDO_CLIENT_SECRET,
+    <span class="attr">clientID</span>: MONZO_CLIENT_ID,
+    <span class="attr">clientSecret</span>: MONZO_CLIENT_SECRET,
     <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/monzo/callback"</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
@@ -151,14 +155,14 @@ app.get(<span class="string">'/auth/monzo/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-monzo</span></code></div>
             <ul>
-              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2017-01-31T22:46:07Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2018-02-09T00:57:38Z">19 days ago</abbr></li>
               <li><a class="url" href="git://github.com/tombell/passport-monzo.git">https://github.com/tombell/passport-monzo#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>7</b> downloads in the last week</li>
+              <li><b>42</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -178,15 +182,8 @@ app.get(<span class="string">'/auth/monzo/callback'</span>,
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>

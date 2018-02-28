@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +101,7 @@
           <div class="description"><h1 id="passport-predix-oauth">Passport-Predix-Oauth</h1>
 <p><a href="http://passportjs.org/docs">Passport</a> strategy for authenticating
 with <a href="https://www.predix.io/services/service.html?id=1172">Predix UAA service</a> using the OAuth 2.0 API.</p>
-<p>This strategy is similar to the CloudFoundry strategy, but has several benefits when using Predix UAA.</p>
+<p>This strategy is similar to the CloudFoundry strategy but has several benefits when using Predix UAA.</p>
 <ul>
 <li>Support for proxy environment variables because many devs are behind a corporate proxy.</li>
 <li>Simplified configuration.</li>
@@ -126,18 +133,26 @@ passport.use(predixStrategy);
 <p>In most cases, just setting the uaaURL is all you need. The strategy will append paths to this URL for authorization, token, and user profile.
 If desired, you can pass in those three values instead of uaaURL: authorizationURL, tokenURL, and userProfileURL.
 (If set, uaaURL will override the others.)</p>
+<h1 id="copyright">Copyright</h1>
+<p>Copyright &copy; 2015, 2016, 2017 GE Global Research. All rights reserved.</p>
+<p>The copyright to the computer software herein is the property of
+GE Global Research. The software may be used and/or copied only
+with the written permission of GE Global Research or in accordance
+with the terms and conditions stipulated in the agreement/contract
+under which the software has been supplied.</p>
+<p><a href="https://github.com/PredixDev"><img src="https://ga-beacon.appspot.com/UA-82773213-1/passport-predix-oauth/readme?pixel" alt="Analytics"></a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-predix-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.1.15</span> published <abbr class="updated" title="2017-09-02T00:08:46Z">5 months ago</abbr></li>
+              <li><span class="version">0.1.35</span> published <abbr class="updated" title="2018-02-28T00:12:59Z">an hour ago</abbr></li>
               <li><a class="url" href="git://github.com/PredixDev/passport-predix-oauth.git"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>263</b> downloads in the last day</li>
-              <li><b>1,338</b> downloads in the last week</li>
-              <li><b>4,409</b> downloads in the last month</li>
+              <li><b>471</b> downloads in the last day</li>
+              <li><b>2,807</b> downloads in the last week</li>
+              <li><b>7,251</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -157,15 +172,8 @@ If desired, you can pass in those three values instead of uaaURL: authorizationU
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>

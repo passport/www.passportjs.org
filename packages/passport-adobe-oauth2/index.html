@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-adobe-oauth2</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Adobe OAuth 2.0 authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-adobe-oauth2/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-adobe-oauth2"/>
+    <meta property="og:description" content="Adobe OAuth 2.0 authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-adobe-oauth2/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-adobe-oauth2"/>
+    <meta name="twitter:description" content="Adobe OAuth 2.0 authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-adobe-oauth2">Passport-Adobe-OAuth2</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating users with an AdobeId using the OAuth 2.0 API.</p>
+<p>This module lets you authenticate using Adobe Identity Management Services (IMS) in your Node.js applications.
+By plugging into Passport, AdobeId authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<p><a href="https://www.adobe.io/apis/cloudplatform/console/authentication/gettingstarted.html">Adobe Authentication - Getting Started</a></p>
+<h2 id="install">Install</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-adobe-oauth2</span>
+</code></pre><h2 id="usage">Usage</h2>
+<h4 id="create-an-integration-on-adobe-console-https-console-adobe-io-">Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h4>
+<p>You need to set up OAuth web credentials for Creative SDK to use the sample. </p>
+<ul>
+<li>Select &quot;Web&quot; for the platform</li>
+<li>For the default redirect URI:<ul>
+<li><code>https://</code> +   some domain name +  <code>:3000</code> + <code>/auth/adobe/callback</code></li>
+<li>For example: <code>https://www.example.net:3000/auth/adobe/callback</code></li>
+</ul>
+</li>
+<li>Input a corresponding redirect URI pattern.<ul>
+<li>For example: <code>https://www\.example\.net/auth/adobe/callback</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The Adobe authentication strategy authenticates users using an Adobe ID account
+and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
+these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
+specifying a client ID, client secret, and callback URL.</p>
+<pre><code class="lang-js">    <span class="comment">// You should modify the following values to match your own application</span>
+    <span class="keyword">var</span> ADOBE_STRATEGY_CONFIG = {
+        <span class="attr">clientID</span>: <span class="string">"Insert Adobe Client ID Here"</span>,
+        <span class="attr">clientSecret</span>: <span class="string">"Insert Adobe Client Secret Here"</span>,
+        <span class="attr">callbackURL</span>: <span class="string">"https://www.example.net:3000/auth/adobe/callback"</span>
+    };
+
+    <span class="comment">// Use the AdobeStrategy within Passport.</span>
+    <span class="comment">// Strategies in Passport require a `verify` function, which accepts credentials</span>
+    <span class="comment">// (in this case, an accessToken, refreshToken, and Adobe profile)</span>
+    <span class="comment">// and invoke a callback with a user object.</span>
+    passport.use(<span class="keyword">new</span> AdobeStrategy(ADOBE_STRATEGY_CONFIG,
+        <span class="function"><span class="keyword">function</span> (<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+            <span class="comment">//verify function below</span>
+            <span class="comment">// asynchronous verification, for effect...</span>
+            process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+                <span class="comment">// To keep the example simple, the user's Adobe profile is returned to</span>
+                <span class="comment">// represent the logged-in user.  In a typical application, you would want</span>
+                <span class="comment">// to associate the Adobe account with a user record in your database,</span>
+                <span class="comment">// and return that user instead.</span>
+                <span class="comment">// var  userId = profile.userId || profile.sub;</span>
+                <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+            });
+        }
+    ));
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;adobe&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-js">    app.get(<span class="string">'/auth/adobe/login.html'</span>,
+      passport.authenticate(<span class="string">'adobe'</span>));
+
+    app.get(<span class="string">'/auth/adobe/callback'</span>,
+      passport.authenticate(<span class="string">'adobe'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+        <span class="comment">// Successful authentication, redirect home.</span>
+        res.redirect(<span class="string">'/'</span>);
+      });
+</code></pre>
+<h2 id="example">Example</h2>
+<p>The source repo contains a very basic example application you can run on your machine.
+Here&#39;s how to get it up and running:</p>
+<h3 id="step-1-create-an-integration-on-adobe-console-https-console-adobe-io-">Step 1: Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h3>
+<p>You need to set up OAuth web credentials for Creative SDK to use the sample. </p>
+<ul>
+<li>Select &quot;Web&quot; for the platform</li>
+<li>For the default redirect URI:<ul>
+<li><code>https://</code> +   some domain name +  <code>:3000</code> + <code>/auth/adobe/callback</code></li>
+<li>For example: <code>https://www.example.net:3000/auth/adobe/callback</code></li>
+</ul>
+</li>
+<li>Input a corresponding redirect URI pattern.<ul>
+<li>For example: <code>https://www\.example\.net/auth/adobe/callback</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="step-2-create-a-self-signed-ssl-certificate-to-run-a-local-https-server">Step 2: Create a self-signed SSL certificate to run a local https server</h3>
+<p>Because we are only running this locally and in non-production mode, we can secure the server connection with a self-signed SSL cert. This can be done via openssl. </p>
+<p>Make sure the openssl library is installed by checking the path</p>
+<pre><code><span class="meta">$</span><span class="bash"> <span class="built_in">which</span> openssl</span>
+</code></pre><p>Install if necessary: <a href="http://brewformulas.org/Openssl">MacOSX Homebrew</a>, <a href="http://gnuwin32.sourceforge.net/packages/openssl.htm">Windows</a></p>
+<p>In the example directory, generate your cert and private key files: <code>server.key</code> and <code>server.crt</code>. The challenge password is used for certificate revocation-- you can leave this empty for the example</p>
+<pre><code class="lang-bash">$ <span class="built_in">cd</span> example
+$ openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
+$ openssl rsa -passin pass:x -<span class="keyword">in</span> server.pass.key -out server.key
+writing RSA key
+$ rm server.pass.key
+$ openssl req -new -key server.key -out server.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+...
+A challenge password []:
+...
+$ openssl x509 -req -sha256 -days 365 -<span class="keyword">in</span> server.csr -signkey server.key -out server.crt
+</code></pre>
+<h3 id="step-3-override-dns-records-to-redirect-to-local-host">Step 3: Override DNS records to redirect to local host</h3>
+<p>Open and edit the hosts file with admin rights.</p>
+<ul>
+<li>for MacOSX and Ubuntu: <code>sudo open /etc/hosts</code></li>
+<li>for Windows (8, 8.1, 10): Run notepad as Administrator. File-&gt;Open <code>c:\windows\system32\drivers\etc\hosts</code></li>
+</ul>
+<p>Add a record on a new line to alias the redirect domain to your local host ip address</p>
+<pre><code>127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span>       <span class="selector-tag">www</span><span class="selector-class">.example</span><span class="selector-class">.net</span>
+</code></pre><h3 id="step-4-edit-the-app-js-file-in-the-example">Step 4: Edit the app.js file in the example</h3>
+<p>Open and edit the example/app.js file. Fill the following variable to match the integration you created on the console </p>
+<pre><code><span class="selector-tag">var</span> ADOBE_CLIENT_ID = <span class="string">"..."</span>
+<span class="selector-tag">var</span> ADOBE_CLIENT_SECRET = <span class="string">"..."</span>
+<span class="selector-tag">var</span> REDIRECT_URI = <span class="string">"..."</span>
+</code></pre><h3 id="step-5-run-the-sample">Step 5: Run the sample</h3>
+<p>Go into the <code>example</code> folder and run</p>
+<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
+<span class="meta">$</span><span class="bash"> npm start</span>
+</code></pre><p>Then open in your browser</p>
+<pre><code>https:<span class="regexp">//</span>www.example.net:<span class="number">3000</span><span class="regexp">/auth/</span>adobe<span class="regexp">/login.html</span>
+</code></pre><p>Replacing <code>www.example.net</code> with whatever redirect domain you chose. You may be prompted with an insecure website warning. Proceed anyway. </p>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+</code></pre><h2 id="credits">Credits</h2>
+<ul>
+<li>Dragos Dascalita Haut <a href="https://github.com/ddragosd">@ddragosd</a></li>
+<li>Audrey So <a href="https://github.com/audreyeso">@audreyeso</a></li>
+<li>Caryn Tran <a href="https://github.com/carynbear">@carynbear</a></li>
+<li><p>Jesse MacFadyen <a href="https://github.com/purplecabbage">@purplecabbage</a></p>
+<p>This strategy is based on Jared Hanson&#39;s GitHub strategy for passport:  </p>
+</li>
+<li><a href="https://github.com/jaredhanson">Jared Hanson</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+<p>Copyright (c) 2014 - present Adobe Systems Incorporated. All rights reserved.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-adobe-oauth2</span></code></div>
+            <ul>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-02-27T17:53:18Z">8 hours ago</abbr></li>
+              <li><a class="url" href="git://github.com/adobe/passport-adobe-oauth2.git">https://github.com/adobe/passport-adobe-oauth2#readme</a></li>
+              <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
+            </ul>
+            <ul>
+              <li><b>8</b> downloads in the last day</li>
+              <li><b>27</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
+  </body>
+</html>

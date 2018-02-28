@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -144,7 +151,7 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
 <li><code>identifierFormat</code>: if truthy, name identifier format to request from identity provider (default: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code>)</li>
 <li><code>acceptedClockSkewMs</code>: Time in milliseconds of skew that is acceptable between client and server when checking <code>OnBefore</code> and <code>NotOnOrAfter</code> assertion condition validity timestamps.  Setting to <code>-1</code> will disable checking these conditions entirely.  Default is <code>0</code>.</li>
 <li><code>attributeConsumingServiceIndex</code>: optional <code>AttributeConsumingServiceIndex</code> attribute to add to AuthnRequest to instruct the IDP which attribute set to attach to the response (<a href="http://blog.aniljohn.com/2014/01/data-minimization-front-channel-saml-attribute-requests.html">link</a>)</li>
-<li><code>disableRequestedAuthnContext</code>: if truthy, do not request a specific auth context</li>
+<li><code>disableRequestedAuthnContext</code>: if truthy, do not request a specific authentication context. This is <a href="https://github.com/bergie/passport-saml/issues/226">known to help when authenticating against Active Directory</a> (AD FS) servers.</li>
 <li><code>authnContext</code>: if truthy, name identifier format to request auth context (default: <code>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</code>)</li>
 <li><code>forceAuthn</code>: if set to true, the initial SAML request from the service provider specifies that the IdP should force re-authentication of the user, even if they possess a valid session.</li>
 <li><code>providerName</code>: optional human-readable name of the requester for use by the presenter&#39;s user agent or the identity provider</li>
@@ -160,6 +167,9 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
 </li>
 <li><strong>Passport</strong><ul>
 <li><code>passReqToCallback</code>: if truthy, <code>req</code> will be passed as the first argument to the verify callback (default: <code>false</code>)</li>
+<li><code>name</code>: Optionally, provide a custom name. (default: <code>saml</code>). Useful If you want to instantiate the strategy multiple times with different configurations,<pre><code>   allowing users to authenticate against multiple different SAML targets from the same site. You'll need to <span class="keyword">use</span> a <span class="keyword">unique</span> <span class="keyword">set</span> <span class="keyword">of</span> URLs
+   <span class="keyword">for</span> <span class="keyword">each</span> target, <span class="keyword">and</span> <span class="keyword">use</span> this custom <span class="keyword">name</span> <span class="keyword">when</span> <span class="keyword">calling</span> <span class="string">`passport.authenticate()`</span> <span class="keyword">as</span> well.
+</code></pre></li>
 </ul>
 </li>
 <li><strong>Logout</strong><ul>
@@ -197,7 +207,7 @@ should start with <code>-----BEGIN PRIVATE KEY-----</code> on its own line and e
 <p>For example:</p>
 <pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./cert.pem'</span>, <span class="string">'utf-8'</span>)
 </code></pre>
-<p>It is a good idea to validate the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 certificate using the <code>cert</code> confguration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
+<p>It is a good idea to validate the signatures of the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 signing certificate using the <code>cert</code> confguration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
 <pre><code class="lang-javascript">    cert: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>
 </code></pre>
 <p>If you have a certificate in the binary DER encoding, you can convert it to the necessary PEM encoding like this:</p>
@@ -274,14 +284,14 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml</span></code></div>
             <ul>
-              <li><span class="version">0.32.1</span> published <abbr class="updated" title="2018-01-03T19:33:50Z">a month ago</abbr></li>
+              <li><span class="version">0.33.0</span> published <abbr class="updated" title="2018-02-27T17:58:02Z">8 hours ago</abbr></li>
               <li><a class="url" href="git://github.com/bergie/passport-saml.git">https://github.com/bergie/passport-saml#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3,302</b> downloads in the last day</li>
-              <li><b>19,132</b> downloads in the last week</li>
-              <li><b>84,510</b> downloads in the last month</li>
+              <li><b>4,994</b> downloads in the last day</li>
+              <li><b>23,154</b> downloads in the last week</li>
+              <li><b>91,605</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -301,15 +311,8 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>

@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -104,7 +111,7 @@ and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Servi
 <h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
 <p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
-<p>Current version - 3.0.10<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
+<p>Current version - 3.0.12<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
 <h2 id="3-contribution-history">3. Contribution History</h2>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad"><img src="https://badge.waffle.io/AzureAD/passport-azure-ad.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad/metrics"><img src="https://graphs.waffle.io/AzureAD/passport-azure-ad/throughput.svg" alt="Throughput Graph"></a></p>
@@ -134,6 +141,7 @@ User sends a request to the protected web api which contains an access_token in 
     <span class="attr">passReqToCallback</span>: config.creds.passReqToCallback,
     <span class="attr">scope</span>: config.creds.scope,
     <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
+    <span class="attr">loggingNoPII</span>: config.creds.loggingNoPII,
     <span class="attr">nonceLifetime</span>: config.creds.nonceLifetime,
     <span class="attr">nonceMaxAmount</span>: config.creds.nonceMaxAmount,
     <span class="attr">useCookieInsteadOfSession</span>: config.creds.useCookieInsteadOfSession,
@@ -236,6 +244,9 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 </li>
 <li><p><code>loggingLevel</code>  (Optional)</p>
 <p>Logging level. &#39;info&#39;, &#39;warn&#39; or &#39;error&#39;.</p>
+</li>
+<li><p><code>loggingNoPII</code>  (Optional)</p>
+<p>If this is set to true, no personal information such as tokens and claims will be logged. The default value is true.</p>
 </li>
 <li><p><code>nonceLifetime</code>  (Optional)</p>
 <p>The lifetime of nonce in session in seconds. The default value is 3600 seconds.</p>
@@ -430,6 +441,7 @@ the strategy.</p>
   <span class="attr">allowMultiAudiencesInToken</span>: config.creds.allowMultiAudiencesInToken,
   <span class="attr">audience</span>: config.creds.audience,
   <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
+  <span class="attr">loggingNoPII</span>: config.creds.loggingNoPII,
   <span class="attr">clockSkew</span>: config.creds.clockSkew,
   <span class="attr">scope</span>: config.creds.scope
 };
@@ -503,6 +515,9 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </li>
 <li><p><code>loggingLevel</code>  (Optional)</p>
 <p>Logging level. &#39;info&#39;, &#39;warn&#39; or &#39;error&#39;.</p>
+</li>
+<li><p><code>loggingNoPII</code>  (Optional)</p>
+<p>If this is set to true, no personal information such as tokens and claims will be logged. The default value is true.</p>
 </li>
 <li><p><code>clockSkew</code>  (Optional)</p>
 <p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
@@ -614,14 +629,14 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">3.0.10</span> published <abbr class="updated" title="2018-01-30T01:08:25Z">17 hours ago</abbr></li>
+              <li><span class="version">3.0.12</span> published <abbr class="updated" title="2018-02-27T23:42:05Z">2 hours ago</abbr></li>
               <li><a class="url" href="git://github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>859</b> downloads in the last day</li>
-              <li><b>5,100</b> downloads in the last week</li>
-              <li><b>16,705</b> downloads in the last month</li>
+              <li><b>1,031</b> downloads in the last day</li>
+              <li><b>5,749</b> downloads in the last week</li>
+              <li><b>22,746</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -641,15 +656,8 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>

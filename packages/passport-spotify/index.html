@@ -56,6 +56,13 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M5S3PH');
+    </script>
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -109,12 +116,14 @@ unobtrusively integrated into any application or framework that supports
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> SpotifyStrategy({
+<pre><code class="lang-javascript"><span class="keyword">const</span> SpotifyStrategy = <span class="built_in">require</span>(<span class="string">'passport-spotify'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> SpotifyStrategy({
     <span class="attr">clientID</span>: client_id,
     <span class="attr">clientSecret</span>: client_secret,
     <span class="attr">callbackURL</span>: <span class="string">"http://localhost:8888/auth/spotify/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
     User.findOrCreate({ <span class="attr">spotifyId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
@@ -181,14 +190,14 @@ app.get(<span class="string">'/auth/spotify/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-spotify</span></code></div>
             <ul>
-              <li><span class="version">0.3.1</span> published <abbr class="updated" title="2017-04-28T14:12:55Z">9 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-02-06T15:21:47Z">21 days ago</abbr></li>
               <li><a class="url" href="git://github.com/JMPerez/passport-spotify.git">https://github.com/jmperez/passport-spotify#readme</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>32</b> downloads in the last day</li>
-              <li><b>185</b> downloads in the last week</li>
-              <li><b>701</b> downloads in the last month</li>
+              <li><b>28</b> downloads in the last day</li>
+              <li><b>113</b> downloads in the last week</li>
+              <li><b>813</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
@@ -208,15 +217,8 @@ app.get(<span class="string">'/auth/spotify/callback'</span>,
         <section></section>
       </div>
     </div>
-    <!-- Google Tag Manager-->
-    <noscript>iframe(src='//www.googletagmanager.com/ns.html?id=GTM-M5S3PH', height='0', width='0', style='display:none;visibility:hidden')</noscript>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
-    <!-- End Google Tag Manager-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+    </noscript>
   </body>
 </html>
