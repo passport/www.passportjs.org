@@ -14,7 +14,7 @@ authenticationSchemes:
     color: "#0976b4"
   - name: github
     color: "#333"
-packageCount: 480
+packageCount: 500
 
 
 author:
