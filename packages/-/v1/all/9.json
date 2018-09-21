@@ -1,45 +1,6 @@
 {
   "objects": [
     {
-      "_id": "passport-ibm-connections-cloud",
-      "name": "passport-ibm-connections-cloud",
-      "description": "Passport oAuth 2.0 Strategy for IBM Connections Cloud",
-      "keywords": [
-        "passport-ibm-connections-cloud",
-        "ibm",
-        "passport",
-        "oauth",
-        "connections",
-        "cloud",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "1.2.0"
-      },
-      "homepage": "https://github.com/benkroeger/passport-ibm-connections-cloud#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/benkroeger/passport-ibm-connections-cloud.git",
-        "favoriteCount": 2,
-        "subscriberCount": 2,
-        "forkCount": 0,
-        "created": "2015-02-06T09:49:54.000Z",
-        "modified": "2016-05-17T16:01:13.000Z"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-02-06T19:42:31.791Z",
-        "modified": "2016-05-17T16:01:20.851Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 16,
-        "last-month": 80
-      }
-    },
-    {
-      "_id": "passport-ibm-connections-oauth",
       "name": "passport-ibm-connections-oauth",
       "description": "Passport OAuth 2.0 Strategy for IBM Connections",
       "keywords": [
@@ -58,12 +19,10 @@
       "homepage": "https://github.com/benkroeger/passport-ibm-connections-oauth#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/benkroeger/passport-ibm-connections-oauth.git",
+        "url": "git+https://github.com/benkroeger/passport-ibm-connections-oauth.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2017-03-02T13:17:19.000Z",
-        "modified": "2017-11-08T18:23:30.000Z"
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -72,12 +31,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 5,
-        "last-month": 20
+        "last-week": 0,
+        "last-month": 5
       }
     },
     {
-      "_id": "passport-ibmid-oauth2",
       "name": "passport-ibmid-oauth2",
       "description": "Passport for IBM ID OAuth2",
       "keywords": [
@@ -94,12 +52,10 @@
       "homepage": "https://github.com/osipov/passport-ibmid-oauth2",
       "repository": {
         "type": "git",
-        "url": "git://github.com/osipov/passport-ibmid-oauth2.git",
-        "favoriteCount": 13,
+        "url": "https://github.com/osipov/passport-ibmid-oauth2",
+        "favoriteCount": 14,
         "subscriberCount": 2,
-        "forkCount": 1,
-        "created": "2014-05-03T15:55:06.000Z",
-        "modified": "2015-12-10T21:11:41.000Z"
+        "forkCount": 1
       },
       "license": "Apache 2.0",
       "time": {
@@ -107,13 +63,12 @@
         "modified": "2015-12-10T21:12:07.785Z"
       },
       "downloads": {
-        "last-day": 10,
-        "last-week": 43,
-        "last-month": 224
+        "last-day": 0,
+        "last-week": 190,
+        "last-month": 1165
       }
     },
     {
-      "_id": "passport-identityua",
       "name": "passport-identityua",
       "description": "University of Aveiro authentication strategy for Passport.",
       "keywords": [
@@ -130,12 +85,10 @@
       "homepage": "https://github.com/poliveira89/passport-identityua#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/poliveira89/passport-identityua.git",
+        "url": "git+ssh://git@github.com/poliveira89/passport-identityua.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-09-16T20:13:49.000Z",
-        "modified": "2017-04-03T14:51:49.000Z"
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -144,12 +97,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 6,
-        "last-month": 25
+        "last-week": 0,
+        "last-month": 4
       }
     },
     {
-      "_id": "passport-idn",
       "name": "passport-idn",
       "description": "La Poste IDN (Identité Numérique) authentication strategy for Passport.",
       "keywords": [
@@ -167,12 +119,10 @@
       "homepage": "https://github.com/tusbar/passport-idn",
       "repository": {
         "type": "git",
-        "url": "git://github.com/tusbar/passport-idn.git",
+        "url": "http://github.com/tusbar/passport-idn.git",
         "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 1,
-        "created": "2015-04-04T15:10:36.000Z",
-        "modified": "2015-04-04T15:59:44.000Z"
+        "subscriberCount": 2,
+        "forkCount": 1
       },
       "time": {
         "created": "2015-04-04T15:38:49.741Z",
@@ -180,12 +130,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 4,
-        "last-month": 21
+        "last-week": 1,
+        "last-month": 6
       }
     },
     {
-      "_id": "passport-idsus",
       "name": "passport-idsus",
       "description": "IdSus authentication strategy for Passport.",
       "dist-tags": {
@@ -194,12 +143,10 @@
       "homepage": "https://github.com/ABS-org/passport-idsus#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/saviogl/passport-idsus.git",
+        "url": "git+ssh://git@github.com/ABS-org/passport-idsus.git",
         "favoriteCount": 2,
-        "subscriberCount": 8,
-        "forkCount": 0,
-        "created": "2016-04-06T23:22:18.000Z",
-        "modified": "2016-08-18T18:17:17.000Z"
+        "subscriberCount": 7,
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -208,12 +155,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 3,
-        "last-month": 20
+        "last-week": 0,
+        "last-month": 3
       }
     },
     {
-      "_id": "passport-ifmosso",
       "name": "passport-ifmosso",
       "description": "IfmoSSO authentication strategy for Passport.",
       "keywords": [
@@ -231,9 +177,7 @@
         "url": "git://github.com/meefik/passport-ifmosso.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-10-24T14:01:59.000Z",
-        "modified": "2015-10-26T15:32:58.000Z"
+        "forkCount": 0
       },
       "time": {
         "created": "2015-10-24T14:35:15.711Z",
@@ -241,12 +185,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 12,
-        "last-month": 39
+        "last-week": 0,
+        "last-month": 4
       }
     },
     {
-      "_id": "passport-imgur",
       "name": "passport-imgur",
       "description": "Imgur API authentication strategy for Passport.",
       "keywords": [
@@ -264,25 +207,22 @@
       "homepage": "https://github.com/mindfreakthemon/passport-imgur#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/mindfreakthemon/passport-imgur.git",
-        "favoriteCount": 5,
+        "url": "git+ssh://git@github.com/mindfreakthemon/passport-imgur.git",
+        "favoriteCount": 6,
         "subscriberCount": 1,
-        "forkCount": 3,
-        "created": "2013-08-09T08:26:25.000Z",
-        "modified": "2015-08-27T14:37:21.000Z"
+        "forkCount": 3
       },
       "time": {
         "created": "2013-08-09T08:57:38.217Z",
         "modified": "2015-08-27T14:36:57.172Z"
       },
       "downloads": {
-        "last-day": 14,
-        "last-week": 57,
-        "last-month": 288
+        "last-day": 0,
+        "last-week": 8,
+        "last-month": 216
       }
     },
     {
-      "_id": "passport-indieauth",
       "name": "passport-indieauth",
       "description": "IndieAuth authentication strategy for Passport.",
       "keywords": [
@@ -302,12 +242,10 @@
       "homepage": "https://github.com/mko/passport-indieauth",
       "repository": {
         "type": "git",
-        "url": "git://github.com/mko/passport-indieauth.git",
+        "url": "http://github.com/mko/passport-indieauth.git",
         "favoriteCount": 3,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2014-07-11T16:25:20.000Z",
-        "modified": "2014-08-20T07:13:49.000Z"
+        "forkCount": 0
       },
       "time": {
         "created": "2014-07-18T00:13:49.389Z",
@@ -315,12 +253,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 8,
-        "last-month": 45
+        "last-week": 0,
+        "last-month": 6
       }
     },
     {
-      "_id": "passport-infotjenester",
       "name": "passport-infotjenester",
       "description": "Infotjenester authentication strategy for Passport",
       "keywords": [
@@ -337,12 +274,10 @@
       "homepage": "https://github.com/itasdesk/passport-infotjenester#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/itasdesk/passport-infotjenester.git",
+        "url": "git+https://github.com/itasdesk/passport-infotjenester.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2016-11-08T13:14:47.000Z",
-        "modified": "2017-03-08T11:50:18.000Z"
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -351,12 +286,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 6,
-        "last-month": 30
+        "last-week": 0,
+        "last-month": 4
       }
     },
     {
-      "_id": "passport-infusionsoft",
       "name": "passport-infusionsoft",
       "description": "Infusionsoft API OAuth2 authentication strategy for Passport",
       "keywords": [
@@ -374,12 +308,10 @@
       "homepage": "https://github.com/andrewgbliss/passport-infusionsoft",
       "repository": {
         "type": "git",
-        "url": "git://github.com/andrewgbliss/passport-infusionsoft.git",
+        "url": "https://github.com/andrewgbliss/passport-infusionsoft.git",
         "favoriteCount": 0,
         "subscriberCount": 0,
-        "forkCount": 1,
-        "created": "2014-05-14T19:00:38.000Z",
-        "modified": "2014-05-14T21:21:15.000Z"
+        "forkCount": 1
       },
       "license": "MIT",
       "time": {
@@ -387,13 +319,12 @@
         "modified": "2014-05-14T21:20:37.626Z"
       },
       "downloads": {
-        "last-day": 11,
-        "last-week": 57,
-        "last-month": 255
+        "last-day": 0,
+        "last-week": 117,
+        "last-month": 444
       }
     },
     {
-      "_id": "passport-instagram",
       "name": "passport-instagram",
       "description": "Instagram authentication strategy for Passport.",
       "keywords": [
@@ -411,24 +342,21 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/jaredhanson/passport-instagram.git",
-        "favoriteCount": 112,
-        "subscriberCount": 5,
-        "forkCount": 48,
-        "created": "2011-11-24T06:55:59.000Z",
-        "modified": "2018-01-04T16:26:31.000Z"
+        "favoriteCount": 125,
+        "subscriberCount": 6,
+        "forkCount": 49
       },
       "time": {
         "created": "2011-11-25T20:22:36.160Z",
         "modified": "2017-04-22T01:42:15.442Z"
       },
       "downloads": {
-        "last-day": 648,
-        "last-week": 3054,
-        "last-month": 13329
+        "last-day": 0,
+        "last-week": 1878,
+        "last-month": 12217
       }
     },
     {
-      "_id": "passport-intercom",
       "name": "passport-intercom",
       "description": "Intercom authentication strategy for Passport.",
       "keywords": [
@@ -446,11 +374,9 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/intercom/passport-intercom.git",
-        "favoriteCount": 2,
-        "subscriberCount": 103,
-        "forkCount": 4,
-        "created": "2016-08-10T18:32:18.000Z",
-        "modified": "2017-01-20T17:33:12.000Z"
+        "favoriteCount": 3,
+        "subscriberCount": 104,
+        "forkCount": 6
       },
       "license": "MIT",
       "time": {
@@ -458,13 +384,12 @@
         "modified": "2017-01-20T17:33:26.758Z"
       },
       "downloads": {
-        "last-day": 8,
-        "last-week": 48,
-        "last-month": 220
+        "last-day": 0,
+        "last-week": 73,
+        "last-month": 567
       }
     },
     {
-      "_id": "passport-intuit-oauth",
       "name": "passport-intuit-oauth",
       "description": "Intuit (OAuth) authentication strategy for Passport.",
       "keywords": [
@@ -482,51 +407,44 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/jaredhanson/passport-intuit-oauth.git",
-        "favoriteCount": 14,
+        "favoriteCount": 15,
         "subscriberCount": 3,
-        "forkCount": 9,
-        "created": "2012-05-05T21:35:56.000Z",
-        "modified": "2018-01-04T16:27:13.000Z"
+        "forkCount": 9
       },
       "time": {
         "created": "2012-05-05T21:47:58.024Z",
         "modified": "2017-01-26T21:27:26.046Z"
       },
       "downloads": {
-        "last-day": 11,
-        "last-week": 65,
-        "last-month": 291
+        "last-day": 0,
+        "last-week": 30,
+        "last-month": 198
       }
     },
     {
-      "_id": "passport-intuit",
       "name": "passport-intuit",
       "description": "Intuit (OpenID) authentication strategy for Passport.",
       "dist-tags": {
         "latest": "0.2.0"
       },
-      "homepage": "https://github.com/jaredhanson/passport-intuit",
       "repository": {
         "type": "git",
         "url": "git://github.com/jaredhanson/passport-intuit.git",
         "favoriteCount": 7,
         "subscriberCount": 2,
-        "forkCount": 8,
-        "created": "2012-05-05T19:24:37.000Z",
-        "modified": "2018-01-04T16:27:26.000Z"
+        "forkCount": 7
       },
       "time": {
         "created": "2012-05-05T21:43:02.730Z",
         "modified": "2017-01-26T21:27:53.369Z"
       },
       "downloads": {
-        "last-day": 7,
-        "last-week": 49,
-        "last-month": 255
+        "last-day": 0,
+        "last-week": 43,
+        "last-month": 335
       }
     },
     {
-      "_id": "passport-ionisx",
       "name": "passport-ionisx",
       "description": "Passport strategy for authenticating with IONISx using the OAuth 2.0 API",
       "keywords": [
@@ -543,12 +461,10 @@
       "homepage": "https://github.com/IONISx/passport-ionisx#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/IONISx/passport-ionisx.git",
+        "url": "git+ssh://git@github.com/IONISx/passport-ionisx.git",
         "favoriteCount": 0,
-        "subscriberCount": 5,
-        "forkCount": 0,
-        "created": "2015-09-10T16:54:06.000Z",
-        "modified": "2016-10-28T08:12:41.000Z"
+        "subscriberCount": 6,
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -557,12 +473,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 9,
-        "last-month": 34
+        "last-week": 0,
+        "last-month": 4
       }
     },
     {
-      "_id": "passport-iucas",
       "name": "passport-iucas",
       "description": "Indiana University Cas authentication strategies for Passport.",
       "keywords": [
@@ -576,12 +491,10 @@
       "homepage": "https://github.com/soichih/passport-iucas",
       "repository": {
         "type": "git",
-        "url": "git://github.com/soichih/passport-iucas.git",
+        "url": "git+ssh://git@github.com/soichih/passport-iucas.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-04-29T18:41:49.000Z",
-        "modified": "2015-04-30T17:33:05.000Z"
+        "forkCount": 1
       },
       "license": "MIT",
       "time": {
@@ -590,12 +503,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 2,
-        "last-month": 11
+        "last-week": 0,
+        "last-month": 2
       }
     },
     {
-      "_id": "passport-jawbone",
       "name": "passport-jawbone",
       "description": "Passport strategy for authenticating with Jawbone UP using the OAuth 2.0 ",
       "keywords": [
@@ -608,12 +520,10 @@
       "homepage": "https://github.com/kiwiwearables/passport-jawbone#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/kiwiai/passport-jawbone.git",
+        "url": "git+https://github.com/kiwiwearables/passport-jawbone.git",
         "favoriteCount": 0,
-        "subscriberCount": 6,
-        "forkCount": 1,
-        "created": "2015-12-01T22:14:58.000Z",
-        "modified": "2017-04-12T22:09:33.000Z"
+        "subscriberCount": 5,
+        "forkCount": 1
       },
       "license": [
         {
@@ -627,12 +537,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 11,
-        "last-month": 66
+        "last-week": 1,
+        "last-month": 14
       }
     },
     {
-      "_id": "passport-jd-credit",
       "name": "passport-jd-credit",
       "description": "Passport strategy for authenticating with Alipay",
       "keywords": [
@@ -645,12 +554,10 @@
       "homepage": "https://github.com/mackwan84/passport-jd-credit#readme",
       "repository": {
         "type": "git",
-        "url": "git://github.com/mackwan84/passport-jd-credit.git",
+        "url": "git+https://github.com/mackwan84/passport-jd-credit.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2017-12-18T09:57:32.000Z",
-        "modified": "2017-12-19T02:47:40.000Z"
+        "forkCount": 0
       },
       "license": "MIT",
       "time": {
@@ -659,12 +566,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 2,
-        "last-month": 11
+        "last-week": 0,
+        "last-month": 7
       }
     },
     {
-      "_id": "passport-jive",
       "name": "passport-jive",
       "description": "Jive (OAuth) authentication strategies for Passport.",
       "keywords": [
@@ -681,12 +587,10 @@
       "homepage": "https://github.com/aldricHCK/passport-oauth-jive",
       "repository": {
         "type": "git",
-        "url": "git://github.com/Respondi/passport-oauth-jive.git",
+        "url": "git://github.com/aldricHCK/passport-oauth-jive.git",
         "favoriteCount": 0,
         "subscriberCount": 1,
-        "forkCount": 0,
-        "created": "2015-04-21T13:02:28.000Z",
-        "modified": "2015-04-21T13:11:36.000Z"
+        "forkCount": 0
       },
       "license": "ISC",
       "time": {
@@ -695,26 +599,22 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 16,
-        "last-month": 81
+        "last-week": 0,
+        "last-month": 9
       }
     },
     {
-      "_id": "passport-justintv",
       "name": "passport-justintv",
       "description": "Justin.tv authentication strategy for Passport.",
       "dist-tags": {
         "latest": "0.1.2"
       },
-      "homepage": "https://github.com/jaredhanson/passport-justintv",
       "repository": {
         "type": "git",
         "url": "git://github.com/jaredhanson/passport-justintv.git",
         "favoriteCount": 1,
         "subscriberCount": 2,
-        "forkCount": 1,
-        "created": "2011-12-03T17:13:48.000Z",
-        "modified": "2013-01-25T05:58:43.000Z"
+        "forkCount": 1
       },
       "time": {
         "created": "2011-12-03T17:30:15.739Z",
@@ -722,12 +622,11 @@
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 6,
-        "last-month": 34
+        "last-week": 1,
+        "last-month": 5
       }
     },
     {
-      "_id": "passport-jwt-cookiecombo",
       "name": "passport-jwt-cookiecombo",
       "description": "JSON Web Token (JWT) cookie combo authentication strategy for Passport and Node.js.",
       "keywords": [
@@ -746,25 +645,22 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/codebarista/passport-jwt-cookiecombo.git",
-        "favoriteCount": 15,
-        "subscriberCount": 1,
-        "forkCount": 2,
-        "created": "2016-07-12T19:51:55.000Z",
-        "modified": "2017-04-17T17:04:36.000Z"
+        "favoriteCount": 21,
+        "subscriberCount": 0,
+        "forkCount": 3
       },
       "license": "ISC",
       "time": {
         "created": "2016-07-12T20:25:37.005Z",
-        "modified": "2017-12-19T17:10:19.950Z"
+        "modified": "2018-06-07T20:32:20.753Z"
       },
       "downloads": {
-        "last-day": 2,
-        "last-week": 29,
-        "last-month": 154
+        "last-day": 0,
+        "last-week": 100,
+        "last-month": 481
       }
     },
     {
-      "_id": "passport-jwt",
       "name": "passport-jwt",
       "description": "Passport authentication strategy using JSON Web Tokens",
       "keywords": [
@@ -776,31 +672,28 @@
         "JWT"
       ],
       "dist-tags": {
-        "latest": "3.0.1"
+        "latest": "4.0.0"
       },
       "homepage": "https://github.com/themikenicholson/passport-jwt",
       "repository": {
         "type": "git",
-        "url": "git://github.com/themikenicholson/passport-jwt.git",
-        "favoriteCount": 959,
-        "subscriberCount": 16,
-        "forkCount": 134,
-        "created": "2014-11-08T19:05:44.000Z",
-        "modified": "2018-02-20T17:36:18.000Z"
+        "url": "git+https://github.com/themikenicholson/passport-jwt.git",
+        "favoriteCount": 1238,
+        "subscriberCount": 23,
+        "forkCount": 159
       },
       "license": "MIT",
       "time": {
         "created": "2014-11-12T03:16:36.887Z",
-        "modified": "2018-02-23T11:52:20.292Z"
+        "modified": "2018-07-17T13:30:29.155Z"
       },
       "downloads": {
-        "last-day": 7461,
-        "last-week": 39952,
-        "last-month": 167816
+        "last-day": 0,
+        "last-week": 43139,
+        "last-month": 245719
       }
     },
     {
-      "_id": "passport-kakao",
       "name": "passport-kakao",
       "description": "kakao oauth2 login module",
       "keywords": [
@@ -816,11 +709,9 @@
       "repository": {
         "type": "git",
         "url": "git://github.com/rotoshine/passport-kakao.git",
-        "favoriteCount": 24,
+        "favoriteCount": 26,
         "subscriberCount": 2,
-        "forkCount": 8,
-        "created": "2014-05-07T06:29:40.000Z",
-        "modified": "2017-11-18T22:14:27.000Z"
+        "forkCount": 10
       },
       "license": "MIT",
       "time": {
@@ -828,40 +719,73 @@
         "modified": "2017-09-11T07:17:56.644Z"
       },
       "downloads": {
-        "last-day": 30,
-        "last-week": 154,
-        "last-month": 561
+        "last-day": 0,
+        "last-week": 173,
+        "last-month": 897
       }
     },
     {
-      "_id": "passport-kerberos",
       "name": "passport-kerberos",
       "description": "Kerberos 5 username and password authentication strategy for Passport.",
       "dist-tags": {
         "latest": "0.0.1"
       },
-      "homepage": "https://github.com/joshuah/passport-kerberos",
       "repository": {
         "type": "git",
         "url": "git://github.com/joshuah/passport-kerberos.git",
-        "favoriteCount": 17,
+        "favoriteCount": 18,
         "subscriberCount": 2,
-        "forkCount": 3,
-        "created": "2013-11-08T21:10:03.000Z",
-        "modified": "2013-11-08T22:53:58.000Z"
+        "forkCount": 4
       },
       "time": {
         "created": "2013-11-08T22:54:04.258Z",
         "modified": "2013-11-08T22:54:05.142Z"
       },
       "downloads": {
-        "last-day": 2,
-        "last-week": 13,
-        "last-month": 49
+        "last-day": 0,
+        "last-week": 2,
+        "last-month": 31
+      }
+    },
+    {
+      "name": "passport-keystone",
+      "description": "OpenStack Keystone authentication strategy for Passport and Node.js",
+      "keywords": [
+        "passport",
+        "openstack",
+        "rackspace",
+        "keystone",
+        "identity",
+        "authentication",
+        "auth",
+        "express",
+        "middleware",
+        "connect"
+      ],
+      "dist-tags": {
+        "latest": "0.2.5"
+      },
+      "homepage": "https://github.com/eddywashere/passport-keystone",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/eddywashere/passport-keystone.git",
+        "favoriteCount": 22,
+        "subscriberCount": 4,
+        "forkCount": 9
+      },
+      "license": "MIT",
+      "time": {
+        "created": "2014-03-19T04:42:53.131Z",
+        "modified": "2014-06-10T04:24:22.769Z"
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 13
       }
     }
   ],
-  "total": 501,
+  "total": 500,
   "urls": {
     "next": "/packages/-/v1/all/10.json",
     "prev": "/packages/-/v1/all/8.json"

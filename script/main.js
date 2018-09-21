@@ -315,7 +315,7 @@ define("search/packages/remote/api-v1/all", [ "bloodhound", "../../sort", "jquer
         queryTokenizer: Bloodhound.tokenizers.nonword,
         sorter: sort,
         identify: function(item) {
-            return item._id;
+            return item.name;
         }
     });
     var loadPromise;
@@ -358,7 +358,7 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
         queryTokenizer: Bloodhound.tokenizers.nonword,
         sorter: sort,
         identify: function(item) {
-            return item._id;
+            return item.name;
         },
         prefetch: {
             url: "/packages/-/v1/feeds/featured.json",
