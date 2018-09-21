@@ -54,8 +54,9 @@ block content
         if repository
           li
             a(class='url', href=repository.url) #{homepage}
-        li
-          a(rel='licence', href=license.url) #{license.name}
+        if license
+          li
+            a(rel='licence', href=license.url) #{license.name}
 
       ul
         li

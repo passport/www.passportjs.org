@@ -1,1 +1,1 @@
-require('bixby')('http/app');
+require('bixby')();

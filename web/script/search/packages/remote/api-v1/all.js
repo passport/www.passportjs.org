@@ -5,7 +5,7 @@ define(['bloodhound', '../../sort', 'jquery'], function(Bloodhound, sort, $) {
     queryTokenizer: Bloodhound.tokenizers.nonword,
     sorter: sort,
     identify: function(item) {
-      return item._id;
+      return item.name;
     }
   });
   var loadPromise;

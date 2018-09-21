@@ -8,7 +8,7 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
     queryTokenizer: Bloodhound.tokenizers.nonword,
     sorter: sort,
     identify: function(item) {
-      return item._id;
+      return item.name;
     },
     prefetch: {
       url: '/packages/-/v1/feeds/featured.json',
