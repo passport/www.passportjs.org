@@ -124,6 +124,21 @@
 
 passport.use(strategy);
 </code></pre>
+<h3 id="state-parameter">State parameter</h3>
+<p>The Auth0 Passport strategy enforces use of <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
+<p>If you require the <code>state</code> parameter to be omitted (which is not recommended), you can suppress it when calling the Auth0 Passport strategy constructor:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>);
+
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> Auth0Strategy({
+     <span class="attr">domain</span>: <span class="string">'your-domain.auth0.com'</span>,
+     <span class="comment">// ...</span>
+     state: <span class="literal">false</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) </span>{
+    <span class="comment">// ...</span>
+  }
+);
+</code></pre>
 <h2 id="usage">Usage</h2>
 <pre><code class="lang-js">app.get(<span class="string">'/callback'</span>,
   passport.authenticate(<span class="string">'auth0'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
@@ -175,14 +190,14 @@ app.get(<span class="string">'/login'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth0</span></code></div>
             <ul>
-              <li><span class="version">0.6.1</span> published <abbr class="updated" title="2018-02-22T18:06:05Z">5 days ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-09-11T18:54:23Z">10 days ago</abbr></li>
               <li><a class="url" href="git://github.com/auth0/passport-auth0.git">https://github.com/auth0/passport-auth0#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>773</b> downloads in the last day</li>
-              <li><b>4,766</b> downloads in the last week</li>
-              <li><b>17,448</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>4,585</b> downloads in the last week</li>
+              <li><b>26,842</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

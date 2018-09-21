@@ -99,47 +99,149 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-line-auth">passport-line-auth</h1>
-<p>Passport strategy for authenticating with LINE using the OAuth 2.0 API.</p>
-<h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-line-auth</span>
+<p>Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenID Connect.</p>
+<h2 id="how-to-install">How to Install</h2>
+<h3 id="npm">npm</h3>
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-line-auth <span class="comment">--save</span>
+</code></pre><h3 id="yarn">Yarn</h3>
+<pre><code>yarn <span class="keyword">add</span><span class="bash"> passport-line-auth</span>
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-service">Create an Service</h3>
-<p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://business.line.me/zh-hant/">LINE Business Center</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
+<p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://developers.line.me/console/register/line-login/provider/">LINE Developers</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The LINE authentication strategy authenticates users using a LINE account and OAuth 2.0 tokens. The channel ID and secret obtained when creating an service are supplied as options when creating the strategy. The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s LINE profile. The <code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
+<ul>
+<li><p>[Part 1] Sample Code</p>
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LineStrategy({
-    channelID: LINE_CHANNEL_ID,
-    channelSecret: LINE_CHANNEL_SECRET,
-    useAutoLogin: <span class="keyword">true</span>, <span class="comment">// Default true</span>
-    callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>
-  },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
-    User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
-    });
-  }
+  channelID: LINE_CHANNEL_ID,
+  channelSecret: LINE_CHANNEL_SECRET,
+  callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
+  scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>],
+  botPrompt: <span class="string">'normal'</span>
+},
+<span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
+  User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+    <span class="keyword">return</span> cb(err, user);
+  });
+}
 ));
-</code></pre><h2 id="reference">Reference</h2>
+</code></pre></li>
+<li><p>[Part 2] Sample Code</p>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LineStrategy({
+  channelID: LINE_CHANNEL_ID,
+  channelSecret: LINE_CHANNEL_SECRET,
+  callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
+  scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>, <span class="string">'email'</span>],
+  botPrompt: <span class="string">'normal'</span>
+},
+<span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, params, profile, cb)</span> </span>{
+  <span class="keyword">var</span> email = jwt.decode(params.id_token)
+  User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+    <span class="keyword">return</span> cb(err, user);
+  });
+}
+));
+</code></pre></li>
+</ul>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>channelID</td>
+<td>String</td>
+<td>Required</td>
+<td></td>
+<td>Channel&#39;s Id by LINE</td>
+</tr>
+<tr>
+<td>channelSecret</td>
+<td>String</td>
+<td>Required</td>
+<td></td>
+<td>Channel&#39;s secret by LINE</td>
+</tr>
+<tr>
+<td>callbackURL</td>
+<td>String</td>
+<td>Required</td>
+<td></td>
+<td>URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the <a href="https://developers.line.me/console/">console</a>.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>Array</td>
+<td>Required</td>
+<td><code>[&#39;profile&#39;, &#39;openid&#39;]</code></td>
+<td>Permissions granted by the user. Set value to either profile, openid or email. If</td>
+</tr>
+<tr>
+<td>botPrompt</td>
+<td>String</td>
+<td>Optional</td>
+<td>&#39;null&#39;</td>
+<td>Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see <a href="https://developers.line.me/en/docs/line-login/web/link-a-bot">Linking a bot with your LINE Login channel</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response">Response</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td>String</td>
+<td>Access token. Valid for 30 days.</td>
+</tr>
+<tr>
+<td>refreshToken</td>
+<td>String</td>
+<td>Token used to get a new access token. Valid up until 10 days after the access token expires.</td>
+</tr>
+<tr>
+<td>idToken</td>
+<td>String</td>
+<td>JWT that includes information about the user. This field is returned only if <code>openid</code> is specified in the scope. For more information, see <a href="https://developers.line.me/en/docs/line-login/web/integrate-line-login/#id-tokens">ID tokens</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exmaple">Exmaple</h3>
+<p>First time, you need set channel id, secret and redirect uri at <a href="https://github.com/IvanWei/passport-line-auth/blob/master/example/app.js">Exmaple</a>, then install packages and <code>npm start</code>.</p>
+<h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a></li>
 <li><a href="https://github.com/jaredhanson/passport-facebook">passport-facebook</a></li>
-<li><a href="https://developers.line.me/web-api/integrating-web-login-v2">LINE Web Login</a></li>
+<li><a href="https://developers.line.me/en/docs/line-login/web/integrate-line-login/">LINE Web Login</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="https://raw.githubusercontent.com/ivanwei/passport-line-auth/master/LICENSE">The MIT License</a></p>
-<p>Copyright (c) 2017 Ivan Wei <a href="[https://blog.ivanwei.co/](https://blog.ivanwei.co/)">[https://blog.ivanwei.co/](https://blog.ivanwei.co/)</a></p>
+<p>Copyright(c)2018 Ivan Wei <a href="[https://blog.ivanwei.co/](https://blog.ivanwei.co/)">[https://blog.ivanwei.co/](https://blog.ivanwei.co/)</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-auth</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2017-03-16T17:08:54Z">a year ago</abbr></li>
-              <li><a class="url" href="git://github.com/IvanWei/passport-line-auth.git">https://github.com/IvanWei/passport-line-auth#readme</a></li>
+              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2018-08-21T14:36:23Z">a month ago</abbr></li>
+              <li><a class="url" href="git+ssh://git@github.com/IvanWei/passport-line-auth.git">https://github.com/IvanWei/passport-line-auth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>20</b> downloads in the last week</li>
-              <li><b>52</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>50</b> downloads in the last week</li>
+              <li><b>4,607</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

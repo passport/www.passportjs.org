@@ -118,7 +118,7 @@ unobtrusively integrated into any application or framework that supports
 <pre><code class="lang-bash">$ npm install passport-gitlab2
 </code></pre>
 <h2 id="usage">Usage</h2>
-<p>Passport-GitLab requires GitLab 7.7.0 or higher to work. Before using the OAuth2
+<p>Passport-GitLab requires GitLab 9.0.0 or higher to work. Before using the OAuth2
 authentication provider service, you have register a new application in your
 <a href="https://gitlab.com/profile/applications">user profile</a> or in the administrator
 portal. GitLab will then issue an application ID and a secret, which need to be
@@ -176,11 +176,9 @@ parameter to point to any other GitLab instance as following:</p>
 adapted to utilize the configured instance. You can of course overwrite all
 URLs manually if needed.</p>
 <h5 id="how-do-i-change-permissions-scope-when-obtaining-a-user-profile-">How do I change permissions / scope when obtaining a user profile?</h5>
-<p>GitLab supports two scopes at the moment which are <code>read_user</code> and <code>api</code>. By
-default, the <code>read_user</code> scope is used which was introduced with <strong>GitLab
-version 8.15</strong> and requires at least this version. If you have an older version
-or you need full read/write access to all API resources, use the <code>api</code> scope
-instead. Changing the OAuth2 scope to <code>api</code> works as following:</p>
+<p>GitLab supports multiple scopes at the moment like <code>read_user</code> and <code>api</code>.
+By default, the <code>read_user</code> scope is used. Changing the OAuth2 scope to
+<code>api</code> works as following:</p>
 <pre><code class="lang-js">app.get(<span class="string">'/auth/gitlab'</span>,
   passport.authenticate(<span class="string">'gitlab'</span>, {
     <span class="attr">scope</span>: [<span class="string">'api'</span>]
@@ -212,20 +210,20 @@ expected to maintain that level. Coverage reports can be viewed by executing:</p
 </code></pre>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2016-2017 Fabio Huser <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#102;&#97;&#98;&#105;&#111;&#x40;&#x66;&#104;&#x31;&#x2e;&#99;&#x68;">&#102;&#97;&#98;&#105;&#111;&#x40;&#x66;&#104;&#x31;&#x2e;&#99;&#x68;</a></p>
+<p>Copyright (c) 2016-2017 Fabio Huser <a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#102;&#97;&#98;&#x69;&#111;&#64;&#x66;&#x68;&#49;&#x2e;&#99;&#x68;">&#102;&#97;&#98;&#x69;&#111;&#64;&#x66;&#x68;&#49;&#x2e;&#99;&#x68;</a></p>
 <p>Copyright (c) 2011-2016 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-gitlab2</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2017-04-02T15:54:32Z">a year ago</abbr></li>
-              <li><a class="url" href="git://github.com/fh1ch/passport-gitlab2.git">https://github.com/fh1ch/passport-gitlab2#readme</a></li>
+              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2018-06-10T20:22:27Z">3 months ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/fh1ch/passport-gitlab2.git">https://github.com/fh1ch/passport-gitlab2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>85</b> downloads in the last day</li>
-              <li><b>392</b> downloads in the last week</li>
-              <li><b>1,832</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>506</b> downloads in the last week</li>
+              <li><b>2,483</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

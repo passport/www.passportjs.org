@@ -106,48 +106,51 @@ By plugging into Passport, Spotify authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
-<p>For more information about Spotify&#39;s OAuth 2.0 implementation, check their 
+<p>For more information about Spotify&#39;s OAuth 2.0 implementation, check their
 <a href="https://developer.spotify.com/web-api/authorization-guide/">Web API Authorization Guide</a>.</p>
 <h2 id="installation">Installation</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install passport-spotify</span>
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Spotify authentication strategy authenticates users using a Spotify account
-and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
+and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
 <pre><code class="lang-javascript"><span class="keyword">const</span> SpotifyStrategy = <span class="built_in">require</span>(<span class="string">'passport-spotify'</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> SpotifyStrategy({
-    <span class="attr">clientID</span>: client_id,
-    <span class="attr">clientSecret</span>: client_secret,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:8888/auth/spotify/callback"</span>
-  },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">spotifyId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
-    });
-  }
-));
+passport.use(
+  <span class="keyword">new</span> SpotifyStrategy(
+    {
+      <span class="attr">clientID</span>: client_id,
+      <span class="attr">clientSecret</span>: client_secret,
+      <span class="attr">callbackURL</span>: <span class="string">'http://localhost:8888/auth/spotify/callback'</span>
+    },
+    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
+      User.findOrCreate({ <span class="attr">spotifyId</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">return</span> done(err, user);
+      });
+    }
+  )
+);
 </code></pre>
 <h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;spotify&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>,
-  passport.authenticate(<span class="string">'spotify'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-    <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-    <span class="comment">// function will not be called.</span>
-  });
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>, passport.authenticate(<span class="string">'spotify'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
+  <span class="comment">// function will not be called.</span>
+});
 
-app.get(<span class="string">'/auth/spotify/callback'</span>,
+app.get(
+  <span class="string">'/auth/spotify/callback'</span>,
   passport.authenticate(<span class="string">'spotify'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
   <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     <span class="comment">// Successful authentication, redirect home.</span>
     res.redirect(<span class="string">'/'</span>);
-  });
+  }
+);
 </code></pre>
 <h3 id="using-scopes">Using scopes</h3>
 <p>Depending on the data you want to fetch, you may want to specify custom scopes. For more information about scopes in the Spotify Web API check <a href="https://developer.spotify.com/web-api/using-scopes/">their developer site</a>.</p>
@@ -157,28 +160,34 @@ app.get(<span class="string">'/auth/spotify/callback'</span>,
 <li><code>user-read-private</code>: Returns private information about the user such as display name and picture, if they are set.</li>
 </ul>
 <p>You can specify the parameters in the <code>authenticate</code> call:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>,
-  passport.authenticate(<span class="string">'spotify'</span>, {<span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>] }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-   <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-   <span class="comment">// function will not be called.</span>
-});
+<pre><code class="lang-javascript">app.get(
+  <span class="string">'/auth/spotify'</span>,
+  passport.authenticate(<span class="string">'spotify'</span>, {
+    <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>]
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
+    <span class="comment">// function will not be called.</span>
+  }
+);
 </code></pre>
 <h3 id="forcing-login-dialog">Forcing login dialog</h3>
 <p>You can force the login dialog using the <code>showDialog</code> parameter when authenticating:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>,
-  passport.authenticate(
-    <span class="string">'spotify'</span>,
-    {<span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>], <span class="attr">showDialog</span>: <span class="literal">true</span>}
-  ),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-   <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-   <span class="comment">// function will not be called.</span>
-});
+<pre><code class="lang-javascript">app.get(
+  <span class="string">'/auth/spotify'</span>,
+  passport.authenticate(<span class="string">'spotify'</span>, {
+    <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>],
+    <span class="attr">showDialog</span>: <span class="literal">true</span>
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
+    <span class="comment">// function will not be called.</span>
+  }
+);
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jmperez/passport-spotify/tree/master/examples/login">login example</a>.</p>
-<p>You can get your keys on <a href="https://developer.spotify.com/my-applications">Spotify -  My Applications</a>.</p>
+<p>You can get your keys on <a href="https://developer.spotify.com/my-applications">Spotify - My Applications</a>.</p>
 <h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
 <span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
@@ -190,14 +199,13 @@ app.get(<span class="string">'/auth/spotify/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-spotify</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-02-06T15:21:47Z">21 days ago</abbr></li>
-              <li><a class="url" href="git://github.com/JMPerez/passport-spotify.git">https://github.com/jmperez/passport-spotify#readme</a></li>
-              <li><a rel="licence"></a></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2018-07-26T12:50:58Z">2 months ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/jmperez/passport-spotify.git">https://github.com/jmperez/passport-spotify#readme</a></li>
             </ul>
             <ul>
-              <li><b>28</b> downloads in the last day</li>
-              <li><b>113</b> downloads in the last week</li>
-              <li><b>813</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>259</b> downloads in the last week</li>
+              <li><b>2,134</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

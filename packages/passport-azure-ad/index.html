@@ -111,7 +111,7 @@ and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Servi
 <h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
 <p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
-<p>Current version - 3.0.12<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
+<p>Current version - 4.0.0<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
 <h2 id="3-contribution-history">3. Contribution History</h2>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad"><img src="https://badge.waffle.io/AzureAD/passport-azure-ad.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
 <p><a href="https://waffle.io/AzureAD/passport-azure-ad/metrics"><img src="https://graphs.waffle.io/AzureAD/passport-azure-ad/throughput.svg" alt="Throughput Graph"></a></p>
@@ -583,14 +583,31 @@ access token for the scope, and use BearerStrategy to validate the scope. Note f
     <span class="variable">$ </span>npm install grunt -g
     <span class="variable">$ </span>grunt run_tests_with_e2e
 </code></pre><p>Tests will run automatically and in the terminal you can see how many tests are passing/failing. More details can be found <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">here</a>.</p>
-<h2 id="7-samples-and-documentation">7. Samples and Documentation</h2>
+<h2 id="7-logging">7. Logging</h2>
+<h4 id="personal-identifiable-information-pii-organizational-identifiable-information-oii-">Personal Identifiable Information (PII) &amp; Organizational Identifiable Information (OII)</h4>
+<p>By default, passport-azure-ad logging does not capture or log any PII or OII. The library allows app developers to turn this on by configuring <code>loggingNoPII</code> in the config options. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.</p>
+<pre><code class="lang-javascript"><span class="comment">//PII or OII logging disabled. Default Logger does not capture any PII or OII.</span>
+<span class="keyword">var</span> options = {
+  ...
+  loggingNoPII: <span class="literal">true</span>,
+  ...
+};
+
+<span class="comment">//PII or OII logging enabled</span>
+<span class="keyword">var</span> options = {
+  ...
+  loggingNoPII: <span class="literal">false</span>,
+  ...
+};
+</code></pre>
+<h2 id="8-samples-and-documentation">8. Samples and Documentation</h2>
 <p><a href="https://azure.microsoft.com/en-us/documentation/samples/?service=active-directory">We provide a full suite of sample applications and documentation on GitHub</a> 
 to help you get started with learning the Azure Identity system. This includes 
 tutorials for native clients such as Windows, Windows Phone, iOS, OSX, Android, 
 and Linux. We also provide full walkthroughs for authentication flows such as 
 OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <p>Azure Identity samples for this plug-in can be found in the following links:</p>
-<h3 id="7-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
+<h3 id="8-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">8.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -599,7 +616,7 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h3 id="7-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
+<h3 id="8-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">8.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebAPI-Bearer-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -608,35 +625,35 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApi-Nodejs">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h2 id="8-community-help-and-support">8. Community Help and Support</h2>
+<h2 id="9-community-help-and-support">9. Community Help and Support</h2>
 <p>We leverage <a href="http://stackoverflow.com/">Stack Overflow</a> to work with the community on supporting Azure Active Directory and its SDKs, including this one. We highly recommend you ask your questions on Stack Overflow (we&#39;re all on there!) Also browser existing issues to see if someone has had your question before. </p>
 <p>We recommend you use the &quot;adal&quot; tag so we can see it! Here is the latest Q&amp;A on Stack Overflow for ADAL: <a href="http://stackoverflow.com/questions/tagged/adal">http://stackoverflow.com/questions/tagged/adal</a></p>
-<h2 id="9-security-reporting">9. Security Reporting</h2>
+<h2 id="10-security-reporting">10. Security Reporting</h2>
 <p>If you find a security issue with our libraries or services please report it to <a href="mailto:secure@microsoft.com">secure@microsoft.com</a> with as much detail as possible. Your submission may be eligible for a bounty through the <a href="http://aka.ms/bugbounty">Microsoft Bounty</a> program. Please do not post security issues to GitHub Issues or any other public site. We will contact you shortly upon receiving the information. We encourage you to get notifications of when security incidents occur by visiting <a href="https://technet.microsoft.com/en-us/security/dd252948">this page</a> and subscribing to Security Advisory Alerts.</p>
-<h2 id="10-contributing">10. Contributing</h2>
+<h2 id="11-contributing">11. Contributing</h2>
 <p>All code is licensed under the MIT license and we triage actively on GitHub. We enthusiastically welcome contributions and feedback. You can clone the repo and start contributing now. </p>
 <p>More details <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">about contribution</a> </p>
-<h2 id="11-releases">11. Releases</h2>
+<h2 id="12-releases">12. Releases</h2>
 <p>Please check the <a href="https://github.com/AzureAD/passport-azure-ad/releases">releases</a> for updates.</p>
-<h2 id="12-acknowledgements">12. Acknowledgements</h2>
+<h2 id="13-acknowledgements">13. Acknowledgements</h2>
 <p>The code is based on Henri Bergius&#39;s <a href="https://github.com/bergie/passport-saml">passport-saml</a> library and Matias Woloski&#39;s <a href="https://github.com/auth0/passport-wsfed-saml2">passport-wsfed-saml2</a> library as well as Kiyofumi Kondoh&#39;s <a href="https://github.com/kkkon/passport-google-openidconnect">passport-openid-google</a>.</p>
-<h2 id="13-license">13. License</h2>
+<h2 id="14-license">14. License</h2>
 <p>Copyright (c) Microsoft Corp.  All rights reserved. Licensed under the MIT License;</p>
-<h2 id="14-microsoft-open-source-code-of-conduct">14. Microsoft Open Source Code of Conduct</h2>
+<h2 id="15-microsoft-open-source-code-of-conduct">15. Microsoft Open Source Code of Conduct</h2>
 <p>We Value and Adhere to the Microsoft Open Source Code of Conduct</p>
 <p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">3.0.12</span> published <abbr class="updated" title="2018-02-27T23:42:05Z">2 hours ago</abbr></li>
-              <li><a class="url" href="git://github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
+              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2018-08-14T20:22:27Z">a month ago</abbr></li>
+              <li><a class="url" href="git+ssh://git@github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1,031</b> downloads in the last day</li>
-              <li><b>5,749</b> downloads in the last week</li>
-              <li><b>22,746</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>6,901</b> downloads in the last week</li>
+              <li><b>51,219</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

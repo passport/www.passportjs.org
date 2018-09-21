@@ -112,7 +112,7 @@ By plugging into Passport, Oneauth authentication can be integrated into any app
 <h4 id="create-an-application">Create an Application</h4>
 <p>Before using <code>passport-oneauth</code>, you must register an application with Coding Blocks.
 If you have not already done so, a new application can be created at
-[developer applications](<a href="https://account.codingblocks.com/clients/add">https://account.codingblocks.com/clients/add</a> .Your application will be issued a client ID and client
+<a href="https://account.codingblocks.com/clients/add">developer applications</a> .Your application will be issued a client ID and client
 secret, which need to be provided to the strategy.  You will also need to
 configure a callback URL which matches the route in your application.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -129,7 +129,7 @@ passport.use(<span class="keyword">new</span> OneauthStrategy({
     <span class="attr">clientID</span>: ONEAUTH_CLIENT_ID,
     <span class="attr">clientSecret</span>: ONEAUTH_CLIENT_SECRET,
     <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/oneauth/callback"</span>,
-    <span class="attr">include</span> : [<span class="string">"facebook"</span>,<span class="string">"twiiter"</span>,<span class="string">"github"</span>,<span class="string">"lms"</span>]
+    <span class="attr">include</span> : [<span class="string">"facebook"</span>,<span class="string">"twitter"</span>,<span class="string">"github"</span>,<span class="string">"lms"</span>]
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
     User.findOrCreate({ <span class="attr">oneauthId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -164,14 +164,14 @@ corresponding references to Oneauth.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oneauth</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2018-02-18T04:22:49Z">10 days ago</abbr></li>
-              <li><a class="url" href="git://github.com/coding-blocks/passport-oneauth.git">https://github.com/coding-blocks/passport-oneauth#readme</a></li>
+              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2018-07-30T04:26:35Z">2 months ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/coding-blocks/passport-oneauth.git">https://github.com/coding-blocks/passport-oneauth#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>14</b> downloads in the last week</li>
-              <li><b>90</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>25</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

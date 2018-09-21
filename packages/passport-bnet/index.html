@@ -116,7 +116,8 @@ service. In order to use it you need to register an application at the
 passport.use(<span class="keyword">new</span> BnetStrategy({
     <span class="attr">clientID</span>: BNET_ID,
     <span class="attr">clientSecret</span>: BNET_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"https://localhost:3000/auth/bnet/callback"</span>
+    <span class="attr">callbackURL</span>: <span class="string">"https://localhost:3000/auth/bnet/callback"</span>,
+    <span class="attr">region</span>: <span class="string">"us"</span>
 }, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
 }));
@@ -137,14 +138,14 @@ app.get(<span class="string">'/auth/bnet/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bnet</span></code></div>
             <ul>
-              <li><span class="version">1.2.1</span> published <abbr class="updated" title="2018-01-29T23:13:48Z">a month ago</abbr></li>
-              <li><a class="url" href="git://github.com/Blizzard/passport-bnet.git">https://github.com/Blizzard/passport-bnet#readme</a></li>
+              <li><span class="version">1.2.2</span> published <abbr class="updated" title="2018-06-18T22:44:33Z">3 months ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/Blizzard/passport-bnet.git">https://github.com/Blizzard/passport-bnet#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>54</b> downloads in the last day</li>
-              <li><b>309</b> downloads in the last week</li>
-              <li><b>1,661</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>222</b> downloads in the last week</li>
+              <li><b>1,274</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>

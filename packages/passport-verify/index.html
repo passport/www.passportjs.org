@@ -206,6 +206,20 @@ passport.use(passportVerify.createStrategy(
  <span class="comment">// This is only required when your Verify Service Provider is set up to be multi tenanted.</span>
  <span class="comment">// If it is provided, it is passed to the Verify Service Provider with each request, and</span>
  <span class="comment">// used to identify this service.</span>
+
+ <span class="comment">// Saml Form Template Location</span>
+ <span class="string">'saml-form-template.njk'</span>,
+ <span class="comment">// This is an optional parameter which can be used to style the saml form</span>
+ <span class="comment">// used to send the authn request to Verify.</span>
+ <span class="comment">// This template should only be rendered if Javascript has been disabled in the user's browser.</span>
+ <span class="comment">// If provided, the ssoLocation and samlRequest recieved from the Verify Service Provider</span>
+ <span class="comment">// will be provided to the named template for rendering.</span>
+ <span class="comment">// If this is not provided, passport-verify will render a default auto posting form</span>
+ <span class="comment">// with the correct attributes.</span>
+
+ <span class="comment">// Level of Assurance</span>
+ <span class="comment">// LEVEL_1 or LEVEL2 depending on your service's requirements. Defaults to LEVEL_2.</span>
+ <span class="string">'LEVEL_2'</span>
 ))
 </code></pre>
 </li>
@@ -277,14 +291,14 @@ To enable logs, set this variable;</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-verify</span></code></div>
             <ul>
-              <li><span class="version">0.12.0</span> published <abbr class="updated" title="2018-02-01T12:47:15Z">a month ago</abbr></li>
-              <li><a class="url" href="git://github.com/alphagov/passport-verify.git">https://github.com/alphagov/passport-verify#readme</a></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2018-06-06T14:51:43Z">4 months ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/alphagov/passport-verify.git">https://github.com/alphagov/passport-verify#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>58</b> downloads in the last week</li>
-              <li><b>235</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
