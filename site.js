@@ -1,4 +1,9 @@
 require('dotenv').load();
+require('bixby')('org.kerouacjs/main');
+
+
+
+return;
 
 var kerouac = require('kerouac');
 var site = kerouac();
@@ -22,7 +27,7 @@ site.engine('pug', require('pug'));
 site.content('content');
 //site.content('views', { layout: 'docs' });
 site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
-site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
+//site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
 
 site.use('/', require('kerouac-manifest')());
 site.page('/sitemap.xml', require('kerouac-sitemap')());
