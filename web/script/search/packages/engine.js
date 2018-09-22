@@ -11,6 +11,37 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
       return item.name;
     },
     prefetch: {
+      url: '/packages/-/all.json',
+      transform: function(response) {
+        var items = [], item, val;
+        for (var key in response) {
+          val = response[key];
+          item = {};
+          item.name = val.name;
+          item.description = val.description;
+          item.keywords = val.keywords;
+          item.links = item.links || {};
+          item.links.self = '/packages/' + encodeURIComponent(item.name);
+          item.flags = val._flags;
+          item.count = val._count;
+          item.downloads = val._downloads;
+          items.push(item);
+        }
+        return items;
+      },
+      cache: false
+    }
+  });
+  
+  /*
+  var engine = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    sorter: sort,
+    identify: function(item) {
+      return item.name;
+    },
+    prefetch: {
       url: '/packages/-/v1/promoted.json',
       transform: function(response) {
         var objects = response.objects
@@ -31,6 +62,7 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
     },
     remote: remote
   });
+  */
   
   
   return engine;
