@@ -1,607 +1,108 @@
 {
   "objects": [
     {
-      "name": "passport-stormpath",
-      "description": "Official Stormpath Passport Strategy",
-      "keywords": [
-        "stormpath",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "0.2.4"
+      "package": {
+        "name": "passport-sqrl",
+        "version": "0.2.1",
+        "description": "ExpressJS and PassportJS implementation of the Secure Quick Reliable Login protocol from Gibson Research",
+        "keywords": [
+          "sqrl",
+          "secure",
+          "quick",
+          "reliable",
+          "login",
+          "authenticate",
+          "authentication",
+          "phone",
+          "qr",
+          "qr-code",
+          "express",
+          "expressjs",
+          "passport",
+          "passportjs"
+        ],
+        "date": "2017-11-26T04:59:10.347Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-sqrl",
+          "homepage": "https://github.com/erikma/passport-sqrl",
+          "repository": "git+https://github.com/erikma/passport-sqrl.git",
+          "bugs": "https://github.com/erikma/passport-sqrl/issues"
+        }
       },
-      "homepage": "https://github.com/stormpath/passport-stormpath",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/stormpath/passport-stormpath.git",
-        "favoriteCount": 33,
-        "subscriberCount": 29,
-        "forkCount": 16
-      },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2014-01-19T02:37:52.773Z",
-        "modified": "2015-04-21T15:51:50.259Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 23,
-        "last-month": 134
-      }
-    },
-    {
-      "name": "passport-strava-oauth2",
-      "description": "Strava authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "strava",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.3"
-      },
-      "homepage": "https://github.com/millsy/passport-strava",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/millsy/passport-strava.git",
-        "favoriteCount": 23,
-        "subscriberCount": 2,
-        "forkCount": 9
-      },
-      "time": {
-        "created": "2015-05-12T09:53:37.383Z",
-        "modified": "2015-05-12T16:21:26.140Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 45,
-        "last-month": 336
-      }
-    },
-    {
-      "name": "passport-strava",
-      "description": "Strava authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "strava",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "https://github.com/derrickpelletier/passport-strava#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/derrickpelletier/passport-strava.git",
-        "favoriteCount": 11,
-        "subscriberCount": 2,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2013-11-29T20:38:08.566Z",
-        "modified": "2016-05-12T05:28:53.059Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 117,
-        "last-month": 535
-      }
-    },
-    {
-      "name": "passport-stripe",
-      "description": "Stripe authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "stripe",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.3"
-      },
-      "homepage": "https://github.com/mathisonian/passport-stripe#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/mathisonian/passport-stripe.git",
-        "favoriteCount": 10,
-        "subscriberCount": 2,
-        "forkCount": 12
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-03-13T18:07:45.666Z",
-        "modified": "2018-08-22T18:37:14.460Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 329,
-        "last-month": 2014
-      }
-    },
-    {
-      "name": "passport-supinfo",
-      "description": "SUPINFO OpenID strategy for Passport.",
-      "keywords": [
-        "passport",
-        "openid",
-        "supinfo",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "https://github.com/GodezInc/passport-supinfo",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/GodezInc/passport-supinfo.git",
-        "favoriteCount": 3,
-        "subscriberCount": 2,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2012-07-13T10:13:12.772Z",
-        "modified": "2014-10-28T22:47:30.887Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 2,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 6
+        "last-month": 1
       }
     },
     {
-      "name": "passport-surveymonkey",
-      "description": "SurveyMonkey authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "oauth",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "1.1.1"
+      "package": {
+        "name": "passport-square",
+        "version": "2.0.1",
+        "description": "square authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "square",
+          "auth",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-07-19T16:17:41.864Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-square",
+          "homepage": "https://github.com/octoblu/passport-square#readme",
+          "repository": "git://github.com/octoblu/passport-square.git",
+          "bugs": "http://github.com/octoblu/passport-square/issues"
+        }
       },
-      "time": {
-        "created": "2014-10-01T21:56:49.007Z",
-        "modified": "2014-10-01T23:20:46.594Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 8,
+        "forks": 3
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 4,
-        "last-month": 47
+        "last-day": 6,
+        "last-week": 28,
+        "last-month": 136
       }
     },
     {
-      "name": "passport-suzuri",
-      "description": "SUZURI authentication strategy for Passport and Node.js.",
-      "keywords": [
-        "passport",
-        "SUZURI",
-        "auth",
-        "authentication",
-        "identity",
-        "pepabo"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
+      "package": {
+        "name": "passport-ssqsignon",
+        "version": "1.0.5",
+        "description": "ssqsignon.com authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "ssq",
+          "signon",
+          "ssqsignon.com",
+          "oauth"
+        ],
+        "date": "2016-06-22T19:43:35.084Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ssqsignon",
+          "homepage": "https://github.com/rivierasolutions/passport-ssqsignon#readme",
+          "repository": "git://github.com/rivierasolutions/passport-ssqsignon.git",
+          "bugs": "https://github.com/rivierasolutions/passport-ssqsignon/issues"
+        }
       },
-      "homepage": "https://github.com/kitak/passport-suzuri",
-      "repository": {
-        "type": "git",
-        "url": "ssh://git@github.com/kitak/passport-suzuri.git",
-        "favoriteCount": 4,
-        "subscriberCount": 0,
-        "forkCount": 0
-      },
-      "license": "http://kitak.mit-license.org/",
-      "time": {
-        "created": "2015-03-11T13:52:48.714Z",
-        "modified": "2015-03-11T14:05:54.193Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 9
-      }
-    },
-    {
-      "name": "passport-taccounts-oauth2",
-      "description": "Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API",
-      "keywords": [
-        "passport",
-        "authentication",
-        "telefonica",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "2.0.0"
-      },
-      "homepage": "https://github.com/TDAF/passport-taccounts-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/TDAF/passport-taccounts-oauth2.git",
-        "favoriteCount": 1,
-        "subscriberCount": 17,
-        "forkCount": 0
-      },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2015-10-03T10:36:02.826Z",
-        "modified": "2017-05-16T10:06:06.504Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 5
-      }
-    },
-    {
-      "name": "passport-taobao",
-      "description": "Taobao authentication strategy for Passport.",
-      "keywords": [
-        "node",
-        "passport",
-        "taobao"
-      ],
-      "dist-tags": {
-        "latest": "0.0.4"
-      },
-      "homepage": "https://github.com/coderpp/passport-taobao",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/coderpp/passport-taobao.git"
-      },
-      "license": "BSD",
-      "time": {
-        "created": "2014-11-06T07:31:13.500Z",
-        "modified": "2014-11-14T09:19:56.676Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1,
-        "last-month": 6
-      }
-    },
-    {
-      "name": "passport-taobao2",
-      "description": "passport strategy for taobao.com",
-      "keywords": [
-        "passport",
-        "taobao",
-        "auth",
-        "oauth2",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/richarddzh/passport-taobao",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/richarddzh/passport-taobao.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 1
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-02-26T10:08:12.531Z",
-        "modified": "2015-02-26T10:08:12.531Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1,
-        "last-month": 3
-      }
-    },
-    {
-      "name": "passport-teamsnap",
-      "description": "Teamsnap OAuth 2.0 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "teamsnap",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.1.1"
-      },
-      "homepage": "https://github.com/7elephants/passport-teamsnap#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/7elephants/passport-teamsnap.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-10-18T20:22:18.807Z",
-        "modified": "2017-10-29T19:39:55.524Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 6
-      }
-    },
-    {
-      "name": "passport-telegram",
-      "description": "Telegram Unofficial OAuth2 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "telegram",
-        "auth",
-        "authn",
-        "authentication",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/TelegramPassport/passport-js#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/TelegramPassport/passport-js.git",
-        "favoriteCount": 28,
-        "subscriberCount": 2,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2016-10-01T01:14:38.504Z",
-        "modified": "2016-10-01T01:14:38.504Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 10,
-        "last-month": 50
-      }
-    },
-    {
-      "name": "passport-tequila",
-      "description": "[Passport](https://github.com/jaredhanson/passport) strategy for authenticating with [Tequila](http://tequila.epfl.ch/).",
-      "dist-tags": {
-        "latest": "0.1.12"
-      },
-      "homepage": "https://github.com/epfl-sti/passport-tequila#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/epfl-sti/passport-tequila.git",
-        "favoriteCount": 5,
-        "subscriberCount": 5,
-        "forkCount": 3
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-02-05T08:14:43.922Z",
-        "modified": "2016-10-10T14:45:49.013Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 2,
-        "last-month": 16
-      }
-    },
-    {
-      "name": "passport-thegrid",
-      "description": "The Grid authentication strategy for Passport",
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/the-grid/passport-thegrid.git",
-        "favoriteCount": 0,
-        "subscriberCount": 5,
-        "forkCount": 2
-      },
-      "time": {
-        "created": "2013-11-30T04:34:53.233Z",
-        "modified": "2013-12-10T07:35:19.012Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 3
-      }
-    },
-    {
-      "name": "passport-thingiverse",
-      "description": "Thingiverse authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "thingiverse",
-        "oauth",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.3"
-      },
-      "homepage": "https://github.com/alisamfp/passport-thingiverse",
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/alisamfp/passport-thingiverse.git",
-        "favoriteCount": 0,
-        "subscriberCount": 2,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2015-01-14T21:55:28.604Z",
-        "modified": "2015-02-26T17:28:01.007Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 5
-      }
-    },
-    {
-      "name": "passport-thinkful",
-      "description": "Thinkful authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "thinkful",
-        "auth"
-      ],
-      "dist-tags": {
-        "latest": "0.0.0-beta.3"
-      },
-      "homepage": "https://github.com/Thinkful/passport-thinkful",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/Thinkful/passport-thinkful.git",
-        "favoriteCount": 0,
-        "subscriberCount": 13,
-        "forkCount": 2
-      },
-      "license": "Apache 2.0",
-      "time": {
-        "created": "2015-02-09T23:41:31.486Z",
-        "modified": "2017-05-22T12:20:29.686Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 4
-      }
-    },
-    {
-      "name": "passport-tibbr",
-      "description": "Tibbr authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "tibbr",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/aldricHck/passport-tibbr",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/aldricHck/passport-tibbr.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2014-12-03T15:05:17.199Z",
-        "modified": "2015-01-05T15:04:04.846Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 2,
-        "last-month": 6
-      }
-    },
-    {
-      "name": "passport-tidal",
-      "description": "PassportJS Login/Signup for TIDAL",
-      "keywords": [
-        "passport",
-        "tidal",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "0.4.2"
-      },
-      "homepage": "https://www.tidal.com",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/tidal-engineering/passport-tidal.git",
-        "favoriteCount": 2,
-        "subscriberCount": 9,
-        "forkCount": 0
-      },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2017-01-25T09:36:32.347Z",
-        "modified": "2017-11-22T13:25:42.569Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 12
-      }
-    },
-    {
-      "name": "passport-tiendanube",
-      "description": "TiendaNube authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "tiendanube",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/andreskir/passport-tiendanube",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/andreskir/passport-tiendanube.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2015-04-25T01:58:58.775Z",
-        "modified": "2015-04-25T01:58:58.775Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 4
-      }
-    },
-    {
-      "name": "passport-tistory",
-      "description": "Tistory authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "tistory",
-        "auth",
-        "authn",
-        "authentication",
-        "identity",
-        "saltfactory"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/saltfactory/passport-tistory",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/saltfactory/passport-tistory.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 4
-      },
-      "time": {
-        "created": "2014-07-15T02:11:50.919Z",
-        "modified": "2014-07-15T02:11:50.919Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
@@ -610,139 +111,652 @@
       }
     },
     {
-      "name": "passport-tmobileid",
-      "description": "T-Moblie ID authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "T-Mobile",
-        "tmobile",
-        "auth",
-        "authn",
-        "authentication",
-        "identity",
-        "T-Mobile ID",
-        "tmoid"
-      ],
-      "dist-tags": {
-        "latest": "0.1.1"
+      "package": {
+        "name": "passport-stack-exchange",
+        "version": "1.0.0",
+        "description": "Stack Exchange authentication strategy for Passport and Node.js.",
+        "keywords": [
+          "passport",
+          "strategy",
+          "passport-strategy",
+          "oauth2",
+          "oauth",
+          "stack-exchange",
+          "stack-overflow",
+          "stackoverflow",
+          "stackexchange"
+        ],
+        "date": "2017-12-02T18:29:56.944Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stack-exchange",
+          "homepage": "https://github.com/acruxray/passport-stack-exchange#readme",
+          "repository": "git+https://github.com/acruxray/passport-stack-exchange.git",
+          "bugs": "https://github.com/acruxray/passport-stack-exchange/issues"
+        }
       },
-      "homepage": "https://github.com/tmobile/passport-tmobileid",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/tmobile/passport-tmobileid.git",
-        "favoriteCount": 7,
-        "subscriberCount": 6,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2014-10-23T01:15:41.192Z",
-        "modified": "2015-02-04T04:07:27.914Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 6
-      }
-    },
-    {
-      "name": "passport-topcoder",
-      "description": "Passport strategy for Topcoder OAuth provider",
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "repository": {
-        "url": "https://github.com/cloudspokes/passport-topcoder",
-        "favoriteCount": 0,
-        "subscriberCount": 21,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2013-10-17T08:34:09.176Z",
-        "modified": "2013-10-17T08:34:15.123Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 2
       },
       "downloads": {
         "last-day": 0,
         "last-week": 1,
+        "last-month": 48
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stackexchange",
+        "version": "0.1.2",
+        "description": "StackExchange authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "stackexchange",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-10-03T14:46:56.085Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stackexchange",
+          "homepage": "https://github.com/geNAZt/passport-stackexchange#readme",
+          "repository": "git+ssh://git@github.com/geNAZt/passport-stackexchange.git",
+          "bugs": "http://github.com/geNAZt/passport-stackexchange/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 2,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 11,
+        "last-month": 58
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stanford",
+        "version": "1.0.5",
+        "description": "Passport-SAML wrapper for Stanford.EDU",
+        "keywords": [
+          "passport",
+          "SAML",
+          "SAML 2.0",
+          "shibboleth",
+          "SSO",
+          "LSJU",
+          "Stanford University"
+        ],
+        "date": "2017-10-11T18:00:15.952Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stanford",
+          "homepage": "https://github.com/scottylogan/passport-stanford",
+          "repository": "git+https://github.com/scottylogan/passport-stanford.git",
+          "bugs": "https://github.com/scottylogan/passport-stanford/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 2,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 3,
+        "last-month": 22
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stash",
+        "version": "0.1.1",
+        "description": "Atlassian Stash authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "stash",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-03-16T18:23:21.075Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stash",
+          "homepage": "https://github.com/reinbach/passport-stash",
+          "repository": "git://github.com/reinbach/passport-stash.git",
+          "bugs": "http://github.com/reinbach/passport-stash/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 2
+      }
+    },
+    {
+      "package": {
+        "name": "passport-statusnet",
+        "version": "0.1.0",
+        "description": "StatusNet authentication strategy for Passport.",
+        "date": "2012-03-22T23:35:08.928Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-statusnet",
+          "repository": "git://github.com/zoowar/passport-statusnet.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 1,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 2,
+        "last-week": 6,
+        "last-month": 10
+      }
+    },
+    {
+      "package": {
+        "name": "passport-steam",
+        "version": "1.0.10",
+        "description": "Steam (OpenID) authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "steam",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2018-04-27T11:06:08.330Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-steam",
+          "homepage": "https://github.com/liamcurry/passport-steam#readme",
+          "repository": "git://github.com/liamcurry/passport-steam.git",
+          "bugs": "http://github.com/liamcurry/passport-steam/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 227,
+        "subscribers": 21,
+        "forks": 77
+      },
+      "downloads": {
+        "last-day": 135,
+        "last-week": 867,
+        "last-month": 4320
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stocktwits",
+        "version": "0.0.2",
+        "description": "StockTwits authentication strategy for Passport.",
+        "date": "2013-12-02T10:16:37.723Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stocktwits",
+          "repository": "git://github.com/simov/passport-stocktwits.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 1,
+        "last-week": 1,
+        "last-month": 5
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stormpath",
+        "version": "0.2.4",
+        "description": "Official Stormpath Passport Strategy",
+        "keywords": [
+          "stormpath",
+          "passport"
+        ],
+        "date": "2015-04-21T15:51:50.259Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stormpath",
+          "homepage": "https://github.com/stormpath/passport-stormpath",
+          "repository": "git://github.com/stormpath/passport-stormpath.git",
+          "bugs": "https://github.com/stormpath/passport-stormpath/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 33,
+        "subscribers": 29,
+        "forks": 16
+      },
+      "downloads": {
+        "last-day": 5,
+        "last-week": 28,
+        "last-month": 121
+      }
+    },
+    {
+      "package": {
+        "name": "passport-strava-oauth2",
+        "version": "0.1.3",
+        "description": "Strava authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "strava",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-05-12T16:21:26.140Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-strava-oauth2",
+          "homepage": "https://github.com/millsy/passport-strava",
+          "repository": "git://github.com/millsy/passport-strava.git",
+          "bugs": "http://github.com/millsy/passport-strava/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 23,
+        "subscribers": 2,
+        "forks": 9
+      },
+      "downloads": {
+        "last-day": 5,
+        "last-week": 50,
+        "last-month": 336
+      }
+    },
+    {
+      "package": {
+        "name": "passport-strava",
+        "version": "0.2.0",
+        "description": "Strava authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "strava",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-05-12T05:28:53.059Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-strava",
+          "homepage": "https://github.com/derrickpelletier/passport-strava#readme",
+          "repository": "git+ssh://git@github.com/derrickpelletier/passport-strava.git",
+          "bugs": "http://github.com/derrickpelletier/passport-strava/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 11,
+        "subscribers": 2,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 12,
+        "last-week": 129,
+        "last-month": 540
+      }
+    },
+    {
+      "package": {
+        "name": "passport-stripe",
+        "version": "0.2.3",
+        "description": "Stripe authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "stripe",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2018-08-22T18:37:10.277Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-stripe",
+          "homepage": "https://github.com/mathisonian/passport-stripe#readme",
+          "repository": "git://github.com/mathisonian/passport-stripe.git",
+          "bugs": "http://github.com/mathisonian/passport-stripe/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 10,
+        "subscribers": 2,
+        "forks": 12
+      },
+      "downloads": {
+        "last-day": 73,
+        "last-week": 402,
+        "last-month": 1988
+      }
+    },
+    {
+      "package": {
+        "name": "passport-supinfo",
+        "version": "0.2.0",
+        "description": "SUPINFO OpenID strategy for Passport.",
+        "keywords": [
+          "passport",
+          "openid",
+          "supinfo",
+          "auth",
+          "authentication",
+          "identity"
+        ],
+        "date": "2014-10-28T22:47:30.887Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-supinfo",
+          "homepage": "https://github.com/GodezInc/passport-supinfo",
+          "repository": "git://github.com/GodezInc/passport-supinfo.git",
+          "bugs": "https://github.com/GodezInc/passport-supinfo/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 2,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 3
+      }
+    },
+    {
+      "package": {
+        "name": "passport-surveymonkey",
+        "version": "1.1.1",
+        "description": "SurveyMonkey authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "oauth",
+          "oauth2"
+        ],
+        "date": "2014-10-01T21:56:49.007Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-surveymonkey"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 3,
+        "last-week": 7,
+        "last-month": 48
+      }
+    },
+    {
+      "package": {
+        "name": "passport-suzuri",
+        "version": "1.0.1",
+        "description": "SUZURI authentication strategy for Passport and Node.js.",
+        "keywords": [
+          "passport",
+          "SUZURI",
+          "auth",
+          "authentication",
+          "identity",
+          "pepabo"
+        ],
+        "date": "2015-03-11T14:05:54.193Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-suzuri",
+          "homepage": "https://github.com/kitak/passport-suzuri",
+          "repository": "ssh://git@github.com/kitak/passport-suzuri.git",
+          "bugs": "https://github.com/kitak/passport-suzuri/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 0,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
         "last-month": 7
       }
     },
     {
-      "name": "passport-torchlite",
-      "description": "Torchlite authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "1.0.4"
+      "package": {
+        "name": "passport-taccounts-oauth2",
+        "version": "2.0.0",
+        "description": "Passport strategy for authenticating with Telefonica Accounts OAuth 2.0 API",
+        "keywords": [
+          "passport",
+          "authentication",
+          "telefonica",
+          "oauth"
+        ],
+        "date": "2017-05-16T10:06:06.504Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-taccounts-oauth2",
+          "homepage": "https://github.com/TDAF/passport-taccounts-oauth2#readme",
+          "repository": "git+ssh://git@github.com/TDAF/passport-taccounts-oauth2.git",
+          "bugs": "https://github.com/TDAF/passport-taccounts-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/torchlite/passport-torchlite#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/torchlite/passport-torchlite.git"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-02-03T18:36:59.541Z",
-        "modified": "2017-02-28T15:02:13.738Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 17,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 8
+        "last-month": 1
       }
     },
     {
-      "name": "passport-totp",
-      "description": "TOTP authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "otp",
-        "oath",
-        "totp",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
+      "package": {
+        "name": "passport-taobao",
+        "version": "0.0.4",
+        "description": "Taobao authentication strategy for Passport.",
+        "keywords": [
+          "node",
+          "passport",
+          "taobao"
+        ],
+        "date": "2014-11-14T09:19:56.676Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-taobao",
+          "homepage": "https://github.com/coderpp/passport-taobao",
+          "repository": "https://github.com/coderpp/passport-taobao.git",
+          "bugs": "https://github.com/coderpp/passport-taobao.git/issues"
+        }
       },
-      "homepage": "https://github.com/jaredhanson/passport-totp",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-totp.git",
-        "favoriteCount": 107,
-        "subscriberCount": 6,
-        "forkCount": 37
-      },
-      "time": {
-        "created": "2013-05-12T04:29:43.770Z",
-        "modified": "2017-02-23T19:03:00.153Z"
-      },
+      "flags": {},
       "downloads": {
         "last-day": 0,
-        "last-week": 977,
-        "last-month": 5512
+        "last-week": 1,
+        "last-month": 2
       }
     },
     {
-      "name": "passport-tqq",
-      "description": "Tencent QQ authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.2"
+      "package": {
+        "name": "passport-taobao2",
+        "version": "1.0.0",
+        "description": "passport strategy for taobao.com",
+        "keywords": [
+          "passport",
+          "taobao",
+          "auth",
+          "oauth2",
+          "authentication"
+        ],
+        "date": "2015-02-26T10:08:12.531Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-taobao2",
+          "homepage": "https://github.com/richarddzh/passport-taobao",
+          "repository": "https://github.com/richarddzh/passport-taobao.git",
+          "bugs": "https://github.com/richarddzh/passport-taobao/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git@github.com:heroicyang/passport-tqq.git"
-      },
-      "time": {
-        "created": "2013-06-05T16:10:41.077Z",
-        "modified": "2013-06-05T16:10:44.639Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
         "last-week": 1,
-        "last-month": 6
+        "last-month": 2
+      }
+    },
+    {
+      "package": {
+        "links": {
+          "npm": "https://www.npmjs.com/package/undefined"
+        }
+      }
+    },
+    {
+      "package": {
+        "name": "passport-teamsnap",
+        "version": "1.1.1",
+        "description": "Teamsnap OAuth 2.0 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "teamsnap",
+          "oauth2",
+          "auth",
+          "authentication",
+          "identity"
+        ],
+        "date": "2017-10-29T19:39:55.524Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-teamsnap",
+          "homepage": "https://github.com/7elephants/passport-teamsnap#readme",
+          "repository": "git+ssh://git@github.com/7elephants/passport-teamsnap.git",
+          "bugs": "http://github.com/7elephants/passport-teamsnap/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 1,
+        "last-week": 1,
+        "last-month": 2
+      }
+    },
+    {
+      "package": {
+        "name": "passport-telegram",
+        "version": "1.0.0",
+        "description": "Telegram Unofficial OAuth2 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "telegram",
+          "auth",
+          "authn",
+          "authentication",
+          "oauth"
+        ],
+        "date": "2016-10-01T01:14:38.504Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-telegram",
+          "homepage": "https://github.com/TelegramPassport/passport-js#readme",
+          "repository": "git://github.com/TelegramPassport/passport-js.git",
+          "bugs": "https://github.com/TelegramPassport/passport-js/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 28,
+        "subscribers": 2,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 10,
+        "last-month": 48
+      }
+    },
+    {
+      "package": {
+        "name": "passport-tequila",
+        "version": "0.1.12",
+        "description": "[Passport](https://github.com/jaredhanson/passport) strategy for authenticating with [Tequila](http://tequila.epfl.ch/).",
+        "date": "2016-10-10T14:45:49.013Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-tequila",
+          "homepage": "https://github.com/epfl-sti/passport-tequila#readme",
+          "repository": "git://github.com/epfl-sti/passport-tequila.git",
+          "bugs": "http://github.com/epfl-sti/passport-tequila/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 5,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 2,
+        "last-month": 5
+      }
+    },
+    {
+      "package": {
+        "name": "passport-thegrid",
+        "version": "0.0.2",
+        "description": "The Grid authentication strategy for Passport",
+        "date": "2013-12-10T07:35:19.012Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-thegrid",
+          "repository": "http://github.com/the-grid/passport-thegrid.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 5,
+        "forks": 2
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
       }
     }
   ],
-  "total": 500,
+  "total": 513,
   "urls": {
     "next": "/packages/-/v1/all/18.json",
     "prev": "/packages/-/v1/all/16.json"

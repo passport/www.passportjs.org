@@ -1,55 +1,167 @@
 {
   "objects": [
     {
-      "name": "bypass-passport-strategy",
-      "description": "A passport authentication strategy specifically for Bypass",
-      "dist-tags": {
-        "latest": "1.0.2"
+      "package": {
+        "name": "bypass-passport-strategy",
+        "version": "1.0.2",
+        "description": "A passport authentication strategy specifically for Bypass",
+        "date": "2017-06-29T16:22:28.512Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/bypass-passport-strategy",
+          "homepage": "https://github.com/bypasslane/bypass-passport-strategy#readme",
+          "repository": "git+https://github.com/bypasslane/bypass-passport-strategy.git",
+          "bugs": "https://github.com/bypasslane/bypass-passport-strategy/issues"
+        }
       },
-      "homepage": "https://github.com/bypasslane/bypass-passport-strategy#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bypasslane/bypass-passport-strategy.git",
-        "favoriteCount": 0,
-        "subscriberCount": 32,
-        "forkCount": 0
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2017-06-29T16:15:22.689Z",
-        "modified": "2017-06-29T16:22:28.512Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 32,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 5
+        "last-month": 4
       }
     },
     {
-      "name": "heroku-passport",
-      "description": "Heroku authentication strategy for Passport.",
-      "keywords": [
-        "heroku",
-        "passport",
-        "authentication",
-        "strategy",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
+      "package": {
+        "name": "heroku-passport",
+        "version": "0.0.1",
+        "description": "Heroku authentication strategy for Passport.",
+        "keywords": [
+          "heroku",
+          "passport",
+          "authentication",
+          "strategy",
+          "oauth"
+        ],
+        "date": "2015-01-18T19:16:12.480Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/heroku-passport",
+          "homepage": "https://github.com/jeffandersen/heroku-passport",
+          "repository": "https://github.com/jeffandersen/heroku-passport.git",
+          "bugs": "https://github.com/jeffandersen/heroku-passport/issues"
+        }
       },
-      "homepage": "https://github.com/jeffandersen/heroku-passport",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/jeffandersen/heroku-passport.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
-      "license": "MIT",
-      "time": {
-        "created": "2015-01-18T19:16:12.480Z",
-        "modified": "2015-01-18T19:16:12.480Z"
+      "downloads": {
+        "last-day": 1,
+        "last-week": 1,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "node-freeagent2",
+        "version": "0.0.11",
+        "description": "Node.js OAuth2 REST Library for use with the FreeAgent v2 API, with Passport Authentication Strategy",
+        "keywords": [
+          "FreeAgent",
+          "API",
+          "v2",
+          "Accounting",
+          "Timesheets",
+          "Resourcing"
+        ],
+        "date": "2015-02-11T12:29:54.179Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/node-freeagent2",
+          "homepage": "https://github.com/JoeStanton/node-freeagent2",
+          "repository": "https://github.com/JoeStanton/node-freeagent2",
+          "bugs": "https://github.com/JoeStanton/node-freeagent2/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 3,
+        "forks": 6
+      },
+      "downloads": {
+        "last-day": 5,
+        "last-week": 10,
+        "last-month": 39
+      }
+    },
+    {
+      "package": {
+        "name": "openid-client",
+        "version": "2.4.1",
+        "description": "OpenID Connect Relying Party (RP, Client) implementation for Node.js servers, supports passportjs",
+        "keywords": [
+          "auth",
+          "authentication",
+          "basic",
+          "certified",
+          "client",
+          "config",
+          "connect",
+          "dynamic",
+          "hybrid",
+          "identity",
+          "implicit",
+          "oauth",
+          "oauth2",
+          "oidc",
+          "openid",
+          "party",
+          "passport",
+          "passportjs",
+          "relying",
+          "strategy"
+        ],
+        "date": "2018-09-16T12:58:16.707Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/openid-client",
+          "homepage": "https://github.com/panva/node-openid-client",
+          "repository": "git+https://github.com/panva/node-openid-client.git",
+          "bugs": "https://github.com/panva/node-openid-client/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 219,
+        "subscribers": 17,
+        "forks": 67
+      },
+      "downloads": {
+        "last-day": 2523,
+        "last-week": 14715,
+        "last-month": 62801
+      }
+    },
+    {
+      "package": {
+        "name": "passport-1time",
+        "version": "0.0.1",
+        "description": "Passport strategy designed for use with 1Time",
+        "keywords": [
+          "passport",
+          "strategy",
+          "1Time",
+          "authentication",
+          "passwordless"
+        ],
+        "date": "2016-03-22T00:02:48.746Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-1time",
+          "homepage": "https://github.com/cornelltech/passport-1Time#readme",
+          "repository": "git+https://github.com/cornelltech/passport-1Time.git",
+          "bugs": "https://github.com/cornelltech/passport-1Time/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 6,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
@@ -58,133 +170,185 @@
       }
     },
     {
-      "name": "node-freeagent2",
-      "description": "Node.js OAuth2 REST Library for use with the FreeAgent v2 API, with Passport Authentication Strategy",
-      "keywords": [
-        "FreeAgent",
-        "API",
-        "v2",
-        "Accounting",
-        "Timesheets",
-        "Resourcing"
-      ],
-      "dist-tags": {
-        "latest": "0.0.11"
+      "package": {
+        "name": "passport-23andme",
+        "version": "0.1.1",
+        "description": "23AndMe Personal Genome API authentication strategy for Passport.",
+        "date": "2012-10-10T01:07:30.706Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-23andme",
+          "repository": "http://github.com/mowens/passport-23andme.git"
+        }
       },
-      "homepage": "https://github.com/JoeStanton/node-freeagent2",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/JoeStanton/node-freeagent2",
-        "favoriteCount": 5,
-        "subscriberCount": 3,
-        "forkCount": 6
-      },
-      "license": "BSD",
-      "time": {
-        "created": "2012-09-26T10:29:44.817Z",
-        "modified": "2015-02-11T12:29:54.179Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 5,
-        "last-month": 38
-      }
-    },
-    {
-      "name": "openid-client",
-      "description": "OpenID Connect Relying Party (RP, Client) implementation for Node.js servers, supports passportjs",
-      "keywords": [
-        "auth",
-        "authentication",
-        "basic",
-        "certified",
-        "client",
-        "config",
-        "connect",
-        "dynamic",
-        "hybrid",
-        "identity",
-        "implicit",
-        "oauth",
-        "oauth2",
-        "oidc",
-        "openid",
-        "party",
-        "passport",
-        "passportjs",
-        "relying",
-        "strategy"
-      ],
-      "dist-tags": {
-        "latest": "2.4.1"
-      },
-      "homepage": "https://github.com/panva/node-openid-client",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/panva/node-openid-client.git",
-        "favoriteCount": 219,
-        "subscriberCount": 17,
-        "forkCount": 67
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-07-08T19:34:24.694Z",
-        "modified": "2018-09-16T12:59:43.119Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 12192,
-        "last-month": 62710
-      }
-    },
-    {
-      "name": "passport-1time",
-      "description": "Passport strategy designed for use with 1Time",
-      "keywords": [
-        "passport",
-        "strategy",
-        "1Time",
-        "authentication",
-        "passwordless"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/cornelltech/passport-1Time#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/cornelltech/passport-1Time.git",
-        "favoriteCount": 0,
-        "subscriberCount": 6,
-        "forkCount": 1
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-03-22T00:02:48.746Z",
-        "modified": "2016-03-22T00:02:48.746Z"
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 1,
+        "forks": 3
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 3
       }
     },
     {
-      "name": "passport-23andme",
-      "description": "23AndMe Personal Genome API authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.1"
+      "package": {
+        "name": "passport-2fa-totp",
+        "version": "0.0.1",
+        "description": "TOTP based Two-Factor Authentication for Passport and Node.js",
+        "keywords": [
+          "totp",
+          "opt",
+          "auth",
+          "authentication",
+          "security",
+          "passport"
+        ],
+        "date": "2016-02-15T23:39:52.788Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-2fa-totp",
+          "homepage": "https://github.com/ilich/passport-2fa-totp#readme",
+          "repository": "git+https://github.com/ilich/passport-2fa-totp.git",
+          "bugs": "https://github.com/ilich/passport-2fa-totp/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/mowens/passport-23andme.git",
-        "favoriteCount": 5,
-        "subscriberCount": 1,
-        "forkCount": 3
+      "flags": {},
+      "count": {
+        "favorites": 17,
+        "subscribers": 2,
+        "forks": 6
       },
-      "time": {
-        "created": "2012-10-10T00:37:13.351Z",
-        "modified": "2012-10-10T01:07:30.706Z"
+      "downloads": {
+        "last-day": 38,
+        "last-week": 143,
+        "last-month": 614
+      }
+    },
+    {
+      "package": {
+        "name": "passport-37signals",
+        "version": "1.0.0",
+        "description": "37signals authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "37signals",
+          "basecamp",
+          "highrise",
+          "campfire",
+          "backpack",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2014-03-08T23:50:04.770Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-37signals",
+          "repository": "git://github.com/jaredhanson/passport-37signals.git",
+          "bugs": "http://github.com/jaredhanson/passport-37signals/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 7,
+        "subscribers": 3,
+        "forks": 5
+      },
+      "downloads": {
+        "last-day": 22,
+        "last-week": 187,
+        "last-month": 821
+      }
+    },
+    {
+      "package": {
+        "name": "passport-42",
+        "version": "1.2.4",
+        "description": "42 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "42",
+          "auth",
+          "authn",
+          "authentication",
+          "identity",
+          "42born2code",
+          "born2code",
+          "borntocode",
+          "forty-two"
+        ],
+        "date": "2018-03-20T00:24:31.657Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-42",
+          "homepage": "https://github.com/pandark/passport-42#readme",
+          "repository": "git+https://github.com/pandark/passport-42.git",
+          "bugs": "https://github.com/pandark/passport-42/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 10,
+        "subscribers": 3,
+        "forks": 2
+      },
+      "downloads": {
+        "last-day": 2,
+        "last-week": 5,
+        "last-month": 26
+      }
+    },
+    {
+      "package": {
+        "name": "passport-500px",
+        "version": "0.2.1",
+        "description": "500px authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "500px",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-11-15T15:09:22.210Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-500px",
+          "homepage": "https://github.com/jeremybenaim/passport-500px",
+          "repository": "git://github.com/jeremybenaim/passport-500px.git",
+          "bugs": "http://github.com/jeremybenaim/passport-500px/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 1,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 8,
+        "last-week": 44,
+        "last-month": 82
+      }
+    },
+    {
+      "package": {
+        "name": "passport-abakus",
+        "version": "0.2.0",
+        "description": "Use Abakus.no api with passport",
+        "date": "2014-10-01T19:35:26.824Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-abakus",
+          "homepage": "https://github.com/webkom/passport-abakus",
+          "repository": "git://github.com/webkom/passport-abakus.git",
+          "bugs": "https://github.com/webkom/passport-abakus/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 17,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
@@ -193,593 +357,432 @@
       }
     },
     {
-      "name": "passport-2fa-totp",
-      "description": "TOTP based Two-Factor Authentication for Passport and Node.js",
-      "keywords": [
-        "totp",
-        "opt",
-        "auth",
-        "authentication",
-        "security",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
+      "package": {
+        "name": "passport-accesstoken",
+        "version": "0.1.0",
+        "description": "Token authentication strategy for Passport.",
+        "date": "2014-01-06T15:05:02.099Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-accesstoken",
+          "repository": "https://github.com/AppCom/passport-token"
+        }
       },
-      "homepage": "https://github.com/ilich/passport-2fa-totp#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ilich/passport-2fa-totp.git",
-        "favoriteCount": 17,
-        "subscriberCount": 2,
-        "forkCount": 6
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-02-15T23:39:52.788Z",
-        "modified": "2018-01-16T14:12:17.343Z"
+      "flags": {},
+      "count": {
+        "favorites": 12,
+        "subscribers": 9,
+        "forks": 3
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 105,
-        "last-month": 734
+        "last-day": 82,
+        "last-week": 548,
+        "last-month": 2596
       }
     },
     {
-      "name": "passport-37signals",
-      "description": "37signals authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "37signals",
-        "basecamp",
-        "highrise",
-        "campfire",
-        "backpack",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-accountkit",
+        "version": "2.1.0",
+        "description": "Facebook AccountKit authentication strategy for Passport.",
+        "keywords": [
+          "accountkit",
+          "passport",
+          "facebook",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-05-02T15:59:38.586Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-accountkit",
+          "homepage": "https://github.com/brettthepark/passport-accountkit#readme",
+          "repository": "git://github.com/brettthepark/passport-accountkit.git",
+          "bugs": "http://github.com/brettthepark/passport-accountkit.git/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-37signals.git",
-        "favoriteCount": 7,
-        "subscriberCount": 3,
-        "forkCount": 5
-      },
-      "time": {
-        "created": "2012-01-12T04:56:51.572Z",
-        "modified": "2014-03-08T23:50:04.770Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 165,
-        "last-month": 838
-      }
-    },
-    {
-      "name": "passport-42",
-      "description": "42 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "42",
-        "auth",
-        "authn",
-        "authentication",
-        "identity",
-        "42born2code",
-        "born2code",
-        "borntocode",
-        "forty-two"
-      ],
-      "dist-tags": {
-        "latest": "1.2.4"
-      },
-      "homepage": "https://github.com/pandark/passport-42#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pandark/passport-42.git",
-        "favoriteCount": 8,
-        "subscriberCount": 3,
-        "forkCount": 2
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-11-03T06:21:18.476Z",
-        "modified": "2018-03-20T00:24:32.928Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 3,
-        "last-month": 33
-      }
-    },
-    {
-      "name": "passport-500px",
-      "description": "500px authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "500px",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.1"
-      },
-      "homepage": "https://github.com/jeremybenaim/passport-500px",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jeremybenaim/passport-500px.git",
-        "favoriteCount": 5,
-        "subscriberCount": 1,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2012-08-22T04:38:00.116Z",
-        "modified": "2015-11-15T15:09:22.210Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 36,
-        "last-month": 78
-      }
-    },
-    {
-      "name": "passport-abakus",
-      "description": "Use Abakus.no api with passport",
-      "dist-tags": {
-        "latest": "0.2.0"
-      },
-      "homepage": "https://github.com/webkom/passport-abakus",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/webkom/passport-abakus.git",
-        "favoriteCount": 3,
-        "subscriberCount": 17,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-08-21T14:51:35.916Z",
-        "modified": "2014-10-01T19:35:26.824Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 11
-      }
-    },
-    {
-      "name": "passport-accesstoken",
-      "description": "Token authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/AppCom/passport-token",
-        "favoriteCount": 12,
-        "subscriberCount": 9,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2014-01-06T15:05:01.099Z",
-        "modified": "2017-01-30T13:02:31.654Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 466,
-        "last-month": 2614
-      }
-    },
-    {
-      "name": "passport-accountkit",
-      "description": "Facebook AccountKit authentication strategy for Passport.",
-      "keywords": [
-        "accountkit",
-        "passport",
-        "facebook",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "2.1.0"
-      },
-      "homepage": "https://github.com/brettthepark/passport-accountkit#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/brettthepark/passport-accountkit.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-05-02T15:59:38.586Z",
-        "modified": "2016-05-02T15:59:38.586Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 8,
-        "last-month": 46
+        "last-month": 44
       }
     },
     {
-      "name": "passport-activedirectory",
-      "description": "Active Directory strategy for passport.js",
-      "keywords": [
-        "passport",
-        "active",
-        "directory",
-        "ad",
-        "ldap",
-        "authentication",
-        "strategy"
-      ],
-      "dist-tags": {
-        "latest": "1.0.4"
+      "package": {
+        "name": "passport-activedirectory",
+        "version": "1.0.4",
+        "description": "Active Directory strategy for passport.js",
+        "keywords": [
+          "passport",
+          "active",
+          "directory",
+          "ad",
+          "ldap",
+          "authentication",
+          "strategy"
+        ],
+        "date": "2016-09-02T14:36:21.189Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-activedirectory",
+          "homepage": "https://github.com/bhoriuchi/passport-activedirectory#readme",
+          "repository": "git+https://github.com/bhoriuchi/passport-activedirectory.git",
+          "bugs": "https://github.com/bhoriuchi/passport-activedirectory/issues"
+        }
       },
-      "homepage": "https://github.com/bhoriuchi/passport-activedirectory#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bhoriuchi/passport-activedirectory.git",
-        "favoriteCount": 17,
-        "subscriberCount": 3,
-        "forkCount": 6
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-07-29T21:42:58.450Z",
-        "modified": "2017-11-07T21:08:53.928Z"
+      "flags": {},
+      "count": {
+        "favorites": 17,
+        "subscribers": 3,
+        "forks": 6
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 200,
-        "last-month": 1285
+        "last-day": 27,
+        "last-week": 227,
+        "last-month": 1237
       }
     },
     {
-      "name": "passport-acuity-oauth2",
-      "description": "Acuity authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "authn",
-        "authentication",
-        "acuity",
-        "ehr"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
+      "package": {
+        "name": "passport-acuity-oauth2",
+        "version": "1.0.1",
+        "description": "Acuity authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "authn",
+          "authentication",
+          "acuity",
+          "ehr"
+        ],
+        "date": "2017-08-30T23:12:12.051Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-acuity-oauth2",
+          "homepage": "https://github.com/Nimblr/passport-acuity-oauth2#readme",
+          "repository": "git://github.com/Nimblr/passport-acuity-oauth2.git",
+          "bugs": "https://github.com/Nimblr/passport-acuity-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/Nimblr/passport-acuity-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/Nimblr/passport-acuity-oauth2.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-08-30T23:12:12.051Z",
-        "modified": "2017-08-30T23:12:12.051Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 1,
-        "last-month": 8
+        "last-month": 7
       }
     },
     {
-      "name": "passport-addressix-oauth2",
-      "description": "Passport Strategy for using Addressix OAuth2",
-      "keywords": [
-        "Passport",
-        "Addressix",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-addressix-oauth2",
+        "version": "1.0.0",
+        "description": "Passport Strategy for using Addressix OAuth2",
+        "keywords": [
+          "Passport",
+          "Addressix",
+          "oauth2"
+        ],
+        "date": "2017-11-13T18:35:17.247Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-addressix-oauth2",
+          "homepage": "https://github.com/addressix/passport-addressix-oauth2#readme",
+          "repository": "git+https://github.com/addressix/passport-addressix-oauth2.git",
+          "bugs": "https://github.com/addressix/passport-addressix-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/addressix/passport-addressix-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/addressix/passport-addressix-oauth2.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-11-13T18:35:17.247Z",
-        "modified": "2017-11-13T18:35:17.247Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 4
+        "last-month": 2
       }
     },
     {
-      "name": "passport-adobe-oauth2",
-      "description": "Adobe OAuth 2.0 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "adobe",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
+      "package": {
+        "name": "passport-adobe-oauth2",
+        "version": "1.0.1",
+        "description": "Adobe OAuth 2.0 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "adobe",
+          "oauth2",
+          "auth",
+          "authentication",
+          "identity"
+        ],
+        "date": "2018-03-30T22:05:55.939Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-adobe-oauth2",
+          "homepage": "https://github.com/adobe/passport-adobe-oauth2#readme",
+          "repository": "git+https://github.com/adobe/passport-adobe-oauth2.git",
+          "bugs": "https://github.com/adobe/passport-adobe-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/adobe/passport-adobe-oauth2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/adobe/passport-adobe-oauth2.git",
-        "favoriteCount": 6,
-        "subscriberCount": 6,
-        "forkCount": 0
-      },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2018-02-23T21:47:14.303Z",
-        "modified": "2018-03-30T22:05:57.398Z"
+      "flags": {},
+      "count": {
+        "favorites": 6,
+        "subscribers": 6,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 17,
-        "last-month": 87
+        "last-month": 81
       }
     },
     {
-      "name": "passport-akera",
-      "description": "Akera authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "akera",
-        "auth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-akera",
+        "version": "1.0.0",
+        "description": "Akera authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "akera",
+          "auth",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-12-16T08:41:27.345Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-akera",
+          "homepage": "https://github.com/akera-io/passport-akera#readme",
+          "repository": "git+https://github.com/akera-io/passport-akera.git",
+          "bugs": "https://github.com/akera-io/passport-akera/issues"
+        }
       },
-      "homepage": "https://github.com/akera-io/passport-akera#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/akera-io/passport-akera.git",
-        "favoriteCount": 0,
-        "subscriberCount": 3,
-        "forkCount": 1
-      },
-      "license": {
-        "type": "MIT",
-        "url": "https://github.com/akera-io/passport-akera/raw/master/LICENSE"
-      },
-      "time": {
-        "created": "2015-12-16T08:41:27.345Z",
-        "modified": "2017-03-24T08:37:00.137Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 3,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 1
       }
     },
     {
-      "name": "passport-allplayers",
-      "description": "AllPlayers authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.0"
+      "package": {
+        "name": "passport-allplayers",
+        "version": "0.1.0",
+        "description": "AllPlayers authentication strategy for Passport.",
+        "date": "2012-09-26T04:00:46.434Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-allplayers",
+          "repository": "git://github.com/allplayers/passport-allplayers.git"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/allplayers/passport-allplayers.git",
-        "favoriteCount": 0,
-        "subscriberCount": 2,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2012-09-26T04:00:45.316Z",
-        "modified": "2012-09-26T04:00:46.434Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 2,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 1
       }
     },
     {
-      "name": "passport-amazon",
-      "description": "Amazon authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "amazon",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-amazon",
+        "version": "1.0.0",
+        "description": "Amazon authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "amazon",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-08-24T19:06:51.205Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-amazon",
+          "homepage": "https://github.com/jaredhanson/passport-amazon",
+          "repository": "git://github.com/jaredhanson/passport-amazon.git",
+          "bugs": "http://github.com/jaredhanson/passport-amazon/issues"
+        }
       },
-      "homepage": "https://github.com/jaredhanson/passport-amazon",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-amazon.git",
-        "favoriteCount": 32,
-        "subscriberCount": 2,
-        "forkCount": 14
-      },
-      "time": {
-        "created": "2013-05-29T17:34:41.207Z",
-        "modified": "2018-01-30T16:43:08.081Z"
+      "flags": {},
+      "count": {
+        "favorites": 32,
+        "subscribers": 2,
+        "forks": 14
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 315,
-        "last-month": 2361
+        "last-day": 69,
+        "last-week": 384,
+        "last-month": 2318
       }
     },
     {
-      "name": "passport-amigame",
-      "description": "OAuth2 client authentication for Amigame using passport.js",
-      "keywords": [
-        "amigame",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
+      "package": {
+        "name": "passport-amigame",
+        "version": "0.1.0",
+        "description": "OAuth2 client authentication for Amigame using passport.js",
+        "keywords": [
+          "amigame",
+          "passport",
+          "oauth2",
+          "auth",
+          "authentication",
+          "identity",
+          "api",
+          "json"
+        ],
+        "date": "2015-02-01T03:28:02.262Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-amigame",
+          "homepage": "http://amigame.co",
+          "repository": "git://github.com/amigame-api/passport.git",
+          "bugs": "http://github.com/amigame-api/passport/issues"
+        }
       },
-      "homepage": "http://amigame.co",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/amigame-api/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2015-02-01T03:28:02.262Z",
-        "modified": "2015-02-01T03:28:02.262Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 4
-      }
-    },
-    {
-      "name": "passport-andyet",
-      "description": "passport plugin for andyet auth",
-      "keywords": [
-        "passport",
-        "andyet"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/andyet/passport-andyet",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/andyet/passport-andyet.git",
-        "favoriteCount": 1,
-        "subscriberCount": 7,
-        "forkCount": 1
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-02-27T20:14:05.485Z",
-        "modified": "2014-02-27T20:14:05.485Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 3
       }
     },
     {
-      "name": "passport-angellist",
-      "description": "AngelList authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "angellist",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-andyet",
+        "version": "0.0.1",
+        "description": "passport plugin for andyet auth",
+        "keywords": [
+          "passport",
+          "andyet"
+        ],
+        "date": "2014-02-27T20:14:05.485Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-andyet",
+          "homepage": "https://github.com/andyet/passport-andyet",
+          "repository": "git://github.com/andyet/passport-andyet.git",
+          "bugs": "https://github.com/andyet/passport-andyet/issues"
+        }
       },
-      "homepage": "https://github.com/jaredhanson/passport-angellist",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-angellist.git",
-        "favoriteCount": 10,
-        "subscriberCount": 2,
-        "forkCount": 6
-      },
-      "time": {
-        "created": "2011-12-14T16:31:06.398Z",
-        "modified": "2015-08-24T19:17:43.822Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 15,
-        "last-month": 75
-      }
-    },
-    {
-      "name": "passport-animexx",
-      "description": "Animexx authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/sargodarya/passport-animexx.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2013-07-16T19:32:58.721Z",
-        "modified": "2013-07-30T16:42:12.958Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 7,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 4
+        "last-month": 1
       }
     },
     {
-      "name": "passport-anonym-uuid",
-      "description": "Anonymous authentication strategy for Passport that supply an uuid.",
-      "keywords": [
-        "passport",
-        "authentication",
-        "anonymous",
-        "uuid"
-      ],
-      "dist-tags": {
-        "latest": "1.0.3"
+      "package": {
+        "name": "passport-angellist",
+        "version": "1.0.0",
+        "description": "AngelList authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "angellist",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-08-24T19:17:43.822Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-angellist",
+          "homepage": "https://github.com/jaredhanson/passport-angellist",
+          "repository": "git://github.com/jaredhanson/passport-angellist.git",
+          "bugs": "http://github.com/jaredhanson/passport-angellist/issues"
+        }
       },
-      "homepage": "https://github.com/nash403/passport-anonym-uuid#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/nash403/passport-anonym-uuid.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 10,
+        "subscribers": 2,
+        "forks": 6
       },
-      "time": {
-        "created": "2017-02-23T12:38:01.905Z",
-        "modified": "2017-02-23T14:05:33.563Z"
+      "downloads": {
+        "last-day": 2,
+        "last-week": 17,
+        "last-month": 67
+      }
+    },
+    {
+      "package": {
+        "name": "passport-animexx",
+        "version": "0.1.2",
+        "description": "Animexx authentication strategy for Passport.",
+        "date": "2013-07-30T16:42:12.958Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-animexx",
+          "repository": "git://github.com/sargodarya/passport-animexx.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-anonym-uuid",
+        "version": "1.0.3",
+        "description": "Anonymous authentication strategy for Passport that supply an uuid.",
+        "keywords": [
+          "passport",
+          "authentication",
+          "anonymous",
+          "uuid"
+        ],
+        "date": "2017-02-23T14:05:33.563Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-anonym-uuid",
+          "homepage": "https://github.com/nash403/passport-anonym-uuid#readme",
+          "repository": "git://github.com/nash403/passport-anonym-uuid.git",
+          "bugs": "https://github.com/nash403/passport-anonym-uuid/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 3,
-        "last-month": 10
+        "last-month": 6
       }
     }
   ],
-  "total": 500,
+  "total": 513,
   "urls": {
     "next": "/packages/-/v1/all/2.json"
   }

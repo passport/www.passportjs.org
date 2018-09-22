@@ -1,57 +1,110 @@
 {
   "objects": [
     {
-      "name": "passport-gumroad",
-      "description": "Gumroad authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "oauth",
-        "oauth2",
-        "authentication",
-        "gumroad",
-        "api"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-google-plus",
+        "version": "0.5.1",
+        "description": "Passport strategy for using G+ Sign-In",
+        "keywords": [
+          "google",
+          "g+",
+          "passport"
+        ],
+        "date": "2015-01-06T02:04:50.252Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-google-plus",
+          "homepage": "https://github.com/sqrrrl/passport-google-plus",
+          "repository": "https://github.com/sqrrrl/passport-google-plus.git",
+          "bugs": "https://github.com/sqrrrl/passport-google-plus/issues"
+        }
       },
-      "homepage": "https://github.com/SamyPesse/passport-gumroad#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/SamyPesse/passport-gumroad.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 31,
+        "subscribers": 6,
+        "forks": 18
       },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2015-12-01T13:14:21.515Z",
-        "modified": "2015-12-01T13:14:21.515Z"
+      "downloads": {
+        "last-day": 59,
+        "last-week": 314,
+        "last-month": 1492
+      }
+    },
+    {
+      "package": {
+        "name": "passport-google",
+        "version": "0.3.0",
+        "description": "Google (OpenID) authentication strategy for Passport.",
+        "date": "2013-02-11T04:34:41.666Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-google",
+          "repository": "git://github.com/jaredhanson/passport-google.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 132,
+        "subscribers": 10,
+        "forks": 84
+      },
+      "downloads": {
+        "last-day": 241,
+        "last-week": 2781,
+        "last-month": 15082
+      }
+    },
+    {
+      "package": {
+        "name": "passport-gowalla",
+        "version": "0.1.2",
+        "description": "Gowalla authentication strategy for Passport.",
+        "date": "2013-02-09T21:37:02.940Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-gowalla",
+          "repository": "git://github.com/jaredhanson/passport-gowalla.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 2,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 0,
+        "last-week": 1,
         "last-month": 2
       }
     },
     {
-      "name": "passport-hackerverse",
-      "description": "Hackerverse authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "auth",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "0.0.3"
+      "package": {
+        "name": "passport-groupme",
+        "version": "1.0.1",
+        "description": "OAuth 2.0 authentication strategy for Passport for GroupMe.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "oauth",
+          "oauth2",
+          "groupme"
+        ],
+        "date": "2017-04-27T14:46:03.486Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-groupme",
+          "homepage": "https://github.com/andrewwiik/passport-groupme#readme",
+          "repository": "git://github.com/andrewwiik/passport-groupme.git",
+          "bugs": "http://github.com/andrewwiik/passport-groupme/issues"
+        }
       },
-      "homepage": "https://github.com/hackverse/passport-hackerverse",
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/hackverse/passport-hackerverse.git"
-      },
-      "time": {
-        "created": "2014-04-19T22:21:37.404Z",
-        "modified": "2014-04-19T22:46:54.409Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
@@ -60,593 +113,180 @@
       }
     },
     {
-      "name": "passport-hackid",
-      "description": "HackID authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.4"
+      "package": {
+        "name": "passport-gumroad",
+        "version": "1.0.0",
+        "description": "Gumroad authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "oauth",
+          "oauth2",
+          "authentication",
+          "gumroad",
+          "api"
+        ],
+        "date": "2015-12-01T13:14:21.515Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-gumroad",
+          "homepage": "https://github.com/SamyPesse/passport-gumroad#readme",
+          "repository": "git://github.com/SamyPesse/passport-gumroad.git",
+          "bugs": "http://github.com/SamyPesse/passport-gumroad/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/HackBerkeley/passport-hackid.git",
-        "favoriteCount": 1,
-        "subscriberCount": 13,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2012-09-03T04:38:27.686Z",
-        "modified": "2012-09-03T18:36:09.349Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 5
-      }
-    },
-    {
-      "name": "passport-hash",
-      "description": "Hash authentication strategy for Passport. with Express 4.x parsing",
-      "keywords": [
-        "passport",
-        "hash",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.6.1"
-      },
-      "homepage": "https://github.com/yuri-karadzhov/passport-hash#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/yuri-karadzhov/passport-hash.git",
-        "favoriteCount": 36,
-        "subscriberCount": 1,
-        "forkCount": 13
-      },
-      "time": {
-        "created": "2012-07-21T13:27:06.177Z",
-        "modified": "2018-02-20T19:44:13.211Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 379,
-        "last-month": 2514
-      }
-    },
-    {
-      "name": "passport-hawk",
-      "description": "Passport strategy for the Hawk authentication schema.",
-      "keywords": [
-        "hawk",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "4.0.0"
-      },
-      "homepage": "https://github.com/jfromaniello/passport-hawk#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jfromaniello/passport-hawk.git",
-        "favoriteCount": 23,
-        "subscriberCount": 1,
-        "forkCount": 20
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2012-12-20T18:27:21.203Z",
-        "modified": "2018-04-05T16:23:22.955Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 18,
-        "last-month": 127
-      }
-    },
-    {
-      "name": "passport-headhunter",
-      "description": "HeadHunter authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "headhunter",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.8"
-      },
-      "homepage": "https://github.com/getlot/passport-headhunter",
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/getlot/passport-headhunter.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 2
-      },
-      "time": {
-        "created": "2014-11-22T16:38:54.114Z",
-        "modified": "2014-11-22T18:27:13.532Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 5
+        "last-month": 1
       }
     },
     {
-      "name": "passport-heroku-addon",
-      "description": "Passport strategy for heroku addons.",
-      "dist-tags": {
-        "latest": "0.1.0"
+      "package": {
+        "name": "passport-hackerverse",
+        "version": "0.0.3",
+        "description": "Hackerverse authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "oauth2"
+        ],
+        "date": "2014-04-19T22:46:54.409Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hackerverse",
+          "homepage": "https://github.com/hackverse/passport-hackerverse",
+          "repository": "http://github.com/hackverse/passport-hackerverse.git",
+          "bugs": "http://github.com/hackverse/passport-hackerverse/issues"
+        }
       },
-      "homepage": "https://github.com/auth0/passport-heroku-addon#readme",
-      "repository": {
-        "url": "git://github.com/auth0/passport-heroku-addon.git"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-09-01T14:44:18.133Z",
-        "modified": "2015-12-24T13:17:28.989Z"
-      },
+      "flags": {},
       "downloads": {
         "last-day": 0,
-        "last-week": 37,
-        "last-month": 285
+        "last-week": 0,
+        "last-month": 1
       }
     },
     {
-      "name": "passport-heroku-sso",
-      "description": "Passport strategy for heroku addon sso",
-      "dist-tags": {
-        "latest": "0.1.0"
+      "package": {
+        "name": "passport-hackid",
+        "version": "0.0.4",
+        "description": "HackID authentication strategy for Passport.",
+        "date": "2012-09-03T18:36:09.349Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hackid",
+          "repository": "git://github.com/HackBerkeley/passport-hackid.git"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/CamShaft/passport-heroku-sso.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2013-10-13T04:19:42.677Z",
-        "modified": "2013-10-13T04:19:45.574Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 13,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 1
       }
     },
     {
-      "name": "passport-hmac-aws4",
-      "description": "security holding package",
-      "dist-tags": {
-        "latest": "0.0.1-security"
+      "package": {
+        "name": "passport-hash",
+        "version": "0.6.1",
+        "description": "Hash authentication strategy for Passport. with Express 4.x parsing",
+        "keywords": [
+          "passport",
+          "hash",
+          "auth",
+          "authn",
+          "authentication"
+        ],
+        "date": "2018-02-20T19:44:12.047Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hash",
+          "homepage": "https://github.com/yuri-karadzhov/passport-hash#readme",
+          "repository": "git://github.com/yuri-karadzhov/passport-hash.git",
+          "bugs": "http://github.com/yuri-karadzhov/passport-hash/issues"
+        }
       },
-      "homepage": "https://github.com/npm/security-holder#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/npm/security-holder.git",
-        "favoriteCount": 47,
-        "subscriberCount": 17,
-        "forkCount": 18
-      },
-      "time": {
-        "created": "2016-08-05T17:45:22.304Z",
-        "modified": "2018-01-19T22:00:30.692Z"
+      "flags": {},
+      "count": {
+        "favorites": 36,
+        "subscribers": 1,
+        "forks": 13
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 3
+        "last-day": 130,
+        "last-week": 509,
+        "last-month": 2506
       }
     },
     {
-      "name": "passport-hmac",
-      "description": "HMAC authentication strategy for Passport",
-      "keywords": [
-        "passport",
-        "strategy",
-        "hmac",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.4"
+      "package": {
+        "name": "passport-hawk",
+        "version": "4.0.0",
+        "description": "Passport strategy for the Hawk authentication schema.",
+        "keywords": [
+          "hawk",
+          "passport"
+        ],
+        "date": "2018-04-05T16:23:22.383Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hawk",
+          "homepage": "https://github.com/jfromaniello/passport-hawk#readme",
+          "repository": "git://github.com/jfromaniello/passport-hawk.git",
+          "bugs": "https://github.com/jfromaniello/passport-hawk/issues"
+        }
       },
-      "homepage": "https://github.com/chatter/passport-hmac#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/chatter/passport-hmac.git",
-        "favoriteCount": 7,
-        "subscriberCount": 2,
-        "forkCount": 1
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-09-15T18:53:16.928Z",
-        "modified": "2015-10-08T14:59:25.775Z"
+      "flags": {},
+      "count": {
+        "favorites": 23,
+        "subscribers": 1,
+        "forks": 20
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 69,
-        "last-month": 262
-      }
-    },
-    {
-      "name": "passport-honeywell",
-      "description": "Provides a honeywell authentication strategy for Passport",
-      "keywords": [
-        "passport",
-        "honeywell"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/Nibbler999/passport-honeywell#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/Nibbler999/passport-honeywell.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2017-09-15T13:33:55.793Z",
-        "modified": "2017-09-18T08:03:03.055Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1,
-        "last-month": 6
-      }
-    },
-    {
-      "name": "passport-hotp",
-      "description": "HOTP authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-hotp.git",
-        "favoriteCount": 12,
-        "subscriberCount": 2,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2013-05-12T02:28:49.979Z",
-        "modified": "2013-05-12T02:28:50.947Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 4,
-        "last-month": 61
-      }
-    },
-    {
-      "name": "passport-http-bearer-base64",
-      "description": "HTTP Bearer authentication strategy, with optional base64 encoded token support, for Passport.",
-      "keywords": [
-        "passport",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "http",
-        "bearer",
-        "token",
-        "oauth",
-        "base64",
-        "encoded"
-      ],
-      "dist-tags": {
-        "latest": "1.0.3"
-      },
-      "homepage": "https://github.com/auralon/passport-http-bearer-base64",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/auralon/passport-http-bearer-base64.git",
-        "favoriteCount": 3,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-12-01T11:06:01.772Z",
-        "modified": "2016-12-01T11:15:18.688Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1,
-        "last-month": 21
-      }
-    },
-    {
-      "name": "passport-http-bearer",
-      "description": "HTTP Bearer authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-http-bearer.git",
-        "favoriteCount": 777,
-        "subscriberCount": 17,
-        "forkCount": 133
-      },
-      "time": {
-        "created": "2011-10-30T19:35:06.330Z",
-        "modified": "2018-08-03T00:40:44.415Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 35368,
-        "last-month": 200814
-      }
-    },
-    {
-      "name": "passport-http-custom-bearer",
-      "description": "HTTP Bearer authentication strategy using custom headers and field names for Passport.  Forked from https://github.com/jaredhanson/passport-http-bearer.",
-      "keywords": [
-        "passport",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "http",
-        "bearer",
-        "token",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "1.0.15"
-      },
-      "homepage": "https://github.com/wwwslinger/passport-http-custom-bearer#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/wwwslinger/passport-http-custom-bearer.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2015-09-27T07:25:52.264Z",
-        "modified": "2015-09-27T07:40:59.545Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 57,
-        "last-month": 386
-      }
-    },
-    {
-      "name": "passport-http-encrypted-token",
-      "description": "HTTP Encrypted Token authentication strategy for Passport and Node.j",
-      "keywords": [
-        "authentication",
-        "bearer",
-        "encrypted",
-        "token"
-      ],
-      "dist-tags": {
-        "latest": "1.2.1"
-      },
-      "homepage": "https://github.com/dowjones/passport-http-encrypted-token#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/dowjones/passport-http-encrypted-token.git",
-        "favoriteCount": 0,
-        "subscriberCount": 4,
-        "forkCount": 0
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2016-10-17T19:50:15.201Z",
-        "modified": "2016-10-17T20:09:41.075Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 2
-      }
-    },
-    {
-      "name": "passport-http-header-strategy",
-      "description": "HTTP Bearer set header authentication strategy for Passport",
-      "keywords": [
-        "passport",
-        "header",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "http",
-        "bearer",
-        "token",
-        "oauth"
-      ],
-      "dist-tags": {
-        "latest": "1.0.4"
-      },
-      "homepage": "https://github.com/FengYuHe/passport-http-header-strategy#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/FengYuHe/passport-http-header-strategy.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2016-03-07T08:41:46.121Z",
-        "modified": "2016-03-31T03:06:11.262Z"
-      },
-      "downloads": {
-        "last-day": 0,
+        "last-day": 7,
         "last-week": 25,
-        "last-month": 98
+        "last-month": 115
       }
     },
     {
-      "name": "passport-http-oauth",
-      "description": "HTTP OAuth authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.3"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-http-oauth.git",
-        "favoriteCount": 66,
-        "subscriberCount": 8,
-        "forkCount": 27
-      },
-      "time": {
-        "created": "2012-07-02T15:07:05.714Z",
-        "modified": "2018-08-03T00:43:43.231Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 107,
-        "last-month": 599
+      "package": {
+        "links": {
+          "npm": "https://www.npmjs.com/package/undefined"
+        }
       }
     },
     {
-      "name": "passport-http-signature",
-      "description": "passport strategy for HTTP signatures",
-      "keywords": [
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-headhunter",
+        "version": "0.1.8",
+        "description": "HeadHunter authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "headhunter",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2014-11-22T18:27:13.532Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-headhunter",
+          "homepage": "https://github.com/getlot/passport-headhunter",
+          "repository": "http://github.com/getlot/passport-headhunter.git",
+          "bugs": "http://github.com/getlot/passport-headhunter/issues"
+        }
       },
-      "homepage": "https://github.com/interledger/passport-http-signature#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/interledger/passport-http-signature.git",
-        "favoriteCount": 5,
-        "subscriberCount": 19,
-        "forkCount": 3
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2015-11-18T21:18:29.492Z",
-        "modified": "2015-11-18T21:18:29.492Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 4,
-        "last-month": 19
-      }
-    },
-    {
-      "name": "passport-http",
-      "description": "HTTP Basic and Digest authentication strategies for Passport.",
-      "keywords": [
-        "passport",
-        "http",
-        "basic",
-        "digest",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.3.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-http",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-http.git",
-        "favoriteCount": 227,
-        "subscriberCount": 9,
-        "forkCount": 96
-      },
-      "time": {
-        "created": "2011-10-26T04:18:16.435Z",
-        "modified": "2018-08-03T00:40:47.131Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 28335,
-        "last-month": 158405
-      }
-    },
-    {
-      "name": "passport-httpapikey",
-      "description": "a passport strategy for http authorization with apikey",
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/p0wdrdotcom/passport-httpapikey#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/p0wdrdotcom/passport-httpapikey.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2017-07-16T23:22:11.624Z",
-        "modified": "2017-07-16T23:22:11.624Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 8,
-        "last-month": 48
-      }
-    },
-    {
-      "name": "passport-hubspot",
-      "description": "Hubspot authentication strategy for Passport.",
-      "keywords": [
-        "hubspot",
-        "passport",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "repository": {
-        "url": "https://github.com/brainflake/passport-hubspot",
-        "favoriteCount": 4,
-        "subscriberCount": 2,
-        "forkCount": 4
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-01-09T16:11:26.354Z",
-        "modified": "2015-09-03T17:57:18.717Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 9,
-        "last-month": 65
-      }
-    },
-    {
-      "name": "passport-humanapi",
-      "description": "HumanAPI authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "repository": {
-        "type": "git",
-        "url": "http://github.com/humanapi/passport-humanapi.git",
-        "favoriteCount": 9,
-        "subscriberCount": 2,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2013-07-06T05:10:05.092Z",
-        "modified": "2013-07-06T05:10:06.210Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 2
       },
       "downloads": {
         "last-day": 0,
@@ -655,79 +295,389 @@
       }
     },
     {
-      "name": "passport-ibm-connections-basic",
-      "description": "A passport basic authentication strategy for IBM Connections",
-      "keywords": [
-        "passport-ibm-connections-basic",
-        "passport",
-        "ibm-connections",
-        "authentication",
-        "basic",
-        "strategy",
-        "ibm",
-        "connections",
-        "express",
-        "connect"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
+      "package": {
+        "name": "passport-heroku-addon",
+        "version": "0.1.0",
+        "description": "Passport strategy for heroku addons.",
+        "date": "2015-12-24T13:17:28.989Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-heroku-addon",
+          "homepage": "https://github.com/auth0/passport-heroku-addon#readme",
+          "repository": "git://github.com/auth0/passport-heroku-addon.git",
+          "bugs": "https://github.com/auth0/passport-heroku-addon/issues"
+        }
       },
-      "homepage": "https://github.com/benkroeger/passport-ibm-connections-basic#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/benkroeger/passport-ibm-connections-basic.git",
-        "favoriteCount": 1,
-        "subscriberCount": 2,
-        "forkCount": 0
-      },
-      "license": "Apache 2.0",
-      "time": {
-        "created": "2015-04-30T04:05:24.682Z",
-        "modified": "2015-04-30T04:05:24.682Z"
-      },
+      "flags": {},
       "downloads": {
-        "last-day": 0,
-        "last-week": 4,
-        "last-month": 72
+        "last-day": 5,
+        "last-week": 42,
+        "last-month": 277
       }
     },
     {
-      "name": "passport-ibm-connections-cloud",
-      "description": "Passport oAuth 2.0 Strategy for IBM Connections Cloud",
-      "keywords": [
-        "passport-ibm-connections-cloud",
-        "ibm",
-        "passport",
-        "oauth",
-        "connections",
-        "cloud",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "1.2.0"
+      "package": {
+        "name": "passport-heroku-sso",
+        "version": "0.1.0",
+        "description": "Passport strategy for heroku addon sso",
+        "date": "2013-10-13T04:19:45.574Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-heroku-sso",
+          "repository": "https://github.com/CamShaft/passport-heroku-sso.git"
+        }
       },
-      "homepage": "https://github.com/benkroeger/passport-ibm-connections-cloud#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/benkroeger/passport-ibm-connections-cloud.git",
-        "favoriteCount": 2,
-        "subscriberCount": 2,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-02-06T19:42:31.791Z",
-        "modified": "2016-05-17T16:01:20.851Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 3,
-        "last-month": 11
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "links": {
+          "npm": "https://www.npmjs.com/package/undefined"
+        }
+      }
+    },
+    {
+      "package": {
+        "name": "passport-hmac-aws4",
+        "version": "0.0.1-security",
+        "description": "security holding package",
+        "date": "2018-01-19T22:00:17.760Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hmac-aws4",
+          "homepage": "https://github.com/npm/security-holder#readme",
+          "repository": "git+https://github.com/npm/security-holder.git",
+          "bugs": "https://github.com/npm/security-holder/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 47,
+        "subscribers": 17,
+        "forks": 18
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-hmac",
+        "version": "1.0.4",
+        "description": "HMAC authentication strategy for Passport",
+        "keywords": [
+          "passport",
+          "strategy",
+          "hmac",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-10-08T14:59:25.775Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hmac",
+          "homepage": "https://github.com/chatter/passport-hmac#readme",
+          "repository": "git://github.com/chatter/passport-hmac.git",
+          "bugs": "http://github.com/chatter/passport-twitter/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 7,
+        "subscribers": 2,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 14,
+        "last-week": 83,
+        "last-month": 257
+      }
+    },
+    {
+      "package": {
+        "name": "passport-honeywell",
+        "version": "1.0.1",
+        "description": "Provides a honeywell authentication strategy for Passport",
+        "keywords": [
+          "passport",
+          "honeywell"
+        ],
+        "date": "2017-09-18T08:03:03.055Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-honeywell",
+          "homepage": "https://github.com/Nibbler999/passport-honeywell#readme",
+          "repository": "git://github.com/Nibbler999/passport-honeywell.git",
+          "bugs": "https://github.com/Nibbler999/passport-honeywell/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 4
+      }
+    },
+    {
+      "package": {
+        "name": "passport-hotp",
+        "version": "0.0.1",
+        "description": "HOTP authentication strategy for Passport.",
+        "date": "2013-05-12T02:28:50.947Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-hotp",
+          "repository": "git://github.com/jaredhanson/passport-hotp.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 12,
+        "subscribers": 2,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 9,
+        "last-week": 13,
+        "last-month": 66
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-bearer-base64",
+        "version": "1.0.3",
+        "description": "HTTP Bearer authentication strategy, with optional base64 encoded token support, for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "http",
+          "bearer",
+          "token",
+          "oauth",
+          "base64",
+          "encoded"
+        ],
+        "date": "2016-12-01T11:15:18.688Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-bearer-base64",
+          "homepage": "https://github.com/auralon/passport-http-bearer-base64",
+          "repository": "git://github.com/auralon/passport-http-bearer-base64.git",
+          "bugs": "https://github.com/auralon/passport-http-bearer-base64/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 17
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-bearer",
+        "version": "1.0.1",
+        "description": "HTTP Bearer authentication strategy for Passport.",
+        "date": "2013-08-02T22:36:55.671Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-bearer",
+          "repository": "git://github.com/jaredhanson/passport-http-bearer.git"
+        }
+      },
+      "flags": {
+        "featured": true
+      },
+      "count": {
+        "favorites": 777,
+        "subscribers": 17,
+        "forks": 133
+      },
+      "downloads": {
+        "last-day": 10017,
+        "last-week": 45385,
+        "last-month": 200908
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-custom-bearer",
+        "version": "1.0.15",
+        "description": "HTTP Bearer authentication strategy using custom headers and field names for Passport.  Forked from https://github.com/jaredhanson/passport-http-bearer.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "http",
+          "bearer",
+          "token",
+          "oauth"
+        ],
+        "date": "2015-09-27T07:40:59.545Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-custom-bearer",
+          "homepage": "https://github.com/wwwslinger/passport-http-custom-bearer#readme",
+          "repository": "git://github.com/wwwslinger/passport-http-custom-bearer.git",
+          "bugs": "http://github.com/wwwslinger/passport-http-custom-bearer/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 1
+      },
+      "downloads": {
+        "last-day": 4,
+        "last-week": 61,
+        "last-month": 379
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-encrypted-token",
+        "version": "1.2.1",
+        "description": "HTTP Encrypted Token authentication strategy for Passport and Node.j",
+        "keywords": [
+          "authentication",
+          "bearer",
+          "encrypted",
+          "token"
+        ],
+        "date": "2016-10-17T19:50:15.201Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-encrypted-token",
+          "homepage": "https://github.com/dowjones/passport-http-encrypted-token#readme",
+          "repository": "git+https://github.com/dowjones/passport-http-encrypted-token.git",
+          "bugs": "https://github.com/dowjones/passport-http-encrypted-token/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 4,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-header-strategy",
+        "version": "1.0.4",
+        "description": "HTTP Bearer set header authentication strategy for Passport",
+        "keywords": [
+          "passport",
+          "header",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "http",
+          "bearer",
+          "token",
+          "oauth"
+        ],
+        "date": "2016-03-31T03:06:11.262Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-header-strategy",
+          "homepage": "https://github.com/FengYuHe/passport-http-header-strategy#readme",
+          "repository": "git://github.com/FengYuHe/passport-http-header-strategy.git",
+          "bugs": "http://github.com/FengYuHe/passport-http-header-strategy/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 16,
+        "last-week": 41,
+        "last-month": 107
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-oauth",
+        "version": "0.1.3",
+        "description": "HTTP OAuth authentication strategy for Passport.",
+        "date": "2013-02-20T16:28:06.905Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-oauth",
+          "repository": "git://github.com/jaredhanson/passport-http-oauth.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 66,
+        "subscribers": 8,
+        "forks": 27
+      },
+      "downloads": {
+        "last-day": 28,
+        "last-week": 135,
+        "last-month": 601
+      }
+    },
+    {
+      "package": {
+        "name": "passport-http-signature",
+        "version": "1.0.0",
+        "description": "passport strategy for HTTP signatures",
+        "keywords": [
+          "passport"
+        ],
+        "date": "2015-11-18T21:18:29.492Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-http-signature",
+          "homepage": "https://github.com/interledger/passport-http-signature#readme",
+          "repository": "git+https://github.com/interledger/passport-http-signature.git",
+          "bugs": "https://github.com/interledger/passport-http-signature/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 5,
+        "subscribers": 19,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 1,
+        "last-week": 5,
+        "last-month": 19
       }
     }
   ],
-  "total": 500,
+  "total": 513,
   "urls": {
     "next": "/packages/-/v1/all/9.json",
     "prev": "/packages/-/v1/all/7.json"

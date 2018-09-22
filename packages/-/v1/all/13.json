@@ -1,241 +1,298 @@
 {
   "objects": [
     {
-      "name": "passport-odnoklassniki",
-      "description": "Odnoklassniki.ru authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "odnoklassniki",
-        "одноклассники",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
+      "package": {
+        "name": "passport-oauth2-jwt-bearer",
+        "version": "0.2.0",
+        "description": "JSON Web Token (JWT) Bearer Token Profiles for OAuth 2.0 client authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "oauth",
+          "oauth2",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "api",
+          "jwt",
+          "json",
+          "token",
+          "bearer"
+        ],
+        "date": "2017-10-13T15:43:14.203Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oauth2-jwt-bearer",
+          "homepage": "https://github.com/xtuple/passport-oauth2-jwt-bearer#readme",
+          "repository": "git://github.com/xtuple/passport-oauth2-jwt-bearer.git",
+          "bugs": "https://github.com/xtuple/passport-oauth2-jwt-bearer/issues"
+        }
       },
-      "homepage": "https://github.com/ozon1234/passport-odnoklassniki#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/ozon1234/passport-odnoklassniki.git",
-        "favoriteCount": 9,
-        "subscriberCount": 3,
-        "forkCount": 3
-      },
-      "time": {
-        "created": "2012-08-29T11:33:52.358Z",
-        "modified": "2017-03-13T08:48:12.315Z"
+      "flags": {},
+      "count": {
+        "favorites": 72,
+        "subscribers": 16,
+        "forks": 26
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 199,
-        "last-month": 1165
+        "last-day": 13,
+        "last-week": 121,
+        "last-month": 534
       }
     },
     {
-      "name": "passport-office365-oauth2",
-      "description": "Passport strategy for authenticating with Azure AD using the OAuth 2.0 protocol.",
-      "keywords": [
-        "passport",
-        "waad",
-        "oauth",
-        "azure active directory",
-        "azure ad",
-        "office 365",
-        "office365",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.3"
+      "package": {
+        "name": "passport-oauth2-meetup",
+        "version": "1.1.0",
+        "description": "Passport OAuth2 Strategy for Meetup ",
+        "keywords": [
+          "passport",
+          "meetup",
+          "oauth2"
+        ],
+        "date": "2015-08-21T13:38:30.344Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oauth2-meetup",
+          "homepage": "https://github.com/zenvisuals/passport-oauth2-meetup",
+          "repository": "https://github.com/zenvisuals/passport-oauth2-meetup.git",
+          "bugs": "https://github.com/zenvisuals/passport-oauth2-meetup/issues"
+        }
       },
-      "homepage": "https://github.com/Burke9077/passport-office365-oauth2",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/Burke9077/passport-office365-oauth2.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 1
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
-      "license": "(MIT OR Apache-2.0)",
-      "time": {
-        "created": "2017-04-14T18:12:16.757Z",
-        "modified": "2017-04-28T23:15:47.819Z"
+      "downloads": {
+        "last-day": 0,
+        "last-week": 10,
+        "last-month": 76
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oauth2-resource-owner-password",
+        "version": "1.0.0",
+        "description": "OAuth 2.0 resource owner password authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "oauth",
+          "oauth2",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "api",
+          "password",
+          "resource",
+          "owner"
+        ],
+        "date": "2014-10-07T08:51:20.088Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oauth2-resource-owner-password",
+          "homepage": "https://github.com/coolaj86/passport-oauth2-resource-owner-password",
+          "repository": "git://github.com/coolaj86/passport-oauth2-resource-owner-password.git",
+          "bugs": "http://github.com/coolaj86/passport-oauth2-resource-owner-password/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 2,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 6,
+        "last-week": 79,
+        "last-month": 260
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oauth2",
+        "version": "1.4.0",
+        "description": "OAuth 2.0 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "oauth",
+          "oauth2"
+        ],
+        "date": "2016-12-20T20:13:14.152Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oauth2",
+          "homepage": "https://github.com/jaredhanson/passport-oauth2#readme",
+          "repository": "git://github.com/jaredhanson/passport-oauth2.git",
+          "bugs": "http://github.com/jaredhanson/passport-oauth2/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 344,
+        "subscribers": 14,
+        "forks": 181
+      },
+      "downloads": {
+        "last-day": 20731,
+        "last-week": 97526,
+        "last-month": 439310
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oauth3",
+        "version": "1.0.5",
+        "description": "Node.js / ExpressJS / PassportJS Strategy for OAuth2 / OAuth3 providers",
+        "keywords": [
+          "OAuth3",
+          "OAuth2",
+          "OAuth",
+          "OAuthN",
+          "AuthN",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-04-22T21:17:34.341Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oauth3",
+          "homepage": "https://github.com/OAuth3/passport-oauth3",
+          "repository": "git://github.com/OAuth3/passport-oauth3.git",
+          "bugs": "https://github.com/OAuth3/passport-oauth3/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 10
+        "last-month": 1
       }
     },
     {
-      "name": "passport-ohloh",
-      "description": "Ohloh authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
+      "package": {
+        "name": "passport-octoblu",
+        "version": "3.0.1",
+        "description": "app.octoblu.com authentication strategy for Passport",
+        "keywords": [
+          "passport",
+          "octoblu"
+        ],
+        "date": "2017-03-02T18:11:38.214Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-octoblu",
+          "homepage": "https://github.com/octoblu/passport-octoblu",
+          "repository": "git+https://github.com/octoblu/passport-octoblu.git",
+          "bugs": "https://github.com/octoblu/passport-octoblu/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-ohloh.git",
-        "favoriteCount": 2,
-        "subscriberCount": 2,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2012-01-12T03:23:50.914Z",
-        "modified": "2013-01-25T06:23:58.616Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 11,
+        "forks": 2
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 1,
-        "last-month": 5
+        "last-week": 9,
+        "last-month": 11
       }
     },
     {
-      "name": "passport-ok-strategy",
-      "description": "passport odnoklassniki strategy",
-      "keywords": [
-        "passport",
-        "odnoklassniki",
-        "одноклассники"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
+      "package": {
+        "name": "passport-odesk",
+        "version": "0.0.10",
+        "description": "Odesk authentication strategy for Passport.",
+        "date": "2013-06-17T22:40:55.838Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-odesk",
+          "repository": "git://github.com/dglittle/passport-odesk.git"
+        }
       },
-      "homepage": "https://github.com/dvpnt/passport-ok-strategy#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/dvpnt/passport-ok-strategy.git",
-        "favoriteCount": 3,
-        "subscriberCount": 2,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-04-25T07:56:27.579Z",
-        "modified": "2017-09-01T11:23:47.138Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 3,
-        "last-month": 22
-      }
-    },
-    {
-      "name": "passport-okta-oauth",
-      "description": "Passport strategy for authenticating with Okta using OAuth 2.0.",
-      "keywords": [
-        "passport",
-        "okta",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "homepage": "https://github.com/fischerdan/passport-okta-oauth",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fischerdan/passport-okta-oauth.git",
-        "favoriteCount": 0,
-        "subscriberCount": 0,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-09-21T16:00:17.962Z",
-        "modified": "2017-09-21T16:00:17.962Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 229,
-        "last-month": 1013
-      }
-    },
-    {
-      "name": "passport-oneauth",
-      "description": "Passport strategy for oneauth server",
-      "keywords": [
-        "passport",
-        "oneauth"
-      ],
-      "dist-tags": {
-        "latest": "1.3.0"
-      },
-      "homepage": "https://github.com/coding-blocks/passport-oneauth#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/coding-blocks/passport-oneauth.git",
-        "favoriteCount": 0,
-        "subscriberCount": 0,
-        "forkCount": 1
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2017-08-22T07:39:42.592Z",
-        "modified": "2018-07-30T04:26:35.728Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 0,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 2,
-        "last-month": 25
+        "last-month": 17
       }
     },
     {
-      "name": "passport-oneprofile",
-      "description": "Passport strategy for OneProfile implementation",
-      "keywords": [
-        "passport",
-        "strategy",
-        "oneprofile"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/StubHubLabs/node-oneprofile",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/StubHubLabs/node-oneprofile.git"
-      },
-      "license": [
-        {
-          "type": "MIT",
-          "url": "./LICENSE"
+      "package": {
+        "name": "passport-odnoklassniki",
+        "version": "0.2.0",
+        "description": "Odnoklassniki.ru authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "odnoklassniki",
+          "одноклассники",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-10-02T14:19:05.330Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-odnoklassniki",
+          "homepage": "https://github.com/ozon1234/passport-odnoklassniki#readme",
+          "repository": "git://github.com/ozon1234/passport-odnoklassniki.git",
+          "bugs": "http://github.com/ozon1234/passport-odnoklassniki/issues"
         }
-      ],
-      "time": {
-        "created": "2014-10-03T20:27:48.031Z",
-        "modified": "2014-10-24T17:23:08.479Z"
+      },
+      "flags": {},
+      "count": {
+        "favorites": 9,
+        "subscribers": 3,
+        "forks": 3
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 3
+        "last-day": 37,
+        "last-week": 236,
+        "last-month": 1150
       }
     },
     {
-      "name": "passport-oneuser",
-      "description": "OneUser passport.",
-      "dist-tags": {
-        "latest": "1.0.4"
+      "package": {
+        "name": "passport-office365-oauth2",
+        "version": "0.0.3",
+        "description": "Passport strategy for authenticating with Azure AD using the OAuth 2.0 protocol.",
+        "keywords": [
+          "passport",
+          "waad",
+          "oauth",
+          "azure active directory",
+          "azure ad",
+          "office 365",
+          "office365",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2017-04-14T18:40:58.093Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-office365-oauth2",
+          "homepage": "https://github.com/Burke9077/passport-office365-oauth2",
+          "repository": "git://github.com/Burke9077/passport-office365-oauth2.git",
+          "bugs": "http://github.com/Burke9077/passport-office365-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/mrtone/passport-oneuser",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/mrtone/passport-oneuser.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-12-15T08:50:45.963Z",
-        "modified": "2015-02-12T11:28:47.227Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
@@ -244,514 +301,456 @@
       }
     },
     {
-      "name": "passport-onscribe",
-      "description": "A node module to authenticate with Onscribe using passport.js",
-      "keywords": [
-        "onscribe",
-        "passport",
-        "oauth2",
-        "auth",
-        "authentication",
-        "identity",
-        "api",
-        "json"
-      ],
-      "dist-tags": {
-        "latest": "0.2.0"
+      "package": {
+        "name": "passport-ohloh",
+        "version": "0.1.2",
+        "description": "Ohloh authentication strategy for Passport.",
+        "date": "2013-01-25T06:23:58.616Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ohloh",
+          "repository": "git://github.com/jaredhanson/passport-ohloh.git"
+        }
       },
-      "homepage": "http://onscri.be",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/onscribe/passport.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2014-02-23T08:13:59.633Z",
-        "modified": "2015-01-21T05:23:06.452Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 3
-      }
-    },
-    {
-      "name": "passport-onshape",
-      "description": "Onshape OAuth 2.0 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "oauth2",
-        "authentication",
-        "onshape"
-      ],
-      "dist-tags": {
-        "latest": "1.1.1"
-      },
-      "homepage": "https://github.com/onshape/passport-onshape#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/onshape/passport-onshape.git",
-        "favoriteCount": 3,
-        "subscriberCount": 7,
-        "forkCount": 4
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2015-06-18T15:46:02.225Z",
-        "modified": "2018-08-23T15:05:35.613Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 27,
-        "last-month": 180
-      }
-    },
-    {
-      "name": "passport-open-humans",
-      "description": "An Open Humans authentication strategy for Passport",
-      "keywords": [
-        "passport",
-        "open-humans",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "5.2.0"
-      },
-      "homepage": "https://github.com/PersonalGenomesOrg/passport-open-humans#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/PersonalGenomesOrg/passport-open-humans.git",
-        "favoriteCount": 0,
-        "subscriberCount": 4,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-11-05T04:33:41.793Z",
-        "modified": "2016-02-27T18:18:41.863Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 10
-      }
-    },
-    {
-      "name": "passport-openid",
-      "description": "OpenID authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "openid",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.4.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-openid",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-openid.git",
-        "favoriteCount": 63,
-        "subscriberCount": 6,
-        "forkCount": 72
-      },
-      "time": {
-        "created": "2011-11-04T00:28:17.973Z",
-        "modified": "2018-08-03T00:42:43.656Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 3749,
-        "last-month": 23813
-      }
-    },
-    {
-      "name": "passport-openidconnect",
-      "description": "OpenID Connect authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "openid",
-        "openidconnect",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-openidconnect#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-openidconnect.git",
-        "favoriteCount": 106,
-        "subscriberCount": 11,
-        "forkCount": 107
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-02-17T00:14:38.852Z",
-        "modified": "2017-08-30T14:32:56.374Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1843,
-        "last-month": 10493
-      }
-    },
-    {
-      "name": "passport-openstreetmap",
-      "description": "OpenStreetMap authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-openstreetmap.git",
-        "favoriteCount": 8,
-        "subscriberCount": 4,
-        "forkCount": 4
-      },
-      "time": {
-        "created": "2012-01-12T07:15:09.794Z",
-        "modified": "2013-01-25T06:34:22.286Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 33,
-        "last-month": 368
-      }
-    },
-    {
-      "name": "passport-opentoken",
-      "description": "Passport strategy for authenticating with PingFederate using the OpenToken API",
-      "keywords": [
-        "passport",
-        "authentication",
-        "opentoken"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/73rhodes/passport-opentoken",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/73rhodes/passport-opentoken.git",
-        "favoriteCount": 3,
-        "subscriberCount": 2,
-        "forkCount": 2
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2014-10-10T21:45:28.313Z",
-        "modified": "2017-03-13T21:08:57.533Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 19,
-        "last-month": 57
-      }
-    },
-    {
-      "name": "passport-orcid",
-      "description": "Passport strategy for authentication with ORCID (orcid.org)",
-      "dist-tags": {
-        "latest": "0.0.3"
-      },
-      "homepage": "https://github.com/hubgit/passport-orcid#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hubgit/passport-orcid.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 4
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-03-20T13:14:50.371Z",
-        "modified": "2018-02-09T09:15:14.993Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 87,
-        "last-month": 682
-      }
-    },
-    {
-      "name": "passport-oschina",
-      "description": "OSChina authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "oschina",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.2"
-      },
-      "homepage": "https://github.com/geminiyellow/passport-oschina",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/geminiyellow/passport-oschina.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2015-01-26T05:13:17.827Z",
-        "modified": "2015-01-27T02:24:46.922Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 3
-      }
-    },
-    {
-      "name": "passport-outlook",
-      "description": "Outlook REST API v2 authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "microsoft",
-        "outlook",
-        "msn",
-        "hotmail",
-        "windowslive",
-        "auth",
-        "oauth",
-        "oauth2",
-        "authorization",
-        "authorisation",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "2.2.0"
-      },
-      "homepage": "https://github.com/clocked0ne/passport-outlook#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/clocked0ne/passport-outlook.git",
-        "favoriteCount": 5,
-        "subscriberCount": 2,
-        "forkCount": 9
-      },
-      "time": {
-        "created": "2015-12-17T11:47:12.850Z",
-        "modified": "2018-08-26T19:58:16.207Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 195,
-        "last-month": 914
-      }
-    },
-    {
-      "name": "passport-outlook2",
-      "description": "Outlook authentication strategy for Passport.",
-      "keywords": [
-        "auth",
-        "passport",
-        "outlook",
-        "windows",
-        "live",
-        "outlook.com"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/globlee/passport-outlook#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/globlee/passport-outlook.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 1
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-01-15T20:26:46.428Z",
-        "modified": "2016-01-15T20:49:52.488Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 10,
-        "last-month": 82
-      }
-    },
-    {
-      "name": "passport-oz",
-      "description": "Passport strategy for authenticating with OZ using the OAuth 2.0 API.",
-      "dist-tags": {
-        "latest": "0.3.0"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/oz/passport-oz"
-      },
-      "time": {
-        "created": "2013-08-11T18:59:35.086Z",
-        "modified": "2013-11-20T03:14:54.084Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 5
-      }
-    },
-    {
-      "name": "passport-parse",
-      "description": "Passport Strategy for Parse.com",
-      "keywords": [
-        "authentication",
-        "parse authentication",
-        "parse",
-        "parse.com",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "0.0.5"
-      },
-      "homepage": "https://github.com/malikov/passport-parse",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/malikov/passport-parse.git",
-        "favoriteCount": 11,
-        "subscriberCount": 1,
-        "forkCount": 5
-      },
-      "license": "Apache-2.0",
-      "time": {
-        "created": "2014-08-15T18:24:56.881Z",
-        "modified": "2014-09-24T04:08:46.404Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 3,
-        "last-month": 94
-      }
-    },
-    {
-      "name": "passport-passprint",
-      "description": "PassPrint (OAuth2) authentication strategies for Passport.",
-      "keywords": [
-        "passport",
-        "passprint",
-        "fingerprint",
-        "biometrics",
-        "onyx",
-        "onyxauth",
-        "auth",
-        "authn",
-        "oauth",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/DFTinc/passport-passprint",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/DFTinc/passport-passprint.git",
-        "favoriteCount": 0,
-        "subscriberCount": 8,
-        "forkCount": 1
-      },
-      "time": {
-        "created": "2015-07-02T04:02:07.790Z",
-        "modified": "2017-05-22T16:32:15.255Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 2,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 1,
-        "last-month": 4
-      }
-    },
-    {
-      "name": "passport-passwordless",
-      "description": "Passport module for the passwordless library.",
-      "dist-tags": {
-        "latest": "0.0.1"
-      },
-      "license": "ISC",
-      "time": {
-        "created": "2016-04-11T09:59:44.638Z",
-        "modified": "2016-04-11T09:59:44.638Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 33
-      }
-    },
-    {
-      "name": "passport-payco",
-      "description": "Passport stratege for Payco OAuth 2.0",
-      "keywords": [
-        "passport",
-        "payco",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/egg-/passport-payco#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/egg-/passport-payco.git",
-        "favoriteCount": 0,
-        "subscriberCount": 0,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-01-18T03:36:56.394Z",
-        "modified": "2017-01-18T03:36:56.394Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
         "last-month": 2
       }
     },
     {
-      "name": "passport-paypal-oauth",
-      "description": "PayPal (OAuth) authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.1.0"
+      "package": {
+        "name": "passport-ok-strategy",
+        "version": "1.0.1",
+        "description": "passport odnoklassniki strategy",
+        "keywords": [
+          "passport",
+          "odnoklassniki",
+          "одноклассники"
+        ],
+        "date": "2017-09-01T11:23:47.138Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ok-strategy",
+          "homepage": "https://github.com/dvpnt/passport-ok-strategy#readme",
+          "repository": "git+https://github.com/dvpnt/passport-ok-strategy.git",
+          "bugs": "https://github.com/dvpnt/passport-ok-strategy/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-paypal-oauth.git",
-        "favoriteCount": 26,
-        "subscriberCount": 3,
-        "forkCount": 22
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 2,
+        "forks": 0
       },
-      "time": {
-        "created": "2012-04-28T06:02:20.817Z",
-        "modified": "2012-04-28T06:02:22.300Z"
+      "downloads": {
+        "last-day": 23,
+        "last-week": 26,
+        "last-month": 42
+      }
+    },
+    {
+      "package": {
+        "name": "passport-okta-oauth",
+        "version": "0.0.1",
+        "description": "Passport strategy for authenticating with Okta using OAuth 2.0.",
+        "keywords": [
+          "passport",
+          "okta",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2017-09-21T16:00:17.962Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-okta-oauth",
+          "homepage": "https://github.com/fischerdan/passport-okta-oauth",
+          "repository": "git+https://github.com/fischerdan/passport-okta-oauth.git",
+          "bugs": "https://github.com/fischerdan/passport-okta-oauth/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 0,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 53,
+        "last-week": 282,
+        "last-month": 1040
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oneauth",
+        "version": "1.3.0",
+        "description": "Passport strategy for oneauth server",
+        "keywords": [
+          "passport",
+          "oneauth"
+        ],
+        "date": "2018-07-30T04:26:33.380Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oneauth",
+          "homepage": "https://github.com/coding-blocks/passport-oneauth#readme",
+          "repository": "git+https://github.com/coding-blocks/passport-oneauth.git",
+          "bugs": "https://github.com/coding-blocks/passport-oneauth/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 0,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
-        "last-week": 48,
-        "last-month": 311
+        "last-week": 2,
+        "last-month": 11
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oneprofile",
+        "version": "0.0.2",
+        "description": "Passport strategy for OneProfile implementation",
+        "keywords": [
+          "passport",
+          "strategy",
+          "oneprofile"
+        ],
+        "date": "2014-10-24T17:23:08.479Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oneprofile",
+          "homepage": "https://github.com/StubHubLabs/node-oneprofile",
+          "repository": "https://github.com/StubHubLabs/node-oneprofile.git",
+          "bugs": "https://github.com/StubHubLabs/node-oneprofile/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oneuser",
+        "version": "1.0.4",
+        "description": "OneUser passport.",
+        "date": "2015-02-12T11:28:47.227Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oneuser",
+          "homepage": "https://github.com/mrtone/passport-oneuser",
+          "repository": "https://github.com/mrtone/passport-oneuser.git",
+          "bugs": "https://github.com/mrtone/passport-oneuser/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-onscribe",
+        "version": "0.2.0",
+        "description": "A node module to authenticate with Onscribe using passport.js",
+        "keywords": [
+          "onscribe",
+          "passport",
+          "oauth2",
+          "auth",
+          "authentication",
+          "identity",
+          "api",
+          "json"
+        ],
+        "date": "2015-01-21T05:23:06.452Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-onscribe",
+          "homepage": "http://onscri.be",
+          "repository": "git://github.com/onscribe/passport.git",
+          "bugs": "http://github.com/onscribe/passport/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-onshape",
+        "version": "1.1.1",
+        "description": "Onshape OAuth 2.0 authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "oauth2",
+          "authentication",
+          "onshape"
+        ],
+        "date": "2018-08-23T15:05:32.522Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-onshape",
+          "homepage": "https://github.com/onshape/passport-onshape#readme",
+          "repository": "git://github.com/onshape/passport-onshape.git",
+          "bugs": "https://github.com/onshape/passport-onshape/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 7,
+        "forks": 4
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 27,
+        "last-month": 157
+      }
+    },
+    {
+      "package": {
+        "links": {
+          "npm": "https://www.npmjs.com/package/undefined"
+        }
+      }
+    },
+    {
+      "package": {
+        "name": "passport-open-humans",
+        "version": "5.2.0",
+        "description": "An Open Humans authentication strategy for Passport",
+        "keywords": [
+          "passport",
+          "open-humans",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-02-27T18:18:41.863Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-open-humans",
+          "homepage": "https://github.com/PersonalGenomesOrg/passport-open-humans#readme",
+          "repository": "git://github.com/PersonalGenomesOrg/passport-open-humans.git",
+          "bugs": "http://github.com/PersonalGenomesOrg/passport-open-humans/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 4,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-openid",
+        "version": "0.4.0",
+        "description": "OpenID authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "openid",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-09-24T00:41:30.284Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-openid",
+          "homepage": "https://github.com/jaredhanson/passport-openid",
+          "repository": "git://github.com/jaredhanson/passport-openid.git",
+          "bugs": "http://github.com/jaredhanson/passport-openid/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 63,
+        "subscribers": 6,
+        "forks": 72
+      },
+      "downloads": {
+        "last-day": 831,
+        "last-week": 4580,
+        "last-month": 23576
+      }
+    },
+    {
+      "package": {
+        "name": "passport-openidconnect",
+        "version": "0.0.2",
+        "description": "OpenID Connect authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "openid",
+          "openidconnect",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2017-02-23T20:53:46.631Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-openidconnect",
+          "homepage": "https://github.com/jaredhanson/passport-openidconnect#readme",
+          "repository": "git://github.com/jaredhanson/passport-openidconnect.git",
+          "bugs": "http://github.com/jaredhanson/passport-openidconnect/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 106,
+        "subscribers": 11,
+        "forks": 107
+      },
+      "downloads": {
+        "last-day": 413,
+        "last-week": 2256,
+        "last-month": 10525
+      }
+    },
+    {
+      "package": {
+        "name": "passport-openstreetmap",
+        "version": "0.1.2",
+        "description": "OpenStreetMap authentication strategy for Passport.",
+        "date": "2013-01-25T06:34:22.286Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-openstreetmap",
+          "repository": "git://github.com/jaredhanson/passport-openstreetmap.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 8,
+        "subscribers": 4,
+        "forks": 4
+      },
+      "downloads": {
+        "last-day": 14,
+        "last-week": 47,
+        "last-month": 349
+      }
+    },
+    {
+      "package": {
+        "name": "passport-opentoken",
+        "version": "1.0.0",
+        "description": "Passport strategy for authenticating with PingFederate using the OpenToken API",
+        "keywords": [
+          "passport",
+          "authentication",
+          "opentoken"
+        ],
+        "date": "2015-03-31T18:24:05.133Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-opentoken",
+          "homepage": "https://github.com/73rhodes/passport-opentoken",
+          "repository": "https://github.com/73rhodes/passport-opentoken.git",
+          "bugs": "https://github.com/73rhodes/passport-opentoken/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 3,
+        "subscribers": 2,
+        "forks": 2
+      },
+      "downloads": {
+        "last-day": 9,
+        "last-week": 28,
+        "last-month": 54
+      }
+    },
+    {
+      "package": {
+        "name": "passport-orcid",
+        "version": "0.0.3",
+        "description": "Passport strategy for authentication with ORCID (orcid.org)",
+        "date": "2018-02-09T09:15:14.992Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-orcid",
+          "homepage": "https://github.com/hubgit/passport-orcid#readme",
+          "repository": "git+https://github.com/hubgit/passport-orcid.git",
+          "bugs": "https://github.com/hubgit/passport-orcid/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 4
+      },
+      "downloads": {
+        "last-day": 96,
+        "last-week": 183,
+        "last-month": 767
+      }
+    },
+    {
+      "package": {
+        "name": "passport-oschina",
+        "version": "0.0.2",
+        "description": "OSChina authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "oschina",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-01-27T02:24:46.922Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-oschina",
+          "homepage": "https://github.com/geminiyellow/passport-oschina",
+          "repository": "https://github.com/geminiyellow/passport-oschina.git",
+          "bugs": "https://github.com/geminiyellow/passport-oschina/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
       }
     }
   ],
-  "total": 500,
+  "total": 513,
   "urls": {
     "next": "/packages/-/v1/all/14.json",
     "prev": "/packages/-/v1/all/12.json"

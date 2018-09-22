@@ -1,792 +1,793 @@
 {
   "objects": [
     {
-      "name": "passport-ktt",
-      "description": "KtT (OpenID) authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.2.0"
+      "package": {
+        "name": "passport-jive",
+        "version": "0.0.7",
+        "description": "Jive (OAuth) authentication strategies for Passport.",
+        "keywords": [
+          "passport",
+          "jive",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-04-30T10:19:21.098Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-jive",
+          "homepage": "https://github.com/aldricHCK/passport-oauth-jive",
+          "repository": "git://github.com/aldricHCK/passport-oauth-jive.git",
+          "bugs": "http://github.com/aldricHCK/passport-oauth-jive/issues"
+        }
       },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/ktt-ol/passport-ktt.git",
-        "favoriteCount": 0,
-        "subscriberCount": 4,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2013-02-10T15:05:39.166Z",
-        "modified": "2013-02-10T15:05:41.594Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 2
-      }
-    },
-    {
-      "name": "passport-kuali",
-      "description": "A Passport Strategy for Kuali Services.",
-      "dist-tags": {
-        "latest": "0.0.3"
-      },
-      "homepage": "https://github.com/KualiCo/passport-kuali#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/KualiCo/passport-kuali.git",
-        "favoriteCount": 0,
-        "subscriberCount": 8,
-        "forkCount": 0
-      },
-      "license": "AGPL-3.0",
-      "time": {
-        "created": "2017-10-25T01:19:23.541Z",
-        "modified": "2017-11-11T20:35:10.893Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 8,
-        "last-month": 40
-      }
-    },
-    {
-      "name": "passport-lastfm",
-      "description": "Login strategy for passportjs for authentication with last.fm",
-      "keywords": [
-        "passportjs",
-        "passport",
-        "lastfm",
-        "last.fm",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/kizzlebot/passport-lastfm#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/kizzlebot/passport-lastfm.git",
-        "favoriteCount": 2,
-        "subscriberCount": 0,
-        "forkCount": 3
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-04-04T04:53:35.917Z",
-        "modified": "2017-05-22T17:16:07.225Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 20,
-        "last-month": 151
-      }
-    },
-    {
-      "name": "passport-latch",
-      "description": "Latch authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "latch",
-        "auth",
-        "authn",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.1.0"
-      },
-      "homepage": "https://github.com/elevenpaths/latch-plugin-passportjs",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/elevenpaths/latch-plugin-passportjs.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2014-07-14T19:51:55.574Z",
-        "modified": "2014-07-14T19:51:55.574Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 2
+        "last-month": 1
       }
     },
     {
-      "name": "passport-ldapauth",
-      "description": "LDAP authentication strategy for Passport",
-      "keywords": [
-        "ldap",
-        "passport",
-        "authentication",
-        "ldapauth"
-      ],
-      "dist-tags": {
-        "latest": "2.0.0"
+      "package": {
+        "name": "passport-justintv",
+        "version": "0.1.2",
+        "description": "Justin.tv authentication strategy for Passport.",
+        "date": "2013-01-25T05:57:15.773Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-justintv",
+          "repository": "git://github.com/jaredhanson/passport-justintv.git"
+        }
       },
-      "homepage": "https://github.com/vesse/passport-ldapauth#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/vesse/passport-ldapauth.git",
-        "favoriteCount": 223,
-        "subscriberCount": 14,
-        "forkCount": 73
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-04-13T21:50:59.298Z",
-        "modified": "2018-01-13T16:23:22.587Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 4481,
-        "last-month": 24845
-      }
-    },
-    {
-      "name": "passport-lds-connect",
-      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
-      "keywords": [
-        "LDSAuth",
-        "LDSConnect",
-        "LDS-Connect",
-        "LDSOrg",
-        "LDS.org",
-        "LDS",
-        "OAuth2",
-        "OAuth",
-        "auth",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "1.2.0"
-      },
-      "homepage": "https://github.com/LDSorg/passport-lds-connect",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/LDSorg/passport-lds-connect.git",
-        "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "Apache2",
-      "time": {
-        "created": "2014-02-27T21:52:09.498Z",
-        "modified": "2015-03-02T22:13:46.152Z"
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 2,
+        "forks": 1
       },
       "downloads": {
         "last-day": 0,
         "last-week": 1,
-        "last-month": 11
+        "last-month": 2
       }
     },
     {
-      "name": "passport-lds-io",
-      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
-      "keywords": [
-        "LDSAuth",
-        "LDSConnect",
-        "LDS-Connect",
-        "LDSOrg",
-        "LDS.org",
-        "LDS",
-        "OAuth2",
-        "OAuth",
-        "auth",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "2.0.2"
+      "package": {
+        "name": "passport-jwt-cookiecombo",
+        "version": "1.0.5",
+        "description": "JSON Web Token (JWT) cookie combo authentication strategy for Passport and Node.js.",
+        "keywords": [
+          "passport",
+          "jwt",
+          "json-web-token",
+          "cookie",
+          "auth",
+          "authentication",
+          "authorization"
+        ],
+        "date": "2016-07-14T23:34:19.770Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-jwt-cookiecombo",
+          "homepage": "https://github.com/codebarista/passport-jwt-cookiecombo#readme",
+          "repository": "git://github.com/codebarista/passport-jwt-cookiecombo.git",
+          "bugs": "https://github.com/codebarista/passport-jwt-cookiecombo/issues"
+        }
       },
-      "homepage": "https://github.com/LDSorg/passport-lds-connect",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/LDSorg/passport-lds-connect.git",
-        "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 21,
+        "subscribers": 0,
+        "forks": 3
       },
-      "license": "Apache2",
-      "time": {
-        "created": "2015-03-26T23:06:26.573Z",
-        "modified": "2015-04-01T22:05:07.216Z"
+      "downloads": {
+        "last-day": 13,
+        "last-week": 113,
+        "last-month": 477
+      }
+    },
+    {
+      "package": {
+        "name": "passport-jwt",
+        "version": "4.0.0",
+        "description": "Passport authentication strategy using JSON Web Tokens",
+        "keywords": [
+          "Passport",
+          "Strategy",
+          "JSON",
+          "Web",
+          "Token",
+          "JWT"
+        ],
+        "date": "2018-03-13T02:57:13.071Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-jwt",
+          "homepage": "https://github.com/themikenicholson/passport-jwt",
+          "repository": "git+https://github.com/themikenicholson/passport-jwt.git",
+          "bugs": "https://github.com/themikenicholson/passport-jwt/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1238,
+        "subscribers": 23,
+        "forks": 159
+      },
+      "downloads": {
+        "last-day": 10808,
+        "last-week": 53947,
+        "last-month": 245293
+      }
+    },
+    {
+      "package": {
+        "name": "passport-kakao",
+        "version": "0.0.5",
+        "description": "kakao oauth2 login module",
+        "keywords": [
+          "passport",
+          "kakao",
+          "kakaotalk",
+          "oauth2"
+        ],
+        "date": "2017-09-11T07:17:56.644Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-kakao",
+          "homepage": "https://github.com/rotoshine/passport-kakao#readme",
+          "repository": "git://github.com/rotoshine/passport-kakao.git",
+          "bugs": "https://github.com/rotoshine/passport-kakao/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 26,
+        "subscribers": 2,
+        "forks": 10
+      },
+      "downloads": {
+        "last-day": 66,
+        "last-week": 239,
+        "last-month": 928
+      }
+    },
+    {
+      "package": {
+        "name": "passport-kerberos",
+        "version": "0.0.1",
+        "description": "Kerberos 5 username and password authentication strategy for Passport.",
+        "date": "2013-11-08T22:54:05.142Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-kerberos",
+          "repository": "git://github.com/joshuah/passport-kerberos.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 18,
+        "subscribers": 2,
+        "forks": 4
+      },
+      "downloads": {
+        "last-day": 1,
+        "last-week": 3,
+        "last-month": 30
+      }
+    },
+    {
+      "package": {
+        "name": "passport-keystone",
+        "version": "0.2.5",
+        "description": "OpenStack Keystone authentication strategy for Passport and Node.js",
+        "keywords": [
+          "passport",
+          "openstack",
+          "rackspace",
+          "keystone",
+          "identity",
+          "authentication",
+          "auth",
+          "express",
+          "middleware",
+          "connect"
+        ],
+        "date": "2014-06-10T04:24:22.769Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-keystone",
+          "homepage": "https://github.com/eddywashere/passport-keystone",
+          "repository": "git://github.com/eddywashere/passport-keystone.git",
+          "bugs": "https://github.com/eddywashere/passport-keystone/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 22,
+        "subscribers": 4,
+        "forks": 9
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 7
+      }
+    },
+    {
+      "package": {
+        "name": "passport-ktt",
+        "version": "0.2.0",
+        "description": "KtT (OpenID) authentication strategy for Passport.",
+        "date": "2013-02-10T15:05:41.594Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ktt",
+          "repository": "git://github.com/ktt-ol/passport-ktt.git"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 4,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 4
+        "last-month": 1
       }
     },
     {
-      "name": "passport-lds",
-      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
-      "keywords": [
-        "LDSAuth",
-        "LDSConnect",
-        "LDS-Connect",
-        "LDSOrg",
-        "LDS.org",
-        "LDS",
-        "OAuth2",
-        "OAuth",
-        "auth",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "1.2.0"
+      "package": {
+        "name": "passport-kuali",
+        "version": "0.0.3",
+        "description": "A Passport Strategy for Kuali Services.",
+        "date": "2017-11-11T20:35:10.893Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-kuali",
+          "homepage": "https://github.com/KualiCo/passport-kuali#readme",
+          "repository": "git+https://github.com/KualiCo/passport-kuali.git",
+          "bugs": "https://github.com/KualiCo/passport-kuali/issues"
+        }
       },
-      "homepage": "https://github.com/LDSorg/passport-lds-connect",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/LDSorg/passport-lds-connect.git",
-        "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 8,
+        "forks": 0
       },
-      "license": "Apache2",
-      "time": {
-        "created": "2014-02-27T22:06:47.026Z",
-        "modified": "2015-03-02T22:18:01.257Z"
+      "downloads": {
+        "last-day": 2,
+        "last-week": 10,
+        "last-month": 39
+      }
+    },
+    {
+      "package": {
+        "name": "passport-lastfm",
+        "version": "1.0.1",
+        "description": "Login strategy for passportjs for authentication with last.fm",
+        "keywords": [
+          "passportjs",
+          "passport",
+          "lastfm",
+          "last.fm",
+          "authentication"
+        ],
+        "date": "2016-04-04T08:41:43.731Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lastfm",
+          "homepage": "https://github.com/kizzlebot/passport-lastfm#readme",
+          "repository": "git+https://github.com/kizzlebot/passport-lastfm.git",
+          "bugs": "https://github.com/kizzlebot/passport-lastfm/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 0,
+        "forks": 3
+      },
+      "downloads": {
+        "last-day": 5,
+        "last-week": 25,
+        "last-month": 152
+      }
+    },
+    {
+      "package": {
+        "name": "passport-latch",
+        "version": "0.1.0",
+        "description": "Latch authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "latch",
+          "auth",
+          "authn",
+          "authentication"
+        ],
+        "date": "2014-07-14T19:51:55.574Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-latch",
+          "homepage": "https://github.com/elevenpaths/latch-plugin-passportjs",
+          "repository": "git://github.com/elevenpaths/latch-plugin-passportjs.git",
+          "bugs": "http://github.com/elevenpaths/latch-plugin-passportjs/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 1,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 3
+        "last-month": 1
       }
     },
     {
-      "name": "passport-ldsauth",
-      "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
-      "keywords": [
-        "LDSAuth",
-        "LDSConnect",
-        "LDS-Connect",
-        "LDSOrg",
-        "LDS.org",
-        "LDS",
-        "OAuth2",
-        "OAuth",
-        "auth",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "1.2.0"
+      "package": {
+        "name": "passport-ldapauth",
+        "version": "2.0.0",
+        "description": "LDAP authentication strategy for Passport",
+        "keywords": [
+          "ldap",
+          "passport",
+          "authentication",
+          "ldapauth"
+        ],
+        "date": "2017-06-13T17:36:15.604Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ldapauth",
+          "homepage": "https://github.com/vesse/passport-ldapauth#readme",
+          "repository": "git+https://github.com/vesse/passport-ldapauth.git",
+          "bugs": "https://github.com/vesse/passport-ldapauth/issues"
+        }
       },
-      "homepage": "https://github.com/LDSorg/passport-lds-connect",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/LDSorg/passport-lds-connect.git",
-        "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 223,
+        "subscribers": 14,
+        "forks": 73
       },
-      "license": "Apache2",
-      "time": {
-        "created": "2014-02-08T03:13:03.762Z",
-        "modified": "2015-03-02T22:18:08.549Z"
+      "downloads": {
+        "last-day": 1000,
+        "last-week": 5481,
+        "last-month": 24741
+      }
+    },
+    {
+      "package": {
+        "name": "passport-lds-connect",
+        "version": "1.2.0",
+        "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+        "keywords": [
+          "LDSAuth",
+          "LDSConnect",
+          "LDS-Connect",
+          "LDSOrg",
+          "LDS.org",
+          "LDS",
+          "OAuth2",
+          "OAuth",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-03-02T22:13:46.152Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lds-connect",
+          "homepage": "https://github.com/LDSorg/passport-lds-connect",
+          "repository": "git://github.com/LDSorg/passport-lds-connect.git",
+          "bugs": "https://github.com/LDSorg/passport-lds-connect/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 1,
+        "last-month": 5
+      }
+    },
+    {
+      "package": {
+        "name": "passport-lds-io",
+        "version": "2.0.2",
+        "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+        "keywords": [
+          "LDSAuth",
+          "LDSConnect",
+          "LDS-Connect",
+          "LDSOrg",
+          "LDS.org",
+          "LDS",
+          "OAuth2",
+          "OAuth",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-04-01T22:05:07.216Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lds-io",
+          "homepage": "https://github.com/LDSorg/passport-lds-connect",
+          "repository": "git://github.com/LDSorg/passport-lds-connect.git",
+          "bugs": "https://github.com/LDSorg/passport-lds-connect/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-lds",
+        "version": "1.2.0",
+        "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+        "keywords": [
+          "LDSAuth",
+          "LDSConnect",
+          "LDS-Connect",
+          "LDSOrg",
+          "LDS.org",
+          "LDS",
+          "OAuth2",
+          "OAuth",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-03-02T22:18:01.257Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lds",
+          "homepage": "https://github.com/LDSorg/passport-lds-connect",
+          "repository": "git://github.com/LDSorg/passport-lds-connect.git",
+          "bugs": "https://github.com/LDSorg/passport-lds-connect/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 1,
+        "forks": 0
+      },
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 1
+      }
+    },
+    {
+      "package": {
+        "name": "passport-ldsauth",
+        "version": "1.2.0",
+        "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+        "keywords": [
+          "LDSAuth",
+          "LDSConnect",
+          "LDS-Connect",
+          "LDSOrg",
+          "LDS.org",
+          "LDS",
+          "OAuth2",
+          "OAuth",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-03-02T22:18:08.549Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-ldsauth",
+          "homepage": "https://github.com/LDSorg/passport-lds-connect",
+          "repository": "git://github.com/LDSorg/passport-lds-connect.git",
+          "bugs": "https://github.com/LDSorg/passport-lds-connect/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 4,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 3,
-        "last-month": 27
+        "last-month": 23
       }
     },
     {
-      "name": "passport-learningstudio",
-      "description": "A Passport Strategy for Pearson's Learning Studio.",
-      "keywords": [
-        "passport",
-        "strategy",
-        "pearson",
-        "learningstudio",
-        "learning",
-        "studio"
-      ],
-      "dist-tags": {
-        "latest": "1.0.2"
+      "package": {
+        "name": "passport-learningstudio",
+        "version": "1.0.2",
+        "description": "A Passport Strategy for Pearson's Learning Studio.",
+        "keywords": [
+          "passport",
+          "strategy",
+          "pearson",
+          "learningstudio",
+          "learning",
+          "studio"
+        ],
+        "date": "2014-07-07T20:39:57.934Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-learningstudio",
+          "homepage": "https://github.com/PearsonAPI/passport-learningstudio",
+          "repository": "git://github.com/PearsonAPI/passport-learningstudio.git",
+          "bugs": "http://github.com/PearsonAPI/passport-learningstudio/issues"
+        }
       },
-      "homepage": "https://github.com/PearsonAPI/passport-learningstudio",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/PearsonAPI/passport-learningstudio.git"
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 2
+      }
+    },
+    {
+      "package": {
+        "name": "passport-lims",
+        "version": "0.1.1",
+        "description": "Lims authentication strategy for Passport.",
+        "keywords": [
+          "lims",
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "authz",
+          "authorization",
+          "oauth",
+          "oauth2"
+        ],
+        "date": "2017-05-04T14:07:27.234Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lims",
+          "homepage": "https://github.com/taoyuan/passport-lims#readme",
+          "repository": "git://github.com/taoyuan/passport-lims.git",
+          "bugs": "http://github.com/taoyuan/passport-lims/issues"
+        }
       },
-      "time": {
-        "created": "2014-07-07T20:07:31.749Z",
-        "modified": "2014-07-09T16:26:58.263Z"
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 4
+        "last-month": 1
       }
     },
     {
-      "name": "passport-lims",
-      "description": "Lims authentication strategy for Passport.",
-      "keywords": [
-        "lims",
-        "passport",
-        "auth",
-        "authn",
-        "authentication",
-        "authz",
-        "authorization",
-        "oauth",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "0.1.1"
+      "package": {
+        "name": "passport-line-auth",
+        "version": "0.2.4",
+        "description": "Line Authentication Strategy for Passport",
+        "keywords": [
+          "line",
+          "passport",
+          "identity",
+          "auth",
+          "authentication"
+        ],
+        "date": "2018-08-21T14:36:18.333Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-line-auth",
+          "homepage": "https://github.com/IvanWei/passport-line-auth#readme",
+          "repository": "git+ssh://git@github.com/IvanWei/passport-line-auth.git",
+          "bugs": "https://github.com/IvanWei/passport-line-auth/issues"
+        }
       },
-      "homepage": "https://github.com/taoyuan/passport-lims#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/taoyuan/passport-lims.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
+      "flags": {},
+      "count": {
+        "favorites": 16,
+        "subscribers": 1,
+        "forks": 5
       },
-      "time": {
-        "created": "2017-05-04T14:07:27.234Z",
-        "modified": "2018-01-12T01:32:49.242Z"
+      "downloads": {
+        "last-day": 4,
+        "last-week": 54,
+        "last-month": 4525
+      }
+    },
+    {
+      "package": {
+        "name": "passport-line-v2",
+        "version": "3.0.0",
+        "description": "passport strategy for line",
+        "keywords": [
+          "passport-line",
+          "line",
+          "passport"
+        ],
+        "date": "2017-05-09T15:09:00.936Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-line-v2",
+          "homepage": "https://github.com/piggyman007/passport-line#readme",
+          "repository": "git+https://github.com/piggyman007/passport-line.git",
+          "bugs": "https://github.com/piggyman007/passport-line/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 2
       },
       "downloads": {
         "last-day": 0,
         "last-week": 0,
-        "last-month": 3
+        "last-month": 16
       }
     },
     {
-      "name": "passport-line-auth",
-      "description": "Line Authentication Strategy for Passport",
-      "keywords": [
-        "line",
-        "passport",
-        "identity",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "0.2.4"
+      "package": {
+        "name": "passport-line",
+        "version": "0.0.4",
+        "description": "LINE authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "line",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2018-05-07T08:30:03.135Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-line",
+          "homepage": "https://github.com/nitzo/passport-line",
+          "repository": "git://github.com/nitzo/passport-line.git",
+          "bugs": "http://github.com/nitzo/passport-line/issues"
+        }
       },
-      "homepage": "https://github.com/IvanWei/passport-line-auth#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/IvanWei/passport-line-auth.git",
-        "favoriteCount": 16,
-        "subscriberCount": 1,
-        "forkCount": 5
+      "flags": {},
+      "count": {
+        "favorites": 10,
+        "subscribers": 2,
+        "forks": 7
       },
-      "license": "MIT",
-      "time": {
-        "created": "2017-02-21T09:05:34.588Z",
-        "modified": "2018-08-21T14:36:23.767Z"
+      "downloads": {
+        "last-day": 9,
+        "last-week": 54,
+        "last-month": 145
+      }
+    },
+    {
+      "package": {
+        "name": "passport-line2",
+        "version": "1.0.0",
+        "description": "Passport Line 2 Authentication Strategy for Passport",
+        "keywords": [
+          "line",
+          "passport"
+        ],
+        "date": "2017-10-29T09:01:29.057Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-line2",
+          "homepage": "https://github.com/madeinfree/passport-line2#readme",
+          "repository": "git+ssh://git@github.com/madeinfree/passport-line2.git",
+          "bugs": "https://github.com/madeinfree/passport-line2/issues"
+        }
+      },
+      "flags": {},
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 50,
-        "last-month": 4607
+        "last-month": 60
       }
     },
     {
-      "name": "passport-line-v2",
-      "description": "passport strategy for line",
-      "keywords": [
-        "passport-line",
-        "line",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "3.0.0"
+      "package": {
+        "name": "passport-linkedin-oauth2",
+        "version": "1.5.0",
+        "description": "Passport for LinkedIn Oauth2",
+        "keywords": [
+          "passport",
+          "linkedin",
+          "auth0"
+        ],
+        "date": "2017-02-20T14:29:08.683Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-linkedin-oauth2",
+          "homepage": "https://github.com/auth0/passport-linkedin-oauth2",
+          "repository": "https://github.com/auth0/passport-linkedin-oauth2",
+          "bugs": "https://github.com/auth0/passport-linkedin-oauth2/issues"
+        }
       },
-      "homepage": "https://github.com/piggyman007/passport-line#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/piggyman007/passport-line.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 2
+      "flags": {},
+      "downloads": {
+        "last-day": 957,
+        "last-week": 4506,
+        "last-month": 22258
+      }
+    },
+    {
+      "package": {
+        "name": "passport-linkedin",
+        "version": "1.0.0",
+        "description": "LinkedIn authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "linkedin",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-09-14T23:50:19.681Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-linkedin",
+          "homepage": "https://github.com/jaredhanson/passport-linkedin",
+          "repository": "git://github.com/jaredhanson/passport-linkedin.git",
+          "bugs": "http://github.com/jaredhanson/passport-linkedin/issues"
+        }
       },
-      "license": "ISC",
-      "time": {
-        "created": "2017-05-09T10:24:47.311Z",
-        "modified": "2017-05-09T15:09:00.936Z"
+      "flags": {},
+      "count": {
+        "favorites": 123,
+        "subscribers": 8,
+        "forks": 71
       },
       "downloads": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 17
+        "last-day": 670,
+        "last-week": 3424,
+        "last-month": 19702
       }
     },
     {
-      "name": "passport-line",
-      "description": "LINE authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "line",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "0.0.4"
+      "package": {
+        "name": "passport-local-htpasswd",
+        "version": "0.1.1",
+        "description": "Local username and password authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "local",
+          "auth",
+          "authn",
+          "authentication",
+          "username",
+          "password",
+          "htpasswd"
+        ],
+        "date": "2017-07-06T14:43:34.362Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-local-htpasswd",
+          "homepage": "https://github.com/morungos/passport-local-htpasswd#readme",
+          "repository": "git://github.com/morungos/passport-local-htpasswd.git",
+          "bugs": "http://github.com/morungos/passport-local-htpasswd/issues"
+        }
       },
-      "homepage": "https://github.com/nitzo/passport-line",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/nitzo/passport-line.git",
-        "favoriteCount": 10,
-        "subscriberCount": 2,
-        "forkCount": 7
-      },
-      "time": {
-        "created": "2016-04-06T11:24:05.576Z",
-        "modified": "2018-05-07T08:30:06.643Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 45,
-        "last-month": 146
-      }
-    },
-    {
-      "name": "passport-line2",
-      "description": "Passport Line 2 Authentication Strategy for Passport",
-      "keywords": [
-        "line",
-        "passport"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/madeinfree/passport-line2#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/madeinfree/passport-line2.git",
-        "favoriteCount": 0,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2017-10-29T09:01:29.057Z",
-        "modified": "2017-10-29T09:01:29.057Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 50,
-        "last-month": 61
-      }
-    },
-    {
-      "name": "passport-linkedin-oauth2",
-      "description": "Passport for LinkedIn Oauth2",
-      "keywords": [
-        "passport",
-        "linkedin",
-        "auth0"
-      ],
-      "dist-tags": {
-        "latest": "1.5.0"
-      },
-      "homepage": "https://github.com/auth0/passport-linkedin-oauth2",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/auth0/passport-linkedin-oauth2"
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-05-08T10:21:38.345Z",
-        "modified": "2017-11-07T00:00:38.404Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 3549,
-        "last-month": 22380
-      }
-    },
-    {
-      "name": "passport-linkedin",
-      "description": "LinkedIn authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "linkedin",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "homepage": "https://github.com/jaredhanson/passport-linkedin",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-linkedin.git",
-        "favoriteCount": 123,
-        "subscriberCount": 8,
-        "forkCount": 71
-      },
-      "time": {
-        "created": "2011-11-01T15:21:43.363Z",
-        "modified": "2018-01-30T16:41:04.689Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 2754,
-        "last-month": 19792
-      }
-    },
-    {
-      "name": "passport-local-htpasswd",
-      "description": "Local username and password authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "local",
-        "auth",
-        "authn",
-        "authentication",
-        "username",
-        "password",
-        "htpasswd"
-      ],
-      "dist-tags": {
-        "latest": "0.1.1"
-      },
-      "homepage": "https://github.com/morungos/passport-local-htpasswd#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/morungos/passport-local-htpasswd.git",
-        "favoriteCount": 2,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "time": {
-        "created": "2015-02-17T02:47:41.268Z",
-        "modified": "2017-07-06T14:43:34.362Z"
+      "flags": {},
+      "count": {
+        "favorites": 2,
+        "subscribers": 1,
+        "forks": 0
       },
       "downloads": {
         "last-day": 0,
         "last-week": 9,
-        "last-month": 46
-      }
-    },
-    {
-      "name": "passport-local-token",
-      "description": "Local token authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "local",
-        "auth",
-        "authn",
-        "authentication",
-        "token"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/pferretti/passport-local-token",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/pferretti/passport-local-token.git",
-        "favoriteCount": 4,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2014-10-15T10:31:31.030Z",
-        "modified": "2017-04-28T09:12:41.747Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 137,
-        "last-month": 993
-      }
-    },
-    {
-      "name": "passport-local",
-      "description": "Local username and password authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "local",
-        "auth",
-        "authn",
-        "authentication",
-        "username",
-        "password"
-      ],
-      "dist-tags": {
-        "latest": "1.0.0"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/jaredhanson/passport-local.git",
-        "favoriteCount": 1917,
-        "subscriberCount": 62,
-        "forkCount": 477
-      },
-      "time": {
-        "created": "2011-10-23T22:11:05.106Z",
-        "modified": "2018-08-03T00:34:26.783Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 105464,
-        "last-month": 603788
-      }
-    },
-    {
-      "name": "passport-localapikey",
-      "description": "Local api key authentication strategy for Passport.",
-      "dist-tags": {
-        "latest": "0.0.3"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/cholalabs/passport-localapikey.git",
-        "favoriteCount": 158,
-        "subscriberCount": 8,
-        "forkCount": 52
-      },
-      "time": {
-        "created": "2012-12-08T05:30:51.587Z",
-        "modified": "2017-10-19T21:09:35.720Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1192,
-        "last-month": 5457
-      }
-    },
-    {
-      "name": "passport-lti",
-      "description": "Passport-based LTI authorization",
-      "keywords": [
-        "passport",
-        "strategy",
-        "lti"
-      ],
-      "dist-tags": {
-        "latest": "0.0.7"
-      },
-      "homepage": "https://github.com/civitaslearning/passport-lti",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/civitaslearning/passport-lti.git",
-        "favoriteCount": 21,
-        "subscriberCount": 80,
-        "forkCount": 10
-      },
-      "time": {
-        "created": "2014-09-15T16:35:50.334Z",
-        "modified": "2016-08-12T15:18:54.187Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 97,
-        "last-month": 979
-      }
-    },
-    {
-      "name": "passport-lyft",
-      "description": "Lyft authentication strategy for Passport",
-      "keywords": [
-        "passport",
-        "lyft",
-        "auth",
-        "oauth",
-        "oauth2"
-      ],
-      "dist-tags": {
-        "latest": "0.1.2"
-      },
-      "homepage": "https://github.com/girliemac/passport-lyft#readme",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/girliemac/passport-lyft.git",
-        "favoriteCount": 3,
-        "subscriberCount": 0,
-        "forkCount": 4
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-06-17T08:37:28.610Z",
-        "modified": "2016-07-20T16:20:13.809Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 21,
         "last-month": 40
-      }
-    },
-    {
-      "name": "passport-mail",
-      "description": "Mail ru authentication strategy for Passport.",
-      "keywords": [
-        "passport",
-        "mail",
-        "mailru",
-        "mail-ru",
-        "passport mailru",
-        "passport mail-ru",
-        "auth",
-        "authn",
-        "authentication",
-        "identity"
-      ],
-      "dist-tags": {
-        "latest": "1.0.1"
-      },
-      "homepage": "https://github.com/sklyukin/passport-mailru#readme",
-      "repository": {
-        "type": "git",
-        "url": "git://github.com/sklyukin/passport-mailru.git",
-        "favoriteCount": 1,
-        "subscriberCount": 1,
-        "forkCount": 0
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2016-04-04T17:18:51.815Z",
-        "modified": "2016-04-09T06:35:27.031Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 156,
-        "last-month": 952
-      }
-    },
-    {
-      "name": "passport-mailchimp",
-      "description": "Mailchimp authentication strategy for Passport.",
-      "keywords": [
-        "mailchimp",
-        "passport",
-        "auth",
-        "authentication"
-      ],
-      "dist-tags": {
-        "latest": "1.1.0"
-      },
-      "repository": {
-        "url": "https://github.com/brainflake/passport-mailchimp",
-        "favoriteCount": 8,
-        "subscriberCount": 3,
-        "forkCount": 3
-      },
-      "license": "MIT",
-      "time": {
-        "created": "2013-08-12T02:05:36.153Z",
-        "modified": "2016-11-23T06:38:11.513Z"
-      },
-      "downloads": {
-        "last-day": 0,
-        "last-week": 140,
-        "last-month": 694
       }
     }
   ],
-  "total": 500,
+  "total": 513,
   "urls": {
     "next": "/packages/-/v1/all/11.json",
     "prev": "/packages/-/v1/all/9.json"
