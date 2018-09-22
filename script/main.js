@@ -382,23 +382,26 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
             return item.name;
         },
         prefetch: {
-            url: "/packages/-/v1/promoted.json",
+            url: "/packages/-/all.json",
             transform: function(response) {
-                var objects = response.objects, items = [], item, i, len;
-                for (i = 0, len = objects.length; i < len; ++i) {
-                    item = objects[i].package;
+                var items = [], item, val;
+                for (var key in response) {
+                    val = response[key];
+                    item = {};
+                    item.name = val.name;
+                    item.description = val.description;
+                    item.keywords = val.keywords;
                     item.links = item.links || {};
                     item.links.self = "/packages/" + encodeURIComponent(item.name);
-                    item.flags = objects[i].flags;
-                    item.count = objects[i].count;
-                    item.downloads = objects[i].downloads;
+                    item.flags = val._flags;
+                    item.count = val._count;
+                    item.downloads = val._downloads;
                     items.push(item);
                 }
                 return items;
             },
             cache: false
-        },
-        remote: remote
+        }
     });
     return engine;
 });
