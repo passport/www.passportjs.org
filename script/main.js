@@ -289,21 +289,32 @@ define("controllers/features", [ "./base/pjax", "class" ], function(PjaxControll
 });
 
 define("search/packages/sort", [], function() {
-    function favoriteCountSorter(a, b) {
-        var afav = a.repository ? a.repository.favoriteCount || 0 : 0;
-        var bfav = b.repository ? b.repository.favoriteCount || 0 : 0;
-        if (afav && !bfav) return -1;
-        if (bfav && !afav) return 1;
-        return +bfav - +afav;
-    }
     function featuredSorter(a, b) {
-        if (a._featured && !b._featured) return -1;
-        if (b._featured && !a._featured) return 1;
+        var af = a.flags && a.flags.featured;
+        var bf = b.flags && b.flags.featured;
+        if (af && !bf) return -1;
+        if (bf && !af) return 1;
         return 0;
     }
+    function sponsoredSorter(a, b) {
+        var af = a.flags && a.flags.sponsored;
+        var bf = b.flags && b.flags.sponsored;
+        if (af && !bf) return -1;
+        if (bf && !af) return 1;
+        return 0;
+    }
+    function favoriteCountSorter(a, b) {
+        var afc = a.count ? a.count.favorites || 0 : 0;
+        var bfc = b.count ? b.count.favorites || 0 : 0;
+        if (afc && !bfc) return -1;
+        if (bfc && !afc) return 1;
+        return +bfc - +afc;
+    }
     function sorter(a, b) {
-        var first = featuredSorter(a, b);
-        if (first) return first;
+        var rv = featuredSorter(a, b);
+        if (rv) return rv;
+        rv = sponsoredSorter(a, b);
+        if (rv) return rv;
         return favoriteCountSorter(a, b);
     }
     return sorter;
@@ -330,7 +341,17 @@ define("search/packages/remote/api-v1/all", [ "bloodhound", "../../sort", "jquer
             function _load(options) {
                 return $.ajax(options).then(process);
                 function process(data, textStatus, request) {
-                    engine.add(data.objects);
+                    var objects = data.objects, items = [], item, i, len;
+                    for (i = 0, len = objects.length; i < len; ++i) {
+                        item = objects[i].package;
+                        item.links = item.links || {};
+                        item.links.self = "/packages/" + encodeURIComponent(item.name);
+                        item.flags = objects[i].flags;
+                        item.count = objects[i].count;
+                        item.downloads = objects[i].downloads;
+                        items.push(item);
+                    }
+                    engine.add(items);
                     if (data.urls && data.urls.next) {
                         options.url = data.urls.next;
                         return _load(options);
@@ -361,13 +382,19 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
             return item.name;
         },
         prefetch: {
-            url: "/packages/-/v1/feeds/featured.json",
+            url: "/packages/-/v1/promoted.json",
             transform: function(response) {
-                var objects = response.objects, i, len;
+                var objects = response.objects, items = [], item, i, len;
                 for (i = 0, len = objects.length; i < len; ++i) {
-                    objects[i]._featured = true;
+                    item = objects[i].package;
+                    item.links = item.links || {};
+                    item.links.self = "/packages/" + encodeURIComponent(item.name);
+                    item.flags = objects[i].flags;
+                    item.count = objects[i].count;
+                    item.downloads = objects[i].downloads;
+                    items.push(item);
                 }
-                return objects;
+                return items;
             },
             cache: false
         },
@@ -378,7 +405,7 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
 
 define("search/packages/templates/result", [], function() {
     return function(item) {
-        return "<article" + (item._featured ? ' class="featured"' : "") + '><a href="' + item.homepage + '" target="_blank"><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item._featured ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + (item.downloads ? (item.downloads["last-week"] || 0).toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,") : 0) + '</span><span class="star">' + (item.repository ? item.repository.favoriteCount || 0 : 0) + "</span></span></a></article>";
+        return "<article" + (item.flags && (item.flags.featured || item.flags.sponsored) ? ' class="featured"' : "") + '><a href="' + item.links.self + '" target="_blank"><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item.flags && (item.flags.featured || item.flags.sponsored) ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + (item.downloads ? (item.downloads["last-week"] || 0).toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,") : 0) + '</span><span class="star">' + (item.count ? item.count.favorites || 0 : 0) + "</span></span></a></article>";
     };
 });
 
@@ -412,7 +439,7 @@ define("shell/menu", [ "exports", "jquery" ], function(exports, $) {
 
 define("search/packages/templates/suggestion", [], function() {
     return function(item) {
-        return "<article" + (item._featured ? ' class="featured"' : "") + '><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item._featured ? '<span class="featured-flag">Featured</span>' : "") + "</article>";
+        return "<article" + (item.flags && (item.flags.featured || item.flags.sponsored) ? ' class="featured"' : "") + '><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item.flags && (item.flags.featured || item.flags.sponsored) ? '<span class="featured-flag">Featured</span>' : "") + "</article>";
     };
 });
 
