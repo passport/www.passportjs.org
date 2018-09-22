@@ -11,14 +11,21 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
       return item.name;
     },
     prefetch: {
-      url: '/packages/-/v1/feeds/featured.json',
+      url: '/packages/-/v1/promoted.json',
       transform: function(response) {
         var objects = response.objects
+          , items = [], item
           , i, len;
         for (i = 0, len = objects.length; i < len; ++i) {
-          objects[i]._featured = true;
+          item = objects[i].package;
+          item.links = item.links || {};
+          item.links.self = '/packages/' + encodeURIComponent(item.name);
+          item.flags = objects[i].flags;
+          item.count = objects[i].count;
+          item.downloads = objects[i].downloads;
+          items.push(item);
         }
-        return objects;
+        return items;
       },
       cache: false
     },

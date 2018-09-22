@@ -19,4 +19,4 @@ mixin google-tag-manager(containerID)
     })(window,document,'script','dataLayer','#{containerID}');
 mixin google-tag-manager-noscript(containerID)
   noscript
-    iframe(src='https://www.googletagmanager.com/ns.html?id=' + containerID, height='0', width='0', style='display:none;visibility:hidden')
+    iframe(src='https://www.googletagmanager.com/ns.html?id=' + containerID, height='0', width='0', style='display:none;visibility:hidden;')
