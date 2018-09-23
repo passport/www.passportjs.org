@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>passport-ping-oauth2</title>
+    <title>passport-liondesk</title>
     <meta charset="utf-8">
-    <meta name="description" content="Ping OAuth 2.0 authentication strategy for Passport.">
+    <meta name="description" content="LionDesk (OAuth 2.0) authentication strategy for Passport.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="http://www.passportjs.org/packages/passport-ping-oauth2/">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-liondesk/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -33,9 +33,9 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="passport-ping-oauth2"/>
-    <meta property="og:description" content="Ping OAuth 2.0 authentication strategy for Passport."/>
-    <meta property="og:url" content="http://www.passportjs.org/packages/passport-ping-oauth2/"/>
+    <meta property="og:title" content="passport-liondesk"/>
+    <meta property="og:description" content="LionDesk (OAuth 2.0) authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-liondesk/"/>
     <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -43,8 +43,8 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="passport-ping-oauth2"/>
-    <meta name="twitter:description" content="Ping OAuth 2.0 authentication strategy for Passport."/>
+    <meta name="twitter:title" content="passport-liondesk"/>
+    <meta name="twitter:description" content="LionDesk (OAuth 2.0) authentication strategy for Passport."/>
     <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -98,88 +98,61 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-ping-oauth2">passport-ping-oauth2</h1>
-<p><a href="https://www.pingidentity.com/en/products/pingfederate.html">PingFederate</a> OAuth 2.0 authentication strategy for <a href="http://passportjs.org/">Passport</a>.</p>
-<p>This module lets you authenticate using PingFederate in your Node.js applications.
-By plugging into Passport, Ping authentication can be easily and
+          <div class="description"><h1 id="passport-liondesk">passport-liondesk</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://www.liondesk.com/">LionDesk</a>
+using the OAuth 2.0 API.</p>
+<p>This module lets you authenticate using LionDesk in your Node.js applications.
+By plugging into Passport, LionDesk authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-ping-oauth2</span>
+<pre><code><span class="meta">$</span><span class="bash"> npm install passport-liondesk</span>
 </code></pre><h2 id="usage">Usage</h2>
+<h4 id="create-an-application">Create an Application</h4>
+<p>Before using <code>passport-liondesk</code>, you must register an application with
+LionDesk.  If you have not already done so, a new application can be created at
+<a href="https://developers.liondesk.com/">LionDesk Developer Center</a>.  Your application will
+be issued an client ID and client secret, which need to be provided to the strategy.
+You will also need to configure a redirect URI which matches the route in your
+application.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<p>The Ping authentication strategy authenticates users using a Ping
-account and OAuth 2.0 tokens.  Ping&#39;s OAuth 2.0 endpoints, as well as
-the client identifer and secret, are specified as options.  The strategy
-requires a <code>verify</code> callback, which receives an access token and profile,
-and calls <code>done</code> providing a user.</p>
-<pre><code>passport.use(<span class="keyword">new</span> <span class="type">OAuth2Strategy</span>({
-    authorizationURL: <span class="type"></span>'https:<span class="type"></span>//www.example.com/as/authorization.oauth2<span class="string">',
-    tokenURL: '</span>https:<span class="type"></span>//www.example.com/as/token.oauth2<span class="string">',
-    clientID: EXAMPLE_CLIENT_ID,
-    clientSecret: EXAMPLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/oauth2/callback'</span>
+<p>The LionDesk authentication strategy authenticates users using a LionDesk
+account and OAuth 2.0 tokens.  The client ID and secret obtained when creating an
+application are supplied as options when creating the strategy.  The strategy
+also requires a <code>function</code>, which receives the <code>access token</code> and optional
+<code>refresh token</code>, as well as <code>profile</code> which contains the authenticated user&#39;s
+LionDesk profile and a <code>done</code> callback which must be called <code>cb</code> providing a user to
+complete authentication.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> LionDeskStrategy = <span class="built_in">require</span>(<span class="string">'passport-liondesk'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> LionDeskStrategy({
+    <span class="attr">clientID</span>: LIONDESK_CLIENT_ID,
+    <span class="attr">clientSecret</span>: LIONDESK_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/liondesk/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span></span>(accessToken, refreshToken, profile, done) {
-    User.findOne({ <span class="string">'ping.id'</span> : <span class="type">profile</span>.id }, <span class="function"><span class="keyword">function</span> </span>(err, user) {
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-        <span class="keyword">if</span> (user) {
-            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
-        } <span class="keyword">else</span> {
-            <span class="keyword">var</span> <span class="keyword">new</span><span class="type">User</span> = <span class="keyword">new</span> <span class="type">User</span>();
-            <span class="keyword">new</span><span class="type">User</span>.ping.id    = profile.id;
-            <span class="keyword">new</span><span class="type">User</span>.ping.token = accessToken;
-            <span class="keyword">new</span><span class="type">User</span>.ping.name  = profile.displayName;
-            <span class="keyword">new</span><span class="type">User</span>.ping.email = profile.email;
-            <span class="keyword">new</span><span class="type">User</span>.save(<span class="function"><span class="keyword">function</span></span>(err) {
-                <span class="keyword">if</span> (err) { <span class="keyword">throw</span> err; }
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="keyword">new</span><span class="type">User</span>);
-            });
-        }
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">liondeskId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">return</span> done(err, user);
     });
   }
 ));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;ping-oauth2&#39;</code> strategy, to
-authenticate requests.</p>
-<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
-application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/oauth2'</span>,
-    passport.authenticate(<span class="string">'oauth2'</span>, { <span class="attribute">scope </span>: [<span class="string">'openid'</span>, <span class="string">'profile'</span>, <span class="string">'email'</span>] }));
-
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/oauth2/callback'</span>,
-    passport.authenticate(<span class="string">'oauth2'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-    function(req, res) {
-        <span class="comment">// Successful authentication, redirect home.</span>
-        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
-    });
-</code></pre><h2 id="related-modules">Related Modules</h2>
-<ul>
-<li><a href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a> — OAuth 2.0 authentication strategy</li>
-</ul>
-<h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
-</code></pre><h2 id="credits">Credits</h2>
-<ul>
-<li><a href="http://github.com/bsmckamey">Brenden McKamey</a></li>
-<li><a href="http://github.com/hahooy">Yongzheng Huang</a></li>
-</ul>
+</code></pre>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2018 Christian Torres <a href="[http://christiantorres.me/](http://christiantorres.me/)">[http://christiantorres.me/](http://christiantorres.me/)</a></p>
 </div>
           <div class="metadata">
-            <div class="install"><code>npm install <span class="fn">passport-ping-oauth2</span></code></div>
+            <div class="install"><code>npm install <span class="fn">passport-liondesk</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2016-02-19T19:22:00Z">3 years ago</abbr></li>
-              <li><a class="url" href="git://github.com/MonsantoCo/passport-ping-oauth2.git">https://github.com/MonsantoCo/passport-ping-oauth2#readme</a></li>
-              <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-09-22T17:51:34Z">7 hours ago</abbr></li>
+              <li><a class="url" href="git://github.com/chrux/passport-liondesk.git">https://github.com/chrux/passport-liondesk#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>64</b> downloads in the last month</li>
+              <li><b>18</b> downloads in the last day</li>
+              <li><b>18</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
