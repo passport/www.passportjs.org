@@ -13,6 +13,7 @@
 ### Providers
 
 * [Facebook](facebook.md)
+* [Snapchat](snapchat.md)
 * [Twitter](twitter.md)
 * [Google](google.md)
 

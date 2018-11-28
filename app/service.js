@@ -4,21 +4,21 @@ exports = module.exports = function(repoHandler, logging) {
   var bodyParser = require('body-parser');
   var cookieParser = require('cookie-parser');
   var path = require('path');
-  
-  
+
+
   var service = express();
-  
+
   service.set('views', path.join(__dirname, '../layouts'));
   service.set('view engine', 'pug');
   service.locals.pretty = true;
-  
+
   service.use(logging());
   service.use(bodyParser.json());
   service.use(bodyParser.urlencoded({ extended: false }));
   service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
   //service.use(express.static(path.join(__dirname, '../web')));
-  
+
   service.use(redirect({
     // The following set of redirects were defined in the initial commit to this
     // site's repository.  The redirect URLs matching the template `/guide/{document}.html`
@@ -34,6 +34,7 @@ exports = module.exports = function(repoHandler, logging) {
     '/guide/authenticate.html': '/guide/authenticate/',
     '/guide/authorize.html': '/guide/authorize/',
     '/guide/configuration.html': '/guide/configure/',
+    '/guide/snapchat.html': '/guide/snapchat/',
     '/guide/facebook.html': '/guide/facebook/',
     '/guide/google.html': '/guide/google/',
     '/guide/log-out.html': '/guide/logout/',
@@ -57,6 +58,7 @@ exports = module.exports = function(repoHandler, logging) {
     '/guide/authenticate/': '/docs/authenticate/',
     '/guide/authorize/': '/docs/authorize/',
     '/guide/configure/': '/docs/configure/',
+    '/guide/snapchat/': '/docs/snapchat/',
     '/guide/facebook/': '/docs/facebook/',
     '/guide/google/': '/docs/google/',
     '/guide/login/': '/docs/logout/',
@@ -67,7 +69,7 @@ exports = module.exports = function(repoHandler, logging) {
     '/guide/providers/': '/docs/providers/',
     '/guide/twitter/': '/docs/twitter/',
     '/guide/username-password/': '/docs/username-password/',
-    
+
     // The following set of redirects are a workaround for an overly-permissive
     // redirect rule introduced during the redesign by Auth0 in May 2015.
     // When the redesign was launched, the service removed the `/guide/{document}.html`
@@ -79,6 +81,7 @@ exports = module.exports = function(repoHandler, logging) {
     '/docs/authenticate.html': '/docs/authenticate/',
     '/docs/authorize.html': '/docs/authorize/',
     '/docs/configuration.html': '/docs/configure/',
+    '/docs/snapchat.html': '/docs/snapchat/',
     '/docs/facebook.html': '/docs/facebook/',
     '/docs/google.html': '/docs/google/',
     '/docs/log-out.html': '/docs/logout/',
@@ -90,15 +93,15 @@ exports = module.exports = function(repoHandler, logging) {
     '/docs/user-profile.html': '/docs/profile/',
     '/docs/username-password.html': '/docs/username-password/',
   }, 301));
-  
-  
+
+
   service.get('/repo.json', repoHandler);
-  
+
   service.use(express.static(path.join(__dirname, '../www')));
-  
-  
+
+
   service.use(require('../lib/middleware/loadmanifest')(path.join(__dirname, '../manifest.yaml')));
-  
+
   // catch 404 and forward to error handler
   service.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -129,8 +132,8 @@ exports = module.exports = function(repoHandler, logging) {
       error: {}
     });
   });
-  
-    
+
+
   return service;
 };
 

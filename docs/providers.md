@@ -455,6 +455,11 @@ implementations.
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
     </tr>
     <tr>
+      <td>[Snapchat](https://github.com/Snapchat/passport-snapchat)</td>
+      <td>OAuth 2.0</td>
+      <td>[Snapchat](https://github.com/Snapchat)</td>
+    </tr>
+    <tr>
       <td>[SoundCloud](https://github.com/jaredhanson/passport-soundcloud)</td>
       <td>OAuth 2.0</td>
       <td>[Jared Hanson](https://github.com/jaredhanson)</td>
