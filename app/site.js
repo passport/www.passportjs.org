@@ -1,4 +1,4 @@
-exports = module.exports = function(packages, sitemap, robots) {
+exports = module.exports = function(packageRegistry, sitemapProtocol, robotsProtocol) {
   var kerouac = require('kerouac');
   
   
@@ -9,20 +9,20 @@ exports = module.exports = function(packages, sitemap, robots) {
   site.set('layout engine', 'pug');
   site.locals.pretty = true;
 
-  //site.use('/packages', packages);
+  //site.use('/packages', packageRegistry);
 
   site.content('content');
   site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
 
   site.use('/', require('kerouac-manifest')());
-  site.use(sitemap);
-  site.use(robots);
+  site.use(sitemapProtocol);
+  site.use(robotsProtocol);
   
   return site;
 };
 
 exports['@require'] = [
-  'http://schemas.modulate.io/js/comp/lang/javascript/packages/registry/WWWSite',
+  'io.modulate/comp/lang/javascript/packages/registry/www/site',
   'org.kerouacjs/sitemap/protocol',
   'org.kerouacjs/robots/protocol'
 ];
