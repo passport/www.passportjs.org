@@ -12,7 +12,7 @@ OAuth has also emerged as a popular mechanism for [delegated authentication](htt
 OAuth comes in two primary flavors, both of which are widely deployed.
 
 The initial version of OAuth was developed as an open standard by a loosely
-organized collective of web developers.  Their work resulted in [OAuth 1.0](http://oauth.net/core/1.0/),
+organized collection of web developers.  Their work resulted in [OAuth 1.0](http://oauth.net/core/1.0/),
 which was superseded by [OAuth 1.0a](http://oauth.net/core/1.0a/).  This work
 has now been standardized by the [IETF](http://www.ietf.org/) as [RFC 5849](http://tools.ietf.org/html/rfc5849).
 
@@ -152,8 +152,8 @@ provider; refer to [User Profile](/guide/profile/) for additional information.
 ## Routes
 
 Two routes are required for OAuth 2.0 authentication.  The first route redirects
-the user to the service provider.  The second route is the URL to which the user
-will be redirected after authenticating with the provider.
+the user to the service provider.  The second route is the URL to which the users
+will be redirected after authenticating with their provider.
 
 ```javascript
 // Redirect the user to the OAuth 2.0 provider for authentication.  When

@@ -54,7 +54,7 @@ that is registered with Facebook.
 
 Two routes are required for Facebook authentication.  The first route redirects
 the user to Facebook.  The second route is the URL to which Facebook will
-redirect the user after they have logged in.
+redirect the users after they have logged in.
 
 ```javascript
 // Redirect the user to Facebook for authentication.  When complete,
