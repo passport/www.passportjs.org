@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -105,9 +99,9 @@
 <pre><code><span class="meta">$</span><span class="bash"> npm install passport-http-header-strategy</span>
 </code></pre><h2 id="usage">Usage</h2>
 <ul>
-<li><code>header</code> 设置请求头(默认authorization)</li>
-<li><code>param</code> 设置以<code>req.body</code>或<code>req.query</code>参数形式请求的<code>token</code>名称(默认access_token)</li>
-<li><code>passReqToCallback</code> 是否返回</li>
+<li><code>header</code> set header(default <code>authorization</code>)</li>
+<li><code>param</code> set use <code>req.body</code> or <code>req.query</code> <code>token</code> name to request(default <code>access_token</code>)</li>
+<li><code>passReqToCallback</code> if eturn</li>
 </ul>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> headerStrategy({<span class="attr">header</span>: <span class="string">'X-APP-TOKEN'</span>, <span class="attr">param</span>: <span class="string">'app_token'</span>, <span class="attr">passReqToCallback</span>: <span class="literal">true</span>},
@@ -132,28 +126,28 @@ application:</p>
     res.json(req.user);
   });
 </code></pre><h2 id="examples">Examples</h2>
-<p><a href="https://github.com/FengYuHe/passport-http-header-strategy/tree/master/examples">examples</a> - 示例</p>
+<p><a href="https://github.com/FengYuHe/passport-http-header-strategy/tree/master/examples">examples</a> - example</p>
 <h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install</span>
 <span class="meta">$</span><span class="bash"> mocha</span>
-</code></pre><h2 id="-">参考</h2>
-<p>参考<a href="https://github.com/jaredhanson">Jared Hanson</a>的<a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>模块</p>
+</code></pre><h2 id="reference">Reference</h2>
+<p>Refer<a href="https://github.com/jaredhanson">Jared Hanson</a> <a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a> module</p>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-header-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2016-03-31T03:06:11Z">2 years ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2020-06-28T10:15:42Z">3 months ago</abbr></li>
               <li><a class="url" href="git://github.com/FengYuHe/passport-http-header-strategy.git">https://github.com/FengYuHe/passport-http-header-strategy#readme</a></li>
             </ul>
             <ul>
-              <li><b>16</b> downloads in the last day</li>
-              <li><b>41</b> downloads in the last week</li>
-              <li><b>107</b> downloads in the last month</li>
+              <li><b>58</b> downloads in the last day</li>
+              <li><b>356</b> downloads in the last week</li>
+              <li><b>1,632</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -170,8 +164,6 @@ application:</p>
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

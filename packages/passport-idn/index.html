@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,79 +88,80 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-idn">passport-idn</h1>
-<p><a href="https://travis-ci.org/tusbar/passport-idn"><img src="https://secure.travis-ci.org/tusbar/passport-idn.svg?branch=master" alt="Build Status"></a>
-<a href="https://david-dm.org/tusbar/passport-idn"><img src="https://david-dm.org/tusbar/passport-idn.svg" alt="Dependencies Status"></a>
-<a href="https://david-dm.org/tusbar/passport-idn#info=devDependencies"><img src="https://david-dm.org/tusbar/passport-idn/dev-status.svg" alt="Dev Dependencies Status"></a></p>
-<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with
-<a href="https://developpeurs.idn.laposte.fr">La Poste IDN</a> using the OAuth 2.0
-API.</p>
-<p>This module lets you authenticate using La Poste IDN (Identité
-Numérique) in your Node.js applications.  By plugging into Passport, IDN
-authentication can be easily and unobtrusively integrated into any
-application or framework that supports
-<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware,
-including <a href="http://expressjs.com/">Express</a>.</p>
-<h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-idn</span>
-</code></pre><h2 id="usage">Usage</h2>
+          <div class="description"><h1 id="passport-idn-circleci-https-circleci-com-gh-tusbar-passport-idn-svg-style-svg-https-circleci-com-gh-tusbar-passport-idn-">passport-idn <a href="https://circleci.com/gh/tusbar/passport-idn"><img src="https://circleci.com/gh/tusbar/passport-idn.svg?style=svg" alt="CircleCI"></a></h1>
+<blockquote>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="https://developpeurs.idn.laposte.fr">La Poste IDN</a> using the OAuth 2.0 API.</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/passport-idn"><img src="https://badgen.net/npm/v/passport-idn" alt="npm version"></a>
+<a href="https://david-dm.org/tusbar/passport-idn"><img src="https://badgen.net/david/dep/tusbar/passport-idn" alt="dependencies Status"></a>
+<a href="https://codecov.io/gh/tusbar/passport-idn"><img src="https://badgen.net/codecov/c/github/tusbar/passport-idn" alt="codecov"></a>
+<a href="https://github.com/xojs/xo"><img src="https://badgen.net/badge/code%20style/XO/cyan" alt="XO code style"></a></p>
+<p>This module lets you authenticate using La Poste IDN (Identité Numérique) in your Node.js applications.  By plugging into Passport, IDN authentication can be easily and unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
+<h2 id="getting-started">Getting started</h2>
+<pre><code class="lang-bash">$ npm install passport-idn
+</code></pre>
+<h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<p>The IDN authentication strategy authenticates users using a IDN account
-and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
-accepts these credentials and calls <code>done</code> providing a user, as well as
-<code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> IdnStrategy({
-    clientID: IDN_CLIENT_ID,
-    clientSecret: IDN_CLIENT_SECRET,
-    callbackURL: <span class="string">'http://127.0.0.1:3000/auth/idn/callback'</span>
-  },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ idnId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
-    });
-  }
-));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;idn&#39;</code> strategy, to
-authenticate requests.</p>
-<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
-application:</p>
-<pre><code>app.get(<span class="string">'/auth/idn'</span>,
-  passport.authenticate(<span class="string">'idn'</span>));
+<p>The IDN authentication strategy authenticates users using a IDN account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
+<pre><code class="lang-js"><span class="keyword">const</span> IdnStrategy = <span class="built_in">require</span>(<span class="string">'passport-idn'</span>)
 
-app.get(<span class="string">'/auth/idn/callback'</span>,
-  passport.authenticate(<span class="string">'idn'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+passport.use(
+  <span class="keyword">new</span> IdnStrategy({
+    <span class="attr">clientID</span>: IDN_CLIENT_ID,
+    <span class="attr">clientSecret</span>: IDN_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">'http://127.0.0.1:3000/auth/idn/callback'</span>
+  },
+  (accessToken, refreshToken, profile, done) =&gt; {
+    User.findOrCreate({ <span class="attr">idnId</span>: profile.id }, (err, user) =&gt; {
+      <span class="keyword">return</span> done(err, user)
+    })
+  })
+)
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;idn&#39;</code> strategy, to authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/auth/idn'</span>, passport.authenticate(<span class="string">'idn'</span>))
+
+app.get(
+  <span class="string">'/auth/idn/callback'</span>,
+  passport.authenticate(<span class="string">'idn'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  (req, res) =&gt; {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
-  });
-</code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
-</code></pre><h2 id="credits">Credits</h2>
-<ul>
-<li><a href="http://github.com/tusbar">Bertrand Marron</a></li>
-</ul>
+    res.redirect(<span class="string">'/'</span>)
+  }
+)
+</code></pre>
 <h2 id="license">License</h2>
-<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-</div>
+<p>MIT</p>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<pre><code>    ╚⊙ ⊙╝
+  ╚═<span class="comment">(███)</span>═╝
+ ╚═<span class="comment">(███)</span>═╝
+╚═<span class="comment">(███)</span>═╝
+ ╚═<span class="comment">(███)</span>═╝
+  ╚═<span class="comment">(███)</span>═╝
+   ╚═<span class="comment">(███)</span>═╝
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-idn</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2015-04-04T15:55:21Z">3 years ago</abbr></li>
-              <li><a class="url" href="http://github.com/tusbar/passport-idn.git">https://github.com/tusbar/passport-idn</a></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2019-01-05T02:44:41Z">2 years ago</abbr></li>
+              <li><a class="url" href="http://github.com/tusbar/passport-idn.git"></a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -183,8 +178,6 @@ app.get(<span class="string">'/auth/idn/callback'</span>,
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

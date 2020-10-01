@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,23 +88,33 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-sqrl">Passport-SQRL</h1>
-<p>An <a href="http://expressjs.com/">ExpressJS</a> and <a href="https://github.com/jaredhanson/passport">PassportJS</a> implementation of the <a href="https://www.grc.com/sqrl/sqrl.htm">SQRL authentication protocol</a>.</p>
-<p>The code is written in TypeScript, with the transcoded JavaScript outputs targeted to ES6 for modern Node.js compatibility. The resulting output is published as NPM module &#39;passport-sqrl&#39;.</p>
+<p>A Node.js, <a href="http://expressjs.com/">ExpressJS</a>, and <a href="https://github.com/jaredhanson/passport">PassportJS</a> implementation of the <a href="https://www.grc.com/sqrl/sqrl.htm">SQRL authentication protocol</a>.</p>
+<p>The code is written in TypeScript, with the transcoded JavaScript outputs targeted to ES2017 for modern Node.js compatibility. The resulting output is published as NPM module &#39;passport-sqrl&#39;.</p>
 <h1 id="using-the-package">Using the Package</h1>
 <p>SQRL does not present its credentials in the HTTP Authenticate header, and so requires several integration points in a site:</p>
 <ol>
 <li>ExpressJS middleware is needed to handle SQRL API calls like &#39;query&#39;, &#39;ident&#39;, &#39;disable&#39;, &#39;enable&#39;, &#39;remove&#39;.</li>
 <li>A PassportJS Strategy pairs with the API handler.</li>
 <li>The site must implement an ISQRLIdentityStorage implementation to store user profile information and SQRL &quot;nut&quot; mappings for use by the passport-sqrl components.</li>
-<li>For best effect, the site&#39;s login page should poll for login completion to handle the SQRL app case, e.g. phone login or the separate SQRL desktop app. Because the app data flow does not integrate with the user&#39;s browser (by design - the phone login case is important for insecure Internet cafe scenarios), the browser will not be able to tell when the login has been completed - and get an ambient auth cookie - without polling the site.</li>
+<li>For best effect, the site&#39;s login page should poll for login completion to handle the SQRL app case, e.g. phone login or the separate SQRL desktop app. Because the app data flow does not integrate with the user&#39;s browser, by design for the phone login case for insecure Internet cafe scenarios, the browser will not be able to tell when the login has been completed - and get an ambient auth cookie - without polling the site.</li>
 </ol>
-<p>The demo site code in the passport-sqrl Git repo (<a href="https://github.com/erikma/passport-sqrl/tree/master/src/testSite">https://github.com/erikma/passport-sqrl/tree/master/src/testSite</a> especially TestSiteHandler.ts and login.ejs) demonstrates the integration steps above. See the section below on using the test site for browser testing.</p>
+<p>The <a href="https://github.com/erikma/passport-sqrl/tree/master/src/testSite">demo site code</a> in the passport-sqrl Git repo, especially TestSiteHandler.ts and login.ejs, demonstrates the integration steps above. See the section below on using the test site for browser testing.</p>
 <h1 id="release-history-and-release-notes">Release History and Release Notes</h1>
+<h2 id="0-2-3-16-mar-2019">0.2.3 16 Mar 2019</h2>
+<ul>
+<li>Update to newer ed25519 <a href="https://github.com/gaoxiangxyz/ed25519">fork</a> that does not need OpenSSL to be installed locally to build. Python 2.7 still needed however.</li>
+<li>You may have to force-update your &quot;nan&quot; package to 2.13.1 or higher by running <code>npm install nan@2.13.1</code> to get this to work. The package.json in that fork needs updating.</li>
+</ul>
+<h2 id="0-2-2-8-dec-2018">0.2.2 8 Dec 2018</h2>
+<ul>
+<li>Update to ed25519 fork that supports NodeJS 10 and library layouts in OpenSSL 1.1.0+. Open PR for merging to ed25519 master <a href="https://github.com/dazoe/ed25519/pull/20">here</a>.</li>
+<li>npm update to head of dependencies.</li>
+</ul>
 <h2 id="0-2-1-25-nov-2017">0.2.1 25 Nov 2017</h2>
 <ul>
 <li>Doc update for test site HTTP port (5859).</li>
@@ -136,15 +140,14 @@
 <ol>
 <li>Install the latest SQRL desktop client from <a href="https://www.grc.com/dev/sqrl.exe">GRC&#39;s site</a></li>
 <li>Install Git from <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (for Windows), or <a href="https://git-scm.com/download">https://git-scm.com/download</a> for other operating systems. Be sure you&#39;re using at least version 2.14.1 to get an important security patch.</li>
-<li>Install Node.js from <a href="https://nodejs.org">https://nodejs.org</a> (click the Current button to get the latest - you need at least version 8.9.1).</li>
-<li>(Windows) Install Python version 2.7 from <a href="https://www.python.org/">https://www.python.org/</a> . You can install just for your local user account or for all users. Version 2.7 is required for building the Ed25519 native code package.</li>
-<li>(Windows) Install Visual Studio 2017 Build Tools from <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15</a> - also needed for building native code. Select the Visual C++ Build Tools suite from the Workloads tab.</li>
-<li><p>(Windows) Install the latest Win64 version of the full (non-Lite) installer for OpenSSL from <a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a> to its default install location (c:\OpenSSL-Win64). This is needed to link the Ed25519 native code package. Select the option to install binaries to the OpenSSL bin directory. Donate $10.</p>
+<li>Install Node.js from <a href="https://nodejs.org">https://nodejs.org</a>. You need at least version 10.14.1.</li>
+<li>(Windows) Install Python version 2.7 from <a href="https://www.python.org/">https://www.python.org/</a> . You can install just for your local user account or for all users. Version 2.7 is required for building the Ed25519 native code package. Set the path to python.exe in the PYTHON environment variable.</li>
+<li><p>(Windows) Install Visual Studio 2017 Build Tools from <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15</a> - also needed for building native code. Select the Visual C++ Build Tools suite from the Workloads tab.</p>
 </li>
 <li><p>We recommend Visual Studio Code from <a href="https://www.visualstudio.com/products/code-vs">https://www.visualstudio.com/products/code-vs</a> - run <code>code .</code> in the repo root folder. You should install the &quot;TSLint&quot; extension which runs the lint tool as you type.</p>
 </li>
 <li>(Windows) The <code>Setup.cmd</code> command should be run after any pull from GitHub to install latest packages.</li>
-<li>(Windows) The <code>Init.cmd</code> command (which is run by Setup.cmd or can be run separately) sets up some useful command shortcuts.</li>
+<li>(Windows) The <code>Init.cmd</code> command, which is run by Setup.cmd or can be run separately, sets up some useful command shortcuts.</li>
 </ol>
 <h2 id="building-code">Building code</h2>
 <p>We use <a href="https://gulpjs.org/">Gulp</a> as a build system. We have integrated Gulp into Visual Studio Code to make life easier. To run a build, press <code>Ctrl+Shift+B</code> and ensure you have no errors showing in VSCode.</p>
@@ -154,13 +157,13 @@
 <p>A &quot;pure&quot; unit test suite for the passport-sqrl code is under the src/SqrlTests directory and built into the build. Its failure causes the build to fail.</p>
 <h2 id="integration-tests">Integration tests</h2>
 <p>There is a suite of tests that start up a Node server with Express, Passport, and passport-sqrl for integration testing. These are not &quot;pure&quot; unit tests but they also cause the build to fail if they are not working.</p>
-<p>You&#39;ll need to be on a network for these to work. (Running in airplane mode will cause failures. But many flights have wifi. :)</p>
+<p>You&#39;ll need to be on a network for these to work. Running in airplane mode will cause failures. But many flights have wifi. :)</p>
 <p>The integration tests also make use of a mock SQRL client that knows how to run the client side of the protocol. This could be useful in its own right if you want to extract it for general purpose use in a JavaScript based client environment.</p>
 <h2 id="browser-testing-with-the-test-site">Browser Testing with the Test Site</h2>
 <p>The same NodeJS + Express + Passport + passport-sqrl web site can be run from VSCode. It uses HTTPS on port 5858 and HTTP on port 5859.</p>
 <h3 id="installing-the-test-site-trusted-root-certificate">Installing the Test Site Trusted Root Certificate</h3>
 <p>The test site uses a certificate chain generated in a custom Certificate Authority under the src\Certs directory. It includes a root, intermediate, and leaf cert. The site uses the leaf as its HTTPS identity. To allow your device&#39;s browser to trust the site&#39;s cert chain, you need to add the root certificate as a trusted certificate authority.</p>
-<p>A small HTTP-only site is started when you build and run the test site. Navigate to <a href="http://your-machine-IP:5859/certs">http://your-machine-IP:5859/certs</a> from your computer or device. (If the connection times out, check your Windows computer&#39;s firewall settings and ensure node.exe is allowed to listen on ports 5858 and 5859 for private networks.) Follow the instructions on the page to install RootCert.Cert.pem (Android) or RootCert.Cert.cer (Windows) as a trusted root.</p>
+<p>A small HTTP-only site is started when you build and run the test site. Navigate to <a href="http://your-machine-IP:5859/certs">http://your-machine-IP:5859/certs</a> from your computer or device. If the connection times out, check your Windows computer&#39;s firewall settings and ensure node.exe is allowed to listen on ports 5858 and 5859 for private networks. Follow the instructions on the page to install RootCert.Cert.pem (Android) or RootCert.Cert.cer (Windows) as a trusted root.</p>
 <p>Note that <a href="http://your-machine-IP:5859">http://your-machine-IP:5859</a> will redirect from the HTTP to the HTTPS site; only the /certs page noted above is open for browsing under HTTP.</p>
 <h3 id="to-run-the-site">To Run the Site</h3>
 <ol>
@@ -169,9 +172,10 @@
 <li>Wait for the orange debugging color to appear in the status bar.</li>
 </ol>
 <h3 id="testing-with-a-browser">Testing with a Browser</h3>
+<p>This might only work with Firefox these days as browsers get more strict.</p>
 <ol>
 <li>Open a browser and navigate to <a href="https://your-machine-IP:5858">https://your-machine-IP:5858</a></li>
-<li>Allow a security exception for the certificate (if needed).</li>
+<li>Allow a security exception for the certificate, if needed.</li>
 <li>You should be redirected to the /login page and see a SQRL QR-Code that can be clicked to launch the desktop app, or snapshotted from a phone app.</li>
 <li>When clicked, the desktop SQRL client should activate to handle the sqrl:// URL and allow you to log in.</li>
 <li>After login is completed, the /login page on the site should soon realize the login is done and automatically redirect to the site root, showing your SQRL public key that is acting as your identity.</li>
@@ -179,24 +183,23 @@
 <h1 id="useful-links">Useful Links</h1>
 <ul>
 <li>SQRL main page: <a href="https://www.grc.com/sqrl/sqrl.htm">https://www.grc.com/sqrl/sqrl.htm</a></li>
-<li>SQRL link protocol to a site login page: <a href="https://www.grc.com/sqrl/protocol.htm">https://www.grc.com/sqrl/protocol.htm</a> and <a href="https://www.grc.com/sqrl/semantics.htm">https://www.grc.com/sqrl/semantics.htm</a></li>
-<li>SQRL web server expected behavior: <a href="https://www.grc.com/sqrl/server.htm">https://www.grc.com/sqrl/server.htm</a></li>
+<li>SQRL forum: <a href="https://sqrl.grc.com/">https://sqrl.grc.com/</a></li>
 </ul>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-sqrl</span></code></div>
             <ul>
-              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2017-11-26T04:59:10Z">10 months ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2020-03-19T20:19:23Z">6 months ago</abbr></li>
               <li><a class="url" href="git+https://github.com/erikma/passport-sqrl.git">https://github.com/erikma/passport-sqrl</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>0</b> downloads in the last week</li>
-              <li><b>0</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -213,8 +216,6 @@
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

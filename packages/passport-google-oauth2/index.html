@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -119,7 +113,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 passport.use(<span class="keyword">new</span> GoogleStrategy({
     <span class="attr">clientID</span>:     GOOGLE_CLIENT_ID,
     <span class="attr">clientSecret</span>: GOOGLE_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://yourdormain:3000/auth/google/callback"</span>,
+    <span class="attr">callbackURL</span>: <span class="string">"http://yourdomain:3000/auth/google/callback"</span>,
     <span class="attr">passReqToCallback</span>   : <span class="literal">true</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">request, accessToken, refreshToken, profile, done</span>) </span>{
@@ -132,7 +126,7 @@ passport.use(<span class="keyword">new</span> GoogleStrategy({
 <h4 id="note-about-local-environment">Note about Local environment</h4>
 <p>Avoid usage of Private IP, otherwise you will get the device_id device_name issue for Private IP during authentication.</p>
 <p>A workaround consist to set up thru the google cloud console a fully qualified domain name such as <a href="http://mydomain:3000/">http://mydomain:3000/</a> for the callback
-then edit your /etc/hosts on your computer and/or vm to point on your private IP. </p>
+then edit your /etc/hosts on your computer and/or vm to point on your private IP.</p>
 <p>Also both sign-in button + callbackURL has to be share the same url, otherwise two cookies will be created and it will lead to lost your session</p>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;google&#39;</code> strategy, to
@@ -140,13 +134,12 @@ authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code class="lang-Javascript">app.get(<span class="string">'/auth/google'</span>,
-  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">scope</span>: 
-      [ <span class="string">'https://www.googleapis.com/auth/plus.login'</span>,
-      , <span class="string">'https://www.googleapis.com/auth/plus.profile.emails.read'</span> ] }
+  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">scope</span>:
+      [ <span class="string">'email'</span>, <span class="string">'profile'</span> ] }
 ));
 
-app.get( <span class="string">'/auth/google/callback'</span>, 
-    passport.authenticate( <span class="string">'google'</span>, { 
+app.get( <span class="string">'/auth/google/callback'</span>,
+    passport.authenticate( <span class="string">'google'</span>, {
         <span class="attr">successRedirect</span>: <span class="string">'/auth/google/success'</span>,
         <span class="attr">failureRedirect</span>: <span class="string">'/auth/google/failure'</span>
 }));
@@ -165,6 +158,7 @@ app.get( <span class="string">'/auth/google/callback'</span>,
    emails
    gender
    picture
+   coverPhoto
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="example">OAuth 2.0 example</a>.</p>
 <h2 id="credits">Credits</h2>
@@ -178,17 +172,17 @@ app.get( <span class="string">'/auth/google/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.1.6</span> published <abbr class="updated" title="2018-01-08T20:53:33Z">8 months ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2019-03-06T23:35:06Z">2 years ago</abbr></li>
               <li><a class="url" href="git://github.com/mstade/passport-google-oauth2.git">https://github.com/mstade/passport-google-oauth2</a></li>
-              <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>666</b> downloads in the last day</li>
-              <li><b>3,532</b> downloads in the last week</li>
-              <li><b>16,330</b> downloads in the last month</li>
+              <li><b>2,211</b> downloads in the last day</li>
+              <li><b>12,545</b> downloads in the last week</li>
+              <li><b>55,752</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -205,8 +199,6 @@ app.get( <span class="string">'/auth/google/callback'</span>,
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

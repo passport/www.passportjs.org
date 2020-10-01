@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,15 +88,11 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-facebook">passport-facebook</h1>
-<p><a href="https://travis-ci.org/jaredhanson/passport-facebook"><img src="https://img.shields.io/travis/jaredhanson/passport-facebook.svg" alt="Build"></a>
-<a href="https://coveralls.io/r/jaredhanson/passport-facebook"><img src="https://img.shields.io/coveralls/jaredhanson/passport-facebook.svg" alt="Coverage"></a>
-<a href="https://codeclimate.com/github/jaredhanson/passport-facebook"><img src="https://img.shields.io/codeclimate/github/jaredhanson/passport-facebook.svg?label=quality" alt="Quality"></a>
-<a href="https://david-dm.org/jaredhanson/passport-facebook"><img src="https://img.shields.io/david/jaredhanson/passport-facebook.svg" alt="Dependencies"></a></p>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://www.facebook.com/">Facebook</a>
 using the OAuth 2.0 API.</p>
 <p>This module lets you authenticate using Facebook in your Node.js applications.
@@ -110,6 +100,15 @@ By plugging into Passport, Facebook authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
+<hr>
+<p align="center"><a href="http://www.tkqlhce.com/click-8907558-13433666" target="_top">1Password, the only password manager you should trust.</a> Industry-leading security and award winning design.</p>
+
+<hr>
+<p>Status:
+<a href="https://travis-ci.org/jaredhanson/passport-facebook"><img src="https://img.shields.io/travis/jaredhanson/passport-facebook.svg" alt="Build"></a>
+<a href="https://coveralls.io/r/jaredhanson/passport-facebook"><img src="https://img.shields.io/coveralls/jaredhanson/passport-facebook.svg" alt="Coverage"></a>
+<a href="https://codeclimate.com/github/jaredhanson/passport-facebook"><img src="https://img.shields.io/codeclimate/github/jaredhanson/passport-facebook.svg?label=quality" alt="Quality"></a>
+<a href="https://david-dm.org/jaredhanson/passport-facebook"><img src="https://img.shields.io/david/jaredhanson/passport-facebook.svg" alt="Dependencies"></a></p>
 <h2 id="install">Install</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install passport-facebook</span>
 </code></pre><h2 id="usage">Usage</h2>
@@ -169,15 +168,15 @@ requested via the <code>scope</code> option to <code>passport.authenticate()</co
 <p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/permissions/overview">permissions with Facebook Login</a>
 for further details.</p>
 <h5 id="how-do-i-re-ask-for-for-declined-permissions-">How do I re-ask for for declined permissions?</h5>
-<p>Set the <code>authType</code> option to <code>rerequest</code> when authenticating.</p>
+<p>Set the <code>authType</code> option to <code>reauthenticate</code> when authenticating.</p>
 <pre><code class="lang-js">app.get(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { <span class="attr">authType</span>: <span class="string">'rerequest'</span>, <span class="attr">scope</span>: [<span class="string">'user_friends'</span>, <span class="string">'manage_pages'</span>] }));
+  passport.authenticate(<span class="string">'facebook'</span>, { <span class="attr">authType</span>: <span class="string">'reauthenticate'</span>, <span class="attr">scope</span>: [<span class="string">'user_friends'</span>, <span class="string">'manage_pages'</span>] }));
 </code></pre>
 <p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/web#re-asking-declined-permissions">re-asking for declined permissions</a>
 for further details.</p>
 <h5 id="how-do-i-obtain-a-user-profile-with-specific-fields-">How do I obtain a user profile with specific fields?</h5>
 <p>The Facebook profile contains a lot of information about a user.  By default,
-not all the fields in a profile are returned.  The fields need by an application
+not all the fields in a profile are returned.  The fields needed by an application
 can be indicated by setting the <code>profileFields</code> option.</p>
 <pre><code class="lang-js"><span class="keyword">new</span> FacebookStrategy({
   <span class="attr">clientID</span>: FACEBOOK_APP_ID,
@@ -208,28 +207,11 @@ this strategy is not aware that this behavior is exhibited and is not affected
 by it.  If desired, this fragment can be removed on the client side.  Refer to
 this <a href="http://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url">discussion</a> on
 Stack Overflow for recommendations on how to accomplish such removal.</p>
-<h2 id="contributing">Contributing</h2>
-<h4 id="tests">Tests</h4>
-<p>The test suite is located in the <code>test/</code> directory.  All new features are
-expected to have corresponding test cases.  Ensure that the complete test suite
-passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
-</code></pre>
-<h4 id="coverage">Coverage</h4>
-<p>The test suite covers 100% of the code base.  All new feature development is
-expected to maintain that level.  Coverage reports can be viewed by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
-$ make view-cov
-</code></pre>
-<h2 id="support">Support</h2>
-<h4 id="funding">Funding</h4>
-<p>This software is provided to you as open source, free of charge.  The time and
-effort to develop and maintain this project is dedicated by <a href="https://github.com/jaredhanson">@jaredhanson</a>.
-If you (or your employer) benefit from this project, please consider a financial
-contribution.  Your contribution helps continue the efforts that produce this
-and other open source software.</p>
-<p>Funds are accepted via <a href="https://paypal.me/jaredhanson">PayPal</a>, <a href="https://venmo.com/jaredhanson">Venmo</a>,
-and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appreciated.</p>
+<h2 id="sponsorship">Sponsorship</h2>
+<p>Passport is open source software.  Ongoing development is made possible by
+generous contributions from <a href="https://github.com/jaredhanson/passport/blob/master/SPONSORS.md">individuals and corporations</a>.
+To learn more about how you can help keep this project financially sustainable,
+please visit Jared Hanson&#39;s page on <a href="https://www.patreon.com/jaredhanson">Patreon</a>.</p>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <p>Copyright (c) 2011-2016 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
@@ -237,17 +219,17 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-facebook</span></code></div>
             <ul>
-              <li><span class="version">2.1.1</span> published <abbr class="updated" title="2018-08-03T00:35:46Z">2 months ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2019-01-22T20:28:55Z">2 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-facebook.git">https://github.com/jaredhanson/passport-facebook#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>7,221</b> downloads in the last day</li>
-              <li><b>35,444</b> downloads in the last week</li>
-              <li><b>180,917</b> downloads in the last month</li>
+              <li><b>13,541</b> downloads in the last day</li>
+              <li><b>74,930</b> downloads in the last week</li>
+              <li><b>345,064</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -264,8 +246,6 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

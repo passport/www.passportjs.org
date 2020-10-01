@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -157,9 +151,37 @@ as well as <code>options</code> specifying a client ID, client secret, and callb
   }
 ));
 </code></pre>
+<p><em>Note:</em>
+If you want to use the express request, you must use the option
+<code>passReqToCallback: true</code>, then Passport will send the request as the first parameter.</p>
+<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OutlookStrategy({
+    <span class="attr">clientID</span>: OUTLOOK_CLIENT_ID,
+    <span class="attr">clientSecret</span>: OUTLOOK_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/auth/outlook/callback'</span>,
+    <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) </span>{
+    <span class="keyword">var</span> user = {
+      <span class="attr">outlookId</span>: profile.id,
+      <span class="attr">name</span>: profile.DisplayName,
+      <span class="attr">email</span>: profile.EmailAddress,
+      <span class="attr">accessToken</span>:  accessToken
+    };
+    <span class="keyword">if</span> (refreshToken)
+      user.refreshToken = refreshToken;
+    <span class="keyword">if</span> (profile.MailboxGuid)
+      user.mailboxGuid = profile.MailboxGuid;
+    <span class="keyword">if</span> (profile.Alias)
+      user.alias = profile.Alias;
+    User.findOrCreate(user, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">return</span> done(err, user);
+    });
+  }
+));
+</code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;windowslive&#39;</code> strategy, to
-authenticate requests.</p>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;windowslive&#39;</code> (or custom named)
+strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code class="lang-js">app.get(<span class="string">'/auth/outlook'</span>,
@@ -180,8 +202,33 @@ app.get(<span class="string">'/auth/outlook/callback'</span>,
     res.redirect(<span class="string">'/'</span>);
   });
 </code></pre>
-<p><em>Note:</em> <code>&#39;offline_access&#39;</code> is a required scope in order to obtain a
+<p><em>Note:</em>
+REST API specific scopes you are using must be fully qualified to match the
+outlook domain, e.g: <code>https://outlook.office.com/Mail.Read</code> instead of <code>Mail.Read</code>
+This is very important, otherwise you will receive <code>401</code> responses.</p>
+<p><code>&#39;offline_access&#39;</code> is a required scope in order to obtain a
 <code>refresh_token</code>. More information is available in the <a href="https://msdn.microsoft.com/en-us/office/office365/api/use-outlook-rest-api#get-an-access-token">MSDN Dev Center</a>.</p>
+<h4 id="customising-endpoints">Customising endpoints</h4>
+<p>If you need to customise the URLs used by the strategy (such as
+connecting to the <a href="https://developer.microsoft.com/en-us/graph">Microsoft Graph</a>
+API instead of Office365 REST) this is possible by modifying the
+<code>options</code> passed to the strategy:</p>
+<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OutlookStrategy({
+    <span class="attr">clientID</span>: OUTLOOK_CLIENT_ID,
+    <span class="attr">clientSecret</span>: OUTLOOK_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/auth/graph/callback'</span>,
+    <span class="attr">userProfileURL</span>: <span class="string">'https://graph.microsoft.com/v1.0/me?$select=userPrincipalName'</span>,
+    <span class="attr">name</span>: <span class="string">'msgraph'</span>
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+     <span class="comment">// Callback logic as per examples</span>
+  }
+));
+</code></pre>
+<p>In the example above the strategy <code>name</code> is changeed from the default of <code>&#39;windowslive&#39;</code>
+to <code>&#39;msgraph&#39;</code> and the <code>userProfileURL</code> is changed to the correct Microsoft Graph
+API endpoint. If you make this change, please remember to use the appropriate scopes
+for the API.</p>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/clocked0ne/passport-outlook/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
@@ -205,32 +252,34 @@ $ make view-cov
 </code></pre>
 <h2 id="credits">Credits</h2>
 <ul>
-<li><a href="http://github.com/clocked0ne">Nigel Horton</a></li>
-<li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
+<li><a href="https://github.com/clocked0ne">Nigel Horton</a></li>
+<li><a href="https://github.com/jaredhanson">Jared Hanson</a></li>
 </ul>
 <h3 id="additional-contributors">Additional Contributors</h3>
 <ul>
-<li><a href="http://github.com/DJphilomath">DJphilomath</a></li>
-<li><a href="http://github.com/andreider04">Andrés González</a></li>
-<li><a href="http://github.com/dperry">Dan Perry</a></li>
+<li><a href="https://github.com/http-teapot">Thomas Potaire</a></li>
+<li><a href="https://github.com/DJphilomath">DJphilomath</a></li>
+<li><a href="https://github.com/andreider04">Andrés González</a></li>
+<li><a href="https://github.com/dperry">Dan Perry</a></li>
+<li><a href="https://github.com/Linkaynn">Jesé Romero Arbelo</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2015-2016 Nigel Horton</p>
+<p>Copyright (c) 2015-2019 Nigel Horton</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-outlook</span></code></div>
             <ul>
-              <li><span class="version">2.2.0</span> published <abbr class="updated" title="2018-08-26T19:58:16Z">a month ago</abbr></li>
+              <li><span class="version">2.2.1</span> published <abbr class="updated" title="2019-10-07T12:13:25Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/clocked0ne/passport-outlook.git">https://github.com/clocked0ne/passport-outlook#readme</a></li>
             </ul>
             <ul>
-              <li><b>11</b> downloads in the last day</li>
-              <li><b>246</b> downloads in the last week</li>
-              <li><b>911</b> downloads in the last month</li>
+              <li><b>143</b> downloads in the last day</li>
+              <li><b>670</b> downloads in the last week</li>
+              <li><b>2,996</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -247,8 +296,6 @@ $ make view-cov
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

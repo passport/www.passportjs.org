@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -117,49 +111,75 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
 <pre><code class="lang-javascript"><span class="keyword">const</span> VKontakteStrategy = <span class="built_in">require</span>(<span class="string">'passport-vkontakte'</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> VKontakteStrategy({
+<span class="comment">// User session support middlewares. Your exact suite might vary depending on your app's needs.</span>
+app.use(<span class="built_in">require</span>(<span class="string">'cookie-parser'</span>)());
+app.use(<span class="built_in">require</span>(<span class="string">'body-parser'</span>).urlencoded({<span class="attr">extended</span>: <span class="literal">true</span>}));
+app.use(<span class="built_in">require</span>(<span class="string">'express-session'</span>)({<span class="attr">secret</span>:<span class="string">'keyboard cat'</span>, <span class="attr">resave</span>: <span class="literal">true</span>, <span class="attr">saveUninitialized</span>: <span class="literal">true</span>}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(<span class="keyword">new</span> VKontakteStrategy(
+  {
     <span class="attr">clientID</span>:     VKONTAKTE_APP_ID, <span class="comment">// VK.com docs call it 'API ID', 'app_id', 'api_id', 'client_id' or 'apiId'</span>
     clientSecret: VKONTAKTE_APP_SECRET,
     <span class="attr">callbackURL</span>:  <span class="string">"http://localhost:3000/auth/vkontakte/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
-    <span class="comment">// console.log(params.email); // getting the email</span>
-    User.findOrCreate({ <span class="attr">vkontakteId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
-    });
+  <span class="function"><span class="keyword">function</span> <span class="title">myVerifyCallbackFn</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
+
+    <span class="comment">// Now that we have user's `profile` as seen by VK, we can</span>
+    <span class="comment">// use it to find corresponding database records on our side.</span>
+    <span class="comment">// Also we have user's `params` that contains email address (if set in </span>
+    <span class="comment">// scope), token lifetime, etc.</span>
+    <span class="comment">// Here, we have a hypothetical `User` class which does what it says.</span>
+    User.findOrCreate({ <span class="attr">vkontakteId</span>: profile.id })
+        .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>{ done(<span class="literal">null</span>, user); })
+        .catch(done);
   }
 ));
+
+<span class="comment">// User session support for our hypothetical `user` objects.</span>
+passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+    done(<span class="literal">null</span>, user.id);
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, done</span>) </span>{
+    User.findById(id)
+        .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>{ done(<span class="literal">null</span>, user); })
+        .catch(done);
+});
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;vkontakte&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/vkontakte'</span>,
-  passport.authenticate(<span class="string">'vkontakte'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-    <span class="comment">// The request will be redirected to vk.com for authentication, so</span>
-    <span class="comment">// this function will not be called.</span>
-  });
+<pre><code class="lang-javascript"><span class="comment">//This function will pass callback, scope and request new token</span>
+app.get(<span class="string">'/auth/vkontakte'</span>, passport.authenticate(<span class="string">'vkontakte'</span>));
 
 app.get(<span class="string">'/auth/vkontakte/callback'</span>,
-  passport.authenticate(<span class="string">'vkontakte'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
-  });
+  passport.authenticate(<span class="string">'vkontakte'</span>, {
+    <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
+    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> 
+  })
+);
+
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">//Here you have an access to req.user</span>
+    res.json(req.user);
+});
 </code></pre>
 <h5 id="display-mode">Display Mode</h5>
 <p>Set <code>display</code> in <code>passport.authenticate()</code> options to specify display
 mode. Refer to the <a href="http://vk.com/dev/auth_mobile">OAuth dialog
 documentation</a>
 for information on its usage.</p>
-<pre><code>app.get(<span class="string">'/auth/vkontakte'</span>,
-  passport.authenticate(<span class="string">'vkontakte'</span>, { display: <span class="string">'mobile'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/vkontakte'</span>,
+  passport.authenticate(<span class="string">'vkontakte'</span>, { <span class="attr">display</span>: <span class="string">'mobile'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
     <span class="comment">// ...</span>
   });
-</code></pre><h4 id="extended-permissions">Extended Permissions</h4>
+</code></pre>
+<h4 id="extended-permissions">Extended Permissions</h4>
 <p>If you need extended permissions from the user, the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the user&#39;s friends:</p>
@@ -174,19 +194,37 @@ via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>The VK.com profile may contain a lot of information.  The
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of additional fields your application needs. For example, to fetch users&#39;s <code>city</code> and <code>bdate</code> configure strategy like this.</p>
-<pre><code>passport.<span class="keyword">use</span>(new VKontakteStrategy({
-    <span class="regexp">//</span> clientID, clientSecret <span class="keyword">and</span> callbackURL
-    <span class="symbol">profileFields:</span> [<span class="string">'city'</span>, <span class="string">'bdate'</span>]
+<p>Notice that requesting the user&#39;s email address requires an <code>email</code> access
+scope, which you should explicitly list as in following example:</p>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VKontakteStrategy(
+  {
+    <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
+    scope: [<span class="string">'email'</span> <span class="comment">/* ... and others, if needed */</span>]
+    profileFields: [<span class="string">'email'</span>, <span class="string">'city'</span>, <span class="string">'bdate'</span>]
   },
-  <span class="regexp">//</span> verify callback
+  myVerifyCallbackFn
 ));
-</code></pre><h4 id="api-version">API version</h4>
+</code></pre>
+<h4 id="profile-fields-language">Profile fields language</h4>
+<p>By default, profile fields such as name are returned in English. The strategy can be 
+configured with a <code>lang</code> parameter which specifies language of value returned.</p>
+<p>For example, this would configure the strategy to return name in Russian:</p>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VkontakteStrategy(
+  {
+    <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
+    lang: <span class="string">'ru'</span>
+  },
+  myVerifyCallbackFn
+));
+</code></pre>
+<h4 id="api-version">API version</h4>
 <p>The VK.com profile structure can differ from one API version to another. The specific version to use can be configured with a <code>apiVersion</code> parameter. The default is 5.0.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VKontakteStrategy({
-    <span class="comment">// clientID, clientSecret and callbackURL</span>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VKontakteStrategy(
+  {
+    <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
     apiVersion: <span class="string">'5.17'</span>
   },
-  <span class="comment">// verify callback</span>
+  myVerifyCallbackFn
 ));
 </code></pre>
 <h2 id="tests">Tests</h2>
@@ -197,10 +235,12 @@ list of additional fields your application needs. For example, to fetch users&#3
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
 <li><a href="http://github.com/stevebest">Stepan Stolyarov</a></li>
 </ul>
+<h2 id="special-thanks">Special Thanks</h2>
+<p>To all the people who had to cope with idiosyncrasies of OAuth2 and VK API!</p>
 <h2 id="license">License</h2>
 <p>(The MIT License)</p>
 <p>Copyright (c) 2011 Jared Hanson</p>
-<p>Copyright (c) 2012 Stepan Stolyarov</p>
+<p>Copyright (c) 2012, 2016 Stepan Stolyarov</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
 the Software without restriction, including without limitation the rights to
@@ -219,16 +259,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-vkontakte</span></code></div>
             <ul>
-              <li><span class="version">0.3.2</span> published <abbr class="updated" title="2017-09-25T09:10:06Z">a year ago</abbr></li>
+              <li><span class="version">0.3.3</span> published <abbr class="updated" title="2020-06-22T03:59:09Z">3 months ago</abbr></li>
               <li><a class="url" href="git://github.com/stevebest/passport-vkontakte.git">https://github.com/stevebest/passport-vkontakte#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>39</b> downloads in the last day</li>
-              <li><b>767</b> downloads in the last week</li>
-              <li><b>3,554</b> downloads in the last month</li>
+              <li><b>262</b> downloads in the last day</li>
+              <li><b>1,613</b> downloads in the last week</li>
+              <li><b>6,904</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -245,8 +286,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

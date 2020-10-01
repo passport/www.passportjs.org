@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,21 +88,20 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-saml">Passport-SAML</h1>
-<p><a href="https://travis-ci.org/bergie/passport-saml"><img src="https://travis-ci.org/bergie/passport-saml.svg?branch=master" alt="Build Status"></a> <a href="https://badge.fury.io/gh/bergie%2Fpassport-saml"><img src="https://badge.fury.io/gh/bergie%2Fpassport-saml.svg" alt="GitHub version"></a> <a href="http://badge.fury.io/js/passport-saml"><img src="https://badge.fury.io/js/passport-saml.svg" alt="npm version"></a> <a href="https://david-dm.org/bergie/passport-saml.svg"><img src="https://david-dm.org/bergie/passport-saml.svg" alt="dependencies"></a> <a href="https://david-dm.org/bergie/passport-saml/dev-status.svg"><img src="https://david-dm.org/bergie/passport-saml/dev-status.svg" alt="devDependencies"></a> <a href="https://david-dm.org/bergie/passport-saml/peer-status.svg"><img src="https://david-dm.org/bergie/passport-saml/peer-status.svg" alt="peerDependencies"></a></p>
-<p><a href="https://nodei.co/npm/passport-saml/"><img src="https://nodei.co/npm/passport-saml.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<p><a href="https://travis-ci.org/bergie/passport-saml"><img src="https://travis-ci.org/bergie/passport-saml.svg?branch=master" alt="Build Status"></a> <a href="https://badge.fury.io/gh/node-saml%2Fpassport-saml"><img src="https://badge.fury.io/gh/node-saml%2Fpassport-saml.svg" alt="GitHub version"></a> <a href="http://badge.fury.io/js/passport-saml"><img src="https://badge.fury.io/js/passport-saml.svg" alt="npm version"></a> <a href="https://nodei.co/npm/passport-saml/"><img src="https://nodei.co/npm/passport-saml.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
 <p>This is a <a href="http://en.wikipedia.org/wiki/SAML_2.0">SAML 2.0</a> authentication provider for <a href="http://passportjs.org/">Passport</a>, the Node.js authentication library.</p>
 <p>The code was originally based on Michael Bosworth&#39;s <a href="https://github.com/bozzltron/express-saml">express-saml</a> library.</p>
 <p>Passport-SAML has been tested to work with Onelogin, Okta, Shibboleth, <a href="http://simplesamlphp.org/">SimpleSAMLphp</a> based Identity Providers, and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Active Directory Federation Services</a>.</p>
 <h2 id="installation">Installation</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install passport-saml</span>
 </code></pre><h2 id="usage">Usage</h2>
+<p>The examples utilize the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
 <h3 id="configure-strategy">Configure strategy</h3>
-<p>This example utilizes the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
 <p>The SAML identity provider will redirect you to the URL provided by the <code>path</code> configuration.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> SamlStrategy = <span class="built_in">require</span>(<span class="string">'passport-saml'</span>).Strategy;
 [...]
@@ -129,6 +122,59 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
   })
 );
 </code></pre>
+<h3 id="configure-strategy-for-multiple-providers">Configure strategy for multiple providers</h3>
+<p>You can pass a <code>getSamlOptions</code> parameter to <code>MultiSamlStrategy</code> which will be called before the SAML flows. Passport-SAML will pass in the request object so you can decide which configuation is appropriate.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> MultiSamlStrategy = <span class="built_in">require</span>(<span class="string">'passport-saml/multiSamlStrategy'</span>);
+[...]
+
+passport.use(<span class="keyword">new</span> MultiSamlStrategy(
+  {
+    <span class="attr">passReqToCallback</span>: <span class="literal">true</span>, <span class="comment">//makes req available in callback</span>
+    getSamlOptions: <span class="function"><span class="keyword">function</span>(<span class="params">request, done</span>) </span>{
+      findProvider(request, <span class="function"><span class="keyword">function</span>(<span class="params">err, provider</span>) </span>{
+        <span class="keyword">if</span> (err) {
+          <span class="keyword">return</span> done(err);
+        }
+        <span class="keyword">return</span> done(<span class="literal">null</span>, provider.configuration);
+      });
+    }
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, profile, done</span>) </span>{
+    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) {
+        <span class="keyword">return</span> done(err);
+      }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    });
+  })
+);
+</code></pre>
+<p>The options passed when the <code>MultiSamlStrategy</code> is initialized are also passed as default values to each provider.
+e.g. If you provide an <code>issuer</code> on <code>MultiSamlStrategy</code>, this will be also a default value for every provider.
+You can override these defaults by passing a new value through the <code>getSamlOptions</code> function.</p>
+<p>Using multiple providers supports <code>validateInResponseTo</code>, but all the <code>InResponse</code> values are stored on the same Cache. This means, if you&#39;re using the default <code>InMemoryCache</code>, that all providers have access to it and a provider might get its response validated against another&#39;s request. <a href="!https://github.com/node-saml/passport-saml/issues/334">Issue Report</a>. To amend this you should provide a different cache provider per SAML provider, through the <code>getSamlOptions</code> function.</p>
+<blockquote>
+<p>:warning: <strong>There&#39;s a race condition <a href="https://github.com/node-saml/passport-saml/issues/425">bug</a> in versions &lt; 1.3.3 which makes it vulnerable to DOS attacks</strong>: Please use &gt; 1.3.3 if you want to use this issue</p>
+</blockquote>
+<h4 id="the-profile-object-">The profile object:</h4>
+<p>The profile object referenced above contains the following:</p>
+<pre><code class="lang-typescript"><span class="keyword">type</span> Profile = {
+  issuer?: <span class="built_in">string</span>;
+  sessionIndex?: <span class="built_in">string</span>;
+  nameID?: <span class="built_in">string</span>;
+  nameIDFormat?: <span class="built_in">string</span>;
+  nameQualifier?: <span class="built_in">string</span>;
+  spNameQualifier?: <span class="built_in">string</span>;
+  mail?: <span class="built_in">string</span>;  <span class="comment">// InCommon Attribute urn:oid:0.9.2342.19200300.100.1.3</span>
+  email?: <span class="built_in">string</span>;  <span class="comment">// `mail` if not present in the assertion</span>
+  getAssertionXml(): <span class="built_in">string</span>;  <span class="comment">// get the raw assertion XML</span>
+  getAssertion(): object;  <span class="comment">// get the assertion XML parsed as a JavaScript object</span>
+  getSamlResponseXml(): <span class="built_in">string</span>; <span class="comment">// get the raw SAML response XML</span>
+  ID?: <span class="built_in">string</span>;
+} &amp; {
+  [attributeName: <span class="built_in">string</span>]: unknown;  <span class="comment">// arbitrary `AttributeValue`s</span>
+}
+</code></pre>
 <h4 id="config-parameter-details-">Config parameter details:</h4>
 <ul>
 <li><strong>Core</strong><ul>
@@ -136,33 +182,44 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
 <li><code>path</code>: path to callback; will be combined with protocol and server host information to construct callback url if <code>callbackUrl</code> is not specified (default: <code>/saml/consume</code>)</li>
 <li><code>protocol</code>: protocol for callback; will be combined with path and server host information to construct callback url if <code>callbackUrl</code> is not specified (default: <code>http://</code>)</li>
 <li><code>host</code>: host for callback; will be combined with path and protocol to construct callback url if <code>callbackUrl</code> is not specified (default: <code>localhost</code>)</li>
-<li><code>entryPoint</code>: identity provider entrypoint</li>
+<li><code>entryPoint</code>: identity provider entrypoint (is required to be spec-compliant when the request is signed)</li>
 <li><code>issuer</code>: issuer string to supply to identity provider</li>
 <li><code>audience</code>: expected saml response Audience (if not provided, Audience won&#39;t be verified)</li>
-<li><code>cert</code>: see <a href="#security-and-signatures">Security and signatures</a></li>
+<li><code>cert</code>: the IDP&#39;s public signing certificate used to validate the signatures of the incoming SAML Responses, see <a href="#security-and-signatures">Security and signatures</a></li>
 <li><code>privateCert</code>: see <a href="#security-and-signatures">Security and signatures</a></li>
 <li><code>decryptionPvk</code>: optional private key that will be used to attempt to decrypt any encrypted assertions that are received</li>
 <li><code>signatureAlgorithm</code>: optionally set the signature algorithm for signing requests, valid values are &#39;sha1&#39; (default), &#39;sha256&#39;, or &#39;sha512&#39;</li>
+<li><code>digestAlgorithm</code>: optionally set the digest algorithm used to provide a digest for the signed data object, valid values are &#39;sha1&#39; (default), &#39;sha256&#39;, or &#39;sha512&#39;</li>
+<li><code>xmlSignatureTransforms</code>: optionally set an array of signature transforms to be used in HTTP-POST signatures. By default this is <code>[ &#39;http://www.w3.org/2000/09/xmldsig#enveloped-signature&#39;, &#39;http://www.w3.org/2001/10/xml-exc-c14n#&#39; ]</code></li>
 </ul>
 </li>
-<li><strong>Additional SAML behaviors</strong><ul>
-<li><code>additionalParams</code>: dictionary of additional query params to add to all requests</li>
+<li><p><strong>Additional SAML behaviors</strong></p>
+<ul>
+<li><code>additionalParams</code>: dictionary of additional query params to add to all requests; if an object with this key is passed to <code>authenticate</code>, the dictionary of additional query params will be appended to those present on the returned URL, overriding any specified by initialization options&#39; additional parameters (<code>additionalParams</code>, <code>additionalAuthorizeParams</code>, and <code>additionalLogoutParams</code>)</li>
 <li><code>additionalAuthorizeParams</code>: dictionary of additional query params to add to &#39;authorize&#39; requests</li>
 <li><code>identifierFormat</code>: if truthy, name identifier format to request from identity provider (default: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code>)</li>
 <li><code>acceptedClockSkewMs</code>: Time in milliseconds of skew that is acceptable between client and server when checking <code>OnBefore</code> and <code>NotOnOrAfter</code> assertion condition validity timestamps.  Setting to <code>-1</code> will disable checking these conditions entirely.  Default is <code>0</code>.</li>
 <li><code>attributeConsumingServiceIndex</code>: optional <code>AttributeConsumingServiceIndex</code> attribute to add to AuthnRequest to instruct the IDP which attribute set to attach to the response (<a href="http://blog.aniljohn.com/2014/01/data-minimization-front-channel-saml-attribute-requests.html">link</a>)</li>
-<li><code>disableRequestedAuthnContext</code>: if truthy, do not request a specific authentication context. This is <a href="https://github.com/bergie/passport-saml/issues/226">known to help when authenticating against Active Directory</a> (AD FS) servers.</li>
-<li><code>authnContext</code>: if truthy, name identifier format to request auth context (default: <code>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</code>)</li>
-<li><code>forceAuthn</code>: if set to true, the initial SAML request from the service provider specifies that the IdP should force re-authentication of the user, even if they possess a valid session.</li>
+<li><code>disableRequestedAuthnContext</code>: if truthy, do not request a specific authentication context. This is <a href="https://github.com/node-saml/passport-saml/issues/226">known to help when authenticating against Active Directory</a> (AD FS) servers.</li>
+<li><code>authnContext</code>: if truthy, name identifier format to request auth context (default: <code>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</code>); array of values is also supported</li>
+<li><p><code>RACComparison</code>: Requested Authentication Context comparison type. Possible values are &#39;exact&#39;,&#39;minimum&#39;,&#39;maximum&#39;,&#39;better&#39;. Default is &#39;exact&#39;.</p>
+</li>
+<li><p><code>forceAuthn</code>: if set to true, the initial SAML request from the service provider specifies that the IdP should force re-authentication of the user, even if they possess a valid session.</p>
+</li>
 <li><code>providerName</code>: optional human-readable name of the requester for use by the presenter&#39;s user agent or the identity provider</li>
 <li><code>skipRequestCompression</code>: if set to true, the SAML request from the service provider won&#39;t be compressed.</li>
 <li><code>authnRequestBinding</code>: if set to <code>HTTP-POST</code>, will request authentication from IDP via HTTP POST binding, otherwise defaults to HTTP Redirect</li>
+<li><code>disableRequestACSUrl</code>: if truthy, SAML AuthnRequest from the service provider will not include the optional AssertionConsumerServiceURL. Default is falsy so it is automatically included.</li>
 </ul>
 </li>
 <li><strong>InResponseTo Validation</strong><ul>
 <li><code>validateInResponseTo</code>: if truthy, then InResponseTo will be validated from incoming SAML responses</li>
 <li><code>requestIdExpirationPeriodMs</code>: Defines the expiration time when a Request ID generated for a SAML request will not be valid if seen in a SAML response in the <code>InResponseTo</code> field.  Default is 8 hours.</li>
 <li><code>cacheProvider</code>: Defines the implementation for a cache provider used to store request Ids generated in SAML requests as part of <code>InResponseTo</code> validation.  Default is a built-in in-memory cache provider.  For details see the &#39;Cache Provider&#39; section.</li>
+</ul>
+</li>
+<li><strong>Issuer Validation</strong><ul>
+<li><code>idpIssuer</code>: if provided, then the IdP issuer will be validated for incoming Logout Requests/Responses. For ADFS this looks like <code>https://acme_tools.windows.net/deadbeef</code></li>
 </ul>
 </li>
 <li><strong>Passport</strong><ul>
@@ -181,7 +238,11 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
 </ul>
 <h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/callback'</span>,
+<p>The authentication callback must be invoked after the <code>body-parser</code> middlerware.</p>
+<pre><code class="lang-javascript"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+
+app.post(<span class="string">'/login/callback'</span>,
+  bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">false</span> }),
   passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
   <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     res.redirect(<span class="string">'/'</span>);
@@ -197,15 +258,48 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
   }
 );
 </code></pre>
-<h3 id="generateserviceprovidermetadata-decryptioncert-">generateServiceProviderMetadata( decryptionCert )</h3>
+<p>...or, if you wish to add or override query string parameters:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
+  passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">additionalParams</span>: { <span class="string">'username'</span>: <span class="string">'user@domain.com'</span> }}),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  }
+);
+</code></pre>
+<h3 id="generateserviceprovidermetadata-decryptioncert-signingcert-">generateServiceProviderMetadata( decryptionCert, signingCert )</h3>
 <p>As a convenience, the strategy object exposes a <code>generateServiceProviderMetadata</code> method which will generate a service provider metadata document suitable for supplying to an identity provider.  This method will only work on strategies which are configured with a <code>callbackUrl</code> (since the relative path for the callback is not sufficient information to generate a complete metadata document).</p>
 <p>The <code>decryptionCert</code> argument should be a public certificate matching the <code>decryptionPvk</code> and is required if the strategy is configured with a <code>decryptionPvk</code>.</p>
+<p>The <code>signingCert</code> argument should be a public certificate matching the <code>privateCert</code> and is required if the strategy is configured with a <code>privateCert</code>.</p>
+<p>The <code>generateServiceProviderMetadata</code> method is also available on the <code>MultiSamlStrategy</code>, but needs an extra request and a callback argument (<code>generateServiceProviderMetadata( req, decryptionCert, signingCert, next )</code>), which are passed to the <code>getSamlOptions</code> to retrieve the correct configuration.</p>
 <h2 id="security-and-signatures">Security and signatures</h2>
 <p>Passport-SAML uses the HTTP Redirect Binding for its <code>AuthnRequest</code>s (unless overridden with the <code>authnRequestBinding</code> parameter), and expects to receive the messages back via the HTTP POST binding.</p>
-<p>Authentication requests sent by Passport-SAML can be signed using RSA-SHA1. To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key. The certificate
-should start with <code>-----BEGIN PRIVATE KEY-----</code> on its own line and end with <code>-----END PRIVATE KEY-----</code> on its own line.</p>
-<p>For example:</p>
-<pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./cert.pem'</span>, <span class="string">'utf-8'</span>)
+<p>Authentication requests sent by Passport-SAML can be signed using RSA signature with SHA1, SHA256 or SHA512 hashing algorithms. </p>
+<p>To select hashing algorithm, use:</p>
+<pre><code class="lang-js">...
+  signatureAlgorithm: <span class="string">'sha1'</span> <span class="comment">// (default, but not recommended anymore these days)</span>
+  signatureAlgorithm: <span class="string">'sha256'</span>, <span class="comment">// (preffered - your IDP should support it, otherwise think about upgrading it)</span>
+  signatureAlgorithm: <span class="string">'sha512'</span> <span class="comment">// (most secure - check if your IDP supports it)</span>
+...
+</code></pre>
+<p>To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key.</p>
+<p>Formats supported for <code>privateCert</code> field are,</p>
+<ol>
+<li>Well formatted PEM:</li>
+</ol>
+<pre><code>-----BEGIN <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+&lt;<span class="keyword">private</span> <span class="keyword">key</span> contents here delimited at <span class="number">64</span> characters per row&gt;
+-----<span class="keyword">END</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+</code></pre><pre><code>-----BEGIN RSA <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+&lt;<span class="keyword">private</span> <span class="keyword">key</span> contents here delimited at <span class="number">64</span> characters per row&gt;
+-----<span class="keyword">END</span> RSA <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+</code></pre><p>(both versions work)
+See example from tests of the first version of <a href="test/static/acme_tools_com.key">well formatted private key</a>.</p>
+<ol>
+<li>Alternativelly a single line private key without start/end lines where all rows are joined into single line:</li>
+</ol>
+<p>See example from tests of <a href="test/static/singleline_acme_tools_com.key">singleline private key</a>.</p>
+<p>Add it to strategy options like this:</p>
+<pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./privateCert.pem'</span>, <span class="string">'utf-8'</span>)
 </code></pre>
 <p>It is a good idea to validate the signatures of the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 signing certificate using the <code>cert</code> confguration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
 <pre><code class="lang-javascript">    cert: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>
@@ -273,28 +367,40 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
 
 }
 </code></pre><p>Provide an instance of an object which has these functions passed to the <code>cacheProvider</code> config option when using Passport-SAML.</p>
+<h2 id="slo-single-logout-">SLO (single logout)</h2>
+<p>Passport-SAML has built in support for SLO including</p>
+<ul>
+<li>Signature validation</li>
+<li>IdP initiated and SP initiated logouts</li>
+<li>Decryption of encrypted name identifiers in IdP initiated logout</li>
+<li><code>Redirect</code> and <code>POST</code> SAML Protocol Bindings</li>
+</ul>
 <h2 id="changelog">ChangeLog</h2>
-<p>See <a href="https://github.com/bergie/passport-saml/releases">Releases</a> to find the changes that go into each release.</p>
+<p>See <a href="https://github.com/node-saml/passport-saml/releases">Releases</a> to find the changes that go into each release.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="what-if-i-have-multiple-saml-providers-that-my-users-may-be-connecting-to-">What if I have multiple SAML providers that my users may be connecting to?</h3>
-<p>A single instance of passport-saml will only authenticate users against a single identity provider.  If you have a use case where different logins need to be routed to different identity providers, you can create multiple instances of passport-saml, and either dispatch to them with your own routing code, or use a library like <a href="https://www.npmjs.org/package/passports">https://www.npmjs.org/package/passports</a>.</p>
 <h3 id="is-there-an-example-i-can-look-at-">Is there an example I can look at?</h3>
 <p>Gerard Braad has provided an example app at <a href="https://github.com/gbraad/passport-saml-example/">https://github.com/gbraad/passport-saml-example/</a></p>
+<h2 id="node-support-policy">Node Support Policy</h2>
+<p>We only support <a href="https://github.com/nodejs/Release">Long-Term Support</a> versions of Node.</p>
+<p>We specifically limit our support to LTS versions of Node, not because this package won&#39;t work on other versions, but because we have a limited amount of time, and supporting LTS offers the greatest return on that investment.</p>
+<p>It&#39;s possible this package will work correctly on newer versions of Node. It may even be possible to use this package on older versions of Node, though that&#39;s more unlikely as we&#39;ll make every effort to take advantage of features available in the oldest LTS version we support.</p>
+<p>As each Node LTS version reaches its end-of-life we will remove that version from the <code>node</code> <code>engines</code> property of our package&#39;s <code>package.json</code> file. Removing a Node version is considered a breaking change and will entail the publishing of a new major version of this package. We will not accept any requests to support an end-of-life version of Node. Any merge requests or issues supporting an end-of-life version of Node will be closed.</p>
+<p>We will accept code that allows this package to run on newer, non-LTS, versions of Node.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml</span></code></div>
             <ul>
-              <li><span class="version">0.35.0</span> published <abbr class="updated" title="2018-08-14T18:25:43Z">a month ago</abbr></li>
-              <li><a class="url" href="git+https://github.com/bergie/passport-saml.git">https://github.com/bergie/passport-saml#readme</a></li>
+              <li><span class="version">1.3.5</span> published <abbr class="updated" title="2020-09-16T16:43:09Z">15 days ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/node-saml/passport-saml.git">https://github.com/node-saml/passport-saml#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>800</b> downloads in the last day</li>
-              <li><b>22,564</b> downloads in the last week</li>
-              <li><b>96,225</b> downloads in the last month</li>
+              <li><b>16,345</b> downloads in the last day</li>
+              <li><b>82,707</b> downloads in the last week</li>
+              <li><b>355,245</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -311,8 +417,6 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

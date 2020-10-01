@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,11 +88,16 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-line-auth">passport-line-auth</h1>
+<p><a href="https://travis-ci.org/IvanWei/passport-line-auth"><img src="https://travis-ci.org/IvanWei/passport-line-auth.svg?branch=master" alt="Build Status"></a>
+<a href="https://codecov.io/gh/IvanWei/passport-line-auth"><img src="https://codecov.io/gh/IvanWei/passport-line-auth/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/IvanWei/passport-line-auth.svg" alt="Greenkeeper badge"></a></p>
+<p><a href="https://nodei.co/npm/passport-line-auth/"><img src="https://nodei.co/npm/passport-line-auth.png" alt="NPM"></a></p>
+<p><a href="http://packagequality.com/#?package=passport-line-auth"><img src="http://npm.packagequality.com/badge/passport-line-auth.png" alt="Package Quality"></a></p>
 <p>Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenID Connect.</p>
 <h2 id="how-to-install">How to Install</h2>
 <h3 id="npm">npm</h3>
@@ -107,7 +106,7 @@
 <pre><code>yarn <span class="keyword">add</span><span class="bash"> passport-line-auth</span>
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-service">Create an Service</h3>
-<p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://developers.line.me/console/register/line-login/provider/">LINE Developers</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
+<p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://developers.line.biz/console/register/line-login/provider/">LINE Developers</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The LINE authentication strategy authenticates users using a LINE account and OAuth 2.0 tokens. The channel ID and secret obtained when creating an service are supplied as options when creating the strategy. The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s LINE profile. The <code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
 <ul>
@@ -117,7 +116,8 @@
   channelSecret: LINE_CHANNEL_SECRET,
   callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
   scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>],
-  botPrompt: <span class="string">'normal'</span>
+  botPrompt: <span class="string">'normal'</span>,
+  uiLocales: <span class="string">'en-US'</span>,
 },
 <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
   User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
@@ -132,7 +132,8 @@
   channelSecret: LINE_CHANNEL_SECRET,
   callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
   scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>, <span class="string">'email'</span>],
-  botPrompt: <span class="string">'normal'</span>
+  botPrompt: <span class="string">'normal'</span>,
+  uiLocales: <span class="string">'en-US'</span>,
 },
 <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, params, profile, cb)</span> </span>{
   <span class="keyword">var</span> email = jwt.decode(params.id_token)
@@ -174,7 +175,7 @@
 <td>String</td>
 <td>Required</td>
 <td></td>
-<td>URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the <a href="https://developers.line.me/console/">console</a>.</td>
+<td>URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the <a href="https://developers.line.biz/console/">console</a>.</td>
 </tr>
 <tr>
 <td>scope</td>
@@ -187,8 +188,15 @@
 <td>botPrompt</td>
 <td>String</td>
 <td>Optional</td>
-<td>&#39;null&#39;</td>
-<td>Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see <a href="https://developers.line.me/en/docs/line-login/web/link-a-bot">Linking a bot with your LINE Login channel</a>.</td>
+<td>null</td>
+<td>Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see <a href="https://developers.line.biz/en/docs/line-login/web/link-a-bot">Linking a bot with your LINE Login channel</a>.</td>
+</tr>
+<tr>
+<td>uiLocales</td>
+<td>String</td>
+<td>Optional</td>
+<td>null</td>
+<td>Display language for LINE Login screens. For more information, see <a href="https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#spy-making-an-authorization-request">Linking a bot with your LINE Login channel</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +223,7 @@
 <tr>
 <td>idToken</td>
 <td>String</td>
-<td>JWT that includes information about the user. This field is returned only if <code>openid</code> is specified in the scope. For more information, see <a href="https://developers.line.me/en/docs/line-login/web/integrate-line-login/#id-tokens">ID tokens</a>.</td>
+<td>JWT that includes information about the user. This field is returned only if <code>openid</code> is specified in the scope. For more information, see <a href="https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#id-tokens">ID tokens</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -225,26 +233,26 @@
 <ul>
 <li><a href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a></li>
 <li><a href="https://github.com/jaredhanson/passport-facebook">passport-facebook</a></li>
-<li><a href="https://developers.line.me/en/docs/line-login/web/integrate-line-login/">LINE Web Login</a></li>
+<li><a href="https://developers.line.biz/en/docs/line-login/web/integrate-line-login/">LINE Web Login</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="https://raw.githubusercontent.com/ivanwei/passport-line-auth/master/LICENSE">The MIT License</a></p>
-<p>Copyright(c)2018 Ivan Wei <a href="[https://blog.ivanwei.co/](https://blog.ivanwei.co/)">[https://blog.ivanwei.co/](https://blog.ivanwei.co/)</a></p>
+<p>Copyright(c)2019 Ivan Wei (Wei, Hong-Lin) <a href="[https://blog.ivanwei.co/](https://blog.ivanwei.co/)">[https://blog.ivanwei.co/](https://blog.ivanwei.co/)</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-auth</span></code></div>
             <ul>
-              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2018-08-21T14:36:23Z">a month ago</abbr></li>
+              <li><span class="version">0.2.8</span> published <abbr class="updated" title="2019-10-31T07:24:13Z">a year ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/IvanWei/passport-line-auth.git">https://github.com/IvanWei/passport-line-auth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>54</b> downloads in the last week</li>
-              <li><b>4,525</b> downloads in the last month</li>
+              <li><b>78</b> downloads in the last day</li>
+              <li><b>448</b> downloads in the last week</li>
+              <li><b>1,546</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -261,8 +269,6 @@
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

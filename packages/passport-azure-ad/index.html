@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -111,22 +105,20 @@ and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Servi
 <h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
 <p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
-<p>Current version - 4.0.0<br>Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
-<h2 id="3-contribution-history">3. Contribution History</h2>
-<p><a href="https://waffle.io/AzureAD/passport-azure-ad"><img src="https://badge.waffle.io/AzureAD/passport-azure-ad.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
-<p><a href="https://waffle.io/AzureAD/passport-azure-ad/metrics"><img src="https://graphs.waffle.io/AzureAD/passport-azure-ad/throughput.svg" alt="Throughput Graph"></a></p>
-<h2 id="4-installation">4. Installation</h2>
+<p>Current version - 4.0.0<br>Latest version that support&#39;s SAML and WSFED - 2.0.3
+Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
+<h2 id="3-installation">3. Installation</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install passport-azure-ad</span>
-</code></pre><h2 id="5-usage">5. Usage</h2>
+</code></pre><h2 id="4-usage">4. Usage</h2>
 <p>This library contains two strategies: OIDCStrategy and BearerStrategy.</p>
 <p>OIDCStrategy uses OpenID Connect protocol for web application login purposes. It works in the following manner:
 If a user is not logged in, passport sends an authentication request to AAD (Azure Active Directory), and AAD prompts the user for his or her sign-in credentials. On successful authentication, depending on the flow you choose, web application will eventually get an id_token back either directly from the AAD authorization endpoint or by redeeming a code at the AAD token endpoint. Passport then validates the id_token and propagates the claims in id_token back to the verify callback, and let the framework finish the remaining authentication procedure. If the whole process is successful, passport adds the user information to <code>req.user</code> and passes it to the next middleware. In case of error, passport either sends back an unauthorized response or redirects the user to the page you specified (such as homepage or login page).</p>
 <p>BearerStrategy uses Bearer Token protocol to protect web resource/api. It works in the following manner:
 User sends a request to the protected web api which contains an access_token in either the authorization header or body. Passport extracts and validates the access_token, and propagates the claims in access_token to the verify callback and let the framework finish the remaining authentication procedure. On successful authentication, passport adds the user information to <code>req.user</code> and passes it to the next middleware, which is usually the business logic of the web resource/api. In case of error, passport sends back an unauthorized response.</p>
-<p>We support AAD v1, v2 and B2C tenants for both strategies. Please check out section 7 for the samples. You can manage v1 tenants and register applications at <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>. For v2 tenants and applications, you should go to <a href="https://apps.dev.microsoft.com">https://apps.dev.microsoft.com</a>. For B2C tenants, go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> and click &#39;Manage B2C settings&#39; to register applications and policies. </p>
-<h3 id="5-1-oidcstrategy">5.1 OIDCStrategy</h3>
-<h4 id="5-1-1-configure-strategy-and-provide-callback-function">5.1.1 Configure strategy and provide callback function</h4>
-<h5 id="5-1-1-1-sample-using-the-oidcstrategy">5.1.1.1 Sample using the OIDCStrategy</h5>
+<p>We support AAD v1, v2 and B2C tenants for both strategies. Please check out <a href="#8-samples-and-documentation">section 8</a> for the samples. You can manage v1 tenants and register applications at <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>. For v2 tenants and applications, you should go to <a href="https://aka.ms/appregistrations">https://aka.ms/appregistrations</a>. For B2C tenants, go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> and click &#39;Manage B2C settings&#39; to register applications and policies. </p>
+<h3 id="4-1-oidcstrategy">4.1 OIDCStrategy</h3>
+<h4 id="4-1-1-configure-strategy-and-provide-callback-function">4.1.1 Configure strategy and provide callback function</h4>
+<h5 id="4-1-1-1-sample-using-the-oidcstrategy">4.1.1.1 Sample using the OIDCStrategy</h5>
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> OIDCStrategy({
     <span class="attr">identityMetadata</span>: config.creds.identityMetadata,
     <span class="attr">clientID</span>: config.creds.clientID,
@@ -145,8 +137,10 @@ User sends a request to the protected web api which contains an access_token in 
     <span class="attr">nonceLifetime</span>: config.creds.nonceLifetime,
     <span class="attr">nonceMaxAmount</span>: config.creds.nonceMaxAmount,
     <span class="attr">useCookieInsteadOfSession</span>: config.creds.useCookieInsteadOfSession,
-    <span class="attr">cookieEncryptionKeys</span>: config.creds.cookieEncryptionKeys,
+    <span class="attr">cookieSameSite</span>: config.creds.cookieSameSite, <span class="comment">// boolean</span>
+    cookieEncryptionKeys: config.creds.cookieEncryptionKeys,
     <span class="attr">clockSkew</span>: config.creds.clockSkew,
+    <span class="attr">proxy</span>: { <span class="attr">port</span>: <span class="string">'proxyport'</span>, <span class="attr">host</span>: <span class="string">'proxyhost'</span>, <span class="attr">protocol</span>: <span class="string">'http'</span> },
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">iss, sub, profile, accessToken, refreshToken, done</span>) </span>{
     <span class="keyword">if</span> (!profile.oid) {
@@ -169,7 +163,7 @@ User sends a request to the protected web api which contains an access_token in 
   }
 ));
 </code></pre>
-<h5 id="5-1-1-2-options">5.1.1.2 Options</h5>
+<h5 id="4-1-1-2-options">4.1.1.2 Options</h5>
 <ul>
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
@@ -199,8 +193,8 @@ https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp
 <li><p><code>redirectUrl</code>  (Required)</p>
 <p>Must be a https url string, unless you set <code>allowHttpForRedirectUrl</code> to true. This is the reply URL registered in AAD for your app. Production environment should always use https for <code>redirectUrl</code>.</p>
 </li>
-<li><p><code>passReqToCallback</code>  (Required)</p>
-<p>Whether you want to use <code>req</code> as the first parameter in the verify callback. See section 5.1.1.3 for more details.</p>
+<li><p><code>passReqToCallback</code>  (Conditional)</p>
+<p>Required to set to true if using <code>req</code> as the first paramter in the verify function, default value is false. See section 5.1.1.3 for more details.</p>
 </li>
 <li><p><code>allowHttpForRedirectUrl</code>  (Conditional) </p>
 <p>Required to set to true if you want to use http url for redirectUrl like <code>http://localhost:3000</code>. </p>
@@ -231,10 +225,14 @@ https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp
 section 5.1.1.4 for more details.</p>
 </li>
 <li><p><code>useCookieInsteadOfSession</code>  (Conditional)</p>
-<p>Passport-azure-ad saves state and nonce in session by default for validation purpose. If <code>useCookieInsteadOfSession</code> is set to true, passport-azure-ad will encrypt the state/nonce and
-put them into cookie instead. This is helpful when we want to be completely session-free, in other words, when you use { session: false } option in passport.authenticate function.
+<p>Passport-azure-ad saves state and nonce in session by default for validation purpose. Consider regenerating the session
+after authentication to prevent session fixation attacks when using the default. If <code>useCookieInsteadOfSession</code> is set to 
+true, passport-azure-ad will encrypt the state/nonce and put them into cookie instead. This is helpful when we want to be 
+completely session-free, in other words, when you use { session: false } option in passport.authenticate function.
 If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code> for cookie encryption and decryption.</p>
 </li>
+<li><code>cookieSameSite</code> (Conditional)
+  If set to true, Passport will add the Same-Site: None header to cookies set by the lib, specifically to validate state and nonce. </li>
 <li><p><code>cookieEncryptionKeys</code>  (Conditional)</p>
 <p>If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code>. It is an array of the following format: [ {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, ...]. key could be any string of length 32, and iv could be any string of length 12. We always use the first set of key/iv to encrypt cookie, but we try all the key/iv to decrypt cookie.
 This is helpful if you want to do key rollover. The encryption/decryption algorithm we use is aes-256-gcm. You can limit the cookie amount and expiration using <code>nonceLifetime</code> and <code>nonceMaxAmount</code> options. </p>
@@ -258,7 +256,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 <p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
 </li>
 </ul>
-<h5 id="5-1-1-3-verify-callback">5.1.1.3 Verify callback</h5>
+<h5 id="4-1-1-3-verify-callback">4.1.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use one of the following signatures for the verify callback</p>
 <pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, jwtClaims, access_token, refresh_token, params, done)</span></span>
   <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, access_token, refresh_token, params, done)</span></span>
@@ -273,7 +271,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
   <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, done)</span></span>
   <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, done)</span></span>
   <span class="function"><span class="keyword">function</span><span class="params">(req, profile, done)</span></span>
-</code></pre><h4 id="5-1-1-4-jwe-support">5.1.1.4 JWE support</h4>
+</code></pre><h4 id="4-1-1-4-jwe-support">4.1.1.4 JWE support</h4>
 <p>  We support encrypted id_token in JWE Compact Serialization format. </p>
 <p>  The key encryption algorithms supported are: </p>
 <p>  <code>RSA1_5</code>, <code>RSA-OAEP</code>, <code>A128KW</code>, <code>A256KW</code>, <code>dir</code>.</p>
@@ -351,7 +349,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
       }
   ]
 </code></pre>
-<h4 id="5-1-2-use-passport-authenticate-to-protect-routes">5.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
+<h4 id="4-1-2-use-passport-authenticate-to-protect-routes">4.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
 <p>To complete the sample, provide a route that corresponds to the path 
 configuration parameter that is sent to the strategy:</p>
 <pre><code class="lang-javascript">
@@ -362,6 +360,17 @@ app.get(<span class="string">'/login'</span>,
     res.redirect(<span class="string">'/'</span>);
 });
 
+<span class="function"><span class="keyword">function</span> <span class="title">regenerateSessionAfterAuthentication</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="keyword">var</span> passportInstance = req.session.passport;
+  <span class="keyword">return</span> req.session.regenerate(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>)</span>{
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> next(err);
+    }
+    req.session.passport = passportInstance;
+    <span class="keyword">return</span> req.session.save(next);
+  });
+}
+
 <span class="comment">// POST /auth/openid/return</span>
 <span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
 <span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
@@ -369,6 +378,7 @@ app.get(<span class="string">'/login'</span>,
 <span class="comment">//   which, in this example, will redirect the user to the home page.</span>
 app.post(<span class="string">'/auth/openid/return'</span>,
   passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
+  regenerateSessionAfterAuthentication,
   <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{ 
     res.redirect(<span class="string">'/'</span>);
   });
@@ -378,7 +388,7 @@ app.get(<span class="string">'/logout'</span>, <span class="function"><span clas
   res.redirect(<span class="string">'/'</span>);
 });
 </code></pre>
-<h4 id="5-1-3-options-available-for-passport-authenticate-">5.1.3 Options available for <code>passport.authenticate</code></h4>
+<h4 id="4-1-3-options-available-for-passport-authenticate-">4.1.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>failureRedirect</code>: the url redirected to when the authentication fails</p>
 </li>
@@ -409,7 +419,7 @@ the strategy.</p>
 <pre><code>  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">failureRedirect:</span> <span class="string">'/'</span>, <span class="string">session:</span> <span class="literal">false</span>, <span class="string">customState:</span> <span class="string">'my_state'</span>, <span class="string">resourceURL:</span> <span class="string">'https://graph.microsoft.com/mail.send'</span>});
 
   passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">tenantIdOrName:</span> <span class="string">'contoso.onmicrosoft.com'</span> });
-</code></pre><h4 id="5-1-4-session-free-support">5.1.4 Session free support</h4>
+</code></pre><h4 id="4-1-4-session-free-support">4.1.4 Session free support</h4>
 <p>Passport framework uses session to keep a persistent login session. As a plug in, we also use session to store state and nonce by default, regardless whether you use { session: false } option in passport.authenticate or not. To be completely session free, you must configure passport-azure-ad to create state/nonce cookie instead of saving them in session. Please follow the following example:</p>
 <pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> OIDCStrategy({
     ...
@@ -424,9 +434,9 @@ the strategy.</p>
   });
 
   app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { session: <span class="keyword">false</span> }));
-</code></pre><h3 id="5-2-bearerstrategy">5.2 BearerStrategy</h3>
-<h4 id="5-2-1-configure-strategy-and-provide-callback-function">5.2.1 Configure strategy and provide callback function</h4>
-<h5 id="5-2-1-1-sample-using-the-bearerstrategy">5.2.1.1 Sample using the BearerStrategy</h5>
+</code></pre><h3 id="4-2-bearerstrategy">4.2 BearerStrategy</h3>
+<h4 id="4-2-1-configure-strategy-and-provide-callback-function">4.2.1 Configure strategy and provide callback function</h4>
+<h5 id="4-2-1-1-sample-using-the-bearerstrategy">4.2.1.1 Sample using the BearerStrategy</h5>
 <pre><code class="lang-javascript">
 <span class="comment">// We pass these options in to the ODICBearerStrategy.</span>
 
@@ -467,7 +477,7 @@ the strategy.</p>
   }
 );
 </code></pre>
-<h5 id="5-2-1-2-options">5.2.1.2 Options</h5>
+<h5 id="4-2-1-2-options">4.2.1.2 Options</h5>
 <ul>
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
@@ -488,8 +498,8 @@ https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp
 <li><p><code>clientID</code> (Required)</p>
 <p>The client ID of your application in AAD (Azure Active Directory)</p>
 </li>
-<li><p><code>passReqToCallback</code>  (Required)</p>
-<p>Whether you want to use <code>req</code> as the first parameter in the verify callback. See section 5.2.1.3 for more details.</p>
+<li><p><code>passReqToCallback</code>  (Conditional)</p>
+<p>Required to set to true if using <code>req</code> as the first paramter in the verify function, default value is false. See section 5.2.1.3 for more details.</p>
 </li>
 <li><p><code>isB2C</code>  (Conditional)</p>
 <p>Required to set to true if you are using B2C tenant.</p>
@@ -521,18 +531,22 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </li>
 <li><p><code>clockSkew</code>  (Optional)</p>
 <p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
+<ul>
+<li><code>proxy</code> (optional)</li>
+</ul>
+<p>This value is the proxy settings object:  { port: &#39;proxyport&#39;, host: &#39;proxyhost&#39;, protocol: &#39;http&#39; }</p>
 </li>
 </ul>
-<h5 id="5-2-1-3-verify-callback">5.2.1.3 Verify callback</h5>
+<h5 id="4-2-1-3-verify-callback">4.2.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use the following verify callback</p>
 <pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span></span>
 </code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use the following verify callback</p>
 <pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(req, token, done)</span></span>
-</code></pre><h4 id="5-2-2-use-passport-authenticate-to-protect-resources-or-apis">5.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
+</code></pre><h4 id="4-2-2-use-passport-authenticate-to-protect-resources-or-apis">4.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
 <p>In the following example, we are using passport to protect &#39;/api/tasks&#39;. User sends a GET request to &#39;/api/tasks&#39; with access_token in authorization header or body. Passport validates the access_token, adds the related claims from access_token to <code>req.user</code>, and passes the request to listTasks middleware. The listTasks middleware can then read the user information in <code>req.user</code> and list all the tasks related to this user. Note that we do authentication every time, so we don&#39;t need to keep this user in session, and this can be achieved  by using <code>session: false</code> option.</p>
 <pre><code class="lang-javascript">  server.get(<span class="string">'/api/tasks'</span>, passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
 </code></pre>
-<h4 id="5-2-3-options-available-for-passport-authenticate-">5.2.3 Options available for <code>passport.authenticate</code></h4>
+<h4 id="4-2-3-options-available-for-passport-authenticate-">4.2.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</p>
 </li>
@@ -541,14 +555,14 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </ul>
 <p>Example:</p>
 <pre><code>  passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="string">session:</span> <span class="literal">false</span> });
-</code></pre><h2 id="6-test">6. Test</h2>
+</code></pre><h2 id="5-test">5. Test</h2>
 <p>In the library root folder, type the following command to install the dependency packages:</p>
 <pre><code>    $ npm <span class="keyword">install</span>
-</code></pre><h3 id="6-1-run-all-tests-except-the-end-to-end-tests">6.1. Run all tests except the end to end tests</h3>
+</code></pre><h3 id="5-1-run-all-tests-except-the-end-to-end-tests">5.1. Run all tests except the end to end tests</h3>
 <p>Type the following command to run tests:</p>
 <pre><code>    $ npm <span class="built_in">test</span>
-</code></pre><h3 id="6-2-run-all-tests-including-the-end-to-end-tests">6.2. Run all tests including the end to end tests</h3>
-<h4 id="6-2-1-create-test-applications">6.2.1. Create test applications</h4>
+</code></pre><h3 id="5-2-run-all-tests-including-the-end-to-end-tests">5.2. Run all tests including the end to end tests</h3>
+<h4 id="5-2-1-create-test-applications">5.2.1. Create test applications</h4>
 <p>First you need to register one application in v1 tenant, one in v2 tenant and one in B2C tenant. </p>
 <p>For the v2 application, you should register it at <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a> instead of Azure Portal.</p>
 <p>For the B2C application, create policies named &#39;B2C_1_signin&#39;, &#39;B2C_1_signup&#39;. For each policy, select &#39;Local Account&#39; as the identity provider, and select the
@@ -573,17 +587,17 @@ following:</p>
 access token for the scope, and use BearerStrategy to validate the scope. Note for scope we use the full url in
  <code>b2c_params.scopeForOIDC</code> but only the name in <code>b2c_params.scopeForBearer</code>. For example, 
  <code>b2c_params.scopeForOIDC=[&#39;https://sijun1b2c.onmicrosoft.com/oidc-b2c/read&#39;]</code> and <code>b2c_params.scopeForBearer=[&#39;read&#39;]</code>. </p>
-<h4 id="6-2-2-fill-the-test-parameters">6.2.2. Fill the test parameters</h4>
+<h4 id="5-2-2-fill-the-test-parameters">5.2.2. Fill the test parameters</h4>
 <p>Open <code>test/End_to_end_test/script.js</code>, set <code>is_test_parameters_completed</code> parameter to true. For <code>test_parameters</code> variable, fill in the tenant id/client id/client secret of your applications, and the username/password of your application user. </p>
 <p>For <code>thumbprint</code> and <code>privatePEMKey</code> parameters, you need to specify a certificate for your app and register the public key in Azure Active Directory. <code>thumbprint</code> is the base64url format of the thumbprint of the public key, and <code>privatePEMKey</code> is the private pem key string. For a v1 tenant, you can follow <a href="http://www.andrewconnell.com/blog/user-app-app-only-permissions-client-credentials-grant-flow-in-azure-ad-office-365-apis">this post</a> to generate a certificate and register the public key. For a v2 tenant, you can go to your application page in the <a href="https://apps.dev.microsoft.com">v2 portal</a> and click <code>Generate New Key Pair</code>. A certificate will be generated for you to download. The corresponding public key is automatically registered in this case.  </p>
-<h4 id="6-2-3-run-the-tests">6.2.3. Run the tests</h4>
+<h4 id="5-2-3-run-the-tests">5.2.3. Run the tests</h4>
 <p>Type the following commands to run the tests:</p>
 <pre><code>    <span class="variable">$ </span>cd test/End_to_end_test
     <span class="variable">$ </span>npm install
     <span class="variable">$ </span>npm install grunt -g
     <span class="variable">$ </span>grunt run_tests_with_e2e
 </code></pre><p>Tests will run automatically and in the terminal you can see how many tests are passing/failing. More details can be found <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">here</a>.</p>
-<h2 id="7-logging">7. Logging</h2>
+<h2 id="6-logging">6. Logging</h2>
 <h4 id="personal-identifiable-information-pii-organizational-identifiable-information-oii-">Personal Identifiable Information (PII) &amp; Organizational Identifiable Information (OII)</h4>
 <p>By default, passport-azure-ad logging does not capture or log any PII or OII. The library allows app developers to turn this on by configuring <code>loggingNoPII</code> in the config options. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.</p>
 <pre><code class="lang-javascript"><span class="comment">//PII or OII logging disabled. Default Logger does not capture any PII or OII.</span>
@@ -600,14 +614,14 @@ access token for the scope, and use BearerStrategy to validate the scope. Note f
   ...
 };
 </code></pre>
-<h2 id="8-samples-and-documentation">8. Samples and Documentation</h2>
+<h2 id="7-samples-and-documentation">7. Samples and Documentation</h2>
 <p><a href="https://azure.microsoft.com/en-us/documentation/samples/?service=active-directory">We provide a full suite of sample applications and documentation on GitHub</a> 
 to help you get started with learning the Azure Identity system. This includes 
 tutorials for native clients such as Windows, Windows Phone, iOS, OSX, Android, 
 and Linux. We also provide full walkthroughs for authentication flows such as 
 OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <p>Azure Identity samples for this plug-in can be found in the following links:</p>
-<h3 id="8-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">8.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
+<h3 id="7-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -616,7 +630,7 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h3 id="8-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">8.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
+<h3 id="7-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebAPI-Bearer-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -625,38 +639,38 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApi-Nodejs">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h2 id="9-community-help-and-support">9. Community Help and Support</h2>
+<h2 id="8-community-help-and-support">8. Community Help and Support</h2>
 <p>We leverage <a href="http://stackoverflow.com/">Stack Overflow</a> to work with the community on supporting Azure Active Directory and its SDKs, including this one. We highly recommend you ask your questions on Stack Overflow (we&#39;re all on there!) Also browser existing issues to see if someone has had your question before. </p>
-<p>We recommend you use the &quot;adal&quot; tag so we can see it! Here is the latest Q&amp;A on Stack Overflow for ADAL: <a href="http://stackoverflow.com/questions/tagged/adal">http://stackoverflow.com/questions/tagged/adal</a></p>
-<h2 id="10-security-reporting">10. Security Reporting</h2>
+<p>We recommend you use the &quot;msal&quot; tag so we can see it! Here is the latest Q&amp;A on Stack Overflow for MSAL: <a href="http://stackoverflow.com/questions/tagged/msal">http://stackoverflow.com/questions/tagged/msal</a></p>
+<h2 id="9-security-reporting">9. Security Reporting</h2>
 <p>If you find a security issue with our libraries or services please report it to <a href="mailto:secure@microsoft.com">secure@microsoft.com</a> with as much detail as possible. Your submission may be eligible for a bounty through the <a href="http://aka.ms/bugbounty">Microsoft Bounty</a> program. Please do not post security issues to GitHub Issues or any other public site. We will contact you shortly upon receiving the information. We encourage you to get notifications of when security incidents occur by visiting <a href="https://technet.microsoft.com/en-us/security/dd252948">this page</a> and subscribing to Security Advisory Alerts.</p>
-<h2 id="11-contributing">11. Contributing</h2>
+<h2 id="10-contributing">10. Contributing</h2>
 <p>All code is licensed under the MIT license and we triage actively on GitHub. We enthusiastically welcome contributions and feedback. You can clone the repo and start contributing now. </p>
 <p>More details <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">about contribution</a> </p>
-<h2 id="12-releases">12. Releases</h2>
+<h2 id="11-releases">11. Releases</h2>
 <p>Please check the <a href="https://github.com/AzureAD/passport-azure-ad/releases">releases</a> for updates.</p>
-<h2 id="13-acknowledgements">13. Acknowledgements</h2>
+<h2 id="12-acknowledgements">12. Acknowledgements</h2>
 <p>The code is based on Henri Bergius&#39;s <a href="https://github.com/bergie/passport-saml">passport-saml</a> library and Matias Woloski&#39;s <a href="https://github.com/auth0/passport-wsfed-saml2">passport-wsfed-saml2</a> library as well as Kiyofumi Kondoh&#39;s <a href="https://github.com/kkkon/passport-google-openidconnect">passport-openid-google</a>.</p>
-<h2 id="14-license">14. License</h2>
+<h2 id="13-license">13. License</h2>
 <p>Copyright (c) Microsoft Corp.  All rights reserved. Licensed under the MIT License;</p>
-<h2 id="15-microsoft-open-source-code-of-conduct">15. Microsoft Open Source Code of Conduct</h2>
+<h2 id="14-microsoft-open-source-code-of-conduct">14. Microsoft Open Source Code of Conduct</h2>
 <p>We Value and Adhere to the Microsoft Open Source Code of Conduct</p>
 <p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2018-08-14T20:22:27Z">a month ago</abbr></li>
+              <li><span class="version">4.3.0</span> published <abbr class="updated" title="2020-09-10T23:23:54Z">21 days ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2,525</b> downloads in the last day</li>
-              <li><b>9,426</b> downloads in the last week</li>
-              <li><b>50,095</b> downloads in the last month</li>
+              <li><b>8,394</b> downloads in the last day</li>
+              <li><b>45,689</b> downloads in the last week</li>
+              <li><b>218,526</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -673,8 +687,6 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

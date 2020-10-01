@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,43 +88,43 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-auth0">passport-auth0</h1>
-<p><a href="https://travis-ci.org/auth0/passport-auth0"><img src="https://travis-ci.org/auth0/passport-auth0.svg?branch=master" alt="Build Status"></a></p>
-<p>This is the auth0 authentication strategy for Passport.js.</p>
+<p>This is the <a href="https://auth0.com/">Auth0</a> authentication strategy for <a href="http://passportjs.org/">Passport.js</a>. Passport is authentication middleware for Node.js that can be unobtrusively dropped into any Express-based web application.</p>
+<p>For Management API endpoints, please see the <a href="https://github.com/auth0/node-auth0">Node Auth0 SDK</a>.</p>
+<p><a href="https://travis-ci.org/auth0/passport-auth0"><img src="https://travis-ci.org/auth0/passport-auth0.svg?branch=master" alt="Build Status"></a>
+<a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/v/passport-auth0" alt="npm"></a>
+<a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/dm/passport-auth0" alt="npm"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="http://img.shields.io/:license-mit-blue.svg?style=flat" alt="License"></a></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#customization">Customization</a></li>
+<li><a href="#support--feedback">Support + Feedback</a></li>
+<li><a href="#vulnerability-reporting">Vulnerability Reporting</a></li>
+<li><a href="#what-is-auth0">What is Auth0</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>Full documentation with examples can be found in the <a href="https://auth0.com/docs/quickstart/webapp/nodejs">Node.js Quickstart</a>. </p>
+<p>You can also see fully working demos using this library in our <a href="https://auth0.com/blog/">Auth0 blog</a>:</p>
+<ul>
+<li><a href="https://auth0.com/blog/building-and-authenticating-nodejs-apps/#nodejs-directory-structure">Build and Authenticate a Node.js App with JSON Web Tokens</a></li>
+<li><a href="https://auth0.com/blog/developing-a-real-time-collaborative-editor-with-pusher/">Developing a Real-Time, Collaborative Editor with Pusher</a></li>
+</ul>
 <h2 id="installation">Installation</h2>
+<p>The Auth0 Passport strategy is installed with npm. </p>
 <pre><code>npm <span class="keyword">install</span> passport-auth0
-</code></pre><h2 id="configuration">Configuration</h2>
-<p>Take your credentials from the <a href="https://app.auth0.com/#/settings">settings</a> section in the dashboard and initialize the strategy as follows:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>),
-    passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> Auth0Strategy({
-   <span class="attr">domain</span>:       <span class="string">'your-domain.auth0.com'</span>,
-   <span class="attr">clientID</span>:     <span class="string">'your-client-id'</span>,
-   <span class="attr">clientSecret</span>: <span class="string">'your-client-secret'</span>,
-   <span class="attr">callbackURL</span>:  <span class="string">'/callback'</span>
-  },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) </span>{
-    <span class="comment">// accessToken is the token to call Auth0 API (not needed in the most cases)</span>
-    <span class="comment">// extraParams.id_token has the JSON Web Token</span>
-    <span class="comment">// profile has all the information from the user</span>
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
-  }
-);
-
-passport.use(strategy);
-</code></pre>
+</code></pre><h2 id="customization">Customization</h2>
 <h3 id="state-parameter">State parameter</h3>
-<p>The Auth0 Passport strategy enforces use of <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
+<p>The Auth0 Passport strategy enforces the use of the <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
 <p>If you require the <code>state</code> parameter to be omitted (which is not recommended), you can suppress it when calling the Auth0 Passport strategy constructor:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>);
-
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> Auth0Strategy({
-     <span class="attr">domain</span>: <span class="string">'your-domain.auth0.com'</span>,
+<pre><code class="lang-js"><span class="keyword">const</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>);
+<span class="keyword">const</span> strategy = <span class="keyword">new</span> Auth0Strategy({
      <span class="comment">// ...</span>
      state: <span class="literal">false</span>
   },
@@ -139,68 +133,94 @@ passport.use(strategy);
   }
 );
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-js">app.get(<span class="string">'/callback'</span>,
-  passport.authenticate(<span class="string">'auth0'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="keyword">if</span> (!req.user) {
-      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'user null'</span>);
+<p><a href="https://github.com/auth0/passport-auth0/issues/40#issuecomment-511592801">More on state handling here</a>.</p>
+<h3 id="scopes">Scopes</h3>
+<p>If you want to change the scope of the ID token provided, add a <code>scope</code> property to the authenticate configuration passed when defining the route. These must be <a href="https://auth0.com/docs/scopes/current/oidc-scopes">OIDC standard scopes</a>. If you need data outside of the standard scopes, you can add <a href="https://auth0.com/docs/scopes/current/custom-claims">custom claims</a> to the token.</p>
+<pre><code class="lang-js">app.get(
+    <span class="string">'/login'</span>,
+    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">scope</span>: <span class="string">'openid email profile'</span>}), 
+    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+        res.redirect(<span class="string">'/'</span>);
     }
-    res.redirect(<span class="string">"/"</span>);
-  }
 );
-
-app.get(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'auth0'</span>, {}), <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.redirect(<span class="string">"/"</span>);
-});
 </code></pre>
-<p>This way when you go to <code>/login</code> you will get redirected to auth0, to a page where you can select the identity provider.</p>
-<p>If you want to force an identity provider you can use:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login/google'</span>,
-  passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">connection</span>: <span class="string">'google-oauth2'</span>}), <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.redirect(<span class="string">"/"</span>);
-});
+<h3 id="force-a-specific-idp">Force a Specific IdP</h3>
+<p>If you want to force a specific identity provider you can use:</p>
+<pre><code class="lang-js">app.get(
+    <span class="string">'/login/google'</span>,
+    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">connection</span>: <span class="string">'google-oauth2'</span>}), 
+    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+        res.redirect(<span class="string">'/'</span>);
+    }
+);
 </code></pre>
+<p>If you force an identity provider you can also request custom scope from that identity provider:</p>
+<pre><code class="lang-js">app.get(
+    <span class="string">'/login/google'</span>, 
+    passport.authenticate(<span class="string">'auth0'</span>, {
+        <span class="attr">connection</span>: <span class="string">'google-oauth2'</span>,
+        <span class="attr">connection_scope</span>: <span class="string">'https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly'</span>
+    }), 
+    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+        res.redirect(<span class="string">'/'</span>);
+    }
+);
+</code></pre>
+<h3 id="getting-access-tokens">Getting Access Tokens</h3>
 <p>If you want to specify an audience for the returned <code>access_token</code> you can:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">audience</span>: <span class="string">'urn:my-api'</span>}), <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.redirect(<span class="string">"/"</span>);
-});
+<pre><code class="lang-js">app.get(
+    <span class="string">'/login'</span>,
+    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">audience</span>: <span class="string">'urn:my-api'</span>}), 
+    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+      res.redirect(<span class="string">'/'</span>);
+    }
+);
 </code></pre>
-<p>If you want to control the OIDC prompt you can use:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">prompt</span>: <span class="string">'none'</span>}), <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.redirect(<span class="string">"/"</span>);
-});
+<h3 id="silent-authentication">Silent Authentication</h3>
+<p>If you want to check authentication without showing a prompt:</p>
+<pre><code class="lang-js">app.get(
+    <span class="string">'/login'</span>,
+    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">prompt</span>: <span class="string">'none'</span>}), 
+    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+        res.redirect(<span class="string">'/'</span>);
+    }
+);
 </code></pre>
-<h2 id="api-access">API access</h2>
-<p>If you want to get a list of connections or users from auth0, use the <a href="https://github.com/auth0/node-auth0">auth0 module</a>.</p>
-<h2 id="complete-example">Complete example</h2>
-<p>A complete example of using this library <a href="http://github.com/auth0/passport-auth0">here</a>.</p>
-<h2 id="documentation">Documentation</h2>
-<p>For more information about <a href="http://auth0.com">auth0</a> contact our <a href="http://docs.auth0.com/">documentation page</a>.</p>
-<h2 id="issue-reporting">Issue Reporting</h2>
-<p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
-<h2 id="author">Author</h2>
-<p><a href="auth0.com">Auth0</a></p>
+<h2 id="support-feedback">Support + Feedback</h2>
+<ul>
+<li>Use <a href="https://github.com/auth0/passport-auth0/issues">Issues</a> for code-level support</li>
+<li>Use our <a href="https://community.auth0.com/">Community</a> for usage, questions, specific cases</li>
+</ul>
+<h2 id="vulnerability-reporting">Vulnerability Reporting</h2>
+<p>Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
+<h2 id="what-is-auth0-">What is Auth0?</h2>
+<p>Auth0 helps you to easily:</p>
+<ul>
+<li>implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)</li>
+<li>log in users with username/password databases, passwordless, or multi-factor authentication</li>
+<li>link multiple user accounts together</li>
+<li>generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely</li>
+<li>access demographics and analytics detailing how, when, and where users are logging in</li>
+<li>enrich user profiles from other data sources using customizable JavaScript rules</li>
+</ul>
+<p><a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
 <h2 id="license">License</h2>
 <p>This project is licensed under the MIT license. See the <a href="LICENSE">LICENSE</a> file for more info.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth0</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-09-11T18:54:23Z">11 days ago</abbr></li>
+              <li><span class="version">1.3.3</span> published <abbr class="updated" title="2020-08-31T20:29:49Z">a month ago</abbr></li>
               <li><a class="url" href="git://github.com/auth0/passport-auth0.git">https://github.com/auth0/passport-auth0#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1,299</b> downloads in the last day</li>
-              <li><b>5,884</b> downloads in the last week</li>
-              <li><b>26,875</b> downloads in the last month</li>
+              <li><b>5,066</b> downloads in the last day</li>
+              <li><b>33,340</b> downloads in the last week</li>
+              <li><b>136,139</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -217,8 +237,6 @@ app.get(<span class="string">'/login'</span>,
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -108,60 +102,83 @@ you to recover the content of a cookie.</p>
 integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect">Connect</a>-style
 middleware, including <a href="http://expressjs.com/">Express</a>..</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-cookie</span>
-</code></pre><h2 id="usage">Usage</h2>
+<pre><code class="lang-sh">$ npm install passport-cookie
+</code></pre>
+<h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The cookie authentication strategy authenticates users using a cookie. The
 strategy requires a verify callback, which accepts that credential and calls
 done providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CookieStrategy(
-  <span class="keyword">function</span>(token, <span class="keyword">done</span>) {
-    User.findByToken({ token: token }, <span class="keyword">function</span>(err, user) {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> CookieStrategy(
+  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
+    User.findByToken({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
     });
   }
 ));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use passport.authenticate(), specifying the &#39;cookie&#39; strategy, to authenticate
+</code></pre>
+<p>You can pass the following options to the <code>CookieStrategy</code>:</p>
+<pre><code>-<span class="ruby"> <span class="string">`cookieName`</span>: Cookie name (defaults to <span class="string">"token"</span>)
+</span>-<span class="ruby"> <span class="string">`signed`</span>: Are the cookie signed? (defaults to <span class="literal">false</span>)
+</span>-<span class="ruby"> <span class="string">`passReqToCallback`</span>: <span class="keyword">when</span> <span class="string">`true`</span>, <span class="string">`req`</span> is the first argument to the verify callback (<span class="symbol">default:</span> <span class="string">`false`</span>)</span>
+</code></pre><pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> CookieStrategy({
+  <span class="attr">cookieName</span>: <span class="string">'auth'</span>,
+  <span class="attr">signed</span>: <span class="literal">true</span>,
+  <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">req, token, done</span>) </span>{
+  User.findByToken({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+    <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+  });
+})
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the &#39;cookie&#39; strategy, to authenticate
 requests. Requests containing cookies do not require session support, so the
-session option can be set to false.</p>
+session option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">"/profile"</span>,
-  passport.authenticate(<span class="string">"cookie"</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code class="lang-javascript">app.get(<span class="string">"/profile"</span>,
+  passport.authenticate(<span class="string">"cookie"</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     res.json(req.user);
   });
-</code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
-</code></pre><h2 id="thanks">Thanks</h2>
+</code></pre>
+<h2 id="tests">Tests</h2>
+<pre><code class="lang-sh">$ npm install
+$ npm <span class="built_in">test</span>
+</code></pre>
+<h2 id="thanks">Thanks</h2>
 <p>Thanks to <a href="https://github.com/jaredhanson">Jared Hanson</a> for his great <a href="http://passportjs.org">Passport</a></p>
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li><a href="https://github.com/azazeln28">AzazelN28</a></li>
 <li><a href="https://github.com/jylopez">Jershon</a></li>
+<li><a href="https://github.com/kai101">kai101</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+<h2 id="donate">Donate</h2>
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VL264WAE64MLQ&amp;source=url"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a></p>
 <p>Made with ❤ by ROJO 2 (<a href="http://rojo2.com">http://rojo2.com</a>)</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-cookie</span></code></div>
             <ul>
-              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2018-03-05T16:53:18Z">7 months ago</abbr></li>
+              <li><span class="version">1.0.8</span> published <abbr class="updated" title="2020-06-13T22:29:00Z">4 months ago</abbr></li>
               <li><a class="url" href="git://github.com/rojo2/passport-cookie.git">https://github.com/rojo2/passport-cookie#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>140</b> downloads in the last day</li>
-              <li><b>649</b> downloads in the last week</li>
-              <li><b>3,212</b> downloads in the last month</li>
+              <li><b>531</b> downloads in the last day</li>
+              <li><b>3,127</b> downloads in the last week</li>
+              <li><b>13,366</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -178,8 +195,6 @@ application:</p>
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>

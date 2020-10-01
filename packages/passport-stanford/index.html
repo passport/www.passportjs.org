@@ -56,13 +56,7 @@
       ga('create', 'UA-73332146-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M5S3PH');
-    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
     <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
@@ -94,7 +88,7 @@
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
@@ -112,11 +106,6 @@ many ideas from
 IdPs, only <code>itlabv2</code> is currently usable without registration. Each IdP
 can be referenced in the Passport configuration by its SAML <em>entityID</em>
 or a short alias:</p>
-<h3 id="itlabv2-https-idp-itlab-stanford-edu-idp-shibboleth-">itlabv2 (<a href="https://idp.itlab.stanford.edu/idp/shibboleth">https://idp.itlab.stanford.edu/idp/shibboleth</a>)</h3>
-<p><code>idp.itlab</code> is a very trusting Shibboleth v2.x IdP run by the Emerging
-Technology group, and will work with any SP that includes its ACS URL
-in its <code>AuthnRequest</code>s - it also has three <a href="https://idp.itlab.stanford.edu/">test
-users</a>.</p>
 <h3 id="itlab-https-weblogin-itlab-stanford-edu-idp-shibboleth-">itlab (<a href="https://weblogin.itlab.stanford.edu/idp/shibboleth">https://weblogin.itlab.stanford.edu/idp/shibboleth</a>)</h3>
 <p><code>weblogin.itlab</code> is a Shibboleth v3.x IdP run by the Emerging
 Technology group, and will eventually replace <code>idp.itlab</code>.</p>
@@ -266,17 +255,17 @@ app.<span class="keyword">get</span>(<span class="string">'/Shibboleth.sso/Metad
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stanford</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2017-10-11T18:00:15Z">a year ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2019-04-15T23:13:43Z">a year ago</abbr></li>
               <li><a class="url" href="git+https://github.com/scottylogan/passport-stanford.git">https://github.com/scottylogan/passport-stanford</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>18</b> downloads in the last week</li>
+              <li><b>64</b> downloads in the last month</li>
             </ul>
           </div>
-        </div><a class="supported" href="http://auth0.com" target="_blank">Supported by<i class="auth0"></i></a>
+        </div>
       </div>
     </div>
     <div class="search-con">
@@ -293,8 +282,6 @@ app.<span class="keyword">get</span>(<span class="string">'/Shibboleth.sso/Metad
         <section></section>
       </div>
     </div>
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5S3PH" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
-    </noscript>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
   </body>
 </html>
