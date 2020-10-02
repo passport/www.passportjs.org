@@ -2,7 +2,6 @@ exports = module.exports = function(repoHandler, logging) {
   var express = require('express');
   var redirect = require('express-simple-redirect');
   var bodyParser = require('body-parser');
-  var cookieParser = require('cookie-parser');
   var path = require('path');
   
   
@@ -15,7 +14,6 @@ exports = module.exports = function(repoHandler, logging) {
   service.use(logging());
   service.use(bodyParser.json());
   service.use(bodyParser.urlencoded({ extended: false }));
-  service.use(cookieParser());
   service.use(express.static(path.join(__dirname, '../public')));
   //service.use(express.static(path.join(__dirname, '../web')));
   
