@@ -41,15 +41,18 @@
     "supermarked": "^2.0.0"
   },
   "devDependencies": {
+    "kerouac": "github:jaredhanson/kerouac",
+    "kerouac-npm-packages": "github:jaredhanson/kerouac-npm-packages",
+    "kerouac-book": "github:jaredhanson/kerouac-book",
+    "pug": "^2.0.0-rc.4"
+  },
+  "x_devDependencies": {
     "@kerouac/main": "0",
     "@kerouac/robots": "0.0.2",
     "@kerouac/sitemap": "0.0.2",
-    "@modulate/developer": "github:modulate/nodex-developer",
-    "kerouac": "^0.1.0",
-    "kerouac-npm-packages": "github:jaredhanson/kerouac-npm-packages",
-    "pug": "^2.0.0-rc.4"
+    "@modulate/developer": "github:modulate/nodex-developer"
   },
   "engines": {
-    "node": "12.18.3"
+    "node": "14.x"
   }
 }
