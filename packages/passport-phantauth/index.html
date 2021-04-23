@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>passport-xmpp</title>
+    <title>passport-phantauth</title>
     <meta charset="utf-8">
-    <meta name="description" content="XMPP authentication strategy for Passport.">
+    <meta name="description" content="PhantAuth authentication strategy for Passport.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="http://www.passportjs.org/packages/passport-xmpp/">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-phantauth/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -33,9 +33,9 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="passport-xmpp"/>
-    <meta property="og:description" content="XMPP authentication strategy for Passport."/>
-    <meta property="og:url" content="http://www.passportjs.org/packages/passport-xmpp/"/>
+    <meta property="og:title" content="passport-phantauth"/>
+    <meta property="og:description" content="PhantAuth authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-phantauth/"/>
     <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -43,8 +43,8 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="passport-xmpp"/>
-    <meta name="twitter:description" content="XMPP authentication strategy for Passport."/>
+    <meta name="twitter:title" content="passport-phantauth"/>
+    <meta name="twitter:description" content="PhantAuth authentication strategy for Passport."/>
     <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -92,62 +92,100 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-xmpp">passport-xmpp</h1>
-<p><a href="https://travis-ci.org/surevine/passport-xmpp"><img src="https://travis-ci.org/surevine/passport-xmpp.png" alt="Build"></a>
-<a href="https://coveralls.io/r/surevine/passport-xmpp"><img src="https://coveralls.io/repos/surevine/passport-xmpp/badge.png" alt="Coverage"></a>
-<a href="https://codeclimate.com/github/surevine/passport-xmpp"><img src="https://codeclimate.com/github/surevine/passport-xmpp.png" alt="Quality"></a>
-<a href="https://david-dm.org/surevine/passport-xmpp"><img src="https://david-dm.org/surevine/passport-xmpp.png" alt="Dependencies"></a></p>
-<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with an XMPP account.</p>
-<p>This module lets you authenticate using an XMPP account in your Node.js
-applications.  By plugging into Passport, XMPP authentication can be easily and
+          <div class="description"><h1 id="passport-phantauth">passport-phantauth</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="https://www.phantauth.net/">PhantAuth</a>
+using the OpenID Connect API.</p>
+<p>PhantAuth is a Random User Generator + OpenID Connect Provider.
+Like Lorem Ipsum, but for user accounts and authentication.
+PhantAuth was designed to simplify testing for applications using
+OpenID Connect authentication by making use of random generated users.</p>
+<p>This module lets you authenticate using PhantAuth in your Node.js applications.
+By plugging into Passport, PhantAuth authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
-<p><strong>Note:</strong> This strategy isn&#39;t recommended for use unless:</p>
-<ul>
-<li>Users are able and willing to trust your service</li>
-<li>Users are using a SASL authentication mechanism that does not involve them revealing their true password</li>
-</ul>
-<p>We don&#39;t currently support setting a SASL mechanism but pieces are in place, if required please raise an issue and we&#39;ll finish off the code. Thanks!</p>
-<h2 id="install">Install</h2>
-<pre><code>$ npm install pass<span class="keyword">port</span>-xmpp
+<p>For more information about PhantAuth, check 
+<a href="https://www.phantauth.net">PhantAuth Developer Portal</a>.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ npm install pass<span class="keyword">port</span>-phantauth
 </code></pre><h2 id="usage">Usage</h2>
-<h4 id="configure-strategy">Configure Strategy</h4>
-<p>This authentication strategy authenticates users using an XMPP account. The strategy requires a <code>verify</code> callback, which accepts these
-credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> XmppStrategy());
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;xmpp&#39;</code> strategy, to
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>The PhantAuth authentication strategy authenticates users using a PhantAuth account
+and OpenID Connect tokens. The strategy requires a <code>verify</code> callback, which accepts
+these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
+specifying a client ID, client secret, and callback URL.</p>
+<pre><code class="lang-javascript"><span class="keyword">const</span> PhantAuthStrategy = <span class="built_in">require</span>(<span class="string">'passport-phantauth'</span>).Strategy;
+
+passport.use(
+  <span class="keyword">new</span> PhantAuthStrategy(
+    {
+      <span class="attr">clientID</span>: client_id,
+      <span class="attr">clientSecret</span>: client_secret,
+      <span class="attr">callbackURL</span>: <span class="string">'http://localhost:8888/auth/phantauth/callback'</span>
+    },
+    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
+      User.findOrCreate({ <span class="attr">userId</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">return</span> done(err, user);
+      });
+    }
+  )
+);
+</code></pre>
+<h3 id="authenticate-requests">Authenticate Requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;phantauth&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'xmpp'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/phantauth'</span>, passport.authenticate(<span class="string">'phantauth'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="comment">// The request will be redirected to PhantAuth for authentication, so this</span>
+  <span class="comment">// function will not be called.</span>
+});
+
+app.get(
+  <span class="string">'/auth/phantauth/callback'</span>,
+  passport.authenticate(<span class="string">'phantauth'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
     res.redirect(<span class="string">'/'</span>);
-  });
-</code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
-</code></pre><h2 id="credits">Credits</h2>
-<ul>
-<li><a href="http://github.com/lloydwatkin">Lloyd Watkin</a></li>
-<li><a href="http://www.surevine.com">Surevine</a></li>
-</ul>
-<p>This module has been highly influenced by <a href="https://github.com/jaredhanson/passport-local">passport-local</a> by <a href="https://github.com/jaredhanson">Jared Hanson</a>.</p>
-<h2 id="license">License</h2>
+  }
+);
+</code></pre>
+<h3 id="using-scopes">Using scopes</h3>
+<p>Depending on the data you want to fetch, you may want to specify OpenID Connect scopes. For more information about scopes check <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect Core</a>.</p>
+<p>By default, all OpenID Connect scope is passed. That means that you fetch all information.</p>
+<p>You can specify the parameters in the <code>authenticate</code> call:</p>
+<pre><code class="lang-javascript">app.get(
+  <span class="string">'/auth/phantauth'</span>,
+  passport.authenticate(<span class="string">'phantauth'</span>, {
+    <span class="attr">scope</span>: [<span class="string">'profile'</span>, <span class="string">'email'</span>]
+  }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="comment">// The request will be redirected to PhantAuth for authentication, so this</span>
+    <span class="comment">// function will not be called.</span>
+  }
+);
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>For a complete, working example, check <a href="https://phantauth-sample-passport.now.sh/">Phantauth Sample Passport</a> website. For source, refer to <a href="https://github.com/phantauth/phantauth-sample-passport">GitHub repository</a>).</p>
+<p>For a minimal, working example, refer to the <a href="https://github.com/phantauth/passport-phantauth/tree/master/examples/login">login example</a>.</p>
+<h2 id="tests">Tests</h2>
+<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
+<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+</code></pre><h2 id="license">License</h2>
+<p>based on <a href="https://github.com/JMPerez/passport-spotify">passport-spotify</a> by José M. Pérez</p>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 </div>
           <div class="metadata">
-            <div class="install"><code>npm install <span class="fn">passport-xmpp</span></code></div>
+            <div class="install"><code>npm install <span class="fn">passport-phantauth</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2014-10-23T15:11:01Z">7 years ago</abbr></li>
-              <li><a class="url" href="git://github.com/surevine/passport-xmpp.git">https://github.com/surevine/passport-xmpp</a></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2019-08-05T07:17:06Z">2 years ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/phantauth/passport-phantauth.git">https://github.com/phantauth/passport-phantauth#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

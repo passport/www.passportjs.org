@@ -2,6 +2,107 @@
   "objects": [
     {
       "package": {
+        "name": "passport-smugmug",
+        "version": "0.1.2",
+        "description": "SmugMug authentication strategy for Passport.",
+        "date": "2013-02-09T21:02:07.946Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-smugmug",
+          "repository": "git://github.com/jaredhanson/passport-smugmug.git"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 10,
+        "last-month": 47
+      },
+      "count": {
+        "favorites": 4,
+        "subscribers": 2,
+        "forks": 3
+      }
+    },
+    {
+      "package": {
+        "name": "passport-socius",
+        "version": "0.1.0",
+        "description": "OAuth2 strategy for Passport",
+        "keywords": [
+          "passport",
+          "socius",
+          "auth2",
+          "authentication"
+        ],
+        "date": "2014-04-30T15:28:37.914Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-socius",
+          "repository": "git://bitbucket.org/sociuslive/passport-socius.git",
+          "bugs": "https://bitbucket.org/sociuslive/passport-socius/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 2,
+        "last-month": 5
+      }
+    },
+    {
+      "package": {
+        "name": "passport-soundcloud",
+        "version": "0.2.0",
+        "description": "SoundCloud authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "soundcloud",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2016-05-17T23:53:01.034Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-soundcloud",
+          "homepage": "https://github.com/jaredhanson/passport-soundcloud#readme",
+          "repository": "git://github.com/jaredhanson/passport-soundcloud.git",
+          "bugs": "http://github.com/jaredhanson/passport-soundcloud/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 1,
+        "last-week": 6,
+        "last-month": 107
+      },
+      "count": {
+        "favorites": 37,
+        "subscribers": 3,
+        "forks": 12
+      }
+    },
+    {
+      "package": {
+        "name": "passport-soundtrap",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-soundtrap",
+          "repository": "https://github.com/soundtrap/passport"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 0,
+        "last-month": 0
+      },
+      "count": {
+        "favorites": 0,
+        "subscribers": 2,
+        "forks": 0
+      }
+    },
+    {
+      "package": {
         "name": "passport-spotify",
         "version": "2.0.0",
         "description": "Spotify authentication strategy for Passport.",
@@ -663,109 +764,9 @@
         "subscribers": 1,
         "forks": 1
       }
-    },
-    {
-      "package": {
-        "links": {
-          "npm": "https://www.npmjs.com/package/undefined",
-          "repository": "https://github.com/teambox/passport-teambox"
-        }
-      },
-      "flags": {},
-      "count": {
-        "favorites": 0,
-        "subscribers": 54,
-        "forks": 5
-      }
-    },
-    {
-      "package": {
-        "name": "passport-teamsnap",
-        "version": "1.1.1",
-        "description": "Teamsnap OAuth 2.0 authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "teamsnap",
-          "oauth2",
-          "auth",
-          "authentication",
-          "identity"
-        ],
-        "date": "2017-10-29T19:39:55.524Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-teamsnap",
-          "homepage": "https://github.com/7elephants/passport-teamsnap#readme",
-          "repository": "git+ssh://git@github.com/7elephants/passport-teamsnap.git",
-          "bugs": "http://github.com/7elephants/passport-teamsnap/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 0,
-        "last-week": 1,
-        "last-month": 13
-      },
-      "count": {
-        "favorites": 0,
-        "subscribers": 1,
-        "forks": 0
-      }
-    },
-    {
-      "package": {
-        "name": "passport-telegram",
-        "version": "1.0.0",
-        "description": "Telegram Unofficial OAuth2 authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "telegram",
-          "auth",
-          "authn",
-          "authentication",
-          "oauth"
-        ],
-        "date": "2016-10-01T01:14:38.504Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-telegram",
-          "homepage": "https://github.com/TelegramPassport/passport-js#readme",
-          "repository": "git://github.com/TelegramPassport/passport-js.git",
-          "bugs": "https://github.com/TelegramPassport/passport-js/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 57,
-        "last-week": 225,
-        "last-month": 812
-      },
-      "count": {
-        "favorites": 30,
-        "subscribers": 2,
-        "forks": 6
-      }
-    },
-    {
-      "package": {
-        "name": "passport-tequila",
-        "version": "0.1.16",
-        "description": "[Passport](https://github.com/jaredhanson/passport) strategy for authenticating with [Tequila](http://tequila.epfl.ch/).",
-        "date": "2020-02-12T14:16:14.837Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-tequila",
-          "homepage": "https://github.com/epfl-si/passport-tequila#readme",
-          "repository": "git://github.com/epfl-si/passport-tequila.git",
-          "bugs": "http://github.com/epfl-si/passport-tequila/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 4,
-        "last-week": 16,
-        "last-month": 83
-      }
     }
   ],
-  "total": 514,
+  "total": 520,
   "urls": {
     "next": "/packages/-/v1/all/18.json",
     "prev": "/packages/-/v1/all/16.json"
