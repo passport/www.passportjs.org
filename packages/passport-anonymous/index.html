@@ -103,12 +103,12 @@ and unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-anonymous</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-anonymous
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The anonymous authentication strategy passes authentication for a request,
 with <code>req.user</code> remaining <code>undefined</code>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="function"><span class="keyword">new</span> <span class="title">AnonymousStrategy</span>());</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AnonymousStrategy());
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;anonymous&#39;</code> strategy, to
 pass authentication of a request.  This is typically used alongside a strategy
@@ -116,13 +116,13 @@ that verifies credentials, as a fallback for routes that prefer authentication
 but can also respond to unauthenticated requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">'/hello'</span>, 
-  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'anonymous'</span>], { <span class="attribute">session</span>: false }),
-  function(req, res) {
-    <span class="selector-tag">if</span> (req.user) {
-      <span class="selector-tag">res</span><span class="selector-class">.json</span>({ <span class="attribute">name</span>: req.user.username });
-    } else {
-      <span class="selector-tag">res</span><span class="selector-class">.json</span>({ <span class="attribute">name</span>: <span class="string">'anonymous'</span> });
+<pre><code>app.post(<span class="string">'/hello'</span>, 
+  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'anonymous'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    <span class="keyword">if</span> (req.<span class="keyword">user</span>) {
+      res.json({ <span class="type">name</span>: req.<span class="keyword">user</span>.username });
+    } <span class="keyword">else</span> {
+      res.json({ <span class="type">name</span>: <span class="string">'anonymous'</span> });
     }
   });
 </code></pre><h2 id="examples">Examples</h2>
@@ -136,18 +136,18 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-anonymous</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2013-08-02T07:14:45Z">7 years ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2013-08-02T07:14:45Z">8 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-anonymous.git"></a></li>
             </ul>
             <ul>
-              <li><b>1,090</b> downloads in the last day</li>
-              <li><b>5,909</b> downloads in the last week</li>
-              <li><b>30,526</b> downloads in the last month</li>
+              <li><b>1,326</b> downloads in the last day</li>
+              <li><b>7,114</b> downloads in the last week</li>
+              <li><b>30,311</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

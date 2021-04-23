@@ -93,12 +93,12 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-wsfed-saml2">Passport-wsfed-saml2</h1>
-<p><a href="https://travis-ci.org/auth0/passport-wsfed-saml2"><img src="https://travis-ci.org/auth0/passport-wsfed-saml2.png" alt="Build Status"></a></p>
+<p><img src="https://github.com/auth0/passport-wsfed-saml2/workflows/Tests/badge.svg" alt="Build Status"></p>
 <p>This is a ws-federation protocol + SAML2 tokens authentication provider for <a href="http://passportjs.org/">Passport</a>.</p>
 <p>The code was originally based on Henri Bergius&#39;s <a href="https://github.com/bergie/passport-saml">passport-saml</a> library.</p>
 <p>Passport-wsfed-saml2 has been tested to work with both <a href="https://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Active Directory / Access Control Service</a> and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Microsoft Active Directory Federation Services</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-wsfed-saml2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-wsfed-saml2
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure strategy</h3>
 <p>This example utilizes a development namespace (auth10-dev) on <a href="https://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Access Control Service</a> and is using Google as the only identity provider configured for the sample application.</p>
@@ -107,7 +107,7 @@
     <span class="attr">path</span>: <span class="string">'/login/callback'</span>,
     <span class="attr">realm</span>: <span class="string">'urn:node:app'</span>,
     <span class="attr">homeRealm</span>: <span class="string">''</span>, <span class="comment">// optionally specify an identity provider to avoid showing the idp selector</span>
-    identityProviderUrl: <span class="string">'https://auth10-dev.accesscontrol.windows.net/v2/wsfederation'</span>,
+    <span class="attr">identityProviderUrl</span>: <span class="string">'https://auth10-dev.accesscontrol.windows.net/v2/wsfederation'</span>,
     <span class="attr">cert</span>: <span class="string">'MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg='</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
@@ -135,7 +135,7 @@
   {
     <span class="attr">jwt</span>: {
       <span class="comment">//same options than node-jsonwebtoken</span>
-      algorithm: <span class="string">'RS256'</span>
+      <span class="attr">algorithm</span>: <span class="string">'RS256'</span>
     },
     <span class="attr">cert</span>: <span class="string">'MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg='</span>
   },
@@ -153,28 +153,29 @@
 <p>This example utilizes a strategy with ADFS using WS-Fed.</p>
 <pre><code class="lang-javascript">passport.use(<span class="string">'wsfed-saml2'</span>, <span class="keyword">new</span> wsfedsaml2({
     <span class="comment">// ADFS RP identifier</span>
-    realm: <span class="string">'urn:node:wsfedapp'</span>,
+    <span class="attr">realm</span>: <span class="string">'urn:node:wsfedapp'</span>,
     <span class="attr">identityProviderUrl</span>: <span class="string">'https://my-adfs/adfs/ls'</span>,
     <span class="comment">// ADFS token signing certificate</span>
-    thumbprint: <span class="string">'5D27....D27E'</span>
+    <span class="attr">thumbprint</span>: <span class="string">'5D27....D27E'</span>
     <span class="comment">// or cert: fs.readFileSync("adfs_signing_key.cer")</span>
 }, <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
  <span class="comment">// ...</span>
 }));
+
 </code></pre>
 <h3 id="configure-strategy-for-adfs-samlp-">Configure strategy for ADFS (SAMLp)</h3>
 <p>This example utilizes a strategy using SAMLp and RP token encryption.</p>
 <pre><code class="lang-javascript">passport.use(<span class="string">'wsfed-saml2'</span>, <span class="keyword">new</span> wsfedsaml2({
     <span class="comment">// ADFS RP identifier</span>
-    realm: <span class="string">'urn:node:samlapp'</span>,
+    <span class="attr">realm</span>: <span class="string">'urn:node:samlapp'</span>,
     <span class="attr">identityProviderUrl</span>: <span class="string">'https://my-adfs/adfs/ls'</span>,
     <span class="comment">// ADFS token signing certificate</span>
-    thumbprint: <span class="string">'5D27...D27E'</span>,
+    <span class="attr">thumbprint</span>: <span class="string">'5D27...D27E'</span>,
     <span class="comment">// or cert: fs.readFileSync("adfs_signing_key.cer")</span>
-    protocol: <span class="string">"samlp"</span>,
+    <span class="attr">protocol</span>: <span class="string">"samlp"</span>,
     <span class="comment">// This is the private key (use case where ADFS</span>
     <span class="comment">// is configured for RP token encryption)</span>
-    decryptionKey: fs.readFileSync(<span class="string">"server.key"</span>)
+    <span class="attr">decryptionKey</span>: fs.readFileSync(<span class="string">"server.key"</span>)
 }, <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
  <span class="comment">// ...</span>
 }));
@@ -191,13 +192,13 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wsfed-saml2</span></code></div>
             <ul>
-              <li><span class="version">3.0.17</span> published <abbr class="updated" title="2019-01-24T19:13:01Z">2 years ago</abbr></li>
+              <li><span class="version">4.4.0</span> published <abbr class="updated" title="2021-03-03T18:06:02Z">2 months ago</abbr></li>
               <li><a class="url" href="git://github.com/auth0/passport-wsfed-saml2.git">https://github.com/auth0/passport-wsfed-saml2#readme</a></li>
             </ul>
             <ul>
-              <li><b>315</b> downloads in the last day</li>
-              <li><b>1,720</b> downloads in the last week</li>
-              <li><b>6,439</b> downloads in the last month</li>
+              <li><b>431</b> downloads in the last day</li>
+              <li><b>2,080</b> downloads in the last week</li>
+              <li><b>8,103</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

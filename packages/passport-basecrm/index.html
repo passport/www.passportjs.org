@@ -107,14 +107,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-basecrm</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-basecrm
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>In order to identify your application to BaseCRM, specify the <code>client_id</code>, <code>client_secret</code> and <code>redirect_uri</code> 
 (callback that you provided when registering the application) within the options. The <code>client_id</code> and 
 <code>client_secret</code> are obtained by registering your application in your BaseCRM account under <code>Settings -&gt; OAuth -&gt; 
 Developer Apps tab</code>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BaseCRMStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> BaseCRMStrategy({
     clientID: BaseCRM_CLIENT_ID,
     clientSecret: BaseCRM_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/basecrm/callback"</span>
@@ -157,13 +157,13 @@ app.get(<span class="string">'/auth/basecrm/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-basecrm</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2015-06-05T04:54:55Z">5 years ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2015-06-05T04:54:55Z">6 years ago</abbr></li>
               <li><a class="url" href="http://github.com/reydelleon/passport-basecrm.git">https://github.com/reydelleon/passport-basecrm</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -97,7 +97,7 @@
 <h2 id="installation">Installation</h2>
 <pre><code class="lang-sh">npm install passport-keystone
 </code></pre>
-<h2 id="-example-https-passport-keystone-proxy-herokuapp-com-"><a href="https://passport-keystone-proxy.herokuapp.com/">Example</a></h2>
+<h2 id="example"><a href="https://passport-keystone-proxy.herokuapp.com/">Example</a></h2>
 <p>Check out the <a href="https://passport-keystone-proxy.herokuapp.com/">live demo</a>, source code <a href="https://github.com/eddywashere/passport-keystone/tree/master/examples">here</a>, to see an express app configured for authentication with the <a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html">Rackspace Cloud Identity Service</a>, an implementation of OpenStack Keystone Service. Also included in the example is the <a href="https://github.com/eddywashere/proxy-keystone">Proxy-Keystone</a> middleware, a simple proxy for keystone service catalog endpoints.</p>
 <h2 id="documentation">Documentation</h2>
 <h4 id="authentication">Authentication</h4>
@@ -106,9 +106,9 @@ password from the POST body.  The strategy requires a <code>verify</code> callba
 credentials and calls <code>done</code> providing a user that is attached to <code>req.user</code>.</p>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> KeystoneStrategy({
    <span class="attr">region</span>: your.region, <span class="comment">// required</span>
-   authUrl: your.authUrl, <span class="comment">// required</span>
-   usernameField: <span class="string">'username'</span>, <span class="comment">// optional</span>
-   passwordField: <span class="string">'password'</span> <span class="comment">// optional</span>
+   <span class="attr">authUrl</span>: your.authUrl, <span class="comment">// required</span>
+   <span class="attr">usernameField</span>: <span class="string">'username'</span>, <span class="comment">// optional</span>
+   <span class="attr">passwordField</span>: <span class="string">'password'</span> <span class="comment">// optional</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
     <span class="keyword">var</span> user = {
@@ -125,10 +125,10 @@ credentials and calls <code>done</code> providing a user that is attached to <co
 <p>The following example uses <code>passReqToCallback</code> to send the <code>req</code> object to next callback, where session expiration can be configured.</p>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> KeystoneStrategy({
     <span class="attr">region</span>: your.region, <span class="comment">// required</span>
-    authUrl: your.authUrl, <span class="comment">// required</span>
-    usernameField: <span class="string">'username'</span>, <span class="comment">// optional</span>
-    passwordField: <span class="string">'password'</span> <span class="comment">// optional</span>
-    passReqToCallback : <span class="literal">true</span> <span class="comment">// allows us to interact with req object</span>
+    <span class="attr">authUrl</span>: your.authUrl, <span class="comment">// required</span>
+    <span class="attr">usernameField</span>: <span class="string">'username'</span>, <span class="comment">// optional</span>
+    <span class="attr">passwordField</span>: <span class="string">'password'</span> <span class="comment">// optional</span>
+    <span class="attr">passReqToCallback</span> : <span class="literal">true</span> <span class="comment">// allows us to interact with req object</span>
 }, <span class="function"><span class="keyword">function</span>(<span class="params">req, identity, done</span>) </span>{
   <span class="keyword">if</span> (!req.user) {
     <span class="keyword">var</span> user = {
@@ -176,14 +176,14 @@ authenticate requests.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-keystone</span></code></div>
             <ul>
-              <li><span class="version">0.2.5</span> published <abbr class="updated" title="2014-06-10T04:24:22Z">6 years ago</abbr></li>
+              <li><span class="version">0.2.5</span> published <abbr class="updated" title="2014-06-10T04:24:22Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/eddywashere/passport-keystone.git">https://github.com/eddywashere/passport-keystone</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>19</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

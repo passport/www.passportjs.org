@@ -98,7 +98,7 @@
 </blockquote>
 <p>This module lets you authenticate using Feedly in your Node.js applications. By plugging into Passport, Facebook authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.</p>
 <h1 id="install">Install</h1>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-feedly</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-feedly
 </code></pre><h1 id="usage">Usage</h1>
 <p>The Feedly authentication strategy authenticates users using a Facebook account and OAuth 2.0 tokens. The strategy requires a verify callback, which accepts these credentials and calls done providing a user, as well as options specifying an app ID, app secret, callback URL.</p>
 <pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
@@ -115,7 +115,9 @@
 ));
 </code></pre><blockquote>
 <p>Authenticate Requests</p>
+</blockquote>
 <hr>
+<blockquote>
 <p>Use passport.authenticate(), specifying the &#39;feedly&#39; strategy, to authenticate requests.</p>
 </blockquote>
 <p>For example, as route middleware in an Express application:</p>
@@ -149,13 +151,13 @@ app.get(<span class="string">'/auth/feedly/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-feedly</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2014-07-17T13:54:18Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2014-07-17T13:54:18Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/may215/passport-feedly.git">https://github.com/may215/passport-feedly</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

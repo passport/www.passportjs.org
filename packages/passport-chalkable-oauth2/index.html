@@ -101,22 +101,22 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-chalkable-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-chalkable-oauth2
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Chalkable OAuth 2.0 authentication strategy authenticates users using a Chalkable
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> ChalkableStrategy = <span class="keyword">require</span>(<span class="string">'passport-chalkable-oauth2'</span>).OAuth2Strategy;
+<pre><code><span class="keyword">var</span> ChalkableStrategy = <span class="built_in">require</span>(<span class="string">'passport-chalkable-oauth2'</span>).OAuth2Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> ChalkableStrategy({
-    clientID: CHALKABLE_CLIENT_ID,
-    clientSecret: CHALKABLE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/chalkable/callback"</span>
+passport.use(<span class="keyword">new</span> ChalkableStrategy({
+    <span class="attr">clientID</span>: CHALKABLE_CLIENT_ID,
+    <span class="attr">clientSecret</span>: CHALKABLE_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/chalkable/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ chalkableId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">chalkableId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -138,18 +138,18 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-chalkable-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2015-04-14T20:35:03Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2015-04-14T20:35:03Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/headlessme/passport-chalkable-oauth2.git">https://github.com/headlessme/passport-chalkable-oauth2</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

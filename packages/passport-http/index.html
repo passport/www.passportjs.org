@@ -100,19 +100,19 @@ for these schemes can be easily and unobtrusively integrated into any
 application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style
 middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-http</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-http
 </code></pre><h2 id="usage-of-http-basic">Usage of HTTP Basic</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Basic authentication strategy authenticates users using a userid and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BasicStrategy(
-  <span class="keyword">function</span>(userid, password, <span class="keyword">done</span>) {
-    User.findOne({ username: userid }, <span class="keyword">function</span> (err, user) {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">if</span> (!user.verifyPassword(password)) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+<pre><code>passport.use(<span class="built_in">new</span> BasicStrategy(
+  <span class="keyword">function</span>(userid, <span class="keyword">password</span>, done) {
+    <span class="keyword">User</span>.findOne({ username: userid }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      <span class="keyword">if</span> (!<span class="keyword">user</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">if</span> (!<span class="keyword">user</span>.verifyPassword(<span class="keyword">password</span>)) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
     });
   }
 ));
@@ -122,10 +122,10 @@ authenticate requests.  Requests containing an &#39;Authorization&#39; header do
 require session support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/private'</span>, 
-  passport.authenticate(<span class="string">'basic'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>, 
+  passport.authenticate(<span class="string">'basic'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h4 id="examples">Examples</h4>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-http/tree/master/examples/basic">Basic example</a>.</p>
@@ -139,16 +139,16 @@ does not match that contained in the request.</p>
 <p>The strategy also accepts an optional <code>validate</code> callback, which receives
 nonce-related <code>params</code> that can be further inspected to determine if the request
 is valid.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> DigestStrategy({ qop: <span class="string">'auth'</span> },
-  <span class="function"><span class="keyword">function</span><span class="params">(username, done)</span> </span>{
-    User.findOne({ username: username }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+<pre><code>passport.use(<span class="built_in">new</span> DigestStrategy({ qop: <span class="string">'auth'</span> },
+  <span class="keyword">function</span>(username, done) {
+    <span class="keyword">User</span>.findOne({ username: username }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user, user.password);
+      <span class="keyword">if</span> (!<span class="keyword">user</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>, <span class="keyword">user</span>.<span class="keyword">password</span>);
     });
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(params, done)</span> </span>{
-    <span class="comment">// validate nonces as necessary</span>
+  <span class="keyword">function</span>(params, done) {
+    // <span class="keyword">validate</span> nonces <span class="keyword">as</span> necessary
     done(<span class="keyword">null</span>, <span class="keyword">true</span>)
   }
 ));
@@ -158,10 +158,10 @@ authenticate requests.  Requests containing an &#39;Authorization&#39; header do
 require session support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/private'</span>, 
-  passport.authenticate(<span class="string">'digest'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>, 
+  passport.authenticate(<span class="string">'digest'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h4 id="examples">Examples</h4>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-http/tree/master/examples/digest">Digest example</a>.</p>
@@ -175,18 +175,18 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http</span></code></div>
             <ul>
-              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2018-08-03T00:40:47Z">2 years ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2018-08-03T00:40:47Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-http.git">https://github.com/jaredhanson/passport-http</a></li>
             </ul>
             <ul>
-              <li><b>12,667</b> downloads in the last day</li>
-              <li><b>74,914</b> downloads in the last week</li>
-              <li><b>335,387</b> downloads in the last month</li>
+              <li><b>24,297</b> downloads in the last day</li>
+              <li><b>148,209</b> downloads in the last week</li>
+              <li><b>615,076</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -103,7 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-vk-strategy</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-vk-strategy
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The VK.com authentication strategy authenticates users using a VK.com
@@ -122,7 +122,7 @@ app.use(passport.session());
 passport.use(<span class="keyword">new</span> VKontakteStrategy(
   {
     <span class="attr">clientID</span>:     VKONTAKTE_APP_ID, <span class="comment">// VK.com docs call it 'API ID', 'app_id', 'api_id', 'client_id' or 'apiId'</span>
-    clientSecret: VKONTAKTE_APP_SECRET,
+    <span class="attr">clientSecret</span>: VKONTAKTE_APP_SECRET,
     <span class="attr">callbackURL</span>:  <span class="string">"http://localhost:3000/auth/vkontakte/callback"</span>
   },
   <span class="function"><span class="keyword">function</span> <span class="title">myVerifyCallbackFn</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
@@ -200,8 +200,8 @@ scope, which you should explicitly list as in following example:</p>
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VKontakteStrategy(
   {
     <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
-    scope: [<span class="string">'email'</span> <span class="comment">/* ... and others, if needed */</span>]
-    profileFields: [<span class="string">'email'</span>, <span class="string">'city'</span>, <span class="string">'bdate'</span>]
+    <span class="attr">scope</span>: [<span class="string">'email'</span> <span class="comment">/* ... and others, if needed */</span>]
+    <span class="attr">profileFields</span>: [<span class="string">'email'</span>, <span class="string">'city'</span>, <span class="string">'bdate'</span>]
   },
   myVerifyCallbackFn
 ));
@@ -213,7 +213,7 @@ configured with a <code>lang</code> parameter which specifies language of value 
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VkontakteStrategy(
   {
     <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
-    lang: <span class="string">'ru'</span>
+    <span class="attr">lang</span>: <span class="string">'ru'</span>
   },
   myVerifyCallbackFn
 ));
@@ -223,7 +223,7 @@ configured with a <code>lang</code> parameter which specifies language of value 
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> VKontakteStrategy(
   {
     <span class="comment">// clientID: ..., clientSecret: ..., callbackURL: ...,</span>
-    apiVersion: <span class="string">'5.17'</span>
+    <span class="attr">apiVersion</span>: <span class="string">'5.17'</span>
   },
   myVerifyCallbackFn
 ));
@@ -260,14 +260,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-vk-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-09-01T11:52:57Z">3 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-09-01T11:52:57Z">4 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/dvpnt/passport-vk-strategy.git">https://github.com/dvpnt/passport-vk-strategy#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>20</b> downloads in the last day</li>
-              <li><b>89</b> downloads in the last week</li>
-              <li><b>219</b> downloads in the last month</li>
+              <li><b>8</b> downloads in the last day</li>
+              <li><b>120</b> downloads in the last week</li>
+              <li><b>259</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

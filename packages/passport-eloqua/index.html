@@ -96,18 +96,18 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://eloqua.com/">Eloqua</a> using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-eloqua</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-eloqua
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code>EloquaStrategy = <span class="keyword">require</span>(<span class="string">'passport-eloqua'</span>).EloquaStrategy;
+<pre><code>EloquaStrategy = <span class="built_in">require</span>(<span class="string">'passport-eloqua'</span>).EloquaStrategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> EloquaStrategy({
-    clientID: ELOQUA_CLIENT_ID,
-    clientSecret: ELOQUA_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://example.com/auth/eloqua/callback"</span>
+passport.use(<span class="keyword">new</span> EloquaStrategy({
+    <span class="attr">clientID</span>: ELOQUA_CLIENT_ID,
+    <span class="attr">clientSecret</span>: ELOQUA_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://example.com/auth/eloqua/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ eloquaId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">eloquaId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -133,18 +133,18 @@ app.get(<span class="string">'/auth/eloqua/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p>  <a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>  Copyright (c) 2011-2014 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a>, Et al.</p>
+<p>  Copyright (c) 2011-2014 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;, Et al.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-eloqua</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2014-08-23T22:30:59Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2014-08-23T22:30:59Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/watsoncj/passport-eloqua.git">https://github.com/watsoncj/passport-eloqua</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

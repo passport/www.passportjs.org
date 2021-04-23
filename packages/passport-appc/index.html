@@ -101,21 +101,21 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-appc</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-appc
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Appcelerator authentication strategy authenticates users using a Appcelerator account. The strategy requires a <code>verify</code> callback, which accepts
 the session data and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying an optional Appcelerator Dashboard and callback URL.</p>
-<pre><code>AppcStrategy = <span class="keyword">require</span>(<span class="string">'passport-appc'</span>).Strategy;
+<pre><code>AppcStrategy = require(<span class="string">'passport-appc'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> AppcStrategy({
-        appcURL: <span class="string">"https://360-preprod.cloud.appctest.com"</span>,
-        callbackURL: <span class="string">"https://something.cloud.appctest.com"</span>
+passport.use(<span class="built_in">new</span> AppcStrategy({
+        appcURL: "https://360-preprod.cloud.appctest.com",
+        callbackURL: "https://something.cloud.appctest.com"
     },
-    <span class="function"><span class="keyword">function</span><span class="params">(session, done)</span> </span>{
-        User.findOrCreate({ appcId: session.user.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-              <span class="keyword">return</span> done(err, user);
+    <span class="keyword">function</span>(<span class="keyword">session</span>, done) {
+        <span class="keyword">User</span>.findOrCreate({ appcId: <span class="keyword">session</span>.<span class="keyword">user</span>.id }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
+              <span class="keyword">return</span> done(err, <span class="keyword">user</span>);
         });
     }
 ));
@@ -156,8 +156,8 @@ official Appcelerator account at <a href="http://npmjs.org/package/passport-appc
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>21</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>30</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

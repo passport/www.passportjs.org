@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-digitalocean</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-digitalocean
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p><strong>NOTE</strong>: Currently DigitalOcean doesn&#39;t provide a user&#39;s profile through the API, so the Strategy cannot collect user information.</p>
@@ -109,7 +109,7 @@ unobtrusively integrated into any application or framework that supports
 and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> DigitalOceanStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> DigitalOceanStrategy({
     clientID: DIGITALOCEAN_CLIENT_ID,
     clientSecret: DIGITALOCEAN_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/digitalocean/callback"</span>
@@ -145,18 +145,18 @@ app.get(<span class="string">'/auth/digitalocean/callback'</span>,
 <p>Code based on passport-github by <a href="http://github.com/jaredhanson">Jared Hanson</a></p>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2014 Harbur <a href="[https://harbur.io](https://harbur.io)">[https://harbur.io](https://harbur.io)</a></p>
+<p>Copyright (c) 2014 Harbur &lt;<a href="https://harbur.io">https://harbur.io</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-digitalocean</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-09-09T08:50:29Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-09-09T08:50:29Z">7 years ago</abbr></li>
               <li><a class="url" href="http://github.com/harbur/passport-digitalocean.git">https://github.com/harbur/passport-digitalocean</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>30</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>33</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

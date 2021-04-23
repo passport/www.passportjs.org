@@ -97,19 +97,19 @@
 <p>This module lets you authenticate using CRUDr in your Node.js applications.</p>
 <p>By plugging into Passport, CRUDr authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-crudr
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-crudr
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The CRUDr authentication strategy authenticates users using a CRUDr account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> OAuth2Strategy = <span class="keyword">require</span>(<span class="string">"passport-crudr"</span>).Strategy;
+<pre><code><span class="keyword">var</span> OAuth2Strategy = <span class="built_in">require</span>(<span class="string">"passport-crudr"</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> OAuth2Strategy({
-    clientID: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    callbackURL: <span class="string">"http://www.example.net/auth/crudr/callback"</span>
+passport.use(<span class="keyword">new</span> OAuth2Strategy({
+    <span class="attr">clientID</span>: CLIENT_ID,
+    <span class="attr">clientSecret</span>: CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.net/auth/crudr/callback"</span>
     },
-    <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ providerId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">providerId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
         <span class="keyword">return</span> done(err, user);
     });
     }
@@ -139,8 +139,8 @@ app.get(<span class="string">'/auth/crudr/callback'</span>,
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

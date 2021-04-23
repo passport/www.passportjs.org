@@ -105,7 +105,7 @@ integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-http-custom-bearer</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-http-custom-bearer
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Bearer authentication strategy authenticates users using a bearer
@@ -116,17 +116,17 @@ typically including associated scope, which will be set by Passport at
 control.</p>
 <p>For example, to authenticate using a custom header <code>X-APIAuth</code> (the recommended <code>X-</code> prefix is automatically added), 
 or a custom body field <code>api_token</code>, or a custom query parameter <code>api_token</code>:</p>
-<pre><code><span class="keyword">var</span> CustomBearerStrategy = <span class="keyword">require</span>(<span class="string">'passport-http-custom-bearer'</span>);
-passport.<span class="keyword">use</span>(<span class="string">'api-bearer'</span>, <span class="keyword">new</span> CustomBearerStrategy(
-  { headerName: <span class="string">'APIAuth'</span>,
-    bodyName: <span class="string">'api_token'</span>,
-    queryName: <span class="string">'api_token'</span>
+<pre><code><span class="keyword">var</span> CustomBearerStrategy = <span class="built_in">require</span>(<span class="string">'passport-http-custom-bearer'</span>);
+passport.use(<span class="string">'api-bearer'</span>, <span class="keyword">new</span> CustomBearerStrategy(
+  { <span class="attr">headerName</span>: <span class="string">'APIAuth'</span>,
+    <span class="attr">bodyName</span>: <span class="string">'api_token'</span>,
+    <span class="attr">queryName</span>: <span class="string">'api_token'</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span> </span>{
-    User.findOne({ token: token }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
+    User.findOne({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user, { scope: <span class="string">'all'</span> });
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">'all'</span> });
     });
   }
 ));
@@ -136,30 +136,30 @@ authenticate requests.  Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application for the above example strategy:</p>
-<pre><code>app.get(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'api-bearer'</span>, { session: <span class="literal">false</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-      res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
+  passport.authenticate(<span class="string">'api-bearer'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+    <span class="keyword">function</span>(req, res) {
+      res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><p>As a <a href="http://sailsjs.org/documentation/concepts/policies">policy</a> in <a href="http://sailsjs.org/">Sails</a>, 
 using the above example strategy:</p>
-<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<pre><code>var passport = require(<span class="string">'passport'</span>);
 
-<span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+module.exports = <span class="keyword">function</span>(req, res, next) {
 
   passport.authenticate(
     <span class="string">'api-bearer'</span>,
-    <span class="function"><span class="keyword">function</span>(<span class="params">err, user, info</span>)
-    </span>{
-      <span class="built_in">console</span>.log(<span class="string">"Authentication via API Bearer"</span>, info);
-      <span class="keyword">if</span> ((err) || (!user)) {
+    <span class="keyword">function</span>(err, <span class="keyword">user</span>, <span class="keyword">info</span>)
+    {
+      console.log("Authentication via API Bearer", <span class="keyword">info</span>);
+      <span class="keyword">if</span> ((err) || (!<span class="keyword">user</span>)) {
         res.send(<span class="number">401</span>);
         <span class="keyword">return</span>;
       }
-      <span class="keyword">if</span> (info &amp;&amp; info.queryName &amp;&amp; info.queryName.length) <span class="keyword">delete</span> req.query[info.queryName];
+      <span class="keyword">if</span> (<span class="keyword">info</span> &amp;&amp; <span class="keyword">info</span>.queryName &amp;&amp; <span class="keyword">info</span>.queryName.length) <span class="keyword">delete</span> req.query[<span class="keyword">info</span>.queryName];
       <span class="keyword">else</span> <span class="keyword">delete</span> req.query.access_token;
-      req.user = user;
-      <span class="keyword">return</span> next();
+      req.<span class="keyword">user</span> = <span class="keyword">user</span>;
+      <span class="keyword">return next</span>();
     }
   )(req, res);
 };
@@ -183,18 +183,18 @@ issued, this module can be used to authenticate tokens as described above.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-custom-bearer</span></code></div>
             <ul>
-              <li><span class="version">1.0.15</span> published <abbr class="updated" title="2015-09-27T07:40:59Z">5 years ago</abbr></li>
+              <li><span class="version">1.0.15</span> published <abbr class="updated" title="2015-09-27T07:40:59Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/wwwslinger/passport-http-custom-bearer.git">https://github.com/wwwslinger/passport-http-custom-bearer#readme</a></li>
             </ul>
             <ul>
               <li><b>42</b> downloads in the last day</li>
-              <li><b>259</b> downloads in the last week</li>
-              <li><b>1,150</b> downloads in the last month</li>
+              <li><b>351</b> downloads in the last week</li>
+              <li><b>1,144</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

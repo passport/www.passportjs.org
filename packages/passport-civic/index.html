@@ -100,14 +100,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-civic</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-civic
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Civic authentication strategy authenticates users using a Civic
 app.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a appId, prvKey, and appSecret.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CivicStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> CivicStrategy({
     appId: APP_ID,
     prvKey: PRIVATE_KEY,
     appSecret: <span class="string">"Something-secret"</span>
@@ -122,15 +122,15 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <p>The verify callback can be supplied with the <code>request</code> object by setting
 the <code>passReqToCallback</code> option to true, and changing callback arguments
 accordingly.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CivicStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> CivicStrategy({
     appId: APP_ID,
     prvKey: PRIVATE_KEY,
     appSecret: <span class="string">"Something-secret"</span>
-    passReqToCallback: <span class="keyword">true</span>
+    passReqToCallback: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(req, profile, done)</span> </span>{
-    <span class="comment">// request object is now first argument</span>
-    <span class="comment">// ...</span>
+  <span class="keyword">function</span>(req, profile, done) {
+    // request <span class="keyword">object</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">first</span> argument
+    // ...
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -158,14 +158,14 @@ app.get(<span class="string">'/auth/civic'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-civic</span></code></div>
             <ul>
-              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2019-05-20T14:01:08Z">a year ago</abbr></li>
+              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2019-05-20T14:01:08Z">2 years ago</abbr></li>
               <li><a class="url" href="git://github.com/SpringRole/passport-civic.git">https://github.com/SpringRole/passport-civic</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>23</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>19</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

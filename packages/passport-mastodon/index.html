@@ -96,19 +96,19 @@
 <p>Passport strategy for authenticating with Mastodon using the OAuth 2.0 API.</p>
 <p>This module lets you authenticate using Mastodon in your Node.js applications. By plugging into Passport, Mastodon authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-mastodon</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-mastodon
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-application">Create an Application</h3>
 <p>Before using passport-mastodon, you must register an application with Mastodon. If you have not already done so, a new application can be created by Mastodon REST API. Your application will be issued an app ID and app secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your application.</p>
 <p>Sample</p>
-<pre><code>$ curl -X POST -sS https://${MASTODON_HOST}/api/v1/apps \
-  -<span class="ruby">F <span class="string">"client_name=${CLIENT_NAME}"</span> \
-</span>  -<span class="ruby">F <span class="string">"redirect_uris=${CALLBACK_URL}"</span> \
-</span>  -<span class="ruby">F <span class="string">"scopes=read write"</span></span>
+<pre><code><span class="variable">$</span> curl <span class="literal">-X</span> POST <span class="literal">-sS</span> https://<span class="variable">$</span>{MASTODON_HOST}/api/v1/apps \
+  <span class="operator">-F</span> <span class="string">"client_name=<span class="variable">$</span>{CLIENT_NAME}"</span> \
+  <span class="operator">-F</span> <span class="string">"redirect_uris=<span class="variable">$</span>{CALLBACK_URL}"</span> \
+  <span class="operator">-F</span> <span class="string">"scopes=read write"</span>
 </code></pre><p>See: <a href="https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md#apps">Mastodon API overview - Apps</a></p>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Mastodom authentication strategy authenticates users using a Mastodon account and OAuth 2.0 tokens. The app ID and secret obtained when creating an application are supplied as options when creating the strategy. The strategy also requires a verify callback, which receives the access token and optional refresh token, as well as profile which contains the authenticated user&#39;s Mastodon profile. The verify callback must call cb providing a user to complete authentication.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MastodomStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> MastodomStrategy({
     clientID: MASTODON_APP_ID,
     clientSecret: MASTODON_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/mastodon/callback"</span>
@@ -135,14 +135,14 @@ app.get(<span class="string">'/auth/mastodon/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mastodon</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2017-04-26T05:06:39Z">3 years ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2017-04-26T05:06:39Z">4 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/techfeed/passport-mastodon.git">https://github.com/techfeed/passport-mastodon#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>41</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -103,12 +103,12 @@ issuance and validation.</p>
 <p><em>passport-azure-ad</em> has been tested to work with both <a href="https://azure.microsoft.com/en-us/services/active-directory/">Microsoft Azure Active Directory</a> 
 and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Microsoft Active Directory Federation Services</a>.</p>
 <h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
-<p><em>passport-azure-ad</em> has a known security vulnerability affecting versions <1.4.6 and 2.0.0. Please update to >=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
+<p><em>passport-azure-ad</em> has a known security vulnerability affecting versions &lt;1.4.6 and 2.0.0. Please update to &gt;=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
 <p>Current version - 4.0.0<br>Latest version that support&#39;s SAML and WSFED - 2.0.3
 Minimum  recommended version - 1.4.6<br>You can find the changes for each version in the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/CHANGELOG.md">change log</a>.</p>
 <h2 id="3-installation">3. Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-azure-ad</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-azure-ad
 </code></pre><h2 id="4-usage">4. Usage</h2>
 <p>This library contains two strategies: OIDCStrategy and BearerStrategy.</p>
 <p>OIDCStrategy uses OpenID Connect protocol for web application login purposes. It works in the following manner:
@@ -138,7 +138,7 @@ User sends a request to the protected web api which contains an access_token in 
     <span class="attr">nonceMaxAmount</span>: config.creds.nonceMaxAmount,
     <span class="attr">useCookieInsteadOfSession</span>: config.creds.useCookieInsteadOfSession,
     <span class="attr">cookieSameSite</span>: config.creds.cookieSameSite, <span class="comment">// boolean</span>
-    cookieEncryptionKeys: config.creds.cookieEncryptionKeys,
+    <span class="attr">cookieEncryptionKeys</span>: config.creds.cookieEncryptionKeys,
     <span class="attr">clockSkew</span>: config.creds.clockSkew,
     <span class="attr">proxy</span>: { <span class="attr">port</span>: <span class="string">'proxyport'</span>, <span class="attr">host</span>: <span class="string">'proxyhost'</span>, <span class="attr">protocol</span>: <span class="string">'http'</span> },
   },
@@ -281,7 +281,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
   try the key with the corresponding kid. If decryption fails, we will try every possible key in <code>jweKeyStore</code>. 
   The following is an example of <code>jweKeyStore</code>:</p>
 <pre><code class="lang-javascript">
-    jweKeyStore: [ 
+    <span class="attr">jweKeyStore</span>: [ 
       { <span class="string">'kid'</span>: <span class="string">'sym_key_256'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE='</span> }, 
       { <span class="string">'kid'</span>: <span class="string">'sym_key_128'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'GawgguFyGrWKav7AX4VKUg'</span>}, 
       { <span class="string">'kid'</span>: <span class="string">'sym_key_384'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v'</span>},
@@ -348,6 +348,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
           -----END RSA PRIVATE KEY-----\n'</span>;
       }
   ]
+
 </code></pre>
 <h4 id="4-1-2-use-passport-authenticate-to-protect-routes">4.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
 <p>To complete the sample, provide a route that corresponds to the path 
@@ -387,8 +388,9 @@ app.get(<span class="string">'/logout'</span>, <span class="function"><span clas
   req.logout();
   res.redirect(<span class="string">'/'</span>);
 });
+
 </code></pre>
-<h4 id="4-1-3-options-available-for-passport-authenticate-">4.1.3 Options available for <code>passport.authenticate</code></h4>
+<h4 id="4-1-3-options-available-for-passport-authenticate">4.1.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>failureRedirect</code>: the url redirected to when the authentication fails</p>
 </li>
@@ -421,11 +423,11 @@ the strategy.</p>
   passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">tenantIdOrName:</span> <span class="string">'contoso.onmicrosoft.com'</span> });
 </code></pre><h4 id="4-1-4-session-free-support">4.1.4 Session free support</h4>
 <p>Passport framework uses session to keep a persistent login session. As a plug in, we also use session to store state and nonce by default, regardless whether you use { session: false } option in passport.authenticate or not. To be completely session free, you must configure passport-azure-ad to create state/nonce cookie instead of saving them in session. Please follow the following example:</p>
-<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> OIDCStrategy({
+<pre><code>  passport.use(<span class="keyword">new</span> OIDCStrategy({
     ...
     nonceLifetime: <span class="number">600</span>,  <span class="comment">// state/nonce cookie expiration in seconds</span>
     nonceMaxAmount: <span class="number">5</span>,   <span class="comment">// max amount of state/nonce cookie you want to keep (cookie is deleted after validation so this can be very small)</span>
-    useCookieInsteadOfSession: <span class="keyword">true</span>,  <span class="comment">// use cookie, not session</span>
+    useCookieInsteadOfSession: <span class="literal">true</span>,  <span class="comment">// use cookie, not session</span>
     cookieEncryptionKeys: [ { key: <span class="string">'12345678901234567890123456789012'</span>, <span class="string">'iv'</span>: <span class="string">'123456789012'</span> }],  <span class="comment">// encrypt/decrypt key and iv, see `cookieEncryptionKeys` instruction in section 5.1.1.2</span>
   },
     <span class="comment">// any supported verify callback</span>
@@ -433,7 +435,8 @@ the strategy.</p>
     ...
   });
 
-  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { session: <span class="keyword">false</span> }));
+  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { session: <span class="literal">false</span> }));
+
 </code></pre><h3 id="4-2-bearerstrategy">4.2 BearerStrategy</h3>
 <h4 id="4-2-1-configure-strategy-and-provide-callback-function">4.2.1 Configure strategy and provide callback function</h4>
 <h5 id="4-2-1-1-sample-using-the-bearerstrategy">4.2.1.1 Sample using the BearerStrategy</h5>
@@ -505,7 +508,7 @@ https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp
 <p>Required to set to true if you are using B2C tenant.</p>
 </li>
 <li><p><code>policyName</code>  (Conditional)</p>
-<p>Required if you are using B2C tenant. It is a string starting with &#39;B2C<em>1</em>&#39; (case insensitive).</p>
+<p>Required if you are using B2C tenant. It is a string starting with &#39;B2C_1_&#39; (case insensitive).</p>
 </li>
 <li><p><code>validateIssuer</code>  (Conditional)</p>
 <p>Required to set to false if you don&#39;t want to validate issuer, default value is true. We validate the <code>iss</code> claim in id_token against user provided <code>issuer</code> values and the issuer value we get from tenant-specific endpoint. If you use common endpoint for <code>identityMetadata</code> and you want to validate issuer, then you must provide <code>issuer</code>, or provide <code>tenantIdOrName</code> in passport.authenticate.</p>
@@ -546,7 +549,7 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 <p>In the following example, we are using passport to protect &#39;/api/tasks&#39;. User sends a GET request to &#39;/api/tasks&#39; with access_token in authorization header or body. Passport validates the access_token, adds the related claims from access_token to <code>req.user</code>, and passes the request to listTasks middleware. The listTasks middleware can then read the user information in <code>req.user</code> and list all the tasks related to this user. Note that we do authentication every time, so we don&#39;t need to keep this user in session, and this can be achieved  by using <code>session: false</code> option.</p>
 <pre><code class="lang-javascript">  server.get(<span class="string">'/api/tasks'</span>, passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
 </code></pre>
-<h4 id="4-2-3-options-available-for-passport-authenticate-">4.2.3 Options available for <code>passport.authenticate</code></h4>
+<h4 id="4-2-3-options-available-for-passport-authenticate">4.2.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</p>
 </li>
@@ -621,7 +624,7 @@ tutorials for native clients such as Windows, Windows Phone, iOS, OSX, Android,
 and Linux. We also provide full walkthroughs for authentication flows such as 
 OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <p>Azure Identity samples for this plug-in can be found in the following links:</p>
-<h3 id="7-1-samples-for-openid-connect-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-oidcstrategy-js-">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
+<h3 id="7-1-samples-for-openid-connect-strategy">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -630,7 +633,7 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h3 id="7-2-samples-for-bearer-strategy-https-github-com-azuread-passport-azure-ad-blob-master-lib-bearerstrategy-js-">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
+<h3 id="7-2-samples-for-bearer-strategy">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebAPI-Bearer-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -660,14 +663,14 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">4.3.0</span> published <abbr class="updated" title="2020-09-10T23:23:54Z">21 days ago</abbr></li>
+              <li><span class="version">4.3.0</span> published <abbr class="updated" title="2020-09-10T23:23:54Z">7 months ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/AzureAD/passport-azure-ad.git">https://github.com/AzureAD/passport-azure-ad#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>8,394</b> downloads in the last day</li>
-              <li><b>45,689</b> downloads in the last week</li>
-              <li><b>218,526</b> downloads in the last month</li>
+              <li><b>9,554</b> downloads in the last day</li>
+              <li><b>50,800</b> downloads in the last week</li>
+              <li><b>205,079</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

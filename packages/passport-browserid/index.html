@@ -111,14 +111,14 @@ developed by <a href="http://www.mozilla.org/">Mozilla</a>.  It is commonly asso
 implementation of BrowserID.  This strategy performs local verification of
 assertions, delivering on BrowserID&#39;s promise of ensuring user privacy.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-browserid</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-browserid
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The BrowserID authentication strategy authenticates users using an assertion of
 email address ownership, obtained via the BrowserID JavaScript API.  The
 strategy requires a <code>verify</code> callback, which accepts an email address and calls
 <code>cb</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BrowserIDStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> BrowserIDStrategy({
     audience: <span class="string">'http://www.example.com'</span>
   },
   <span class="function"><span class="keyword">function</span><span class="params">(email, cb)</span> </span>{
@@ -180,7 +180,7 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2016 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2016 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-browserid</span></code></div>
@@ -190,9 +190,9 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>20</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>28</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

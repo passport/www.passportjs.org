@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-dropbox-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-dropbox-oauth2
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Dropbox authentication strategy authenticates users using a Dropbox account
@@ -109,7 +109,7 @@ and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, whi
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a API version, client ID, client secret, and callback URL. The library
 defaults to version 1 of Dropbox&#39;s API.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> DropboxOAuth2Strategy({
+<pre><code>passport.use(<span class="keyword">new</span> DropboxOAuth2Strategy({
     apiVersion: <span class="string">'2'</span>,
     clientID: DROPBOX_CLIENT_ID,
     clientSecret: DROPBOX_CLIENT_SECRET,
@@ -148,13 +148,13 @@ app.get(<span class="string">'/auth/dropbox/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dropbox-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2017-10-21T06:58:01Z">3 years ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2017-10-21T06:58:01Z">4 years ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/florianheinemann/passport-dropbox-oauth2.git">https://github.com/florianheinemann/passport-dropbox-oauth2#readme</a></li>
             </ul>
             <ul>
-              <li><b>201</b> downloads in the last day</li>
-              <li><b>1,041</b> downloads in the last week</li>
-              <li><b>4,907</b> downloads in the last month</li>
+              <li><b>225</b> downloads in the last day</li>
+              <li><b>1,317</b> downloads in the last week</li>
+              <li><b>5,703</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

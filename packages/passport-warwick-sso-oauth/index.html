@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-warwick-sso-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-warwick-sso-oauth
 </code></pre><h2 id="usage-of-oauth-1-0">Usage of OAuth 1.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Warwick SSO OAuth 1.0 authentication strategy authenticates users using a University of Warwick
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> WarwickSSOStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> WarwickSSOStrategy({
     consumerKey: WARWICK_SSO_CONSUMER_KEY,
     consumerSecret: WARWICK_SSO_CONSUMER_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/warwick-sso/callback"</span>
@@ -147,18 +147,18 @@ app.get(<span class="string">'/auth/warwick-sso/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 University of Warwick <a href="[http://warwick.ac.uk/webteam](http://warwick.ac.uk/webteam)">[http://warwick.ac.uk/webteam](http://warwick.ac.uk/webteam)</a></p>
+<p>Copyright (c) 2013 University of Warwick &lt;<a href="http://warwick.ac.uk/webteam">http://warwick.ac.uk/webteam</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-warwick-sso-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2015-09-17T12:06:51Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2015-09-17T12:06:51Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/UniversityofWarwick/passport-warwick-sso-oauth.git">https://github.com/UniversityofWarwick/passport-warwick-sso-oauth</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

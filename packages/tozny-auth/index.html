@@ -109,7 +109,7 @@ strategy:</p>
   , tozny    = <span class="keyword">require</span>(<span class="string">'tozny-auth'</span>);
 
 <span class="keyword">var</span> realm = <span class="keyword">new</span> tozny.Realm(realmKeyId, realmSecret, apiUrl);
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> tozny.Strategy(realm));
+passport.<span class="keyword">use</span>(<span class="title">new</span> <span class="title">tozny</span>.<span class="title">Strategy</span>(<span class="title">realm</span>));
 </code></pre><p>Then create a login handler using passport:</p>
 <pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">'/login'</span>,
   passport.authenticate(<span class="string">'tozny'</span>, {
@@ -147,13 +147,13 @@ To run the complete test suite, set these environment variables:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">tozny-auth</span></code></div>
             <ul>
-              <li><span class="version">1.3.2</span> published <abbr class="updated" title="2016-09-09T19:30:19Z">4 years ago</abbr></li>
+              <li><span class="version">1.3.2</span> published <abbr class="updated" title="2016-09-09T19:30:19Z">5 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/tozny/sdk-node.git">https://github.com/tozny/sdk-node</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>30</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

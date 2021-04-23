@@ -92,7 +92,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-client-certificate-npm-npm-image-npm-url-circle-circle-image-circle-url-coveralls-coveralls-image-coveralls-url-">passport-client-certificate <a href="https://npmjs.org/package/passport-client-certificate"><img src="https://img.shields.io/npm/v/passport-client-certificate.svg?style=flat" alt="npm"></a> <a href="https://circleci.com/gh/ripple/passport-client-certificate"><img src="https://circleci.com/gh/ripple/passport-client-certificate.svg?style=shield" alt="circle"></a> <a href="https://coveralls.io/r/ripple/passport-client-certificate?branch=master"><img src="https://coveralls.io/repos/ripple/passport-client-certificate/badge.svg?branch=master" alt="coveralls"></a></h1>
+          <div class="description"><h1 id="passport-client-certificate-npm-circle-coveralls">passport-client-certificate <a href="https://npmjs.org/package/passport-client-certificate"><img src="https://img.shields.io/npm/v/passport-client-certificate.svg?style=flat" alt="npm"></a> <a href="https://circleci.com/gh/ripple/passport-client-certificate"><img src="https://circleci.com/gh/ripple/passport-client-certificate.svg?style=shield" alt="circle"></a> <a href="https://coveralls.io/r/ripple/passport-client-certificate?branch=master"><img src="https://coveralls.io/repos/ripple/passport-client-certificate/badge.svg?branch=master" alt="coveralls"></a></h1>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating using client
 certificates.</p>
 <p>This module lets you authenticate using client certificates in Node.js
@@ -114,7 +114,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
   an exception occured, <code>err</code> should be set.</p>
 <p>  Options:</p>
 <pre><code>- `passReqToCallback`  when `true`, `req` is the first argument to the
-<span class="symbol">   verify callback (default:</span> `false`)
+<span class="title">   verify callback (default:</span> `false`)
 </code></pre><p>  Examples:</p>
 <pre><code class="lang-javascript">  passport.use(<span class="keyword">new</span> ClientCertStrategy(
     <span class="function"><span class="keyword">function</span> (<span class="params">certificate, done</span>) </span>{
@@ -131,6 +131,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
           done(<span class="literal">null</span>, userObj)
         })
     }))
+
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;client-cert&#39;</code> strategy, to
@@ -159,9 +160,9 @@ $ npm <span class="built_in">test</span>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>55</b> downloads in the last day</li>
-              <li><b>151</b> downloads in the last week</li>
-              <li><b>472</b> downloads in the last month</li>
+              <li><b>38</b> downloads in the last day</li>
+              <li><b>187</b> downloads in the last week</li>
+              <li><b>751</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

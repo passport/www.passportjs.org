@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-makerpass</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-makerpass
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Makerpass authentication strategy authenticates users using a Makerpass account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MakerpassStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> MakerpassStrategy({
     clientID: process.env.MAKERPASS_CLIENT_ID,
     clientSecret: process.env.MAKERPASS_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/makerpass/callback"</span>
@@ -151,9 +151,9 @@ app.get(<span class="string">'/auth/makerpass/callback'</span>,
               <li><a class="url" href="git+ssh://git@github.com/makerpass/passport-makerpass.git">https://github.com/makerpass/passport-makerpass#readme</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

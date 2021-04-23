@@ -98,7 +98,8 @@
 <p><a href="https://travis-ci.org/auth0/passport-auth0"><img src="https://travis-ci.org/auth0/passport-auth0.svg?branch=master" alt="Build Status"></a>
 <a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/v/passport-auth0" alt="npm"></a>
 <a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/dm/passport-auth0" alt="npm"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="http://img.shields.io/:license-mit-blue.svg?style=flat" alt="License"></a></p>
+<a href="https://opensource.org/licenses/MIT"><img src="http://img.shields.io/:license-mit-blue.svg?style=flat" alt="License"></a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0.svg?type=shield" alt="FOSSA Status"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#documentation">Documentation</a></li>
@@ -118,7 +119,7 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p>The Auth0 Passport strategy is installed with npm. </p>
-<pre><code>npm <span class="keyword">install</span> passport-auth0
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-auth0
 </code></pre><h2 id="customization">Customization</h2>
 <h3 id="state-parameter">State parameter</h3>
 <p>The Auth0 Passport strategy enforces the use of the <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
@@ -126,7 +127,7 @@
 <pre><code class="lang-js"><span class="keyword">const</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>);
 <span class="keyword">const</span> strategy = <span class="keyword">new</span> Auth0Strategy({
      <span class="comment">// ...</span>
-     state: <span class="literal">false</span>
+     <span class="attr">state</span>: <span class="literal">false</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) </span>{
     <span class="comment">// ...</span>
@@ -206,18 +207,19 @@
 <p><a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
 <h2 id="license">License</h2>
 <p>This project is licensed under the MIT license. See the <a href="LICENSE">LICENSE</a> file for more info.</p>
+<p><a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0?ref=badge_large"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0.svg?type=large" alt="FOSSA Status"></a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth0</span></code></div>
             <ul>
-              <li><span class="version">1.3.3</span> published <abbr class="updated" title="2020-08-31T20:29:49Z">a month ago</abbr></li>
+              <li><span class="version">1.4.0</span> published <abbr class="updated" title="2021-04-21T22:14:50Z">a day ago</abbr></li>
               <li><a class="url" href="git://github.com/auth0/passport-auth0.git">https://github.com/auth0/passport-auth0#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>5,066</b> downloads in the last day</li>
-              <li><b>33,340</b> downloads in the last week</li>
-              <li><b>136,139</b> downloads in the last month</li>
+              <li><b>5,034</b> downloads in the last day</li>
+              <li><b>29,787</b> downloads in the last week</li>
+              <li><b>145,945</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -99,7 +99,7 @@
 </blockquote>
 <p>This module lets you authenticate using Telegram in your Node.js applications. By plugging into Passport, Telegram authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-telegram</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-telegram
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="getting-credentials">Getting credentials</h4>
 <p>First of all you need to sign in to <a href="https://telepass.me">telepass.me</a>, register your application and obtain the <code>APP_ID</code> and <code>APP_SECRET</code>.</p>
@@ -118,7 +118,7 @@
     <span class="keyword">new</span> TelegramStrategy({
         <span class="attr">clientID</span>: <span class="string">'123-456-789'</span>,
         <span class="attr">clientSecret</span>: <span class="string">'shhh-its-a-secret'</span>
-        callbackURL: <span class="string">'https://www.example.net/auth/telegram/callback'</span>
+        <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/telegram/callback'</span>
     },
     <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
         User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -175,13 +175,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-telegram</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2016-10-01T01:14:38Z">4 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2016-10-01T01:14:38Z">5 years ago</abbr></li>
               <li><a class="url" href="git://github.com/TelegramPassport/passport-js.git">https://github.com/TelegramPassport/passport-js#readme</a></li>
             </ul>
             <ul>
-              <li><b>41</b> downloads in the last day</li>
-              <li><b>241</b> downloads in the last week</li>
-              <li><b>1,009</b> downloads in the last month</li>
+              <li><b>57</b> downloads in the last day</li>
+              <li><b>225</b> downloads in the last week</li>
+              <li><b>812</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -113,10 +113,10 @@
     })
   }))
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
-<pre><code>app.<span class="built_in">get</span>(<span class="string">'/private'</span>,
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>,
   passport.authenticate(<span class="string">'http-signature'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    <span class="keyword">res</span>.json(req.user)
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>)
   })
 </code></pre><h2 id="license">License</h2>
 <p><a href="https://opensource.org/licenses/ISC">MIT</a></p>
@@ -131,7 +131,7 @@
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

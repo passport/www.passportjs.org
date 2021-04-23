@@ -137,7 +137,7 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
         <span class="attr">msg</span> : {
           <span class="attr">text</span>    : <span class="string">'Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid='</span>,
           <span class="attr">html</span>    : <span class="string">'&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;'</span>
-          subject : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
+          <span class="attr">subject</span> : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
         }
       }
     }
@@ -148,21 +148,21 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
 <pre><code class="lang-javascript">  {
     <span class="comment">//If this property will be set to true, each authentication request generates a new passwordless instance to handle multiple and dynamic configurations</span>
     <span class="comment">//If it's set to false, the passwordless instance will be created by instantiating the strategy</span>
-    dynamicConfig : <span class="literal">false</span>,
+    <span class="attr">dynamicConfig</span> : <span class="literal">false</span>,
 
     <span class="comment">//all passwordless internal parameters, that are used to parse the request query object</span>
-    userField     : <span class="string">'user'</span>,
+    <span class="attr">userField</span>     : <span class="string">'user'</span>,
     <span class="attr">tokenField</span>    : <span class="string">'tokenField'</span>,
     <span class="attr">uidField</span>      : <span class="string">'uidField'</span>,
     <span class="attr">deliveryField</span> : <span class="string">'delivery'</span>,
     <span class="attr">originField</span>   : <span class="literal">null</span>,
 
     <span class="comment">//token relevant parameters</span>
-    allowTokenReuse : <span class="literal">true</span>,
+    <span class="attr">allowTokenReuse</span> : <span class="literal">true</span>,
     <span class="attr">tokenLifeTime</span>   : <span class="number">1000</span> * <span class="number">60</span> * <span class="number">10</span>,
 
     <span class="comment">//specify maximal token length</span>
-    maxTokenLength : <span class="number">16</span>,
+    <span class="attr">maxTokenLength</span> : <span class="number">16</span>,
 
     <span class="comment">//If you want to create your own token type use this function, to use your own algorithm. </span>
     <span class="comment">//tokenAlgorithm : function() {</span>
@@ -175,7 +175,7 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
     <span class="comment">//internally it looks like the following code :</span>
     <span class="comment">//  var store = require(this.options.store);</span>
     <span class="comment">//  store.call(this.options.store.config);</span>
-    store : {
+    <span class="attr">store</span> : {
       <span class="attr">path</span>   : __dirname + <span class="string">'/node_modules/passwordless-redis'</span>,
       <span class="attr">config</span> : [
         <span class="number">6379</span>,
@@ -200,7 +200,7 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
     <span class="comment">//      callback(err);</span>
     <span class="comment">//    };</span>
     <span class="comment">//  }</span>
-    delivery : {
+    <span class="attr">delivery</span> : {
       <span class="attr">type</span> : <span class="string">'emailjs'</span>,
       <span class="attr">allowGet</span> : <span class="literal">true</span>,
 
@@ -222,11 +222,11 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
         <span class="comment">//   recipient   : recipient,</span>
         <span class="comment">//   req         : req </span>
         <span class="comment">// }</span>
-        msg : {
+        <span class="attr">msg</span> : {
           <span class="attr">text</span>    : <span class="string">'Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid='</span>,
           <span class="comment">//a html property was added by my self, to be able add html body automatically to the configuration</span>
-          html    : <span class="string">'&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;'</span>
-          subject : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
+          <span class="attr">html</span>    : <span class="string">'&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;'</span>
+          <span class="attr">subject</span> : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
         }
       }
     },
@@ -234,7 +234,7 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
     <span class="comment">//is used to check if an user is authorized to request a token</span>
     <span class="comment">//call the callback with an error and an user object (user object needs an parameter called "id" to specify it's email adress, sms, ...)</span>
     <span class="comment">//the default access functions contains the following function</span>
-    access : <span class="function"><span class="keyword">function</span>(<span class="params">user, callback</span>) </span>{
+    <span class="attr">access</span> : <span class="function"><span class="keyword">function</span>(<span class="params">user, callback</span>) </span>{
       callback(<span class="literal">null</span>, user);
     }
   }
@@ -249,13 +249,13 @@ Copyright © 2016 <copyright holders></p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-passwordless</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2016-04-11T09:59:44Z">4 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2016-04-11T09:59:44Z">5 years ago</abbr></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>5</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last day</li>
               <li><b>18</b> downloads in the last week</li>
-              <li><b>89</b> downloads in the last month</li>
+              <li><b>81</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

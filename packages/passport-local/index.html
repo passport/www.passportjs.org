@@ -106,19 +106,19 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-local</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-local
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The local authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LocalStrategy(
-  <span class="keyword">function</span>(username, password, <span class="keyword">done</span>) {
-    User.findOne({ username: username }, <span class="keyword">function</span> (err, user) {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">if</span> (!user.verifyPassword(password)) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+<pre><code>passport.use(<span class="built_in">new</span> LocalStrategy(
+  <span class="keyword">function</span>(username, <span class="keyword">password</span>, done) {
+    <span class="keyword">User</span>.findOne({ username: username }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
+      <span class="keyword">if</span> (!<span class="keyword">user</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">if</span> (!<span class="keyword">user</span>.verifyPassword(<span class="keyword">password</span>)) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
     });
   }
 ));
@@ -143,18 +143,18 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2014 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2014 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-local</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-08-03T00:34:26Z">2 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2018-08-03T00:34:26Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-local.git"></a></li>
             </ul>
             <ul>
-              <li><b>65,075</b> downloads in the last day</li>
-              <li><b>351,057</b> downloads in the last week</li>
-              <li><b>1,551,792</b> downloads in the last month</li>
+              <li><b>79,242</b> downloads in the last day</li>
+              <li><b>444,152</b> downloads in the last week</li>
+              <li><b>1,871,359</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

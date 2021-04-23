@@ -97,10 +97,10 @@
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://http://www.desk.com//">Desk</a>
 using the OAuth 1.0a API.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-deskcom</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-deskcom
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code>passport.<span class="keyword">use</span>(
+<pre><code>passport.use(
     <span class="keyword">new</span> DeskcomStrategy(
         {
             consumerKey: DESKCOM_CONSUMER_KEY,
@@ -110,7 +110,7 @@ using the OAuth 1.0a API.</p>
         },
         <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
             process.nextTick(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
-                <span class="keyword">return</span> done(<span class="keyword">null</span>, profile);
+                <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
             });
         }
     )
@@ -164,7 +164,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>

@@ -93,13 +93,14 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-saml">Passport-SAML</h1>
-<p><a href="https://travis-ci.org/bergie/passport-saml"><img src="https://travis-ci.org/bergie/passport-saml.svg?branch=master" alt="Build Status"></a> <a href="https://badge.fury.io/gh/node-saml%2Fpassport-saml"><img src="https://badge.fury.io/gh/node-saml%2Fpassport-saml.svg" alt="GitHub version"></a> <a href="http://badge.fury.io/js/passport-saml"><img src="https://badge.fury.io/js/passport-saml.svg" alt="npm version"></a> <a href="https://nodei.co/npm/passport-saml/"><img src="https://nodei.co/npm/passport-saml.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<p><a href="https://github.com/node-saml/passport-saml/actions?query=workflow%3ABuild%Status"><img src="https://github.com/node-saml/passport-saml/workflows/Build%20Status/badge.svg" alt="Build Status"></a> <a href="https://badge.fury.io/gh/node-saml%2Fpassport-saml"><img src="https://badge.fury.io/gh/node-saml%2Fpassport-saml.svg" alt="GitHub version"></a> <a href="http://badge.fury.io/js/passport-saml"><img src="https://badge.fury.io/js/passport-saml.svg" alt="npm version"></a> <a href="https://nodei.co/npm/passport-saml/"><img src="https://nodei.co/npm/passport-saml.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a> <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier"></a></p>
 <p>This is a <a href="http://en.wikipedia.org/wiki/SAML_2.0">SAML 2.0</a> authentication provider for <a href="http://passportjs.org/">Passport</a>, the Node.js authentication library.</p>
 <p>The code was originally based on Michael Bosworth&#39;s <a href="https://github.com/bozzltron/express-saml">express-saml</a> library.</p>
 <p>Passport-SAML has been tested to work with Onelogin, Okta, Shibboleth, <a href="http://simplesamlphp.org/">SimpleSAMLphp</a> based Identity Providers, and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Active Directory Federation Services</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-saml</span>
-</code></pre><h2 id="usage">Usage</h2>
+<pre><code>$ npm install pass<span class="keyword">port</span>-saml
+</code></pre><p>/</p>
+<h2 id="usage">Usage</h2>
 <p>The examples utilize the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
 <h3 id="configure-strategy">Configure strategy</h3>
 <p>The SAML identity provider will redirect you to the URL provided by the <code>path</code> configuration.</p>
@@ -130,7 +131,7 @@ passport.use(<span class="keyword">new</span> SamlStrategy(
 passport.use(<span class="keyword">new</span> MultiSamlStrategy(
   {
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>, <span class="comment">//makes req available in callback</span>
-    getSamlOptions: <span class="function"><span class="keyword">function</span>(<span class="params">request, done</span>) </span>{
+    <span class="attr">getSamlOptions</span>: <span class="function"><span class="keyword">function</span>(<span class="params">request, done</span>) </span>{
       findProvider(request, <span class="function"><span class="keyword">function</span>(<span class="params">err, provider</span>) </span>{
         <span class="keyword">if</span> (err) {
           <span class="keyword">return</span> done(err);
@@ -186,7 +187,7 @@ You can override these defaults by passing a new value through the <code>getSaml
 <li><code>issuer</code>: issuer string to supply to identity provider</li>
 <li><code>audience</code>: expected saml response Audience (if not provided, Audience won&#39;t be verified)</li>
 <li><code>cert</code>: the IDP&#39;s public signing certificate used to validate the signatures of the incoming SAML Responses, see <a href="#security-and-signatures">Security and signatures</a></li>
-<li><code>privateCert</code>: see <a href="#security-and-signatures">Security and signatures</a></li>
+<li><code>privateKey</code>: see <a href="#security-and-signatures">Security and signatures</a>. Old name of <code>privateCert</code> is accepted alternative.</li>
 <li><code>decryptionPvk</code>: optional private key that will be used to attempt to decrypt any encrypted assertions that are received</li>
 <li><code>signatureAlgorithm</code>: optionally set the signature algorithm for signing requests, valid values are &#39;sha1&#39; (default), &#39;sha256&#39;, or &#39;sha512&#39;</li>
 <li><code>digestAlgorithm</code>: optionally set the digest algorithm used to provide a digest for the signed data object, valid values are &#39;sha1&#39; (default), &#39;sha256&#39;, or &#39;sha512&#39;</li>
@@ -210,6 +211,24 @@ You can override these defaults by passing a new value through the <code>getSaml
 <li><code>skipRequestCompression</code>: if set to true, the SAML request from the service provider won&#39;t be compressed.</li>
 <li><code>authnRequestBinding</code>: if set to <code>HTTP-POST</code>, will request authentication from IDP via HTTP POST binding, otherwise defaults to HTTP Redirect</li>
 <li><code>disableRequestACSUrl</code>: if truthy, SAML AuthnRequest from the service provider will not include the optional AssertionConsumerServiceURL. Default is falsy so it is automatically included.</li>
+<li><code>scoping</code>: An optional configuration which implements the functionality <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">explained in the SAML spec paragraph &quot;3.4.1.2 Element <Scoping>&quot;</a>. The config object is structured as following:<pre><code class="lang-javascript">{
+<span class="attr">idpList</span>: [ <span class="comment">// optional</span>
+{ 
+ <span class="attr">entries</span>: [ <span class="comment">// required</span>
+   {
+     <span class="attr">providerId</span>: <span class="string">'yourProviderId'</span>, <span class="comment">// required for each entry</span>
+     <span class="attr">name</span>: <span class="string">'yourName'</span>, <span class="comment">// optional</span>
+     <span class="attr">loc</span>: <span class="string">'yourLoc'</span>, <span class="comment">// optional</span>
+   }
+ ],
+ <span class="attr">getComplete</span>: <span class="string">'URI to your complete IDP list'</span>, <span class="comment">// optional</span>
+},
+],
+<span class="attr">proxyCount</span>: <span class="number">2</span>, <span class="comment">// optional</span>
+<span class="attr">requesterId</span>: <span class="string">'requesterId'</span>, <span class="comment">// optional</span>
+}
+</code></pre>
+</li>
 </ul>
 </li>
 <li><strong>InResponseTo Validation</strong><ul>
@@ -224,8 +243,8 @@ You can override these defaults by passing a new value through the <code>getSaml
 </li>
 <li><strong>Passport</strong><ul>
 <li><code>passReqToCallback</code>: if truthy, <code>req</code> will be passed as the first argument to the verify callback (default: <code>false</code>)</li>
-<li><code>name</code>: Optionally, provide a custom name. (default: <code>saml</code>). Useful If you want to instantiate the strategy multiple times with different configurations,<pre><code>   allowing users to authenticate against multiple different SAML targets from the same site. You'll need to <span class="keyword">use</span> a <span class="keyword">unique</span> <span class="keyword">set</span> <span class="keyword">of</span> URLs
-   <span class="keyword">for</span> <span class="keyword">each</span> target, <span class="keyword">and</span> <span class="keyword">use</span> this custom <span class="keyword">name</span> <span class="keyword">when</span> <span class="keyword">calling</span> <span class="string">`passport.authenticate()`</span> <span class="keyword">as</span> well.
+<li><code>name</code>: Optionally, provide a custom name. (default: <code>saml</code>). Useful If you want to instantiate the strategy multiple times with different configurations,<pre><code>   allowing<span class="built_in"> users </span><span class="keyword">to</span> authenticate against multiple different SAML targets <span class="keyword">from</span> the same site. You<span class="string">'ll need to use a unique set of URLs
+   for each target, and use this custom name when calling `passport.authenticate()` as well.</span>
 </code></pre></li>
 </ul>
 </li>
@@ -277,31 +296,33 @@ app.post(<span class="string">'/login/callback'</span>,
 <p>To select hashing algorithm, use:</p>
 <pre><code class="lang-js">...
   signatureAlgorithm: <span class="string">'sha1'</span> <span class="comment">// (default, but not recommended anymore these days)</span>
-  signatureAlgorithm: <span class="string">'sha256'</span>, <span class="comment">// (preffered - your IDP should support it, otherwise think about upgrading it)</span>
-  signatureAlgorithm: <span class="string">'sha512'</span> <span class="comment">// (most secure - check if your IDP supports it)</span>
+  <span class="attr">signatureAlgorithm</span>: <span class="string">'sha256'</span>, <span class="comment">// (preferred - your IDP should support it, otherwise think about upgrading it)</span>
+  <span class="attr">signatureAlgorithm</span>: <span class="string">'sha512'</span> <span class="comment">// (most secure - check if your IDP supports it)</span>
 ...
 </code></pre>
-<p>To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key.</p>
-<p>Formats supported for <code>privateCert</code> field are,</p>
+<p>To sign them you need to provide a private key in the PEM format via the <code>privateKey</code> configuration key.</p>
+<p>Formats supported for <code>privateKey</code> field are,</p>
 <ol>
 <li>Well formatted PEM:</li>
 </ol>
 <pre><code>-----BEGIN <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
 &lt;<span class="keyword">private</span> <span class="keyword">key</span> contents here delimited at <span class="number">64</span> characters per row&gt;
 -----<span class="keyword">END</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+
 </code></pre><pre><code>-----BEGIN RSA <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
 &lt;<span class="keyword">private</span> <span class="keyword">key</span> contents here delimited at <span class="number">64</span> characters per row&gt;
 -----<span class="keyword">END</span> RSA <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span>-----
+
 </code></pre><p>(both versions work)
 See example from tests of the first version of <a href="test/static/acme_tools_com.key">well formatted private key</a>.</p>
-<ol>
+<ol start="2">
 <li>Alternativelly a single line private key without start/end lines where all rows are joined into single line:</li>
 </ol>
 <p>See example from tests of <a href="test/static/singleline_acme_tools_com.key">singleline private key</a>.</p>
 <p>Add it to strategy options like this:</p>
 <pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./privateCert.pem'</span>, <span class="string">'utf-8'</span>)
 </code></pre>
-<p>It is a good idea to validate the signatures of the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 signing certificate using the <code>cert</code> confguration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
+<p>It is a good idea to validate the signatures of the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 signing certificate using the <code>cert</code> configuration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
 <pre><code class="lang-javascript">    cert: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>
 </code></pre>
 <p>If you have a certificate in the binary DER encoding, you can convert it to the necessary PEM encoding like this:</p>
@@ -390,14 +411,14 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml</span></code></div>
             <ul>
-              <li><span class="version">1.3.5</span> published <abbr class="updated" title="2020-09-16T16:43:09Z">15 days ago</abbr></li>
+              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2021-03-19T20:43:44Z">a month ago</abbr></li>
               <li><a class="url" href="git+https://github.com/node-saml/passport-saml.git">https://github.com/node-saml/passport-saml#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>16,345</b> downloads in the last day</li>
-              <li><b>82,707</b> downloads in the last week</li>
-              <li><b>355,245</b> downloads in the last month</li>
+              <li><b>21,316</b> downloads in the last day</li>
+              <li><b>106,009</b> downloads in the last week</li>
+              <li><b>438,586</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

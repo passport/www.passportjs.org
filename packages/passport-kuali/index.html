@@ -95,7 +95,7 @@
           <div class="description"><h1 id="passport-kuali">passport-kuali</h1>
 <p>A Passport Strategy for Kuali Services.</p>
 <h1 id="installation">Installation</h1>
-<pre><code>npm <span class="keyword">install</span> passport passport-kuali
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span> passport-kuali
 </code></pre><h1 id="usage">Usage</h1>
 <pre><code class="lang-js"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
 <span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
@@ -104,7 +104,7 @@
 passport.use(<span class="keyword">new</span> KualiStrategy())
 <span class="keyword">const</span> requireUser = passport.authenticate(<span class="string">'kuali'</span>, {
   <span class="attr">session</span>: <span class="literal">false</span>, <span class="comment">// Enable if you are using sessions</span>
-  failWithError: <span class="literal">true</span> <span class="comment">// This is enabled to pass whatever error happens to the express error handling middleware</span>
+  <span class="attr">failWithError</span>: <span class="literal">true</span> <span class="comment">// This is enabled to pass whatever error happens to the express error handling middleware</span>
 })
 
 <span class="keyword">const</span> app = express()
@@ -115,7 +115,7 @@ app.get(<span class="string">'/me'</span>, requireUser, (req, res, next) =&gt; {
 })
 </code></pre>
 <h1 id="api">API</h1>
-<h2 id="-new-kualistrategy-options-"><code>new KualiStrategy(options)</code></h2>
+<h2 id="new-kualistrategy-options-"><code>new KualiStrategy(options)</code></h2>
 <p>Creates a new Kuali Strategy to be used in passport.</p>
 <ul>
 <li><p><code>options.getUserEndpoint</code> - A function that takes in the express request and
@@ -200,9 +200,9 @@ the <code>&#39;kuali&#39;</code> portion of the <code>passport.authenticate()</c
               <li><a rel="licence" href="http://www.gnu.org/licenses/agpl.txt">GNU Affero General Public License v3.0</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

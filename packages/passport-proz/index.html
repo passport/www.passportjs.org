@@ -95,21 +95,21 @@
           <div class="description"><h1 id="passport-proz">Passport-Proz</h1>
 <p>Node.js <a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating with <a href="http://www.proz.com">Proz.com</a> using the OAuth 2.0 API.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-proz</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-proz
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Proz authentication strategy authenticates users using their Proz.com account
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ProzPassportStrategy({
+<pre><code>passport.use(<span class="built_in">new</span> ProzPassportStrategy({
     clientID: PROZ_CLIENT_ID,
     clientSecret: PROZ_CLIENT_SERVER,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/proz/callback"</span>
+    callbackURL: "http://127.0.0.1:3000/auth/proz/callback"
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ uuid: profile.uuid }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    <span class="keyword">User</span>.findOrCreate({ <span class="type">uuid</span>: profile.uuid }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
+      <span class="keyword">return</span> done(err, <span class="keyword">user</span>);
     });
   }
 ));
@@ -155,13 +155,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-proz</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2017-04-27T06:47:53Z">3 years ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2017-04-27T06:47:53Z">4 years ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/codervince/passport-proz.git">https://github.com/codervince/passport-proz#readme</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

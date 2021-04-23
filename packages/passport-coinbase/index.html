@@ -100,46 +100,78 @@ By plugging into Passport, Coinbase authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
+<p><a href="https://www.npmjs.com/package/passport-coinbase"><img src="https://img.shields.io/npm/v/passport-coinbase.svg" alt="npm"></a>
+<img src="https://github.com/rggammon/passport-coinbase/workflows/Node.js%20CI/badge.svg" alt="CI"></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-coinbase</span>
-</code></pre><h2 id="usage">Usage</h2>
+<pre><code class="lang-bash">$ npm install passport-coinbase
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h4 id="create-an-application">Create an Application</h4>
+<p>Before using <code>passport-coinbase</code>, you must register an application with Coinbase.
+If you have not already done so, a new application can be created at
+<a href="https://www.coinbase.com/oauth/applications/new">New OAuth2 application</a> within
+Coinbase&#39;s settings panel.  Your application will be issued a client ID and client
+secret, which need to be provided to the strategy.  You will also need to
+configure a callback URL which matches the route in your application.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Coinbase authentication strategy authenticates users using a Coinbase account
-and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
-these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
-specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CoinbaseStrategy({
-    clientID: COINBASE_CLIENT_ID,
-    clientSecret: COINBASE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/coinbase/callback"</span>
+and OAuth 2.0 tokens.  The client ID and secret obtained when creating an
+application are supplied as options when creating the strategy.  The strategy
+also requires a <code>verify</code> callback, which receives the access token and optional
+refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
+GitHub profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
+complete authentication.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> CoinbaseStrategy = <span class="built_in">require</span>(<span class="string">'passport-coinbase'</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> CoinbaseStrategy({
+    <span class="attr">clientID</span>: COINBASE_CLIENT_ID,
+    <span class="attr">clientSecret</span>: COINBASE_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/coinbase/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    <span class="comment">// ...</span>
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+    User.findOrCreate({ <span class="attr">coinbaseId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">return</span> cb(err, user);
   }
 ));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;coinbase&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/coinbase'</span>,
+<pre><code class="lang-js">app.get(<span class="string">'/auth/coinbase'</span>,
   passport.authenticate(<span class="string">'coinbase'</span>));
 
 app.get(<span class="string">'/auth/coinbase/callback'</span>, 
-  passport.authenticate(<span class="string">'coinbase'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+  passport.authenticate(<span class="string">'coinbase'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     <span class="comment">// Successful authentication, redirect home.</span>
     res.redirect(<span class="string">'/'</span>);
   });
-</code></pre><h2 id="examples">Examples</h2>
-<p>For a complete, working example, refer to the <a href="https://github.com/idris/passport-coinbase/tree/master/examples/login">login example</a>.</p>
-<h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
-</code></pre><p><a href="http://travis-ci.org/idris/passport-coinbase"><img src="https://secure.travis-ci.org/idris/passport-coinbase.png" alt="Build Status"></a></p>
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
+refer to an <a href="https://github.com/passport/express-4.x-facebook-example">example</a>
+as a starting point for their own web applications.  The example shows how to
+authenticate users using Facebook.  However, because both Facebook and Coinbase
+use OAuth 2.0, the code is similar.  Simply replace references to Facebook with
+corresponding references to Coinbase.</p>
+<h2 id="contributing">Contributing</h2>
+<h4 id="tests">Tests</h4>
+<p>The test suite is located in the <code>test/</code> directory.  All new features are
+expected to have corresponding test cases.  Ensure that the complete test suite
+passes by executing:</p>
+<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+</code></pre>
+<h4 id="coverage">Coverage</h4>
+<p>Coverage reports can be viewed by executing:</p>
+<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+$ make view-cov
+</code></pre>
 <h2 id="credits">Credits</h2>
 <ul>
-<li><a href="https://github.com/idris">Idris Mokhtarzada</a></li>
+<li><a href="https://github.com/rggammon">Ryan Gammon</a></li>
+<li>Forked from <a href="https://github.com/idris/passport-coinbase">idris/passport-coinbase</a> by <a href="https://github.com/idris">Idris Mokhtarzada</a></li>
 <li>Forked from <a href="https://github.com/jaredhanson/passport-github">passport-github</a> by <a href="https://github.com/jaredhanson">Jared Hanson</a></li>
 </ul>
 <h2 id="license">License</h2>
@@ -148,13 +180,13 @@ app.get(<span class="string">'/auth/coinbase/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-coinbase</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2014-02-18T15:14:39Z">7 years ago</abbr></li>
-              <li><a class="url" href="https://github.com/idris/passport-coinbase"></a></li>
+              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2020-10-21T23:18:59Z">6 months ago</abbr></li>
+              <li><a class="url" href="https://github.com/idris/passport-coinbase">https://github.com/rggammon/passport-coinbase#readme</a></li>
             </ul>
             <ul>
-              <li><b>119</b> downloads in the last day</li>
-              <li><b>609</b> downloads in the last week</li>
-              <li><b>2,556</b> downloads in the last month</li>
+              <li><b>17</b> downloads in the last day</li>
+              <li><b>46</b> downloads in the last week</li>
+              <li><b>191</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

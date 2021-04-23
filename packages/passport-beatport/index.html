@@ -96,18 +96,18 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://www.beatport.com">Beatport</a> using the OAuth 1.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-beatport</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-beatport
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code><span class="keyword">var</span> BeatportStartegy = <span class="keyword">require</span>(<span class="string">'passport-beatport'</span>).Strategy;
+<pre><code><span class="keyword">var</span> BeatportStartegy = <span class="built_in">require</span>(<span class="string">'passport-beatport'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> BeatportStartegy({
-    consumerKey: EXAMPLE_CONSUMER_KEY,
-    consumerSecret: EXAMPLE_CONSUMER_SECRET, 
-    callbackURL: <span class="string">'https://www.example.net/auth/beatport/callback'</span>
+passport.use(<span class="keyword">new</span> BeatportStartegy({
+    <span class="attr">consumerKey</span>: EXAMPLE_CONSUMER_KEY,
+    <span class="attr">consumerSecret</span>: EXAMPLE_CONSUMER_SECRET, 
+    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/beatport/callback'</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
+    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       done(err, user);
     });
   }
@@ -138,13 +138,13 @@ app.get(<span class="string">'/auth/beatport/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-beatport</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2013-09-02T23:37:12Z">7 years ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2013-09-02T23:37:12Z">8 years ago</abbr></li>
               <li><a class="url" href="git://github.com/fastman/passport-beatport.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

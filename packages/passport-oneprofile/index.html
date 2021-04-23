@@ -103,32 +103,32 @@
  app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
    <span class="comment">// Some middleware ...</span>
 
-   app.<span class="keyword">use</span>(passport.initialize());
-   app.<span class="keyword">use</span>(passport.session());
+   app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
+   app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">session</span>());
 
    <span class="comment">// Other middleware ...</span>
  });
 </code></pre></li>
 <li><p>Serialize and deserialize user instances to and from the session.</p>
 <p>The simplest implementation is as below:</p>
-<pre><code> passport.serializeUser(<span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-   done(<span class="literal">null</span>, user);
+<pre><code> passport.serialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span> {
+   <span class="keyword">done</span>(null, user);
  });
 
- passport.deserializeUser(<span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-   done(<span class="literal">null</span>, user);
+ passport.deserialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span> {
+   <span class="keyword">done</span>(null, user);
  });
 </code></pre></li>
 </ol>
 <h3 id="2-add-customized-passport-strategy-">2. Add customized passport strategy.</h3>
 <p>  Set one profile as an authentication strategy. Set <code>ONES_KEY</code>, <code>ONES_SECRET</code> and <code>ONES_HOST</code> in system environment variables or hard code to replace them.</p>
-<pre><code>    <span class="keyword">var</span> oneProfileStrategy = <span class="keyword">require</span>(<span class="string">'passport-oneprofile'</span>);
+<pre><code>    <span class="keyword">var</span> oneProfileStrategy = <span class="built_in">require</span>(<span class="string">'passport-oneprofile'</span>);
 
-    passport.<span class="keyword">use</span>(<span class="keyword">new</span> oneProfileStrategy({
-        opId: process.env.ONES_KEY,
-        opSecret: process.env.ONES_SECRET,
-        opHost: process.env.ONES_HOST
-    }, <span class="function"><span class="keyword">function</span><span class="params">(err, user, done)</span> </span>{
+    passport.use(<span class="keyword">new</span> oneProfileStrategy({
+        <span class="attr">opId</span>: process.env.ONES_KEY,
+        <span class="attr">opSecret</span>: process.env.ONES_SECRET,
+        <span class="attr">opHost</span>: process.env.ONES_HOST
+    }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user, done</span>) </span>{
       <span class="comment">// Do anything for the returned user, or just pass it to callback</span>
         done(err, user);
       })
@@ -144,7 +144,7 @@
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

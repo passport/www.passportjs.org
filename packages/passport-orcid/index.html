@@ -107,7 +107,7 @@
 
 passport.use(<span class="keyword">new</span> OrcidStrategy({
     <span class="attr">sandbox</span>: process.env.NODE_ENV !== <span class="string">'production'</span>, <span class="comment">// use the sandbox for non-production environments</span>
-    clientID: ORCID_CLIENT_ID,
+    <span class="attr">clientID</span>: ORCID_CLIENT_ID,
     <span class="attr">clientSecret</span>: ORCID_CLIENT_SECRET,
     <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/orcid/callback"</span>
   },
@@ -138,14 +138,14 @@ app.get(<span class="string">'/auth/orcid/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-orcid</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2019-08-27T07:39:30Z">a year ago</abbr></li>
+              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2019-08-27T07:39:30Z">2 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/hubgit/passport-orcid.git">https://github.com/hubgit/passport-orcid#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>70</b> downloads in the last day</li>
-              <li><b>460</b> downloads in the last week</li>
-              <li><b>1,983</b> downloads in the last month</li>
+              <li><b>97</b> downloads in the last day</li>
+              <li><b>764</b> downloads in the last week</li>
+              <li><b>3,095</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -100,13 +100,13 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-coding-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-coding-oauth
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Coding authentication strategy authenticates users using a Coding oauth tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CodingStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> CodingStrategy({
     clientID: CODING_CLIENT_ID,
     clientSecret: CODING_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/coding/callback"</span>
@@ -151,7 +151,7 @@ app.get(<span class="string">'/auth/coding/callback'</span>,
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

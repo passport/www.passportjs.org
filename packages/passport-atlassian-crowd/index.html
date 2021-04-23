@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-atlassian-crowd</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-atlassian-crowd
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The atlassian-crowd authentication strategy authenticates users using a username and
@@ -110,16 +110,16 @@ credentials and calls <code>done</code> providing a user.  This strategy can als
 A valid application will have to be configured in Atlassian Crowd to be allowed to make requests.</p>
 <p>Pass an optional <code>retrieveGroupMemberships:true</code> flag to populate a <code>groups</code> array on the userprofile
 with all the groups the user is a member of in Crowd.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AtlassianCrowdStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AtlassianCrowdStrategy({
         crowdServer:<span class="string">"http://localhost:2990/jira"</span>,
         crowdApplication:<span class="string">"nodejs"</span>,
         crowdApplicationPassword:<span class="string">"password"</span>,
-        retrieveGroupMemberships:<span class="keyword">false</span>
+        retrieveGroupMemberships:<span class="literal">false</span>
     },
     <span class="function"><span class="keyword">function</span> <span class="params">(userprofile, done)</span> </span>{
         Users.findOrCreate(userprofile, <span class="function"><span class="keyword">function</span><span class="params">(err,user)</span> </span>{
             <span class="keyword">if</span>(err) <span class="keyword">return</span> done(err);
-            <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
+            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
         });
     }
 ));
@@ -163,13 +163,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-atlassian-crowd</span></code></div>
             <ul>
-              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2015-10-05T21:53:27Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2015-10-05T21:53:27Z">6 years ago</abbr></li>
               <li><a class="url" href="git+https://bitbucket.org/knecht_andreas/passport-atlassian-crowd.git">https://bitbucket.org/knecht_andreas/passport-atlassian-crowd#readme</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>22</b> downloads in the last week</li>
-              <li><b>69</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>25</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

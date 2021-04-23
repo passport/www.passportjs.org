@@ -102,14 +102,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-ping</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-ping
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The PingFederate authentication strategy authenticates users using PingFederate
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a host, port, client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> PingStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> PingStrategy({
     clientID: <span class="string">'123-456-789'</span> ,
     clientSecret: <span class="string">'shhh-its-a-secret'</span> ,
     callbackURL: <span class="string">'https://www.example.net/auth/ping/callback'</span>
@@ -121,7 +121,7 @@ specifying a host, port, client ID, client secret, and callback URL.</p>
   }
 ));
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> PingStrategy({
+passport.use(<span class="keyword">new</span> PingStrategy({
     host: <span class="string">'localhost'</span> ,
     clientID: <span class="string">'123-456-789'</span> ,
     clientSecret: <span class="string">'shhh-its-a-secret'</span> ,
@@ -134,7 +134,7 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> PingS
   }
 ));
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> PingStrategy({
+passport.use(<span class="keyword">new</span> PingStrategy({
     host: <span class="string">'localhost'</span> ,
     port: <span class="number">9031</span> ,
     clientID: <span class="string">'123-456-789'</span> ,
@@ -171,14 +171,14 @@ app.get(<span class="string">'/auth/ping/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ping</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2017-08-31T14:18:03Z">3 years ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2017-08-31T14:18:03Z">4 years ago</abbr></li>
               <li><a class="url" href="https://github.com/athieme/passport-ping.git">https://github.com/athieme/passport-ping</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>130</b> downloads in the last day</li>
-              <li><b>786</b> downloads in the last week</li>
-              <li><b>3,876</b> downloads in the last month</li>
+              <li><b>66</b> downloads in the last day</li>
+              <li><b>273</b> downloads in the last week</li>
+              <li><b>1,611</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

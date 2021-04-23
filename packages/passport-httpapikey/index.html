@@ -97,7 +97,7 @@
 <p>This module lets you authenticate HTTP requests using apikeys in your Node.js
 applications via the Authorization header. e.g. <code>Authorization: apikey abc123</code></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-httpapikey</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-httpapikey
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Apikey authentication strategy authenticates users using an apikey.
@@ -106,25 +106,25 @@ key and calls <code>done</code> providing a user.  Optional <code>info</code> ca
 typically including associated scope, which will be set by Passport at
 <code>req.authInfo</code> to be used by later middleware for authorization and access
 control.</p>
-<pre><code><span class="keyword">let</span> strategy = <span class="keyword">new</span> LocalAPIKeyStrategy(<span class="function"><span class="keyword">function</span><span class="params">(apikey, done)</span> </span>{
-    User.findOne({ apikey: apikey }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user, { scope: <span class="string">'all'</span> });
+<pre><code><span class="keyword">let</span> strategy = <span class="keyword">new</span> <span class="constructor">LocalAPIKeyStrategy(<span class="params">function</span>(<span class="params">apikey</span>, <span class="params">done</span>)</span> {
+    <span class="module-access"><span class="module"><span class="identifier">User</span>.</span></span>find<span class="constructor">One({ <span class="params">apikey</span>: <span class="params">apikey</span> }, <span class="params">function</span> (<span class="params">err</span>, <span class="params">user</span>)</span> {
+      <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err); }
+      <span class="keyword">if</span> (!user) { return <span class="keyword">done</span>(null, <span class="literal">false</span>); }
+      return <span class="keyword">done</span>(null, user, { scope: 'all' });
     });
 });
 
-passport.<span class="keyword">use</span>(strategy);
+passport.use(strategy);
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;apikey&#39;</code> strategy, to
 authenticate requests.  Requests containing apikey tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'apikey'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
+  passport.authenticate(<span class="string">'apikey'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install</span>
@@ -140,14 +140,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-httpapikey</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-07-16T23:22:11Z">3 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-07-16T23:22:11Z">4 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/p0wdrdotcom/passport-httpapikey.git">https://github.com/p0wdrdotcom/passport-httpapikey#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>23</b> downloads in the last day</li>
-              <li><b>133</b> downloads in the last week</li>
-              <li><b>612</b> downloads in the last month</li>
+              <li><b>33</b> downloads in the last day</li>
+              <li><b>155</b> downloads in the last week</li>
+              <li><b>570</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -106,7 +106,7 @@ that a user already be authenticated using an initial factor.  Requirements
 regarding when to require a second factor are a matter of application-level
 policy, and outside the scope of both Passport and this strategy.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-totp</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-totp
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The TOTP authentication strategy authenticates a user using a TOTP value
@@ -115,11 +115,11 @@ strategy requires a <code>setup</code> callback.</p>
 <p>The <code>setup</code> callback accepts a previously authenticated <code>user</code> and calls <code>done</code>
 providing a <code>key</code> and <code>period</code> used to verify the HOTP value.  Authentication
 fails if the value is not verified.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TotpStrategy(
+<pre><code>passport.use(<span class="keyword">new</span> TotpStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
     TotpKey.findOne({ userId: user.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, key)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, key.key, key.period);
+      <span class="keyword">return</span> done(<span class="literal">null</span>, key.key, key.period);
     });
   }
 ));
@@ -146,7 +146,7 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-totp</span></code></div>
@@ -155,9 +155,9 @@ application:</p>
               <li><a class="url" href="git://github.com/jaredhanson/passport-totp.git">https://github.com/jaredhanson/passport-totp</a></li>
             </ul>
             <ul>
-              <li><b>558</b> downloads in the last day</li>
-              <li><b>3,128</b> downloads in the last week</li>
-              <li><b>14,245</b> downloads in the last month</li>
+              <li><b>484</b> downloads in the last day</li>
+              <li><b>2,659</b> downloads in the last week</li>
+              <li><b>12,882</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

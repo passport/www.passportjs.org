@@ -100,7 +100,7 @@
 
 
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-asana</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-asana
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="authorization-the-much-more-likely-usecase-">Authorization (the much more likely usecase)</h4>
 <h4 id="authentication-configuration-strategy">Authentication Configuration Strategy</h4>
@@ -108,7 +108,7 @@
 OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a
 client id , client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AsanaStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AsanaStrategy({
     clientID: <span class="string">'1234567890123'</span>,
     clientSecret: <span class="string">'5ddf23ae77cbe6bff02430f8f37c4900'</span>
     callbackURL: <span class="string">'https://www.example.com/auth/asana/callback'</span>
@@ -153,9 +153,9 @@ app.get(<span class="string">'/auth/asana/callback'</span>,
               <li><a class="url" href="https://github.com/nickls/passport-asana.git"></a></li>
             </ul>
             <ul>
-              <li><b>42</b> downloads in the last day</li>
-              <li><b>251</b> downloads in the last week</li>
-              <li><b>1,124</b> downloads in the last month</li>
+              <li><b>126</b> downloads in the last day</li>
+              <li><b>481</b> downloads in the last week</li>
+              <li><b>1,998</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -124,7 +124,7 @@ allowing clients to include credentials in the request body.</p>
 application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
 middleware to implement the token endpoint:</p>
 <pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
-  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'oauth2-client-password'</span>], { session: <span class="literal">false</span> }),
+  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'oauth2-client-password'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   oauth2orize.token());
 </code></pre><h2 id="examples">Examples</h2>
 <p>The <a href="https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2">example</a>
@@ -142,7 +142,7 @@ tokens from the token endpoint.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-client-password</span></code></div>
@@ -151,9 +151,9 @@ tokens from the token endpoint.</p>
               <li><a class="url" href="git://github.com/jaredhanson/passport-oauth2-client-password.git">https://github.com/jaredhanson/passport-oauth2-client-password</a></li>
             </ul>
             <ul>
-              <li><b>6,417</b> downloads in the last day</li>
-              <li><b>35,485</b> downloads in the last week</li>
-              <li><b>158,880</b> downloads in the last month</li>
+              <li><b>9,412</b> downloads in the last day</li>
+              <li><b>46,313</b> downloads in the last week</li>
+              <li><b>196,397</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

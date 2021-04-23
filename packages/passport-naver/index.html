@@ -101,38 +101,38 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-naver</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-naver
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Naver OAuth 2.0 authentication strategy authenticates users using a Naver
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> NaverStrategy = <span class="built_in">require</span>(<span class="string">'passport-naver'</span>).Strategy;
+<pre><code>var NaverStrategy = require(<span class="string">'passport-naver'</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> NaverStrategy({
-        <span class="attr">clientID</span>: config.naver.clientID,
-        <span class="attr">clientSecret</span>: config.naver.clientSecret,
-        <span class="attr">callbackURL</span>: config.naver.callbackURL
+passport.use(<span class="built_in">new</span> NaverStrategy({
+        clientID: config.naver.clientID,
+        clientSecret: config.naver.clientSecret,
+        callbackURL: config.naver.callbackURL
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-        User.findOne({
+    <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+        <span class="keyword">User</span>.findOne({
             <span class="string">'naver.id'</span>: profile.id
-        }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-            <span class="keyword">if</span> (!user) {
-                user = <span class="keyword">new</span> User({
-                    <span class="attr">name</span>: profile.displayName,
-                    <span class="attr">email</span>: profile.emails[<span class="number">0</span>].value,
-                    <span class="attr">username</span>: profile.displayName,
-                    <span class="attr">provider</span>: <span class="string">'naver'</span>,
-                    <span class="attr">naver</span>: profile._json
+        }, <span class="keyword">function</span>(err, <span class="keyword">user</span>) {
+            <span class="keyword">if</span> (!<span class="keyword">user</span>) {
+                <span class="keyword">user</span> = <span class="built_in">new</span> <span class="keyword">User</span>({
+                    <span class="type">name</span>: profile.displayName,
+                    email: profile.emails[<span class="number">0</span>].<span class="keyword">value</span>,
+                    username: profile.displayName,
+                    provider: <span class="string">'naver'</span>,
+                    naver: profile._json
                 });
-                user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-                    <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(err);
-                    <span class="keyword">return</span> done(err, user);
+                <span class="keyword">user</span>.save(<span class="keyword">function</span>(err) {
+                    <span class="keyword">if</span> (err) console.log(err);
+                    <span class="keyword">return</span> done(err, <span class="keyword">user</span>);
                 });
             } <span class="keyword">else</span> {
-                <span class="keyword">return</span> done(err, user);
+                <span class="keyword">return</span> done(err, <span class="keyword">user</span>);
             }
         });
     }
@@ -168,105 +168,105 @@ application:</p>
 &lt;<a href="https://developer.naver.com/openapi/register/login.nhn">Naver Developer Center</a>&gt;</p>
 <p>You can get client id &amp; secret for your application after the approval process of Naver Corp.</p>
 <p>After the client id &amp; secret are issued, assign them to the following variables.</p>
-<pre><code>        clientID: config<span class="selector-class">.naver</span><span class="selector-class">.clientID</span>,
-        clientSecret: config<span class="selector-class">.naver</span><span class="selector-class">.clientSecret</span>,
-        callbackURL: config<span class="selector-class">.naver</span><span class="selector-class">.callbackURL</span>,
+<pre><code>        <span class="selector-tag">clientID</span>: <span class="selector-tag">config</span><span class="selector-class">.naver</span><span class="selector-class">.clientID</span>,
+        <span class="selector-tag">clientSecret</span>: <span class="selector-tag">config</span><span class="selector-class">.naver</span><span class="selector-class">.clientSecret</span>,
+        <span class="selector-tag">callbackURL</span>: <span class="selector-tag">config</span><span class="selector-class">.naver</span><span class="selector-class">.callbackURL</span>,
 </code></pre><h2 id="examples">Examples</h2>
 <p>You can execute the following application from the &#39;examples&#39; directory.</p>
 <pre><code>$ npm install 
 $ node app.js
 
-<span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>)
-    , passport = <span class="keyword">require</span>(<span class="string">'passport'</span>)
-    , session = <span class="keyword">require</span>(<span class="string">'express-session'</span>)
-    , NaverStrategy = <span class="keyword">require</span>(<span class="string">'../lib/index.js'</span>).Strategy;
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
+    , passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
+    , session = <span class="built_in">require</span>(<span class="string">'express-session'</span>)
+    , NaverStrategy = <span class="built_in">require</span>(<span class="string">'../lib/index.js'</span>).Strategy;
 
 <span class="keyword">var</span> client_id = <span class="string">'************ your app client id ************'</span>;
 <span class="keyword">var</span> client_secret = <span class="string">'************ your app client secret ************'</span>;
 <span class="keyword">var</span> callback_url = <span class="string">'************ your app callback url ************'</span>;
 
-passport.serializeUser(<span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-    done(<span class="keyword">null</span>, user);
+passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+    done(<span class="literal">null</span>, user);
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span><span class="params">(obj, done)</span> </span>{
-    done(<span class="keyword">null</span>, obj);
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">obj, done</span>) </span>{
+    done(<span class="literal">null</span>, obj);
 });
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> NaverStrategy({
-    clientID: client_id,
-    clientSecret: client_secret,
-    callbackURL: callback_url,
-    svcType: <span class="number">0</span>  <span class="comment">// optional. see http://gamedev.naver.com/index.php/%EC%98%A8%EB%9D%BC%EC%9D%B8%EA%B2%8C%EC%9E%84:OAuth_2.0_API</span>
-}, <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    process.nextTick(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+passport.use(<span class="keyword">new</span> NaverStrategy({
+    <span class="attr">clientID</span>: client_id,
+    <span class="attr">clientSecret</span>: client_secret,
+    <span class="attr">callbackURL</span>: callback_url,
+    <span class="attr">svcType</span>: <span class="number">0</span>  <span class="comment">// optional. see http://gamedev.naver.com/index.php/%EC%98%A8%EB%9D%BC%EC%9D%B8%EA%B2%8C%EC%9E%84:OAuth_2.0_API</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
         <span class="comment">//console.log("profile=");</span>
         <span class="comment">//console.log(profile);</span>
         <span class="comment">// data to be saved in DB</span>
         user = {
-            name: profile.displayName,
-            email: profile.emails[<span class="number">0</span>].value,
-            username: profile.displayName,
-            provider: <span class="string">'naver'</span>,
-            naver: profile._json
+            <span class="attr">name</span>: profile.displayName,
+            <span class="attr">email</span>: profile.emails[<span class="number">0</span>].value,
+            <span class="attr">username</span>: profile.displayName,
+            <span class="attr">provider</span>: <span class="string">'naver'</span>,
+            <span class="attr">naver</span>: profile._json
         };
         <span class="comment">//console.log("user=");</span>
         <span class="comment">//console.log(user);</span>
-        <span class="keyword">return</span> done(<span class="keyword">null</span>, profile);
+        <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
     });
 }));
 
 <span class="keyword">var</span> app = express();
 
-app.<span class="keyword">use</span>(session({secret: <span class="string">'keyboard cat'</span>}));
-app.<span class="keyword">use</span>(passport.initialize());
-app.<span class="keyword">use</span>(passport.session());
+app.use(session({<span class="attr">secret</span>: <span class="string">'keyboard cat'</span>}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);
 app.set(<span class="string">'views'</span>, __dirname + <span class="string">'/views/'</span>);
 
-app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
-    res.render(<span class="string">'index'</span>, { user: req.user });
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+    res.render(<span class="string">'index'</span>, { <span class="attr">user</span>: req.user });
 });
 
-app.get(<span class="string">'/account'</span>, ensureAuthenticated, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    console.log(req.user);
-    res.render(<span class="string">'account'</span>, { user: req.user });
+app.get(<span class="string">'/account'</span>, ensureAuthenticated, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="built_in">console</span>.log(req.user);
+    res.render(<span class="string">'account'</span>, { <span class="attr">user</span>: req.user });
 });
 
-app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
-    res.render(<span class="string">'login'</span>, { user: req.user });
+app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+    res.render(<span class="string">'login'</span>, { <span class="attr">user</span>: req.user });
 });
 
 <span class="comment">// Setting the naver oauth routes</span>
 app.get(<span class="string">'/auth/naver'</span>, 
-    passport.authenticate(<span class="string">'naver'</span>, <span class="keyword">null</span>), <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-        console.log(<span class="string">'/auth/naver failed, stopped'</span>);
+    passport.authenticate(<span class="string">'naver'</span>, <span class="literal">null</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+        <span class="built_in">console</span>.log(<span class="string">'/auth/naver failed, stopped'</span>);
     });
 
 <span class="comment">// creates an account if no account of the new user</span>
 app.get(<span class="string">'/auth/naver/callback'</span>, 
     passport.authenticate(<span class="string">'naver'</span>, {
-        failureRedirect: <span class="string">'#!/auth/login'</span>
-    }), <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+        <span class="attr">failureRedirect</span>: <span class="string">'#!/auth/login'</span>
+    }), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
         res.redirect(<span class="string">'/'</span>); 
     });
 
-app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
     req.logout();
     res.redirect(<span class="string">'/'</span>);
 });
 
 app.listen(<span class="number">3000</span>);
 
-<span class="function"><span class="keyword">function</span> <span class="title">ensureAuthenticated</span><span class="params">(req, res, next)</span> </span>{
+<span class="function"><span class="keyword">function</span> <span class="title">ensureAuthenticated</span>(<span class="params">req, res, next</span>) </span>{
     <span class="keyword">if</span> (req.isAuthenticated()) { <span class="keyword">return</span> next(); }
     res.redirect(<span class="string">'/login'</span>);
 }
 </code></pre><h2 id="thanks-to">Thanks to</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
-<li>Chanhee Kim(chanhee.kim@navercorp.com)</li>
+<li>Chanhee Kim(<a href="mailto:chanhee.kim@navercorp.com">chanhee.kim@navercorp.com</a>)</li>
 </ul>
 <h2 id="author">Author</h2>
 <ul>
@@ -281,13 +281,13 @@ app.listen(<span class="number">3000</span>);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-naver</span></code></div>
             <ul>
-              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2017-08-23T00:20:47Z">3 years ago</abbr></li>
+              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2017-08-23T00:20:47Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/naver/passport-naver.git">https://github.com/naver/passport-naver</a></li>
             </ul>
             <ul>
-              <li><b>49</b> downloads in the last day</li>
-              <li><b>864</b> downloads in the last week</li>
-              <li><b>4,492</b> downloads in the last month</li>
+              <li><b>255</b> downloads in the last day</li>
+              <li><b>1,254</b> downloads in the last week</li>
+              <li><b>5,427</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

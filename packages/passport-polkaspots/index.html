@@ -106,14 +106,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-facebook</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-facebook
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Facebook authentication strategy authenticates users using a Facebook
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> FacebookStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/facebook/callback"</span>
@@ -149,31 +149,33 @@ checkins:</p>
 <p>The display mode with which to render the authorization dialog can be set by
 specifying the <code>display</code> option.  Refer to Facebook&#39;s <a href="https://developers.facebook.com/docs/reference/dialogs/oauth/">OAuth Dialog</a>
 documentation for more information.</p>
-<pre><code>app.<span class="built_in">get</span>(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { <span class="built_in">display</span>: <span class="string">'touch'</span> }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/facebook'</span>,
+  passport.authenticate(<span class="string">'facebook'</span>, { <span class="attribute">display</span>: <span class="string">'touch'</span> }));
 </code></pre><h4 id="profile-fields">Profile Fields</h4>
 <p>The Facebook profile is very rich, and may contain a lot of information.  The
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of fields (named by Portable Contacts convention) your application needs.
 For example, to fetch only user&#39;s facebook ID, name, and picture, configure
 strategy like this.</p>
-<pre><code>passport.<span class="keyword">use</span>(new FacebookStrategy({
-    <span class="regexp">//</span> clientID, clientSecret <span class="keyword">and</span> callbackURL
-    <span class="symbol">profileFields:</span> [<span class="string">'id'</span>, <span class="string">'displayName'</span>, <span class="string">'photos'</span>]
+<pre><code>passport.use(<span class="keyword">new</span> <span class="type">FacebookStrategy</span>({
+    <span class="comment">// clientID, clientSecret and callbackURL</span>
+    profileFields: <span class="type"></span>[<span class="string">'id'</span>, <span class="string">'displayName'</span>, <span class="string">'photos'</span>]
   },
-  <span class="regexp">//</span> verify callback
+  <span class="comment">// verify callback</span>
 ));
 </code></pre><p>If <code>profileFields</code> is not specified, the default fields supplied by Facebook
 will be parsed.</p>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-facebook/tree/master/examples/login">login example</a>.</p>
 <h2 id="issues">Issues</h2>
-<p>Facebook&#39;s OAuth 2.0 implementation has a <a href="https://developers.facebook.com/bugs/196125357123225">bug</a> in which the fragment <code>#_=_</code>
+<p>Facebook&#39;s OAuth 2.0 implementation has a [bug][1] in which the fragment <code>#_=_</code>
 is appended to the callback URL.  This appears to affect Firefox and Chrome, but
 not Safari.  This fragment can be removed via client-side JavaScript, and <a href="https://github.com/niftylettuce">@niftylettuce</a>
-provides a suggested <a href="https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711">workaround</a>.  Developers are encouraged to direct their
+provides a suggested [workaround][2].  Developers are encouraged to direct their
 complaints to Facebook in an effort to get them to implement a proper fix for
-this issue.</p>
+this issue.
+[1]: <a href="https://developers.facebook.com/bugs/196125357123225">https://developers.facebook.com/bugs/196125357123225</a>
+[2]: <a href="https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711">https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711</a></p>
 <h2 id="related-modules">Related Modules</h2>
 <ul>
 <li><a href="https://github.com/missinglink/passport-facebook-canvas">passport-facebook-canvas</a> — authentication for apps on Facebook Canvas</li>
@@ -188,18 +190,18 @@ this issue.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2014 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2014 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-polkaspots</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2016-08-04T09:15:36Z">4 years ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2016-08-04T09:15:36Z">5 years ago</abbr></li>
               <li><a class="url" href="git://github.com/PolkaSpots/passport-polkaspots.git">https://github.com/PolkaSpots/passport-polkaspots</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

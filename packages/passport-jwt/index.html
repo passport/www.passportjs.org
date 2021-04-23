@@ -102,11 +102,11 @@ intended to be used to secure RESTful endpoints without sessions.</p>
 <h2 id="supported-by">Supported By</h2>
 <p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/overview?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=passport-jwt&amp;utm_content=auth">auth0.com/overview</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-jwt
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The JWT authentication strategy is constructed as follows:</p>
-<pre><code><span class="keyword">new</span> JwtStrategy(<span class="keyword">options</span>, verify)
+<pre><code><span class="keyword">new</span> <span class="constructor">JwtStrategy(<span class="params">options</span>, <span class="params">verify</span>)</span>
 </code></pre><p><code>options</code> is an object literal containing options to control how the token is
 extracted from the request or verified.</p>
 <ul>
@@ -208,7 +208,7 @@ you could use the following function as the argument to the jwtFromRequest optio
 header. If this header is present and the scheme matches <code>options.authScheme</code>
 or &#39;JWT&#39; if no auth scheme was specified then the token will be retrieved from
 it. e.g.</p>
-<pre><code>Authorization: JWT JSON_WEB_TOKEN_STRING.....
+<pre><code>Authorization: JWT JSON_WEB_TOKEN_STRING<span class="built_in">..</span><span class="built_in">..</span>.
 </code></pre><p>If the authorization header with the expected scheme is not found, the request
 body will be checked for a field matching either <code>options.tokenBodyField</code> or
 <code>auth_token</code> if the option was not specified.</p>
@@ -219,12 +219,12 @@ specified.</p>
 <p>The the <a href="docs/migrating.md">Migration Guide</a> for help upgrading to the latest
 major version of passport-jwt</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="built_in">npm</span> install
-<span class="built_in">npm</span> test
+<pre><code>npm <span class="keyword">install</span>
+npm <span class="keyword">test</span>
 </code></pre><p>To generate test-coverage reports:</p>
-<pre><code>npm install -g istanbul
-npm <span class="keyword">run</span><span class="bash">-script testcov
-</span>istanbul report
+<pre><code><span class="attr">npm</span> <span class="string">install -g istanbul</span>
+<span class="attr">npm</span> <span class="string">run-script testcov</span>
+<span class="attr">istanbul</span> <span class="string">report</span>
 </code></pre><h2 id="license">License</h2>
 <p>The <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
 <p>Copyright (c) 2015 Mike Nicholson</p>
@@ -237,9 +237,9 @@ npm <span class="keyword">run</span><span class="bash">-script testcov
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>46,352</b> downloads in the last day</li>
-              <li><b>247,013</b> downloads in the last week</li>
-              <li><b>1,027,458</b> downloads in the last month</li>
+              <li><b>60,309</b> downloads in the last day</li>
+              <li><b>339,058</b> downloads in the last week</li>
+              <li><b>1,459,149</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

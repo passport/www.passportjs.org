@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-dropbox-business</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-dropbox-business
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Dropbox authentication strategy authenticates users using a Dropbox Admin account
 and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a API version, client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> DropboxOAuth2Strategy({
+<pre><code>passport.use(<span class="keyword">new</span> DropboxOAuth2Strategy({
     apiVersion: <span class="string">'2'</span>,
     clientID: DROPBOX_CLIENT_ID,
     clientSecret: DROPBOX_CLIENT_SECRET,
@@ -151,9 +151,9 @@ app.get(<span class="string">'/auth/dropbox-business/callback'</span>,
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

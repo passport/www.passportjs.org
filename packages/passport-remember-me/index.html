@@ -101,7 +101,7 @@ authentication can be easily and unobtrusively integrated into any application
 or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style
 middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-remember-me</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-remember-me
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The remember me authentication strategy authenticates users using a token stored
@@ -111,19 +111,19 @@ consumes the token and calls <code>done</code> providing a user.</p>
 security reasons, remember me tokens should be invalidated after being used.
 The <code>issue</code> callback supplies a new token that will be stored in the cookie for
 next use.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> RememberMeStrategy(
+<pre><code>passport.use(<span class="keyword">new</span> RememberMeStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span> </span>{
     Token.consume(token, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
     });
   },
   <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
     <span class="keyword">var</span> token = utils.generateToken(<span class="number">64</span>);
     Token.save(token, { userId: user.id }, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, token);
+      <span class="keyword">return</span> done(<span class="literal">null</span>, token);
     });
   }
 ));
@@ -132,14 +132,14 @@ next use.</p>
 authenticate requests.</p>
 <p>This is typically used in an application&#39;s middleware stack, to log the user
 back in the next time they visit any page on your site.  For example:</p>
-<pre><code><span class="keyword">app</span>.configure(function() {
-  <span class="keyword">app</span>.<span class="keyword">use</span>(express.cookieParser());
-  <span class="keyword">app</span>.<span class="keyword">use</span>(express.bodyParser());
-  <span class="keyword">app</span>.<span class="keyword">use</span>(express.session({ secret: 'keyboard <span class="keyword">cat</span>' }));
-  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.initialize());
-  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.session());
-  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.authenticate('remember-me'));
-  <span class="keyword">app</span>.<span class="keyword">use</span>(<span class="keyword">app</span>.router);
+<pre><code>app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">cookieParser</span>());
+  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">bodyParser</span>());
+  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">session</span>({ <span class="title">secret</span>: '<span class="title">keyboard</span> <span class="title">cat</span>' }));
+  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
+  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">session</span>());
+  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">authenticate</span>('<span class="title">remember</span>-<span class="title">me</span>'));
+  app.<span class="keyword">use</span>(<span class="title">app</span>.<span class="title">router</span>);
 });
 </code></pre><p>Note that <code>passport.session()</code> should be mounted <em>above</em> <code>remember-me</code>
 authentication, so that tokens aren&#39;t exchanged for currently active login
@@ -175,7 +175,7 @@ they login.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-remember-me</span></code></div>
@@ -184,9 +184,9 @@ they login.</p>
               <li><a class="url" href="git://github.com/jaredhanson/passport-remember-me.git"></a></li>
             </ul>
             <ul>
-              <li><b>351</b> downloads in the last day</li>
-              <li><b>1,753</b> downloads in the last week</li>
-              <li><b>7,638</b> downloads in the last month</li>
+              <li><b>270</b> downloads in the last day</li>
+              <li><b>1,675</b> downloads in the last week</li>
+              <li><b>8,991</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -100,21 +100,21 @@ on OAuth 2.0, but with differences in how the access token is requested
 (GET vs POST).</p>
 <p>To get an API key, see:  <a href="https://developer.citrixonline.com">https://developer.citrixonline.com</a></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-citrix2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-citrix2
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The strategy requires session support, and the apiKey and callback options are mandatory.  A <code>verify</code> callback
 receives access token, plus information needed refresh the token along with the user profile, and calls <code>done</code>
 providing a user.  <code>verify</code> should either check the user is an existing account, or initiate the process for
 registering a new account.</p>
-<pre><code>  <span class="keyword">var</span> CitrixStrategy = <span class="keyword">require</span>(<span class="string">'citrix-passport2'</span>).Strategy
+<pre><code>  <span class="keyword">var</span> CitrixStrategy = <span class="built_in">require</span>(<span class="string">'citrix-passport2'</span>).Strategy
 
-  passport.<span class="keyword">use</span>(<span class="keyword">new</span> CitrixStrategy({
-      apiKey: <span class="string">'CITRIX ONLINE API KEY'</span>,
-      callbackURL: <span class="string">"http://127.0.0.1:3000/auth/citrix/callback"</span>
+  passport.use(<span class="keyword">new</span> CitrixStrategy({
+      <span class="attr">apiKey</span>: <span class="string">'CITRIX ONLINE API KEY'</span>,
+      <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/citrix/callback"</span>
     },
-    <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, accountKey, expiresIn, profile, done)</span> </span>{
-      User.findOrCreate(accountKey, profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, accountKey, expiresIn, profile, done</span>) </span>{
+      User.findOrCreate(accountKey, profile, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
         done(err, user);
       });
     }        
@@ -165,13 +165,13 @@ app.get(<span class="string">'/auth/citrix/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-citrix2</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2015-04-17T00:06:48Z">5 years ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2015-04-17T00:06:48Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/kenbell/passport-citrix.git">https://github.com/kenbell/passport-citrix</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

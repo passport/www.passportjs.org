@@ -100,33 +100,33 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-publickey</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-publickey
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The public key authentication strategy authenticates users by verifying a signature was made by someone in possession of the private key. The strategy takes in an optional <code>options</code> object, and a required <code>verify</code> callback.</p>
 <ul>
 <li><p>The <code>options</code> object accepts to fields (below are the defaults):</p>
 <pre><code>{
-findBy: <span class="symbol">'id</span>', // <span class="keyword">or</span> <span class="symbol">'email</span>' <span class="keyword">or</span> <span class="symbol">'nonce</span>' <span class="keyword">or</span> <span class="symbol">'publicKey</span>' <span class="keyword">or</span> any unique field <span class="keyword">in</span> your database <span class="keyword">for</span> your users
-<span class="keyword">in</span>: <span class="symbol">'body</span>' // <span class="keyword">or</span> <span class="symbol">'headers</span>'
+<span class="attribute">findBy</span>: <span class="string">'id'</span>, // or <span class="string">'email'</span> or <span class="string">'nonce'</span> or <span class="string">'publicKey'</span> or any unique field in your database for your users
+in: <span class="string">'body'</span> // or <span class="string">'headers'</span>
 }
 </code></pre><p>The <code>in</code> parameter specifies where in the request is the authentication data, i.e. in <code>req.body</code> or in <code>req.headers</code>. The <code>findBy</code> parameter specifies by which (unique) field we should find the user in the database.</p>
 </li>
 <li><p>The <code>verify</code> function accepts these credentials and calls done providing a user:</p>
 <pre><code>passport.use(<span class="keyword">new</span> PublicKeyStrategy(
 {
-  findBy: <span class="string">'email'</span>,
-  <span class="keyword">in</span>: <span class="string">'body'</span>
+  <span class="attr">findBy</span>: <span class="string">'email'</span>,
+  <span class="attr">in</span>: <span class="string">'body'</span>
 },
-<span class="function"><span class="keyword">function</span><span class="params">(findByValue, signature, done)</span> </span>{
-  User.findOneBy({ email: findByValue }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+<span class="function"><span class="keyword">function</span>(<span class="params">findByValue, signature, done</span>) </span>{
+  User.findOneBy({ <span class="attr">email</span>: findByValue }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
 
     <span class="keyword">var</span> verifier = crypto.createVerify(<span class="string">"RSA-SHA256"</span>);
     verifier.update(user.nonce);
 
-    <span class="keyword">var</span> publicKeyBuf = <span class="keyword">new</span> Buffer(user.publicKey, <span class="string">'base64'</span>);
+    <span class="keyword">var</span> publicKeyBuf = <span class="keyword">new</span> <span class="built_in">Buffer</span>(user.publicKey, <span class="string">'base64'</span>);
 
     <span class="keyword">var</span> result = verifier.verify(publicKeyBuf, signature, <span class="string">"base64"</span>);
 
@@ -158,13 +158,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-publickey</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2017-09-05T20:48:11Z">3 years ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2017-09-05T20:48:11Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/timfpark/passport-publickey.git">https://github.com/timfpark/passport-publickey#readme</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>21</b> downloads in the last week</li>
-              <li><b>105</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last day</li>
+              <li><b>38</b> downloads in the last week</li>
+              <li><b>132</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

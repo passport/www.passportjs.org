@@ -101,23 +101,23 @@
 <h2 id="usage">Usage</h2>
 <hr>
 <p>Set up passport strategies.  Be sure initialize with api_key and secret</p>
-<pre><code><span class="keyword">var</span> LastFMStrategy = <span class="keyword">require</span>(<span class="string">'passport-lastfm'</span>)
-<span class="keyword">var</span> _ = <span class="keyword">require</span>(<span class="string">'lodash'</span>);
+<pre><code><span class="keyword">var</span> LastFMStrategy = <span class="built_in">require</span>(<span class="string">'passport-lastfm'</span>)
+<span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
 <span class="keyword">var</span> cb_url = <span class="string">'http://localhost:8000'</span>;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> LastFmStrategy({
+passport.use(<span class="keyword">new</span> LastFmStrategy({
   <span class="string">'api_key'</span>: process.env.LASTFM_KEY,
   <span class="string">'secret'</span>: process.env.LASTFM_SECRET,
   <span class="string">'callbackURL'</span>: cb_url + <span class="string">'/auth/lastfm/callback'</span>
-}, <span class="function"><span class="keyword">function</span><span class="params">(req, sessionKey, done)</span> </span>{
+}, <span class="function"><span class="keyword">function</span>(<span class="params">req, sessionKey, done</span>) </span>{
   <span class="comment">// Find/Update user's lastfm session</span>
 
   <span class="comment">// If user logged in</span>
   <span class="keyword">if</span> (req.user){
-    User.findById(req.user.id, (err, user) =&gt; {
+    User.findById(req.user.id, <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
       <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err);
 
-      <span class="keyword">var</span> creds = _.find(req.user.tokens, {type:<span class="string">'lastfm'</span>});
+      <span class="keyword">var</span> creds = _.find(req.user.tokens, {<span class="keyword">type</span>:<span class="string">'lastfm'</span>});
       <span class="comment">// if creds already present</span>
       <span class="keyword">if</span> (user.lastfm &amp;&amp; creds){
         req.flash(<span class="string">'info'</span>, {msg:<span class="string">'Account already linked'</span>});
@@ -126,10 +126,10 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> LastF
       }
 
       <span class="keyword">else</span>{
-        user.tokens.push({type:<span class="string">'lastfm'</span>, username:sessionKey.username, key:sessionKey.key });
+        user.tokens.push({<span class="keyword">type</span>:<span class="string">'lastfm'</span>, username:sessionKey.username, key:sessionKey.key });
         user.lastfm = sessionKey.key;
 
-        user.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>{
+        user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
           <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err);
           req.flash(<span class="string">'success'</span>, {msg:<span class="string">"Last.fm authentication success"</span>});
           <span class="keyword">return</span> done(err, user, sessionKey);
@@ -138,9 +138,10 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> LastF
     });
   }
   <span class="keyword">else</span>{
-    <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>, {message:<span class="string">'Must be logged in'</span>});
+    <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, {message:<span class="string">'Must be logged in'</span>});
   }
 }));
+
 </code></pre><p>In route handlers</p>
 <pre><code>app.get(<span class="string">'/auth/lastfm'</span>, passport.authenticate(<span class="string">'lastfm'</span>));
 app.get(<span class="string">'/auth/lastfm/callback'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span></span>{
@@ -148,18 +149,19 @@ app.get(<span class="string">'/auth/lastfm/callback'</span>, <span class="functi
     res.redirect(<span class="string">'/'</span>);
   })(req, {} );
 });
+
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lastfm</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2017-05-22T17:16:07Z">3 years ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2017-05-22T17:16:07Z">4 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/kizzlebot/passport-lastfm.git">https://github.com/kizzlebot/passport-lastfm#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>33</b> downloads in the last week</li>
-              <li><b>157</b> downloads in the last month</li>
+              <li><b>24</b> downloads in the last day</li>
+              <li><b>31</b> downloads in the last week</li>
+              <li><b>125</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

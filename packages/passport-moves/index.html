@@ -100,21 +100,21 @@ using the OAuth 2.0 API.</p>
 By plugging into Passport, Facebook authentication can be easily and
 unobtrusively integrated into <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-moves</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-moves
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Moves authentication strategy authenticates users using the Moves mobile 
 app and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a clientID, a clientSecret, and a callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MovesStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> MovesStrategy({
     clientID: <span class="string">'YOUR_CLIENT_ID'</span>,
     clientSecret: <span class="string">'YOUR_CLIENT_SECRET'</span>,
     callbackURL: <span class="string">'http://your.site/auth/callback'</span>
   },
   <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
     process.nextTick(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, profile);
+      <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
     });
   }
 ));
@@ -146,7 +146,7 @@ application:</p>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>

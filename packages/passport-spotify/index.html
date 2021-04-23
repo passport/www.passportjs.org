@@ -103,7 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <p>For more information about Spotify&#39;s OAuth 2.0 implementation, check their
 <a href="https://developer.spotify.com/web-api/authorization-guide/">Web API Authorization Guide</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-spotify</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-spotify
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Spotify authentication strategy authenticates users using a Spotify account
@@ -132,10 +132,7 @@ passport.use(
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>, passport.authenticate(<span class="string">'spotify'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-  <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-  <span class="comment">// function will not be called.</span>
-});
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>, passport.authenticate(<span class="string">'spotify'</span>));
 
 app.get(
   <span class="string">'/auth/spotify/callback'</span>,
@@ -158,11 +155,7 @@ app.get(
   <span class="string">'/auth/spotify'</span>,
   passport.authenticate(<span class="string">'spotify'</span>, {
     <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>]
-  }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-    <span class="comment">// function will not be called.</span>
-  }
+  })
 );
 </code></pre>
 <h3 id="forcing-login-dialog">Forcing login dialog</h3>
@@ -172,11 +165,7 @@ app.get(
   passport.authenticate(<span class="string">'spotify'</span>, {
     <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>],
     <span class="attr">showDialog</span>: <span class="literal">true</span>
-  }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="comment">// The request will be redirected to spotify for authentication, so this</span>
-    <span class="comment">// function will not be called.</span>
-  }
+  })
 );
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -193,13 +182,13 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-spotify</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2019-08-06T18:50:44Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2021-01-19T15:35:01Z">3 months ago</abbr></li>
               <li><a class="url" href="git+https://github.com/jmperez/passport-spotify.git">https://github.com/jmperez/passport-spotify#readme</a></li>
             </ul>
             <ul>
-              <li><b>93</b> downloads in the last day</li>
-              <li><b>559</b> downloads in the last week</li>
-              <li><b>2,255</b> downloads in the last month</li>
+              <li><b>113</b> downloads in the last day</li>
+              <li><b>675</b> downloads in the last week</li>
+              <li><b>2,858</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

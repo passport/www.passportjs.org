@@ -96,7 +96,7 @@
 <p><a href="http://passportjs.org/">Passport</a> strategies for authenticating with <a href="http://www.daum.net/">Daum</a> using OAuth 2.0.</p>
 <p>This module lets you authenticate using Daum in your Node.js applications. By plugging into Passport, Daum authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-daum-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-daum-oauth2
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Daum OAuth 2.0 authentication strategy authenticates users using a Daum account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which
@@ -105,8 +105,8 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 
 passport.use(<span class="string">'daum'</span>, <span class="keyword">new</span> DaumStrategy({
         <span class="attr">clientID</span>: DAUM_CLIENT_ID_ISSUED_BY_DAUM
-        clientSecret: DAUM_CLIENT_SECRET_ISSUED_BY_DAUM
-        callbackURL: YOUR_CALLBACK_URL_AFTER_AUTHENTICATION
+        <span class="attr">clientSecret</span>: DAUM_CLIENT_SECRET_ISSUED_BY_DAUM
+        <span class="attr">callbackURL</span>: YOUR_CALLBACK_URL_AFTER_AUTHENTICATION
     },
     <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
         <span class="comment">// check profile._raw or profile.json for whole profile data</span>
@@ -146,9 +146,9 @@ app.get(<span class="string">'/daum/callback'</span>, passport.authenticate(<spa
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>53</b> downloads in the last week</li>
-              <li><b>238</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last day</li>
+              <li><b>50</b> downloads in the last week</li>
+              <li><b>212</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -99,20 +99,20 @@ request body&#39;s assertion field, as <a href="http://tools.ietf.org/html/draft
 by the JSON Web Token (JWT) Bearer Token Profiles for OAuth 2.0 draft.  These credentials are typically used to protect
 the token endpoint and used as an alternative to HTTP Basic authentication.  This module is modeled off of Google&#39;s OAuth 2.0 <a href="https://developers.google.com/accounts/docs/OAuth2ServiceAccount">Server to Server Applications</a>.  This module can be used with the <a href="https://github.com/xtuple/oauth2orize-jwt-bearer">oauth2orize-jwt-bearer</a> module to create a JWT OAuth 2.0 exchange scenario server.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-oauth2-jwt-bearer</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-oauth2-jwt-bearer
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The JSON Web Token (JWT) Bearer Token Profiles for OAuth 2.0 client authentication strategy authenticates clients
 using a JWT.  The strategy requires a <code>verify</code> callback,
 which accepts those credentials and calls <code>done</code> providing a client.</p>
-<pre><code><span class="keyword">var</span> ClientJWTBearerStrategy = <span class="keyword">require</span>(<span class="string">'passport-oauth2-jwt-bearer'</span>).Strategy;
+<pre><code><span class="keyword">var</span> ClientJWTBearerStrategy = <span class="built_in">require</span>(<span class="string">'passport-oauth2-jwt-bearer'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> ClientJWTBearerStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(claimSetIss, done)</span> </span>{
-    Clients.findOne({ clientId: claimSetIss }, <span class="function"><span class="keyword">function</span> <span class="params">(err, client)</span> </span>{
+passport.use(<span class="keyword">new</span> ClientJWTBearerStrategy(
+  <span class="function"><span class="keyword">function</span>(<span class="params">claimSetIss, done</span>) </span>{
+    Clients.findOne({ <span class="attr">clientId</span>: claimSetIss }, <span class="function"><span class="keyword">function</span> (<span class="params">err, client</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, client);
+      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, client);
     });
   }
 ));
@@ -123,7 +123,7 @@ strategy, to authenticate requests.</p>
 application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
 middleware to implement the token endpoint:</p>
 <pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>,
-  passport.authenticate([<span class="string">'oauth2-jwt-bearer'</span>], { session: <span class="literal">false</span> }),
+  passport.authenticate([<span class="string">'oauth2-jwt-bearer'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   oauth2orize.token());
 </code></pre><h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
@@ -134,18 +134,18 @@ middleware to implement the token endpoint:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 xTuple <a href="[http://www.xtuple.com/](http://www.xtuple.com/)">[http://www.xtuple.com/](http://www.xtuple.com/)</a></p>
+<p>Copyright (c) 2012-2013 xTuple &lt;<a href="http://www.xtuple.com/">http://www.xtuple.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-jwt-bearer</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2017-10-13T15:43:14Z">3 years ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2017-10-13T15:43:14Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/xtuple/passport-oauth2-jwt-bearer.git">https://github.com/xtuple/passport-oauth2-jwt-bearer#readme</a></li>
             </ul>
             <ul>
-              <li><b>185</b> downloads in the last day</li>
-              <li><b>705</b> downloads in the last week</li>
-              <li><b>3,008</b> downloads in the last month</li>
+              <li><b>71</b> downloads in the last day</li>
+              <li><b>314</b> downloads in the last week</li>
+              <li><b>1,537</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

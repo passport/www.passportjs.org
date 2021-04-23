@@ -96,7 +96,7 @@
 <p><a href="https://travis-ci.org/FengYuHe/passport-http-header-strategy"><img src="https://travis-ci.org/FengYuHe/passport-http-header-strategy.svg?branch=master" alt="Build Status"></a></p>
 <p>HTTP define header authentication strategy for <a href="https://github.com/jaredhanson/passport">Passport</a></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-http-header-strategy</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-http-header-strategy
 </code></pre><h2 id="usage">Usage</h2>
 <ul>
 <li><code>header</code> set header(default <code>authorization</code>)</li>
@@ -120,16 +120,16 @@ authenticate requests.  Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'header'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
+  passport.authenticate(<span class="string">'header'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p><a href="https://github.com/FengYuHe/passport-http-header-strategy/tree/master/examples">examples</a> - example</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> mocha</span>
+<pre><code><span class="variable">$ </span>npm install
+<span class="variable">$ </span>mocha
 </code></pre><h2 id="reference">Reference</h2>
 <p>Refer<a href="https://github.com/jaredhanson">Jared Hanson</a> <a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a> module</p>
 <h2 id="license">License</h2>
@@ -138,13 +138,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-header-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2020-06-28T10:15:42Z">3 months ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2020-06-28T10:15:42Z">10 months ago</abbr></li>
               <li><a class="url" href="git://github.com/FengYuHe/passport-http-header-strategy.git">https://github.com/FengYuHe/passport-http-header-strategy#readme</a></li>
             </ul>
             <ul>
-              <li><b>58</b> downloads in the last day</li>
-              <li><b>356</b> downloads in the last week</li>
-              <li><b>1,632</b> downloads in the last month</li>
+              <li><b>416</b> downloads in the last day</li>
+              <li><b>1,525</b> downloads in the last week</li>
+              <li><b>4,414</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

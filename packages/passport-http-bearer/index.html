@@ -106,7 +106,7 @@ integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-http-bearer</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-http-bearer
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Bearer authentication strategy authenticates users using a bearer
@@ -115,12 +115,12 @@ credential and calls <code>done</code> providing a user.  Optional <code>info</c
 typically including associated scope, which will be set by Passport at
 <code>req.authInfo</code> to be used by later middleware for authorization and access
 control.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BearerStrategy(
+<pre><code>passport.use(<span class="keyword">new</span> BearerStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span> </span>{
     User.findOne({ token: token }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user, { scope: <span class="string">'all'</span> });
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user, { scope: <span class="string">'all'</span> });
     });
   }
 ));
@@ -130,10 +130,10 @@ authenticate requests.  Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'bearer'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
+  passport.authenticate(<span class="string">'bearer'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h4 id="issuing-tokens">Issuing Tokens</h4>
 <p>Bearer tokens are typically issued using OAuth 2.0.  <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
@@ -154,18 +154,18 @@ issued, this module can be used to authenticate tokens as described above.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-bearer</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2018-08-03T00:40:44Z">2 years ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2018-08-03T00:40:44Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-http-bearer.git"></a></li>
             </ul>
             <ul>
-              <li><b>18,763</b> downloads in the last day</li>
-              <li><b>99,808</b> downloads in the last week</li>
-              <li><b>431,099</b> downloads in the last month</li>
+              <li><b>23,207</b> downloads in the last day</li>
+              <li><b>120,297</b> downloads in the last week</li>
+              <li><b>494,835</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

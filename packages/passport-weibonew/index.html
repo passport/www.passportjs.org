@@ -102,14 +102,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-weibo</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-weibo
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Weibo authentication strategy authenticates users using a Weibo account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> WeiboStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> WeiboStrategy({
     clientID: WEIBO_CLIENT_ID,
     clientSecret: WEIBO_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/weibo/callback"</span>
@@ -147,7 +147,7 @@ app.get(<span class="string">'/auth/weibo/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Zainan Victor Zhou <a href="[http://zzn.im/](http://www.zzn.im/)">[http://zzn.im/](http://www.zzn.im/)</a></p>
+<p>Copyright (c) 2013 Zainan Victor Zhou &lt;<a href="http://www.zzn.im/">http://zzn.im/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-weibonew</span></code></div>

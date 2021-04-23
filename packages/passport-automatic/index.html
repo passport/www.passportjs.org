@@ -100,14 +100,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-automatic</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-automatic
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Automatic authentication strategy authenticates users using a GitHub account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AutomaticStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AutomaticStrategy({
     clientID: AUTOMATIC_CLIENT_ID,
     clientSecret: AUTOMATIC_CLIENT_SECRET,
     scope: [<span class="string">'scope:user:profile'</span>, <span class="string">'scope:trip'</span>, <span class="string">'scope:location'</span>, <span class="string">'scope:vehicle:profile'</span>, <span class="string">'scope:vehicle:events'</span>, <span class="string">'scope:behavior'</span>]
@@ -162,7 +162,7 @@ app.get(<span class="string">'/auth/automatic/callback'</span>,
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

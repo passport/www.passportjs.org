@@ -102,14 +102,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-renren</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-renren
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Renren authentication strategy authenticates users using a Renren account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> RenrenStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> RenrenStrategy({
     clientID: RENREN_CLIENT_ID,
     clientSecret: RENREN_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/renren/callback"</span>
@@ -147,18 +147,18 @@ app.get(<span class="string">'/auth/renren/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Zainan Victor Zhou <a href="[http://www.zzn.im/](http://www.zzn.im/)">[http://www.zzn.im/](http://www.zzn.im/)</a></p>
+<p>Copyright (c) 2013 Zainan Victor Zhou &lt;<a href="http://www.zzn.im/">http://www.zzn.im/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-renren</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2014-08-28T12:02:47Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2014-08-28T12:02:47Z">7 years ago</abbr></li>
               <li><a class="url" href="http://github.com/xinbenlv/passport-renren.git">https://github.com/xinbenlv/passport-renren</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

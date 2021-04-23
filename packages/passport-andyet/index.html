@@ -95,7 +95,7 @@
           <div class="description"><h1 id="passport-andyet">passport-andyet</h1>
 <p>This is a passport strategy for andyet&#39;s auth</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-andyet
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-andyet
 </code></pre><h2 id="usage">Usage</h2>
 <pre><code class="lang-js"><span class="keyword">var</span> AndyetStrategy = <span class="built_in">require</span>(<span class="string">'passport-andyet'</span>).Strategy;
 
@@ -103,7 +103,7 @@ Passport.use(<span class="keyword">new</span> AndyetStrategy({
     <span class="attr">clientId</span>: YOUR_CLIENT_ID,
     <span class="attr">clientSecret</span>: YOUR_CLIENT_SECRET,
     <span class="attr">apps</span>: <span class="string">'https://apps.andyet.com'</span>, <span class="comment">// this is the default, but can be overridden</span>
-    api: <span class="string">'https://api.andbang.com'</span> <span class="comment">// again, this is the default</span>
+    <span class="attr">api</span>: <span class="string">'https://api.andbang.com'</span> <span class="comment">// again, this is the default</span>
 }, <span class="function"><span class="keyword">function</span> (<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="comment">// profile is the json object representing the user as fetched from the /me route of the api</span>
     <span class="comment">// you can use that data to look up a local user, or whatever else you need to do here</span>
@@ -122,7 +122,7 @@ Passport.use(<span class="keyword">new</span> AndyetStrategy({
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>

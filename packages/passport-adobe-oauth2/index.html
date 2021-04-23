@@ -101,9 +101,9 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <p><a href="https://www.adobe.io/apis/cloudplatform/console/authentication/gettingstarted.html">Adobe Authentication - Getting Started</a></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-adobe-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-adobe-oauth2
 </code></pre><h2 id="usage">Usage</h2>
-<h4 id="create-an-integration-on-adobe-console-https-console-adobe-io-">Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h4>
+<h4 id="create-an-integration-on-adobe-console">Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h4>
 <p>You need to set up OAuth web credentials for Creative SDK to use the sample. </p>
 <ul>
 <li>Select &quot;Web&quot; for the platform</li>
@@ -166,7 +166,7 @@ application:</p>
 <h2 id="example">Example</h2>
 <p>The source repo contains a very basic example application you can run on your machine.
 Here&#39;s how to get it up and running:</p>
-<h3 id="step-1-create-an-integration-on-adobe-console-https-console-adobe-io-">Step 1: Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h3>
+<h3 id="step-1-create-an-integration-on-adobe-console">Step 1: Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h3>
 <p>You need to set up OAuth web credentials for Creative SDK to use the sample. </p>
 <ul>
 <li>Select &quot;Web&quot; for the platform</li>
@@ -206,16 +206,16 @@ $ openssl x509 -req -sha256 -days 365 -<span class="keyword">in</span> server.cs
 <li>for Windows (8, 8.1, 10): Run notepad as Administrator. File-&gt;Open <code>c:\windows\system32\drivers\etc\hosts</code></li>
 </ul>
 <p>Add a record on a new line to alias the redirect domain to your local host ip address</p>
-<pre><code>127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span>       <span class="selector-tag">www</span><span class="selector-class">.example</span><span class="selector-class">.net</span>
+<pre><code><span class="number">127.0.0.1</span>       www.example.net
 </code></pre><h3 id="step-4-edit-the-app-js-file-in-the-example">Step 4: Edit the app.js file in the example</h3>
 <p>Open and edit the example/app.js file. Fill the following variable to match the integration you created on the console </p>
-<pre><code><span class="selector-tag">var</span> ADOBE_CLIENT_ID = <span class="string">"..."</span>
-<span class="selector-tag">var</span> ADOBE_CLIENT_SECRET = <span class="string">"..."</span>
-<span class="selector-tag">var</span> REDIRECT_URI = <span class="string">"..."</span>
+<pre><code><span class="keyword">var</span> ADOBE_CLIENT_ID = <span class="string">"..."</span>
+<span class="keyword">var</span> ADOBE_CLIENT_SECRET = <span class="string">"..."</span>
+<span class="keyword">var</span> REDIRECT_URI = <span class="string">"..."</span>
 </code></pre><h3 id="step-5-run-the-sample">Step 5: Run the sample</h3>
 <p>Go into the <code>example</code> folder and run</p>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm start</span>
+<pre><code>$ <span class="built_in">npm</span> install
+$ <span class="built_in">npm</span> start
 </code></pre><p>Then open in your browser</p>
 <pre><code>https:<span class="regexp">//</span>www.example.net:<span class="number">3000</span><span class="regexp">/auth/</span>adobe<span class="regexp">/login.html</span>
 </code></pre><p>Replacing <code>www.example.net</code> with whatever redirect domain you chose. You may be prompted with an insecure website warning. Proceed anyway. </p>
@@ -243,9 +243,9 @@ $ openssl x509 -req -sha256 -days 365 -<span class="keyword">in</span> server.cs
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>65</b> downloads in the last week</li>
-              <li><b>366</b> downloads in the last month</li>
+              <li><b>15</b> downloads in the last day</li>
+              <li><b>225</b> downloads in the last week</li>
+              <li><b>952</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

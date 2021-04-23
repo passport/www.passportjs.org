@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-xing</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-xing
 </code></pre><h2 id="usage">Usage</h2>
 <p>In order to use this strategy please make sure your Xing application has at 
 least the <em>App User Details</em> access rights. This access rights can be set
@@ -111,7 +111,7 @@ if a production key is generated on the Xing Developer site.</p>
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> XingStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> XingStrategy({
     consumerKey: XING_API_KEY,
     consumerSecret: XING_SECRET_KEY,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/xing/callback"</span>
@@ -141,11 +141,11 @@ app.get(<span class="string">'/auth/xing/callback'</span>,
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of fields your application needs.  For example, to fetch the user&#39;s ID, name and
 email address, configure strategy like this.</p>
-<pre><code>passport.<span class="keyword">use</span>(new XingStrategy({
-    <span class="regexp">//</span> clientID, clientSecret <span class="keyword">and</span> callbackURL
-    <span class="symbol">profileFields:</span> [<span class="string">'id'</span>, <span class="string">'first_name'</span>, <span class="string">'last_name'</span>, <span class="string">'active_email'</span>]
+<pre><code>passport.use(<span class="keyword">new</span> <span class="type">XingStrategy</span>({
+    <span class="comment">// clientID, clientSecret and callbackURL</span>
+    profileFields: <span class="type"></span>[<span class="string">'id'</span>, <span class="string">'first_name'</span>, <span class="string">'last_name'</span>, <span class="string">'active_email'</span>]
   },
-  <span class="regexp">//</span> verify callback
+  <span class="comment">// verify callback</span>
 ));
 </code></pre><p>by default the following fields will be fetched form Xing: <code>id,first_name,last_name,display_name,active_email,page_name,permalink,gender,photo_urls,birth_date</code></p>
 <h2 id="examples">Examples</h2>
@@ -185,9 +185,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
               <li><a class="url" href="git://github.com/pascal-bach/passport-xing.git"></a></li>
             </ul>
             <ul>
-              <li><b>11</b> downloads in the last day</li>
-              <li><b>48</b> downloads in the last week</li>
-              <li><b>459</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>21</b> downloads in the last week</li>
+              <li><b>184</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

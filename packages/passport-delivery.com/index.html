@@ -97,21 +97,21 @@
 <p>This module lets you authenticate using Delivery.com in your Node.js applications.
 By plugging into Passport, Delivery.com authentication can be easily and unovtrusively  integrated into any application or framework that supports <a href="http://senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="intall">Intall</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-delivery.com</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-delivery.com
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Delivery.com OAuth 2.0 authentication strategy authenicates users using a Delivery.com
 account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts those credentials
 and calls <code>done</code> providing a user, as well as <code>options</code> specifying a <code>clientID</code>, <code>clientSecret</code>, and <code>callbackURL</code>.</p>
-<pre><code><span class="keyword">var</span> DeliveryStrategy = <span class="keyword">require</span>(<span class="string">'passport-delivery.com'</span>).Strategy;
+<pre><code><span class="keyword">var</span> DeliveryStrategy = <span class="built_in">require</span>(<span class="string">'passport-delivery.com'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> DeliveryStrategy({
-  clientID: Delivery_CLIENT_ID,
-  clientSecret: Delivery_CLIENT_SECRET,
-  callbackURL: <span class="string">'http://127.0.0.1:3000/auth/delivery/callback'</span>
+passport.use(<span class="keyword">new</span> DeliveryStrategy({
+  <span class="attr">clientID</span>: Delivery_CLIENT_ID,
+  <span class="attr">clientSecret</span>: Delivery_CLIENT_SECRET,
+  <span class="attr">callbackURL</span>: <span class="string">'http://127.0.0.1:3000/auth/delivery/callback'</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ accessToken: accessToken }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">accessToken</span>: accessToken }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -119,23 +119,23 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Deliv
 
 <span class="comment">// If you are using MongoDB take a look at the below function</span>
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> DeliveryStrategy({
-  clientID: Delivery_CLIENT_ID,
-  clientSecret: Delivery_CLIENT_SECRET,
-  callbackURL: <span class="string">'http://127.0.0.1:3000/auth/delivery/callback'</span>
+passport.use(<span class="keyword">new</span> DeliveryStrategy({
+  <span class="attr">clientID</span>: Delivery_CLIENT_ID,
+  <span class="attr">clientSecret</span>: Delivery_CLIENT_SECRET,
+  <span class="attr">callbackURL</span>: <span class="string">'http://127.0.0.1:3000/auth/delivery/callback'</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOne({ accessToken: accessToken }, <span class="function"><span class="keyword">function</span><span class="params">(err, user)</span></span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOne({ <span class="attr">accessToken</span>: accessToken }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>)</span>{
       <span class="keyword">if</span>(err) <span class="keyword">return</span> err;
       <span class="keyword">if</span>(!user){
         <span class="keyword">var</span> u = <span class="keyword">new</span> User({
-          accessToken: accessToken
+          <span class="attr">accessToken</span>: accessToken
         });
-        u.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>{
+        u.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
           <span class="keyword">return</span> done(err, u);
         });
       } <span class="keyword">else</span>{
-        user.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>{
+        user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
           <span class="keyword">return</span> done(err, user);
         });
       }
@@ -144,7 +144,7 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Deliv
 ));
 </code></pre><h4 id="important-the-profile-object">Important: The <code>profile</code> Object</h4>
 <p>Currently, Delivery.com does not support further queries to obtain personal information (fullName, userName, email) on the user via the conventional /v1/me endpoint. The <code>profile</code> object returned above is empty. The strategy will be updated to include personal information if Delivery.com updates their API to support to retrive user information. Actions can be made on behalf of the user in session by making queries with the accessToken in the Authorization HTTP header.</p>
-<pre><code><span class="selector-tag">res</span><span class="selector-class">.setHeader</span>(<span class="string">'access_token'</span>, <span class="string">'&lt;access_token goes here&gt;'</span>);
+<pre><code>res.set<span class="constructor">Header('<span class="params">access_token</span>', '&lt;<span class="params">access_token</span> <span class="params">goes</span> <span class="params">here</span>&gt;')</span>;
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;delivery&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -181,14 +181,14 @@ app.get('/auth/delivery/callback',
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-delivery.com</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2014-05-04T04:06:44Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2014-05-04T04:06:44Z">7 years ago</abbr></li>
               <li><a class="url" href="http://github.com/jihokoo/passport-delivery.com">https://github.com/jihokoo/passport-delivery.com</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -101,22 +101,22 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install-tdb-">Install (TDB)</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-restogram-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-restogram-oauth
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Restogram OAuth 2.0 authentication strategy authenticates users using a Restogram
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> RestogramStrategy = <span class="keyword">require</span>(<span class="string">'passport-restogram-oauth'</span>).OAuth2Strategy;
+<pre><code><span class="keyword">var</span> RestogramStrategy = <span class="built_in">require</span>(<span class="string">'passport-restogram-oauth'</span>).OAuth2Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> RestogramStrategy({
-    clientID: RESTOGRAM_CLIENT_ID,
-    clientSecret: RESTOGRAM_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/restogram/callback"</span>
+passport.use(<span class="keyword">new</span> RestogramStrategy({
+    <span class="attr">clientID</span>: RESTOGRAM_CLIENT_ID,
+    <span class="attr">clientSecret</span>: RESTOGRAM_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/restogram/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ restogramId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">restogramId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -146,17 +146,17 @@ app.get(<span class="string">'/auth/restogram/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Pierrick Chabi <a href="[http://pierrickchabi.com/](http://pierrickchabi.com/)">[http://pierrickchabi.com/](http://pierrickchabi.com/)</a></p>
+<p>Copyright (c) 2012-2013 Pierrick Chabi &lt;<a href="http://pierrickchabi.com/">http://pierrickchabi.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-restogram-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2013-09-24T08:08:18Z">7 years ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2013-09-24T08:08:18Z">8 years ago</abbr></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

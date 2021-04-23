@@ -116,14 +116,14 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> LdsConnectStrategy({
     <span class="comment">// These are the working demo app id and app secret</span>
-    clientID: <span class="string">'55c7-test-bd03'</span>,
+    <span class="attr">clientID</span>: <span class="string">'55c7-test-bd03'</span>,
     <span class="attr">clientSecret</span>: <span class="string">'6b2fc4f5-test-8126-64e0-b9aa0ce9a50d'</span>,
 
     <span class="comment">// defaults to '/api/ldsorg/me', which is not as easy to use</span>
-    profileUrl: <span class="string">'/api/ldsconnect/me'</span>,
+    <span class="attr">profileUrl</span>: <span class="string">'/api/ldsconnect/me'</span>,
 
     <span class="comment">// local.ldsconnect.org points to 127.0.0.1 and is an authorized domain for demo apps</span>
-    callbackURL: <span class="string">"http://local.ldsconnect.org:3000/oauth2/ldsconnect/callback"</span>
+    <span class="attr">callbackURL</span>: <span class="string">"http://local.ldsconnect.org:3000/oauth2/ldsconnect/callback"</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="keyword">if</span> (profile.guest) {
@@ -171,7 +171,7 @@ app.get(
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/Apache-2.0">The MIT License</a></p>
-<p>Copyright (c) 2014 AJ ONeal <a href="[http://coolaj86.com/](http://coolaj86.com/)">[http://coolaj86.com/](http://coolaj86.com/)</a></p>
+<p>Copyright (c) 2014 AJ ONeal &lt;<a href="http://coolaj86.com/">http://coolaj86.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lds-connect</span></code></div>
@@ -182,8 +182,8 @@ app.get(
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

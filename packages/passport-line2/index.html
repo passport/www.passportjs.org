@@ -96,7 +96,7 @@
 <p>Fork from passport-line-auth</p>
 <p>Passport strategy for authenticating with LINE using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-line2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-line2
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-service">Create an Service</h3>
 <p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://business.line.me/zh-hant/">LINE Business Center</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
@@ -106,7 +106,7 @@
     <span class="attr">channelID</span>: LINE_CHANNEL_ID,
     <span class="attr">channelSecret</span>: LINE_CHANNEL_SECRET,
     <span class="attr">useAutoLogin</span>: <span class="literal">true</span>, <span class="comment">// Default true</span>
-    callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>
+    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/line/callback"</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
     User.findOrCreate({ <span class="attr">lineId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -167,7 +167,7 @@
 <li><a href="https://github.com/IvanWei/passport-line-auth">passport-line-auth</a></li>
 </ul>
 <h2 id="license">License</h2>
-<p>MIT Copyright (c) 2017 Whien <a href="[Whien](https://www.facebook.com/haowei.liou)">[Whien](https://www.facebook.com/haowei.liou)</a></p>
+<p>MIT Copyright (c) 2017 Whien &lt;<a href="https://www.facebook.com/haowei.liou">Whien</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line2</span></code></div>
@@ -177,9 +177,9 @@
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>8</b> downloads in the last week</li>
-              <li><b>54</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>13</b> downloads in the last week</li>
+              <li><b>95</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

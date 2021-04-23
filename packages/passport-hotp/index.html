@@ -106,7 +106,7 @@ that a user already be authenticated using an initial factor.  Requirements
 regarding when to require a second factor are a matter of application-level
 policy, and outside the scope of both Passport and this strategy.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-hotp</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-hotp
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HOTP authentication strategy authenticates a user using a HOTP value
@@ -117,15 +117,15 @@ providing a <code>key</code> and <code>counter</code> used to verify the HOTP va
 fails if the value is not verified.</p>
 <p>After successful authentication, the <code>resync</code> callback is invoked to synchronize
 the counter values on the server and on the token.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> HotpStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-    HotpKey.findOne({ userId: user.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, key)</span> </span>{
+<pre><code>passport.use(new HotpStrategy(
+  <span class="keyword">function</span>(user, done) {
+    HotpKey.findOne({ userId: user<span class="built_in">.id</span> }, <span class="keyword">function</span> (err,<span class="built_in"> key</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, key.key, key.counter);
+      <span class="keyword">return</span> done(null,<span class="built_in"> key</span><span class="built_in">.key</span>,<span class="built_in"> key</span>.counter);
     });
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(user, key, counter, delta, done)</span> </span>{
-    HotpKey.update(user.id, { key: key, counter: counter }, <span class="function"><span class="keyword">function</span> <span class="params">(err, key)</span> </span>{
+  <span class="keyword">function</span>(user,<span class="built_in"> key</span>, counter, delta, done) {
+    HotpKey.<span class="keyword">update</span>(user<span class="built_in">.id</span>, {<span class="built_in"> key</span>:<span class="built_in"> key</span>, counter: counter }, <span class="keyword">function</span> (err,<span class="built_in"> key</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
       <span class="keyword">return</span> done();
     });
@@ -154,18 +154,18 @@ application:</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hotp</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2013-05-12T02:28:50Z">7 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2013-05-12T02:28:50Z">8 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-hotp.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>16</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>23</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

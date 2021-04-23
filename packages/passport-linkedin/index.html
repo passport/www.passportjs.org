@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-linkedin</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-linkedin
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The LinkedIn authentication strategy authenticates users using a LinkedIn
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LinkedInStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> LinkedInStrategy({
     consumerKey: LINKEDIN_API_KEY,
     consumerSecret: LINKEDIN_SECRET_KEY,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/linkedin/callback"</span>
@@ -145,11 +145,11 @@ and email address:</p>
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of fields your application needs.  For example, to fetch the user&#39;s ID, name,
 email address, and headline, configure strategy like this.</p>
-<pre><code>passport.<span class="keyword">use</span>(new LinkedInStrategy({
-    <span class="regexp">//</span> clientID, clientSecret <span class="keyword">and</span> callbackURL
-    <span class="symbol">profileFields:</span> [<span class="string">'id'</span>, <span class="string">'first-name'</span>, <span class="string">'last-name'</span>, <span class="string">'email-address'</span>, <span class="string">'headline'</span>]
+<pre><code>passport.use(<span class="keyword">new</span> <span class="type">LinkedInStrategy</span>({
+    <span class="comment">// clientID, clientSecret and callbackURL</span>
+    profileFields: <span class="type"></span>[<span class="string">'id'</span>, <span class="string">'first-name'</span>, <span class="string">'last-name'</span>, <span class="string">'email-address'</span>, <span class="string">'headline'</span>]
   },
-  <span class="regexp">//</span> verify callback
+  <span class="comment">// verify callback</span>
 ));
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-linkedin/tree/master/examples/login">login example</a>.</p>
@@ -163,7 +163,7 @@ email address, and headline, configure strategy like this.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-linkedin</span></code></div>
@@ -172,9 +172,9 @@ email address, and headline, configure strategy like this.</p>
               <li><a class="url" href="git://github.com/jaredhanson/passport-linkedin.git">https://github.com/jaredhanson/passport-linkedin</a></li>
             </ul>
             <ul>
-              <li><b>431</b> downloads in the last day</li>
-              <li><b>2,102</b> downloads in the last week</li>
-              <li><b>10,260</b> downloads in the last month</li>
+              <li><b>437</b> downloads in the last day</li>
+              <li><b>2,464</b> downloads in the last week</li>
+              <li><b>10,460</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

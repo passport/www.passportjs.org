@@ -112,7 +112,7 @@ passport.use(<span class="keyword">new</span> ItasStategy({
     <span class="attr">clientApiKey</span>: INFOTJENESTER_CLIENT_API_KEY,
     <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/infotjenester/callback"</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span> <span class="comment">//this is optional -&gt; defaults to false</span>
-    vendor: <span class="number">2</span> <span class="comment">//this is optional -&gt; defaults to 1</span>
+    <span class="attr">vendor</span>: <span class="number">2</span> <span class="comment">//this is optional -&gt; defaults to 1</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">req <span class="regexp">/* &lt;-- depends on passReqToCallback */</span>, profile, cb</span>) </span>{
     User.findOrCreate({ <span class="attr">userId</span>: profile.UserGuid }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -149,8 +149,8 @@ Copyright (c) Carsten Jacobsen</p>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

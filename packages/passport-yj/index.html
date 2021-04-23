@@ -102,19 +102,19 @@ You can integrate into below applications or frameworks.
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-yj</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-yj
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configuration-strategy">Configuration Strategy</h3>
 <p>This YConnect passport module requires your application&#39; id.
 You can get this id from <a href="http://developer.yahoo.co.jp/start/">YConnect admin</a></p>
 <h3 id="authorization-endpoint">Authorization Endpoint</h3>
-<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>);
+<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> YJStrategy({
-    clientID     : &lt;YAHOO_JAPAN_APP_ID&gt;,
-    clientSecret : &lt;YAHOO_JAPAN_APP_SECRET&gt;,
-    callbackURL  : &lt;CALL_BACK_URL&gt;,
-}, <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshtoken, profile, done)</span></span>{
+passport.use(<span class="keyword">new</span> YJStrategy({
+    <span class="attribute">clientID</span>     : &lt;YAHOO_JAPAN_APP_ID&gt;,
+    <span class="attribute">clientSecret</span> : &lt;YAHOO_JAPAN_APP_SECRET&gt;,
+    <span class="attribute">callbackURL</span>  : &lt;CALL_BACK_URL&gt;,
+}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshtoken, profile, done</span>)</span>{
     <span class="comment">// With this accessToken you can access user profile data.</span>
     <span class="comment">// In the case that accessToken is expired, you should</span>
     <span class="comment">// regain it with refreshToken. So you have to keep these token</span>
@@ -135,9 +135,9 @@ So this process is not required with this module.</p>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3</b> downloads in the last day</li>
-              <li><b>25</b> downloads in the last week</li>
-              <li><b>129</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>254</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

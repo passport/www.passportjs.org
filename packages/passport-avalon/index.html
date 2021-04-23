@@ -97,14 +97,14 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://avalonconsult.com/federated">Avalon Federated Login</a> using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-avalon</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-avalon
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Avalon authentication strategy authenticates users using an Avalon login 
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AvalonStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AvalonStrategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET
   },
@@ -140,13 +140,13 @@ app.get(<span class="string">'/auth/avalon/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-avalon</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2014-07-10T14:03:08Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2014-07-10T14:03:08Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/abembecker/passport-avalon.git">https://github.com/abembecker/passport-avalon</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

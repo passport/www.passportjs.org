@@ -102,23 +102,23 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-taobao</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-taobao
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Taobao authentication strategy authenticates users using a Taobao account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TaobaoStrategy({
-    sandbox: <span class="literal">true</span>, // set <span class="literal">true</span> to <span class="keyword">use</span> taobao sandbox environment, default <span class="literal">false</span>
-    profile: <span class="symbol">'seller</span>', // set to get user profile as seller, default <span class="symbol">'buyer</span>'
+<pre><code>passport.use(<span class="built_in">new</span> TaobaoStrategy({
+    sandbox: <span class="keyword">true</span>, // <span class="keyword">set</span> <span class="keyword">true</span> <span class="keyword">to</span> use taobao sandbox environment, <span class="keyword">default</span> <span class="keyword">false</span>
+    profile: <span class="string">'seller'</span>, // <span class="keyword">set</span> <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">user</span> profile <span class="keyword">as</span> seller, <span class="keyword">default</span> <span class="string">'buyer'</span>
     clientID: client_id,
     clientSecret: client_secret,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/taobao/callback"</span>
+    callbackURL: "http://127.0.0.1:3000/auth/taobao/callback"
   },
   <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ taobaoId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
-      <span class="keyword">return</span> <span class="type">done(err,</span> user);
+    <span class="keyword">User</span>.findOrCreate({ taobaoId: profile.id }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
+      <span class="keyword">return</span> done(err, <span class="keyword">user</span>);
     });
   }
 ));
@@ -153,7 +153,7 @@ app.get(<span class="string">'/auth/taobao/callback'</span>,
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

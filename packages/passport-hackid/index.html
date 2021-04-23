@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-facebook</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-facebook
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Facebook authentication strategy authenticates users using a Facebook
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> FacebookStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/facebook/callback"</span>
@@ -142,9 +142,9 @@ app.get(<span class="string">'/auth/facebook/callback'</span>,
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the user&#39;s statuses and
 checkins:</p>
-<pre><code>app.get(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { scope: [<span class="string">'user_status'</span>, <span class="string">'user_checkins'</span>] }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/facebook'</span>,
+  passport.authenticate(<span class="string">'facebook'</span>, { <span class="attribute">scope</span>: [<span class="string">'user_status'</span>, <span class="string">'user_checkins'</span>] }),
+  function(req, res){
     <span class="comment">// The request will be redirected to Facebook for authentication, with</span>
     <span class="comment">// extended permissions.</span>
   });
@@ -160,12 +160,14 @@ documentation for more information.</p>
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-facebook/tree/master/examples/login">login example</a>.</p>
 <h2 id="issues">Issues</h2>
-<p>Facebook&#39;s OAuth 2.0 implementation has a <a href="https://developers.facebook.com/bugs/196125357123225">bug</a> in which the fragment <code>#_=_</code>
+<p>Facebook&#39;s OAuth 2.0 implementation has a [bug][1] in which the fragment <code>#_=_</code>
 is appended to the callback URL.  This appears to affect Firefox and Chrome, but
 not Safari.  This fragment can be removed via client-side JavaScript, and <a href="https://github.com/niftylettuce">@niftylettuce</a>
-provides a suggested <a href="https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711">workaround</a>.  Developers are encouraged to direct their
+provides a suggested [workaround][2].  Developers are encouraged to direct their
 complaints to Facebook in an effort to get them to implement a proper fix for
-this issue.</p>
+this issue.
+[1]: <a href="https://developers.facebook.com/bugs/196125357123225">https://developers.facebook.com/bugs/196125357123225</a>
+[2]: <a href="https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711">https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711</a></p>
 <h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
 <span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
@@ -195,13 +197,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hackid</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2012-09-03T18:36:09Z">8 years ago</abbr></li>
+              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2012-09-03T18:36:09Z">9 years ago</abbr></li>
               <li><a class="url" href="git://github.com/HackBerkeley/passport-hackid.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

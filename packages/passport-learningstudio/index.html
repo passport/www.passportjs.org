@@ -94,20 +94,20 @@
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-learningstudio">passport-learningstudio</h1>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-learningstudio</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-learningstudio
 </code></pre><h2 id="usage">Usage</h2>
-<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>)
-  , LearningStudioStrategy = <span class="keyword">require</span>(<span class="string">'passport-learningstudio'</span>).LearningStudioStrategy;
+<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
+  , LearningStudioStrategy = <span class="built_in">require</span>(<span class="string">'passport-learningstudio'</span>).LearningStudioStrategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> LearningStudioStrategy({
-    clientID: application_id,
-    clientSecret: shared_secret,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/learningstudio/callback"</span>
+passport.use(<span class="keyword">new</span> LearningStudioStrategy({
+    <span class="attr">clientID</span>: application_id,
+    <span class="attr">clientSecret</span>: shared_secret,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/learningstudio/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate(<span class="string">"..."</span>, <span class="function"><span class="keyword">function</span><span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate(<span class="string">"..."</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      done(<span class="keyword">null</span>, user);
+      done(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -126,13 +126,13 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Learn
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-learningstudio</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2014-07-09T16:26:58Z">6 years ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2014-07-09T16:26:58Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/PearsonAPI/passport-learningstudio.git">https://github.com/PearsonAPI/passport-learningstudio</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

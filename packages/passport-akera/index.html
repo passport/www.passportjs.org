@@ -96,7 +96,7 @@
 <p><a href="http://passportjs.org/">Passport</a> authentication strategy against Akera.io application server. 
 This module is a Passport strategy wrapper for <a href="http://akera.io">akera-api</a></p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-akera
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-akera
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure strategy</h3>
 <pre><code class="lang-javascript"><span class="keyword">var</span> AkeraStrategy = <span class="built_in">require</span>(<span class="string">'passport-akera'</span>).Strategy;
@@ -120,9 +120,9 @@ passport.use(<span class="keyword">new</span> AkeraStrategy({
 <li><code>usernameField</code>: Field name where the user name is found, defaults to <em>username</em></li>
 <li><code>passwordField</code>: Field name where the password is found, defaults to <em>password</em></li>
 <li><p><code>passReqToCallback</code>: When <code>true</code>, <code>req</code> is the first argument to the verify callback (default: <code>false</code>):</p>
-<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> LdapStrategy(..., <span class="keyword">function</span>(req, user, <span class="keyword">done</span>) {
+<pre><code>  passport.use(<span class="keyword">new</span> <span class="constructor">LdapStrategy(<span class="operator">...</span>, <span class="params">function</span>(<span class="params">req</span>, <span class="params">user</span>, <span class="params">done</span>)</span> {<span class="operator">
       ...
-      <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+      </span><span class="keyword">done</span>(null, user);
     }
   ));
 </code></pre></li>
@@ -130,7 +130,7 @@ passport.use(<span class="keyword">new</span> AkeraStrategy({
 <p>Note: you can pass a function instead of an object as <code>options</code>, see the <a href="#options-as-function">example below</a></p>
 <h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;akeraAuth&#39;</code> strategy, to authenticate requests.</p>
-<h4 id="-authenticate-options"><code>authenticate()</code> options</h4>
+<h4 id="authenticate-options"><code>authenticate()</code> options</h4>
 <p>In addition to <a href="http://passportjs.org/guide/authenticate/">default authentication options</a> the following flash message options are available for <code>passport.authenticate()</code>:</p>
 <ul>
 <li><code>badRequestMessage</code>: missing username/password (default: &#39;Missing credentials&#39;)</li>
@@ -176,8 +176,8 @@ app.listen(<span class="number">8080</span>);
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>22</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

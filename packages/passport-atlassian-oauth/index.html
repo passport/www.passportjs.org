@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-atlassian-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-atlassian-oauth
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Atlassian OAuth authentication strategy authenticates users using an Atlassian Application 
 account and OAuth 1.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a applicationURL, consumerKey, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AtlassianOAuthStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AtlassianOAuthStrategy({
         applicationURL:<span class="string">"http://localhost:2990/jira"</span>,
         callbackURL:<span class="string">"http://localhost:5000/auth/atlassian-oauth/callback"</span>,
         consumerKey:<span class="string">"atlassian-oauth-sample"</span>,
@@ -171,13 +171,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-atlassian-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2015-07-09T06:46:00Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2015-07-09T06:46:00Z">6 years ago</abbr></li>
               <li><a class="url" href="https://bitbucket.org/knecht_andreas/passport-atlassian-oauth.git"></a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>91</b> downloads in the last week</li>
-              <li><b>686</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>79</b> downloads in the last week</li>
+              <li><b>528</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

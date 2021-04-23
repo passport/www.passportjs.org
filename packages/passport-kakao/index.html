@@ -114,7 +114,7 @@
 passport.use(<span class="keyword">new</span> KakaoStrategy({
     <span class="attr">clientID</span> : clientID,
     <span class="attr">clientSecret</span>: clientSecret, <span class="comment">// clientSecret을 사용하지 않는다면 넘기지 말거나 빈 스트링을 넘길 것</span>
-    callbackURL : callbackURL
+    <span class="attr">callbackURL</span> : callbackURL
   },
   (accessToken, refreshToken, profile, done) =&gt; {
     <span class="comment">// 사용자의 정보는 profile에 들어있다.</span>
@@ -219,7 +219,7 @@ npm install
     <span class="attr">name</span>: <span class="string">'passport-kakao'</span>,
   },
   <span class="comment">// 그외 설정들....,</span>
-  kakao: {
+  <span class="attr">kakao</span>: {
     <span class="attr">clientID</span>: <span class="string">'kakao app rest api key'</span>,
     <span class="attr">callbackURL</span>: <span class="string">'http://localhost:3000/oauth'</span>,
   },
@@ -318,14 +318,14 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kakao</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2019-10-04T11:01:27Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2021-02-05T13:58:24Z">3 months ago</abbr></li>
               <li><a class="url" href="git://github.com/rotoshine/passport-kakao.git">https://github.com/rotoshine/passport-kakao#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>18</b> downloads in the last day</li>
-              <li><b>908</b> downloads in the last week</li>
-              <li><b>4,917</b> downloads in the last month</li>
+              <li><b>254</b> downloads in the last day</li>
+              <li><b>1,424</b> downloads in the last week</li>
+              <li><b>5,843</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -95,16 +95,16 @@
           <div class="description"><h1 id="passport-iucas">passport-iucas</h1>
 <p>Indiana University CAS authentication strategies for Passport.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-iucas</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-iucas
 </code></pre><h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code><span class="keyword">var</span> iucas_strategy = <span class="keyword">new</span> iucas.Strategy(<span class="function"><span class="keyword">function</span>(<span class="params">username, done</span>) </span>{
+<pre><code><span class="keyword">var</span> iucas_strategy = <span class="keyword">new</span> iucas.Strategy(<span class="function"><span class="keyword">function</span><span class="params">(username, done)</span> </span>{
     <span class="comment">//TODO - lookup user from specified username</span>
-    <span class="keyword">return</span> done(<span class="literal">null</span>, {<span class="attribute">id:</span><span class="string"> username</span>, <span class="attribute">email</span>: <span class="string">'user@email.com'</span>});
+    <span class="keyword">return</span> done(<span class="keyword">null</span>, {id: username, email: <span class="string">'user@email.com'</span>});
 });
-passport.use(iucas_strategy);
+passport.<span class="keyword">use</span>(<span class="title">iucas_strategy</span>);
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <pre><code><span class="comment">//access this to login via IU CAS</span>
-app.<span class="keyword">use</span>(<span class="string">'/protected'</span>, passport.authenticate(<span class="string">'iucas'</span>, { failureRedirect: <span class="string">'/iucas/fail'</span> }), <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>{
+app.use(<span class="string">'/protected'</span>, passport.authenticate(<span class="string">'iucas'</span>, { failureRedirect: <span class="string">'/iucas/fail'</span> }), <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>{
     <span class="comment">//user object can be accessed via req.user</span>
     <span class="comment">//render your protected content</span>
 });
@@ -127,13 +127,13 @@ app.use(<span class="string">'/protected'</span>, ensureAuth, <span class="funct
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-iucas</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2015-04-30T17:30:39Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2015-04-30T17:30:39Z">6 years ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/soichih/passport-iucas.git">https://github.com/soichih/passport-iucas</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>

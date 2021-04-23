@@ -92,20 +92,20 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-ustream-circle-ci-https-circleci-com-gh-superpan-passport-ustream-png-style-badge-https-circleci-com-gh-superpan-passport-ustream-">passport-ustream <a href="https://circleci.com/gh/superpan/passport-ustream"><img src="https://circleci.com/gh/superpan/passport-ustream.png?style=badge" alt="Circle CI"></a></h1>
+          <div class="description"><h1 id="passport-ustream-circle-ci">passport-ustream <a href="https://circleci.com/gh/superpan/passport-ustream"><img src="https://circleci.com/gh/superpan/passport-ustream.png?style=badge" alt="Circle CI"></a></h1>
 <p>passport oath2.0 plugin for ustream</p>
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating with <a href="https://ustream.tv">Ustream</a> using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-ustream
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-ustream
 </code></pre><h2 id="usage">Usage</h2>
 <p>####Configure Strategy</p>
-<pre><code><span class="keyword">var</span> UstreamStrategy = <span class="keyword">require</span>(<span class="string">'passport-ustream'</span>).Strategy;
+<pre><code><span class="keyword">var</span> UstreamStrategy = <span class="built_in">require</span>(<span class="string">'passport-ustream'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> UstreamStrategy({
-    clientID: <span class="string">'ABC123'</span>,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/ustream/callback"</span>
+passport.use(<span class="keyword">new</span> UstreamStrategy({
+    <span class="attr">clientID</span>: <span class="string">'ABC123'</span>,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/ustream/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="comment">// find that user</span>
     ...
   }
@@ -114,13 +114,13 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Ustre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ustream</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-10-04T17:44:08Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-10-04T17:44:08Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/superpan/passport-ustream.git">https://github.com/superpan/passport-ustream</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>

@@ -101,14 +101,14 @@
 <li>微信网站登陆</li>
 </ul>
 <h2 id="-">安装</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-wechat</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-wechat
 </code></pre><h2 id="-">使用</h2>
 <h4 id="configure-strategy">Configure  Strategy</h4>
 <pre><code class="lang-js">
  passport.use(<span class="keyword">new</span> WechatStrategy({
         <span class="attr">appID</span>: {APPID},
         <span class="attr">name</span>:{默认为wechat,可以设置组件的名字}
-        appSecret: {APPSECRET},
+        <span class="attr">appSecret</span>: {APPSECRET},
         <span class="attr">client</span>:{wechat|web},
         <span class="attr">callbackURL</span>: {CALLBACKURL},
         <span class="attr">scope</span>: {snsapi_userinfo|snsapi_base},
@@ -124,6 +124,7 @@
 The <span class="string">`callbackURL`</span>, <span class="string">`scope`</span> and <span class="string">`state`</span> can be overwritten <span class="keyword">in</span> <span class="string">`passport.authenticate`</span> middleware.
 
 The <span class="string">`getToken`</span> and <span class="string">`saveToken`</span> can be provided to initialize Wechat OAuth instance.
+
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <pre><code class="lang-js">  router.get(<span class="string">'/auth/wechat'</span>, passport.authenticate(<span class="string">'wechat'</span>, options));
@@ -147,14 +148,14 @@ The <span class="string">`getToken`</span> and <span class="string">`saveToken`<
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wechat</span></code></div>
             <ul>
-              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2018-08-03T00:43:26Z">2 years ago</abbr></li>
+              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2018-08-03T00:43:26Z">3 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/liangyali/passport-wechat.git">http://www.liangyali.com</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>79</b> downloads in the last day</li>
-              <li><b>268</b> downloads in the last week</li>
-              <li><b>1,057</b> downloads in the last month</li>
+              <li><b>62</b> downloads in the last day</li>
+              <li><b>241</b> downloads in the last week</li>
+              <li><b>1,235</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

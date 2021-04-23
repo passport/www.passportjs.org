@@ -95,7 +95,7 @@
           <div class="description"><h1 id="passport-zendesk">passport-zendesk</h1>
 <p>Zendesk OAuth2 strategy for <a href="http://passportjs.org">Passport</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-zendesk</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-zendesk
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configuration">Configuration</h4>
 <pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
@@ -105,7 +105,7 @@ passport.use(<span class="keyword">new</span> ZendeskStrategy({
     <span class="attr">subdomain</span>: <span class="string">'yourZendeskSubdomain'</span>,
     <span class="attr">clientID</span>: <span class="string">'yourClientIdentifier'</span>,
     <span class="attr">clientSecret</span>: <span class="string">'yourClientSecret'</span>
-    callbackURL: <span class="string">'https://www.example.net/auth/zendesk/callback'</span>,
+    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/zendesk/callback'</span>,
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -147,14 +147,14 @@ app.get(<span class="string">'/auth/zendesk/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zendesk</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-05-08T14:59:19Z">6 years ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2014-05-08T14:59:19Z">7 years ago</abbr></li>
               <li><a class="url" href="https://github.com/radialpoint/passport-zendesk">http://github.com/radialpoint/passport-zendesk</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>126</b> downloads in the last day</li>
-              <li><b>643</b> downloads in the last week</li>
-              <li><b>2,406</b> downloads in the last month</li>
+              <li><b>124</b> downloads in the last day</li>
+              <li><b>540</b> downloads in the last week</li>
+              <li><b>2,912</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

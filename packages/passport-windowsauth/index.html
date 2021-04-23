@@ -94,7 +94,7 @@
         <div class="package hproduct" id="package">
           <div class="description"><p>Windows Authentication strategy for Passport.js.</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-windowsauth
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-windowsauth
 </code></pre><h2 id="introduction">Introduction</h2>
 <p>This module authenticate user with a LDAP directory. It works in two modes <strong>Integrated Authentication</strong> (often refer as NTLM) or <strong>Form Authentication</strong>.</p>
 <h2 id="integrated-authentication-iis-">Integrated Authentication (IIS)</h2>
@@ -154,10 +154,10 @@ passport.use(<span class="function"><span class="keyword">function</span>(<span 
 </span>-<span class="ruby">pass passssswwword
 </span>-<span class="ruby">out FILE.keytab</span>
 </code></pre><p>####2-Check your /etc/krb5.conf</p>
-<pre><code><span class="selector-tag">kinit</span> <span class="selector-tag">user</span>@<span class="keyword">CONTOSO</span>.<span class="keyword">COM</span>
+<pre><code><span class="attribute">kinit</span> user<span class="variable">@CONTOSO</span>.COM
 </code></pre><p>You should be able to login from the linux machine.</p>
 <p>####3-Check your keytab is okay</p>
-<pre><code>kinit -V -kt FILE<span class="selector-class">.keytab</span> service/server<span class="selector-class">.CONTOSO</span><span class="selector-class">.COM</span>@CONTOSO.COM
+<pre><code><span class="attribute">kinit</span> -V -kt FILE.keytab service/server.CONTOSO.COM<span class="variable">@CONTOSO</span>.COM
 </code></pre><p>####4-Install apache with the modules</p>
 <p>The modules you need are <code>mod-auth-kerb</code>, <code>proxy</code>, <code>proxy_http</code>, <code>headers</code>, <code>rewrite</code>.</p>
 <p>####5-Configure your apache</p>
@@ -341,14 +341,14 @@ passport.use(<span class="keyword">new</span> WindowsStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-windowsauth</span></code></div>
             <ul>
-              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2018-06-06T19:50:45Z">2 years ago</abbr></li>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2018-06-06T19:50:45Z">3 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/auth0/passport-windowsauth.git">https://github.com/auth0/passport-windowsauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>31</b> downloads in the last day</li>
-              <li><b>187</b> downloads in the last week</li>
-              <li><b>899</b> downloads in the last month</li>
+              <li><b>129</b> downloads in the last day</li>
+              <li><b>473</b> downloads in the last week</li>
+              <li><b>1,746</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

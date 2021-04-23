@@ -96,14 +96,14 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://wordpress.com">Wordpress</a> using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-wordpress</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-wordpress
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Wordpress authentication strategy authenticates users using a Wordpress
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> WordpressStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> WordpressStrategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET
   },
@@ -133,7 +133,7 @@ app.get(<span class="string">'/auth/wordpress/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Michael Pearson <a href="[http://github.com/mjpearson](http://github.com/mjpearson)">[http://github.com/mjpearson](http://github.com/mjpearson)</a></p>
+<p>Copyright (c) 2013 Michael Pearson &lt;<a href="http://github.com/mjpearson">http://github.com/mjpearson</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wordpress</span></code></div>
@@ -142,9 +142,9 @@ app.get(<span class="string">'/auth/wordpress/callback'</span>,
               <li><a class="url" href="git://github.com/mjpearson/passport-wordpress.git">https://github.com/mjpearson/passport-wordpress</a></li>
             </ul>
             <ul>
-              <li><b>113</b> downloads in the last day</li>
-              <li><b>1,034</b> downloads in the last week</li>
-              <li><b>6,999</b> downloads in the last month</li>
+              <li><b>54</b> downloads in the last day</li>
+              <li><b>281</b> downloads in the last week</li>
+              <li><b>1,233</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -102,7 +102,7 @@ stateless cookie for web requests from a browser.</p>
 <p>The best: Every single request saves both techniques a database query, because 
 the user comes from the token. You just use <code>req.user</code> in your actions.</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-jwt-cookiecombo
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt-cookiecombo
 </code></pre><h2 id="tl-dr">TL;DR</h2>
 <pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Configure Strategy</span>
@@ -196,7 +196,7 @@ router.post(<span class="string">'/login'</span>, passport.authenticate(<span cl
 <span class="comment">// =============================================================================</span>
 passport.use(<span class="keyword">new</span> LocalStrategy({
     <span class="comment">// My users have only email</span>
-    usernameField: <span class="string">'email'</span>,
+    <span class="attr">usernameField</span>: <span class="string">'email'</span>,
     <span class="attr">session</span>: <span class="literal">false</span>
 }, (username, password, done) =&gt; {
     User.findOne({
@@ -256,7 +256,7 @@ encoded public key for RSA and ECDSA.</p>
         <span class="attr">options</span>: {
             <span class="attr">audience</span>: <span class="string">'https://example.io'</span>,
             <span class="attr">expiresIn</span>: <span class="string">'12h'</span>, <span class="comment">// 1d</span>
-            issuer: <span class="string">'example.io'</span>
+            <span class="attr">issuer</span>: <span class="string">'example.io'</span>
         },
         <span class="attr">cookie</span>: {
             <span class="attr">httpOnly</span>: <span class="literal">true</span>,
@@ -316,14 +316,14 @@ encoded public key for RSA and ECDSA.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-jwt-cookiecombo</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2018-06-07T20:32:20Z">2 years ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2018-06-07T20:32:20Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/codebarista/passport-jwt-cookiecombo.git">https://github.com/codebarista/passport-jwt-cookiecombo#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>84</b> downloads in the last day</li>
-              <li><b>555</b> downloads in the last week</li>
-              <li><b>2,121</b> downloads in the last month</li>
+              <li><b>449</b> downloads in the last day</li>
+              <li><b>2,004</b> downloads in the last week</li>
+              <li><b>8,451</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

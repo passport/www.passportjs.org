@@ -98,6 +98,7 @@
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with the <a href="http://www.replicated.com">Replicated</a> <a href="http://docs.replicated.com/v1.0/docs/identity-api">Identity API</a></p>
 <h2 id="install">Install</h2>
 <pre><code class="lang-bash">$ npm install passport-replicated
+
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
@@ -133,10 +134,10 @@ credentials and calls <code>done</code> providing a user.</p>
 <p>By default, <code>ReplicatedStrategy</code> expects to find credentials in parameters
 named username and password. If your site prefers to name these fields
 differently, options are available to change the defaults.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ReplicatedStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> ReplicatedStrategy({
     usernameField: <span class="string">'email'</span>,
     passwordField: <span class="string">'passwd'</span>,
-    session: <span class="keyword">false</span>
+    session: <span class="literal">false</span>
   },
   <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span> </span>{
     <span class="comment">// ...</span>
@@ -147,15 +148,15 @@ setting the <code>session</code> option to false.</p>
 <p>The verify callback can be supplied with the <code>request</code> object by setting
 the <code>passReqToCallback</code> option to true, and changing callback arguments
 accordingly.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ReplicatedStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> ReplicatedStrategy({
     usernameField: <span class="string">'email'</span>,
     passwordField: <span class="string">'passwd'</span>,
-    passReqToCallback: <span class="keyword">true</span>,
-    session: <span class="keyword">false</span>
+    passReqToCallback: <span class="literal">true</span>,
+    <span class="keyword">session</span>: <span class="literal">false</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(req, profile, done)</span> </span>{
-    <span class="comment">// request object is now first argument</span>
-    <span class="comment">// ...</span>
+  <span class="keyword">function</span>(req, profile, done) {
+    // request <span class="keyword">object</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">first</span> argument
+    // ...
   }
 ));
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
@@ -186,8 +187,8 @@ $ npm <span class="built_in">test</span>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>244</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

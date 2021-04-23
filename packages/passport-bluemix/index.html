@@ -99,28 +99,28 @@ using the OAuth 2.0 API.</p>
 The module can also be used as middleware in <a href="http://expressjs.com/">Express</a>.
 Manage your client configurations in <a href="https://idaas.ng.bluemix.net/idaas/index.jsp">Bluemix IDaaS</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-bluemix</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-bluemix
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="authentication-strategy">Authentication Strategy</h4>
 <p>Use BlueMix as OAuth2 authentication strategy for Passport. After authenticate using IBM ID,
 this strategy requires a <code>verify</code> callback which can be used to create/verify an user in your
 application. Calling <code>done(null, profile)</code> will save user profile from IBM to the current passport session.
 You can also write anything to the passport session, for example <code>user</code>.</p>
-<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>)
-, BlueMixOAuth2Strategy = <span class="keyword">require</span>(<span class="string">'passport-bluemix'</span>).BlueMixOAuth2Strategy;
+<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
+, BlueMixOAuth2Strategy = <span class="built_in">require</span>(<span class="string">'passport-bluemix'</span>).BlueMixOAuth2Strategy;
 
-passport.<span class="keyword">use</span>(<span class="string">'bluemix'</span>, <span class="keyword">new</span> BlueMixOAuth2Strategy({
-    authorizationURL : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/authorize'</span>,
-    tokenURL : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/token'</span>,
-    clientID : <span class="string">'your_app_client_id'</span>,
-    scope: <span class="string">'profile'</span>,
-    grant_type: <span class="string">'authorization_code'</span>,
-    clientSecret : <span class="string">'your_app_client_secret'</span>,
-    callbackURL : <span class="string">'your_callback_url'</span>,
-    profileURL: <span class="string">'https://idaas.ng.bluemix.net/idaas/resources/profile.jsp'</span>
-}, <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
+passport.use(<span class="string">'bluemix'</span>, <span class="keyword">new</span> BlueMixOAuth2Strategy({
+    <span class="attr">authorizationURL</span> : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/authorize'</span>,
+    <span class="attr">tokenURL</span> : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/token'</span>,
+    <span class="attr">clientID</span> : <span class="string">'your_app_client_id'</span>,
+    <span class="attr">scope</span>: <span class="string">'profile'</span>,
+    <span class="attr">grant_type</span>: <span class="string">'authorization_code'</span>,
+    <span class="attr">clientSecret</span> : <span class="string">'your_app_client_secret'</span>,
+    <span class="attr">callbackURL</span> : <span class="string">'your_callback_url'</span>,
+    <span class="attr">profileURL</span>: <span class="string">'https://idaas.ng.bluemix.net/idaas/resources/profile.jsp'</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     ... <span class="comment">//find or create new user</span>
-    <span class="keyword">return</span> done(<span class="keyword">null</span>, ...);
+    <span class="keyword">return</span> done(<span class="literal">null</span>, ...);
 }));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;bluemix&#39;</code> strategy, to
@@ -140,18 +140,18 @@ app.get(<span class="string">'/auth/ibm/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2014 Minh Hoang <a href="[http://blog.minhhoang.de/](http://blog.minhhoang.de/)">[http://blog.minhhoang.de/](http://blog.minhhoang.de/)</a></p>
+<p>Copyright (c) 2014 Minh Hoang &lt;<a href="http://blog.minhhoang.de/">http://blog.minhhoang.de/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bluemix</span></code></div>
             <ul>
-              <li><span class="version">0.1.2-b</span> published <abbr class="updated" title="2014-06-02T23:24:28Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.2-b</span> published <abbr class="updated" title="2014-06-02T23:24:28Z">7 years ago</abbr></li>
               <li><a class="url" href="https://github.com/m1nhhoang/passport-bluemix">https://github.com/m1nhhoang/passport-bluemix</a></li>
             </ul>
             <ul>
-              <li><b>24</b> downloads in the last day</li>
-              <li><b>229</b> downloads in the last week</li>
-              <li><b>995</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>89</b> downloads in the last week</li>
+              <li><b>741</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

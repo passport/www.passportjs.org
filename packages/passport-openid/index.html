@@ -101,7 +101,7 @@ integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-openid</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-openid
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The OpenID authentication strategy authenticates users using an OpenID
@@ -137,19 +137,19 @@ app.get(<span class="string">'/auth/openid/return'</span>,
 subsequent protocol messages and reduce round trips.  In order to take advantage
 of this, an application must store these associations.  This can be done by
 registering functions with <code>saveAssociation</code> and <code>loadAssociation</code>.</p>
-<pre><code>strategy.saveAssociation(<span class="function"><span class="keyword">function</span><span class="params">(handle, provider, algorithm, secret, expiresIn, done)</span> </span>{
+<pre><code>strategy.save<span class="constructor">Association(<span class="params">function</span>(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">done</span>)</span> {
   <span class="comment">// custom storage implementation</span>
-  saveAssoc(handle, provider, algorithm, secret, expiresIn, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err) }
-    <span class="keyword">return</span> done();
+  save<span class="constructor">Assoc(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">function</span>(<span class="params">err</span>)</span> {
+    <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err) }
+    return <span class="keyword">done</span><span class="literal">()</span>;
   });
 });
 
-strategy.loadAssociation(<span class="function"><span class="keyword">function</span><span class="params">(handle, done)</span> </span>{
+strategy.load<span class="constructor">Association(<span class="params">function</span>(<span class="params">handle</span>, <span class="params">done</span>)</span> {
   <span class="comment">// custom retrieval implementation</span>
-  loadAssoc(handle, <span class="function"><span class="keyword">function</span><span class="params">(err, provider, algorithm, secret)</span> </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err) }
-    <span class="keyword">return</span> done(<span class="literal">null</span>, provider, algorithm, secret)
+  load<span class="constructor">Assoc(<span class="params">handle</span>, <span class="params">function</span>(<span class="params">err</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>)</span> {
+    <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err) }
+    return <span class="keyword">done</span>(null, provider, algorithm, secret)
   });
 });
 </code></pre><h2 id="examples">Examples</h2>
@@ -177,18 +177,18 @@ strategy.loadAssociation(<span class="function"><span class="keyword">function</
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-openid</span></code></div>
             <ul>
-              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2018-08-03T00:42:43Z">2 years ago</abbr></li>
+              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2018-08-03T00:42:43Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-openid.git">https://github.com/jaredhanson/passport-openid</a></li>
             </ul>
             <ul>
-              <li><b>1,290</b> downloads in the last day</li>
-              <li><b>7,327</b> downloads in the last week</li>
-              <li><b>33,286</b> downloads in the last month</li>
+              <li><b>1,841</b> downloads in the last day</li>
+              <li><b>10,965</b> downloads in the last week</li>
+              <li><b>42,300</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

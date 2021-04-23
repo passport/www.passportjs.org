@@ -104,7 +104,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-mondo-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-mondo-oauth2
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
 <p>Before using <code>passport-mondo-oauth2</code>, you must register an application with
@@ -121,15 +121,15 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 Google profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code><span class="keyword">var</span> MondoStrategy = <span class="keyword">require</span>(<span class="string">'passport-mondo'</span>).Strategy;
+<pre><code><span class="keyword">var</span> MondoStrategy = <span class="built_in">require</span>(<span class="string">'passport-mondo'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> MondoStrategy({
-    clientID: MONDO_CLIENT_ID,
-    clientSecret: MONDO_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://www.example.com/auth/mondo/callback"</span>
+passport.use(<span class="keyword">new</span> MondoStrategy({
+    <span class="attr">clientID</span>: MONDO_CLIENT_ID,
+    <span class="attr">clientSecret</span>: MONDO_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/mondo/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
-    User.findOrCreate({ mondoId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+    User.findOrCreate({ <span class="attr">mondoId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> cb(err, user);
     });
   }
@@ -168,7 +168,7 @@ $ make view-cov
 <h2 id="acknowledgement">Acknowledgement</h2>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2016 Tim Reynolds <a href="[http://timothyreynolds.co.uk](http://timothyreynolds.co.uk)">[http://timothyreynolds.co.uk](http://timothyreynolds.co.uk)</a></p>
+<p>Copyright (c) 2012-2016 Tim Reynolds &lt;<a href="http://timothyreynolds.co.uk">http://timothyreynolds.co.uk</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mondo-oauth2</span></code></div>
@@ -178,9 +178,9 @@ $ make view-cov
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>32</b> downloads in the last week</li>
-              <li><b>149</b> downloads in the last month</li>
+              <li><b>24</b> downloads in the last day</li>
+              <li><b>30</b> downloads in the last week</li>
+              <li><b>115</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

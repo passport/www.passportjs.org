@@ -109,6 +109,9 @@ Outlook.com (Office 365) v2 endpoints as can be tested in their
 <pre><code class="lang-bash">$ npm install --save passport-outlook
 </code></pre>
 <h2 id="usage">Usage</h2>
+<h4 id="v3">v3</h4>
+<p>There are no behavioural changes but as of v3 the minimum required NodeJS version
+is v10. This should not affect most users but is a breaking change nonetheless.</p>
 <h4 id="upgrading-for-v2">Upgrading for v2</h4>
 <p>If you were using the package before <code>v2.0.0</code>, please note that the <code>profile</code>
 JSON returned has been updated to match the normalized contact schema outlined
@@ -151,6 +154,9 @@ as well as <code>options</code> specifying a client ID, client secret, and callb
   }
 ));
 </code></pre>
+<p>Additional options are supported as part of the described 
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow">implicit grant flow</a>:
+<code>prompt</code>, <code>login_hint</code> &amp; <code>domain_hint</code>.</p>
 <p><em>Note:</em>
 If you want to use the express request, you must use the option
 <code>passReqToCallback: true</code>, then Passport will send the request as the first parameter.</p>
@@ -270,13 +276,13 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-outlook</span></code></div>
             <ul>
-              <li><span class="version">2.2.1</span> published <abbr class="updated" title="2019-10-07T12:13:25Z">a year ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2021-03-28T07:15:59Z">a month ago</abbr></li>
               <li><a class="url" href="git://github.com/clocked0ne/passport-outlook.git">https://github.com/clocked0ne/passport-outlook#readme</a></li>
             </ul>
             <ul>
-              <li><b>143</b> downloads in the last day</li>
-              <li><b>670</b> downloads in the last week</li>
-              <li><b>2,996</b> downloads in the last month</li>
+              <li><b>81</b> downloads in the last day</li>
+              <li><b>640</b> downloads in the last week</li>
+              <li><b>2,627</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

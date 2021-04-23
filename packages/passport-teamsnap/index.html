@@ -92,7 +92,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-teamsnap-build-status-https-travis-ci-org-7elephants-passport-teamsnap-svg-branch-master-https-travis-ci-org-7elephants-passport-teamsnap-dependencies-https-david-dm-org-7elephants-passport-teamsnap-svg-https-david-dm-org-7elephants-passport-teamsnap-">passport-teamsnap <a href="https://travis-ci.org/7elephants/passport-teamsnap"><img src="https://travis-ci.org/7elephants/passport-teamsnap.svg?branch=master" alt="Build Status"></a> <a href="https://david-dm.org/7elephants/passport-teamsnap"><img src="https://david-dm.org/7elephants/passport-teamsnap.svg" alt="Dependencies"></a></h1>
+          <div class="description"><h1 id="passport-teamsnap-build-status-dependencies">passport-teamsnap <a href="https://travis-ci.org/7elephants/passport-teamsnap"><img src="https://travis-ci.org/7elephants/passport-teamsnap.svg?branch=master" alt="Build Status"></a> <a href="https://david-dm.org/7elephants/passport-teamsnap"><img src="https://david-dm.org/7elephants/passport-teamsnap.svg" alt="Dependencies"></a></h1>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with the <a href="https://www.teamsnap.com/">Teamsnap</a>
 API using the OAuth 2.0 protocol.</p>
 <p>This module lets you authenticate using Teamsnap in your Node.js applications.
@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-teamsnap</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-teamsnap
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Teamsnap authentication strategy authenticates users using a Teamsnap account
@@ -109,7 +109,7 @@ and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, whi
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a API version, client ID, client secret, and callback URL. The library
 defaults to version 3 of Teamsnap&#39;s API.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TeamsnapStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> TeamsnapStrategy({
     apiVersion: <span class="string">'3'</span>,
     clientID: TEAMSNAP_APPLICATION_ID,
     clientSecret: TEAMSNAP_APPLICATION_SECRET,
@@ -154,8 +154,8 @@ mocha <span class="params">--require</span> <span class="string">../test/bootstr
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

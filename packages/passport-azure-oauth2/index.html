@@ -139,29 +139,32 @@
 <span class="built_in">module</span>.exports = <span class="keyword">new</span> AzureOAuthStrategy();
 </code></pre><p>Now plug this in like so:</p>
 <pre><code>
-<span class="keyword">var</span> auth      = require(<span class="string">"./auth"</span>),
-<span class="keyword">var</span> express = require(<span class="string">"express"</span>)
-<span class="keyword">var</span> <span class="keyword">app</span>     = express();
+<span class="keyword">var</span> auth      = <span class="keyword">require</span>(<span class="string">"./auth"</span>),
+<span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">"express"</span>)
+<span class="keyword">var</span> app     = express();
 
-<span class="keyword">app</span>.<span class="keyword">use</span>(auth.passport.initialize());
-<span class="keyword">app</span>.<span class="keyword">use</span>(auth.passport.session());
+app.<span class="keyword">use</span>(<span class="title">auth</span>.<span class="title">passport</span>.<span class="title">initialize</span>());
+app.<span class="keyword">use</span>(<span class="title">auth</span>.<span class="title">passport</span>.<span class="title">session</span>());
 
-<span class="keyword">app</span>.<span class="built_in">get</span>(<span class="string">"/login"</span>, auth.passport.authenticate(<span class="string">"provider"</span>, { successRedirect: <span class="string">"/"</span> }));
+app.get(<span class="string">"/login"</span>, auth.passport.authenticate(<span class="string">"provider"</span>, { successRedirect: <span class="string">"/"</span> }));
 
-<span class="keyword">app</span>.<span class="built_in">get</span>(<span class="string">"/cb"</span>, 
+app.get(<span class="string">"/cb"</span>, 
     auth.passport.authenticate(<span class="string">"provider"</span>, { 
     successRedirect: <span class="string">"/"</span>, 
-    failureRedirect: <span class="string">"/login"</span> }), function (req, res) { res.redirect(<span class="string">"/"</span>); });
+    failureRedirect: <span class="string">"/login"</span> }), <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{ res.redirect(<span class="string">"/"</span>); });
+
+
 </code></pre><p>###state</p>
 <p>Simply plugin <code>express-session</code> to enable session support, and set <code>state: true</code> when creating your <code>AzureOAuthStrategy</code></p>
 <p>[Recommended] A randomly generated non-reused value that is sent in the request and returned in the response. This parameter is used as a mitigation against cross-site request forgery (CSRF) attacks. For more information, see Best Practices for OAuth 2.0 in Azure AD.</p>
-<pre><code><span class="keyword">var</span> session = <span class="keyword">require</span>(<span class="string">"express-session"</span>);
+<pre><code><span class="string">var</span> <span class="string">session</span> <span class="string">=</span> <span class="string">require("express-session");</span>
 
-app.<span class="keyword">use</span>( session({ 
-    secret: <span class="string">'somesecret'</span>, 
-    resave: <span class="keyword">true</span>, 
-    saveUninitialized : <span class="keyword">true</span> 
-}));
+<span class="string">app.use(</span> <span class="string">session({</span> 
+    <span class="attr">secret:</span> <span class="string">'somesecret'</span><span class="string">,</span> 
+    <span class="attr">resave:</span> <span class="literal">true</span><span class="string">,</span> 
+    <span class="attr">saveUninitialized :</span> <span class="literal">true</span> 
+<span class="string">}));</span>
+
 </code></pre><p>###prompt</p>
 <p>Simply set <code>prompt: &#39;login&#39;</code> when creating your <code>AzureOAuthStrategy</code></p>
 <p>[Optional] Indicate the type of user interaction that is required.
@@ -183,9 +186,9 @@ Valid values are:</p>
               <li><a class="url" href="https://github.com/andrewkeig/passport-azure-oauth2">https://github.com/andrewkeig/passport-azure-oauth2</a></li>
             </ul>
             <ul>
-              <li><b>189</b> downloads in the last day</li>
-              <li><b>924</b> downloads in the last week</li>
-              <li><b>3,934</b> downloads in the last month</li>
+              <li><b>168</b> downloads in the last day</li>
+              <li><b>872</b> downloads in the last week</li>
+              <li><b>3,889</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

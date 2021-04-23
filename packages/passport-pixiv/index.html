@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-pixiv</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-pixiv
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The pixiv authentication strategy authenticates users using a pixiv account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> PixivStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> PixivStrategy({
     clientID: PIXIV_CLIENT_ID,
     clientSecret: PIXIV_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/pixiv/callback"</span>
@@ -155,13 +155,13 @@ app.get(<span class="string">'/auth/pixiv/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-pixiv</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2014-07-15T09:40:54Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2014-07-15T09:40:54Z">7 years ago</abbr></li>
               <li><a class="url" href="http://github.com/pixiv/passport-pixiv.git">https://github.com/pixiv/passport-pixiv</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

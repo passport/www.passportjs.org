@@ -98,7 +98,7 @@ with <a href="https://slack.com">Slack</a> using the OAuth 2.0 API.</p>
 <p>Updated to support Sign in with Slack by default.<br>
 <a href="https://api.slack.com/docs/sign-in-with-slack#identify_users_and_their_teams"><img src="https://a.slack-edge.com/accd8/img/sign_in_with_slack.png" alt="Sign in with Slack"></a></p>
 <h2 id="notice">Notice</h2>
-<p>This repository is not getting the love it deserves. If you&#39;re interested in taking over maintenance or ownership of this repo and npm, please reach me (Mike Pearson) at github@x0rz.com</p>
+<p>This repository is not getting the love it deserves. If you&#39;re interested in taking over maintenance or ownership of this repo and npm, please reach me (Mike Pearson) at <a href="mailto:github@x0rz.com">github@x0rz.com</a></p>
 <h2 id="install">Install</h2>
 <pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm install passport-slack</span>
 </code></pre>
@@ -163,6 +163,7 @@ app.listen(PORT);
         <span class="attr">"image_default"</span>: <span class="literal">true</span>
     }
 }
+
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
@@ -174,7 +175,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
     <span class="attr">clientID</span>: CLIENT_ID,
     <span class="attr">clientSecret</span>: CLIENT_SECRET,
     <span class="attr">skipUserProfile</span>: <span class="literal">false</span>, <span class="comment">// default</span>
-    scope: [<span class="string">'identity.basic'</span>, <span class="string">'identity.email'</span>, <span class="string">'identity.avatar'</span>, <span class="string">'identity.team'</span>] <span class="comment">// default</span>
+    <span class="attr">scope</span>: [<span class="string">'identity.basic'</span>, <span class="string">'identity.email'</span>, <span class="string">'identity.avatar'</span>, <span class="string">'identity.team'</span>] <span class="comment">// default</span>
   },
   (accessToken, refreshToken, profile, done) =&gt; {
     <span class="comment">// optionally persist user data into a database</span>
@@ -226,9 +227,9 @@ app.get(<span class="string">'/auth/slack/callback'</span>,
               <li><a class="url" href="git://github.com/mjpearson/passport-slack.git">https://github.com/mjpearson/passport-slack#readme</a></li>
             </ul>
             <ul>
-              <li><b>2,036</b> downloads in the last day</li>
-              <li><b>10,487</b> downloads in the last week</li>
-              <li><b>43,151</b> downloads in the last month</li>
+              <li><b>1,581</b> downloads in the last day</li>
+              <li><b>6,906</b> downloads in the last week</li>
+              <li><b>29,935</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

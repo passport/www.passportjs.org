@@ -95,18 +95,18 @@
           <div class="description"><h1 id="passport-ghost">passport-ghost</h1>
 <p>Passport adapter for logging in with Ghost.org</p>
 <h2 id="install">install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-ghost
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-ghost
 </code></pre><h2 id="usage">usage</h2>
-<pre><code>var <span class="symbol">GhostStrategy</span> = require(<span class="string">'passport-ghost'</span>).<span class="symbol">Strategy</span>;
+<pre><code>var GhostStrategy = require(<span class="string">'passport-ghost'</span>).Strategy;
 
-var ghostStrategy = new <span class="symbol">GhostStrategy</span>({
+var ghostStrategy = new GhostStrategy({
   redirectUri: <span class="string">'your-redirect-url'</span>,          [required]
   blogUri: <span class="string">'your-blog-url'</span>,                  [required]
   url: <span class="string">'your-own-auth-server-url'</span>,           [required]
-  passReqToCallback: true                    [optional]
-  retries                                    [optional] default <span class="number">10</span>
-  retryTimeout                               [optional] default <span class="number">5000</span>ms
-  retryHook: function                        [optional] <span class="symbol">If</span> an error occurs while retrying, you can define a hook to get notified
+  passReqToCallback: <span class="literal">true</span>                    [optional]
+  retries                                    [optional]<span class="built_in"> default </span>10
+  retryTimeout                               [optional]<span class="built_in"> default </span>5000ms
+  retryHook: function                        [optional] <span class="keyword">If</span> an <span class="builtin-name">error</span> occurs <span class="keyword">while</span> retrying, you can define a hook <span class="keyword">to</span> <span class="builtin-name">get</span> notified
 }, callback);
 
 ghostStrategy.registerClient({
@@ -128,14 +128,14 @@ ghostStrategy.updateClient({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ghost</span></code></div>
             <ul>
-              <li><span class="version">2.3.1</span> published <abbr class="updated" title="2020-07-30T15:00:13Z">2 months ago</abbr></li>
+              <li><span class="version">2.3.1</span> published <abbr class="updated" title="2020-11-12T11:56:12Z">5 months ago</abbr></li>
               <li><a class="url" href="git://github.com/TryGhost/passport-ghost.git">https://ghost.org</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>28</b> downloads in the last week</li>
-              <li><b>121</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>9</b> downloads in the last week</li>
+              <li><b>120</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

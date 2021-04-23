@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a> and <a href="http://www.sailsjs.org">Sails</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-myusa</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-myusa
 </code></pre><h4 id="development-install">Development Install</h4>
 <pre><code><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com:Innovation-Toolkit/passport-myusa.git</span>
 <span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> passport-myusa</span>
@@ -116,7 +116,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
 <p>Note that the <code>callbackURL</code> must match <strong>exactly</strong> the callback registered
 for your application at <a href="https://my.usa.gov/apps">MyUSA</a>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MyUSAStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> MyUSAStrategy({
     clientID: MYUSA_CLIENT_ID,
     clientSecret: MYUSA_CLIENT_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/myusa/callback"</span>
@@ -198,13 +198,13 @@ oauth2.<span class="keyword">get</span>(PROFILE_URL, ACCESS_TOKEN, <span class="
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-myusa</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2014-04-09T21:03:06Z">6 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2014-04-09T21:03:06Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/Innovation-Toolkit/passport-myusa.git">https://github.com/Innovation-Toolkit/passport-myusa</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

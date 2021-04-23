@@ -103,22 +103,22 @@ unobtrusively integrated into any application or framework that supports
 <h2 id="disclaimer">Disclaimer</h2>
 <p>This project was just appropriated from another source and the current maintainers are still testing it for correctness. We make no claims as to its functionality.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-eventbrite-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-eventbrite-oauth
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Eventbrite OAuth 2.0 authentication strategy authenticates users using a Eventbrite
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> EventbriteStrategy = <span class="keyword">require</span>(<span class="string">'passport-eventbrite-oauth'</span>).OAuth2Strategy;
+<pre><code><span class="keyword">var</span> EventbriteStrategy = <span class="built_in">require</span>(<span class="string">'passport-eventbrite-oauth'</span>).OAuth2Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> EventbriteStrategy({
-    clientID: EVENTBRITE_CLIENT_ID,
-    clientSecret: EVENTBRITE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/eventbrite/callback"</span>
+passport.use(<span class="keyword">new</span> EventbriteStrategy({
+    <span class="attr">clientID</span>: EVENTBRITE_CLIENT_ID,
+    <span class="attr">clientSecret</span>: EVENTBRITE_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/eventbrite/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ eventbriteId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">eventbriteId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -150,18 +150,18 @@ app.get(<span class="string">'/auth/eventbrite/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Venkat Peri<a href="[http://vperi.com/](http://vperi.com/)">[http://vperi.com/](http://vperi.com/)</a></p>
+<p>Copyright (c) 2013 Venkat Peri&lt;<a href="http://vperi.com/">http://vperi.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-eventbrite-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2016-05-19T19:44:08Z">4 years ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2016-05-19T19:44:08Z">5 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jamplify/passport-eventbrite-oauth.git">https://github.com/jamplify/passport-eventbrite-oauth</a></li>
             </ul>
             <ul>
-              <li><b>12</b> downloads in the last day</li>
-              <li><b>80</b> downloads in the last week</li>
-              <li><b>608</b> downloads in the last month</li>
+              <li><b>34</b> downloads in the last day</li>
+              <li><b>117</b> downloads in the last week</li>
+              <li><b>642</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

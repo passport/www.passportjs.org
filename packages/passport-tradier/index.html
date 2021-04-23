@@ -104,14 +104,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-tradier</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-tradier
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Tradier authentication strategy authenticates users using a Tradier
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TradierStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> TradierStrategy({
     clientID: TRADIER_APP_ID,
     clientSecret: TRADIER_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/tradier/callback"</span>
@@ -146,7 +146,7 @@ app.get(<span class="string">'/auth/tradier/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Tradier Inc. <a href="[https://tradier.com](https://tradier.com/)">[https://tradier.com](https://tradier.com/)</a></p>
+<p>Copyright (c) 2013 Tradier Inc. &lt;<a href="https://tradier.com/">https://tradier.com</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tradier</span></code></div>
@@ -156,8 +156,8 @@ app.get(<span class="string">'/auth/tradier/callback'</span>,
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

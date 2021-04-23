@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-imgur</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-imgur
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Imgur authentication strategy authenticates users using a Imgur account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ImgurStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> ImgurStrategy({
     clientID: IMGUR_CLIENT_ID,
     clientSecret: IMGUR_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/imgur/callback"</span>
@@ -232,18 +232,18 @@ app.get(<span class="string">'/auth/imgur/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Vitalii Rakovtsii <a href="[http://middle-of-nowhere.name/](http://middle-of-nowhere.name/)">[http://middle-of-nowhere.name/](http://middle-of-nowhere.name/)</a></p>
+<p>Copyright (c) 2011-2013 Vitalii Rakovtsii &lt;<a href="http://middle-of-nowhere.name/">http://middle-of-nowhere.name/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-imgur</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2015-08-27T14:36:57Z">5 years ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2015-08-27T14:36:57Z">6 years ago</abbr></li>
               <li><a class="url" href="git+ssh://git@github.com/mindfreakthemon/passport-imgur.git">https://github.com/mindfreakthemon/passport-imgur#readme</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>28</b> downloads in the last week</li>
-              <li><b>189</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>37</b> downloads in the last week</li>
+              <li><b>201</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -101,7 +101,7 @@ integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-strava-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-strava-oauth2
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Strava authentication strategy authenticates users using an Strava
@@ -110,7 +110,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
 <p>The client ID and secret are obtained by registering an application at the
 <a href="https://www.strava.com/developers">Login to Strava</a>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> StravaStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> StravaStrategy({
     clientID: STRAVA_CLIENT_ID,
     clientSecret: STRAVA_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/strava/callback"</span>
@@ -123,7 +123,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
       <span class="comment">// represent the logged-in user.  In a typical application, you would want</span>
       <span class="comment">// to associate the Strava account with a user record in your database,</span>
       <span class="comment">// and return that user instead.</span>
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, profile);
+      <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
     });
   }
 ));
@@ -150,18 +150,18 @@ app.get(<span class="string">'/auth/strava/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2015 Chris Mills <a href="[http://www.thefamilymills.co.uk/](http://www.thefamilymills.co.uk/)">[http://www.thefamilymills.co.uk/](http://www.thefamilymills.co.uk/)</a></p>
+<p>Copyright (c) 2015 Chris Mills &lt;<a href="http://www.thefamilymills.co.uk/">http://www.thefamilymills.co.uk/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-strava-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2015-05-12T16:21:26Z">5 years ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2015-05-12T16:21:26Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/millsy/passport-strava.git">https://github.com/millsy/passport-strava</a></li>
             </ul>
             <ul>
-              <li><b>30</b> downloads in the last day</li>
-              <li><b>128</b> downloads in the last week</li>
-              <li><b>640</b> downloads in the last month</li>
+              <li><b>28</b> downloads in the last day</li>
+              <li><b>166</b> downloads in the last week</li>
+              <li><b>771</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

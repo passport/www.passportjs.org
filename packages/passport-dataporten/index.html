@@ -98,8 +98,8 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-dataporten <span class="comment">--save</span>
 </code></pre><h2 id="usage">Usage</h2>
 <p>Use the helper Setup class for simple and flexible passportjs setup:</p>
-<pre><code><span class="keyword">var</span> Dataporten = require('passport-dataporten');
-<span class="keyword">var</span> <span class="keyword">app</span> = express();
+<pre><code><span class="keyword">var</span> Dataporten = <span class="keyword">require</span>(<span class="string">'passport-dataporten'</span>);
+<span class="keyword">var</span> app = express();
 
 <span class="keyword">var</span> config = {
     <span class="string">"clientID"</span>: <span class="string">"10ad9f43-1ba3-4cb2-a459-1f9b3af25ac1"</span>,
@@ -107,14 +107,14 @@
   <span class="string">"sessionkey"</span>: <span class="string">"d6096809-4d65-4931-b7d3-97637fc70e88"</span>,
     <span class="string">"callbackURL"</span>: <span class="string">"http://localhost:8080/auth/dataporten/callback"</span>,
 };
-<span class="keyword">var</span> dataportenSetup = new Dataporten.Setup(config);
+<span class="keyword">var</span> dataportenSetup = <span class="keyword">new</span> Dataporten.Setup(config);
 
-<span class="keyword">app</span>.<span class="keyword">use</span>(dpsetup.passport.initialize());
-<span class="keyword">app</span>.<span class="keyword">use</span>(dpsetup.passport.session());
+app.<span class="keyword">use</span>(<span class="title">dpsetup</span>.<span class="title">passport</span>.<span class="title">initialize</span>());
+app.<span class="keyword">use</span>(<span class="title">dpsetup</span>.<span class="title">passport</span>.<span class="title">session</span>());
 
-dpsetup.setupAuthenticate(<span class="keyword">app</span>, '/login');
-dpsetup.setupLogout(<span class="keyword">app</span>, '/logout');
-dpsetup.setupCallback(<span class="keyword">app</span>);
+dpsetup.setupAuthenticate(app, <span class="string">'/login'</span>);
+dpsetup.setupLogout(app, <span class="string">'/logout'</span>);
+dpsetup.setupCallback(app);
 </code></pre><p>Use <code>Dataporten.Authz</code> for authorization:</p>
 <pre><code><span class="built_in">var</span> authzConfig = {<span class="string">"redirectOnNoAccess"</span>: <span class="string">"/login"</span>};
 <span class="built_in">var</span> dataportenAuthorizationMiddleware = (<span class="built_in">new</span> Dataporten.Authz(authzConfig))
@@ -135,14 +135,14 @@ app.use('/', dataportenAuthorizationMiddleware);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dataporten</span></code></div>
             <ul>
-              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2017-04-27T11:28:49Z">3 years ago</abbr></li>
+              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2017-04-27T11:28:49Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/UNINETT/passport-dataporten.git">https://docs.dataporten.no</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>24</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>28</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

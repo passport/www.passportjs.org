@@ -102,14 +102,14 @@ middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <p>EXPRESS 4.x : Example is now compatible with expressjs 4</p>
 <p><a href="https://travis-ci.org/bluedge/passport-box"><img src="https://travis-ci.org/bluedge/passport-box.png?branch=master" alt="Build Status"></a></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-box</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-box
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The box authentication strategy authenticates users using a box
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BoxStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> BoxStrategy({
     clientID: BOX_CLIENT_ID,
     clientSecret: BOX_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/box/callback"</span>
@@ -146,7 +146,7 @@ app.get(<span class="string">'/auth/box/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2013 Nicolas Alessandra <a href="[http://bluedge.co.uk/](http://bluedge.co.uk/)">[http://bluedge.co.uk/](http://bluedge.co.uk/)</a></p>
+<p>Copyright (c) 2013 Nicolas Alessandra &lt;<a href="http://bluedge.co.uk/">http://bluedge.co.uk/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-box</span></code></div>
@@ -156,9 +156,9 @@ app.get(<span class="string">'/auth/box/callback'</span>,
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>43</b> downloads in the last day</li>
-              <li><b>168</b> downloads in the last week</li>
-              <li><b>897</b> downloads in the last month</li>
+              <li><b>40</b> downloads in the last day</li>
+              <li><b>235</b> downloads in the last week</li>
+              <li><b>955</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

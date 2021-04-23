@@ -98,7 +98,7 @@
 <p>This allows you to authenticate students of the University of Cambridge.</p>
 <p>It works for both current and past students and staff.</p>
 <h2 id="installation">Installation</h2>
-<pre><code>npm <span class="keyword">install</span> passport passport-raven
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span> passport-raven
 </code></pre><h2 id="example">Example</h2>
 <p>See <code>test/server.js</code></p>
 <h2 id="usage">Usage</h2>
@@ -109,7 +109,7 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
   <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
   <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
   <span class="comment">// use demonstration raven server in development</span>
-  debug: process.env.NODE_ENV !== <span class="string">'production'</span>
+  <span class="attr">debug</span>: process.env.NODE_ENV !== <span class="string">'production'</span>
 }, <span class="function"><span class="keyword">function</span> (<span class="params">crsid, params, callback</span>) </span>{
   <span class="comment">// You can skip this check if you want to support ex students and staff as well</span>
   <span class="keyword">if</span> (params.isCurrent) {
@@ -132,14 +132,15 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
   <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
   <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
   <span class="comment">// use demonstration raven server in development</span>
-  debug: process.env.NODE_ENV !== <span class="string">'production'</span>,
+  <span class="attr">debug</span>: process.env.NODE_ENV !== <span class="string">'production'</span>,
   <span class="attr">passReqToCallback</span> : <span class="literal">true</span>
 }, <span class="function"><span class="keyword">function</span> (<span class="params">req, crsid, params, callback</span>) </span>{
   <span class="comment">// this function could be defined elsewhere eg in a Sails app services protocol</span>
      ....
   }
 });
-<span class="string">`</span>
+<span class="string">`
+</span>
 </code></pre>
 <p><strong>Params:</strong></p>
 <p>Params include all the info returned from the server, here are two examples:</p>
@@ -187,14 +188,14 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-raven</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2019-07-12T10:02:04Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2019-07-12T10:02:04Z">2 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/ForbesLindesay/passport-raven.git">https://github.com/ForbesLindesay/passport-raven#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>3</b> downloads in the last day</li>
-              <li><b>24</b> downloads in the last week</li>
-              <li><b>110</b> downloads in the last month</li>
+              <li><b>28</b> downloads in the last week</li>
+              <li><b>130</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

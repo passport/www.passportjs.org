@@ -101,7 +101,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, like
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-tmobileid</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-tmobileid
 </code></pre><h2 id="usage">Usage</h2>
 <p>The T-Mobile ID authentication strategy authenticates users using their phone number or T-Mobile
 ID username. Developers wishing to utilize this plugin must first redirect their users to the T-Mobile
@@ -123,30 +123,30 @@ authentication request, these are:</p>
 <li>clientSecret - Your client secret key provided by T-Mobile</li>
 </ol>
 <p><em>Note: The strategy supports other standard passport arguments such as passReqToCallback.</em></p>
-<pre><code><span class="keyword">var</span> TMobileIDStrategy = <span class="keyword">require</span>(<span class="string">'passport-tmobileid'</span>).Strategy;
+<pre><code><span class="keyword">var</span> TMobileIDStrategy = <span class="built_in">require</span>(<span class="string">'passport-tmobileid'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> TMobileIDStrategy({
-    redirect_uri : LOCAL_CALLBACK_URL,
-    tokenURL : <span class="string">'https://token.tmus.net/oauth2/v1/token'</span>,
-    clientID : TMOBILE_CLIENT_ID,
-    clientSecret : TMOBILE_CLIENT_SECRET,
-    passReqToCallback : <span class="keyword">true</span> <span class="comment">//to get the req back from passport</span>
+passport.use(<span class="keyword">new</span> TMobileIDStrategy({
+    <span class="attr">redirect_uri</span> : LOCAL_CALLBACK_URL,
+    <span class="attr">tokenURL</span> : <span class="string">'https://token.tmus.net/oauth2/v1/token'</span>,
+    <span class="attr">clientID</span> : TMOBILE_CLIENT_ID,
+    <span class="attr">clientSecret</span> : TMOBILE_CLIENT_SECRET,
+    <span class="attr">passReqToCallback</span> : <span class="literal">true</span> <span class="comment">//to get the req back from passport</span>
 },
-<span class="function"><span class="keyword">function</span><span class="params">(req, token, expiry, id, done)</span></span>{
+<span class="function"><span class="keyword">function</span>(<span class="params">req, token, expiry, id, done</span>)</span>{
   <span class="keyword">if</span>(err){<span class="keyword">return</span> done(err);}
-  <span class="keyword">if</span>(!token){<span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);} <span class="comment">//No token could be retrieved from the server</span>
+  <span class="keyword">if</span>(!token){<span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);} <span class="comment">//No token could be retrieved from the server</span>
   <span class="keyword">if</span>(id) {
     <span class="comment">//A T-Mobile access token has been provided</span>
-    User.findOne({<span class="string">'user.tmobileid'</span> : id}, <span class="function"><span class="keyword">function</span><span class="params">(err,user)</span></span>{
+    User.findOne({<span class="string">'user.tmobileid'</span> : id}, <span class="function"><span class="keyword">function</span>(<span class="params">err,user</span>)</span>{
       <span class="keyword">if</span>(user) { <span class="comment">//a user with this id has been found in your database</span>
         user.tmobile.access_token = token; <span class="comment">//add the tmobile access token to this user</span>
-        user.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>{
+        user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
           <span class="comment">//handle the error</span>
         }
-        <span class="keyword">return</span> done(<span class="keyword">null</span>, user); <span class="comment">//success</span>
+        <span class="keyword">return</span> done(<span class="literal">null</span>, user); <span class="comment">//success</span>
     });
   }
-};
+};  
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;tmoid&#39;</code> strategy, to
 authenticate requests.</p>
@@ -182,8 +182,8 @@ application:</p>
             </ul>
             <ul>
               <li><b>1</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>62</b> downloads in the last month</li>
+              <li><b>7</b> downloads in the last week</li>
+              <li><b>50</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

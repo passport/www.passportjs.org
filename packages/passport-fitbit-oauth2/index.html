@@ -97,21 +97,21 @@
 using ONLY OAuth 2.0.</p>
 <p>This module lets you authenticate using Fitbit in your Node.js <a href="http://expressjs.com/">Express</a> (or <a href="http://www.senchalabs.org/connect/">Connect</a>) server applications. </p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-fitbit-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-fitbit-oauth2
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Fitbit OAuth 2.0 authentication strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> FitbitStrategy = <span class="keyword">require</span>( <span class="string">'passport-fitbit-oauth2'</span> ).FitbitOAuth2Strategy;;
+<pre><code><span class="keyword">var</span> FitbitStrategy = <span class="built_in">require</span>( <span class="string">'passport-fitbit-oauth2'</span> ).FitbitOAuth2Strategy;;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> FitbitStrategy({
-    clientID:     FITBIT_CLIENT_ID,
-    clientSecret: FITBIT_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://yourdormain:3000/auth/fitbit/callback"</span>
+passport.use(<span class="keyword">new</span> FitbitStrategy({
+    <span class="attr">clientID</span>:     FITBIT_CLIENT_ID,
+    <span class="attr">clientSecret</span>: FITBIT_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://yourdormain:3000/auth/fitbit/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ fitbitId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">fitbitId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -138,9 +138,9 @@ application:</p>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>18</b> downloads in the last day</li>
-              <li><b>60</b> downloads in the last week</li>
-              <li><b>355</b> downloads in the last month</li>
+              <li><b>22</b> downloads in the last day</li>
+              <li><b>81</b> downloads in the last week</li>
+              <li><b>308</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

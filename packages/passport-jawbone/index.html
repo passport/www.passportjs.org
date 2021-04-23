@@ -97,23 +97,23 @@
 using OAuth 2.0.</p>
 <p>This module authenticates Jawbone in a Node.js <a href="http://expressjs.com/">Express</a> server applications. </p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-jawbone</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-jawbone
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Jawbone UP OAuth 2.0 authentication strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>profile</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>var JawboneStrategy = require(<span class="symbol">'passport</span>-jawbone').Strategy;
+<pre><code><span class="keyword">var</span> JawboneStrategy = <span class="built_in">require</span>(<span class="string">'passport-jawbone'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> JawboneStrategy({
-    clientID     : <span class="type">JAWBONE_CLIENT_ID</span>,
-    clientSecret : <span class="type">JAWBONE_CLIENT_SECRET</span>,
-    callbackURL  : <span class="type">CALLBACK_URL</span>,
-    passReqToCallback : <span class="type">true</span> // allows us to pass <span class="keyword">in</span> the req from our route (lets us check <span class="keyword">if</span> a user <span class="keyword">is</span> logged <span class="keyword">in</span> <span class="keyword">or</span> <span class="keyword">not</span>)
+passport.use(<span class="keyword">new</span> JawboneStrategy({
+    <span class="attr">clientID</span>     : JAWBONE_CLIENT_ID,
+    <span class="attr">clientSecret</span> : JAWBONE_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>  : CALLBACK_URL,
+    <span class="attr">passReqToCallback</span> : <span class="literal">true</span> <span class="comment">// allows us to pass in the req from our route (lets us check if a user is logged in or not)</span>
   },
-  <span class="keyword">function</span>(req, token, refreshToken, profile, done) {
-    User.findOrCreate({ jawboneId: profile.meta.user_xid }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
-      <span class="keyword">return</span> <span class="type">done(err,</span> user);
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, token, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">jawboneId</span>: profile.meta.user_xid }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+      <span class="keyword">return</span> done(err, user);
     });
   }
 ));
@@ -143,7 +143,7 @@ application:</p>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

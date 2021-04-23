@@ -115,11 +115,11 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> LdsConnectStrategy({
     <span class="comment">// These are the working demo app id and app secret</span>
-    clientID: <span class="string">'TEST_ID_56f6f3551bd4faa420a3dd6e'</span>,
+    <span class="attr">clientID</span>: <span class="string">'TEST_ID_56f6f3551bd4faa420a3dd6e'</span>,
     <span class="attr">clientSecret</span>: <span class="string">'TEST_SK_jtgoHAMKdIgoWSYd8E1gBIrW'</span>,
 
     <span class="comment">// local.ldsconnect.org points to 127.0.0.1 and is an authorized domain for demo apps</span>
-    callbackURL: <span class="string">"https://local.ldsconnect.org:8043/api/oauth3/callbacks/ldsconnect.org"</span>
+    <span class="attr">callbackURL</span>: <span class="string">"https://local.ldsconnect.org:8043/api/oauth3/callbacks/ldsconnect.org"</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="keyword">if</span> (profile.guest) {
@@ -161,19 +161,19 @@ app.get(
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/Apache-2.0">The MIT License</a></p>
-<p>Copyright (c) 2014-2015 AJ ONeal <a href="[https://coolaj86.com/](https://coolaj86.com/)">[https://coolaj86.com/](https://coolaj86.com/)</a></p>
+<p>Copyright (c) 2014-2015 AJ ONeal &lt;<a href="https://coolaj86.com/">https://coolaj86.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lds-io</span></code></div>
             <ul>
-              <li><span class="version">2.0.2</span> published <abbr class="updated" title="2015-04-01T22:05:07Z">5 years ago</abbr></li>
+              <li><span class="version">2.0.2</span> published <abbr class="updated" title="2015-04-01T22:05:07Z">6 years ago</abbr></li>
               <li><a class="url" href="git://github.com/LDSorg/passport-lds-connect.git">https://github.com/LDSorg/passport-lds-connect</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

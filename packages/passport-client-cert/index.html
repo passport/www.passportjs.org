@@ -133,13 +133,13 @@ passport.use(<span class="keyword">new</span> ClientCertStrategy(<span class="fu
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>Install and start the example server app:</p>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> example</span>
-<span class="meta">$</span><span class="bash"> node example-server.js</span>
+<pre><code>$ npm install
+$ cd example
+$ <span class="keyword">node</span> <span class="title">example-server</span>.js
 </code></pre><p>Submit a request with a client certificate:</p>
-<pre><code>$ curl -k --cert certs/joe<span class="selector-class">.crt</span> --key certs/joe<span class="selector-class">.key</span> --cacert certs/ca<span class="selector-class">.crt</span> https:<span class="comment">//localhost:3443</span>
+<pre><code>$ curl -k <span class="params">--cert</span> certs/joe.crt <span class="params">--key</span> certs/joe.key <span class="params">--cacert</span> certs/ca.crt https:<span class="string">//localhost</span><span class="function">:3443</span>
 </code></pre><p>If <code>curl</code> fails and you are using OSX Mavericks or newer (where <a href="http://curl.haxx.se/mail/archive-2013-10/0036.html">support for ad-hoc CA certifcates is broken</a>, try <code>wget</code> instead:</p>
-<pre><code>$ wget -qSO - --no-check-certificate --certificate=certs/joe<span class="selector-class">.crt</span> --private-key=certs/joe<span class="selector-class">.key</span> --ca-certificate=certs/ca<span class="selector-class">.crt</span> https:<span class="comment">//localhost:3443/</span>
+<pre><code>$ wget -qSO - <span class="params">--no-check-certificate</span> <span class="params">--certificate=certs/joe</span>.crt <span class="params">--private-key=certs/joe</span>.key <span class="params">--ca-certificate=certs/ca</span>.crt https:<span class="string">//localhost</span><span class="function">:3443</span>/
 </code></pre><p>Requests submitted with <code>joe.crt</code> are authorised because <code>joe</code> is in the list of valid users. Requests submitted without a certificate, or with <code>bob.crt</code> will fail with a HTTP <code>401</code>.</p>
 <h2 id="test">Test</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install</span>
@@ -150,14 +150,14 @@ passport.use(<span class="keyword">new</span> ClientCertStrategy(<span class="fu
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-client-cert</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2017-07-01T20:09:59Z">3 years ago</abbr></li>
+              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2017-07-01T20:09:59Z">4 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/ripjar/passport-client-cert.git">https://github.com/ripjar/passport-client-cert</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>157</b> downloads in the last day</li>
-              <li><b>999</b> downloads in the last week</li>
-              <li><b>3,051</b> downloads in the last month</li>
+              <li><b>97</b> downloads in the last day</li>
+              <li><b>599</b> downloads in the last week</li>
+              <li><b>2,603</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

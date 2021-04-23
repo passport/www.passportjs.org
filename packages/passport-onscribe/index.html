@@ -97,11 +97,11 @@
 <p>This module lets you authenticate using Onscribe in your Node.js applications.</p>
 <p>By plugging into Passport, Onscribe authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code>npm <span class="keyword">install</span> passport-onscribe
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-onscribe
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Onscribe authentication strategy authenticates users using a Onscribe account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> OnscribeOAuth2Strategy({
+<pre><code>passport.use(<span class="keyword">new</span> OnscribeOAuth2Strategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
     callbackURL: <span class="string">"https://www.example.net/auth/onscribe/callback"</span>
@@ -137,8 +137,8 @@ app.get(<span class="string">'/auth/onscribe/callback'</span>,
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

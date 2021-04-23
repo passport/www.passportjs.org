@@ -108,7 +108,7 @@ or <a href="https://github.com/jaredhanson/passport-twitter">Twitter</a>), pleas
 <a href="https://github.com/jaredhanson/passport-oauth">Passport-OAuth</a> for the
 appropriate strategy.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-http-oauth</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-http-oauth
 </code></pre><h2 id="usage-of-consumer-strategy">Usage of Consumer Strategy</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The OAuth consumer authentication strategy authenticates consumers based on a
@@ -119,26 +119,26 @@ to compute a signature, and authentication fails if it does not match the
 request signature.  <code>consumer</code> as supplied by the <code>consumer</code> callback is the
 authenticating entity of this strategy, and will be set by Passport at
 <code>req.user</code>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="string">'consumer'</span>, <span class="keyword">new</span> ConsumerStrategy(
+<pre><code>passport.use(<span class="string">'consumer'</span>, <span class="keyword">new</span> ConsumerStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(consumerKey, done)</span> </span>{
     Consumer.findByKey({ key: consumerKey }, <span class="function"><span class="keyword">function</span> <span class="params">(err, consumer)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, consumer, consumer.secret);
+      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, consumer, consumer.secret);
     });
   },
   <span class="function"><span class="keyword">function</span><span class="params">(requestToken, done)</span> </span>{
     RequestToken.findOne(requestToken, <span class="function"><span class="keyword">function</span> <span class="params">(err, token)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
       <span class="comment">// third argument is optional info.  typically used to pass</span>
       <span class="comment">// details needed to authorize the request (ex: `verifier`)</span>
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, token.secret, { verifier: token.verifier });
+      <span class="keyword">return</span> done(<span class="literal">null</span>, token.secret, { verifier: token.verifier });
     });
   },
   <span class="function"><span class="keyword">function</span><span class="params">(timestamp, nonce, done)</span> </span>{
     <span class="comment">// validate the timestamp and nonce as necessary</span>
-    done(<span class="keyword">null</span>, <span class="keyword">true</span>)
+    done(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -161,30 +161,30 @@ access token issued to a consumer.  The strategy requires a <code>consumer</code
 authentication fails if it does not match the request signature.  <code>user</code> as
 supplied by the <code>verify</code> callback is the authenticating entity of this strategy,
 and will be set by Passport at <code>req.user</code>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="string">'token'</span>, <span class="keyword">new</span> TokenStrategy(
+<pre><code>passport.use(<span class="string">'token'</span>, <span class="keyword">new</span> TokenStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(consumerKey, done)</span> </span>{
     Consumer.findByKey({ key: consumerKey }, <span class="function"><span class="keyword">function</span> <span class="params">(err, consumer)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, consumer, consumer.secret);
+      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, consumer, consumer.secret);
     });
   },
   <span class="function"><span class="keyword">function</span><span class="params">(accessToken, done)</span> </span>{
     AccessToken.findOne(accessToken, <span class="function"><span class="keyword">function</span> <span class="params">(err, token)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
       Users.findOne(token.userId, <span class="function"><span class="keyword">function</span><span class="params">(err, user)</span> </span>{
         <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
         <span class="comment">// fourth argument is optional info.  typically used to pass</span>
         <span class="comment">// details needed to authorize the request (ex: `scope`)</span>
-        <span class="keyword">return</span> done(<span class="keyword">null</span>, user, token.secret, { scope: token.scope });
+        <span class="keyword">return</span> done(<span class="literal">null</span>, user, token.secret, { scope: token.scope });
       });
     });
   },
   <span class="function"><span class="keyword">function</span><span class="params">(timestamp, nonce, done)</span> </span>{
     <span class="comment">// validate the timestamp and nonce as necessary</span>
-    done(<span class="keyword">null</span>, <span class="keyword">true</span>)
+    done(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -193,10 +193,10 @@ authenticate requests.  This strategy is intended for use in protected API
 endpoints, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/api/userinfo'</span>, 
-  passport.authenticate(<span class="string">'token'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/api/userinfo'</span>, 
+  passport.authenticate(<span class="string">'token'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h2 id="combine-with-oauthorize">Combine with OAuthorize</h2>
 <p><a href="https://github.com/jaredhanson/oauthorize">OAuthorize</a> is a toolkit for
@@ -224,18 +224,18 @@ authenticate users and clients making requests to API endpoints.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2018-08-03T00:43:43Z">2 years ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2018-08-03T00:43:43Z">3 years ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-http-oauth.git"></a></li>
             </ul>
             <ul>
-              <li><b>38</b> downloads in the last day</li>
-              <li><b>326</b> downloads in the last week</li>
-              <li><b>1,423</b> downloads in the last month</li>
+              <li><b>32</b> downloads in the last day</li>
+              <li><b>292</b> downloads in the last week</li>
+              <li><b>1,301</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

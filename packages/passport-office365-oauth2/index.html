@@ -96,7 +96,7 @@
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://msdn.microsoft.com/en-us/library/azure/dn645545.aspx">Azure AD</a>
 using the OAuth 2.0 protocol.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-azure-ad-oauth2</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-azure-ad-oauth2
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Azure AD OAuth 2.0 authentication strategy authenticates requests by delegating to Azure AD using the OAuth 2.0 protocol.</p>
@@ -108,7 +108,7 @@ using the OAuth 2.0 protocol.</p>
 <li><code>callbackURL</code>: URL to which Azure AD will redirect the user after obtaining authorization.</li>
 <li><code>resource</code>: [optional] the App ID URI of the web API (secured resource).</li>
 <li><code>tenant</code>: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).</li>
-<li><code>useCommonEndpoint</code>: [optional] use &quot;<a href="https://login.microsoftonline.com/common">https://login.microsoftonline.com/common</a>&quot; instead of default endpoint (<a href="https://login.microsoftonline.com/{tenant}">https://login.microsoftonline.com/{tenant}</a>). This is typically enabled if you&#39;re using this for a Multi-tenant application in Azure AD (Default: <code>false</code>).</li>
+<li><code>useCommonEndpoint</code>: [optional] use &quot;<a href="https://login.microsoftonline.com/common&quot;">https://login.microsoftonline.com/common&quot;</a> instead of default endpoint (<a href="https://login.microsoftonline.com/{tenant})">https://login.microsoftonline.com/{tenant})</a>. This is typically enabled if you&#39;re using this for a Multi-tenant application in Azure AD (Default: <code>false</code>).</li>
 </ul>
 <pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> AzureAdOAuth2Strategy({
   <span class="attr">clientID</span>: <span class="string">'{YOUR_CLIENT_ID}'</span>,
@@ -161,14 +161,14 @@ app.get(<span class="string">'/auth/azureadoauth2/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-office365-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2017-04-28T23:15:47Z">3 years ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2017-04-28T23:15:47Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/Burke9077/passport-office365-oauth2.git">https://github.com/Burke9077/passport-office365-oauth2</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>17</b> downloads in the last week</li>
-              <li><b>141</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>40</b> downloads in the last week</li>
+              <li><b>158</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

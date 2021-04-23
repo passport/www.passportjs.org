@@ -141,12 +141,12 @@ router.get(<span class="string">'/privileged'</span>,
     <span class="comment">// npm client doesn't have compatible sessions with PassportJS</span>
     <span class="comment">// - does not use a cookie</span>
     <span class="comment">// - uses bearer tokens and basic auth via HTTP authorization header</span>
-    session: <span class="literal">false</span>,
+    <span class="attr">session</span>: <span class="literal">false</span>,
     <span class="comment">// npm client doesn't have compatible response parsing with PassportJS</span>
     <span class="comment">// error.status will be the expected status code of the error</span>
     <span class="comment">// <span class="doctag">NOTE:</span> `npm` does not like status codes that are not:</span>
     <span class="comment">//   200, 201, 400, 401, 403, or 500</span>
-    failWithError: <span class="literal">true</span>
+    <span class="attr">failWithError</span>: <span class="literal">true</span>
   }),
   <span class="comment">// function to convert responses so npm client understands them</span>
   NPMStrategyErrorHandler
@@ -194,9 +194,9 @@ PORT=8080 node example.js
 <span class="comment"># email = # ignored</span>
 npm --registry=http://localhost:8080/ install passport-npm
 </code></pre>
-<h2 id="-npm-doesn-t-always-show-the-error-messages-i-send"><code>npm</code> doesn&#39;t always show the error messages I send</h2>
+<h2 id="npm-doesn-t-always-show-the-error-messages-i-send"><code>npm</code> doesn&#39;t always show the error messages I send</h2>
 <p>Correct, this is a feature of the <code>npm</code> client and not related to <code>passport-npm</code>.</p>
-<h2 id="-npm-is-always-sending-basic-auth"><code>npm</code> is always sending basic auth</h2>
+<h2 id="npm-is-always-sending-basic-auth"><code>npm</code> is always sending basic auth</h2>
 <p>This is most likely caused by your <code>~/.npmrc</code> user config having authentication information in it. Try <code>npm logout</code> then <code>npm login</code>.</p>
 <h2 id="does-this-work-with-yarn-">Does this work with <code>yarn</code>?</h2>
 <p>Currently, we cannot reliably setup configuration for <code>yarn</code> due lacking options that match the <code>npm</code> client to perform integration tests. It does appear to work though at least naively.</p>
@@ -211,7 +211,7 @@ npm --registry=http://localhost:8080/ install passport-npm
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -108,14 +108,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-trakt</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-trakt
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Trakt authentication strategy authenticates users using a Trakt account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TraktStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> TraktStrategy({
     clientID: TRAKT_CLIENT_ID,
     clientSecret: TRAKT_CLIENT_SECRET,
     callbackURL: <span class="string">"https://127.0.0.1:3000/auth/trakt/callback"</span>
@@ -151,7 +151,7 @@ app.get(<span class="string">'/auth/trakt/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="https://github.com/alexperrault/passport-trakt/blob/master/LICENSE">The MIT License</a></p>
-<p>Copyright (c) 2015 Alexandre Perrault <a href="[http://www.perrau.lt/](http://www.perrau.lt/)">[http://www.perrau.lt/](http://www.perrau.lt/)</a></p>
+<p>Copyright (c) 2015 Alexandre Perrault &lt;<a href="http://www.perrau.lt/">http://www.perrau.lt/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-trakt</span></code></div>
@@ -161,9 +161,9 @@ app.get(<span class="string">'/auth/trakt/callback'</span>,
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>125</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>22</b> downloads in the last week</li>
+              <li><b>211</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

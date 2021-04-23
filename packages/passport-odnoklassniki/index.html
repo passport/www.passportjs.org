@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-odnoklassniki</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-odnoklassniki
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Odnoklassniki authentication strategy authenticates users using a Odnoklassniki
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> OdnoklassnikiStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> OdnoklassnikiStrategy({
     clientID: ODNOKLASSNIKI_APP_ID,
     clientPublic: ODNOKLASSNIKI_APP_PUBLIC_KEY,
     clientSecret: ODNOKLASSNIKI_APP_SECRET_KEY,
@@ -143,9 +143,9 @@ app.get(<span class="string">'/auth/odnoklassniki/callback'</span>,
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the user&#39;s statuses and
 checkins:</p>
-<pre><code>app.get(<span class="string">'/auth/odnoklassniki'</span>,
-  passport.authenticate(<span class="string">'odnoklassniki'</span>, { scope: [<span class="string">'user_status'</span>, <span class="string">'user_checkins'</span>] }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/odnoklassniki'</span>,
+  passport.authenticate(<span class="string">'odnoklassniki'</span>, { <span class="attribute">scope</span>: [<span class="string">'user_status'</span>, <span class="string">'user_checkins'</span>] }),
+  function(req, res){
     <span class="comment">// The request will be redirected to Odnoklassniki for authentication, with</span>
     <span class="comment">// extended permissions.</span>
   });
@@ -188,9 +188,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
               <li><a class="url" href="git://github.com/ozon1234/passport-odnoklassniki.git">https://github.com/ozon1234/passport-odnoklassniki#readme</a></li>
             </ul>
             <ul>
-              <li><b>30</b> downloads in the last day</li>
-              <li><b>154</b> downloads in the last week</li>
-              <li><b>633</b> downloads in the last month</li>
+              <li><b>9</b> downloads in the last day</li>
+              <li><b>73</b> downloads in the last week</li>
+              <li><b>440</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

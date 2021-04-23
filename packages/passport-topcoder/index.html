@@ -99,7 +99,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-topcoder</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-topcoder
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Topcoder authentication strategy authenticates users using a Topcoder account
@@ -109,7 +109,7 @@ contains the authenticated user&#39;s Topcoder profile.   The <code>verify</code
 call <code>done</code> providing a user to complete authentication.</p>
 <p>In order to identify your application to TopCoder, specify the client id,
 client secret, and callback URL within <code>options</code>.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TopcoderStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> TopcoderStrategy({
         clientID: MY_CLIENT_ID,
         clientSecret: MY_CLIENT_SECRET,
         callbackURL: MY_CALLBACK_URL
@@ -120,7 +120,7 @@ client secret, and callback URL within <code>options</code>.</p>
             expirationTime : params.expires_in,
             scope : params.scope.split(<span class="string">" "</span>)
         };
-    <span class="keyword">return</span> done(<span class="keyword">null</span>, tokenDTO);
+    <span class="keyword">return</span> done(<span class="literal">null</span>, tokenDTO);
     }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -149,13 +149,13 @@ app.get(<span class="string">'/auth/topcoder/callback'</span>, <span class="func
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-topcoder</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2013-10-17T08:34:15Z">7 years ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2013-10-17T08:34:15Z">8 years ago</abbr></li>
               <li><a class="url" href="https://github.com/cloudspokes/passport-topcoder"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

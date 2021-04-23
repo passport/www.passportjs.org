@@ -124,20 +124,20 @@ It&#39;s OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it ju
 <p>&quot;The UAA is the identity management service for Cloud Foundry. It&#39;s primary role is as an OAuth2 provider, issuing tokens for client applications to use when they act on behalf of Cloud Foundry users. It can also authenticate users with their Cloud Foundry credentials, and can act as an SSO service using those credentials (or others). It has endpoints for managing user accounts and for registering OAuth2 clients, as well as various other management functions&quot; - <a href="https://github.com/cloudfoundry/uaa">https://github.com/cloudfoundry/uaa</a></p>
 <p>In essence, Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-variation of OpenID-Connect and is easily extensible for other kinds of auth mechanisms.</p>
 <p>####High-level steps for UAA OpenID:</p>
-<ol>
+<ol start="0">
 <li>Register your app to only have scope <code>openid</code> or during OAuth 2.0 dance, send <code>{scope: &#39;oauth.2.0&#39;}</code>.</li>
 <li><p>Perform OAuth 2.0 as usual. And after authentication dance, your app will get an <code>access_token</code>, a <code>refresh_token</code> just like in OAuth 2.0 <del>but in addition an extra token called <code>token_id</code></del>.  <code>access_token</code> itself acts similar to <code>token_id</code>.</p>
 </li>
 <li><p>Then, we must take the <del>token_id</del> <code>access_token</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a>. </p>
 </li>
 </ol>
-<pre><code>access_token (Before):
-abc.<span class="number">123.456</span>
+<pre><code>access_token (<span class="keyword">Before</span>):
+abc<span class="number">.123</span><span class="number">.456</span>
 
-Decode: Take everything after first <span class="string">"."</span> (= <span class="string">"123.456"</span>) <span class="keyword">and</span> <span class="keyword">do</span> Base64-decode.
+Decode: Take everything <span class="keyword">after</span> first "." (= "123.456") <span class="keyword">and</span> <span class="keyword">do</span> Base64-decode.
 
-acess_token (After)
-{<span class="string">"exp"</span>:<span class="number">1357672585</span>,<span class="string">"user_name"</span>:<span class="string">"bla@yahoo.com"</span>,<span class="string">"scope"</span>:[<span class="string">"openid"</span>],<span class="string">"email"</span>:<span class="string">"bla@yahoo.com"</span>,<span class="string">"aud"</span>:[<span class="string">"openid"</span>],<span class="string">"jti"</span>:<span class="string">"123-c545-4775-ad27-123"</span>,<span class="string">"user_id"</span>:<span class="string">"123-2c45-111-8f37-123"</span>,<span class="string">"client_id"</span>:<span class="string">"YOUR_APP_ID"</span>}
+acess_token (<span class="keyword">After</span>)
+{"exp":<span class="number">1357672585</span>,"user_name":"bla@yahoo.com","scope":["openid"],"email":"bla@yahoo.com","aud":["openid"],"jti":"123-c545-4775-ad27-123","user_id":"123-2c45-111-8f37-123","client_id":"YOUR_APP_ID"}
 </code></pre><p>Validate client_id is actually your app&#39;s id. Expiration (exp) is at a later date. <del>Issuer(iss) is UAA (not supported yet).</del></p>
 <p>4.After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;uaa-server&gt;/userinfo</code> end point. </p>
 <p>#####Notes: </p>
@@ -171,7 +171,7 @@ acess_token (After)
 </ul>
 <h2 id="-br-"><br></h2>
 <h1 id="passport-cloudfoundry-openidconnect-installation">passport-cloudfoundry-openidconnect Installation</h1>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-cloudfoundry-openidconnect</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-cloudfoundry-openidconnect
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The CloudFoundry authentication strategy authenticates users using a CloudFoundry
@@ -248,6 +248,7 @@ var cfStrategy = new CloudFoundryStrategy({
 
  // Pass the strategy
  passport.use(cfStrategy);
+
 </code></pre>
 <h4 id="express-middlewares">Express middlewares</h4>
 <p>In Express apps, you need to add the below middlewares. Also make sure to add them after Express&#39; session middleware</p>
@@ -319,16 +320,16 @@ application:</p>
 </li>
 </ul>
 <pre><code>
-//<span class="keyword">Set</span> Cloud Foundry app<span class="string">'s clientID
-var CF_CLIENT_ID = '</span><span class="comment">--insert-cloudfoundry-client-id-here--';</span>
+<span class="comment">//Set Cloud Foundry app's clientID</span>
+<span class="keyword">var</span> CF_CLIENT_ID = <span class="string">'--insert-cloudfoundry-client-id-here--'</span>;
 
-//<span class="keyword">Set</span> Cloud Foundry app<span class="string">'s clientSecret
-var CF_CLIENT_SECRET = '</span><span class="comment">--insert-cloudfoundry-client-secret-here--';</span>
+<span class="comment">//Set Cloud Foundry app's clientSecret</span>
+<span class="keyword">var</span> CF_CLIENT_SECRET = <span class="string">'--insert-cloudfoundry-client-secret-here--'</span>;
 
-// Note: You should have a app.get(..) <span class="keyword">for</span> this callback <span class="keyword">to</span> receive callback <span class="keyword">from</span> Cloud Foundry
-// <span class="keyword">For</span> example: <span class="keyword">If</span> your callback <span class="keyword">url</span> <span class="keyword">is</span>: https://myKoolapp.cloudfoundry.com/auth/cloudfoundry/callback
-// <span class="keyword">then</span>, you should have a <span class="keyword">HTTP</span> <span class="keyword">GET</span> endpoint <span class="keyword">like</span>: app.get(<span class="string">'/auth/cloudfoundry/callback'</span>, callback))
-//
+<span class="comment">// <span class="doctag">Note:</span> You should have a app.get(..) for this callback to receive callback from Cloud Foundry</span>
+<span class="comment">// For example: If your callback url is: https://myKoolapp.cloudfoundry.com/auth/cloudfoundry/callback</span>
+<span class="comment">// then, you should have a HTTP GET endpoint like: app.get('/auth/cloudfoundry/callback', callback))</span>
+<span class="comment">//</span>
 <span class="keyword">var</span> CF_CALLBACK_URL = <span class="string">'--insert-cloudfoundry--url--/auth/cloudfoundry/callback'</span>;
 </code></pre><ul>
 <li><code>node app.js</code> to run app on <code>localhost:3000</code><ul>
@@ -388,7 +389,7 @@ VMware</p>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

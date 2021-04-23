@@ -101,7 +101,7 @@ integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-versionone</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-versionone
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The VersionOne authentication strategy authenticates users using an VersionOne
@@ -112,7 +112,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 Member Detail Page (profile) on the Permitted Apps tab. The instance url is
 required and can be obtained in the address bar of your browser when using
 the application.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> VersionOneStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> VersionOneStrategy({
     clientID: VERSIONONE_CLIENT_ID,
     clientSecret: VERSIONONE_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/versionone/callback"</span>,
@@ -159,8 +159,8 @@ app.get(<span class="string">'/auth/versionone/callback'</span>,
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>14</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>20</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

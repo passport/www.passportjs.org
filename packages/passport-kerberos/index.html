@@ -104,7 +104,7 @@ unobtrusively integrated into any application or framework that supports
 <h2 id="installing-the-required-headers-on-ubuntu">Installing the required headers on Ubuntu</h2>
 <pre><code>sudo apt-<span class="built_in">get</span> install libkrb5-<span class="built_in">dev</span>
 </code></pre><h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-kerberos</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-kerberos
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The kerberos authentication strategy authenticates users using a username and
@@ -113,12 +113,12 @@ credentials and calls <code>done</code> providing a user.</p>
 <pre><code><span class="comment">// The realm used for kerberos authentication.</span>
 <span class="keyword">var</span> REALM=<span class="string">"EXAMPLE.COM"</span>
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> KerberosStrategy(
+passport.use(<span class="keyword">new</span> KerberosStrategy(
   <span class="function"><span class="keyword">function</span><span class="params">(username, done)</span> </span>{
     User.findOne({ username: username }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> done(<span class="keyword">null</span>, user, REALM);
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> done(<span class="literal">null</span>, user, REALM);
     });
   }
 ));
@@ -141,7 +141,7 @@ application:</p>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a>
 passport-kerberos - Copyright (c) 2013 Joshua Heiks
-Passport-Local - Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+Passport-Local - Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kerberos</span></code></div>
@@ -150,9 +150,9 @@ Passport-Local - Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhans
               <li><a class="url" href="git://github.com/joshuah/passport-kerberos.git"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>8</b> downloads in the last week</li>
-              <li><b>32</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>28</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

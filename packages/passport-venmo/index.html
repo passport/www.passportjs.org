@@ -101,22 +101,22 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-venmo</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-venmo
 </code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Venmo OAuth 2.0 authentication strategy authenticates users using a Venmo
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a <code>clientID</code>, <code>clientSecret</code>, and <code>callbackURL</code>.</p>
-<pre><code><span class="keyword">var</span> VenmoStrategy = <span class="keyword">require</span>(<span class="string">'passport-venmo'</span>).Strategy;
+<pre><code><span class="keyword">var</span> VenmoStrategy = <span class="built_in">require</span>(<span class="string">'passport-venmo'</span>).Strategy;
 
-passport.<span class="keyword">use</span>(<span class="keyword">new</span> VenmoStrategy({
-    clientID: Venmo_CLIENT_ID,
-    clientSecret: Venmo_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/venmo/callback"</span>
+passport.use(<span class="keyword">new</span> VenmoStrategy({
+    <span class="attr">clientID</span>: Venmo_CLIENT_ID,
+    <span class="attr">clientSecret</span>: Venmo_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/venmo/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ VenmoId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">VenmoId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -186,7 +186,7 @@ application:
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

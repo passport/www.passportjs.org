@@ -103,14 +103,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-bitbucket-oauth20</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-bitbucket-oauth20
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Bitbucket authentication strategy authenticates users using a Bitbucket
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BitbucketStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> BitbucketStrategy({
     clientID: BITBUCKET_CLIENT_ID,
     clientSecret: BITBUCKET_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/bitbucket/callback"</span>
@@ -153,19 +153,19 @@ app.get(<span class="string">'/auth/bitbucket/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2012-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bitbucket-oauth20</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2017-05-17T09:35:54Z">3 years ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2017-05-17T09:35:54Z">4 years ago</abbr></li>
               <li><a class="url" href="git://github.com/saintedlama/passport-bitbucket-oauth2.git">https://github.com/saintedlama/passport-bitbucket-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>77</b> downloads in the last day</li>
-              <li><b>364</b> downloads in the last week</li>
-              <li><b>1,344</b> downloads in the last month</li>
+              <li><b>58</b> downloads in the last day</li>
+              <li><b>349</b> downloads in the last week</li>
+              <li><b>1,267</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

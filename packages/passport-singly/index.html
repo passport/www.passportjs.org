@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-singly</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-singly
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Singly authentication strategy authenticates users using a Singly
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> SinglyStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> SinglyStrategy({
     clientID: SINGLY_APP_ID,
     clientSecret: SINGLY_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/singly/callback"</span>
@@ -154,8 +154,8 @@ permission to the user&#39;s statuses and checkins:</p>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

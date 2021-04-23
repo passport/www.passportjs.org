@@ -94,14 +94,14 @@
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-strategy-for-sso-with-windows-azure">Passport strategy for SSO with Windows Azure</h1>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-azure-store</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-azure-store
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Windows Azure Store authentication strategy authenticates users using a SSO token (SHA signed string with a secret) coming from Windows Azure.  The strategy requires a <code>verify</code> callback.</p>
 <p>For more info read: <a href="https://github.com/WindowsAzure/azure-resource-provider-sdk/blob/master/docs/api-sso.md">https://github.com/WindowsAzure/azure-resource-provider-sdk/blob/master/docs/api-sso.md</a></p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AzureStoreStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> AzureStoreStrategy({
   secret: <span class="string">'shhhhh'</span>,
-  check_expiration: <span class="keyword">true</span>
+  check_expiration: <span class="literal">true</span>
 }, <span class="function"><span class="keyword">function</span><span class="params">(req, azureInfo, done)</span> </span>{
   <span class="keyword">var</span> user_id = azureInfo.subscription_id + <span class="string">'_'</span> + azureInfo.cloud_service_name + <span class="string">'_'</span> + azureInfo.resource_name; <span class="comment">// you can do anything with this data, typically you would have to find the user based on this data somehow</span>
   <span class="comment">// lookup in DB</span>
@@ -124,14 +124,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-store</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2016-08-27T20:14:25Z">4 years ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2016-08-27T20:14:25Z">5 years ago</abbr></li>
               <li><a class="url" href="git://github.com/auth0/passport-azure-store.git"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

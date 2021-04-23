@@ -97,11 +97,11 @@
 with <a href="http://misfit.com/">Misfit</a> using the OAuth 2.0 API.</p>
 <p>See <a href="https://build.misfit.com/">https://build.misfit.com/</a> for developer portal. You must apply for API access.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-misfit</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-misfit
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p><strong>note</strong>: Misfit currently does not provide a refreshToken in its response. It will be <code>undefined</code></p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MisfitStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> MisfitStrategy({
     clientID: YOUR_MISFIT_APP_ID,
     clientSecret: YOUR_MISFIT_APP_SECRET,
     callbackURL: <span class="string">"http://localhost:3000/auth/misfit/callback"</span>
@@ -147,7 +147,7 @@ app.get(<span class="string">'/auth/misfit/callback'</span>,
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

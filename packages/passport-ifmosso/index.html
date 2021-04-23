@@ -95,13 +95,13 @@
           <div class="description"><h1 id="passport-ifmosso">passport-ifmosso</h1>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating via <a href="https://de.ifmo.ru/IfmoSSO/">ITMO University Single Sign-On</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-ifmosso</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-ifmosso
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The authentication strategy authenticates users using ITMO University account. 
 The strategy requires a <code>verify</code> callback, which accepts these credentials and 
 calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> IfmoSSOStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> IfmoSSOStrategy({
         secretKey: SECRET_KEY
     }, <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span> </span>{
         User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
@@ -139,7 +139,7 @@ application:</p>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
+              <li><b>3</b> downloads in the last week</li>
               <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>

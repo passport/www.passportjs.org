@@ -110,12 +110,12 @@ unobtrusively integrated into any application or framework that supports
 </ul>
 <p>We don&#39;t currently support setting a SASL mechanism but pieces are in place, if required please raise an issue and we&#39;ll finish off the code. Thanks!</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-xmpp</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-xmpp
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>This authentication strategy authenticates users using an XMPP account. The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="function"><span class="keyword">new</span> <span class="title">XmppStrategy</span>());</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> XmppStrategy());
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;xmpp&#39;</code> strategy, to
 authenticate requests.</p>
@@ -145,9 +145,9 @@ application:</p>
               <li><a class="url" href="git://github.com/surevine/passport-xmpp.git">https://github.com/surevine/passport-xmpp</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

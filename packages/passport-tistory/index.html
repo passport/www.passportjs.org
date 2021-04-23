@@ -106,7 +106,7 @@ Tistory 인증 API는 OAuth 2.0 기반의 인증 방식을 사용하고 있다. 
 </ol>
 <h1 id="-">설치</h1>
 <p>passport-tistory 은 npm으로 간단히 설치 할 수 있다.</p>
-<pre><code>npm <span class="keyword">install</span> passport-tistory
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-tistory
 </code></pre><h1 id="-">사용방법</h1>
 <p>passport-tistory 사용 방법은 <code>passport</code> 모듈과 <code>passport-tistory</code> 모듈을 로드해서 다음과 같이 인증이 필요한 부분에 <code>passport.use()</code> 사용한다.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
@@ -276,6 +276,7 @@ app.listen(<span class="number">3000</span>);
   <span class="keyword">if</span> (req.isAuthenticated()) { <span class="keyword">return</span> next(); }
   res.redirect(<span class="string">'/login'</span>)
 }
+
 </code></pre>
 <h1 id="profile-">profile 프로퍼티</h1>
 <p>Tistory는 user 고유 정보를 가져오는 API가 존재하지 않는다. 그래서 다른 passport plugins과 달리 profile 정보로 Tistory의 blogInfo를 가져오게 했다.</p>
@@ -342,13 +343,13 @@ SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tistory</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2014-07-15T02:11:50Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2014-07-15T02:11:50Z">7 years ago</abbr></li>
               <li><a class="url" href="git://github.com/saltfactory/passport-tistory.git">https://github.com/saltfactory/passport-tistory</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

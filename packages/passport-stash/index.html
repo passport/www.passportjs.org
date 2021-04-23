@@ -101,14 +101,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-stash</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-stash
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Stash authentication strategy authenticates users using a Stash
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> StashStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> StashStrategy({
     consumerKey: STASH_CONSUMER_KEY,
     consumerSecret: STASH_CONSUMER_SECRET,
     apiURL: <span class="string">"http://api.example.com"</span>,
@@ -146,7 +146,7 @@ app.get(<span class="string">'/auth/stash/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2015 Greg Reinbach <a href="[http://reinbach.com/](http://reinbach.com/)">[http://reinbach.com/](http://reinbach.com/)</a></p>
+<p>Copyright (c) 2015 Greg Reinbach &lt;<a href="http://reinbach.com/">http://reinbach.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stash</span></code></div>
@@ -155,9 +155,9 @@ app.get(<span class="string">'/auth/stash/callback'</span>,
               <li><a class="url" href="git://github.com/reinbach/passport-stash.git">https://github.com/reinbach/passport-stash</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

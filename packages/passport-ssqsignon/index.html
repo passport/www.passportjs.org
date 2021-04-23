@@ -104,7 +104,7 @@ integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <p>This module is a fork of the <a href="https://github.com/jaredhanson/passport-http-bearer">Passport HTTP Bearer strategy by Jared Hanson</a></p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-ssqsingon</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-ssqsingon
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The SSQ signon authentication strategy authenticates users using an access
@@ -113,9 +113,9 @@ Once authenticated, the <em>user id</em> and <em>scope</em> contained within the
 The strategy requires your module&#39;s <code>module name</code>. An optional <code>scopePresenter</code>
 function can also be passed, which transforms the raw <em>scope</em> string into whatever you like
 (i.e. a permission helper of some sort).</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> SSQsignonStrategy(<span class="string">'my-ssqsignon-module-name'</span>,
+<pre><code>passport.use(<span class="keyword">new</span> SSQsignonStrategy(<span class="string">'my-ssqsignon-module-name'</span>,
     <span class="function"><span class="keyword">function</span> <span class="title">scopeAsObject</span><span class="params">(scopeStr)</span> </span>{
-        <span class="keyword">return</span> scopeStr.split(<span class="string">' '</span>).reduce(<span class="function"><span class="keyword">function</span><span class="params">(result, s)</span> </span>{ result[s] = <span class="keyword">true</span>; <span class="keyword">return</span> result; }, {});
+        <span class="keyword">return</span> scopeStr.split(<span class="string">' '</span>).reduce(<span class="function"><span class="keyword">function</span><span class="params">(result, s)</span> </span>{ result[s] = <span class="literal">true</span>; <span class="keyword">return</span> result; }, {});
     }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -124,10 +124,10 @@ authenticate requests. Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/me'</span>, 
-  passport.authenticate(<span class="string">'ssqsignon'</span>, { session: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.json(req.user);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/me'</span>, 
+  passport.authenticate(<span class="string">'ssqsignon'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+  <span class="keyword">function</span>(req, res) {
+    res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h4 id="issuing-tokens">Issuing Tokens</h4>
 <p>For details on how to issue access tokens with the <em>SSQ signon token endpoint</em> please visit <a href="https://ssqsignon.com">ssqsignon.com</a></p>
@@ -147,18 +147,18 @@ If the request fails, the strategy signals that authentication has failed.</p>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2015 Riviera Solutions Piotr Wójcik <a href="[http://rivierasoltions.pl](http://rivierasolutions.pl)">[http://rivierasoltions.pl](http://rivierasolutions.pl)</a></p>
+<p>Copyright (c) 2015 Riviera Solutions Piotr Wójcik &lt;<a href="http://rivierasolutions.pl">http://rivierasoltions.pl</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ssqsignon</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2016-06-22T19:43:35Z">4 years ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2016-06-22T19:43:35Z">5 years ago</abbr></li>
               <li><a class="url" href="git://github.com/rivierasolutions/passport-ssqsignon.git">https://github.com/rivierasolutions/passport-ssqsignon#readme</a></li>
             </ul>
             <ul>
               <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>14</b> downloads in the last month</li>
+              <li><b>19</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

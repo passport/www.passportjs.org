@@ -96,12 +96,12 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="https://api.humanapi.co">HumanAPI</a> using the OAuth 2.0 API.</p>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-humanapi</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-humanapi
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HumanAPI authentication strategy authenticates users using a HumanAPI account and
 OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> HumanApiStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> HumanApiStrategy({
     consumerKey: HUMANAPI_APP_ID,
     consumerSecret: HUMANAPI_APP_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/humanapi/callback"</span>,
@@ -148,13 +148,13 @@ app.get(<span class="string">'/auth/humanapi/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-humanapi</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2013-07-06T05:10:06Z">7 years ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2013-07-06T05:10:06Z">8 years ago</abbr></li>
               <li><a class="url" href="http://github.com/humanapi/passport-humanapi.git"></a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
+              <li><b>0</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -114,7 +114,7 @@
 }
 </code></pre>
 <h2 id="installation">Installation</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-waad</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-waad
 </code></pre><h2 id="usage">Usage</h2>
 <p>This sample uses a SAML protocol with express.  Please pay close attention to the order of the calls - they are order specific!</p>
 <p>Please use the middleware <code>ensureAuthenticated</code> on routes to ensure users cannot access them without passing auth.</p>
@@ -157,7 +157,7 @@ app.use(expressSession({ <span class="attr">secret</span>: sessionSecret }));
   <span class="attr">configurationFile</span> : <span class="string">'passportConfig/config.json'</span>,
   <span class="attr">passport</span> : passport,
   <span class="attr">name</span> : <span class="string">'saml'</span>,    <span class="comment">//set to test for dev</span>
-  app : app
+  <span class="attr">app</span> : app
 });
 
 <span class="keyword">var</span> router = express.Router();
@@ -208,6 +208,7 @@ app.use(express.static(path.join(__dirname, <span class="string">'public'</span>
 app.use(<span class="string">'/'</span>, router);
 
 app.listen(process.env.PORT);
+
 </code></pre>
 <h2 id="license">License</h2>
 <p>Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved. Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); </p>
@@ -219,8 +220,8 @@ app.listen(process.env.PORT);
               <li><a class="url" href="https://github.com/ColinEdwardRhodes/passport-waad.git">https://github.com/ColinEdwardRhodes/azure-waad.git</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>

@@ -92,7 +92,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-slack-oath2">passport-slack-oath2</h1>
+          <div class="description"><h1 id="passport-slack-oauth2">passport-slack-oauth2</h1>
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="https://slack.com">Slack</a> using the OAuth 2.0 API.</p>
 <p>Updated to support Sign in with Slack by default.</p>
@@ -130,6 +130,7 @@ with <a href="https://slack.com">Slack</a> using the OAuth 2.0 API.</p>
         <span class="attr">"image_default"</span>: <span class="literal">true</span>
     }
 }
+
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
@@ -141,7 +142,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
     <span class="attr">clientID</span>: CLIENT_ID,
     <span class="attr">clientSecret</span>: CLIENT_SECRET,
     <span class="attr">skipUserProfile</span>: <span class="literal">false</span>, <span class="comment">// default</span>
-    scope: [<span class="string">'identity.basic'</span>, <span class="string">'identity.email'</span>, <span class="string">'identity.avatar'</span>, <span class="string">'identity.team'</span>] <span class="comment">// default</span>
+    <span class="attr">scope</span>: [<span class="string">'identity.basic'</span>, <span class="string">'identity.email'</span>, <span class="string">'identity.avatar'</span>, <span class="string">'identity.team'</span>] <span class="comment">// default</span>
   },
   (accessToken, refreshToken, profile, done) =&gt; {
     <span class="comment">// optionally persist user data into a database</span>
@@ -184,13 +185,13 @@ app.get(<span class="string">'/auth/slack/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-slack-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2018-02-10T21:14:55Z">3 years ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2021-03-02T19:46:31Z">2 months ago</abbr></li>
               <li><a class="url" href="git+https://github.com/nmaves/passport-slack-oauth2.git">https://github.com/nmaves/passport-slack-oauth2#readme</a></li>
             </ul>
             <ul>
-              <li><b>850</b> downloads in the last day</li>
-              <li><b>3,865</b> downloads in the last week</li>
-              <li><b>12,649</b> downloads in the last month</li>
+              <li><b>240</b> downloads in the last day</li>
+              <li><b>1,270</b> downloads in the last week</li>
+              <li><b>7,164</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

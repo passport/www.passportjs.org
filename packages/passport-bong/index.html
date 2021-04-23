@@ -104,14 +104,14 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-bong</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-bong
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Bong authentication strategy authenticates users using a Bong account
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BongStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> BongStrategy({
     clientID: BONG_CLIENT_ID,
     clientSecret: BONG_CLIENT_SECRET,
     callbackURL: <span class="string">"http://127.0.0.1:3000/auth/bong/callback"</span>
@@ -138,10 +138,10 @@ app.get(<span class="string">'/auth/bong/callback'</span>,
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/junmer/passport-bong/tree/master/examples/login">login example</a>.</p>
-<pre><code><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/junmer/passport-bong</span>
-<span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> passport-bong/examples/login &amp;&amp; npm install </span>
-<span class="meta">$</span><span class="bash"> vi app.js //update BONG_CLIENT_ID, BONG_CLIENT_SECRET</span>
-<span class="meta">$</span><span class="bash"> node app.js</span>
+<pre><code>$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/junmer/passport-bong
+$ cd passport-bong/examples/login &amp;&amp; npm install 
+$ vi app.js //update BONG_CLIENT_ID, BONG_CLIENT_SECRET
+$ <span class="keyword">node</span> <span class="title">app</span>.js
 </code></pre><h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
 <span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
@@ -153,18 +153,18 @@ app.get(<span class="string">'/auth/bong/callback'</span>,
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson <a href="[http://jaredhanson.net/](http://jaredhanson.net/)">[http://jaredhanson.net/](http://jaredhanson.net/)</a></p>
+<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bong</span></code></div>
             <ul>
-              <li><span class="version">0.1.7</span> published <abbr class="updated" title="2014-05-26T12:39:38Z">6 years ago</abbr></li>
+              <li><span class="version">0.1.7</span> published <abbr class="updated" title="2014-05-26T12:39:38Z">7 years ago</abbr></li>
               <li><a class="url" href="http://github.com/junmer/passport-bong.git"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

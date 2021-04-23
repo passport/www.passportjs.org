@@ -113,7 +113,7 @@ that is not already supported are encouraged to sub-class this strategy.  If you
 choose to open source the new provider-specific strategy, please add it to the
 list so other people can find it.</p>
 <h2 id="install">Install</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install passport-lims</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-lims
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The OAuth 2.0 authentication strategy authenticates users using a third-party
@@ -121,7 +121,7 @@ account and OAuth 2.0 tokens.  The provider&#39;s OAuth 2.0 endpoints, as well a
 the client identifer and secret, are specified as options.  The strategy
 requires a <code>verify</code> callback, which receives an access token and profile,
 and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LimsStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> LimsStrategy({
     authorizationURL: <span class="string">'https://www.example.com/oauth2/authorize'</span>,
     tokenURL: <span class="string">'https://www.example.com/oauth2/token'</span>,
     clientID: EXAMPLE_CLIENT_ID,
@@ -169,8 +169,8 @@ app.get(<span class="string">'/auth/example/callback'</span>,
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>4</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
