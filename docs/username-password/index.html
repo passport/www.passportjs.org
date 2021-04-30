@@ -54,7 +54,7 @@
       ga('send', 'pageview');
     </script>
     <!--+google-tag-manager('GTM-M5S3PH')-->
-    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
     <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
@@ -192,7 +192,7 @@ This is helpful when prompting the user to try again.</p>
 <p>By default, <code>LocalStrategy</code> expects to find credentials in parameters named
 <code>username</code> and <code>password</code>.  If your site prefers to name these fields
 differently, options are available to change the defaults.</p>
-<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LocalStrategy({
+<pre><code>passport.use(<span class="keyword">new</span> LocalStrategy({
     usernameField: <span class="string">'email'</span>,
     passwordField: <span class="string">'passwd'</span>
   },

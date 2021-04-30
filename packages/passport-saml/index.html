@@ -57,7 +57,7 @@
       ga('send', 'pageview');
     </script>
     <!--+google-tag-manager('GTM-M5S3PH')-->
-    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
     <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
@@ -203,14 +203,14 @@ You can override these defaults by passing a new value through the <code>getSaml
 <li><code>attributeConsumingServiceIndex</code>: optional <code>AttributeConsumingServiceIndex</code> attribute to add to AuthnRequest to instruct the IDP which attribute set to attach to the response (<a href="http://blog.aniljohn.com/2014/01/data-minimization-front-channel-saml-attribute-requests.html">link</a>)</li>
 <li><code>disableRequestedAuthnContext</code>: if truthy, do not request a specific authentication context. This is <a href="https://github.com/node-saml/passport-saml/issues/226">known to help when authenticating against Active Directory</a> (AD FS) servers.</li>
 <li><code>authnContext</code>: if truthy, name identifier format to request auth context (default: <code>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</code>); array of values is also supported</li>
-<li><p><code>RACComparison</code>: Requested Authentication Context comparison type. Possible values are &#39;exact&#39;,&#39;minimum&#39;,&#39;maximum&#39;,&#39;better&#39;. Default is &#39;exact&#39;.</p>
+<li><p><code>racComparison</code>: Requested Authentication Context comparison type. Possible values are &#39;exact&#39;,&#39;minimum&#39;,&#39;maximum&#39;,&#39;better&#39;. Default is &#39;exact&#39;.</p>
 </li>
 <li><p><code>forceAuthn</code>: if set to true, the initial SAML request from the service provider specifies that the IdP should force re-authentication of the user, even if they possess a valid session.</p>
 </li>
 <li><code>providerName</code>: optional human-readable name of the requester for use by the presenter&#39;s user agent or the identity provider</li>
 <li><code>skipRequestCompression</code>: if set to true, the SAML request from the service provider won&#39;t be compressed.</li>
 <li><code>authnRequestBinding</code>: if set to <code>HTTP-POST</code>, will request authentication from IDP via HTTP POST binding, otherwise defaults to HTTP Redirect</li>
-<li><code>disableRequestACSUrl</code>: if truthy, SAML AuthnRequest from the service provider will not include the optional AssertionConsumerServiceURL. Default is falsy so it is automatically included.</li>
+<li><code>disableRequestAcsUrl</code>: if truthy, SAML AuthnRequest from the service provider will not include the optional AssertionConsumerServiceURL. Default is falsy so it is automatically included.</li>
 <li><code>scoping</code>: An optional configuration which implements the functionality <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">explained in the SAML spec paragraph &quot;3.4.1.2 Element <Scoping>&quot;</a>. The config object is structured as following:<pre><code class="lang-javascript">{
 <span class="attr">idpList</span>: [ <span class="comment">// optional</span>
 { 
@@ -411,14 +411,14 @@ SAML response.  The <code>InResponseTo</code> could fail in this case erroneousl
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2021-03-19T20:43:44Z">a month ago</abbr></li>
+              <li><span class="version">2.2.0</span> published <abbr class="updated" title="2021-04-23T23:10:21Z">7 days ago</abbr></li>
               <li><a class="url" href="git+https://github.com/node-saml/passport-saml.git">https://github.com/node-saml/passport-saml#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>21,316</b> downloads in the last day</li>
-              <li><b>106,009</b> downloads in the last week</li>
-              <li><b>438,586</b> downloads in the last month</li>
+              <li><b>19,422</b> downloads in the last day</li>
+              <li><b>107,027</b> downloads in the last week</li>
+              <li><b>443,508</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

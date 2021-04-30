@@ -54,7 +54,7 @@
       ga('send', 'pageview');
     </script>
     <!--+google-tag-manager('GTM-M5S3PH')-->
-    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css">
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
     <link rel="stylesheet" href="/assets/styles/all.css">
     <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
@@ -176,7 +176,7 @@ passport.use(<span class="string">'provider'</span>, <span class="keyword">new</
     <span class="attr">userAuthorizationURL</span>: <span class="string">'https://www.provider.com/oauth/authorize'</span>,
     <span class="attr">consumerKey</span>: <span class="string">'123-456-789'</span>,
     <span class="attr">consumerSecret</span>: <span class="string">'shhh-its-a-secret'</span>
-    callbackURL: <span class="string">'https://www.example.com/auth/provider/callback'</span>
+    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.com/auth/provider/callback'</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
     User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
@@ -232,7 +232,7 @@ passport.use(<span class="string">'provider'</span>, <span class="keyword">new</
     <span class="attr">tokenURL</span>: <span class="string">'https://www.provider.com/oauth2/token'</span>,
     <span class="attr">clientID</span>: <span class="string">'123-456-789'</span>,
     <span class="attr">clientSecret</span>: <span class="string">'shhh-its-a-secret'</span>
-    callbackURL: <span class="string">'https://www.example.com/auth/provider/callback'</span>
+    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.com/auth/provider/callback'</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
