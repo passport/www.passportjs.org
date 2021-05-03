@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>tixte-passport</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport strategy for use with the Tixte OAuth (v2.0) API">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/tixte-passport/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="tixte-passport"/>
+    <meta property="og:description" content="Passport strategy for use with the Tixte OAuth (v2.0) API"/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/tixte-passport/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="tixte-passport"/>
+    <meta name="twitter:description" content="Passport strategy for use with the Tixte OAuth (v2.0) API"/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="tixte-passport">tixte-passport</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="https://tixte.com?ref=psprt">Tixte</a>
+using OAuth v2.</p>
+<p>This module allows you to integrate Tixte oauth into your Passport, Node.js code.
+Getting started is super simple, and you can get up and running in under 5 minutes.</p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-bash">npm install tixte-passport
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h4 id="requirements">Requirements</h4>
+<p>To use this module, you must have a Tixte developer application, which can be created on the dashboard.</p>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The Tixte authentication strategy authenticates users through their Tixte account and OAuth 2.0 tokens.
+The client ID and secret obtained when creating an application are supplied as options when creating the strategy. 
+The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token, 
+as well as <code>profile</code> which contains the authenticated user&#39;s Tixte profile. 
+The <code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
+<pre><code class="lang-js"><span class="keyword">const</span> TixteStrategy = <span class="built_in">require</span>(<span class="string">"tixte-passport"</span>).Strategy;
+
+passport.use(<span class="keyword">new</span> TixteStrategy({
+    <span class="attr">clientID</span>: <span class="string">"&lt;client id&gt;"</span>,
+    <span class="attr">clientSecret</span>: <span class="string">"&lt;client secret&gt;"</span>,
+    <span class="attr">callbackURL</span>: <span class="string">"&lt;callback url&gt;"</span>,
+    <span class="attr">scope</span>: [<span class="string">"identity"</span>, <span class="string">"email"</span>] <span class="comment">//specify whatever scopes you need</span>
+},
+<span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+    User.findOrCreate({ <span class="attr">tixteUID</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">return</span> cb(err, user);
+}));
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;tixte&#39;</code> strategy to
+authenticate requests.</p>
+<p>For example, you could implement it with <a href="http://expressjs.com/">Express</a> as such:</p>
+<pre><code class="lang-js">app.get(<span class="string">"/login"</span>, passport.authenticate(<span class="string">"tixte"</span>));
+
+app.get(<span class="string">"/callback"</span>, passport.authenticate(<span class="string">"tixte"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/login"</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">"/"</span>); <span class="comment">//redirect on successful authentication</span>
+  });
+</code></pre>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">tixte-passport</span></code></div>
+            <ul>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2021-04-14T19:37:01Z">19 days ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/tixte/tixte-passport.git">https://github.com/tixte</a></li>
+              <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>113</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
