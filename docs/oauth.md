@@ -61,7 +61,7 @@ passport.use('provider', new OAuthStrategy({
     accessTokenURL: 'https://www.provider.com/oauth/access_token',
     userAuthorizationURL: 'https://www.provider.com/oauth/authorize',
     consumerKey: '123-456-789',
-    consumerSecret: 'shhh-its-a-secret'
+    consumerSecret: 'shhh-its-a-secret',
     callbackURL: 'https://www.example.com/auth/provider/callback'
   },
   function(token, tokenSecret, profile, done) {
