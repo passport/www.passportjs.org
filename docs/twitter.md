@@ -51,7 +51,7 @@ information.
 
 Two routes are required for Twitter authentication.  The first route initiates
 an OAuth transaction and redirects the user to Twitter.  The second route is the
-URL to which Twitter will redirect the user after they have signed in.
+URL to which Twitter will redirect the users after they have signed in.
 
 ```javascript
 // Redirect the user to Twitter for authentication.  When complete, Twitter

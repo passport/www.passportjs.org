@@ -5,7 +5,7 @@ title: OpenID
 # OpenID
 
 [OpenID](http://openid.net/) is an open standard for federated authentication.
-When visiting a website, users present their OpenID to sign in.  The user then
+When visiting a website, users present their OpenID to sign in.  The users then
 authenticates with their chosen OpenID provider, which issues an assertion to
 confirm the user's identity.  The website verifies this assertion in order to
 sign the user in.
@@ -47,7 +47,7 @@ containing the user's claimed identifier.
 
 ## Form
 
-A form is placed on a web page, allowing the user to enter their OpenID and
+A form is placed on a web page, allowing the users to enter their OpenID and
 sign in.
 
 ```xml
@@ -66,8 +66,8 @@ sign in.
 
 Two routes are required for OpenID authentication.  The first route accepts the
 form submission containing an OpenID identifier.  During authentication, the
-user will be redirected to their OpenID provider.  The second route is the URL
-to which the user will be returned after authenticating with their OpenID
+users will be redirected to their OpenID provider.  The second route is the URL
+to which the users will be returned after authenticating with their OpenID
 provider.
 
 ```javascript
