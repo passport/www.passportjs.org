@@ -7,7 +7,7 @@ title: OAuth
 [OAuth](http://oauth.net/) is a standard protocol that allows users to authorize
 API access to web and desktop or mobile applications.  Once access has been
 granted, the authorized application can utilize the API on behalf of the user.
-OAuth has also emerged as a popular mechanism for [delegated authentication](http://hueniverse.com/2009/04/introducing-sign-in-with-twitter-oauth-style-connect/).
+OAuth has also emerged as a popular mechanism for [delegated authentication](https://hueniverse.com/introducing-sign-in-with-twitter-oauth-style-connect-b906c65913bb).
 
 OAuth comes in two primary flavors, both of which are widely deployed.
 
