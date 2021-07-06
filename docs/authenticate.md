@@ -1,8 +1,40 @@
 ---
-title: Authenticate
+title: Middleware
 ---
 
-# Authenticate
+# Middleware
+
+Passport is used as middleware within a web application to authenticate
+requests.  Middleware was popularized in [Node.js](https://nodejs.org/) by
+[Express](https://expressjs.com/) and its even more minimalist sibling [Connect](https://github.com/senchalabs/connect).
+Given its popularity, middleware is easily adaptable to other web frameworks.
+
+A basic route that that authenticates a user with a username and password:
+
+```javascript
+app.post('/login/password',
+  passport.authenticate('local'),
+  function(req, res) {
+    res.redirect('/~' + req.user.username);
+  });
+```
+
+This route uses `passport.authenticate()`, in conjunction with the `'local'`
+strategy to authenticate a user with a username and password.  When processing
+the request, the `passport.authenticate()` middleware will authenticate the
+request and either call the next function in the stack or end the
+request-response cycle.
+
+By default, when authentication succeeds, Passport will set the `req.user`
+property to the authenticated user, establish a session for that user, and call
+the next function in the stack.  When authentication fails, Passport will
+respond with an HTTP `401 Unauthorized` status code and end the cycle.  Any
+additional functions in the stack will not be called.  The default behavior is
+modifiable using options.
+
+
+
+
 
 Authenticating requests is as simple as calling `passport.authenticate()` and
 specifying which strategy to employ.  `authenticate()`'s function signature is
