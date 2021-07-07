@@ -34,7 +34,7 @@ modifiable using options.
 Prior to invoking `passport.authenticate()`, the strategy must be configured and
 utilized.
 
-
+---
 
 
 

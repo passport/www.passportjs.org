@@ -44,10 +44,11 @@ IDaaS platforms can be integrated into applications using APIs and standard
 protocols such as OpenID Connect.
 
 Passport recognizes that each application has unique authentication
-requirements.  Authentication mechanisms, known as _strategies_, are packaged as
-individual modules.  These strategies can be used to address all of the above
-situations and more.  Applications can choose which strategies to employ,
-meeting necessary requirements without introducing unnecessary dependencies.
+requirements.  Authentication mechanisms, known as _strategies_, are implemented
+as individual modules which can be plugged into Passport.  These strategies can
+be used to address all of the above situations and more.  Applications can
+choose which strategies to employ, meeting necessary requirements without
+introducing unnecessary dependencies.
 
 Despite the complexities involved in authentication, code does not have to be
 complicated.
