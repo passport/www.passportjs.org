@@ -53,5 +53,15 @@ Despite the complexities involved in authentication, code does not have to be
 complicated.
 
 ```javascript
-app.post('/login', passport.authenticate('local'));
+app.post('/login/password', passport.authenticate('local'));
 ```
+
+In making authentication simple, Passport relies on three important concepts:
+
+  1. Middleware
+  2. Strategies
+  3. Sessions
+  
+The remainder of this introduction will provide an overview of these concepts,
+after which various types of strategies will be examined in detail, providing an
+understanding of how to build authentication into your application.
