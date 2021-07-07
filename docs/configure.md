@@ -4,11 +4,39 @@ title: Strategies
 
 # Strategies
 
-Strategies are modules which implement various authentication mechanisms.
-Strategies are distributed as independent packages which can be installed,
-configured, and plugged into Passport.
+Strategies are modules which implement authentication mechanisms.  Strategies
+are distributed as independent packages which can be installed, configured, and
+plugged into Passport.
 
-A strategy configuration that authenticates a username and password:
+Strategies for web-based authentication can be classified into three broad
+categories:
+
+1. **Browser-based**
+  
+  Browser-based authentication strategies work by prompting a user for
+  credentials via a web browser.  The user's browser displays a form, into which
+  the user enters their credentials.  The form is submitted to the server, which
+  authenticates the user's credentials.
+  
+2. **Federated Identity**
+
+  Federated identity strategies work by redirecting a user to an [identity
+  provider](https://en.wikipedia.org/wiki/Identity_provider) (IdP), such as
+  [Google](https://www.google.com/) or [Facebook](https://www.facebook.com/).
+  The IdP authenticates the user and redirects them back to the web application
+  with an assertion (also known as a token).  This assertion contains
+  information about who authenticated and how they authenticated.
+  
+
+3. **API Authentication**
+
+  API authentication strategies work by using the HTTP authentication framework
+  to challenge a client for credentials.  The server then authenticates the
+  credentials contained in the client's response.
+
+Further details about these types of strategies will be provided later.  For
+now, let's examine how to configure a basic username and password strategy and
+utilize it within Passport.
 
 ```
 var passport = require('passport');
@@ -35,6 +63,8 @@ passport.use(new LocalStrategy(function(username, password, cb) {
 This configuration `require`s the `'passport-local'` package and creates a new
 `LocalStrategy`.  The configured strategy is then utilized within Passport by
 supplying it to `passport.use()`.
+
+## Verify Function
 
 The configuration of `LocalStrategy` introduces an important topic: the `verify`
 function.  A `verify` function is a common pattern in many strategies, and is
@@ -79,7 +109,7 @@ return cb(null, false);
 This can be accompanied by an optional message, which can be displayed to the
 user to inform them of what went wrong.
 
-```
+```javascript
 return cb(null, false, { message: 'Incorrect username or password.' });
 ```
 
