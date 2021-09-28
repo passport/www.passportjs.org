@@ -29,7 +29,7 @@ and [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 Every application has unique requirements, and can make use of any of these
 authentication mechanisms, in any combination.  In Passport, authentication
 mechanisms are packaged as individual modules known as strategies.  Applications
-install only the strategies they need, without introducing unnecessary
+install only the packages they need, without introducing unnecessary
 dependencies.
 
 Passport reduces the complexity of authenticating a request to a simple

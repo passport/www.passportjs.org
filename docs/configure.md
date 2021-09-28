@@ -83,7 +83,7 @@ Because a `verify` function is supplied by the application itself, access to
 persistent storage is not constrained in any way.  The application is free to
 use any data storage system, including relational databases, graph databases,
 or document stores, and structure data within that store according to any
-schema (or no schema at all).
+schema.
 
 A `verify` function is strategy-specific, and the exact arguments it receives
 and parameters it yields will depend on the underlying authentication mechanism.
@@ -97,8 +97,7 @@ A `verify` function yields under one of three conditions: success, failure, or
 an error.
 
 If the `verify` function finds a user to which the credential belongs, and that
-credential is valid, it calls the callback to inform Passport of the
-authenticating user:
+credential is valid, it calls the callback with the authenticating user:
 
 ```javascript
 return cb(null, user);
@@ -127,8 +126,7 @@ internal error.
 
 ## Register
 
-With the strategy configured, it is then registered with Passport by calling
-`.use()`:
+With the strategy configured, it is then registered by calling `.use()`:
 
 ```javascript
 var passport = require('passport');
