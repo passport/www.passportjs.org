@@ -43,7 +43,7 @@ by avoiding unnecessary dependencies.
 Once a package has been installed, the strategy needs to be configured.  This
 configuration varies with each authentication mechanism, so strategy-specific
 documentation should be consulted.  That being said, there are common patterns
-that are encountered across various strategies.
+that are encountered across many strategies.
 
 The following code is an example that configures the `LocalStrategy`:
 
@@ -174,7 +174,6 @@ app.post('/login/password',
 For brevity, strategies are often configured and registered in a single
 statement:
 
-```
 ```javascript
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
@@ -186,6 +185,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 
 
 
+---
 
 
 Strategies for web-based authentication can be classified into three broad
@@ -214,98 +214,6 @@ categories:
   to challenge a client for credentials.  The server then authenticates the
   credentials contained in the client's response.
 
-Further details about these types of strategies will be provided later.  For
-now, let's examine how to configure a basic username and password strategy and
-utilize it within Passport.
-
-```
-var passport = require('passport');
-var LocalStrategy = require('passport-local');
-var crypto = require('crypto');
-var db = require('./db');
-
-passport.use(new LocalStrategy(function(username, password, cb) {
-  db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, user) {
-    if (err) { return cb(err); }
-    if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-    
-    crypto.pbkdf2(password, user.salt, 10000, 32, 'sha256', function(err, hashedPassword) {
-      if (err) { return cb(err); }
-      if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
-        return cb(null, false, { message: 'Incorrect username or password.' });
-      }
-      return cb(null, user);
-    });
-  });
-}));
-```
-
-This configuration `require`s the `'passport-local'` package and creates a new
-`LocalStrategy`.  The configured strategy is then utilized within Passport by
-supplying it to `passport.use()`.
-
-## Verify Function
-
-The configuration of `LocalStrategy` introduces an important topic: the `verify`
-function.  A `verify` function is a common pattern in many strategies, and is
-what allows Passport to delegate data access to the application.  When Passport
-authenticates a request, a strategy parses the credential contained in the
-request.  A `verify` function is then called, which is responsible for
-determining the user to which that credential belongs.
-
-In this particular case, the `verify` function executes a [SQL](https://en.wikipedia.org/wiki/SQL)
-query to obtain a user record from the database, verifies the password, and
-yields the user record, if the password is valid.
-
-A `verify` function is strategy-specific, and the exact arguments it receives
-and parameters it yields will depend on the underlying authentication mechanism.
-In the case of password-based authentication, the `verify` function, along with
-yielding the user, is responsible for verifying the password.  This is necessary
-as the hashing and storing of passwords is application-specific.
-
-For mechanisms that provide cryptographic authentication, a `verify` function
-will typically yield, along with the user, a shared secret or public key.  The
-strategy will then perform the necessary cryptographic operations to
-authenticate the request.
-
-A `verify` function yields under one of three conditions: success, failure, or
-an error.
-
-If the `verify` function finds a user to which the credential belongs, and that
-credential is valid, it calls the callback to inform Passport of the
-authenticating user.
-
-```javascript
-return cb(null, user);
-```
-
-If the credential does not belong to a user, or is not valid, the `verify`
-function calls the callback with `false` to indicate an authentication failure.
-
-```javascript
-return cb(null, false);
-```
-
-This can be accompanied by an optional message, which can be displayed to the
-user to inform them of what went wrong.
-
-```javascript
-return cb(null, false, { message: 'Incorrect username or password.' });
-```
-
-If an error occurs, such as the database not being available, the callback is
-called with the error, in conventional Node.js style.
-
-```javascript
-return cb(err);
-```
-
-It is important to distinguish between the two failure cases that can occur.
-Authentication failures are expected conditions, in which the server is
-operating normally, but invalid credentials are being received from the user
-(or a malicious adversary attempting to authenticate as the user).  Only when
-the server encounters an exception should `err` be set, to indicate an internal
-error.
 
 ---
 
