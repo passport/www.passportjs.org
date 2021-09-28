@@ -84,7 +84,7 @@ passport.deserializeUser(function(user, cb) {
 This particular example is typical of most applications, in that it simply
 restores the information that was originally serialized.  The information that
 is most commonly needed (for example, to render a user element in the top-right
-corner on a page) is cached in the session, thus reducing load placed on a
+corner of a page) is cached in the session, thus reducing load placed on a
 database when subsequently authenticating the session.
 
 This tradeoff between amount of data stored in a session and database load when
