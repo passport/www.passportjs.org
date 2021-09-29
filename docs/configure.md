@@ -20,15 +20,16 @@ must be installed, configured, and registered.
 Strategies are published to the [npm](https://www.npmjs.com/) registry, and
 installed using a package manager.
 
-The following command will install `passport-local`, a package which provides a
-strategy for authenticating with a username and password:
+The following command will install [`passport-local`](https://www.passportjs.org/packages/passport-local/),
+a package which provides a strategy for authenticating with a username and
+password:
 
 ```bash
 $ npm install passport-local
 ```
 
-The following command will install `passport-openidconnect`, a package which
-implements support for [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html):
+The following command will install [`passport-openidconnect`](https://www.passportjs.org/packages/passport-openidconnect/),
+a package which implements support for [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html):
 
 ```bash
 $ npm install passport-openidconnect
@@ -56,7 +57,7 @@ var strategy = new LocalStrategy(function verify(username, password, cb) {
     if (err) { return cb(err); }
     if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
     
-    crypto.pbkdf2(password, user.salt, 10000, 32, 'sha256', function(err, hashedPassword) {
+    crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return cb(err); }
       if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
         return cb(null, false, { message: 'Incorrect username or password.' });
@@ -66,6 +67,8 @@ var strategy = new LocalStrategy(function verify(username, password, cb) {
   });
 });
 ```
+
+#### Verify Function
 
 The `LocalStrategy` constructor takes a function as an argument.  This function
 is known as a `verify` function, and is a common pattern in many strategies.
