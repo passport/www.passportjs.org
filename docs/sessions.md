@@ -12,7 +12,7 @@ session.
 HTTP is a stateless protocol, so [cookies](https://datatracker.ietf.org/doc/html/rfc6265)
 are used to maintain a session.  The application sets a session ID cookie and
 associates that ID with information about the user, typically storing the
-information in a server-side data store such as [Redis](https://redis.io).  The
+information in a server-side data store such as [Redis](https://redis.io/).  The
 user's web browser includes the session ID cookie in subsequent requests,
 allowing the application to look up the associated user information and
 authenticate the session.
