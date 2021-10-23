@@ -9,7 +9,7 @@ identify that user as they browse from page to page.  This subsequent series of
 requests and responses, each associated with the same user, is known as a
 session.
 
-HTTP is a stateless protocol, so [cookies](https://datatracker.ietf.org/doc/html/rfc6265)
+HTTP is a stateless protocol, so [cookies](https://en.wikipedia.org/wiki/HTTP_cookie)
 are used to maintain a session.  The application sets a session ID cookie and
 associates that ID with information about the user, typically storing the
 information in a server-side data store such as [Redis](https://redis.io/).  The

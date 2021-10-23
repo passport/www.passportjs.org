@@ -40,4 +40,4 @@ authenticated user.  In the route above, the `local` strategy is used to verify
 a username and password.
 
 Prior to employing a strategy to authenticate a request, the strategy must be
-installed and configured.  This brings us to our [next](/guide/configure/) topic.
+installed and configured.  This brings us to our [next](/docs/configure/) topic.

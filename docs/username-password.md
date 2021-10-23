@@ -67,8 +67,9 @@ what went wrong.
 
 ## HTML Form
 
-As a [form-based authentication](/guide/form-based/) strategy, the application
-is responsible for prompting the user for their username and password.
+As a [form-based authentication](/docs/form-based-authentication/) strategy, the
+application is responsible for prompting the user for their username and
+password.
 
 The following form is an example:
 
