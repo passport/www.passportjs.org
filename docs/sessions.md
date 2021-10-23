@@ -37,8 +37,8 @@ app.use(session({
 ## User Information
 
 Once a user has authenticated, Passport will establish a login session.  During
-session establishment, information about the user will be stored.  The
-information that is stored is determined by the application, by supplying a
+session establishment, information about the user will be stored in the session.
+The information that is stored is determined by the application, by supplying a
 `serializeUser` function:
 
 ```javascript

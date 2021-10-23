@@ -55,7 +55,7 @@ function is supplied by the application, the application is free to use a
 database and schema of its choosing.  The example above illustrates usage of a
 SQL database.
 
-Similarly, the application is free to determine its password storage solution.
+Similarly, the application is free to determine its password storage format.
 The example above illustrates usage of [PBKDF2](https://datatracker.ietf.org/doc/html/rfc2898)
 when comparing the user-supplied password with the hashed password stored in the
 database.
@@ -67,9 +67,8 @@ what went wrong.
 
 ## HTML Form
 
-As a [form-based authentication](https://en.wikipedia.org/wiki/HTTP%2BHTML_form-based_authentication)
-strategy, the application is responsible for prompting the user for their
-username and password.
+As a [form-based authentication](/guide/form-based/) strategy, the application
+is responsible for prompting the user for their username and password.
 
 The following form is an example:
 
@@ -117,8 +116,8 @@ If authentication succeeds, `passport.authenticate()` middleware calls the next
 function in the stack.  In this example, the function is redirecting the
 authenticated user to their profile page.
 
-When authentication fails, the user should be re-prompted to sign in and
-informed that their initial attempt was not successful.  This is accomplished by
-using the `failureRedirect` option, which will redirect the user to the login
-page, along with the `failureMessage` option which will add the message to
+When authentication fails, the user is be re-prompted to sign in and informed
+that their initial attempt was not successful.  This is accomplished by using
+the `failureRedirect` option, which will redirect the user to the login page,
+along with the `failureMessage` option which will add the message to
 `req.session.messages`.
