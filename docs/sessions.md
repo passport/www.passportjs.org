@@ -34,7 +34,7 @@ app.use(session({
 }))
 ```
 
-## User Information
+## Establishment
 
 Once a user has authenticated, Passport will establish a login session.  During
 session establishment, information about the user will be stored in the session.
@@ -44,14 +44,20 @@ The information that is stored is determined by the application, by supplying a
 ```javascript
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
-    cb(null, { id: user.id, username: user.username, picture: user.picture });
+    cb(null, {
+      id: user.id,
+      username: user.username,
+      picture: user.picture
+    });
   });
 });
 ```
 
 In this particular example, the `serializeUser` function is storing the user's
-ID, username, and picture.  Any other data, such as an address or birthday,
-is not stored.
+ID, username, and picture.  Any other properties of the user, such as an address
+or birthday, is not stored.
+
+## Authentication
 
 As the user navigates from page to page, the session itself can be authenticated
 using the built-in `'session'` strategy.  Because an authenticated session is
@@ -82,18 +88,28 @@ passport.deserializeUser(function(user, cb) {
 ```
 
 This particular example is typical of most applications, in that it simply
-restores the information that was originally serialized.  The information that
-is most commonly needed (for example, to render a user element in the top-right
-corner of a page) is cached in the session, thus reducing load placed on a
-database when subsequently authenticating the session.
+restores the information that was originally serialized when the session was
+established.  The information that is most commonly needed (for example, to
+render a user element in the top-right corner of a page) is stored in the
+session, thus reducing load placed on a database when subsequently
+authenticating the session.
 
-This tradeoff between amount of data stored in a session and database load when
-authenticating a session is controlled by the application-supplied
-`serializeUser` and `deserializeUser` functions.
+There is an inherent tradeoff between the amount of data stored in a session and
+database load incurred when authenticating a session.  This tradeoff is
+particularly pertinent when session data is stored on the client, rather than
+the server, using a package such as [`cookie-session`](https://github.com/expressjs/cookie-session).
+Storing less data in the session will require queries to a database to obtain
+that information.  Conversely, storing more data in the session reduces database
+queries while potentially exceeding maximum size of data that can be stored in
+a cookie (or other storage medium).
+
+This tradeoff between amount of data stored in a session and query load a
+database is subjected to when authenticating a session is controlled by the
+application-supplied `serializeUser` and `deserializeUser` functions.
 
 The following example minimizes the data stored in the session to just a user
-ID, at the expense of querying the database for any request in which the session
-is authenticated.
+ID, at the expense of querying the database for every request in which the
+session is authenticated.
 
 ```
 passport.serializeUser(function(user, cb) {
@@ -109,3 +125,11 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 ```
+
+To balance this tradeoff, it is recommended that any user information needed on
+_every_ request to your application be stored in the session.  For example, if
+your application displays a user element containing the user's name, email
+address, and photo on every page, that information should be stored in the
+session to eliminate what would otherwise be frequent database queries.
+Specific pages, such as a checkout page, that need additional information such
+as a shipping address, can query the database for that data.

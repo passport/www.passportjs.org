@@ -41,7 +41,7 @@ by avoiding unnecessary dependencies.
 
 ## Configure
 
-Once a package has been installed, the strategy needs to be configured.  This
+Once a package has been installed, the strategy needs to be configured.  The
 configuration varies with each authentication mechanism, so strategy-specific
 documentation should be consulted.  That being said, there are common patterns
 that are encountered across many strategies.
@@ -92,9 +92,9 @@ A `verify` function is strategy-specific, and the exact arguments it receives
 and parameters it yields will depend on the underlying authentication mechanism.
 For authentication mechanisms involving shared secrets, such as a password, a
 `verify` function is responsible for verifying the credential and yielding a
-user.  For mechanisms that provide cryptographic protection, a `verify` function
-will typically yield a user and a key, the later of which the strategy will use
-to cryptographically verify the credential.
+user.  For mechanisms that provide cryptographic authentication, a `verify`
+function will typically yield a user and a key, the later of which the strategy
+will use to cryptographically verify the credential.
 
 A `verify` function yields under one of three conditions: success, failure, or
 an error.
@@ -114,7 +114,7 @@ return cb(null, false);
 ```
 
 If an error occurs, such as the database not being available, the callback is
-called with an error, in conventional Node.js style:
+called with an error, in idiomatic Node.js style:
 
 ```javascript
 return cb(err);
