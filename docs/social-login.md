@@ -18,15 +18,14 @@ social login isn't exclusive to social networks.  Google, [Apple](https://www.ap
 all offer identity services for websites to adopt and users to use.  Passport
 provides support for all of these, and hundreds more.
 
-Social login makes use of [federated identity](/docs/federated-identity/)
-technology.  Most social identity providers implement [OAuth 2.0](/docs/oauth-2/),
-often in conjunction with [OpenID Connect](/docs/openid-connect/).  This pairing
-is the modern identity protocol suite.  The previous generation of identity
-protocols, [OpenID 2.0](/docs/openid/) and [OAuth 1.0](/docs/oauth/), are still
-in use at some providers, although usage is gradually diminishing.
+Social login makes use of [federated identity](/docs/federated-identity/).  Most
+social identity providers implement [OAuth 2.0](/docs/oauth-2/), often in
+conjunction with [OpenID Connect](/docs/openid-connect/).  This pairing
+constitutes the modern identity protocol suite.  The previous generation of
+identity protocols, [OpenID 2.0](/docs/openid/) and [OAuth 1.0](/docs/oauth/),
+are still in use at some providers, although usage is gradually diminishing.
 
-Further details about federated identity and identity protocols are provided
-in a later section of this guide.  The remainder of this section provides an
-overview of the most commonly used social login providers, which can be
-implemented using Passport without needing to understand the technical details
-of the underlying protocols.
+Further details about federated identity are provided in a later section of this
+guide.  The remainder of this section provides an overview of the most commonly
+used social login providers, which can be implemented using Passport without
+needing to understand the technical details of the underlying protocols.
