@@ -65,11 +65,17 @@ the `message` option, describing why authentication failed.  This will be
 displayed to the user when they are re-prompted to sign in, informing them of
 what went wrong.
 
-## HTML Form
+## Prompt
 
-As a [form-based authentication](/docs/form-based-authentication/) strategy, the
-application is responsible for prompting the user for their username and
-password.
+The user is prompted to sign in with their username and password by rendering a
+form.  This is accomplished by defining a route:
+
+```javascript
+app.get('/login',
+  function(req, res, next) {
+    res.render('login');
+  });
+```
 
 The following form is an example which uses [best practices](https://web.dev/sign-in-form-best-practices/):
 
@@ -89,21 +95,10 @@ The following form is an example which uses [best practices](https://web.dev/sig
 </form>
 ```
 
-## Routes
+## Authenticate
 
-Two routes are needed in order to allow users to sign in with a username and
-password.  The first route renders the form, prompting the user for their
-username and password:
-
-```javascript
-app.get('/login',
-  function(req, res, next) {
-    res.render('login');
-  });
-```
-
-The second route processes the form submission, authenticating the user with the
-username and password they entered.
+When the user submits the form, it is processed by a route that authenticates
+the user using the username and password they entered.
 
 ```javascript
 app.post('/login/password',
