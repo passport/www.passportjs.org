@@ -60,8 +60,8 @@ The example above illustrates usage of [PBKDF2](https://datatracker.ietf.org/doc
 when comparing the user-supplied password with the hashed password stored in the
 database.
 
-In case of failed authentication, the `verify` callback is supplying a message,
-via the `message` option, describing why authentication failed.  This will be
+In case of authentication failure, the `verify` callback supplies a message, via
+the `message` option, describing why authentication failed.  This will be
 displayed to the user when they are re-prompted to sign in, informing them of
 what went wrong.
 
@@ -71,7 +71,7 @@ As a [form-based authentication](/docs/form-based-authentication/) strategy, the
 application is responsible for prompting the user for their username and
 password.
 
-The following form is an example:
+The following form is an example which uses [best practices](https://web.dev/sign-in-form-best-practices/):
 
 ```html
 <form action="/login/password" method="post">
@@ -117,8 +117,8 @@ If authentication succeeds, `passport.authenticate()` middleware calls the next
 function in the stack.  In this example, the function is redirecting the
 authenticated user to their profile page.
 
-When authentication fails, the user is be re-prompted to sign in and informed
-that their initial attempt was not successful.  This is accomplished by using
-the `failureRedirect` option, which will redirect the user to the login page,
-along with the `failureMessage` option which will add the message to
+When authentication fails, the user is re-prompted to sign in and informed that
+their initial attempt was not successful.  This is accomplished by using the
+`failureRedirect` option, which will redirect the user to the login page, along
+with the `failureMessage` option which will add the message to
 `req.session.messages`.
