@@ -5,7 +5,7 @@ title: Facebook
 # Facebook
 
 [Facebook Login](https://developers.facebook.com/docs/facebook-login/) allows
-users to log in using their Facebook account.  Support for Faceboook Login is
+users to sign in using their Facebook account.  Support for Faceboook Login is
 provided by the [`passport-facebook`](https://www.passportjs.org/packages/passport-facebook/)
 package.
 
@@ -89,20 +89,20 @@ The `verify` function accepts an `accessToken`, `refreshToken` and `profile` as
 arguments.  `accessToken` and `refreshToken` are used for API access, and are
 not needed for authentication.  `profile` is a [normalized](/guide/profile/)
 profile containing information provided by Facebook about the user who is
-logging in.
+signing in.
 
 The `verify` function is responsible for determining the user to which the
-Facebook account belongs.  The first time that account is used to log in, a new
+Facebook account belongs.  The first time that account is used to sign in, a new
 user record is typically created automatically using profile information
 supplied by Facebook, and that record is then linked to the Facebook account.
-On subsequent logins, the existing user record will be found via its relation to
+On subsequent signins, the existing user record will be found via its relation to
 the Facebook account.
 
 Linking social accounts to a user record is recommended, as it allows users to
 link multiple social accounts from other providers in the event that they stop
 using Facebook.  Alternatively, the user could set up a credential, such as a
 password, for their user account at your app.  Either feature allows the user to
-continue to log in to your application independent of their Facebook account.
+continue to sign in to your application independent of their Facebook account.
 
 The example above illustrates usage of a SQL database to find or create a user
 record and link it to a Facebook account.  However, because the `verify`
@@ -115,7 +115,7 @@ functionality provided by the base [OAuth 2.0 strategy](/docs/oauth/).
 
 ## Prompt
 
-Place a button the application's login page, prompting the user to log in with
+Place a button the application's login page, prompting the user to sign in with
 Facebook.
 
 ```html
@@ -152,7 +152,7 @@ app.get('/oauth2/redirect/facebook',
 ```
 
 When a request to this route is processed, the strategy will authenticate the
-fact that the user logged in with Facebook and obtain that user's profile
+fact that the user signed in with Facebook and obtain that user's profile
 information.  If authentication proceeds,  `passport.authenticate()` middleware
 calls the next function in the stack.  In this example, the function is
 redirecting the authenticated user to the home page.
