@@ -95,8 +95,8 @@ The `verify` function is responsible for determining the user to which the
 Facebook account belongs.  The first time that account is used to sign in, a new
 user record is typically created automatically using profile information
 supplied by Facebook, and that record is then linked to the Facebook account.
-On subsequent signins, the existing user record will be found via its relation to
-the Facebook account.
+On subsequent signins, the existing user record will be found via its relation
+to the Facebook account.
 
 Linking social accounts to a user record is recommended, as it allows users to
 link multiple social accounts from other providers in the event that they stop
@@ -109,9 +109,9 @@ record and link it to a Facebook account.  However, because the `verify`
 function is supplied by the application, the application is free to use a
 database and schema of its choosing.
 
-Internally, Facebook Login is implemented using OAuth 2.0.  As such, the
-strategy configuration is able to make use of additional options and
-functionality provided by the base [OAuth 2.0 strategy](/docs/oauth/).
+Internally, Facebook Login is implemented using [OAuth 2.0](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow).
+As such, the strategy configuration is able to make use of additional options
+and functionality provided by the base [OAuth 2.0 strategy](/docs/oauth/).
 
 ## Prompt
 
