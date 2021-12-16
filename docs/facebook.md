@@ -4,100 +4,164 @@ title: Facebook
 
 # Facebook
 
-The Facebook strategy allows users to log in to a web application using their
-Facebook account.  Internally, Facebook authentication works using OAuth 2.0.
-
-Support for Facebook is implemented by the [passport-facebook](https://github.com/jaredhanson/passport-facebook)
-module.
+[Facebook Login](https://developers.facebook.com/docs/facebook-login/) allows
+users to log in using their Facebook account.  Support for Faceboook Login is
+provided by the [`passport-facebook`](https://www.passportjs.org/packages/passport-facebook/)
+package.
 
 ## Install
+
+To install `passport-facebook`, execute the following command:
 
 ```bash
 $ npm install passport-facebook
 ```
 
-## Configuration
+## Configure
 
-In order to use Facebook authentication, you must first create an app at
-[Facebook Developers](https://developers.facebook.com/).  When created, an
-app is assigned an App ID and App Secret.  Your application must also implement
-a redirect URL, to which Facebook will redirect users after they have approved
-access for your application.
+Before your application can make use of Facebook Login, you must register your
+app with Facebook.  This can be done in the [App dashboard](https://developers.facebook.com/apps)
+at [Facebook for Developers](https://developers.facebook.com/).  Once
+registered, your app will be issued an app ID and secret which will be used in
+the strategy configuration.
+
+The following code is an example that configures and registers the
+`FacebookStrategy`:
 
 ```javascript
-var passport = require('passport')
-  , FacebookStrategy = require('passport-facebook').Strategy;
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook');
 
 passport.use(new FacebookStrategy({
-    clientID: FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://www.example.com/auth/facebook/callback"
+    clientID: process.env['FACEBOOK_APP_ID'],
+    clientSecret: process.env['FACEBOOK_APP_SECRET'],
+    callbackURL: 'https://www.example.com/oauth2/redirect/facebook'
   },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(..., function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
+  function(accessToken, refreshToken, profile, cb) {
+    db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
+      'https://www.facebook.com',
+      profile.id
+    ], function(err, cred) {
+      if (err) { return cb(err); }
+      if (!cred) {
+        // The Facebook account has not logged in to this app before.  Create a
+        // new user record and link it to the Facebook account.
+        db.run('INSERT INTO users (name) VALUES (?)', [
+          profile.displayName
+        ], function(err) {
+          if (err) { return cb(err); }
+      
+          var id = this.lastID;
+          db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
+            id,
+            'https://www.facebook.com',
+            profile.id
+          ], function(err) {
+            if (err) { return cb(err); }
+            var user = {
+              id: id.toString(),
+              name: profile.displayName
+            };
+            return cb(null, user);
+          });
+        });
+      } else {
+        // The Facebook account has previously logged in to the app.  Get the
+        // user record linked to the Facebook account and log the user in.
+        db.get('SELECT * FROM users WHERE id = ?', [ cred.user_id ], function(err, user) {
+          if (err) { return cb(err); }
+          if (!user) { return cb(null, false); }
+          return cb(null, user);
+        });
+      }
+    };
   }
 ));
 ```
 
-The verify callback for Facebook authentication accepts `accessToken`,
-`refreshToken`, and `profile` arguments.  `profile` will contain user profile
-information provided by Facebook; refer to [User Profile](/guide/profile/)
-for additional information.
+The options to the `FacebookStrategy` constructor must include a `clientID` and
+`clientSecret`, the values of which are set to the app ID and secret that were
+obtained when registering your application.  A `callbackURL` must also be
+included.  Facebook will redirect users to this location after they have
+authenticated.  The path of this URL must match the route defined below.
 
-Note: For security reasons, the redirection URL must reside on the same host
-that is registered with Facebook.
+The `verify` function accepts an `accessToken`, `refreshToken` and `profile` as
+arguments.  `accessToken` and `refreshToken` are used for API access, and are
+not needed for authentication.  `profile` is a [normalized](/guide/profile/)
+profile containing information provided by Facebook about the user who is
+logging in.
 
-## Routes
+The `verify` function is responsible for determining the user to which the
+Facebook account belongs.  The first time that account is used to log in, a new
+user record is typically created automatically using profile information
+supplied by Facebook, and that record is then linked to the Facebook account.
+On subsequent logins, the existing user record will be found via its relation to
+the Facebook account.
 
-Two routes are required for Facebook authentication.  The first route redirects
-the user to Facebook.  The second route is the URL to which Facebook will
-redirect the user after they have logged in.
+Linking social accounts to a user record is recommended, as it allows users to
+link multiple social accounts from other providers in the event that they stop
+using Facebook.  Alternatively, the user could set up a credential, such as a
+password, for their user account at your app.  Either feature allows the user to
+continue to log in to your application independent of their Facebook account.
 
-```javascript
-// Redirect the user to Facebook for authentication.  When complete,
-// Facebook will redirect the user back to the application at
-//     /auth/facebook/callback
-app.get('/auth/facebook', passport.authenticate('facebook'));
+The example above illustrates usage of a SQL database to find or create a user
+record and link it to a Facebook account.  However, because the `verify`
+function is supplied by the application, the application is free to use a
+database and schema of its choosing.
 
-// Facebook will redirect the user to this URL after approval.  Finish the
-// authentication process by attempting to obtain an access token.  If
-// access was granted, the user will be logged in.  Otherwise,
-// authentication has failed.
-app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
-                                      failureRedirect: '/login' }));
-```
+Internally, Facebook Login is implemented using OAuth 2.0.  As such, the
+strategy configuration is able to make use of additional options and
+functionality provided by the base [OAuth 2.0 strategy](/docs/oauth/).
 
-Note that the URL of the callback route matches that of the `callbackURL` option
-specified when configuring the strategy.
+## Prompt
 
-## Permissions
-
-If your application needs extended permissions, they can be requested by setting
-the `scope` option.
-
-```javascript
-app.get('/auth/facebook',
-  passport.authenticate('facebook', { scope: 'read_stream' })
-);
-```
-
-Multiple permissions can be specified as an array.
-
-```javascript
-app.get('/auth/facebook',
-  passport.authenticate('facebook', { scope: ['read_stream', 'publish_actions'] })
-);
-```
-
-## Link
-
-A link or button can be placed on a web page, allowing one-click login with
+Place a button the application's login page, prompting the user to log in with
 Facebook.
 
-```xml
-<a href="/auth/facebook">Login with Facebook</a>
+```html
+<a href="/login/facebook" class="button">Log In With Facebook</a>
 ```
+
+Define a route that, when the button is clicked, will redirect the user to
+Facebook, where they will authenticate.
+
+```javascript
+app.get('/login/facebook', passport.authenticate('facebook'));
+```
+
+If your application needs additional permissions from the user, they can be
+requested with the `scope` option:
+
+```javascript
+app.get('/login/facebook', passport.authenticate('facebook', {
+  scope: [ 'email', 'user_location' ]
+}));
+```
+
+## Authenticate
+
+After the user has authenticated with Facebook, they will be redirected back
+to your application.  Define a route which will handle this redirect.
+
+```
+app.get('/oauth2/redirect/facebook',
+  passport.authenticate('facebook', { failureRedirect: '/login', failureMessage: true }),
+  function(req, res) {
+    res.redirect('/');
+  });
+```
+
+When a request to this route is processed, the strategy will authenticate the
+fact that the user logged in with Facebook and obtain that user's profile
+information.  If authentication proceeds,  `passport.authenticate()` middleware
+calls the next function in the stack.  In this example, the function is
+redirecting the authenticated user to the home page.
+
+When authentication fails, the user is re-prompted to sign in and informed that
+their initial attempt was not successful.  This is accomplished by using the
+`failureRedirect` option, which will redirect the user to the login page, along
+with the `failureMessage` option which will add the message to
+`req.session.messages`.
+
+That path of this route should be the value supplied for the `callbackURL`
+option in the strategy configuration above.
