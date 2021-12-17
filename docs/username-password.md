@@ -4,90 +4,116 @@ title: Username & Password
 
 # Username & Password
 
-The most widely used way for websites to authenticate users is via a username
-and password.  Support for this mechanism is provided by the [passport-local](https://github.com/jaredhanson/passport-local)
-module.
+A username and password is the traditional, and still most widely used, way for
+users to authenticate to a website.  Support for this mechanism is provided by
+the [`passport-local`](https://www.passportjs.org/packages/passport-local/)
+package.
 
 ## Install
+
+To install `passport-local`, execute the following command:
 
 ```bash
 $ npm install passport-local
 ```
 
-## Configuration
+## Configure
+
+The following code is an example that configures and registers the
+`LocalStrategy`:
 
 ```javascript
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
+var crypto = require('crypto');
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+passport.use(new LocalStrategy(function verify(username, password, cb) {
+  db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, user) {
+    if (err) { return cb(err); }
+    if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+    
+    crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+      if (err) { return cb(err); }
+      if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
+        return cb(null, false, { message: 'Incorrect username or password.' });
       }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+      return cb(null, user);
     });
-  }
-));
+  });
+});
 ```
 
-The verify callback for local authentication accepts `username` and `password`
-arguments, which are submitted to the application via a login form.
+The `LocalStrategy` constructor takes a `verify` function as an argument, which
+accepts `username` and `password` as arguments.  When authenticating a request,
+the strategy parses a username and password, which are submitted via an HTML
+form to the web application.  The strategy then calls the `verify` function with
+those credentials.
 
-## Form
+The `verify` function is responsible for determining the user to which the
+username belongs, as well as verifying the password.  Because the `verify`
+function is supplied by the application, the application is free to use a
+database and schema of its choosing.  The example above illustrates usage of a
+SQL database.
 
-A form is placed on a web page, allowing the user to enter their credentials and
-log in.
+Similarly, the application is free to determine its password storage format.
+The example above illustrates usage of [PBKDF2](https://datatracker.ietf.org/doc/html/rfc2898)
+when comparing the user-supplied password with the hashed password stored in the
+database.
 
-```xml
-<form action="/login" method="post">
+In case of authentication failure, the `verify` callback supplies a message, via
+the `message` option, describing why authentication failed.  This will be
+displayed to the user when they are re-prompted to sign in, informing them of
+what went wrong.
+
+## Prompt
+
+The user is prompted to sign in with their username and password by rendering a
+form.  This is accomplished by defining a route:
+
+```javascript
+app.get('/login',
+  function(req, res, next) {
+    res.render('login');
+  });
+```
+
+The following form is an example which uses [best practices](https://web.dev/sign-in-form-best-practices/):
+
+```html
+<form action="/login/password" method="post">
     <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required />
     </div>
     <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
+        <label for="current-password">Password</label>
+        <input id="current-password" name="password" type="password" autocomplete="current-password" required />
     </div>
     <div>
-        <input type="submit" value="Log In"/>
+        <button type="submit">Sign in</button>
     </div>
 </form>
 ```
 
-## Route
+## Authenticate
 
-The login form is submitted to the server via the `POST` method.  Using
-`authenticate()` with the `local` strategy will handle the login request.
+When the user submits the form, it is processed by a route that authenticates
+the user using the username and password they entered.
 
 ```javascript
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-);
+app.post('/login/password',
+  passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
+  function(req, res) {
+    res.redirect('/~' + req.user.username);
+  });
 ```
 
-Setting the `failureFlash` option to `true` instructs Passport to flash an
-`error` message using the `message` option set by the verify callback above.
-This is helpful when prompting the user to try again.
+If authentication succeeds, `passport.authenticate()` middleware calls the next
+function in the stack.  In this example, the function is redirecting the
+authenticated user to their profile page.
 
-## Parameters
-
-By default, `LocalStrategy` expects to find credentials in parameters named
-`username` and `password`.  If your site prefers to name these fields
-differently, options are available to change the defaults.
-
-    passport.use(new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'passwd'
-      },
-      function(username, password, done) {
-        // ...
-      }
-    ));
+When authentication fails, the user is re-prompted to sign in and informed that
+their initial attempt was not successful.  This is accomplished by using the
+`failureRedirect` option, which will redirect the user to the login page, along
+with the `failureMessage` option which will add the message to
+`req.session.messages`.
