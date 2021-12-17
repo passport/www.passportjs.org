@@ -164,4 +164,3 @@ with the `failureMessage` option which will add the message to
 
 The path of this route should be the value supplied for the `callbackURL` option
 in the strategy configuration above.
-
