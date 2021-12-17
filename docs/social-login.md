@@ -29,3 +29,7 @@ Further details about federated identity are provided in a later section of this
 guide.  The remainder of this section provides an overview of the most commonly
 used social login providers, which can be implemented using Passport without
 needing to understand the technical details of the underlying protocols.
+
+TODO: Add user profile details
+
+TODO: Add info about prmopts and challenges, putting login buttons on login page

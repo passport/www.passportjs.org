@@ -95,3 +95,22 @@ app.get('/api/me',
 
 Specify `passport.authenticate()` with the `bearer` strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.
+
+---
+
+## Disable Sessions
+
+After successful authentication, Passport will establish a persistent login
+session.  This is useful for the common scenario of users accessing a web
+application via a browser.  However, in some cases, session support is not
+necessary.  For example, API servers typically require credentials to be
+supplied with each request.  When this is the case, session support can be
+safely disabled by setting the `session` option to `false`.
+
+```javascript
+app.get('/api/users/me',
+  passport.authenticate('basic', { session: false }),
+  function(req, res) {
+    res.json({ id: req.user.id, username: req.user.username });
+  });
+```

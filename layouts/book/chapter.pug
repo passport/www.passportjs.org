@@ -25,38 +25,58 @@ block content
     .toc
       nav(data-accordion-group='')
         .accordion(data-accordion='')
-          h5(data-control='')
-            i.icon-budicon-461
-            a(href='/docs/authenticate/')
-            | General
           ul(data-content='')
             li
-              a(href='/docs/authenticate/', class=(canonicalPath == '/docs/authenticate/' ? 'active' : '')) Authenticate
+              a(href='/docs/', class=(canonicalPath == '/docs/' ? 'active' : '')) Introduction
             li
-              a(href='/docs/configure/', class=(canonicalPath == '/docs/configure/' ? 'active' : '')) Configure
+              a(href='/docs/authenticate/', class=(canonicalPath == '/docs/authenticate/' ? 'active' : '')) Middleware
             li
-              a(href='/docs/username-password/', class=(canonicalPath == '/docs/username-password/' ? 'active' : '')) Username & Password
+              a(href='/docs/configure/', class=(canonicalPath == '/docs/configure/' ? 'active' : '')) Strategies
             li
-              a(href='/docs/openid/', class=(canonicalPath == '/docs/openid/' ? 'active' : '')) OpenID
-            li
-              a(href='/docs/oauth/', class=(canonicalPath == '/docs/oauth/' ? 'active' : '')) OAuth
+              a(href='/docs/sessions/', class=(canonicalPath == '/docs/sessions/' ? 'active' : '')) Sessions
             li
               a(href='/docs/profile/', class=(canonicalPath == '/docs/profile/' ? 'active' : '')) User Profile
 
         .accordion(data-accordion='')
           h5(data-control='')
             i.icon-budicon-461
-            a(href='/docs/facebook/')
-            | Providers
+            a(href='/docs/username-password/')
+            | Form-based
           ul(data-content='')
+            li
+              a(href='/docs/form-based-authentication/', class=(canonicalPath == '/docs/form-based-authentication/' ? 'active' : '')) Overview
+            li
+              a(href='/docs/username-password/', class=(canonicalPath == '/docs/username-password/' ? 'active' : '')) Password
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            a(href='/docs/facebook/')
+            | Social
+          ul(data-content='')
+            li
+              a(href='/docs/social-login/', class=(canonicalPath == '/docs/social-login/' ? 'active' : '')) Overview
+            li
+              a(href='/docs/google/', class=(canonicalPath == '/docs/google/' ? 'active' : '')) Google
             li
               a(href='/docs/facebook/', class=(canonicalPath == '/docs/facebook/' ? 'active' : '')) Facebook
             li
               a(href='/docs/twitter/', class=(canonicalPath == '/docs/twitter/' ? 'active' : '')) Twitter
             li
-              a(href='/docs/google/', class=(canonicalPath == '/docs/google/' ? 'active' : '')) Google
-            li
               a(href='/packages/') Other
+
+        .accordion(data-accordion='')
+          h5(data-control='')
+            i.icon-budicon-461
+            a(href='/docs/username-password/')
+            | Federated
+          ul(data-content='')
+            li
+              a(href='/docs/federated-identity/', class=(canonicalPath == '/docs/federated-identity/' ? 'active' : '')) Overview
+            li
+              a(href='/docs/oauth/', class=(canonicalPath == '/docs/oauth/' ? 'active' : '')) OAuth
+            li
+              a(href='/docs/openid/', class=(canonicalPath == '/docs/openid/' ? 'active' : '')) OpenID
 
         .accordion(data-accordion='')
           h5(data-control='')
@@ -77,7 +97,7 @@ block content
           h5(data-control='')
             i.icon-budicon-461
             a(href='/docs/login/')
-            | Operations
+            | Sessions
           ul(data-content='')
             li
               a(href='/docs/login/', class=(canonicalPath == '/docs/login/' ? 'active' : '')) Log In

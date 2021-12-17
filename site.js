@@ -21,10 +21,12 @@ site.locals.pretty = true;
 
 //site.use('/packages', require('kerouac-npm-packages/app/www/site')());
 
+/*
 site.use('/packages/-/v1', require('kerouac-npm-packages').api.v1());
 // FIXME: Why can't this be mounted below the /packages?
 site.use('/packages/-', require('kerouac-npm-packages').api());
 site.use('/packages', require('kerouac-npm-packages')());
+*/
 
 //site.use('/docs/howto', kerouac.content('howto'));
 site.use('/docs', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
