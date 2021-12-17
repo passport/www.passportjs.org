@@ -163,5 +163,5 @@ their initial attempt was not successful.  This is accomplished by using the
 with the `failureMessage` option which will add the message to
 `req.session.messages`.
 
-That path of this route should be the value supplied for the `callbackURL`
-option in the strategy configuration above.
+The path of this route should be the value supplied for the `callbackURL` option
+in the strategy configuration above.
