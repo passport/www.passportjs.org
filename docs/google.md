@@ -4,129 +4,163 @@ title: Google
 
 # Google
 
-The Google strategy allows users to sign in to a web application using their
-Google account.  Google [used to support OpenID internally](https://developers.google.com/identity/protocols/OpenID2Migration#shutdown-timetable), but it now works based on [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) and supports oAuth 1.0 and oAuth 2.0.
-
-Support for Google is implemented by the [passport-google-oauth](https://github.com/jaredhanson/passport-google-oauth)
-module.
+[Sign In With Google](https://developers.google.com/identity) allows users to
+sign in using their Google account.  Support for Sign In With Google is
+provided by the [`passport-google-oidc`](https://github.com/jaredhanson/passport-google-openidconnect)
+package.
 
 ## Install
 
+To install `passport-google-oidc`, execute the following command:
+
 ```bash
-$ npm install passport-google-oauth
+$ npm install passport-google-oidc
 ```
 
-## Configuration
+## Configure
 
-The Client Id and Client Secret needed to authenticate with Google can be set up from the [Google Developers Console](https://console.developers.google.com). You may also need to enable Google+ API in the developer console, otherwise user profile data may not be fetched. Google supports authentication with both oAuth 1.0 and oAuth 2.0.
+Before your application can make use of Sign In With Google, you must register
+your app with Google.  This can be done in the [APIs & Services](https://console.cloud.google.com/apis)
+page of the [Google Cloud Platform console](https://console.cloud.google.com/).
+Once registered, your app will be issued a client ID and secret which will be
+used in the strategy configuration.
 
-### oAuth 1.0
-
-The Google OAuth 1.0 authentication strategy authenticates users using a Google account and OAuth tokens. The strategy requires a `verify` callback, which accepts these credentials and calls `done` providing a user, as well as `options` specifying a consumer key, consumer secret, and callback URL.
-
-#### Configuration 
+The following code is an example that configures and registers the
+`GoogleStrategy`:
 
 ```javascript
 var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+var GoogleStrategy = require('passport-google-oidc');
 
-// Use the GoogleStrategy within Passport.
-//   Strategies in passport require a `verify` function, which accept
-//   credentials (in this case, a token, tokenSecret, and Google profile), and
-//   invoke a callback with a user object.
 passport.use(new GoogleStrategy({
-    consumerKey: GOOGLE_CONSUMER_KEY,
-    consumerSecret: GOOGLE_CONSUMER_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
+    clientID: process.env['GOOGLE_CLIENT_ID'],
+    clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
+    callbackURL: 'https://www.example.com/oauth2/redirect/google'
   },
-  function(token, tokenSecret, profile, done) {
-      User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return done(err, user);
-      });
+  function(issuer, profile, cb) {
+    db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
+      issuer,
+      profile.id
+    ], function(err, cred) {
+      if (err) { return cb(err); }
+      if (!cred) {
+        // The Google account has not logged in to this app before.  Create a
+        // new user record and link it to the Google account.
+        db.run('INSERT INTO users (name) VALUES (?)', [
+          profile.displayName
+        ], function(err) {
+          if (err) { return cb(err); }
+      
+          var id = this.lastID;
+          db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
+            id,
+            issuer,
+            profile.id
+          ], function(err) {
+            if (err) { return cb(err); }
+            var user = {
+              id: id.toString(),
+              name: profile.displayName
+            };
+            return cb(null, user);
+          });
+        });
+      } else {
+        // The Google account has previously logged in to the app.  Get the
+        // user record linked to the Google account and log the user in.
+        db.get('SELECT * FROM users WHERE id = ?', [ cred.user_id ], function(err, user) {
+          if (err) { return cb(err); }
+          if (!user) { return cb(null, false); }
+          return cb(null, user);
+        });
+      }
+    };
   }
 ));
 ```
 
-#### Routes
+The options to the `GoogleStrategy` constructor must include a `clientID` and
+`clientSecret`, the values of which are set to the client ID and secret that
+were obtained when registering your application.  A `callbackURL` must also be
+included.  Google will redirect users to this location after they have
+authenticated.  The path of this URL must match the route defined below.
 
-Use passport.authenticate(), specifying the 'google' strategy, to authenticate requests. Authentication with Google requires an extra `scope` parameter. For information, go [here](https://developers.google.com/identity/protocols/OpenIDConnect#scope-param).
+The `verify` function accepts `issuer` and `profile` as arguments.  `issuer` is
+set to `"https://accounts.google.com"`, indicating that the user signed in with
+Google.  `profile` is a [normalized](/guide/profile/) profile containing
+information provided by Google about the user who is signing in.
+
+The `verify` function is responsible for determining the user to which the
+Google account belongs.  The first time that account is used to sign in, a new
+user record is typically created automatically using profile information
+supplied by Google, and that record is then linked to the Google account.  On
+subsequent signins, the existing user record will be found via its relation to
+the Google account.
+
+Linking social accounts to a user record is recommended, as it allows users to
+link multiple social accounts from other providers in the event that they stop
+using Google.  Alternatively, the user could set up a credential, such as a
+password, for their user account at your app.  Either feature allows the user to
+continue to sign in to your application independent of their Google account.
+
+The example above illustrates usage of a SQL database to find or create a user
+record and link it to a Google account.  However, because the `verify` function
+is supplied by the application, the application is free to use a database and
+schema of its choosing.
+
+Internally, Sign In With Google is implemented using [OpenID Connect](https://developers.google.com/identity/protocols/oauth2/openid-connect).
+As such, the strategy configuration is able to make use of additional options
+and functionality provided by the base OpenID Connect strategy.
+
+## Prompt
+
+Place a button on the application's login page, prompting the user to sign in
+with Google.
+
+```html
+<a href="/login/google" class="button">Sign in with Google</a>
+```
+
+Define a route that, when the button is clicked, will redirect the user to
+Google, where they will authenticate.
 
 ```javascript
-// GET /auth/google
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  The first step in Google authentication will involve redirecting
-//   the user to google.com.  After authorization, Google will redirect the user
-//   back to this application at /auth/google/callback
-app.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' });
+app.get('/login/google', passport.authenticate('google'));
+```
 
-// GET /auth/google/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
+If your application needs additional information about the user, that can be
+requested with the `scope` option:
+
+```javascript
+app.get('/login/google', passport.authenticate('google', {
+  scope: [ 'email' ]
+}));
+```
+
+## Authenticate
+
+After the user has authenticated with Google, they will be redirected back
+to your application.  Define a route which will handle this redirect.
+
+```
+app.get('/oauth2/redirect/google',
+  passport.authenticate('google', { failureRedirect: '/login', failureMessage: true }),
   function(req, res) {
     res.redirect('/');
   });
 ```
-### oAuth 2.0
 
-The Google OAuth 2.0 authentication strategy authenticates users using a Google account and OAuth 2.0 tokens. The strategy requires a `verify` callback, which accepts these credentials and calls `done` providing a user, as well as `options` specifying a client ID, client secret, and callback URL.
+When a request to this route is processed, the strategy will authenticate the
+fact that the user signed in with Google and obtain that user's profile
+information.  If authentication succeeds, `passport.authenticate()` middleware
+calls the next function in the stack.  In this example, the function is
+redirecting the authenticated user to the home page.
 
-#### Configuration
+When authentication fails, the user is re-prompted to sign in and informed that
+their initial attempt was not successful.  This is accomplished by using the
+`failureRedirect` option, which will redirect the user to the login page, along
+with the `failureMessage` option which will add the message to
+`req.session.messages`.
 
-```javascript
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
-// Use the GoogleStrategy within Passport.
-//   Strategies in Passport require a `verify` function, which accept
-//   credentials (in this case, an accessToken, refreshToken, and Google
-//   profile), and invoke a callback with a user object.
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-         return done(err, user);
-       });
-  }
-));
-```
-
-#### Routes
-
-Use `passport.authenticate()`, specifying the 'google' strategy, to authenticate requests. Authentication with Google requires an extra `scope` parameter. For information, go [here](https://developers.google.com/identity/protocols/OpenIDConnect#scope-param).
-
-```javascript
-// GET /auth/google
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  The first step in Google authentication will involve
-//   redirecting the user to google.com.  After authorization, Google
-//   will redirect the user back to this application at /auth/google/callback
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
-
-// GET /auth/google/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  });
-```
-## Link
-
-A link or button can be placed on a web page, allowing one-click sign in with
-Google.
-
-```xml
-<a href="/auth/google">Sign In with Google</a>
-```
+The path of this route should be the value supplied for the `callbackURL` option
+in the strategy configuration above.
