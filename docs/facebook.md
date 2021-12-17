@@ -115,8 +115,8 @@ and functionality provided by the base [OAuth 2.0 strategy](/docs/oauth/).
 
 ## Prompt
 
-Place a button the application's login page, prompting the user to sign in with
-Facebook.
+Place a button on the application's login page, prompting the user to sign in
+with Facebook.
 
 ```html
 <a href="/login/facebook" class="button">Log In With Facebook</a>
@@ -153,7 +153,7 @@ app.get('/oauth2/redirect/facebook',
 
 When a request to this route is processed, the strategy will authenticate the
 fact that the user signed in with Facebook and obtain that user's profile
-information.  If authentication proceeds,  `passport.authenticate()` middleware
+information.  If authentication succeeds, `passport.authenticate()` middleware
 calls the next function in the stack.  In this example, the function is
 redirecting the authenticated user to the home page.
 
