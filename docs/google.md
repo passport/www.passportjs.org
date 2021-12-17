@@ -128,7 +128,7 @@ Google, where they will authenticate.
 app.get('/login/google', passport.authenticate('google'));
 ```
 
-If your application needs additional information about the user, they can be
+If your application needs additional information about the user, that can be
 requested with the `scope` option:
 
 ```javascript
