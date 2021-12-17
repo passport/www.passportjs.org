@@ -373,75 +373,95 @@ received, this ID is used to find the user, which will be restored to
 allowing the application to choose an appropriate database and/or object mapper,
 without imposition by the authentication layer.</p>
 </section><section class="chapter" id="username-password"><h1 id="username-password">Username &amp; Password</h1>
-<p>The most widely used way for websites to authenticate users is via a username
-and password.  Support for this mechanism is provided by the <a href="https://github.com/jaredhanson/passport-local">passport-local</a>
-module.</p>
+<p>A username and password is the traditional, and still most widely used, way for
+users to authenticate to a website.  Support for this mechanism is provided by
+the <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
+package.</p>
 <h2 id="install">Install</h2>
+<p>To install <code>passport-local</code>, execute the following command:</p>
 <pre><code class="lang-bash">$ npm install passport-local
 </code></pre>
-<h2 id="configuration">Configuration</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>).Strategy;
+<h2 id="configure">Configure</h2>
+<p>The following code is an example that configures and registers the
+<code>LocalStrategy</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
+<span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>);
 
-passport.use(<span class="keyword">new</span> LocalStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>{
-    User.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) {
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username.'</span> });
+passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
+
+    crypto.pbkdf2(password, user.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+      <span class="keyword">if</span> (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> });
       }
-      <span class="keyword">if</span> (!user.validPassword(password)) {
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect password.'</span> });
-      }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
     });
-  }
-));
+  });
+});
 </code></pre>
-<p>The verify callback for local authentication accepts <code>username</code> and <code>password</code>
-arguments, which are submitted to the application via a login form.</p>
-<h2 id="form">Form</h2>
-<p>A form is placed on a web page, allowing the user to enter their credentials and
-log in.</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+<p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
+accepts <code>username</code> and <code>password</code> as arguments.  When authenticating a request,
+the strategy parses a username and password, which are submitted via an HTML
+form to the web application.  The strategy then calls the <code>verify</code> function with
+those credentials.</p>
+<p>The <code>verify</code> function is responsible for determining the user to which the
+username belongs, as well as verifying the password.  Because the <code>verify</code>
+function is supplied by the application, the application is free to use a
+database and schema of its choosing.  The example above illustrates usage of a
+SQL database.</p>
+<p>Similarly, the application is free to determine its password storage format.
+The example above illustrates usage of <a href="https://datatracker.ietf.org/doc/html/rfc2898">PBKDF2</a>
+when comparing the user-supplied password with the hashed password stored in the
+database.</p>
+<p>In case of authentication failure, the <code>verify</code> callback supplies a message, via
+the <code>message</code> option, describing why authentication failed.  This will be
+displayed to the user when they are re-prompted to sign in, informing them of
+what went wrong.</p>
+<h2 id="prompt">Prompt</h2>
+<p>The user is prompted to sign in with their username and password by rendering a
+form.  This is accomplished by defining a route:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+    res.render(<span class="string">'login'</span>);
+  });
+</code></pre>
+<p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login/password"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span>&gt;</span>Username:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"username"</span> <span class="attr">required</span> /&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"current-password"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"current-password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">autocomplete</span>=<span class="string">"current-password"</span> <span class="attr">required</span> /&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Log In"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
-<h2 id="route">Route</h2>
-<p>The login form is submitted to the server via the <code>POST</code> method.  Using
-<code>authenticate()</code> with the <code>local</code> strategy will handle the login request.</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                   <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>,
-                                   <span class="attr">failureFlash</span>: <span class="literal">true</span> })
-);
+<h2 id="authenticate">Authenticate</h2>
+<p>When the user submits the form, it is processed by a route that authenticates
+the user using the username and password they entered.</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
+  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/~'</span> + req.user.username);
+  });
 </code></pre>
-<p>Setting the <code>failureFlash</code> option to <code>true</code> instructs Passport to flash an
-<code>error</code> message using the <code>message</code> option set by the verify callback above.
-This is helpful when prompting the user to try again.</p>
-<h2 id="parameters">Parameters</h2>
-<p>By default, <code>LocalStrategy</code> expects to find credentials in parameters named
-<code>username</code> and <code>password</code>.  If your site prefers to name these fields
-differently, options are available to change the defaults.</p>
-<pre><code>passport.use(<span class="keyword">new</span> LocalStrategy({
-    usernameField: <span class="string">'email'</span>,
-    passwordField: <span class="string">'passwd'</span>
-  },
-  <span class="function"><span class="keyword">function</span><span class="params">(username, password, done)</span> </span>{
-    <span class="comment">// ...</span>
-  }
-));
-</code></pre></section><section class="chapter" id="openid"><h1 id="openid">OpenID</h1>
+<p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
+function in the stack.  In this example, the function is redirecting the
+authenticated user to their profile page.</p>
+<p>When authentication fails, the user is re-prompted to sign in and informed that
+their initial attempt was not successful.  This is accomplished by using the
+<code>failureRedirect</code> option, which will redirect the user to the login page, along
+with the <code>failureMessage</code> option which will add the message to
+<code>req.session.messages</code>.</p>
+</section><section class="chapter" id="openid"><h1 id="openid">OpenID</h1>
 <p><a href="http://openid.net/">OpenID</a> is an open standard for federated authentication.
 When visiting a website, users present their OpenID to sign in.  The user then
 authenticates with their chosen OpenID provider, which issues an assertion to
