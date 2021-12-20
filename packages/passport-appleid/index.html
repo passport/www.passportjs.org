@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>passport-me2day</title>
+    <title>passport-appleid</title>
     <meta charset="utf-8">
-    <meta name="description" content="Me2day authentication strategy for Passport.">
+    <meta name="description" content="Apple authentication strategy for Passport.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="http://www.passportjs.org/packages/passport-me2day/">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-appleid/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -33,9 +33,9 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="passport-me2day"/>
-    <meta property="og:description" content="Me2day authentication strategy for Passport."/>
-    <meta property="og:url" content="http://www.passportjs.org/packages/passport-me2day/"/>
+    <meta property="og:title" content="passport-appleid"/>
+    <meta property="og:description" content="Apple authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-appleid/"/>
     <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -43,8 +43,8 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="passport-me2day"/>
-    <meta name="twitter:description" content="Me2day authentication strategy for Passport."/>
+    <meta name="twitter:title" content="passport-appleid"/>
+    <meta name="twitter:description" content="Apple authentication strategy for Passport."/>
     <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -92,91 +92,76 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-me2day">Passport-Me2day</h1>
-<p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
-with <a href="http://me2day.net/">me2day</a>.</p>
-<p>This module lets you authenticate using me2day in your Node.js applications.
-By plugging into Passport, me2day authentication can be easily and
-unobtrusively integrated into any application or framework that supports
-<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
-<a href="http://expressjs.com/">Express</a>.</p>
+          <div class="description"><h1 id="passport-appleid">passport-appleid</h1>
+<p>Passport strategy for authenticating with Apple ID using the OAuth 2.0 API.</p>
+<p>This module lets you authenticate using Apple ID in your Node.js applications. By plugging into Passport, Apple authentication can be easily integrated into any Node.JS application or framework that supports Connect-style middleware, including Express.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>You should be enrolled in <a href="https://developer.apple.com/programs/">Apple Developer Program</a>.</li>
+<li>Please have a look at <a href="https://developer.apple.com/sign-in-with-apple/get-started/">Apple documentation</a> related to &quot;Sign in with Apple&quot; feature.</li>
+<li>You should create App ID and Service ID in your Apple Developer Account.</li>
+<li>You should generate private key for your Service ID in your Apple Developer Account.</li>
+</ol>
+<p>More detail about configuration can be found in <a href="https://medium.com/@artyomefremov/add-sign-in-with-apple-button-to-your-website-today-part-1-12ed1444623a?postPublishedType=initial">blog post</a> and <a href="https://help.apple.com/developer-account/#/dev1c0e25352">Apple docs</a>.</p>
 <h2 id="installation">Installation</h2>
-<pre><code>$ npm install pass<span class="keyword">port</span>-me2day
-</code></pre><h2 id="usage">Usage</h2>
-<h4 id="configure-strategy">Configure Strategy</h4>
-<p>The BrowserID authentication strategy authenticates users using an assertion of
-email address ownership, obtained via the BrowserID JavaScript API.  The
-strategy requires a <code>validate</code> callback, which accepts an email address and calls
-<code>done</code> providing a user.</p>
-<p>The me2day authentication strategy authenticates users using a me2day account,
-userKey and nonce. The strategy requires a <code>verify</code> callback, which receives
-the userKey, as well as <code>profile</code> which contains the authenticated user&#39;s
-me2day profile. The <code>verify</code> callback must call <code>done</code> providing a user
-to complete authentication.</p>
-<p>In order to identify your application to me2day, specify the userKey,
-nonce, and callback URL within <code>options</code>.  The user key is
-obtained by <a href="http://me2day.net/me2/app/get_appkey">requesting an application key</a> at
-<a href="https://me2day.net/">me2day</a> site.</p>
-<pre><code>passport.use(<span class="keyword">new</span> Me2dayStrategy({
-    userKey: <span class="string">'--insert-me2day-user-key-here--'</span>
-    , nonce: <span class="string">'--insert-me2day-nonce-here--'</span>
-    , callbackURL: <span class="string">"http://127.0.0.1:3000/auth/me2day/callback"</span>
-  },
-  <span class="function"><span class="keyword">function</span><span class="params">(userKey, profile, done)</span> </span>{
-    User.findOrCreate(profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      done(err, user);
+<p>Install the module using <a href="http://npmjs.com">npm</a>:</p>
+<pre><code class="lang-bash">npm install --save passport-appleid
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>The Apple authentication strategy authenticates users using Apple ID and OAuth 2.0 tokens. The Apple Service ID, Apple Team ID, and private key can be obtained in Apple Developer Account. The strategy also requires a verify callback, which receives the access token and optional refresh token, as well as profile which contains the authenticated user&#39;s Apple profile. The verify callback must call done providing a user to complete authentication.</p>
+<pre><code class="lang-javascript"><span class="keyword">const</span> AppleStrategy = <span class="built_in">require</span>(<span class="string">"passport-appleid"</span>);
+
+passport.use(<span class="keyword">new</span> AppleStrategy({
+    <span class="attr">clientID</span>: APPLE_SERVICE_ID,
+    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/apple/callback'</span>,
+    <span class="attr">teamId</span>: APPLE_TEAM_ID,
+    <span class="attr">keyIdentifier</span>: <span class="string">'RB1233456'</span>,
+    <span class="attr">privateKeyPath</span>: path.join(__dirname, <span class="string">"./AuthKey_RB1233456.p8"</span>)
+  }, 
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    <span class="keyword">const</span> id = profile.id;
+    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+        done(err, user);
     });
   }
-));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;me2day&#39;</code> strategy, to
-authenticate requests.</p>
-<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
-application:</p>
-<pre><code>app.get(<span class="string">'/auth/twitter'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>));
+}));
+</code></pre>
+<h3 id="authenticate-requests">Authenticate Requests</h3>
+<p>Use <code>passport.authenticate()</code>, specifying the &#39;apple&#39; strategy, to authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com">Express</a> application:</p>
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/apple'</span>,
+  passport.authenticate(<span class="string">'apple'</span>));
 
-app.get(<span class="string">'/auth/twitter/callback'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+app.get(<span class="string">'/auth/apple/callback'</span>,
+  passport.authenticate(<span class="string">'apple'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     <span class="comment">// Successful authentication, redirect home.</span>
     res.redirect(<span class="string">'/'</span>);
   });
-</code></pre><h2 id="examples">Examples</h2>
-<p>For a complete, working example, refer to the <a href="https://github.com/outsideris/passport-me2day/tree/master/examples/signin">signin example</a>.</p>
-<h2 id="credits">Credits</h2>
-<ul>
-<li><a href="http://github.com/outsideris">JeongHoon Byun</a></li>
-</ul>
-<h2 id="licens">Licens</h2>
-<p>e</p>
-<p>(The MIT License)</p>
-<p>Copyright (c) 2012 JeongHoon Byun <a href="mailto:&#x6f;&#117;&#x74;&#115;&#105;&#100;&#x65;&#x72;&#x69;&#115;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x6f;&#117;&#x74;&#115;&#105;&#100;&#x65;&#x72;&#x69;&#115;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a></p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the &quot;Software&quot;), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Developers using the popular <a href="http://expressjs.com">Express</a> web framework can refer to an <a href="https://github.com/Techofficer/express-apple-signin-example">example</a> as a starting point for their own web applications. </p>
+<p>You can also check <a href="http://apple-auth.gotechmakers.com">live example</a></p>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<h2 id="license">License</h2>
+<p><a href="https://choosealicense.com/licenses/mit/">The MIT License</a></p>
+<p>Copyright (c) 2019 Artem Efremov <a href="https://gotechmakers.com">https://gotechmakers.com</a></p>
+<h2 id="support">Support</h2>
+<p>If you have any questions or need help with integration, then you can contact me by email <a href="efremov.artserg@gmail.com">efremov.artserg@gmail.com</a>.</p>
 </div>
           <div class="metadata">
-            <div class="install"><code>npm install <span class="fn">passport-me2day</span></code></div>
+            <div class="install"><code>npm install <span class="fn">passport-appleid</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2012-08-29T16:00:48Z">9 years ago</abbr></li>
-              <li><a class="url" href="git://github.com/outsideris/passport-me2day.git"></a></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2019-06-15T20:36:27Z">3 years ago</abbr></li>
+              <li><a class="url" href="git://github.com/Techofficer/passport-apple.git">https://github.com/Techofficer/passport-apple#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>0</b> downloads in the last week</li>
-              <li><b>3</b> downloads in the last month</li>
+              <li><b>215</b> downloads in the last day</li>
+              <li><b>1,615</b> downloads in the last week</li>
+              <li><b>6,996</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -2,6 +2,74 @@
   "objects": [
     {
       "package": {
+        "name": "passport-goodreads",
+        "version": "1.0.0",
+        "description": "Goodreads authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "goodreads",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2015-08-24T20:18:14.646Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-goodreads",
+          "homepage": "https://github.com/jaredhanson/passport-goodreads",
+          "repository": "git://github.com/jaredhanson/passport-goodreads.git",
+          "bugs": "http://github.com/jaredhanson/passport-goodreads/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 6,
+        "last-month": 11
+      },
+      "count": {
+        "favorites": 21,
+        "subscribers": 2,
+        "forks": 9
+      }
+    },
+    {
+      "package": {
+        "name": "passport-google-oauth",
+        "version": "2.0.0",
+        "description": "Google (OAuth) authentication strategies for Passport.",
+        "keywords": [
+          "passport",
+          "google",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2019-03-08T23:52:47.032Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-google-oauth",
+          "homepage": "https://github.com/jaredhanson/passport-google-oauth#readme",
+          "repository": "git://github.com/jaredhanson/passport-google-oauth.git",
+          "bugs": "http://github.com/jaredhanson/passport-google-oauth/issues"
+        }
+      },
+      "flags": {
+        "featured": true
+      },
+      "downloads": {
+        "last-day": 2786,
+        "last-week": 58749,
+        "last-month": 254482
+      },
+      "count": {
+        "favorites": 723,
+        "subscribers": 20,
+        "forks": 330
+      }
+    },
+    {
+      "package": {
         "name": "passport-google-oauth1",
         "version": "1.0.0",
         "description": "Google (OAuth 1.0) authentication strategy for Passport.",
@@ -96,6 +164,73 @@
         "favorites": 645,
         "subscribers": 22,
         "forks": 131
+      }
+    },
+    {
+      "package": {
+        "name": "passport-google-oidc",
+        "version": "0.1.0",
+        "description": "Google authentication strategy for Passport using OpenID Connect.",
+        "keywords": [
+          "passport",
+          "google",
+          "auth",
+          "authn",
+          "authentication",
+          "identity"
+        ],
+        "date": "2021-12-11T23:49:18.299Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-google-oidc",
+          "homepage": "https://github.com/jaredhanson/passport-google-openidconnect#readme",
+          "repository": "git://github.com/jaredhanson/passport-google-openidconnect.git",
+          "bugs": "http://github.com/jaredhanson/passport-google-openidconnect/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 11,
+        "last-week": 30,
+        "last-month": 62
+      },
+      "count": {
+        "favorites": 0,
+        "subscribers": 1,
+        "forks": 0
+      }
+    },
+    {
+      "package": {
+        "name": "passport-google-one-tap",
+        "version": "1.0.0",
+        "description": "Google One Tap authentication strategy for Passport.",
+        "keywords": [
+          "passport",
+          "auth",
+          "authn",
+          "authentication",
+          "identity",
+          "google",
+          "one tap"
+        ],
+        "date": "2021-11-22T18:35:38.522Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-google-one-tap",
+          "homepage": "https://github.com/Genially/passport-google-one-tap#readme",
+          "repository": "git+https://github.com/Genially/passport-google-one-tap.git",
+          "bugs": "https://github.com/Genially/passport-google-one-tap/issues"
+        }
+      },
+      "flags": {},
+      "downloads": {
+        "last-day": 0,
+        "last-week": 151,
+        "last-month": 495
+      },
+      "count": {
+        "favorites": 11,
+        "subscribers": 14,
+        "forks": 1
       }
     },
     {
@@ -561,141 +696,9 @@
         "subscribers": 2,
         "forks": 1
       }
-    },
-    {
-      "package": {
-        "name": "passport-http-bearer-base64",
-        "version": "1.0.3",
-        "description": "HTTP Bearer authentication strategy, with optional base64 encoded token support, for Passport.",
-        "keywords": [
-          "passport",
-          "auth",
-          "authn",
-          "authentication",
-          "authz",
-          "authorization",
-          "http",
-          "bearer",
-          "token",
-          "oauth",
-          "base64",
-          "encoded"
-        ],
-        "date": "2016-12-01T11:15:18.688Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-http-bearer-base64",
-          "homepage": "https://github.com/auralon/passport-http-bearer-base64",
-          "repository": "git://github.com/auralon/passport-http-bearer-base64.git",
-          "bugs": "https://github.com/auralon/passport-http-bearer-base64/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 0,
-        "last-week": 10,
-        "last-month": 70
-      },
-      "count": {
-        "favorites": 2,
-        "subscribers": 1,
-        "forks": 0
-      }
-    },
-    {
-      "package": {
-        "name": "passport-http-bearer",
-        "version": "1.0.1",
-        "description": "HTTP Bearer authentication strategy for Passport.",
-        "date": "2013-08-02T22:36:55.671Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-http-bearer",
-          "repository": "git://github.com/jaredhanson/passport-http-bearer.git"
-        }
-      },
-      "flags": {
-        "featured": true
-      },
-      "downloads": {
-        "last-day": 6782,
-        "last-week": 145510,
-        "last-month": 558507
-      },
-      "count": {
-        "favorites": 921,
-        "subscribers": 14,
-        "forks": 146
-      }
-    },
-    {
-      "package": {
-        "name": "passport-http-custom-bearer",
-        "version": "1.0.15",
-        "description": "HTTP Bearer authentication strategy using custom headers and field names for Passport.  Forked from https://github.com/jaredhanson/passport-http-bearer.",
-        "keywords": [
-          "passport",
-          "auth",
-          "authn",
-          "authentication",
-          "authz",
-          "authorization",
-          "http",
-          "bearer",
-          "token",
-          "oauth"
-        ],
-        "date": "2015-09-27T07:40:59.545Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-http-custom-bearer",
-          "homepage": "https://github.com/wwwslinger/passport-http-custom-bearer#readme",
-          "repository": "git://github.com/wwwslinger/passport-http-custom-bearer.git",
-          "bugs": "http://github.com/wwwslinger/passport-http-custom-bearer/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 0,
-        "last-week": 246,
-        "last-month": 933
-      },
-      "count": {
-        "favorites": 1,
-        "subscribers": 1,
-        "forks": 1
-      }
-    },
-    {
-      "package": {
-        "name": "passport-http-encrypted-token",
-        "version": "1.2.1",
-        "description": "HTTP Encrypted Token authentication strategy for Passport and Node.j",
-        "keywords": [
-          "authentication",
-          "bearer",
-          "encrypted",
-          "token"
-        ],
-        "date": "2016-10-17T19:50:15.201Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-http-encrypted-token",
-          "homepage": "https://github.com/dowjones/passport-http-encrypted-token#readme",
-          "repository": "git+https://github.com/dowjones/passport-http-encrypted-token.git",
-          "bugs": "https://github.com/dowjones/passport-http-encrypted-token/issues"
-        }
-      },
-      "flags": {},
-      "downloads": {
-        "last-day": 0,
-        "last-week": 32,
-        "last-month": 82
-      },
-      "count": {
-        "favorites": 0,
-        "subscribers": 5,
-        "forks": 0
-      }
     }
   ],
-  "total": 522,
+  "total": 527,
   "urls": {
     "next": "/packages/-/v1/all/9.json",
     "prev": "/packages/-/v1/all/7.json"

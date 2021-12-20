@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-google-one-tap</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Google One Tap authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="http://www.passportjs.org/packages/passport-google-one-tap/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-google-one-tap"/>
+    <meta property="og:description" content="Google One Tap authentication strategy for Passport."/>
+    <meta property="og:url" content="http://www.passportjs.org/packages/passport-google-one-tap/"/>
+    <meta property="og:image" content="http://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-google-one-tap"/>
+    <meta name="twitter:description" content="Google One Tap authentication strategy for Passport."/>
+    <meta name="twitter:image" content="http://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-google-one-tap">passport-google-one-tap</h1>
+<p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with
+<a href="https://developers.google.com/identity/one-tap">Google One Tap</a>.</p>
+<p>This module lets you authenticate using Google One Tap in your Node.js applications.
+By plugging into Passport, Google One Tap authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
+<a href="http://expressjs.com/">Express</a>.</p>
+<p><a href="https://www.npmjs.com/package/passport-google-one-tap"><img src="https://img.shields.io/npm/v/passport-google-one-tap.svg" alt="npm"></a>
+<a href="./LICENSE"><img src="https://img.shields.io/npm/l/diod" alt="MIT license"></a>
+<a href="https://github.com/Genially/passport-google-one-tap/actions"><img src="https://github.com/Genially/passport-google-one-tap/actions/workflows/qa.yml/badge.svg" alt="Build status"></a>
+<a href="https://codecov.io/gh/Genially/passport-google-one-tap"><img src="https://codecov.io/gh/Genially/passport-google-one-tap/branch/main/graph/badge.svg?token=fOgYwD6XoD" alt="codecov"></a></p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">npm install passport-google-one-tap
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="create-an-application">Create an Application</h3>
+<p>Before using <code>passport-google-one-tap</code>, you must register an application with
+Google. If you have not already done so, a new project can be created in the
+<a href="https://console.developers.google.com/">Google Developers Console</a>.
+Your application will be issued a client ID and client secret, which need to be
+provided to the strategy.</p>
+<h3 id="configure-client-side">Configure client side</h3>
+<p>The client side configuration is not covered by this plugin, you can follow
+the official <a href="https://developers.google.com/identity/gsi/web/guides/display-google-one-tap">Google One Tap Guidelines</a>.</p>
+<p>The client ID used in the front-end must be the same used in
+the strategy configuration and the login uri must be the same that you will configure
+in the <a href="#authenticate-requests">Authenticate Requests</a> section.</p>
+<p>Minimal example:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://accounts.google.com/gsi/client"</span> <span class="attr">async</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span>
+  <span class="attr">id</span>=<span class="string">"g_id_onload"</span>
+  <span class="attr">data-client_id</span>=<span class="string">"YOUR_GOOGLE_CLIENT_ID"</span>
+  <span class="attr">data-login_uri</span>=<span class="string">"https://your.domain/auth/one-tap/callback"</span>
+&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>The Google One Tap authentication strategy verifies the
+Google ID token on your server side and retrieves the user information.
+The client ID and secret obtained when creating an
+application are supplied as options when creating the strategy. The strategy
+also requires a <code>verify</code> callback, which receives the <code>profile</code> with the authenticated user&#39;s
+Google profile. The <code>verify</code> callback must call <code>done</code> providing a user to
+complete authentication.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> GoogleOneTapStrategy =
+  <span class="built_in">require</span>(<span class="string">"passport-google-one-tap"</span>).GoogleOneTapStrategy;
+
+passport.use(
+  <span class="keyword">new</span> GoogleOneTapStrategy(
+    {
+      <span class="attr">clientID</span>: GOOGLE_CLIENT_ID, <span class="comment">// your google client ID</span>
+      <span class="attr">clientSecret</span>: GOOGLE_CLIENT_SECRET, <span class="comment">// your google client secret</span>
+      <span class="attr">verifyCsrfToken</span>: <span class="literal">false</span>, <span class="comment">// whether to validate the csrf token or not</span>
+    },
+    <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
+      <span class="comment">// Here your app code, for example:</span>
+      User.findOrCreate({ <span class="attr">googleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+        <span class="keyword">return</span> done(err, user);
+      });
+    }
+  )
+);
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;google-one-tap&#39;</code> strategy, to
+authenticate requests.</p>
+<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
+application:</p>
+<pre><code class="lang-javascript">app.post(
+  <span class="string">"/auth/one-tap/callback"</span>,
+  passport.authenticate(
+    <span class="string">"google-one-tap"</span>,
+    { <span class="attr">failureRedirect</span>: <span class="string">"/login"</span> },
+    (err, user) =&gt; {
+      <span class="comment">// Do whatever you need</span>
+    }
+  ),
+  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+    <span class="comment">// Successful authentication, redirect home.</span>
+    res.redirect(<span class="string">"/"</span>);
+  }
+);
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
+refer to an <a href="https://github.com/Genially/passport-google-one-tap/tree/main/example#readme">example</a>
+as a starting point for their own web applications.</p>
+<h2 id="license">License</h2>
+<p>passport-google-one-tap is released under the MIT license:</p>
+<p>MIT License</p>
+<p>Copyright (c) 2021 Genially Web S.L.</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-google-one-tap</span></code></div>
+            <ul>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2021-11-22T18:35:40Z">a month ago</abbr></li>
+              <li><a class="url" href="git+https://github.com/Genially/passport-google-one-tap.git">https://github.com/Genially/passport-google-one-tap#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>151</b> downloads in the last week</li>
+              <li><b>495</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
