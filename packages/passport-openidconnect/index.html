@@ -92,33 +92,116 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-openid-connect">Passport-OpenID Connect</h1>
-<p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
-with <a href="http://openid.net/connect/">OpenID Connect</a>.</p>
+          <div class="description"><h1 id="passport-openidconnect">passport-openidconnect</h1>
+<p><a href="https://www.passportjs.org/">Passport</a> strategy for authenticating
+with <a href="https://openid.net/connect/">OpenID Connect</a>.</p>
 <p>This module lets you authenticate using OpenID Connect in your Node.js
 applications.  By plugging into Passport, OpenID Connect authentication can be
 easily and unobtrusively integrated into any application or framework that
-supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware,
-including <a href="http://expressjs.com/">Express</a>.</p>
-<h2 id="credits">Credits</h2>
-<ul>
-<li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
-</ul>
+supports <a href="https://github.com/senchalabs/connect#readme">Connect</a>-style
+middleware, including <a href="https://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-sh">$ npm install passport-openidconnect
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h4 id="configure">Configure</h4>
+<p>The OpenID Connect authentication strategy authenticates users using their
+account at an OpenID Provider (OP).  The strategy needs to be configured with
+the provider&#39;s endpoints, as well as a client ID and secret that has been issued
+by the provider to the app.  Consult the provider&#39;s documentation for the
+locations of these endpoints and instructions on how to register a client.</p>
+<p>The strategy takes a <code>verify</code> function as an argument, which accepts <code>issuer</code>
+and <code>profile</code> as arguments.  When authenticating a request, the strategy uses
+the OpenID Connect protocol to obtain this information via a sequence of
+redirects and back-channel HTTP requests to the OP.</p>
+<p>The <code>verify</code> function is responsible for determining the user to which the
+account at the OP belongs.  In cases where the account is logging in for the
+first time, a user account is typically created automatically.  Because the
+<code>verify</code> function is supplied by the application, the app is free to use any
+database of its choosing.  The example below illustrates usage of a SQL
+database.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> OpenIDConnectStrategy = <span class="built_in">require</span>(<span class="string">'passport-openidconnect'</span>);
+
+passport.use(<span class="keyword">new</span> OpenIDConnectStrategy({
+    <span class="attr">issuer</span>: <span class="string">'https://server.example.com'</span>,
+    <span class="attr">authorizationURL</span>: <span class="string">'https://server.example.com/authorize'</span>,
+    <span class="attr">tokenURL</span>: <span class="string">'https://server.example.com/token'</span>,
+    <span class="attr">userInfoURL</span>: <span class="string">'https://server.example.com/userinfo'</span>,
+    <span class="attr">clientID</span>: process.env[<span class="string">'CLIENT_ID'</span>],
+    <span class="attr">clientSecret</span>: process.env[<span class="string">'CLIENT_SECRET'</span>],
+    <span class="attr">callbackURL</span>: <span class="string">'https://client.example.org/cb'</span>
+  },
+  <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">issuer, profile, cb</span>) </span>{
+    db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [
+      issuer,
+      profile.id
+    ], <span class="function"><span class="keyword">function</span>(<span class="params">err, cred</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+      <span class="keyword">if</span> (!cred) {
+        <span class="comment">// The account at the OpenID Provider (OP) has not logged in to this app</span>
+        <span class="comment">// before.  Create a new user account and associate it with the account</span>
+        <span class="comment">// at the OP.</span>
+        db.run(<span class="string">'INSERT INTO users (name) VALUES (?)'</span>, [
+          profile.displayName
+        ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+
+          <span class="keyword">var</span> id = <span class="keyword">this</span>.lastID;
+          db.run(<span class="string">'INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)'</span>, [
+            id,
+            issuer,
+            profile.id
+          ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+            <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+            <span class="keyword">var</span> user = {
+              <span class="attr">id</span>: id.toString(),
+              <span class="attr">name</span>: profile.displayName
+            };
+            <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+          });
+        });
+      } <span class="keyword">else</span> {
+        <span class="comment">// The account at the OpenID Provider has previously logged in to the</span>
+        <span class="comment">// app.  Get the user account associated with the account at the OP and</span>
+        <span class="comment">// log the user in.</span>
+        db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ cred.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+          <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>); }
+          <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+        });
+      }
+    }
+  })
+));
+</code></pre>
+<h4 id="routes">Routes</h4>
+<p>Two routes are needed in order to allow users to log in with their account at an
+OP.  The first route redirects the user to the OP, where they will authenticate:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'openidconnect'</span>));
+</code></pre>
+<p>The second route processes the authentication response and logs the user in,
+when the OP redirects the user back to the app:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/cb'</span>,
+  passport.authenticate(<span class="string">'openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/'</span>);
+  });
+</code></pre>
 <h2 id="license">License</h2>
-<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
+<p><a href="https://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2011-2021 Jared Hanson &lt;<a href="https://www.jaredhanson.me/">https://www.jaredhanson.me/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-openidconnect</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2017-08-30T14:32:56Z">4 years ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2021-11-29T22:54:01Z">21 days ago</abbr></li>
               <li><a class="url" href="git://github.com/jaredhanson/passport-openidconnect.git">https://github.com/jaredhanson/passport-openidconnect#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>389</b> downloads in the last day</li>
-              <li><b>10,012</b> downloads in the last week</li>
-              <li><b>40,627</b> downloads in the last month</li>
+              <li><b>746</b> downloads in the last day</li>
+              <li><b>14,190</b> downloads in the last week</li>
+              <li><b>57,261</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

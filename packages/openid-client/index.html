@@ -107,8 +107,6 @@ openid-client.</p>
 </ul>
 </li>
 <li>UserInfo Request</li>
-<li>Fetching Distributed Claims</li>
-<li>Unpacking Aggregated Claims</li>
 <li>Offline Access / Refresh Token Grant</li>
 <li>Client Credentials Grant</li>
 <li>Client Authentication<ul>
@@ -122,7 +120,7 @@ openid-client.</p>
 <li>Consuming Self-Issued OpenID Provider ID Token response</li>
 </ul>
 </li>
-<li><a href="https://tools.ietf.org/html/rfc8414">RFC8414 - OAuth 2.0 Authorization Server Metadata</a> and <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a><ul>
+<li><a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a><ul>
 <li>Discovery of OpenID Provider (Issuer) Metadata</li>
 <li>Discovery of OpenID Provider (Issuer) Metadata via user provided inputs (via <a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md#issuerwebfingerinput">webfinger</a>)</li>
 </ul>
@@ -151,34 +149,33 @@ openid-client.</p>
 </li>
 </ul>
 </li>
-<li><a href="https://openid.net/specs/openid-connect-session-1_0.html#RPLogout">OpenID Connect Session Management 1.0 - draft 28</a><ul>
-<li>RP-Initiated Logout</li>
-</ul>
-</li>
-<li><a href="https://openid.net/specs/openid-financial-api-part-2-ID2.html">Financial-grade API - Part 2: Read and Write API Security Profile (FAPI) - ID2</a></li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc9101.html">RFC9101 - OAuth 2.0 JWT-Secured Authorization Request (JAR)</a></li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc9126.html">RFC9126 - OAuth 2.0 Pushed Authorization Requests (PAR)</a></li>
+<li><a href="https://openid.net/specs/openid-connect-rpinitiated-1_0-01.html">OpenID Connect RP-Initiated Logout 1.0 - draft 01</a></li>
+<li><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced (FAPI)</a></li>
 <li><a href="https://openid.net/specs/openid-financial-api-jarm-ID1.html">JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) - ID1</a></li>
-<li><a href="https://tools.ietf.org/html/draft-ietf-oauth-dpop-01">OAuth 2.0 Demonstration of Proof-of-Possession at the Application Layer (DPoP) - draft 01</a></li>
-<li><a href="https://tools.ietf.org/html/draft-ietf-oauth-par-06">OAuth 2.0 Pushed Authorization Requests (PAR) - draft 06</a></li>
+<li><a href="https://tools.ietf.org/html/draft-ietf-oauth-dpop-04">OAuth 2.0 Demonstration of Proof-of-Possession at the Application Layer (DPoP) - draft 04</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-iss-auth-resp-04">OAuth 2.0 Authorization Server Issuer Identification - draft-04</a></li>
 </ul>
-<p>Updates to draft specifications (DPoP, JARM, and FAPI) are released as MINOR library versions,
+<p>Updates to draft specifications (DPoP, JARM, etc) are released as MINOR library versions,
 if you utilize these specification implementations consider using the tilde <code>~</code> operator in your
 package.json since breaking changes may be introduced as part of these version updates. </p>
 <h2 id="certification">Certification</h2>
 <p><a href="https://openid.net/certification/"><img width="184" height="96" align="right" src="https://cdn.jsdelivr.net/gh/panva/node-openid-client@38cf016b0837e6d4116de3780b28d222d5780bc9/OpenID_Certified.png" alt="OpenID Certification"></a><br>Filip Skokan has <a href="https://openid.net/certification/">certified</a> that <a href="https://www.npmjs.com/package/openid-client">openid-client</a>
 conforms to the following profiles of the OpenID Connect™ protocol</p>
 <ul>
-<li>RP Basic, Implicit, Hybrid, Config, Dynamic, and Form Post</li>
-<li>RP FAPI R/W MTLS and Private Key</li>
+<li>Basic, Implicit, Hybrid, Config, Dynamic, and Form Post RP</li>
+<li>FAPI 1.0 Advanced RP</li>
 </ul>
 <h2 id="sponsor">Sponsor</h2>
-<p><a href="https://auth0.com/developers?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=openid-client&amp;utm_content=auth"><img width="65" height="65" align="left" src="https://avatars.githubusercontent.com/u/2824157?s=75&v=4" alt="auth0-logo"></a> If you want to quickly add OpenID Connect authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/developers?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=openid-client&amp;utm_content=auth">auth0.com/developers</a>.<br><br></p>
+<p><a href="https://a0.to/try-auth0"><img height="65" align="left" src="https://cdn.auth0.com/blog/github-sponsorships/brand-evolution-logo-Auth0-horizontal-Indigo.png" alt="auth0-logo"></a> If you want to quickly add OpenID Connect authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan. <a href="https://a0.to/try-auth0">Create an Auth0 account; it&#39;s free!</a><br><br></p>
 <h2 id="support">Support</h2>
 <p>If you or your business use openid-client, please consider becoming a <a href="https://github.com/sponsors/panva">sponsor</a> so I can continue maintaining it and adding new features carefree.</p>
 <h2 id="documentation">Documentation</h2>
 <p>The library exposes what are essentially steps necessary to be done by a relying party consuming
 OpenID Connect Authorization Server responses or wrappers around requests to its endpoints. Aside
-from a generic OpenID Connect <a href="http://passportjs.org">passport</a> strategy it does not expose neither express
-or koa middlewares. Those can however be built using the exposed API.</p>
+from a generic OpenID Connect <a href="http://passportjs.org">passport</a> strategy it does not expose any framework
+specific middlewares. Those can however be built using the exposed API, one such example is <a href="https://www.npmjs.com/package/express-openid-connect">express-openid-connect</a></p>
 <ul>
 <li><a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md">openid-client API Documentation</a><ul>
 <li><a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md#issuer">Issuer</a></li>
@@ -192,16 +189,17 @@ or koa middlewares. Those can however be built using the exposed API.</p>
 </li>
 </ul>
 <h2 id="install">Install</h2>
-<p>Node.js version <strong>&gt;=12.0.0</strong> is recommended, but <strong>^10.19.0</strong> lts/dubnium is also supported.</p>
+<p>Node.js LTS releases Codename Erbium (starting with ^12.19.0) and newer LTS releases are supported. 
+This means  ^12.19.0 (Erbium), ^14.15.0 (Fermium), and ^16.13.0 (Gallium). Future LTS releases will
+be added to this list as they&#39;re released.</p>
 <pre><code class="lang-console">npm install openid-client
 </code></pre>
 <h2 id="quick-start">Quick start</h2>
 <p>Discover an Issuer configuration using its published .well-known endpoints</p>
-<pre><code class="lang-js"><span class="keyword">const</span> { Issuer } = <span class="built_in">require</span>(<span class="string">'openid-client'</span>);
-Issuer.discover(<span class="string">'https://accounts.google.com'</span>) <span class="comment">// =&gt; Promise</span>
-  .then(<span class="function"><span class="keyword">function</span> (<span class="params">googleIssuer</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'Discovered issuer %s %O'</span>, googleIssuer.issuer, googleIssuer.metadata);
-  });
+<pre><code class="lang-js"><span class="keyword">import</span> { Issuer } <span class="keyword">from</span> <span class="string">'openid-client'</span>;
+
+<span class="keyword">const</span> googleIssuer = <span class="keyword">await</span> Issuer.discover(<span class="string">'https://accounts.google.com'</span>);
+<span class="built_in">console</span>.log(<span class="string">'Discovered issuer %s %O'</span>, googleIssuer.issuer, googleIssuer.metadata);
 </code></pre>
 <h3 id="authorization-code-flow">Authorization Code Flow</h3>
 <p>Authorization Code flow is for obtaining Access Tokens (and optionally Refresh Tokens) to use with
@@ -223,7 +221,7 @@ flow.</p>
 <code>authorization_endpoint</code>. Consult the web framework of your choice on how to redirect but here&#39;s how
 to get the authorization endpoint&#39;s URL with parameters already encoded in the query to redirect
 to.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> { generators } = <span class="built_in">require</span>(<span class="string">'openid-client'</span>);
+<pre><code class="lang-js"><span class="keyword">import</span> { generators } <span class="keyword">from</span> <span class="string">'openid-client'</span>;
 <span class="keyword">const</span> code_verifier = generators.codeVerifier();
 <span class="comment">// store the code_verifier in your framework's session mechanism, if it is a cookie based solution</span>
 <span class="comment">// it should be httpOnly (not readable by javascript) and encrypted.</span>
@@ -240,24 +238,18 @@ client.authorizationUrl({
 <p>When end-users are redirected back to your <code>redirect_uri</code> your application consumes the callback and
 passes in the <code>code_verifier</code> to include it in the authorization code grant token exchange.</p>
 <pre><code class="lang-js"><span class="keyword">const</span> params = client.callbackParams(req);
-client.callback(<span class="string">'https://client.example.com/callback'</span>, params, { code_verifier }) <span class="comment">// =&gt; Promise</span>
-  .then(<span class="function"><span class="keyword">function</span> (<span class="params">tokenSet</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'received and validated tokens %j'</span>, tokenSet);
-    <span class="built_in">console</span>.log(<span class="string">'validated ID Token claims %j'</span>, tokenSet.claims());
-  });
+<span class="keyword">const</span> tokenSet = <span class="keyword">await</span> client.callback(<span class="string">'https://client.example.com/callback'</span>, params, { code_verifier });
+<span class="built_in">console</span>.log(<span class="string">'received and validated tokens %j'</span>, tokenSet);
+<span class="built_in">console</span>.log(<span class="string">'validated ID Token claims %j'</span>, tokenSet.claims());
 </code></pre>
 <p>You can then call the <code>userinfo_endpoint</code>.</p>
-<pre><code class="lang-js">client.userinfo(access_token) <span class="comment">// =&gt; Promise</span>
-  .then(<span class="function"><span class="keyword">function</span> (<span class="params">userinfo</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'userinfo %j'</span>, userinfo);
-  });
+<pre><code class="lang-js"><span class="keyword">const</span> userinfo = <span class="keyword">await</span> client.userinfo(access_token);
+<span class="built_in">console</span>.log(<span class="string">'userinfo %j'</span>, userinfo);
 </code></pre>
 <p>And later refresh the tokenSet if it had a <code>refresh_token</code>.</p>
-<pre><code class="lang-js">client.refresh(refresh_token) <span class="comment">// =&gt; Promise</span>
-  .then(<span class="function"><span class="keyword">function</span> (<span class="params">tokenSet</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'refreshed and validated tokens %j'</span>, tokenSet);
-    <span class="built_in">console</span>.log(<span class="string">'refreshed ID Token claims %j'</span>, tokenSet.claims());
-  });
+<pre><code class="lang-js"><span class="keyword">const</span> tokenSet = <span class="keyword">await</span> client.refresh(refresh_token);
+<span class="built_in">console</span>.log(<span class="string">'refreshed and validated tokens %j'</span>, tokenSet);
+<span class="built_in">console</span>.log(<span class="string">'refreshed ID Token claims %j'</span>, tokenSet.claims());
 </code></pre>
 <h3 id="implicit-id-token-flow">Implicit ID Token Flow</h3>
 <p>Implicit <code>response_type=id_token</code> flow is perfect for simply authenticating your end-users, assuming
@@ -276,7 +268,7 @@ with no need for accessing any third party APIs with an Access Token from the Au
 <code>authorization_endpoint</code>. Consult the web framework of your choice on how to redirect but here&#39;s how
 to get the authorization endpoint&#39;s URL with parameters already encoded in the query to redirect
 to.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> { generators } = <span class="built_in">require</span>(<span class="string">'openid-client'</span>);
+<pre><code class="lang-js"><span class="keyword">import</span> { generators } <span class="keyword">from</span> <span class="string">'openid-client'</span>;
 <span class="keyword">const</span> nonce = generators.nonce();
 <span class="comment">// store the nonce in your framework's session mechanism, if it is a cookie based solution</span>
 <span class="comment">// it should be httpOnly (not readable by javascript) and encrypted.</span>
@@ -292,11 +284,9 @@ response mode) your application consumes the callback and passes the <code>nonce
 ID Token verification steps.</p>
 <pre><code class="lang-js"><span class="comment">// assumes req.body is populated from your web framework's body parser</span>
 <span class="keyword">const</span> params = client.callbackParams(req);
-client.callback(<span class="string">'https://client.example.com/callback'</span>, params, { nonce }) <span class="comment">// =&gt; Promise</span>
-  .then(<span class="function"><span class="keyword">function</span> (<span class="params">tokenSet</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'received and validated tokens %j'</span>, tokenSet);
-    <span class="built_in">console</span>.log(<span class="string">'validated ID Token claims %j'</span>, tokenSet.claims());
-  });
+<span class="keyword">const</span> tokenSet = <span class="keyword">await</span> client.callback(<span class="string">'https://client.example.com/callback'</span>, params, { nonce });
+<span class="built_in">console</span>.log(<span class="string">'received and validated tokens %j'</span>, tokenSet);
+<span class="built_in">console</span>.log(<span class="string">'validated ID Token claims %j'</span>, tokenSet.claims());
 </code></pre>
 <h3 id="device-authorization-grant-device-flow-">Device Authorization Grant (Device Flow)</h3>
 <p><a href="https://tools.ietf.org/html/rfc8628">RFC8628 - OAuth 2.0 Device Authorization Grant (Device Flow)</a>
@@ -316,9 +306,6 @@ other defined response properties.</p>
 <p>This will poll in the defined interval and only resolve with a TokenSet once one is received. This
 will handle the defined <code>authorization_pending</code> and <code>slow_down</code> &quot;soft&quot; errors and continue polling
 but upon any other error it will reject. With tokenSet received you can throw away the handle.</p>
-<h2 id="electron-support">Electron Support</h2>
-<p>Electron &gt;=v6.0.0 runtime is supported to the extent of the crypto engine BoringSSL feature parity
-with standard Node.js OpenSSL.</p>
 <h2 id="faq">FAQ</h2>
 <h4 id="semver-">Semver?</h4>
 <p><strong>Yes.</strong> Everything that&#39;s either exported in the TypeScript definitions file or
@@ -326,26 +313,24 @@ with standard Node.js OpenSSL.</p>
 <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0</a>. The rest is to be considered
 private API and is subject to change between any versions.</p>
 <h4 id="how-do-i-use-it-outside-of-node-js">How do I use it outside of Node.js</h4>
-<p>It is <strong>only built for ^10.19.0 || &gt;=12.0.0 Node.js</strong> environment - including openid-client in
-browser-environment targeted projects is not supported and may result in unexpected results.</p>
+<p>It is <strong>only built for Node.js</strong> environments - including openid-client in
+browser-environment targeted projects is not supported.</p>
 <h4 id="how-to-make-the-client-send-client_id-and-client_secret-in-the-body-">How to make the client send client_id and client_secret in the body?</h4>
 <p>See <a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md#client-authentication-methods">Client Authentication Methods (docs)</a>.</p>
 <h4 id="can-i-adjust-the-http-timeout-">Can I adjust the HTTP timeout?</h4>
-<p>See <a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md#customizing">Customizing (docs)</a>.</p>
-<h4 id="how-can-i-debug-the-requests-and-responses-">How can I debug the requests and responses?</h4>
 <p>See <a href="https://github.com/panva/node-openid-client/blob/master/docs/README.md#customizing">Customizing (docs)</a>.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">openid-client</span></code></div>
             <ul>
-              <li><span class="version">4.7.3</span> published <abbr class="updated" title="2021-04-30T14:53:52Z">3 days ago</abbr></li>
+              <li><span class="version">5.1.1</span> published <abbr class="updated" title="2021-12-20T11:52:11Z">10 hours ago</abbr></li>
               <li><a class="url" href="git+https://github.com/panva/node-openid-client.git">https://github.com/panva/node-openid-client</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>22,217</b> downloads in the last day</li>
-              <li><b>360,431</b> downloads in the last week</li>
-              <li><b>1,272,493</b> downloads in the last month</li>
+              <li><b>20,489</b> downloads in the last day</li>
+              <li><b>588,472</b> downloads in the last week</li>
+              <li><b>2,357,161</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

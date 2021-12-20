@@ -111,7 +111,7 @@ passport.use(<span class="keyword">new</span> CleverStrategy({
 }, <span class="function"><span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) </span>{
     User.findOrCreate({ <span class="attr">cleverId</span>: profile.data.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
         <span class="keyword">return</span> done(err, user);
-}));
+}}));
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code> to authunicate the requests.</p>
@@ -124,19 +124,19 @@ app.get(<span class="string">"/callback"</span>, passport.authenticate(<span cla
 });
 </code></pre>
 <h2 id="disclaimer">Disclaimer</h2>
-<p>This repository is NOT developed, or endorsed by Clever. This library is here to help users easily integrate Clever&#39;s Instant Login API to their Node.js projects. All questions about the API should be taken to <a href="https://support.clever.com/hc/s/?language=en_US">Clever Support</a> and all questions about this library should be taken to <a href="mailto:milanmdev@gmail.com">Milan Mehra</a>.</p>
+<p>This repository is NOT developed or endorsed by Clever. This library is here to help users easily integrate Clever&#39;s Instant Login API to their Node.js projects. All questions about the API should be taken to <a href="https://support.clever.com/hc/s/?language=en_US">Clever Support</a> and all questions about this library should be taken to <a href="mailto:milanmdev@gmail.com">Milan Mehra</a>.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">clever-passport</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2021-05-01T15:00:40Z">2 days ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2021-06-07T22:48:10Z">6 months ago</abbr></li>
               <li><a class="url" href="git+https://github.com/milanmdev/clever-passport.git">https://github.com/milanmdev/clever-passport#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>11</b> downloads in the last day</li>
-              <li><b>63</b> downloads in the last week</li>
-              <li><b>63</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>16</b> downloads in the last week</li>
+              <li><b>86</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
