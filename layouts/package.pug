@@ -50,7 +50,7 @@ block content
         li
           span.version #{version}
           | #{' '}published#{' '}
-          abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{modifiedTimeAgo}
+          abbr(class='updated', title=modifiedAt.toISOString().substring(0,19)+'Z') #{timeAgo(modifiedAt)}
         if repository
           li
             a(class='url', href=repository.url) #{homepage}
