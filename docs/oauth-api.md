@@ -91,7 +91,7 @@ token are encoded as credentials.
 
 The first callback is known as the "consumer callback", and is used to find the
 application making the request, including the secret assigned to it.  The second
-callback is the "token callback", which is used to indentify the user as well as
+callback is the "token callback", which is used to identify the user as well as
 the token's corresponding secret.  The secrets supplied by the consumer and
 token callbacks are used to compute a signature, and authentication fails if it
 does not match the request signature.

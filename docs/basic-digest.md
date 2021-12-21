@@ -9,7 +9,7 @@ also defined the Basic and Digest authentications schemes.  These two schemes
 both use usernames and passwords as credentials to authenticate users, and are
 often used to protect API endpoints.
 
-It should be noted that relying on username and password creditials can have
+It should be noted that relying on username and password credentials can have
 adverse security impacts, especially in scenarios where there is not a high
 degree of trust between the server and client.  In these situations, it is
 recommended to use an authorization framework such as [OAuth 2.0](/guide/oauth2-api/).
