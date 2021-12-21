@@ -1125,7 +1125,7 @@ in the strategy configuration above.</p>
 also defined the Basic and Digest authentications schemes.  These two schemes
 both use usernames and passwords as credentials to authenticate users, and are
 often used to protect API endpoints.</p>
-<p>It should be noted that relying on username and password creditials can have
+<p>It should be noted that relying on username and password credentials can have
 adverse security impacts, especially in scenarios where there is not a high
 degree of trust between the server and client.  In these situations, it is
 recommended to use an authorization framework such as <a href="/guide/oauth2-api/">OAuth 2.0</a>.</p>
@@ -1267,7 +1267,7 @@ OAuth, both an identifier for the requesting application and the user-specific
 token are encoded as credentials.</p>
 <p>The first callback is known as the &quot;consumer callback&quot;, and is used to find the
 application making the request, including the secret assigned to it.  The second
-callback is the &quot;token callback&quot;, which is used to indentify the user as well as
+callback is the &quot;token callback&quot;, which is used to identify the user as well as
 the token&#39;s corresponding secret.  The secrets supplied by the consumer and
 token callbacks are used to compute a signature, and authentication fails if it
 does not match the request signature.</p>
