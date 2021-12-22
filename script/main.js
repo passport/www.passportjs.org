@@ -303,9 +303,16 @@ define("search/packages/sort", [], function() {
         if (bf && !af) return 1;
         return 0;
     }
-    function favoriteCountSorter(a, b) {
-        var afc = a.count ? a.count.favorites || 0 : 0;
-        var bfc = b.count ? b.count.favorites || 0 : 0;
+    function downloadCountSorter(a, b) {
+        var adc = a.downloads ? a.downloads["last-week"] || 0 : 0;
+        var bdc = b.downloads ? b.downloads["last-week"] || 0 : 0;
+        if (adc && !bdc) return -1;
+        if (bdc && !adc) return 1;
+        return +bdc - +adc;
+    }
+    function bookmarkCountSorter(a, b) {
+        var afc = a.counts ? a.counts.bookmarks || 0 : 0;
+        var bfc = b.counts ? b.counts.bookmarks || 0 : 0;
         if (afc && !bfc) return -1;
         if (bfc && !afc) return 1;
         return +bfc - +afc;
@@ -315,7 +322,9 @@ define("search/packages/sort", [], function() {
         if (rv) return rv;
         rv = sponsoredSorter(a, b);
         if (rv) return rv;
-        return favoriteCountSorter(a, b);
+        rv = downloadCountSorter(a, b);
+        if (rv) return rv;
+        return bookmarkCountSorter(a, b);
     }
     return sorter;
 });
@@ -394,7 +403,7 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
                     item.links = item.links || {};
                     item.links.self = "/packages/" + encodeURIComponent(item.name);
                     item.flags = val._flags;
-                    item.count = val._count;
+                    item.counts = val._counts;
                     item.downloads = val._downloads;
                     items.push(item);
                 }
@@ -408,7 +417,7 @@ define("search/packages/engine", [ "bloodhound", "./sort", "./remote/api-v1/all"
 
 define("search/packages/templates/result", [], function() {
     return function(item) {
-        return "<article" + (item.flags && (item.flags.featured || item.flags.sponsored) ? ' class="featured"' : "") + '><a href="' + item.links.self + '" target="_blank"><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item.flags && (item.flags.featured || item.flags.sponsored) ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + (item.downloads ? (item.downloads["last-week"] || 0).toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,") : 0) + '</span><span class="star">' + (item.count ? item.count.favorites || 0 : 0) + "</span></span></a></article>";
+        return "<article" + (item.flags && (item.flags.featured || item.flags.sponsored) ? ' class="featured"' : "") + '><a href="' + item.links.self + '" target="_blank"><span class="title">' + item.name + '</span><span class="text">' + item.description + "</span>" + (item.flags && (item.flags.featured || item.flags.sponsored) ? '<span class="featured-flag">Featured</span>' : "") + '<span class="stat"><span class="download">' + (item.downloads ? (item.downloads["last-week"] || 0).toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,") : 0) + '</span><span class="star">' + (item.counts ? item.counts.bookmarks || 0 : 0) + "</span></span></a></article>";
     };
 });
 
