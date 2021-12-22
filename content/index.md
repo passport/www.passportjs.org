@@ -8,12 +8,12 @@ authenticationSchemes:
     color: "#4267b2"
   - name: google
     color: "#db4437"
-  - name: twitter
-    color: "#1da1f2"
   - name: apple
     color: "#555555"
   - name: microsoft
     color: "#f25022"
+  - name: twitter
+    color: "#1da1f2"
   - name: linkedin
     color: "#2867b2"
   - name: github
