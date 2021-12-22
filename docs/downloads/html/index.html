@@ -324,7 +324,11 @@ persistent login sessions, <code>passport.session()</code> middleware must also 
   app.use(express.static(<span class="string">'public'</span>));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
-  app.use(express.session({ <span class="attr">secret</span>: <span class="string">'keyboard cat'</span> }));
+  app.use(express.session({ 
+    <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+    <span class="attr">resave</span>: <span class="literal">false</span>,
+    <span class="attr">saveUninitialized</span>: <span class="literal">false</span>
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);

@@ -3553,8 +3553,8 @@ body.is-search .search-con {
   position: absolute;
   opacity: 0;
   overflow: hidden;
-  -webkit-animation: rotateWord 15s linear infinite 0s;
-  animation: rotateWord 15s linear infinite 0s;
+  -webkit-animation: rotateWord 24s linear infinite 0s;
+  animation: rotateWord 24s linear infinite 0s;
 }
 .rw-words-1 span:nth-child(2) {
   -webkit-animation-delay: 3s;
@@ -3571,6 +3571,18 @@ body.is-search .search-con {
 .rw-words-1 span:nth-child(5) {
   -webkit-animation-delay: 12s;
   animation-delay: 12s;
+}
+.rw-words-1 span:nth-child(6) {
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+.rw-words-1 span:nth-child(7) {
+  -webkit-animation-delay: 18s;
+  animation-delay: 18s;
+}
+.rw-words-1 span:nth-child(8) {
+  -webkit-animation-delay: 21s;
+  animation-delay: 21s;
 }
 .home {
   max-width: 840px;
@@ -4378,11 +4390,11 @@ body.is-search .search-con {
     opacity: 1;
     -webkit-transform: translateY(0px);
   }
-  17% {
+  10% {
     opacity: 1;
     -webkit-transform: translateY(0px);
   }
-  20% {
+  13% {
     opacity: 0;
     -webkit-transform: translateY(10px);
   }
@@ -4485,12 +4497,12 @@ body.is-search .search-con {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  17% {
+  10% {
     opacity: 1;
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  20% {
+  13% {
     opacity: 0;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
@@ -4513,12 +4525,12 @@ body.is-search .search-con {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  17% {
+  10% {
     opacity: 1;
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  20% {
+  13% {
     opacity: 0;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
@@ -4541,12 +4553,12 @@ body.is-search .search-con {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  17% {
+  10% {
     opacity: 1;
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  20% {
+  13% {
     opacity: 0;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
@@ -4569,12 +4581,12 @@ body.is-search .search-con {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  17% {
+  10% {
     opacity: 1;
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
-  20% {
+  13% {
     opacity: 0;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
