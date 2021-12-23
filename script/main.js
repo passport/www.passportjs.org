@@ -663,6 +663,23 @@ define("middleware/controller", [ "../shell" ], function(shell) {
     };
 });
 
+define("middleware/analytics/pageview", [], function() {
+    return function() {
+        return function pageview(ctx, next) {
+            if (ctx.init) {
+                return next();
+            }
+            if (!ga) {
+                return next();
+            }
+            var path = ctx.canonicalPath;
+            ga("set", "page", path);
+            ga("send", "pageview");
+            next();
+        };
+    };
+});
+
 define("middleware/ad/refresh", [ "jquery" ], function($) {
     var _lastRefresh;
     return function(persist) {
@@ -696,11 +713,11 @@ define("utils", [ "exports" ], function(exports) {
     };
 });
 
-define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, adRefresh, shell, utils, page, $) {
-    page("/", controller(homeController), adRefresh());
-    page("/docs/*", controller(docsController), adRefresh());
-    page("/features", controller(featuresController), adRefresh());
-    page("/packages", controller(packagesController, true));
+define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/analytics/pageview", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, pageview, adRefresh, shell, utils, page, $) {
+    page("/", controller(homeController), pageview(), adRefresh());
+    page("/docs/*", controller(docsController), pageview(), adRefresh());
+    page("/features", controller(featuresController), pageview(), adRefresh());
+    page("/packages", controller(packagesController, true), pageview());
     $(document).ready(function() {
         $("body").toggleClass("ie", utils.isMSIE());
         page.start();
