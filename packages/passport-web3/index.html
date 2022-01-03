@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-web3</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Web3 authentication strategy for passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-web3/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-web3"/>
+    <meta property="og:description" content="Web3 authentication strategy for passport."/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-web3/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-web3"/>
+    <meta name="twitter:description" content="Web3 authentication strategy for passport."/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h2 id="web3-passport-strategy">Web3 Passport Strategy</h2>
+<p>Web3 strategy for passport which authenticates the user by decoding a message
+signed with the user&#39;s ETH address, and checking if it matches the address
+that they are trying to authenticate.</p>
+<h3 id="setup">Setup</h3>
+<pre><code class="lang-js"><span class="keyword">const</span> Web3Strategy = <span class="built_in">require</span>(<span class="string">'passport-web3'</span>);
+
+<span class="comment">/**
+ * Called when authorization succeeds. Perform any additional verification here,
+ * and either return the user's data (if valid), or deny authorization by
+ * passing an error to the `done` callback.
+ */</span>
+<span class="keyword">const</span> onAuth = <span class="function">(<span class="params">address, done</span>) =&gt;</span> {
+  <span class="comment">// optional additional validation. To deny auth:</span>
+  <span class="comment">// done(new Error('User is not authorized.'));</span>
+  User.findOne({ address }, (err, user) =&gt; done(err, user));
+};
+<span class="keyword">const</span> web3Strategy = <span class="keyword">new</span> Web3Strategy(onAuth);
+
+passport.use(web3Strategy);
+
+<span class="comment">// endpoint</span>
+app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'web3'</span>));
+</code></pre>
+<h3 id="usage-client-side-">Usage (client-side)</h3>
+<pre><code class="lang-js"><span class="keyword">const</span> ethUtil = <span class="built_in">require</span>(<span class="string">'ethereumjs-util'</span>);
+
+<span class="comment">// The contents of the message can be anything</span>
+<span class="keyword">const</span> rawMessage = <span class="string">'Some message'</span>;
+<span class="keyword">const</span> msg = ethUtil.bufferToHex(<span class="keyword">new</span> Buffer(rawMessage, <span class="string">'utf8'</span>));
+<span class="keyword">const</span> address = web3.eth.accounts[<span class="number">0</span>];
+<span class="keyword">const</span> handleSignature = <span class="function">(<span class="params">err, signed</span>) =&gt;</span> {
+  <span class="keyword">if</span> (!err) {
+    <span class="keyword">const</span> fetchOpts = {
+      <span class="attr">method</span>: <span class="string">'POST'</span>,
+      <span class="attr">headers</span>: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> }.
+      body: <span class="built_in">JSON</span>.stringify({ address, msg, signed })
+    };
+
+    fetch(<span class="string">'/login'</span>, fetchOpts).then(<span class="function"><span class="params">res</span> =&gt;</span> {
+      <span class="keyword">if</span> (res.status &gt;= <span class="number">200</span> &amp;&amp; res.status &lt;= <span class="number">300</span>) {
+        <span class="keyword">return</span> res.json();
+      } <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="built_in">Error</span>(res.statusText);
+      }
+    }).then(<span class="function"><span class="params">json</span> =&gt;</span> {
+      <span class="comment">// Auth succeeded</span>
+    }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {
+      <span class="comment">// Auth failed</span>
+    })
+  }
+};
+
+web3.personal.sign(msg, address, handleSign);
+</code></pre>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-web3</span></code></div>
+            <ul>
+              <li><span class="version">0.1.7</span> published <abbr class="updated" title="2017-07-30T16:18:24Z">4 years ago</abbr></li>
+              <li><a class="url" href="https://github.com/coopermaruyama/passport-web3">https://github.com/coopermaruyama/passport-web3#readme</a></li>
+              <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
+            </ul>
+            <ul>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>44</b> downloads in the last week</li>
+              <li><b>278</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-lnurl-auth</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passport strategy that uses lnurl-auth">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-lnurl-auth/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-lnurl-auth"/>
+    <meta property="og:description" content="Passport strategy that uses lnurl-auth"/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-lnurl-auth/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-lnurl-auth"/>
+    <meta name="twitter:description" content="Passport strategy that uses lnurl-auth"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-lnurl-auth">passport-lnurl-auth</h1>
+<p><img src="https://github.com/chill117/passport-lnurl-auth/actions/workflows/ci.yml/badge.svg" alt="Build Status"></p>
+<p>A passport strategy for <a href="https://github.com/btcontract/lnurl-rfc/blob/master/lnurl-auth.md">lnurl-auth</a>.</p>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#debugging">Debugging</a></li>
+<li><a href="#remote-tunneling">Remote Tunneling</a><ul>
+<li><a href="#using-ssh-and-a-vps">Using SSH and a VPS</a></li>
+<li><a href="#using-ngrok">Using ngrok</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#funding">Funding</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Add to your application via <code>npm</code>:</p>
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-lnurl-auth <span class="comment">--save</span>
+</code></pre><p>This will install the module and add it to your application&#39;s <code>package.json</code> file.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-js"><span class="keyword">const</span> LnurlAuth = <span class="built_in">require</span>(<span class="string">'passport-lnurl-auth'</span>);
+
+passport.use(<span class="keyword">new</span> LnurlAuth.Strategy(<span class="function"><span class="keyword">function</span>(<span class="params">linkingPublicKey, done</span>) </span>{
+    <span class="comment">// The user has successfully authenticated using lnurl-auth.</span>
+    <span class="comment">// The linked public key is provided here.</span>
+    <span class="comment">// You can use this as a unique reference for the user similar to a username or email address.</span>
+    <span class="keyword">const</span> user = { <span class="attr">id</span>: linkingPublicKey };
+    done(<span class="literal">null</span>, user);
+}));
+
+app.use(passport.authenticate(<span class="string">'lnurl-auth'</span>));
+
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    <span class="keyword">if</span> (!req.user) {
+        <span class="keyword">return</span> res.send(<span class="string">'You are not authenticated. To login go &lt;a href="/login"&gt;here&lt;/a&gt;.'</span>);
+    }
+    res.send(<span class="string">'Logged-in'</span>);
+});
+
+app.get(<span class="string">'/login'</span>,
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+        <span class="keyword">if</span> (req.user) {
+            <span class="keyword">return</span> res.redirect(<span class="string">'/'</span>);
+        }
+        next();
+    },
+    <span class="keyword">new</span> LnurlAuth.Middleware({
+        <span class="comment">// The externally reachable URL for the lnurl-auth middleware.</span>
+        <span class="comment">// It should resolve to THIS endpoint on your server.</span>
+        <span class="attr">callbackUrl</span>: <span class="string">'http://localhost:3000/login'</span>,
+        <span class="comment">// The URL of the "Cancel" button on the login page.</span>
+        <span class="comment">// When set to NULL or some other falsey value, the cancel button will be hidden.</span>
+        <span class="attr">cancelUrl</span>: <span class="string">'/'</span>,
+        <span class="comment">// Instruction text shown below the title on the login page:</span>
+        <span class="attr">instruction</span>: <span class="string">'Scan the QR code to login'</span>,
+        <span class="comment">// The number of seconds to wait before refreshing the login page:</span>
+        <span class="attr">refreshSeconds</span>: <span class="number">5</span>,
+        <span class="comment">// The title of the login page:</span>
+        <span class="attr">title</span>: <span class="string">'Login with lnurl-auth'</span>,
+        <span class="comment">// The URI schema prefix used before the encoded LNURL.</span>
+        <span class="comment">// e.g. "lightning:" or "LIGHTNING:" or "" (empty-string)</span>
+        <span class="attr">uriSchemaPrefix</span>: <span class="string">'LIGHTNING:'</span>,
+        <span class="comment">// Options object passed to QRCode.toDataURL(data, options) - for further details:</span>
+        <span class="comment">// https://github.com/soldair/node-qrcode/#qr-code-options</span>
+        <span class="attr">qrcode</span>: {
+            <span class="attr">errorCorrectionLevel</span>: <span class="string">'L'</span>,
+            <span class="attr">margin</span>: <span class="number">2</span>,
+            <span class="attr">type</span>: <span class="string">'image/png'</span>,
+        },
+    })
+);
+</code></pre>
+<p>For a complete, working example see the <a href="https://github.com/chill117/passport-lnurl-auth/blob/master/examples/simple.js">simple server</a> included with this project.</p>
+<p>To test the end-to-end login flow with lnurl-auth, see <a href="#remote-tunneling">Remote Tunneling</a>.</p>
+<h3 id="debugging">Debugging</h3>
+<p>This module uses the <a href="https://github.com/visionmedia/debug">debug module</a>. To output all debug messages to the console, run your node app with the <code>DEBUG</code> environment variable:</p>
+<pre><code><span class="attr">DEBUG=</span>passport-lnurl-auth* <span class="keyword">node</span> <span class="title">your-app</span>.js
+</code></pre><p>This will output log messages as well as error messages related to this module.</p>
+<h3 id="remote-tunneling">Remote Tunneling</h3>
+<p>While working locally, your web application will need to be accessible by the mobile app that you will use to perform the lnurl-auth authentication. This means that the web app must be reachable from the public internet. To achieve this, you can configure remote tunneling to your localhost. There are a few ways that this can be done.</p>
+<h4 id="using-ssh-and-a-vps">Using SSH and a VPS</h4>
+<p>You can use this method if you already have a virtual private server (VPS) with its own static, public IP address.</p>
+<p>Login to your VPS and add a few required configurations to its SSH config file:</p>
+<pre><code class="lang-bash">cat &gt;&gt; /etc/ssh/sshd_config &lt;&lt; EOL
+    RSAAuthentication yes
+    PubkeyAuthentication yes
+    GatewayPorts yes
+    AllowTcpForwarding yes
+    ClientAliveInterval 60
+    EOL
+</code></pre>
+<p>Restart the SSH service:</p>
+<pre><code class="lang-bash">service ssh restart
+</code></pre>
+<p>On your local machine, run the following command to open a reverse-proxy tunnel:</p>
+<pre><code class="lang-bash">ssh -v -N -T -R 3000:localhost:3000 VPS_HOST_OR_IP_ADDRESS
+</code></pre>
+<p>This will forward all traffic to port 3000 to the VPS thru the SSH tunnel to port 3000 on your local machine.</p>
+<p>Provide the VPS IP address + endpoint path as the <code>callbackUrl</code> option. For example:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/login'</span>,
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+        <span class="keyword">if</span> (req.user) {
+            <span class="keyword">return</span> res.redirect(<span class="string">'/'</span>);
+        }
+        next();
+    },
+    <span class="keyword">new</span> LnurlAuth.Middleware({
+        <span class="attr">callbackUrl</span>: <span class="string">'http://VPS_IP_ADDRESS:3000/login'</span>
+    })
+);
+</code></pre>
+<p>Be sure to replace <code>VPS_IP_ADDRESS</code> with the actual IP address of your server.</p>
+<h4 id="using-ngrok">Using ngrok</h4>
+<p>If you don&#39;t have access to your own VPS, <a href="https://ngrok.com/">ngrok</a> is another possible solution. Follow the installation instructions on the project&#39;s website before continuing here. Once you have ngrok installed, you can continue with the instructions here.</p>
+<p>To create an HTTP tunnel to the toolbox&#39;s LNURL server:</p>
+<pre><code class="lang-bash">ngrok http -region eu 3000
+</code></pre>
+<p>You should see something like the following:</p>
+<p><img src="https://github.com/chill117/passport-lnurl-auth/blob/master/images/ngrok-screen-https-tunnel.png" alt=""></p>
+<p>Provide the HTTPS tunnel URL + endpoint path as the <code>callbackUrl</code> option. For example:</p>
+<pre><code class="lang-js">app.get(<span class="string">'/login'</span>,
+    <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+        <span class="keyword">if</span> (req.user) {
+            <span class="keyword">return</span> res.redirect(<span class="string">'/'</span>);
+        }
+        next();
+    },
+    <span class="keyword">new</span> LnurlAuth.Middleware({
+        <span class="attr">callbackUrl</span>: <span class="string">'https://a9453568.eu.ngrok.io/login'</span>
+    })
+);
+</code></pre>
+<p>Note that each time you open a tunnel with ngrok, your tunnel URL changes. </p>
+<h2 id="changelog">Changelog</h2>
+<p>See <a href="https://github.com/chill117/passport-lnurl-auth/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
+<h2 id="license">License</h2>
+<p>This software is <a href="https://tldrlegal.com/license/mit-license">MIT licensed</a>:</p>
+<blockquote>
+<p>A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source.  There are many variations of this license in use.</p>
+</blockquote>
+<h2 id="funding">Funding</h2>
+<p>This project is free and open-source. If you would like to show your appreciation by helping to fund the project&#39;s continued development and maintenance, you can find available options <a href="https://degreesofzero.com/donate.html?project=passport-lnurl-auth">here</a>.</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-lnurl-auth</span></code></div>
+            <ul>
+              <li><span class="version">1.4.2</span> published <abbr class="updated" title="2021-10-28T14:12:21Z">2 months ago</abbr></li>
+              <li><a class="url" href="https://github.com/chill117/passport-lnurl-auth">https://github.com/chill117/passport-lnurl-auth#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
