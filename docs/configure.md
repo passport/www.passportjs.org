@@ -168,3 +168,24 @@ received, this ID is used to find the user, which will be restored to
 The serialization and deserialization logic is supplied by the application,
 allowing the application to choose an appropriate database and/or object mapper,
 without imposition by the authentication layer.
+
+Both the serializeUser and deserializeUser callbacks may also accept the
+request as a first argument, to fine tune the logic based on request data
+(e.g. header values).
+
+```javascript
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(req, id, done) {
+  User.findByIdInHostname(id, req.hostname, function(err, user) {
+    done(err, user);
+  });
+});
+```
+
+In this example, different hostnames may share the same user IDs,
+so the hostname is used to ensure the correct one is fetched.
+Serialization is still just the ID of the current user in the current domain,
+so there is no need to supply the request there.
