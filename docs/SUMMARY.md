@@ -2,13 +2,12 @@
 
 ### General
 
-* [Overview](README.md)
 * [Authenticate](authenticate.md)
 * [Configure](configure.md)
 * [Username & Password](username-password.md)
 * [OpenID](openid.md)
 * [OAuth](oauth.md)
-* [Profile](profile.md)
+* [User Profile](profile.md)
 
 ### Providers
 
