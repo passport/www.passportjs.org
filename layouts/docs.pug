@@ -8,21 +8,32 @@ block content
 
   section.docs
     h1 Documentation
+    |!{content}
     
     section
       h2 Tutorials
-      div.xgrid
+      div
+        p Lorem ipsum
+        ul
+          li
+            a(href='#') Article 1 That Has a Long Title That Is Even Longer
+          li
+            a(href='#') Article 2
+    
+    section
+      h2 How-to Guides
+      div
         p Practical step-by-step guides to help you achieve a specific goal.  Most useful when you are trying to get something done.
         ul
-          li Article 1
-          li Article 2
+          li
+            a(href='#') Article 1
+          li
+            a(href='#') Article 2
       
     section
       h2 Reference
-      div.xgrid
+      div
         p Dolor sit
         ul
           li Article 1
           li Article 2
-    
-    |!{content}
