@@ -3,6 +3,7 @@ define(['./controllers/home',
         './controllers/features',
         './controllers/packages',
         './middleware/controller',
+        './middleware/highlight',
         './middleware/analytics/pageview',
         './middleware/ad/refresh',
         './shell',
@@ -10,10 +11,11 @@ define(['./controllers/home',
         'page',
         'jquery'],
 function(homeController, docsController, featuresController, packagesController,
-         controller, pageview, adRefresh, shell, utils, page, $) {
+         controller, highlight, pageview, adRefresh, shell, utils, page, $) {
   
   page('/', controller(homeController), pageview(), adRefresh());
   page('/docs/*', controller(docsController), pageview(), adRefresh());
+  page('/tutorials/*', highlight());
   page('/features', controller(featuresController), pageview(), adRefresh());
   page('/packages', controller(packagesController, true), pageview());
   
