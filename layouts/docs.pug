@@ -1,0 +1,28 @@
+extends layout
+
+include mixins
+include mixins/app
+include mixins/social
+
+block content
+
+  section.docs
+    h1 Documentation
+    
+    section
+      h2 Tutorials
+      div.xgrid
+        p Practical step-by-step guides to help you achieve a specific goal.  Most useful when you are trying to get something done.
+        ul
+          li Article 1
+          li Article 2
+      
+    section
+      h2 Reference
+      div.xgrid
+        p Dolor sit
+        ul
+          li Article 1
+          li Article 2
+    
+    |!{content}
