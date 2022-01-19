@@ -4,7 +4,8 @@ include mixins/verification
 doctype html
 html(prefix='og: http://ogp.me/ns#', lang='en')
   head
-    title= title
+    block title
+      title= title
     meta(charset="utf-8")
     if description
       meta(name='description', content=description)
