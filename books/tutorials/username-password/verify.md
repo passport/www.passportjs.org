@@ -11,9 +11,8 @@ $ npm install passport
 $ npm install passport-local
 ```
 
-Next, we need to configure Passport to use `passport-local` when verifying
-a password.  Open `'routes/auth.js'` and require the newly installed packages
-at line 2, below where `express` is `require`'d:
+Next, we need to configure Passport.  Open `'routes/auth.js'` and require the
+newly installed packages at line 2, below where `express` is `require`'d:
 
 ```js
 var express = require('express');
@@ -51,7 +50,7 @@ that succeeds, the password is valid and the user is authenticated.
 Next, we need to add a route that will process the form submission when the user
 clicks "Sign in."
 
-Continuing within `'routes/auth.js`, add this route at line 28, below the
+Continuing within `'routes/auth.js'`, add this route at line 28, below the
 `'/login'` route:
 
 ```js
@@ -60,3 +59,25 @@ router.post('/login/password', passport.authenticate('local', {
   failureRedirect: '/login'
 }));
 ```
+
+We've now got a route that will process the form on the login page!  Let's test
+it out to see what happens.
+
+Start the server:
+
+```sh
+$ npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000), click "Sign in," and enter
+the following credentials:
+
+```
+Username: alice
+Password: letmein
+```
+
+Click "Sign in."
+
+Uh oh... we are informed that there's related to sessions.  Next, we will fix
+that next by [establishing a session](../session/).
