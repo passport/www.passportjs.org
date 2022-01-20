@@ -11,7 +11,7 @@ $ npm install passport
 $ npm install passport-local
 ```
 
-Next, we need to configure Passport.  Open `'routes/auth.js'` and require the
+Next, we need to configure Passport.  Open `'routes/auth.js'` and `require` the
 newly installed packages at line 2, below where `express` is `require`'d:
 
 ```js
@@ -80,4 +80,4 @@ Password: letmein
 Click "Sign in."
 
 Uh oh... we are informed that there's related to sessions.  Next, we will fix
-that next by [establishing a session](../session/).
+that by [establishing a session](../session/).
