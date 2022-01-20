@@ -12,7 +12,7 @@ router.post('/logout', function(req, res, next) {
 });
 ```
 
-Return to the app, where you should be signed in, and click "Sign out."
+Return to the app, where you should already be signed in, and click "Sign out."
 
 We've now got a working app where users can sign in and sign out!  Next we
 will let new users [sign up](../signup/).
