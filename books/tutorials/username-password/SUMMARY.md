@@ -1,5 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Login Prompt](login.md)
+* [Login Prompt](prompt.md)
+* [Verify Password](verify.md)
 

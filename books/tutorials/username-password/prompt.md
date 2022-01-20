@@ -42,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 ```
 
-The login page has been add to our app!  Let's see how it looks.
+The login page has been added to our app!  Let's see how it looks.
 
 Start the server:
 

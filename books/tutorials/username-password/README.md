@@ -50,4 +50,4 @@ Let's check to see if its working.  Open [http://localhost:3000](http://localhos
 in your browser.  You should be greeted with a page explaining how todos help
 you get things done.
 
-Next, we will [add a login page](login/) to the app.
+Next, we will [add a login page](prompt/) to the app.
