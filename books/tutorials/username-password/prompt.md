@@ -46,7 +46,7 @@ The login page has been added to our app!  Let's see how it looks.
 
 Start the server:
 
-```
+```sh
 $ npm start
 ```
 
