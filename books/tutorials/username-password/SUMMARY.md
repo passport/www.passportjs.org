@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [Set Up](setup.md)
+* [Login Prompt](login.md)
 
