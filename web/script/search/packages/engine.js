@@ -23,7 +23,7 @@ define(['bloodhound', './sort', './remote/api-v1/all'], function(Bloodhound, sor
           item.links = item.links || {};
           item.links.self = '/packages/' + encodeURIComponent(item.name);
           item.flags = val._flags;
-          item.count = val._count;
+          item.counts = val._counts;
           item.downloads = val._downloads;
           items.push(item);
         }

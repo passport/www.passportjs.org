@@ -3,19 +3,19 @@ define(['./controllers/home',
         './controllers/features',
         './controllers/packages',
         './middleware/controller',
+        './middleware/analytics/pageview',
         './middleware/ad/refresh',
         './shell',
         './utils',
         'page',
         'jquery'],
 function(homeController, docsController, featuresController, packagesController,
-         controller, adRefresh, shell, utils, page, $) {
+         controller, pageview, adRefresh, shell, utils, page, $) {
   
-  page('/', controller(homeController), adRefresh());
-  page('/docs/*', controller(docsController), adRefresh());
-  page('/features', controller(featuresController), adRefresh());
-  page('/packages', controller(packagesController, true));
-  
+  page('/', controller(homeController), pageview(), adRefresh());
+  page('/docs/*', controller(docsController), pageview(), adRefresh());
+  page('/features', controller(featuresController), pageview(), adRefresh());
+  page('/packages', controller(packagesController, true), pageview());
   
   $(document).ready(function() {
     $('body').toggleClass('ie', utils.isMSIE());

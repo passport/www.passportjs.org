@@ -1,29 +1,19 @@
 # Summary
 
-* [Introduction](README.md)
-* [Middleware](authenticate.md)
-* [Strategies](configure.md)
-* [Sessions](sessions.md)
+### General
+
+* [Authenticate](authenticate.md)
+* [Configure](configure.md)
+* [Username & Password](username-password.md)
+* [OpenID](openid.md)
 * [OAuth](oauth.md)
-* [Profile](profile.md)
+* [User Profile](profile.md)
 
-### Form-based
+### Providers
 
-* [Overview](form-based-authentication.md)
-* [Password](username-password.md)
-
-### Social
-
-* [Overview](social-login.md)
-* [Google](google.md)
 * [Facebook](facebook.md)
 * [Twitter](twitter.md)
-
-### Federated
-
-* [Overview](federated-identity.md)
-* [OAuth](oauth.md)
-* [OpenID](openid.md)
+* [Google](google.md)
 
 ### APIs
 
@@ -32,9 +22,8 @@
 * [OAuth 2.0](oauth2-api.md)
 * [Other](other-api.md)
 
-### Sessions
+### Operations
 
 * [Log In](login.md)
 * [Log Out](logout.md)
 * [Authorize](authorize.md)
-

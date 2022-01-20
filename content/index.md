@@ -4,16 +4,22 @@ layout: "home"
 title: "Passport.js"
 description: "Simple, unobtrusive authentication for Node.js"
 authenticationSchemes:
-  - name: twitter
-    color: "#55acee"
   - name: facebook
-    color: "#3b5998"
+    color: "#4267b2"
   - name: google
-    color: "#dd4b39"
+    color: "#db4437"
+  - name: apple
+    color: "#555555"
+  - name: microsoft
+    color: "#f25022"
+  - name: twitter
+    color: "#1da1f2"
   - name: linkedin
-    color: "#0976b4"
+    color: "#2867b2"
   - name: github
-    color: "#333"
+    color: "#333333"
+  - name: openid
+    color: "#ea8536"
 packageCount: 500
 
 
