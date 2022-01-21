@@ -1,0 +1,40 @@
+extends layout
+
+include mixins
+include mixins/app
+include mixins/social
+
+block content
+
+  section.docs
+    .intro
+      h1 Documentation
+      |!{content}
+    
+    section
+      h2 Tutorials
+      div
+        p Lessons that introduce the basics by building simple apps. Most useful when you are new to Passport and getting started.
+    
+    section
+      h2 How-to Guides
+      div
+        p Step-by-step guides to help you accomplish a task. Most useful when you are trying to solve a specific problem.
+      
+    section
+      h2 Reference
+      div
+        p Technical descriptions of how Passport works. Most useful when you need detailed information about Passport's APIs.
+        ul
+          li Article 1
+          li Article 2
+
+    section
+      h2 Concepts
+      div
+        p Explanations of higher-level topics pertaining to Passport. Most useful for deepening your understanding.
+        ul
+          li
+            a(href='/concepts/authentication/') Authentication
+          li
+            a(href='/concepts/api-authentication/') API Authentication
