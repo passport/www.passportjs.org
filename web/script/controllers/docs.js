@@ -26,14 +26,14 @@ function(PjaxController, clazz, hljs, $, __$_accordion) {
         sections.removeClass('active');
 
         $(this).addClass('active');
-        submenu.find('a[href="/docs/' + path + '"]').addClass('active').closest('[data-content]').addClass('active');
+        submenu.find('a[href="/concepts/authentication/' + path + '"]').addClass('active').closest('[data-content]').addClass('active');
       }
     });
   }
   
   
   function DocsController() {
-    PjaxController.call(this, '/docs', '/docs/downloads/html/');
+    PjaxController.call(this, '/concepts/authentication', '/concepts/authentication/downloads/html/');
     
     this.on('ready', function() {
       _submenuOffset = $('.toc nav').offset();

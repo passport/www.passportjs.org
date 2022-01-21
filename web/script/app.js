@@ -13,7 +13,7 @@ function(homeController, docsController, featuresController, packagesController,
          controller, pageview, adRefresh, shell, utils, page, $) {
   
   page('/', controller(homeController), pageview(), adRefresh());
-  page('/docs/*', controller(docsController), pageview(), adRefresh());
+  page('/concepts/authentication/*', controller(docsController), pageview(), adRefresh());
   page('/features', controller(featuresController), pageview(), adRefresh());
   page('/packages', controller(packagesController, true), pageview());
   
