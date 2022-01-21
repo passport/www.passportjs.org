@@ -84,6 +84,26 @@ exports = module.exports = function(repoHandler, logging) {
     '/docs/twitter.html': '/docs/twitter/',
     '/docs/user-profile.html': '/docs/profile/',
     '/docs/username-password.html': '/docs/username-password/',
+    
+    // Docs reorg, Jan 21 2022
+    '/docs/authenticate/': '/concepts/authentication/middleware/',
+    '/docs/configure/': '/concepts/authentication/strategies/',
+    '/docs/username-password/': '/concepts/authentication/password/',
+    '/docs/openid/': '/concepts/authentication/openid/',
+    '/docs/oauth/': '/concepts/authentication/oauth/',
+    '/docs/profile/': '/reference/normalized-profile/',
+    '/docs/facebook/': '/concepts/authentication/facebook/',
+    '/docs/twitter/': '/concepts/authentication/twitter/',
+    '/docs/google/': '/concepts/authentication/google/',
+    '/docs/basic-digest/': '/concepts/authentication/http-basic/',
+    '/docs/oauth-api/': '/concepts/authentication/http-oauth/',
+    '/docs/oauth2-api/': '/concepts/authentication/http-bearer/',
+    '/docs/other-api/': '/concepts/api-authentication/',
+    '/docs/login/': '/concepts/authentication/login/',
+    '/docs/logout/': '/concepts/authentication/logout/',
+    '/docs/authorize/': '/concepts/delegated-authorization/',
+    // XXX: If this 302's the PJAX controller changes the window location
+    '/docs/downloads/html/': '/concepts/authentication/downloads/html/'
   }, 301));
   
   
