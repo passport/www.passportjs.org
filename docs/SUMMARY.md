@@ -24,5 +24,3 @@
 
 * [Log In](login.md)
 * [Log Out](logout.md)
-* [Authorize](authorize.md)
-
