@@ -208,12 +208,12 @@ define("controllers/docs", [ "./base/pjax", "class", "highlight", "jquery", "jqu
                 submenu.find("a").removeClass("active").closest("[data-content]").removeClass("active");
                 sections.removeClass("active");
                 $(this).addClass("active");
-                submenu.find('a[href="/docs/' + path + '"]').addClass("active").closest("[data-content]").addClass("active");
+                submenu.find('a[href="/concepts/authentication/' + path + '"]').addClass("active").closest("[data-content]").addClass("active");
             }
         });
     }
     function DocsController() {
-        PjaxController.call(this, "/docs", "/docs/downloads/html/");
+        PjaxController.call(this, "/concepts/authentication", "/concepts/authentication/downloads/html/");
         this.on("ready", function() {
             _submenuOffset = $(".toc nav").offset();
             $(window).on("scroll", onscroll);
@@ -715,7 +715,7 @@ define("utils", [ "exports" ], function(exports) {
 
 define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/analytics/pageview", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, pageview, adRefresh, shell, utils, page, $) {
     page("/", controller(homeController), pageview(), adRefresh());
-    page("/docs/*", controller(docsController), pageview(), adRefresh());
+    page("/concepts/authentication/*", controller(docsController), pageview(), adRefresh());
     page("/features", controller(featuresController), pageview(), adRefresh());
     page("/packages", controller(packagesController, true), pageview());
     $(document).ready(function() {

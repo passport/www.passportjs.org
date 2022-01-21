@@ -3861,6 +3861,51 @@ body.is-search .search-con {
 .features .item-9 {
   background-color: #dcfd35;
 }
+.docs .intro {
+  max-width: 840px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.docs .intro h1 {
+  padding: 0;
+  margin: 0 0 40px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .docs .intro h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+  }
+}
+.docs .intro p {
+  margin: 0;
+  padding: 0;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  font-size: 18px;
+}
+.docs section div {
+  vertical-align: top;
+}
+.docs section p {
+  display: inline-block;
+  width: 60%;
+  margin: 0 30px 0 0;
+  vertical-align: top;
+}
+.docs section ul {
+  display: inline-block;
+  width: 35%;
+  list-style: square;
+}
+.docs section li {
+  list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-book'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'%3E%3C/path%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'%3E%3C/path%3E%3C/svg%3E");
+  font-weight: bold;
+}
 .contents {
   max-width: 840px;
   width: 100%;
