@@ -101,7 +101,9 @@ exports = module.exports = function(repoHandler, logging) {
     '/docs/other-api/': '/concepts/api-authentication/',
     '/docs/login/': '/concepts/authentication/login/',
     '/docs/logout/': '/concepts/authentication/logout/',
-    '/docs/authorize/': '/concepts/delegated-authorization/'
+    '/docs/authorize/': '/concepts/delegated-authorization/',
+    // XXX: If this 302's the PJAX controller changes the window location
+    '/docs/downloads/html/': '/concepts/authentication/downloads/html/'
   }, 301));
   
   
