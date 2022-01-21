@@ -311,6 +311,58 @@ will add the ability to <a href="../logout/">sign out</a>.</p>
 <p>We&#39;ve now got a working app where users can sign in and sign out!  Next we
 will let new users <a href="../signup/">sign up</a>.</p>
 </section><section class="chapter" id="signup"><h1 id="sign-up">Sign Up</h1>
+<p>Users can now sign in and sign out.  The only thing that&#39;s missing is to let new
+users sign up.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add the following route at line 50, below the
+<code>&#39;/logout&#39;</code> route:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  res.render(<span class="string">'signup'</span>);
+});
+</code></pre>
+<p>This route will render the signup page.  Let&#39;s add an HTML form to that page.</p>
+<p>Open <code>&#39;views/signup.ejs&#39;</code> and add the form at line 15, below the &quot;Sign up&quot;
+heading:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign up<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/signup"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">section</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"username"</span> <span class="attr">required</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">section</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"new-password"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"new-password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">autocomplete</span>=<span class="string">"new-password"</span> <span class="attr">required</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Sign up<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
+<p>Finally, we need to add a route that will process the form submission when the
+user clicks &quot;Sign up.&quot;  Add this route at line 54, below the <code>&#39;/signup&#39;</code> route:</p>
+<pre><code class="lang-js">router.post(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="keyword">var</span> salt = crypto.randomBytes(<span class="number">16</span>);
+  crypto.pbkdf2(req.body.password, salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+    db.run(<span class="string">'INSERT INTO users (username, hashed_password, salt) VALUES (?, ?, ?)'</span>, [
+      req.body.username,
+      hashedPassword,
+      salt
+    ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+      <span class="keyword">var</span> user = {
+        <span class="attr">id</span>: <span class="keyword">this</span>.lastID,
+        <span class="attr">username</span>: req.body.username
+      };
+      req.login(user, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+        res.redirect(<span class="string">'/'</span>);
+      });
+    });
+  });
+});
+</code></pre>
+<p>This route creates a new user record in the app&#39;s database, storing the username
+and hashed password.  Once the record is created, the user is logged in.</p>
+<p>Return to the app and create a new account.</p>
+<p>That&#39;s it!  Users can now sign in, sign out, and sign up!</p>
 </section></div>
         </div>
       </div>
