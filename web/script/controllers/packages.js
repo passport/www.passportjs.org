@@ -22,6 +22,8 @@ function(engine, sort, template, shell, Controller, clazz, $, exports) {
     //ev.stopPropagation();
     //page.show('/search');
     
+    console.log('search input')
+    
     var q = $(this).val()
       , nonempty = !!q.length;
     $(this).toggleClass('bigger', nonempty);

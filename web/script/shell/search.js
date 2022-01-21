@@ -23,6 +23,30 @@ function(exports, template, engine, page, $, __$_typeahead) {
       }
     });
     
+    $('.search-con form input').bind('typeahead:active', function(ev) {
+      console.log('typeahead active');
+    });
+    
+    $('.search-con form input').bind('typeahead:idle', function(ev) {
+      console.log('typeahead idle');
+    });
+    
+    $('.search-con form input').bind('typeahead:open', function(ev) {
+      console.log('typeahead open');
+    });
+    
+    $('.search-con form input').bind('typeahead:close', function(ev) {
+      console.log('typeahead close');
+    });
+    
+    $('.search-con form input').bind('typeahead:change', function(ev) {
+      console.log('typeahead change');
+    });
+    
+    $('.search-con form input').bind('typeahead:select', function(ev) {
+      console.log('typeahead select');
+    });
+    
     $(document).on('focus', '[placeholder]', function () {
       if ($(this).val() == $(this).attr('placeholder')) {
         $(this).val('').removeClass('placeholder');
