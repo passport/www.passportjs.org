@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Documentation</title>
+    <title>Username &amp; Password Tutorial: Establish Session</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/docs/">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/password/session/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +32,8 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Documentation"/>
-    <meta property="og:url" content="https://www.passportjs.org/docs/"/>
+    <meta property="og:title" content="Username &amp; Password Tutorial: Establish Session"/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/password/session/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Documentation"/>
+    <meta name="twitter:title" content="Username &amp; Password Tutorial: Establish Session"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -81,56 +81,83 @@
         <div class="menu-items">
           <ul>
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/">Documentation</a></li>
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
         </div>
       </nav>
       <div id="content">
-        <section class="docs">
-          <div class="intro">
-            <h1>Documentation</h1><p>Passport is middleware for Node.js that makes it easy to implement
-authentication and authorization.  Whether you are building your first login
-page or are an expert in all things identity, the documentation will help you
-understand Passport and use it in your applications.</p>
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/password/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/password/">Introduction</a></li>
+                  <li><a href="/tutorials/password/prompt/">Login Prompt</a></li>
+                  <li><a href="/tutorials/password/verify/">Verify Password</a></li>
+                  <li><a class="active" href="/tutorials/password/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/password/logout/">Log out</a></li>
+                  <li><a href="/tutorials/password/signup/">Sign up</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="establish-session">Establish Session</h1>
+<p>Once we&#39;ve verified the user&#39;s password, we need to a login session to remember
+the fact that the user has authenticated as they navigate the app.</p>
+<p>To do that, we&#39;ll add session support.  Begin by installing the necessary
+dependencies:</p>
+<pre><code class="lang-sh">$ npm install express-session
+$ npm install connect-sqlite3
+</code></pre>
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 6, below
+where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
 
+<span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
+</code></pre>
+<p>Add the following code at line 27, after <code>express.static</code> middleware, to
+maintain and authenticate the session.</p>
+<pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+}));
+app.use(passport.authenticate(<span class="string">'session'</span>));
+</code></pre>
+<p>Finally, we need to configure Passport to manage the login session.  Open
+<code>&#39;routes/auth.js&#39;</code> and add the following code at line 22:</p>
+<pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username });
+  });
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+  });
+});
+</code></pre>
+<p>Now, let&#39;s retry signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>,
+click &quot;Sign in,&quot; and enter the following credentials:</p>
+<pre><code><span class="symbol">Username:</span> alice
+<span class="symbol">Password:</span> letmein
+</code></pre><p>Click &quot;Sign in.&quot;</p>
+<p>We are logged in!  Go ahead and enter some tasks you&#39;ve been needing to get
+done.</p>
+<p>At this point, users can sign in using a username and password!  Next, we
+will add the ability to <a href="../logout/">sign out</a>.</p>
+</section>
           </div>
-          <section>
-            <h2>Tutorials</h2>
-            <div>
-              <p>Lessons that introduce the basics by building simple apps. Most useful when you are new to Passport and getting started.</p>
-              <ul>
-                <li><a href="/tutorials/password/">Username &amp; Password</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>How-to Guides</h2>
-            <div>
-              <p>Step-by-step guides to help you accomplish a task. Most useful when you are trying to solve a specific problem.</p>
-            </div>
-          </section>
-          <section>
-            <h2>Reference</h2>
-            <div>
-              <p>Technical descriptions of how Passport works. Most useful when you need detailed information about Passport's APIs.</p>
-              <ul>
-                <li><a href="/reference/normalized-profile/">Normalized Profile</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>Concepts</h2>
-            <div>
-              <p>Explanations of higher-level topics pertaining to Passport. Most useful for deepening your understanding.</p>
-              <ul>
-                <li><a href="/concepts/authentication/">Authentication</a></li>
-                <li><a href="/concepts/api-authentication/">API Authentication</a></li>
-              </ul>
-            </div>
-          </section>
-        </section>
+        </div>
       </div>
     </div>
     <div class="search-con">
