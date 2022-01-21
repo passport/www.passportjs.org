@@ -1,34 +1,40 @@
 # Overview
 
-Passport is authentication middleware for [Node](http://nodejs.org/).  It is
-designed to serve a singular purpose: authenticate requests.  When writing
-modules, encapsulation is a virtue, so Passport delegates all other
-functionality to the application.  This separation of concerns keeps code clean
-and maintainable, and makes Passport extremely easy to integrate into an
-application.
+Passport is authentication middleware for [Node.js](https://nodejs.org/).  It is
+designed to serve a singular purpose: authenticate requests.  Passport cleanly
+encapsulates this functionality, while delegating unrelated details such as data
+access to the application.  Whether you are building a new application or
+working on an existing one, this separation of concerns makes Passport extremely
+easy to integrate.
 
-In modern web applications, authentication can take a variety of forms.
-Traditionally, users log in by providing a username and password.  With the rise
-of social networking, single sign-on using an [OAuth](http://oauth.net/)
-provider such as [Facebook](https://www.facebook.com/) or [Twitter](https://twitter.com/)
-has become a popular authentication method.  Services that expose an API often
-require token-based credentials to protect access.
+In modern web applications, authentication can be performed in a variety of
+ways.  Traditionally, users log in by providing a username and password.  Social
+networks, along with the billions of people that have joined them, have made
+[single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO) using
+[Facebook](https://www.facebook.com/) or [Google](https://www.google.com/) a
+popular option.  Recent innovations, encompassed by [Web Authentication](https://en.wikipedia.org/wiki/WebAuthn)
+(WebAuthn), allow people to log in using fingerprint or facial recognition.
 
-Passport recognizes that each application has unique authentication
-requirements.  Authentication mechanisms, known as _strategies_, are packaged as
-individual modules.  Applications can choose which strategies to employ, without
-creating unnecessary dependencies.
+Application architectures are also constantly evolving.  Application logic that,
+in the past, had to execute on the server can now execute in the browser, with
+the frontend invoking backend APIs.  Such architectures rely heavily on token-
+based credentials to protect access.
 
-Despite the complexities involved in authentication, code does not have to be
-complicated.
+Passport reduces the complexity of authenticating a request to a simple
+statement:
 
 ```javascript
-app.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                                    failureRedirect: '/login' }));
+app.post('/login/password', passport.authenticate('local'));
 ```
 
-## Install
+Hidden behind that simple statement are three fundamental concepts:
 
-```bash
-$ npm install passport
-```
+  1. Middleware
+  2. Strategies
+  3. Sessions
+  
+This guide provides an overview of these concepts, explaining how they fit
+together within Passport.  Some of the most commonly used authentication
+mechanisms will be explored in detail, to illustrate how they are integrated.
+After reading this guide, you will have an understanding of how Passport works
+when authenticating requests to your application.
