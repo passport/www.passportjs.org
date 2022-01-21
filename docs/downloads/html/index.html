@@ -130,30 +130,38 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents"><section class="chapter" id="README"><h1 id="overview">Overview</h1>
-<p>Passport is authentication middleware for <a href="http://nodejs.org/">Node</a>.  It is
-designed to serve a singular purpose: authenticate requests.  When writing
-modules, encapsulation is a virtue, so Passport delegates all other
-functionality to the application.  This separation of concerns keeps code clean
-and maintainable, and makes Passport extremely easy to integrate into an
-application.</p>
-<p>In modern web applications, authentication can take a variety of forms.
-Traditionally, users log in by providing a username and password.  With the rise
-of social networking, single sign-on using an <a href="http://oauth.net/">OAuth</a>
-provider such as <a href="https://www.facebook.com/">Facebook</a> or <a href="https://twitter.com/">Twitter</a>
-has become a popular authentication method.  Services that expose an API often
-require token-based credentials to protect access.</p>
-<p>Passport recognizes that each application has unique authentication
-requirements.  Authentication mechanisms, known as <em>strategies</em>, are packaged as
-individual modules.  Applications can choose which strategies to employ, without
-creating unnecessary dependencies.</p>
-<p>Despite the complexities involved in authentication, code does not have to be
-complicated.</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'local'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                                    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }));
+<p>Passport is authentication middleware for <a href="https://nodejs.org/">Node.js</a>.  It is
+designed to serve a singular purpose: authenticate requests.  Passport cleanly
+encapsulates this functionality, while delegating unrelated details such as data
+access to the application.  Whether you are building a new application or
+working on an existing one, this separation of concerns makes Passport extremely
+easy to integrate.</p>
+<p>In modern web applications, authentication can be performed in a variety of
+ways.  Traditionally, users log in by providing a username and password.  Social
+networks, along with the billions of people that have joined them, have made
+<a href="https://en.wikipedia.org/wiki/Single_sign-on">single sign-on</a> (SSO) using
+<a href="https://www.facebook.com/">Facebook</a> or <a href="https://www.google.com/">Google</a> a
+popular option.  Recent innovations, encompassed by <a href="https://en.wikipedia.org/wiki/WebAuthn">Web Authentication</a>
+(WebAuthn), allow people to log in using fingerprint or facial recognition.</p>
+<p>Application architectures are also constantly evolving.  Application logic that,
+in the past, had to execute on the server can now execute in the browser, with
+the frontend invoking backend APIs.  Such architectures rely heavily on token-
+based credentials to protect access.</p>
+<p>Passport reduces the complexity of authenticating a request to a simple
+statement:</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>));
 </code></pre>
-<h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport
-</code></pre>
+<p>Hidden behind that simple statement are three fundamental concepts:</p>
+<ol>
+<li>Middleware</li>
+<li>Strategies</li>
+<li>Sessions</li>
+</ol>
+<p>This guide provides an overview of these concepts, explaining how they fit
+together within Passport.  Some of the most commonly used authentication
+mechanisms will be explored in detail, to illustrate how they are integrated.
+After reading this guide, you will have an understanding of how Passport works
+when authenticating requests to your application.</p>
 </section><section class="chapter" id="authenticate"><h1 id="authenticate">Authenticate</h1>
 <p>Authenticating requests is as simple as calling <code>passport.authenticate()</code> and
 specifying which strategy to employ.  <code>authenticate()</code>&#39;s function signature is
