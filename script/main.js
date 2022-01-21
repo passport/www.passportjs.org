@@ -663,6 +663,20 @@ define("middleware/controller", [ "../shell" ], function(shell) {
     };
 });
 
+define("middleware/highlight", [ "highlight" ], function(hljs) {
+    return function() {
+        return function highlight(ctx, next) {
+            hljs.configure({
+                classPrefix: ""
+            });
+            $("pre code").each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+            next();
+        };
+    };
+});
+
 define("middleware/analytics/pageview", [], function() {
     return function() {
         return function pageview(ctx, next) {
@@ -713,9 +727,10 @@ define("utils", [ "exports" ], function(exports) {
     };
 });
 
-define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/analytics/pageview", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, pageview, adRefresh, shell, utils, page, $) {
+define("app", [ "./controllers/home", "./controllers/docs", "./controllers/features", "./controllers/packages", "./middleware/controller", "./middleware/highlight", "./middleware/analytics/pageview", "./middleware/ad/refresh", "./shell", "./utils", "page", "jquery" ], function(homeController, docsController, featuresController, packagesController, controller, highlight, pageview, adRefresh, shell, utils, page, $) {
     page("/", controller(homeController), pageview(), adRefresh());
     page("/concepts/authentication/*", controller(docsController), pageview(), adRefresh());
+    page("/tutorials/*", highlight());
     page("/features", controller(featuresController), pageview(), adRefresh());
     page("/packages", controller(packagesController, true), pageview());
     $(document).ready(function() {
