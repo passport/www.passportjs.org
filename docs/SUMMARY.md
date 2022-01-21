@@ -2,12 +2,11 @@
 
 ### General
 
-* [Authenticate](authenticate.md)
-* [Configure](configure.md)
-* [Username & Password](username-password.md)
+* [Authenticate](middleware.md)
+* [Configure](strategies.md)
+* [Username & Password](password.md)
 * [OpenID](openid.md)
 * [OAuth](oauth.md)
-* [User Profile](profile.md)
 
 ### Providers
 
@@ -17,10 +16,9 @@
 
 ### APIs
 
-* [Basic & Digest](basic-digest.md)
-* [OAuth](oauth-api.md)
-* [OAuth 2.0](oauth2-api.md)
-* [Other](other-api.md)
+* [Basic & Digest](http-basic.md)
+* [OAuth](http-oauth.md)
+* [OAuth 2.0](http-bearer.md)
 
 ### Operations
 
