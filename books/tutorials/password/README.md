@@ -1,7 +1,7 @@
 # Introduction
 
 We will build a todo list app in this tutorial, complete with functionality that
-allows users to sign in using a username and password.  This tutorial will teach
+allows users to sign in with a username and password.  This tutorial will teach
 you how to use Passport for authentication.
 
 If you want to see where we are headed, here's an example of the final result:

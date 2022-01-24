@@ -1,7 +1,7 @@
 # Login Prompt
 
-We want to let users sign in using a username and password.  For that, we need
-a login page that prompts the user for their username and password.  Let's add
+We want to let users sign in with a username and password.  For that, we need a
+login page that prompts the user for their username and password.  Let's add
 that now.
 
 Let's create a file that will contain authentication-related routes:
