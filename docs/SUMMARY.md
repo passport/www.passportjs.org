@@ -5,22 +5,26 @@
 * [Middleware](middleware.md)
 * [Strategies](strategies.md)
 * [Username & Password](password.md)
-* [OpenID](openid.md)
-* [OAuth](oauth.md)
 
-### Providers
+### Social
 
 * [Facebook](facebook.md)
-* [Twitter](twitter.md)
 * [Google](google.md)
+* [Twitter](twitter.md)
 
-### APIs
+### Federated
 
-* [Basic & Digest](http-basic.md)
-* [OAuth](http-oauth.md)
-* [OAuth 2.0](http-bearer.md)
+* [OAuth](oauth.md)
+* [OpenID](openid.md)
 
-### Operations
+### Sessions
 
 * [Log In](login.md)
 * [Log Out](logout.md)
+
+### API
+
+* [Bearer](http-bearer.md)
+* [OAuth](http-oauth.md)
+* [Basic](http-basic.md)
+
