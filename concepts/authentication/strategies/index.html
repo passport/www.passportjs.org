@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Documentation: Configure</title>
+    <title>Documentation: Strategies</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="canonical" href="https://www.passportjs.org/concepts/authentication/strategies/">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Documentation: Configure"/>
+    <meta property="og:title" content="Documentation: Strategies"/>
     <meta property="og:url" content="https://www.passportjs.org/concepts/authentication/strategies/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Documentation: Configure"/>
+    <meta name="twitter:title" content="Documentation: Strategies"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -94,8 +94,8 @@
               <div class="accordion" data-accordion="">
                 <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/authentication/middleware/"></a>General</h5>
                 <ul data-content="">
-                  <li><a href="/concepts/authentication/middleware/">Authenticate</a></li>
-                  <li><a class="active" href="/concepts/authentication/strategies/">Configure</a></li>
+                  <li><a href="/concepts/authentication/middleware/">Middleware</a></li>
+                  <li><a class="active" href="/concepts/authentication/strategies/">Strategies</a></li>
                   <li><a href="/concepts/authentication/password/">Username &amp; Password</a></li>
                   <li><a href="/concepts/authentication/openid/">OpenID</a></li>
                   <li><a href="/concepts/authentication/oauth/">OAuth</a></li>
@@ -127,135 +127,138 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="configure">Configure</h1>
-<p>Three pieces need to be configured to use Passport for authentication:</p>
-<ol>
-<li>Authentication strategies</li>
-<li>Application middleware</li>
-<li>Sessions (<em>optional</em>)</li>
-</ol>
-<h2 id="strategies">Strategies</h2>
-<p>Passport uses what are termed <em>strategies</em> to authenticate requests.  Strategies
-range from verifying a username and password, delegated authentication using <a href="http://oauth.net/">OAuth</a>
-or federated authentication using <a href="http://openid.net/">OpenID</a>.</p>
-<p>Before asking Passport to authenticate a request, the strategy (or strategies)
-used by an application must be configured.</p>
-<p>Strategies, and their configuration, are supplied via the <code>use()</code> function.  For
-example, the following uses the <code>LocalStrategy</code> for username/password
-authentication.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>).Strategy;
+            <section class="chapter"><h1 id="strategies">Strategies</h1>
+<p>Strategies are responsible for authenticating requests, which they accomplish by
+implementing an authentication mechanism.  Authentication mechanisms define how
+to encode a credential, such as a password or an assertion from an identity
+provider (IdP), in a request.  They also specify the procedure necessary to
+verify that credential.  If the credential is successfully verified, the request
+is authenticated.</p>
+<p>There are a wide variety of authentication mechanisms, and a corresponding
+variety of strategies.  Strategies are distributed in separate packages which
+must be installed, configured, and registered.</p>
+<h2 id="install">Install</h2>
+<p>Strategies are published to the <a href="https://www.npmjs.com/">npm</a> registry, and
+installed using a package manager.</p>
+<p>The following command will install <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>,
+a package which provides a strategy for authenticating with a username and
+password:</p>
+<pre><code class="lang-bash">$ npm install passport-local
+</code></pre>
+<p>The following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
+a package which implements support for <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>:</p>
+<pre><code class="lang-bash">$ npm install passport-openidconnect
+</code></pre>
+<p>Developers only need to install the packages which provide authentication
+mechanisms required by the application.  This reduces overall application size
+by avoiding unnecessary dependencies.</p>
+<h2 id="configure">Configure</h2>
+<p>Once a package has been installed, the strategy needs to be configured.  The
+configuration varies with each authentication mechanism, so strategy-specific
+documentation should be consulted.  That being said, there are common patterns
+that are encountered across many strategies.</p>
+<p>The following code is an example that configures the <code>LocalStrategy</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
 
-passport.use(<span class="keyword">new</span> LocalStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>{
-    User.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) {
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username.'</span> });
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
+
+    crypto.pbkdf2(password, user.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+      <span class="keyword">if</span> (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> });
       }
-      <span class="keyword">if</span> (!user.validPassword(password)) {
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect password.'</span> });
-      }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
     });
-  }
-));
-</code></pre>
-<h2 id="verify-callback">Verify Callback</h2>
-<p>This example introduces an important concept.  Strategies require what is known
-as a <em>verify callback</em>.  The purpose of a verify callback is to find the user
-that possesses a set of credentials.</p>
-<p>When Passport authenticates a request, it parses the credentials contained in
-the request.  It then invokes the verify callback with those credentials as
-arguments, in this case <code>username</code> and <code>password</code>.  If the credentials are
-valid, the verify callback invokes <code>done</code> to supply Passport with the user that
-authenticated.</p>
-<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, user);
-</code></pre>
-<p>If the credentials are not valid (for example, if the password is incorrect),
-<code>done</code> should be invoked with <code>false</code> instead of a user to indicate an
-authentication failure.</p>
-<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
-</code></pre>
-<p>An additional info message can be supplied to indicate the reason for the
-failure.  This is useful for displaying a flash message prompting the user to
-try again.</p>
-<pre><code class="lang-javascript"><span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect password.'</span> });
-</code></pre>
-<p>Finally, if an exception occurred while verifying the credentials (for example,
-if the database is not available), <code>done</code> should be invoked with an error, in
-conventional Node style.</p>
-<pre><code class="lang-javascript"><span class="keyword">return</span> done(err);
-</code></pre>
-<p>Note that it is important to distinguish the two failure cases that can occur.
-The latter is a server exception, in which <code>err</code> is set to a non-<code>null</code> value.
-Authentication failures are natural conditions, in which the server is operating
-normally.  Ensure that <code>err</code> remains <code>null</code>, and use the final argument to pass
-additional details.</p>
-<p>By delegating in this manner, the verify callback keeps Passport database
-agnostic.  Applications are free to choose how user information is stored,
-without any assumptions imposed by the authentication layer.</p>
-<h4 id="middleware">Middleware</h4>
-<p>In a <a href="http://senchalabs.github.com/connect/">Connect</a> or
-<a href="http://expressjs.com/">Express</a>-based application, <code>passport.initialize()</code>
-middleware is required to initialize Passport.  If your application uses
-persistent login sessions, <code>passport.session()</code> middleware must also be used.</p>
-<pre><code class="lang-javascript">app.configure(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-  app.use(express.static(<span class="string">'public'</span>));
-  app.use(express.cookieParser());
-  app.use(express.bodyParser());
-  app.use(express.session({ 
-    <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
-    <span class="attr">resave</span>: <span class="literal">false</span>,
-    <span class="attr">saveUninitialized</span>: <span class="literal">false</span>
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
-});
-</code></pre>
-<p>Note that enabling session support is entirely optional, though it is
-recommended for most applications.  If enabled, be sure to use <code>session()</code>
-<em>before</em>  <code>passport.session()</code> to ensure that the login session is restored in
-the correct order.</p>
-<p>In Express 4.x, the Connect middleware is no longer included in the Express
-core, and the app.configure() method has been removed.  The same middleware
-can be found in their npm module equivalents.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">"express-session"</span>),
-    bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
-
-app.use(express.static(<span class="string">"public"</span>));
-app.use(session({ <span class="attr">secret</span>: <span class="string">"cats"</span> }));
-app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">false</span> }));
-app.use(passport.initialize());
-app.use(passport.session());
-</code></pre>
-<h4 id="sessions">Sessions</h4>
-<p>In a typical web application, the credentials used to authenticate a user will
-only be transmitted during the login request.  If authentication succeeds, a
-session will be established and maintained via a cookie set in the user&#39;s
-browser.</p>
-<p>Each subsequent request will not contain credentials, but rather the unique
-cookie that identifies the session.  In order to support login sessions,
-Passport will serialize and deserialize <code>user</code> instances to and from the
-session.</p>
-<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
-  done(<span class="literal">null</span>, user.id);
-});
-
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, done</span>) </span>{
-  User.findById(id, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-    done(err, user);
   });
 });
 </code></pre>
-<p>In this example, only the user ID is serialized to the session, keeping the
-amount of data stored within the session small.  When subsequent requests are
-received, this ID is used to find the user, which will be restored to
-<code>req.user</code>.</p>
-<p>The serialization and deserialization logic is supplied by the application,
-allowing the application to choose an appropriate database and/or object mapper,
-without imposition by the authentication layer.</p>
+<h4 id="verify-function">Verify Function</h4>
+<p>The <code>LocalStrategy</code> constructor takes a function as an argument.  This function
+is known as a <code>verify</code> function, and is a common pattern in many strategies.
+When authenticating a request, a strategy parses the credential contained in the
+request.  A <code>verify</code> function is then called, which is responsible for
+determining the user to which that credential belongs.  This allows data access
+to be delegated to the application.</p>
+<p>In this particular example, the <code>verify</code> function is executing a SQL query to
+obtain a user record from the database and, after verifying the password,
+yielding the record back to the strategy, thus authenticating the user and
+establishing a session.</p>
+<p>Because a <code>verify</code> function is supplied by the application itself, access to
+persistent storage is not constrained in any way.  The application is free to
+use any data storage system, including relational databases, graph databases,
+or document stores, and structure data within that store according to any
+schema.</p>
+<p>A <code>verify</code> function is strategy-specific, and the exact arguments it receives
+and parameters it yields will depend on the underlying authentication mechanism.
+For authentication mechanisms involving shared secrets, such as a password, a
+<code>verify</code> function is responsible for verifying the credential and yielding a
+user.  For mechanisms that provide cryptographic authentication, a <code>verify</code>
+function will typically yield a user and a key, the later of which the strategy
+will use to cryptographically verify the credential.</p>
+<p>A <code>verify</code> function yields under one of three conditions: success, failure, or
+an error.</p>
+<p>If the <code>verify</code> function finds a user to which the credential belongs, and that
+credential is valid, it calls the callback with the authenticating user:</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+</code></pre>
+<p>If the credential does not belong to a known user, or is not valid, the <code>verify</code>
+function calls the callback with <code>false</code> to indicate an authentication failure:</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>);
+</code></pre>
+<p>If an error occurs, such as the database not being available, the callback is
+called with an error, in idiomatic Node.js style:</p>
+<pre><code class="lang-javascript"><span class="keyword">return</span> cb(err);
+</code></pre>
+<p>It is important to distinguish between the two failure cases that can occur.
+Authentication failures are expected conditions, in which the server is
+operating normally, even though invalid credentials are being received from the
+user (or a malicious adversary attempting to authenticate as the user).  Only
+when the server is operating abnormally should <code>err</code> be set, to indicate an
+internal error.</p>
+<h2 id="register">Register</h2>
+<p>With the strategy configured, it is then registered by calling <code>.use()</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+
+passport.use(strategy);
+</code></pre>
+<p>All strategies have a name which, by convention, corresponds to the package
+name according to the pattern <code>passport-{name}</code>.  For instance, the
+<code>LocalStrategy</code> configured above is named <code>local</code> as it is distributed in the
+<code>passport-local</code> package.</p>
+<p>Once registered, the strategy can be employed to authenticate a request by
+passing the name of the strategy as the first argument to <code>passport.authenticate()</code>
+middleware:</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
+  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/~'</span> + req.user.username);
+  });
+</code></pre>
+<p>In cases where there is a naming conflict, or the default name is not
+sufficiently descriptive, the name can be overridden when registering the
+strategy by passing a name as the first argument to <code>.use()</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+
+passport.use(<span class="string">'password'</span>, strategy);
+</code></pre>
+<p>That name is then specified to <code>passport.authenticate()</code> middleware:</p>
+<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
+  passport.authenticate(<span class="string">'password'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.redirect(<span class="string">'/~'</span> + req.user.username);
+  });
+</code></pre>
+<p>For brevity, strategies are often configured and registered in a single
+statement:</p>
+<p><code>`</code>javascript
+var passport = require(&#39;passport&#39;);
+var LocalStrategy = require(&#39;passport-local&#39;);</p>
+<p>passport.use(new LocalStrategy(function verify(username, password, cb) {
+  // ...
+});</p>
 </section>
           </div>
         </div>

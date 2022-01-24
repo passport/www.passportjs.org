@@ -94,8 +94,8 @@
               <div class="accordion" data-accordion="">
                 <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/authentication/middleware/"></a>General</h5>
                 <ul data-content="">
-                  <li><a href="/concepts/authentication/middleware/">Authenticate</a></li>
-                  <li><a href="/concepts/authentication/strategies/">Configure</a></li>
+                  <li><a href="/concepts/authentication/middleware/">Middleware</a></li>
+                  <li><a href="/concepts/authentication/strategies/">Strategies</a></li>
                   <li><a href="/concepts/authentication/password/">Username &amp; Password</a></li>
                   <li><a href="/concepts/authentication/openid/">OpenID</a></li>
                   <li><a href="/concepts/authentication/oauth/">OAuth</a></li>
@@ -143,8 +143,8 @@ popular option.  Recent innovations, encompassed by <a href="https://en.wikipedi
 (WebAuthn), allow people to log in using fingerprint or facial recognition.</p>
 <p>Application architectures are also constantly evolving.  Application logic that,
 in the past, had to execute on the server can now execute in the browser, with
-the frontend invoking backend APIs.  Such architectures rely heavily on token-
-based credentials to protect access.</p>
+the frontend invoking backend APIs.  Such architectures rely heavily on
+token-based credentials to protect access.</p>
 <p>Passport reduces the complexity of authenticating a request to a simple
 statement:</p>
 <pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>));
