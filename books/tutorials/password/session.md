@@ -11,7 +11,7 @@ $ npm install express-session
 $ npm install connect-sqlite3
 ```
 
-Open `'app.js'` and `require` the additional dependencies at line 6, below
+Open `'app.js'` and `require` the additional dependencies at line 8, below
 where `'morgan'` is `require`'d:
 
 ```js
@@ -22,7 +22,7 @@ var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 ```
 
-Add the following code at line 27, after `express.static` middleware, to
+Add the following code at line 29, after `express.static` middleware, to
 maintain and authenticate the session.
 
 ```js

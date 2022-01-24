@@ -33,7 +33,8 @@ heading:
 ```
 
 Finally, we need to add a route that will process the form submission when the
-user clicks "Sign up."  Add this route at line 54, below the `'/signup'` route:
+user clicks "Sign up."  Back within `'routes/auth.js'`, add this route at line
+54, below the `'/signup'` route:
 
 ```js
 router.post('/signup', function(req, res, next) {
