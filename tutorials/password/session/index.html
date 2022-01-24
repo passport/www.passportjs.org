@@ -113,7 +113,7 @@ dependencies:</p>
 <pre><code class="lang-sh">$ npm install express-session
 $ npm install connect-sqlite3
 </code></pre>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 6, below
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
 where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 <pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
@@ -121,7 +121,7 @@ where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 
 <span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
 </code></pre>
-<p>Add the following code at line 27, after <code>express.static</code> middleware, to
+<p>Add the following code at line 29, after <code>express.static</code> middleware, to
 maintain and authenticate the session.</p>
 <pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
 app.use(session({

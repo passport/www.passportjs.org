@@ -131,7 +131,8 @@ heading:</p>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
 <p>Finally, we need to add a route that will process the form submission when the
-user clicks &quot;Sign up.&quot;  Add this route at line 54, below the <code>&#39;/signup&#39;</code> route:</p>
+user clicks &quot;Sign up.&quot;  Back within <code>&#39;routes/auth.js&#39;</code>, add this route at line
+54, below the <code>&#39;/signup&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   <span class="keyword">var</span> salt = crypto.randomBytes(<span class="number">16</span>);
   crypto.pbkdf2(req.body.password, salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{

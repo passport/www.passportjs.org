@@ -157,12 +157,12 @@ router.get(<span class="string">'/login'</span>, <span class="function"><span cl
 <span class="built_in">module</span>.exports = router;
 </code></pre>
 <p>Next, we need to add this route to the app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
-newly created auth routes at line 8, below where <code>&#39;routes/index&#39;</code> is
+newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
 <code>require</code>&#39;d:</p>
 <pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
 </code></pre>
-<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 25,
+<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
 below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
 <pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
 app.use(<span class="string">'/'</span>, authRouter);
@@ -256,7 +256,7 @@ dependencies:</p>
 <pre><code class="lang-sh">$ npm install express-session
 $ npm install connect-sqlite3
 </code></pre>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 6, below
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
 where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 <pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
@@ -264,7 +264,7 @@ where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 
 <span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
 </code></pre>
-<p>Add the following code at line 27, after <code>express.static</code> middleware, to
+<p>Add the following code at line 29, after <code>express.static</code> middleware, to
 maintain and authenticate the session.</p>
 <pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
 app.use(session({
@@ -336,7 +336,8 @@ heading:</p>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
 <p>Finally, we need to add a route that will process the form submission when the
-user clicks &quot;Sign up.&quot;  Add this route at line 54, below the <code>&#39;/signup&#39;</code> route:</p>
+user clicks &quot;Sign up.&quot;  Back within <code>&#39;routes/auth.js&#39;</code>, add this route at line
+54, below the <code>&#39;/signup&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   <span class="keyword">var</span> salt = crypto.randomBytes(<span class="number">16</span>);
   crypto.pbkdf2(req.body.password, salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
