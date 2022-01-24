@@ -253,12 +253,13 @@ passport.use(<span class="string">'password'</span>, strategy);
 </code></pre>
 <p>For brevity, strategies are often configured and registered in a single
 statement:</p>
-<p><code>`</code>javascript
-var passport = require(&#39;passport&#39;);
-var LocalStrategy = require(&#39;passport-local&#39;);</p>
-<p>passport.use(new LocalStrategy(function verify(username, password, cb) {
-  // ...
-});</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
+
+passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
+  <span class="comment">// ...</span>
+});
+</code></pre>
 </section>
           </div>
         </div>
