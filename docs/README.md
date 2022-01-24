@@ -17,8 +17,8 @@ popular option.  Recent innovations, encompassed by [Web Authentication](https:/
 
 Application architectures are also constantly evolving.  Application logic that,
 in the past, had to execute on the server can now execute in the browser, with
-the frontend invoking backend APIs.  Such architectures rely heavily on token-
-based credentials to protect access.
+the frontend invoking backend APIs.  Such architectures rely heavily on
+token-based credentials to protect access.
 
 Passport reduces the complexity of authenticating a request to a simple
 statement:

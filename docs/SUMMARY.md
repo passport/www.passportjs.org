@@ -2,8 +2,8 @@
 
 ### General
 
-* [Authenticate](middleware.md)
-* [Configure](strategies.md)
+* [Middleware](middleware.md)
+* [Strategies](strategies.md)
 * [Username & Password](password.md)
 * [OpenID](openid.md)
 * [OAuth](oauth.md)
