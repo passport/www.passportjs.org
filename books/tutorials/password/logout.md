@@ -1,4 +1,4 @@
-# Log out
+# Log Out
 
 Now that users can sign in, they'll need a way to sign out.
 

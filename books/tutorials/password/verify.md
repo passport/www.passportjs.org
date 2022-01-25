@@ -79,5 +79,5 @@ Password: letmein
 
 Click "Sign in."
 
-Uh oh... we are informed that there's related to sessions.  Next, we will fix
-that by [establishing a session](../session/).
+Uh oh... we are informed that there's an error related to sessions.  Next, we
+will fix that by [establishing a session](../session/).

@@ -66,5 +66,5 @@ Click "Sign in."
 We are logged in!  Go ahead and enter some tasks you've been needing to get
 done.
 
-At this point, users can sign in using a username and password!  Next, we
-will add the ability to [sign out](../logout/).
+At this point, users can sign in with a username and password!  Next, we will
+add the ability to [sign out](../logout/).

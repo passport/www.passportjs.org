@@ -4,5 +4,5 @@
 * [Login Prompt](prompt.md)
 * [Verify Password](verify.md)
 * [Establish Session](session.md)
-* [Log out](logout.md)
-* [Sign up](signup.md)
+* [Log Out](logout.md)
+* [Sign Up](signup.md)
