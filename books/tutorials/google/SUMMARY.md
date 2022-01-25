@@ -8,3 +8,4 @@
 * [Maintain State](state.md)
 * [Redirect Back to App](redirect-back.md)
 * [Establish Session](session.md)
+* [Log Out](logout.md)

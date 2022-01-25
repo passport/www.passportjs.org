@@ -1,6 +1,6 @@
 # Maintain State
 
-When a user sign in to our app with Google, they are redirected to Google.
+When a user signs in to our app with Google, they are redirected to Google.
 Google takes care of authenticating the user and then redirects them back to our
 app.
 
@@ -26,7 +26,7 @@ var SQLiteStore = require('connect-sqlite3')(session);
 ```
 
 Add the following code at line 28, after `express.static` middleware, to
-maintain add sessions to the application.
+add sessions to the application.
 
 ```js
 app.use(express.static(path.join(__dirname, 'public')));

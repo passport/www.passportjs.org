@@ -1,6 +1,6 @@
 # Redirect Back to App
 
-When a user sign in to our app with Google, they are redirected to Google.
+When a user signs in to our app with Google, they are redirected to Google.
 Google takes care of authenticating the user and then redirects them back to our
 app.
 
@@ -16,7 +16,7 @@ router.get('/oauth2/redirect/accounts.google.com', passport.authenticate('google
 }));
 ```
 
-We've now got a route that will redirect the user to Google, and handle the
+We've now got routes that will redirect the user to Google and handle the
 redirect back to our app!  Let's test it out to see what happens.
 
 Start the server:
