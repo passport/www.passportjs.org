@@ -1,4 +1,4 @@
-# Redirect
+# Redirect to Google
 
 Now that we are prompting the user to sign in with Google, the next step is to
 redirect the user to Google.

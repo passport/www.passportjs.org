@@ -1,4 +1,4 @@
-# Register
+# Register App
 
 Before we can let users sign in to our app with Google, we need to register the
 app with Google.
