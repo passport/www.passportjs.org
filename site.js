@@ -51,6 +51,7 @@ site.use('/concepts/api-authentication', require('kerouac-book')('API Authentica
 site.use('/concepts/delegated-authorization', require('kerouac-book')('Delegated Authorization', 'books/concepts/delegated-authorization', { layout: 'book' }));
 site.use('/reference/normalized-profile', require('kerouac-book')('Normalized Profile', 'books/reference/normalized-profile', { layout: 'book' }));
 site.use('/tutorials/password', require('kerouac-book')('Documentation', 'books/tutorials/password', { layout: 'book' }));
+site.use('/tutorials/google', require('kerouac-book')('Documentation', 'books/tutorials/google', { layout: 'book' }))
 site.content('content');
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
@@ -69,6 +70,7 @@ site.generate([
     [ '/concepts/delegated-authorization', require('kerouac-book').browser('books/concepts/delegated-authorization') ],
     [ '/reference/normalized-profile', require('kerouac-book').browser('books/reference/normalized-profile') ],
     [ '/tutorials/password', require('kerouac-book').browser('books/tutorials/password') ],
+    [ '/tutorials/google', require('kerouac-book').browser('books/tutorials/google') ],
     //[ '/packages', require('kerouac-npm-packages').browser() ],
     //[ '/packages', require('kerouac-sitemap').browser(), false ],
     [ require('kerouac-sitemap').browser({ index: true }), false ],
