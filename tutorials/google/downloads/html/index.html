@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Sign In with Google Tutorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/google/downloads/html/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Sign In with Google Tutorial"/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/google/downloads/html/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Sign In with Google Tutorial"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/google/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/google/">Introduction</a></li>
+                  <li><a href="/tutorials/google/prompt/">Login Prompt</a></li>
+                  <li><a href="/tutorials/google/redirect/">Redirect to Google</a></li>
+                  <li><a href="/tutorials/google/register/">Register App</a></li>
+                  <li><a href="/tutorials/google/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/google/state/">Maintain State</a></li>
+                  <li><a href="/tutorials/google/redirect-back/">Redirect Back to App</a></li>
+                  <li><a href="/tutorials/google/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/google/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents"><section class="chapter" id="README"><h1 id="introduction">Introduction</h1>
+<p>We will build a todo list app in this tutorial, complete with functionality that
+allows users to sign in with <a href="https://www.google.com/">Google</a>.  This tutorial
+will teach you how to use Passport for authentication.</p>
+<p>If you want to see where we are headed, here&#39;s an example of the final result:
+<a href="https://github.com/passport/todos-express-google">https://github.com/passport/todos-express-google</a></p>
+<p>Before we dive in, you&#39;ll need a working development environment with <a href="https://nodejs.org/">Node.js</a>
+and <a href="https://git-scm.com/">Git</a>, as well as an editor and terminal of your
+choosing.  Take a moment to set up these tools if you have not already done so.</p>
+<p>Let&#39;s get started!</p>
+<p>We are going to start with a starter app, which has all the scaffolding needed
+to build a todo list.  Let&#39;s clone the app:</p>
+<pre><code class="lang-sh">$ git <span class="built_in">clone</span> https://github.com/passport/todos-express-starter.git google-tutorial
+</code></pre>
+<p>You now have a directory named <code>&#39;google-tutorial&#39;</code>.  Let&#39;s <code>cd</code> into
+it:</p>
+<pre><code class="lang-sh">$ <span class="built_in">cd</span> google-tutorial
+</code></pre>
+<p>Take a moment browse through the files in the starter app.  As we work through
+this tutorial, we&#39;ll be using <a href="https://expressjs.com/">Express</a> as our web
+framework, along with <a href="https://ejs.co/">EJS</a> as our template engine and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
+for styling.  We will use <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> as
+our database for storing data.  Don&#39;t worry if you are not familiar with these
+technologies -- the necessary code will be provided at each step.</p>
+<p>Now, let&#39;s install the dependencies:</p>
+<pre><code class="lang-sh">$ npm install
+</code></pre>
+<p>And start the server:</p>
+<pre><code>$ <span class="built_in">npm</span> start
+</code></pre><p>Let&#39;s check to see if its working.  Open <a href="http://localhost:3000">http://localhost:3000</a>
+in your browser.  You should be greeted with a page explaining how todos help
+you get things done.</p>
+<p>Next, we will <a href="prompt/">add a login page</a> to the app.</p>
+</section><section class="chapter" id="prompt"><h1 id="login-prompt">Login Prompt</h1>
+<p>We want to let users sign in with Google.  For that, we need a login page that
+prompts the user to do that.  Let&#39;s add that now.</p>
+<p>Let&#39;s create a file that will contain authentication-related routes:</p>
+<pre><code class="lang-sh">$ touch routes/auth.js
+</code></pre>
+<p>Add the following code to that file, which creates a login route that will
+render the login page.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+
+<span class="keyword">var</span> router = express.Router();
+
+router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  res.render(<span class="string">'login'</span>);
+});
+
+<span class="built_in">module</span>.exports = router;
+</code></pre>
+<p>Next, we need to add this route to the app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
+newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
+<code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
+<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
+</code></pre>
+<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
+below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
+<pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
+app.use(<span class="string">'/'</span>, authRouter);
+</code></pre>
+<p>The login page has been added to our app!  Let&#39;s see how it looks.</p>
+<p>Start the server:</p>
+<pre><code class="lang-sh">$ npm start
+</code></pre>
+<p>And open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;  We
+are prompted to sign in, but there&#39;s no place to choose Google.</p>
+<p>For that we need a button.  Let&#39;s add that now.</p>
+<p>Open <code>&#39;views/login.ejs&#39;</code> and add the form at line 15, below the &quot;Sign in&quot;
+heading:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button google"</span> <span class="attr">href</span>=<span class="string">"/login/federated/accounts.google.com"</span>&gt;</span>Sign in with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+</code></pre>
+<p>Refresh the page.  We&#39;ve now got a login page that prompts the user to sign in
+with Google.  Next, we will <a href="../redirect/">redirect the user to Google</a>.</p>
+</section><section class="chapter" id="redirect"><h1 id="redirect-to-google">Redirect to Google</h1>
+<p>Now that we are prompting the user to sign in with Google, the next step is to
+redirect the user to Google.</p>
+<p>To do that, we are going to use Passport and the <code>passport-google-oidc</code>
+strategy.  Install both as dependencies:</p>
+<pre><code class="lang-sh">$ npm install passport
+$ npm install passport-google-oidc
+</code></pre>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the newly installed packages, as well as
+the app&#39;s database, at line 2, below where <code>express</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> GoogleStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-oidc'</span>);
+<span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../db'</span>);
+</code></pre>
+<p>Next, we need to add a route that will redirect the user when they click &quot;Sign
+in with Google&quot;.</p>
+<p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 12, below the
+<code>&#39;/login&#39;</code> route:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/login/federated/accounts.google.com'</span>, passport.authenticate(<span class="string">'google'</span>));
+</code></pre>
+<p>We&#39;ve now got a route that will redirect the user to Google!  Let&#39;s test it out
+to see what happens.</p>
+<p>Start the server:</p>
+<pre><code class="lang-sh">$ npm start
+</code></pre>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
+click &quot;Sign in with Google&quot;.</p>
+<p>Uh oh... we are informed the Google authentication strategy is unknown.  We will
+fix that by configuring the strategy.  But first, we need to <a href="../register/">register our app
+with Google</a>.</p>
+</section><section class="chapter" id="register"><h1 id="register-app">Register App</h1>
+<p>Before we can let users sign in to our app with Google, we need to register the
+app with Google.</p>
+<p>Go to the <a href="https://console.cloud.google.com/">Google Cloud Platform console</a>.</p>
+<p>From the projects list, select a project or create a new one.</p>
+<p>Navigate to the <a href="https://console.cloud.google.com/apis">APIs &amp; Services</a> page
+and select <a href="https://console.cloud.google.com/apis/credentials">Credentials</a>.</p>
+<p>If you have an existing application, it will be listed under <strong>OAuth 2.0 Client
+IDs</strong>.  Click <strong>Edit OAuth client</strong> to obtain the client ID and secret, and
+proceed to <a href="../configure/">configure the strategy</a>.  Otherwise, continue.</p>
+<p>If you have not already done so, <a href="https://support.google.com/cloud/answer/10311615">configure</a>
+the <a href="https://console.cloud.google.com/apis/credentials/consent">OAuth consent screen</a>.
+Select <strong>External</strong> to make your application available to any user with a Google
+account.  Complete the app registration process by entering the app name,
+support email, and developer contact information.</p>
+<p>Click <strong>Create Credentials</strong>, then select <strong>OAuth client ID</strong>.</p>
+<p>Select <strong>Web application</strong> as <strong>Application type</strong>.</p>
+<p>Click <strong>Add URI</strong> under <strong>Authorized Redirect URIs</strong>.  Enter
+<code>http://localhost:3000/oauth2/redirect/accounts.google.com</code>.</p>
+<p>Click <strong>Create</strong> to create the OAuth client.  The following screen will display
+your client ID and secret.  Proceed to <a href="../configure/">configure the strategy</a>.</p>
+</section><section class="chapter" id="configure"><h1 id="configure-strategy">Configure Strategy</h1>
+<p>Now that we&#39;ve registered our app with Google, we can configure Passport.</p>
+<p>First, let&#39;s create a <code>&#39;.env&#39;</code> file to store the client ID and secret we just
+obtained from Google.</p>
+<pre><code class="lang-sh">$ touch .env
+</code></pre>
+<p>Then, add the client ID and secret.  The contents of the file should look
+something like this:</p>
+<pre><code class="lang-sh">GOOGLE_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
+GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
+</code></pre>
+<p>Of course, your client ID and secret should be inserted where noted.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add the following code at line 6 to configure the
+<code>GoogleStrategy</code>.</p>
+<pre><code class="lang-js">passport.use(<span class="keyword">new</span> GoogleStrategy({
+  <span class="attr">clientID</span>: process.env[<span class="string">'GOOGLE_CLIENT_ID'</span>],
+  <span class="attr">clientSecret</span>: process.env[<span class="string">'GOOGLE_CLIENT_SECRET'</span>],
+  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/accounts.google.com'</span>,
+  <span class="attr">scope</span>: [ <span class="string">'profile'</span> ],
+  <span class="attr">state</span>: <span class="literal">true</span>
+},
+<span class="function"><span class="keyword">function</span>(<span class="params">issuer, profile, cb</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [
+    issuer,
+    profile.id
+  ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+    <span class="keyword">if</span> (!row) {
+      db.run(<span class="string">'INSERT INTO users (name) VALUES (?)'</span>, [
+        profile.displayName
+      ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+
+        <span class="keyword">var</span> id = <span class="keyword">this</span>.lastID;
+        db.run(<span class="string">'INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)'</span>, [
+          id,
+          issuer,
+          profile.id
+        ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+          <span class="keyword">var</span> user = {
+            <span class="attr">id</span>: id,
+            <span class="attr">name</span>: profile.displayName
+          };
+          <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+        });
+      });
+    } <span class="keyword">else</span> {
+      db.get(<span class="string">'SELECT rowid AS id, * FROM users WHERE rowid = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+        <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>); }
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, row);
+      });
+    }
+  });
+}));
+</code></pre>
+<p>This configures the <code>GoogleStrategy</code> to fetch the user record associated with
+the Google account.  If a user record does not exist, one is created the first
+time someone signs in.</p>
+<p>The strategy is now configured.  Next we need to <a href="../state/">maintain state</a>
+when redirecting to Google.</p>
+</section><section class="chapter" id="state"><h1 id="maintain-state">Maintain State</h1>
+<p>When a user signs in to our app with Google, they are redirected to Google.
+Google takes care of authenticating the user and then redirects them back to our
+app.</p>
+<p>For security, state needs to be maintained between these two redirects.
+Passport does this automatically, but the app first needs session support.
+Let&#39;s add that now.</p>
+<p>Begin by installing the necessary dependencies:</p>
+<pre><code class="lang-sh">$ npm install express-session
+$ npm install connect-sqlite3
+</code></pre>
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
+where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+
+<span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
+</code></pre>
+<p>Add the following code at line 28, after <code>express.static</code> middleware, to
+add sessions to the application.</p>
+<pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+}));
+</code></pre>
+<p>Now that the app has session support, we are ready to handle the <a href="../redirect-back/">redirect back
+to our app</a>.</p>
+</section><section class="chapter" id="redirect-back"><h1 id="redirect-back-to-app">Redirect Back to App</h1>
+<p>When a user signs in to our app with Google, they are redirected to Google.
+Google takes care of authenticating the user and then redirects them back to our
+app.</p>
+<p>Let&#39;s close the loop by adding a route that will handle this redirect.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 57, below the
+<code>&#39;/login/federated/accounts.google.com&#39;</code> route:</p>
+<pre><code><span class="selector-tag">router</span><span class="selector-class">.get</span>(<span class="string">'/oauth2/redirect/accounts.google.com'</span>, passport.authenticate(<span class="string">'google'</span>, {
+  <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
+  <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>
+}));
+</code></pre><p>We&#39;ve now got routes that will redirect the user to Google and handle the
+redirect back to our app!  Let&#39;s test it out to see what happens.</p>
+<p>Start the server:</p>
+<pre><code class="lang-sh">$ npm start
+</code></pre>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
+click &quot;Sign in with Google&quot;.</p>
+<p>Uh oh... we are informed that there&#39;s an error related to sessions.  Next, we
+will fix that by <a href="../session/">establishing a login session</a>.</p>
+</section><section class="chapter" id="session"><h1 id="establish-session">Establish Session</h1>
+<p>Once the user has signed in with Google, we need to a login session to remember
+the fact that the user has authenticated as they navigate the app.</p>
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> Passport at line 9, below where
+<code>&#39;express-session&#39;</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+</code></pre>
+<p>Add the following code at line 35, after <code>session</code> middleware, to authenticate
+the session.</p>
+<pre><code class="lang-js">app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+}));
+app.use(passport.authenticate(<span class="string">'session'</span>));
+</code></pre>
+<p>Finally, we need to configure Passport to manage the login session.  Open
+<code>&#39;routes/auth.js&#39;</code> and add the following code at line 49:</p>
+<pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username, <span class="attr">name</span>: user.name });
+  });
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+  });
+});
+</code></pre>
+<p>Now, let&#39;s retry signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>,
+click &quot;Sign in&quot; and then click &quot;Sign in with Google&quot;.</p>
+<p>We are logged in!  Go ahead and enter some tasks you&#39;ve been needing to get
+done.</p>
+<p>At this point, users can sign in with Google!  Next, we will add the ability to
+<a href="../logout/">sign out</a>.</p>
+</section><section class="chapter" id="logout"><h1 id="log-out">Log Out</h1>
+<p>Now that users can sign in, they&#39;ll need a way to sign out.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 74, below the
+<code>&#39;/oauth2/redirect/accounts.google.com&#39;</code> route:</p>
+<pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  req.logout();
+  res.redirect(<span class="string">'/'</span>);
+});
+</code></pre>
+<p>Return to the app, where you should already be signed in, and click &quot;Sign out.&quot;</p>
+<p>We&#39;ve now got a working app where users can sign in and sign out!</p>
+</section></div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
