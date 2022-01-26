@@ -5,3 +5,4 @@
 * [Configure Strategy](configure.md)
 * [Add Routes](routes.md)
 * [Maintain State](state.md)
+* [Establish Session](session.md)
