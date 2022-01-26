@@ -6,7 +6,7 @@ app.
 
 Let's close the loop by adding a route that will handle this redirect.
 
-Open `'routes/auth.js'` and add this route at line 57, below the
+Open `'routes/auth.js'` and add this route at line 56, below the
 `'/login/federated/accounts.google.com'` route:
 
 ```
