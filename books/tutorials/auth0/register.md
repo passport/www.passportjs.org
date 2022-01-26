@@ -22,5 +22,3 @@ Scroll down futher and click **Save Changes**.
 Scroll up to the top and find the **Domain**, **Client ID**, and **Client
 Secret** values for the newly created app.  Next, we will use these values to
 [configure the strategy](../configure/).
-
-
