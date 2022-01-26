@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Auth0 Integration Tutorial: Introduction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/auth0/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Auth0 Integration Tutorial"/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/auth0/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Auth0 Integration Tutorial"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/auth0/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/auth0/">Introduction</a></li>
+                  <li><a href="/tutorials/auth0/register/">Create App</a></li>
+                  <li><a href="/tutorials/auth0/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/auth0/routes/">Add Routes</a></li>
+                  <li><a href="/tutorials/auth0/state/">Maintain State</a></li>
+                  <li><a href="/tutorials/auth0/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/auth0/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="introduction">Introduction</h1>
+<p>We will build a todo list app in this tutorial, using <a href="https://auth0.com/">Auth0</a>
+for sign in and sign up to our app.  In this tutorial, you will learn how to use
+Passport to integrate with Auth0.</p>
+<p>If you want to see where we are headed, here&#39;s an example of the final result:
+<a href="https://github.com/passport/todos-express-auth0">https://github.com/passport/todos-express-auth0</a></p>
+<p>Before we dive in, you&#39;ll need a working development environment with <a href="https://nodejs.org/">Node.js</a>
+and <a href="https://git-scm.com/">Git</a>, as well as an editor and terminal of your
+choosing.  Take a moment to set up these tools if you have not already done so.</p>
+<p>You&#39;ll also need an Auth0 account.  If you don&#39;t already have one, <a href="https://auth0.com/">sign up</a>
+now.  This tutorial can be completed using Auth0&#39;s free plan.</p>
+<p>Let&#39;s get started!</p>
+<p>We are going to start with a starter app, which has all the scaffolding needed
+to build a todo list.  Let&#39;s clone the app:</p>
+<pre><code class="lang-sh">$ git <span class="built_in">clone</span> https://github.com/passport/todos-express-starter.git auth0-tutorial
+</code></pre>
+<p>You now have a directory named <code>&#39;auth0-tutorial&#39;</code>.  Let&#39;s <code>cd</code> into
+it:</p>
+<pre><code class="lang-sh">$ <span class="built_in">cd</span> auth0-tutorial
+</code></pre>
+<p>Take a moment browse through the files in the starter app.  As we work through
+this tutorial, we&#39;ll be using <a href="https://expressjs.com/">Express</a> as our web
+framework, along with <a href="https://ejs.co/">EJS</a> as our template engine and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
+for styling.  We will use <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> as
+our database for storing data.  Don&#39;t worry if you are not familiar with these
+technologies -- the necessary code will be provided at each step.</p>
+<p>Now, let&#39;s install the dependencies:</p>
+<pre><code class="lang-sh">$ npm install
+</code></pre>
+<p>And start the server:</p>
+<pre><code>$ <span class="built_in">npm</span> start
+</code></pre><p>Let&#39;s check to see if its working.  Open <a href="http://localhost:3000">http://localhost:3000</a>
+in your browser.  You should be greeted with a page explaining how todos help
+you get things done.</p>
+<p>We are going to make the sign in button work.  But first, we need to <a href="register/">create an
+app</a> in Auth0.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

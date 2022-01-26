@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Auth0 Integration Tutorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/auth0/downloads/html/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Auth0 Integration Tutorial"/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/auth0/downloads/html/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Auth0 Integration Tutorial"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/auth0/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/auth0/">Introduction</a></li>
+                  <li><a href="/tutorials/auth0/register/">Create App</a></li>
+                  <li><a href="/tutorials/auth0/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/auth0/routes/">Add Routes</a></li>
+                  <li><a href="/tutorials/auth0/state/">Maintain State</a></li>
+                  <li><a href="/tutorials/auth0/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/auth0/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents"><section class="chapter" id="README"><h1 id="introduction">Introduction</h1>
+<p>We will build a todo list app in this tutorial, using <a href="https://auth0.com/">Auth0</a>
+for sign in and sign up to our app.  In this tutorial, you will learn how to use
+Passport to integrate with Auth0.</p>
+<p>If you want to see where we are headed, here&#39;s an example of the final result:
+<a href="https://github.com/passport/todos-express-auth0">https://github.com/passport/todos-express-auth0</a></p>
+<p>Before we dive in, you&#39;ll need a working development environment with <a href="https://nodejs.org/">Node.js</a>
+and <a href="https://git-scm.com/">Git</a>, as well as an editor and terminal of your
+choosing.  Take a moment to set up these tools if you have not already done so.</p>
+<p>You&#39;ll also need an Auth0 account.  If you don&#39;t already have one, <a href="https://auth0.com/">sign up</a>
+now.  This tutorial can be completed using Auth0&#39;s free plan.</p>
+<p>Let&#39;s get started!</p>
+<p>We are going to start with a starter app, which has all the scaffolding needed
+to build a todo list.  Let&#39;s clone the app:</p>
+<pre><code class="lang-sh">$ git <span class="built_in">clone</span> https://github.com/passport/todos-express-starter.git auth0-tutorial
+</code></pre>
+<p>You now have a directory named <code>&#39;auth0-tutorial&#39;</code>.  Let&#39;s <code>cd</code> into
+it:</p>
+<pre><code class="lang-sh">$ <span class="built_in">cd</span> auth0-tutorial
+</code></pre>
+<p>Take a moment browse through the files in the starter app.  As we work through
+this tutorial, we&#39;ll be using <a href="https://expressjs.com/">Express</a> as our web
+framework, along with <a href="https://ejs.co/">EJS</a> as our template engine and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
+for styling.  We will use <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> as
+our database for storing data.  Don&#39;t worry if you are not familiar with these
+technologies -- the necessary code will be provided at each step.</p>
+<p>Now, let&#39;s install the dependencies:</p>
+<pre><code class="lang-sh">$ npm install
+</code></pre>
+<p>And start the server:</p>
+<pre><code>$ <span class="built_in">npm</span> start
+</code></pre><p>Let&#39;s check to see if its working.  Open <a href="http://localhost:3000">http://localhost:3000</a>
+in your browser.  You should be greeted with a page explaining how todos help
+you get things done.</p>
+<p>We are going to make the sign in button work.  But first, we need to <a href="register/">create an
+app</a> in Auth0.</p>
+</section><section class="chapter" id="register"><h1 id="create-app">Create App</h1>
+<p>Before we can use Auth0 for sign in, we need to create an app in Auth0.</p>
+<p>Go to the <a href="https://manage.auth0.com/">Auth0 Dashboard</a>.</p>
+<p>Navigate to <strong>Applications</strong>.</p>
+<p>If you have an existing application, it will be listed on the applications
+screen.  Click the application to obtain the client ID and secret, and
+proceed to <a href="../configure/">configure the strategy</a>.  Otherwise, continue.</p>
+<p>Click <strong>Create Application</strong>.</p>
+<p>Enter a name for the application and choose <strong>Regular Web Applications</strong> as the
+application type.  Click the <strong>Create</strong> button.</p>
+<p>On the following screen, click the <strong>Settings</strong> tab.  Scroll down and find the
+<strong>Allowed Callback URLs</strong> text area.  Enter <code>&#39;http://localhost:3000/oauth2/redirect&#39;</code>.
+Below that, find the <strong>Allowed Logout URLs</strong> text area.  Enter
+<code>&#39;http://localhost:3000/&#39;</code>.  Scroll down futher and click <strong>Save Changes</strong>.</p>
+<p>Scroll up to the top and find the <strong>Domain</strong>, <strong>Client ID</strong>, and <strong>Client
+Secret</strong> values for the newly created app.  Next, we will use these values to
+<a href="../configure/">configure the strategy</a>.</p>
+</section><section class="chapter" id="configure"><h1 id="configure-strategy">Configure Strategy</h1>
+<p>Now that we&#39;ve created an app in Auth0, we can configure Passport to integrate
+with Auth0.</p>
+<p>First, let&#39;s create a <code>&#39;.env&#39;</code> file to store the domain, client ID, and client
+secret we just obtained from Auth0.</p>
+<pre><code class="lang-sh">$ touch .env
+</code></pre>
+<p>Then, add the domain, client ID and secret.  The contents of the file should
+look something like this:</p>
+<pre><code class="lang-sh">AUTH0_DOMAIN=__INSERT_DOMAIN_HERE__
+AUTH0_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
+AUTH0_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
+</code></pre>
+<p>For this integration, we are going to use Passport and the
+<code>passport-openidconnect</code> strategy.  Install both as dependencies:</p>
+<pre><code class="lang-sh">$ npm install passport
+$ npm install passport-openidconnect
+</code></pre>
+<p>Now, let&#39;s create a file that will contain authentication-related functionality:</p>
+<pre><code class="lang-sh">$ touch routes/auth.js
+</code></pre>
+<p>Add the following code to that file, which configures the strategy to work with
+Auth0.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> OpenIDConnectStrategy = <span class="built_in">require</span>(<span class="string">'passport-openidconnect'</span>);
+
+passport.use(<span class="keyword">new</span> OpenIDConnectStrategy({
+  <span class="attr">issuer</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/'</span>,
+  <span class="attr">authorizationURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/authorize'</span>,
+  <span class="attr">tokenURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/oauth/token'</span>,
+  <span class="attr">userInfoURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/userinfo'</span>,
+  <span class="attr">clientID</span>: process.env[<span class="string">'AUTH0_CLIENT_ID'</span>],
+  <span class="attr">clientSecret</span>: process.env[<span class="string">'AUTH0_CLIENT_SECRET'</span>],
+  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect'</span>,
+  <span class="attr">scope</span>: [ <span class="string">'profile'</span> ]
+},
+<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">issuer, profile, cb</span>) </span>{
+  <span class="keyword">return</span> cb(<span class="literal">null</span>, profile);
+}));
+</code></pre>
+<p>Now that the strategy is configured, we are ready to <a href="../routes/">add login routes</a>
+to the app.</p>
+</section><section class="chapter" id="routes"><h1 id="add-routes">Add Routes</h1>
+<p>When the user clicks the &quot;Sign in&quot; button, they will be redirected to our app&#39;s
+sign in page, which is hosted by Auth0.  Once on that page, the user will log
+in.  After they&#39;ve logged in, the user will be redirected back to our app.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add the following code at the end of the file, which
+creates two routes.  The first will redirect the user to the sigin page.  The
+second will process the authentication result when the user is redirected back.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);
+<span class="keyword">var</span> router = express.Router();
+
+router.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'openidconnect'</span>));
+
+router.get(<span class="string">'/oauth2/redirect'</span>, passport.authenticate(<span class="string">'openidconnect'</span>, {
+  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+}));
+
+<span class="built_in">module</span>.exports = router;
+</code></pre>
+<p>Next, we need to add these routes to our app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
+newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
+<code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
+<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
+</code></pre>
+<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
+below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
+<pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
+app.use(<span class="string">'/'</span>, authRouter);
+</code></pre>
+<p>The routes have been added to the app.  Next we need to <a href="../state/">maintain state</a>
+when redirecting to Auth0.</p>
+</section><section class="chapter" id="state"><h1 id="maintain-state">Maintain State</h1>
+<p>When a user signs in to our app via our app&#39;s Auth0-hosted sign in page, they
+are redirected to Auth0.  Auth0 takes care of authenticating the user and then
+redirects them back to our app.</p>
+<p>For security, state needs to be maintained between these two redirects.
+Passport does this automatically, but the app first needs session support.
+Let&#39;s add that now.</p>
+<p>Begin by installing the necessary dependencies:</p>
+<pre><code class="lang-sh">$ npm install express-session
+$ npm install connect-sqlite3
+</code></pre>
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
+where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+
+<span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
+</code></pre>
+<p>Add the following code at line 28, after <code>express.static</code> middleware, to
+add sessions to the application.</p>
+<pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+}));
+</code></pre>
+<p>Now that the app can maintain state, the final step is <a href="../session/">establishing a login
+session</a>.</p>
+</section><section class="chapter" id="session"><h1 id="establish-session">Establish Session</h1>
+<p>Once the user has signed in via Auth0, our app needs a login session to remember
+who the user is as they navigate the app.</p>
+<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> Passport at line 9, below where
+<code>&#39;express-session&#39;</code> is <code>require</code>&#39;d:</p>
+<pre><code class="lang-js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+</code></pre>
+<p>Add the following code at line 35, after <code>session</code> middleware, to authenticate
+the session.</p>
+<pre><code class="lang-js">app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+}));
+app.use(passport.authenticate(<span class="string">'session'</span>));
+</code></pre>
+<p>Finally, we need to configure Passport to manage the login session.  Open
+<code>&#39;routes/auth.js&#39;</code> and add the following code at line 18:</p>
+<pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username, <span class="attr">name</span>: user.displayName });
+  });
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+  });
+});
+</code></pre>
+<p>Now, let&#39;s try signing in.</p>
+<p>Start the server:</p>
+<pre><code class="lang-sh">npm start
+</code></pre>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;</p>
+<p>If this is your first time signing in, go ahead and sign up.  Otherwise enter
+the email address and password for your account.</p>
+<p>We are logged in!  Go ahead and enter some tasks you&#39;ve been needing to get
+done.</p>
+<p>At this point, users can sign in and sign up to our app!  Next, we will add the
+ability to <a href="../logout/">sign out</a>.</p>
+</section><section class="chapter" id="logout"><h1 id="log-out">Log Out</h1>
+<p>Now that users can sign in and sign up, they&#39;ll need a way to sign out.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 41, below the
+<code>&#39;/oauth2/redirect&#39;</code> route:</p>
+<pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  req.logout();
+  <span class="keyword">var</span> params = {
+    <span class="attr">client_id</span>: process.env[<span class="string">'AUTH0_CLIENT_ID'</span>],
+    <span class="attr">returnTo</span>: <span class="string">'http://localhost:3000/'</span>
+  };
+  res.redirect(<span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/v2/logout?'</span> + qs.stringify(params));
+});
+</code></pre>
+<p>Return to the app, where you should already be signed in, and click &quot;Sign out.&quot;</p>
+<p>We&#39;ve now got a working app where users can sign in, sign up, and sign out!</p>
+</section></div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
