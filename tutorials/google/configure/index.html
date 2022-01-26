@@ -126,8 +126,7 @@ GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
   <span class="attr">clientID</span>: process.env[<span class="string">'GOOGLE_CLIENT_ID'</span>],
   <span class="attr">clientSecret</span>: process.env[<span class="string">'GOOGLE_CLIENT_SECRET'</span>],
   <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/accounts.google.com'</span>,
-  <span class="attr">scope</span>: [ <span class="string">'profile'</span> ],
-  <span class="attr">state</span>: <span class="literal">true</span>
+  <span class="attr">scope</span>: [ <span class="string">'profile'</span> ]
 },
 <span class="function"><span class="keyword">function</span>(<span class="params">issuer, profile, cb</span>) </span>{
   db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [

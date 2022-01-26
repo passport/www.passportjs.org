@@ -127,7 +127,7 @@ the session.</p>
 app.use(passport.authenticate(<span class="string">'session'</span>));
 </code></pre>
 <p>Finally, we need to configure Passport to manage the login session.  Open
-<code>&#39;routes/auth.js&#39;</code> and add the following code at line 49:</p>
+<code>&#39;routes/auth.js&#39;</code> and add the following code at line 48:</p>
 <pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
   process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
     cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username, <span class="attr">name</span>: user.name });

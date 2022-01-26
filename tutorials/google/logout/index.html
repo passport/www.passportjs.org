@@ -110,7 +110,7 @@
           <div class="contents">
             <section class="chapter"><h1 id="log-out">Log Out</h1>
 <p>Now that users can sign in, they&#39;ll need a way to sign out.</p>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 74, below the
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 73, below the
 <code>&#39;/oauth2/redirect/accounts.google.com&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   req.logout();
