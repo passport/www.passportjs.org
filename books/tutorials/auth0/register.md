@@ -17,7 +17,8 @@ application type.  Click the **Create** button.
 
 On the following screen, click the **Settings** tab.  Scroll down and find the
 **Allowed Callback URLs** text area.  Enter `'http://localhost:3000/oauth2/redirect'`.
-Scroll down futher and click **Save Changes**.
+Below that, find the **Allowed Logout URLs** text area.  Enter
+`'http://localhost:3000/'`.  Scroll down futher and click **Save Changes**.
 
 Scroll up to the top and find the **Domain**, **Client ID**, and **Client
 Secret** values for the newly created app.  Next, we will use these values to

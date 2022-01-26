@@ -2,7 +2,7 @@
 
 When the user clicks the "Sign in" button, they will be redirected to our app's
 sign in page, which is hosted by Auth0.  Once on that page, the user will log
-in.  After they've logged in, the user will be redirect back to our app.
+in.  After they've logged in, the user will be redirected back to our app.
 
 Open `'routes/auth.js'` and add the following code at the end of the file, which
 creates two routes.  The first will redirect the user to the sigin page.  The
@@ -10,6 +10,7 @@ second will process the authentication result when the user is redirected back.
 
 ```js
 var express = require('express');
+var qs = require('querystring');
 var router = express.Router();
 
 router.get('/login', passport.authenticate('openidconnect'));
