@@ -48,6 +48,7 @@ site.use('/packages', packagesApp);
 //site.use('/docs/howto', kerouac.content('howto'));
 site.use('/concepts/authentication', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
 site.use('/concepts/api-authentication', require('kerouac-book')('API Authentication', 'books/concepts/api-authentication', { layout: 'book' }));
+site.use('/concepts/bearer-token', require('kerouac-book')('Documentation', 'books/concepts/bearer-token', { layout: 'book' }));
 site.use('/concepts/delegated-authorization', require('kerouac-book')('Delegated Authorization', 'books/concepts/delegated-authorization', { layout: 'book' }));
 site.use('/reference/normalized-profile', require('kerouac-book')('Normalized Profile', 'books/reference/normalized-profile', { layout: 'book' }));
 site.use('/tutorials/password', require('kerouac-book')('Documentation', 'books/tutorials/password', { layout: 'book' }));
@@ -69,6 +70,7 @@ site.generate([
     [ '/concepts/authentication', require('kerouac-book').browser('docs') ],
     [ '/concepts/api-authentication', require('kerouac-book').browser('books/concepts/api-authentication') ],
     [ '/concepts/delegated-authorization', require('kerouac-book').browser('books/concepts/delegated-authorization') ],
+    [ '/concepts/bearer-token', require('kerouac-book').browser('books/concepts/bearer-token') ],
     [ '/reference/normalized-profile', require('kerouac-book').browser('books/reference/normalized-profile') ],
     [ '/tutorials/password', require('kerouac-book').browser('books/tutorials/password') ],
     [ '/tutorials/google', require('kerouac-book').browser('books/tutorials/google') ],
