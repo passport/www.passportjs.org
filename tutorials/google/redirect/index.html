@@ -127,7 +127,7 @@ the app&#39;s database, at line 2, below where <code>express</code> is <code>req
 in with Google&quot;.</p>
 <p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 12, below the
 <code>&#39;/login&#39;</code> route:</p>
-<pre><code class="lang-js">router.get(<span class="string">'/login/federated/accounts.google.com'</span>, passport.authenticate(<span class="string">'google'</span>));
+<pre><code class="lang-js">router.get(<span class="string">'/login/federated/google'</span>, passport.authenticate(<span class="string">'google'</span>));
 </code></pre>
 <p>We&#39;ve now got a route that will redirect the user to Google!  Let&#39;s test it out
 to see what happens.</p>

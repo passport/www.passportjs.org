@@ -179,7 +179,7 @@ are prompted to sign in, but there&#39;s no place to choose Google.</p>
 <p>Open <code>&#39;views/login.ejs&#39;</code> and add the form at line 15, below the &quot;Sign in&quot;
 heading:</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
-<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button google"</span> <span class="attr">href</span>=<span class="string">"/login/federated/accounts.google.com"</span>&gt;</span>Sign in with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button google"</span> <span class="attr">href</span>=<span class="string">"/login/federated/google"</span>&gt;</span>Sign in with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 <p>Refresh the page.  We&#39;ve now got a login page that prompts the user to sign in
 with Google.  Next, we will <a href="../redirect/">redirect the user to Google</a>.</p>
@@ -202,7 +202,7 @@ the app&#39;s database, at line 2, below where <code>express</code> is <code>req
 in with Google&quot;.</p>
 <p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 12, below the
 <code>&#39;/login&#39;</code> route:</p>
-<pre><code class="lang-js">router.get(<span class="string">'/login/federated/accounts.google.com'</span>, passport.authenticate(<span class="string">'google'</span>));
+<pre><code class="lang-js">router.get(<span class="string">'/login/federated/google'</span>, passport.authenticate(<span class="string">'google'</span>));
 </code></pre>
 <p>We&#39;ve now got a route that will redirect the user to Google!  Let&#39;s test it out
 to see what happens.</p>
@@ -232,7 +232,7 @@ support email, and developer contact information.</p>
 <p>Click <strong>Create Credentials</strong>, then select <strong>OAuth client ID</strong>.</p>
 <p>Select <strong>Web application</strong> as <strong>Application type</strong>.</p>
 <p>Click <strong>Add URI</strong> under <strong>Authorized Redirect URIs</strong>.  Enter
-<code>http://localhost:3000/oauth2/redirect/accounts.google.com</code>.</p>
+<code>http://localhost:3000/oauth2/redirect/google</code>.</p>
 <p>Click <strong>Create</strong> to create the OAuth client.  The following screen will display
 your client ID and secret.  Proceed to <a href="../configure/">configure the strategy</a>.</p>
 </section><section class="chapter" id="configure"><h1 id="configure-strategy">Configure Strategy</h1>
@@ -252,7 +252,7 @@ GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> GoogleStrategy({
   <span class="attr">clientID</span>: process.env[<span class="string">'GOOGLE_CLIENT_ID'</span>],
   <span class="attr">clientSecret</span>: process.env[<span class="string">'GOOGLE_CLIENT_SECRET'</span>],
-  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/accounts.google.com'</span>,
+  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/google'</span>,
   <span class="attr">scope</span>: [ <span class="string">'profile'</span> ]
 },
 <span class="function"><span class="keyword">function</span>(<span class="params">issuer, profile, cb</span>) </span>{
@@ -332,8 +332,8 @@ Google takes care of authenticating the user and then redirects them back to our
 app.</p>
 <p>Let&#39;s close the loop by adding a route that will handle this redirect.</p>
 <p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 56, below the
-<code>&#39;/login/federated/accounts.google.com&#39;</code> route:</p>
-<pre><code><span class="selector-tag">router</span><span class="selector-class">.get</span>(<span class="string">'/oauth2/redirect/accounts.google.com'</span>, passport.authenticate(<span class="string">'google'</span>, {
+<code>&#39;/login/federated/google&#39;</code> route:</p>
+<pre><code><span class="selector-tag">router</span><span class="selector-class">.get</span>(<span class="string">'/oauth2/redirect/google'</span>, passport.authenticate(<span class="string">'google'</span>, {
   <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
   <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>
 }));
@@ -387,7 +387,7 @@ done.</p>
 </section><section class="chapter" id="logout"><h1 id="log-out">Log Out</h1>
 <p>Now that users can sign in, they&#39;ll need a way to sign out.</p>
 <p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 73, below the
-<code>&#39;/oauth2/redirect/accounts.google.com&#39;</code> route:</p>
+<code>&#39;/oauth2/redirect/google&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   req.logout();
   res.redirect(<span class="string">'/'</span>);
