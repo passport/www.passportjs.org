@@ -59,7 +59,7 @@ heading:
 
 ```html
 <h1>Sign in</h1>
-<a class="button google" href="/login/federated/accounts.google.com">Sign in with Google</a>
+<a class="button google" href="/login/federated/google">Sign in with Google</a>
 ```
 
 Refresh the page.  We've now got a login page that prompts the user to sign in

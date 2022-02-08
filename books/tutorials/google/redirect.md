@@ -28,7 +28,7 @@ Continuing within `'routes/auth.js'`, add this route at line 12, below the
 `'/login'` route:
 
 ```js
-router.get('/login/federated/accounts.google.com', passport.authenticate('google'));
+router.get('/login/federated/google', passport.authenticate('google'));
 ```
 
 We've now got a route that will redirect the user to Google!  Let's test it out

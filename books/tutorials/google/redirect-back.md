@@ -7,10 +7,10 @@ app.
 Let's close the loop by adding a route that will handle this redirect.
 
 Open `'routes/auth.js'` and add this route at line 56, below the
-`'/login/federated/accounts.google.com'` route:
+`'/login/federated/google'` route:
 
 ```
-router.get('/oauth2/redirect/accounts.google.com', passport.authenticate('google', {
+router.get('/oauth2/redirect/google', passport.authenticate('google', {
   successRedirect: '/',
   failureRedirect: '/login'
 }));

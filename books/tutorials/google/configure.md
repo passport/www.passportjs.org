@@ -26,7 +26,7 @@ Open `'routes/auth.js'` and add the following code at line 6 to configure the
 passport.use(new GoogleStrategy({
   clientID: process.env['GOOGLE_CLIENT_ID'],
   clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-  callbackURL: '/oauth2/redirect/accounts.google.com',
+  callbackURL: '/oauth2/redirect/google',
   scope: [ 'profile' ]
 },
 function(issuer, profile, cb) {

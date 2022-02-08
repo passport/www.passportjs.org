@@ -25,7 +25,7 @@ Click **Create Credentials**, then select **OAuth client ID**.
 Select **Web application** as **Application type**.
 
 Click **Add URI** under **Authorized Redirect URIs**.  Enter
-`http://localhost:3000/oauth2/redirect/accounts.google.com`.
+`http://localhost:3000/oauth2/redirect/google`.
 
 Click **Create** to create the OAuth client.  The following screen will display
 your client ID and secret.  Proceed to [configure the strategy](../configure/).
