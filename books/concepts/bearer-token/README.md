@@ -1,3 +1,5 @@
+# Bearer Token
+
 A bearer token is a type of token that can be used by a client application to
 gain access to an API or remote service using only the token itself.
 
@@ -30,11 +32,11 @@ used by the client to access an HTTP resource using the `Bearer` scheme defined
 by [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750), as illustrated
 above.  RFC 6750 was specified in the [IETF](https://www.ietf.org/) by the
 [OAuth Working Group](https://datatracker.ietf.org/wg/oauth/about/), reinforcing
-the pairing of bearer tokens and OAuth 2.0.
+the pairing of OAuth 2.0 and bearer tokens.
 
 That being said, bearer tokens can be obtained by client applications without
 OAuth 2.0.  For instance, it is common, especially in developer-centric
 applications, for a user to generate an "API key" and then copy that API key
 into a script or application that is being developed.  Such an API key is a
-bearer token, but manually generated and fed into an application by the user,
+bearer token, but manually generated and pasted into an application by the user,
 rather than requested by and issued to the application via OAuth 2.0.
