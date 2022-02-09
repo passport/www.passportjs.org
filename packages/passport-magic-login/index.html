@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-magic-login</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Passwordless authentication with magic links for Passport.js 🔑">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-magic-login/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-magic-login"/>
+    <meta property="og:description" content="Passwordless authentication with magic links for Passport.js 🔑"/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-magic-login/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-magic-login"/>
+    <meta name="twitter:description" content="Passwordless authentication with magic links for Passport.js 🔑"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><p><img src="https://user-images.githubusercontent.com/7525670/104158644-0c61f400-53ee-11eb-960f-167c6ebd3ec9.png" alt="passport-magic-login"></p>
+<p>Passwordless authentication with magic links for Passport.js 🔑</p>
+<ul>
+<li>User signup and login without passwords</li>
+<li>Supports magic links sent via email, SMS or any other method you prefer</li>
+<li>User interface agnostic: all you need is an input and a confirmation screen</li>
+<li>Handles secure token generation, expiration and confirmation</li>
+</ul>
+<p>Originally implemented by <a href="https://twitter.com/linstobias">Tobias Lins</a> for <a href="https://splitbee.io">Splitbee</a> and eventually extracted for <a href="https://feedback.fish">Feedback Fish</a>:</p>
+<div align="left">
+
+<img width="32%" alt="Screenshot 2021-01-09 at 16 55 23" src="https://user-images.githubusercontent.com/7525670/104096256-ae24fc00-529b-11eb-9d21-cebae7bc706d.png">
+
+<img width="32%" alt="Screenshot 2021-01-09 at 16 55 28" src="https://user-images.githubusercontent.com/7525670/104096254-ad8c6580-529b-11eb-9c96-d12e9d14c543.png">
+
+<img width="32%" alt="Screenshot 2021-01-09 at 16 56 24" src="https://user-images.githubusercontent.com/7525670/104096252-a9604800-529b-11eb-92d5-31a144871fe4.png">
+
+</div>
+
+<h2 id="usage">Usage</h2>
+<p>To use magic link authentication, you have to:</p>
+<ol>
+<li>Setup the Passport strategy and Express routes on your server</li>
+<li>POST a request with the users email or phone number from the client once they have entered it into the login input</li>
+</ol>
+<h3 id="installation">Installation</h3>
+<pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-magic-login
+</code></pre><h3 id="frontend-usage">Frontend usage</h3>
+<p>This is what the usage from the frontend looks like once you&#39;ve set it all up. It only requires a single request:</p>
+<pre><code class="lang-JS"><span class="comment">// POST a request with the users email or phone number to the server</span>
+fetch(<span class="string">`/auth/magiclogin`</span>, {
+  <span class="attr">method</span>: <span class="string">`POST`</span>,
+  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify({
+    <span class="comment">// `destination` is required.</span>
+    <span class="attr">destination</span>: email,
+    <span class="comment">// However, you can POST anything in your payload and it will show up in your verify() method</span>
+    <span class="attr">name</span>: name,
+  }),
+  <span class="attr">headers</span>: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> }
+})
+  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())
+  .then(<span class="function"><span class="params">json</span> =&gt;</span> {
+    <span class="keyword">if</span> (json.success) {
+      <span class="comment">// The request successfully completed and the email to the user with the</span>
+      <span class="comment">// magic login link was sent!</span>
+      <span class="comment">// You can now prompt the user to click on the link in their email</span>
+      <span class="comment">// We recommend you display json.code in the UI (!) so the user can verify</span>
+      <span class="comment">// that they're clicking on the link for their _current_ login attempt</span>
+      <span class="built_in">document</span>.body.innerText = json.code
+    }
+  })
+</code></pre>
+<h3 id="backend-setup">Backend setup</h3>
+<p>To make this work so easily, you first need to setup passport-magic-login:</p>
+<pre><code class="lang-JS"><span class="keyword">import</span> MagicLoginStrategy <span class="keyword">from</span> <span class="string">"passport-magic-login"</span>
+
+<span class="comment">// IMPORTANT: ALL OPTIONS ARE REQUIRED!</span>
+<span class="keyword">const</span> magicLogin = <span class="keyword">new</span> MagicLoginStrategy({
+  <span class="comment">// Used to encrypt the authentication token. Needs to be long, unique and (duh) secret.</span>
+  <span class="attr">secret</span>: process.env.MAGIC_LINK_SECRET,
+
+  <span class="comment">// The authentication callback URL</span>
+  <span class="attr">callbackUrl</span>: <span class="string">"/auth/magiclogin/callback"</span>,
+
+  <span class="comment">// Called with th e generated magic link so you can send it to the user</span>
+  <span class="comment">// "destination" is what you POST-ed from the client</span>
+  <span class="comment">// "href" is your confirmUrl with the confirmation token,</span>
+  <span class="comment">// for example "/auth/magiclogin/confirm?token=&lt;longtoken&gt;"</span>
+  <span class="attr">sendMagicLink</span>: <span class="keyword">async</span> (destination, href) =&gt; {
+    <span class="keyword">await</span> sendEmail({
+      <span class="attr">to</span>: destination,
+      <span class="attr">body</span>: <span class="string">`Click this link to finish logging in: https://yourcompany.com<span class="subst">${href}</span>`</span>
+    })
+  },
+
+  <span class="comment">// Once the user clicks on the magic link and verifies their login attempt,</span>
+  <span class="comment">// you have to match their email to a user record in the database.</span>
+  <span class="comment">// If it doesn't exist yet they are trying to sign up so you have to create a new one.</span>
+  <span class="comment">// "payload" contains { "destination": "email" }</span>
+  <span class="comment">// In standard passport fashion, call callback with the error as the first argument (if there was one)</span>
+  <span class="comment">// and the user data as the second argument!</span>
+  <span class="attr">verify</span>: <span class="function">(<span class="params">payload, callback</span>) =&gt;</span> {
+    <span class="comment">// Get or create a user with the provided email from the database</span>
+    getOrCreateUserWithEmail(payload.destination)
+      .then(<span class="function"><span class="params">user</span> =&gt;</span> {
+        callback(<span class="literal">null</span>, user)
+      })
+      .catch(<span class="function"><span class="params">err</span> =&gt;</span> {
+        callback(err)
+      })
+  }
+})
+
+<span class="comment">// Add the passport-magic-login strategy to Passport</span>
+passport.use(magicLogin)
+</code></pre>
+<p>Once you&#39;ve got that, you&#39;ll then need to add a couple of routes to your Express server:</p>
+<pre><code class="lang-JS"><span class="comment">// This is where we POST to from the frontend</span>
+app.post(<span class="string">"/auth/magiclogin"</span>, magicLogin.send);
+
+<span class="comment">// The standard passport callback setup</span>
+app.get(magicLogin.callbackUrl, passport.authenticate(<span class="string">"magiclogin"</span>));
+</code></pre>
+<p>That&#39;s it, you&#39;re ready to authenticate! 🎉</p>
+<h2 id="license">License</h2>
+<p>Licensed under the MIT license. See <a href="./LICENSE">LICENSE</a> for more information!</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-magic-login</span></code></div>
+            <ul>
+              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-01-09T22:44:45Z">a month ago</abbr></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>1,322</b> downloads in the last day</li>
+              <li><b>6,253</b> downloads in the last week</li>
+              <li><b>24,885</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

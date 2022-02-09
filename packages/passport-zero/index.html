@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-zero</title>
+    <meta charset="utf-8">
+    <meta name="description" content="zero password strategy for passport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-zero/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-zero"/>
+    <meta property="og:description" content="zero password strategy for passport"/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-zero/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-zero"/>
+    <meta name="twitter:description" content="zero password strategy for passport"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-zero">passport-zero</h1>
+<p>A <a href="https://github.com/florianheinemann/passwordless">passwordless</a> inspired strategy for <a href="https://github.com/jaredhanson/passport">passport</a></p>
+<p><a href="https://travis-ci.org/nickbalestra/zero"><img src="https://travis-ci.org/nickbalestra/zero.svg?branch=master" alt="Build Status"></a>
+<a href="https://codecov.io/gh/nickbalestra/zero"><img src="https://codecov.io/gh/nickbalestra/zero/branch/master/graph/badge.svg" alt="codecov"></a></p>
+<p>This module allows authentication and authorization without passwords in your Node.js
+applications. It works by simply sending one-time password (OTPW) tokens via email (default) or other means. The module was inspired by @florianheinemann &#39;s <a href="https://github.com/florianheinemann/passwordless/">passwordless project</a>. By plugging into Passport, zero authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>. </p>
+<p>Token-based authentication is...</p>
+<ul>
+<li>Faster to implement compared to typical user auth systems (you only need one form)</li>
+<li>Has a great UX for your users as they get started with your app quickly and don&#39;t have to remember passwords</li>
+<li>Can be leveraged for private betas &amp; similar by providing a single way to easily collect prospects </li>
+<li>More secure for your users avoiding the risks of reused passwords</li>
+</ul>
+<h2 id="getting-you-started">Getting you started</h2>
+<p>The following should provide a quick-start in using zero. If you need more details check out the <a href="https://github.com/nickbalestra/zero/tree/master/example">example app</a>. For anything you feel missing on this readme or on the example don&#39;t hesitate to <a href="(https://github.com/nickbalestra/zero/issues">open issues</a>) with comments and questions.</p>
+<h3 id="install">Install</h3>
+<pre><code>$ npm install pass<span class="keyword">port</span>-zero
+</code></pre><h3 id="usage">Usage</h3>
+<h4 id="configure-strategy">Configure Strategy</h4>
+<p>The zero authentication strategy authenticates users via a one-time password token sent via email ot other means:</p>
+<pre><code class="lang-js"><span class="keyword">const</span> { Strategy, email } = <span class="string">'passport-zero'</span>;
+
+passport.use(
+  <span class="keyword">new</span> Strategy({              
+    secret,
+    <span class="attr">deliver</span>: email(smtpConfig)                    
+  },
+  verify
+))
+</code></pre>
+<h5 id="available-options">Available Options</h5>
+<p>This strategy, aside <code>secret</code> and <code>deliver</code> supports further options:</p>
+<ul>
+<li><code>secret</code> - Mandatory string, used to sign tokens</li>
+<li><code>deliver</code> - mandatory module, used to send tokens. You can use the bundled email helper to easily configure the email delivery.</li>
+<li><code>storage</code> - Optional, defaults to an in-memory storage. You can provide your own, especially for persistency reasons. Its API shuld consist in async <code>get</code>, <code>set</code>, and <code>delete</code> methods all returning promises. <a href="https://github.com/nickbalestra/zero/blob/master/lib/deliver/index.js">Check the default implementation</a> for reference.</li>
+<li><code>ttl</code> - Optionals, defaults to 7days (in seconds), its used to set the token expiration.</li>
+</ul>
+<h5 id="verify-function">Verify function</h5>
+<p>As a second parameter the constructor requires an async <code>verify</code> function which receives the credentials (email address in case of the default email deliver) submitted by the user. The function is in charge of verifying that the email is correct returning a promise with a user object, or false in case no user was found.</p>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
+<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;zero&#39;</code> strategy for two actions:</p>
+<h5 id="request-token">request token</h5>
+<p>In this situation the passport authenticate middleware will check for the correct parameters and send a token via the delivery system in case of success. By default, in the email deliver, it will look for the value &#39;email&#39; in the body and the query (body can disabled by setting the option <code>allowPost</code> to <code>false</code>).</p>
+<pre><code class="lang-js">app.post(<span class="string">'/auth/zero'</span>,
+  passport.authenticate(<span class="string">'zero'</span>, { <span class="attr">action</span> : <span class="string">'requestToken'</span> }), 
+  (req, res) =&gt; res.redirect(<span class="string">'/check-your-inbox'</span>)
+);
+</code></pre>
+<h5 id="accept-token">accept token</h5>
+<p>In this situation (the default) the passport authenticate middleware will check for a token. By default, in the email deliver, it will look for the value &#39;token&#39; in the body and the query (body can disabled by setting the option <code>allowPost</code> to <code>false</code>).</p>
+<pre><code class="lang-js">app.post(<span class="string">'/auth/zero'</span>,
+  passport.authenticate(<span class="string">'zero'</span>), 
+  (req, res) =&gt; res.redirect(<span class="string">'/profile'</span>)
+);
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
+refer to an <a href="https://github.com/nickbalestra/zero/tree/master/example">example</a>
+as a starting point for their own web applications. For other examples or more advanced passport related feature, check the <a href="http://www.passportjs.org/docs/">passport docs</a>.</p>
+<h2 id="advanced">Advanced</h2>
+<h3 id="email-deliver">Email deliver</h3>
+<p>The zero strategy comes with an email deliver configurator, allowing you to get up and running quickly with an email delivery system.</p>
+<pre><code class="lang-js"><span class="keyword">const</span> { email } = <span class="built_in">require</span>(<span class="string">'passport-zero'</span>);
+
+...
+deliver: email({
+  ...smtpConfig,
+  ...options
+})
+...
+</code></pre>
+<p>Aside from the mandatory smtp configuration it accept some more options:</p>
+<ul>
+<li>tokenField - Optional, defaults to <code>token</code>. The paramater used to look for the token during the acceptToken process and the parameter used to send the token via email. ie: <code>hostname/?token=...</code>.</li>
+<li>addressField - Optional, defaults to <code>email</code>. Used to define the parameter for the email during the requestToken process.</li>
+<li><p>template - Optional function , defaults to an internal template. The function need to have the following signature:  <code>(user, token, tokenField, req) =&gt; ({to, from, subject, text})</code>. </p>
+<ul>
+<li>to - Optional, defaults to user.email if not overriden in template</li>
+<li>from - Optional, defaults to smtpConfig.from if not ovverriden in template</li>
+<li>subject - Mandatory</li>
+<li>text - Mandatory</li>
+</ul>
+</li>
+</ul>
+<h3 id="custom-deliver">Custom deliver</h3>
+<p>If you want to implement your own deliver mechanism (sms, ...), the deliver module should have the following API shape:</p>
+<pre><code class="lang-js">{
+  <span class="keyword">async</span> send(user, token, req){},
+  tokenField,
+  addressField,
+}
+</code></pre>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-zero</span></code></div>
+            <ul>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2017-12-27T15:17:10Z">4 years ago</abbr></li>
+              <li><a class="url" href="https://github.com/nickbalestra/zero">https://github.com/nickbalestra/zero#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>14</b> downloads in the last week</li>
+              <li><b>78</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>passport-me2day</title>
+    <title>passport-approveapi</title>
     <meta charset="utf-8">
-    <meta name="description" content="Me2day authentication strategy for Passport.">
+    <meta name="description" content="PassportJS Strategy for magic-link authentication with ApproveAPI">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/packages/passport-me2day/">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-approveapi/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -33,9 +33,9 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="passport-me2day"/>
-    <meta property="og:description" content="Me2day authentication strategy for Passport."/>
-    <meta property="og:url" content="https://www.passportjs.org/packages/passport-me2day/"/>
+    <meta property="og:title" content="passport-approveapi"/>
+    <meta property="og:description" content="PassportJS Strategy for magic-link authentication with ApproveAPI"/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-approveapi/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -43,8 +43,8 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="passport-me2day"/>
-    <meta name="twitter:description" content="Me2day authentication strategy for Passport."/>
+    <meta name="twitter:title" content="passport-approveapi"/>
+    <meta name="twitter:description" content="PassportJS Strategy for magic-link authentication with ApproveAPI"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -92,91 +92,52 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-me2day">Passport-Me2day</h1>
-<p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
-with <a href="http://me2day.net/">me2day</a>.</p>
-<p>This module lets you authenticate using me2day in your Node.js applications.
-By plugging into Passport, me2day authentication can be easily and
-unobtrusively integrated into any application or framework that supports
-<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
-<a href="http://expressjs.com/">Express</a>.</p>
+          <div class="description"><h1 id="passport-approveapi">passport-approveapi</h1>
+<p>ApproveAPI passwordless authentication strategy for PassportJS</p>
 <h2 id="installation">Installation</h2>
-<pre><code>$ npm install pass<span class="keyword">port</span>-me2day
-</code></pre><h2 id="usage">Usage</h2>
-<h4 id="configure-strategy">Configure Strategy</h4>
-<p>The BrowserID authentication strategy authenticates users using an assertion of
-email address ownership, obtained via the BrowserID JavaScript API.  The
-strategy requires a <code>validate</code> callback, which accepts an email address and calls
-<code>done</code> providing a user.</p>
-<p>The me2day authentication strategy authenticates users using a me2day account,
-userKey and nonce. The strategy requires a <code>verify</code> callback, which receives
-the userKey, as well as <code>profile</code> which contains the authenticated user&#39;s
-me2day profile. The <code>verify</code> callback must call <code>done</code> providing a user
-to complete authentication.</p>
-<p>In order to identify your application to me2day, specify the userKey,
-nonce, and callback URL within <code>options</code>.  The user key is
-obtained by <a href="http://me2day.net/me2/app/get_appkey">requesting an application key</a> at
-<a href="https://me2day.net/">me2day</a> site.</p>
-<pre><code>passport.use(<span class="keyword">new</span> Me2dayStrategy({
-    userKey: <span class="string">'--insert-me2day-user-key-here--'</span>
-    , nonce: <span class="string">'--insert-me2day-nonce-here--'</span>
-    , callbackURL: <span class="string">"http://127.0.0.1:3000/auth/me2day/callback"</span>
-  },
-  <span class="function"><span class="keyword">function</span><span class="params">(userKey, profile, done)</span> </span>{
-    User.findOrCreate(profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      done(err, user);
-    });
-  }
-));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;me2day&#39;</code> strategy, to
-authenticate requests.</p>
-<p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
-application:</p>
-<pre><code>app.get(<span class="string">'/auth/twitter'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>));
-
-app.get(<span class="string">'/auth/twitter/callback'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
-  });
-</code></pre><h2 id="examples">Examples</h2>
-<p>For a complete, working example, refer to the <a href="https://github.com/outsideris/passport-me2day/tree/master/examples/signin">signin example</a>.</p>
-<h2 id="credits">Credits</h2>
+<p>  <code>npm install passport-approveapi</code></p>
+<h2 id="usage">Usage</h2>
+<h3 id="configure-strategy">Configure Strategy</h3>
+<p>  The ApproveAPIStrategy constructor receives three parameters:</p>
 <ul>
-<li><a href="http://github.com/outsideris">JeongHoon Byun</a></li>
+<li><code>options</code>: A javascript object containing some configuration:<ul>
+<li><code>apiKey</code> An ApproveAPI api key.</li>
+<li><code>callbackUrl</code>: A URL which users will be redirected to once they approve the login prompt. Must be set as an endpoint for acceptToken.</li>
+<li><code>contactField</code>: The name of the field which contains the email or other contact handle of the user to send the prompt to.</li>
+<li><code>promptMessage</code>: The message included with the login prompt.</li>
+<li><code>ttl</code>: Optional integer, defaults to 10 minutes (in seconds). It&#39;s used to set the token and prompt expiration.</li>
+<li><code>secret</code>: An encryption secret used to sign the login tokens.</li>
 </ul>
-<h2 id="licens">Licens</h2>
-<p>e</p>
-<p>(The MIT License)</p>
-<p>Copyright (c) 2012 JeongHoon Byun <a href="mailto:&#111;&#117;&#x74;&#115;&#x69;&#x64;&#x65;&#114;&#105;&#x73;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#111;&#117;&#x74;&#115;&#x69;&#x64;&#x65;&#114;&#105;&#x73;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a></p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the &quot;Software&quot;), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</li>
+<li><code>verifyUser</code>: A function that receives the request and returns a promise containing the user object. It may be used to insert and/or find the user in the database.</li>
+</ul>
+<h3 id="authenticate-requests">Authenticate Requests</h3>
+<p>  Use <code>passport.authenticate()</code>, specifying the <code>&#39;approveapi&#39;</code> strategy for two actions:</p>
+<h4 id="requesttoken">requestToken</h4>
+<p>  In this situation the passport authenticate middleware will send a token produced by the user information, which is returned by the <code>verifyUser</code> function.</p>
+<pre><code class="lang-javascript">  app.post(<span class="string">'/auth/approveapi'</span>,
+      passport.authenticate(<span class="string">'approveapi'</span>, { <span class="attr">action</span> : <span class="string">'requestToken'</span> }),
+      (req, res) =&gt; res.redirect(<span class="string">'/check-your-inbox'</span>)
+  )
+</code></pre>
+<h4 id="accepttoken">acceptToken</h4>
+<p>  In this situation the passport authenticate middleware will check for a valid token.</p>
+<pre><code class="lang-javascript">  app.get(<span class="string">'/auth/approveapi/callback'</span>,
+    passport.authenticate(<span class="string">'approveapi'</span>, { <span class="attr">action</span> : <span class="string">'acceptToken'</span> }),
+    (req, res) =&gt; res.redirect(<span class="string">'/profile'</span>)
+  )
+</code></pre>
 </div>
           <div class="metadata">
-            <div class="install"><code>npm install <span class="fn">passport-me2day</span></code></div>
+            <div class="install"><code>npm install <span class="fn">passport-approveapi</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2012-08-29T16:00:48Z">9 years ago</abbr></li>
-              <li><a class="url" href="https://github.com/outsideris/passport-me2day"></a></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2019-04-08T21:28:12Z">3 years ago</abbr></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>0</b> downloads in the last week</li>
-              <li><b>2</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

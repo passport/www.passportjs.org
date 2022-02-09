@@ -2,6 +2,43 @@
   "objects": [
     {
       "package": {
+        "name": "passport-lds-connect",
+        "version": "1.2.0",
+        "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
+        "keywords": [
+          "LDSAuth",
+          "LDSConnect",
+          "LDS-Connect",
+          "LDSOrg",
+          "LDS.org",
+          "LDS",
+          "OAuth2",
+          "OAuth",
+          "auth",
+          "passport"
+        ],
+        "date": "2015-03-02T22:13:46.152Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-lds-connect",
+          "homepage": "https://github.com/LDSorg/passport-lds-connect",
+          "repository": "git://github.com/LDSorg/passport-lds-connect.git",
+          "bugs": "https://github.com/LDSorg/passport-lds-connect/issues"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 2,
+        "last-week": 6,
+        "last-month": 18
+      },
+      "interactionCounts": {
+        "bookmarks": 4,
+        "subscribers": 2,
+        "forks": 0
+      }
+    },
+    {
+      "package": {
         "name": "passport-lds-io",
         "version": "2.0.2",
         "description": "Node.js / ExpressJS / PassportJS OAuth2 authentication strategy for connecting with LDS.org",
@@ -610,6 +647,85 @@
     },
     {
       "package": {
+        "name": "passport-magic-link",
+        "version": "2.1.0",
+        "description": "Passport JS module for Magic Link authentication",
+        "keywords": [
+          "passport",
+          "magic",
+          "link",
+          "passwordless",
+          "encryption",
+          "timestamp",
+          "two",
+          "factor",
+          "authentication",
+          "2FA"
+        ],
+        "date": "2020-03-27T19:01:40.345Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-magic-link",
+          "homepage": "https://github.com/vinialbano/passport-magic-link#readme",
+          "repository": "git+https://github.com/vinialbano/passport-magic-link.git",
+          "bugs": "https://github.com/vinialbano/passport-magic-link/issues"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 69,
+        "last-week": 510,
+        "last-month": 2383
+      },
+      "interactionCounts": {
+        "bookmarks": 51,
+        "subscribers": 1,
+        "forks": 6
+      }
+    },
+    {
+      "package": {
+        "name": "passport-magic-login",
+        "version": "1.0.9",
+        "description": "Passwordless authentication with magic links for Passport.js 🔑",
+        "date": "2021-10-14T11:43:38.874Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-magic-login"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 1322,
+        "last-week": 6253,
+        "last-month": 24885
+      }
+    },
+    {
+      "package": {
+        "name": "passport-magic",
+        "version": "1.0.0",
+        "description": "Passport JS strategy for authentication with Magic.",
+        "date": "2020-04-09T22:57:16.155Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-magic",
+          "homepage": "https://github.com/fortmatic/passport-magic#readme",
+          "repository": "git+https://github.com/fortmatic/passport-magic.git",
+          "bugs": "https://github.com/fortmatic/passport-magic/issues"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 424,
+        "last-week": 1295,
+        "last-month": 4438
+      },
+      "interactionCounts": {
+        "bookmarks": 31,
+        "subscribers": 10,
+        "forks": 7
+      }
+    },
+    {
+      "package": {
         "name": "passport-mail",
         "version": "1.0.1",
         "description": "Mail ru authentication strategy for Passport.",
@@ -673,116 +789,9 @@
         "subscribers": 3,
         "forks": 3
       }
-    },
-    {
-      "package": {
-        "name": "passport-mailru",
-        "version": "0.0.1",
-        "description": "Mail.ru authentication strategy for Passport.",
-        "date": "2012-12-02T14:48:44.500Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-mailru",
-          "repository": "https://github.com/tiberule/passport-mailru"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 1,
-        "last-week": 9,
-        "last-month": 63
-      },
-      "interactionCounts": {
-        "bookmarks": 0,
-        "subscribers": 1,
-        "forks": 1
-      }
-    },
-    {
-      "package": {
-        "name": "passport-makerpass",
-        "version": "2.0.0",
-        "description": "MakerPass authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "makerpass",
-          "auth",
-          "authn",
-          "authentication",
-          "identity"
-        ],
-        "date": "2015-11-04T21:23:31.235Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-makerpass",
-          "homepage": "https://github.com/makerpass/passport-makerpass#readme",
-          "repository": "git+ssh://git@github.com/makerpass/passport-makerpass.git",
-          "bugs": "http://github.com/makerpass/passport-makerpass/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 8
-      }
-    },
-    {
-      "package": {
-        "name": "passport-maltio",
-        "version": "1.0.0",
-        "description": "Malt.io (OAuth2) authentication strategy for Passport.js",
-        "date": "2013-07-28T02:20:01.689Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-maltio",
-          "repository": "https://github.com/homebrewing/passport-maltio"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 1,
-        "last-week": 13,
-        "last-month": 25
-      },
-      "interactionCounts": {
-        "bookmarks": 2,
-        "subscribers": 3,
-        "forks": 0
-      }
-    },
-    {
-      "package": {
-        "name": "passport-mapmyfitness",
-        "version": "1.0.3",
-        "description": "Map my api authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "mapmyapi",
-          "auth",
-          "authn",
-          "authentication",
-          "identity"
-        ],
-        "date": "2014-11-25T22:34:11.413Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-mapmyfitness",
-          "homepage": "https://github.com/patbonecrusher/passport-mapmyfitness",
-          "repository": "git://github.com/patbonecrusher/passport-mapmyfitness.git",
-          "bugs": "http://github.com/patbonecrusher/passport-mapmyfitness/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 0,
-        "last-week": 0,
-        "last-month": 4
-      },
-      "interactionCounts": {
-        "bookmarks": 0,
-        "subscribers": 0,
-        "forks": 2
-      }
     }
   ],
-  "total": 534,
+  "total": 539,
   "urls": {
     "next": "/packages/-/v1/all/12.json",
     "prev": "/packages/-/v1/all/10.json"
