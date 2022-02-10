@@ -50,9 +50,9 @@ $ npm start
 ```
 
 And open [http://localhost:3000](http://localhost:3000) and click "Sign in."  We
-are prompted to sign in, but there's no place to choose Google.
+are prompted to sign in, but there's no place to enter an email address.
 
-For that we need a button.  Let's add that now.
+For that we need an HTML form.  Let's add that now.
 
 Open `'views/login.ejs'` and add the form at line 15, below the "Sign in"
 heading:
