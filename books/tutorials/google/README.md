@@ -1,8 +1,8 @@
 # Introduction
 
 We will build a todo list app in this tutorial, complete with functionality that
-allows users to sign in with [Google](https://www.google.com/).  This tutorial
-will teach you how to use Passport for authentication.
+allows users to sign in with [Google](https://www.google.com/).  In this
+tutorial, you will learn how to use Passport for authentication.
 
 If you want to see where we are headed, here's an example of the final result:
 [https://github.com/passport/todos-express-google](https://github.com/passport/todos-express-google)

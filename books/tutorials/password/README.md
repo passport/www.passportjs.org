@@ -1,8 +1,8 @@
 # Introduction
 
 We will build a todo list app in this tutorial, complete with functionality that
-allows users to sign in with a username and password.  This tutorial will teach
-you how to use Passport for authentication.
+allows users to sign in with a username and password.  In this tutorial, you
+will learn how to use Passport for authentication.
 
 If you want to see where we are headed, here's an example of the final result:
 [https://github.com/passport/todos-express-password](https://github.com/passport/todos-express-password)
