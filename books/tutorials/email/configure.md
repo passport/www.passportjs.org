@@ -77,4 +77,4 @@ associated with the email address will be found.  If a user record does not
 exist, one is created the first time someone signs in.
 
 The strategy is now configured.  Next we need to [send the user a magic link](../send/)
-when they click "Sign in with email."
+when they click "Sign in with Email."
