@@ -7,3 +7,4 @@
 * [Send Email](send.md)
 * [Verify Email](verify.md)
 * [Establish Session](session.md)
+* [Log Out](logout.md)
