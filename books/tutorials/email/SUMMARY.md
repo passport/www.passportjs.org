@@ -6,3 +6,4 @@
 * [Configure Strategy](configure.md)
 * [Send Email](send.md)
 * [Verify Email](verify.md)
+* [Establish Session](session.md)
