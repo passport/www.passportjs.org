@@ -11,6 +11,10 @@ Before we dive in, you'll need a working development environment with [Node.js](
 and [Git](https://git-scm.com/), as well as an editor and terminal of your
 choosing.  Take a moment to set up these tools if you have not already done so.
 
+You'll also need a [SendGrid](https://sendgrid.com/) account.  If you don't
+already have one, sign up now.  This tutorial can be completed using SendGrid's
+free plan.
+
 Let's get started!
 
 We are going to start with a starter app, which has all the scaffolding needed
