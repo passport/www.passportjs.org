@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Documentation</title>
+    <title>Sign In with Email Tutorial: Set Up SendGrid</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/docs/">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/email/setup/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +32,8 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Documentation"/>
-    <meta property="og:url" content="https://www.passportjs.org/docs/"/>
+    <meta property="og:title" content="Sign In with Email Tutorial: Set Up SendGrid"/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/email/setup/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Documentation"/>
+    <meta name="twitter:title" content="Sign In with Email Tutorial: Set Up SendGrid"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -81,59 +81,63 @@
         <div class="menu-items">
           <ul>
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/">Documentation</a></li>
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
         </div>
       </nav>
       <div id="content">
-        <section class="docs">
-          <div class="intro">
-            <h1>Documentation</h1><p>Passport is middleware for Node.js that makes it easy to implement
-authentication and authorization.  Whether you are building your first login
-page or are an expert in all things identity, the documentation will help you
-understand Passport and use it in your applications.</p>
-
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/email/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/email/">Introduction</a></li>
+                  <li><a href="/tutorials/email/prompt/">Login Prompt</a></li>
+                  <li><a class="active" href="/tutorials/email/setup/">Set Up SendGrid</a></li>
+                  <li><a href="/tutorials/email/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/email/send/">Send Email</a></li>
+                  <li><a href="/tutorials/email/verify/">Verify Email</a></li>
+                  <li><a href="/tutorials/email/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/email/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="set-up-sendgrid">Set Up SendGrid</h1>
+<p>Before we can let users sign in to our app with email, we need a way to send
+emails.</p>
+<p>For that, we are going to use <a href="https://sendgrid.com/">SendGrid</a>.</p>
+<p>Go to the <a href="https://app.sendgrid.com">SendGrid dashboard</a>.</p>
+<p>Navigate to <strong>Settings &gt; <a href="https://app.sendgrid.com/settings/api_keys">API Keys</a></strong>.</p>
+<p>Click <strong>Create API Key</strong>.</p>
+<p>Enter <code>&quot;email-tutorial&quot;</code> for the <strong>API Key Name</strong>.</p>
+<p>Under <strong>API Key Permissions</strong> select <strong>Restricted Access</strong>.  Then, under
+<strong>Access Details</strong>, ensure that <strong>Mail Send &gt; Mail Send</strong> is granted full
+access.</p>
+<p>Click the <strong>Create &amp; View</strong> button.</p>
+<p>The following screen will display your API key.  Save it someplace safe, as we
+will use it later.</p>
+<p>Next, navigate to <strong>Settings &gt; <a href="https://app.sendgrid.com/settings/sender_auth">Sender Authentication</a></strong>.</p>
+<p>If you&#39;ve already verified your domain or email address, it will be displayed
+here.  If not, click <strong>Get Started</strong> under <strong>Verify an Address</strong> and complete
+<a href="https://docs.sendgrid.com/ui/sending-email/sender-verification">single sender verification</a>.</p>
+<p>Now that we have an API key and a verified email address, let&#39;s create a
+<code>&#39;.env&#39;</code> file to store them.</p>
+<pre><code class="lang-sh">$ touch .env
+</code></pre>
+<p>Add your email and API key.  The contents of the file should look something like
+this:</p>
+<pre><code class="lang-sh">EMAIL=user@example.com
+SENDGRID_API_KEY=__INSERT_API_KEY_HERE__
+</code></pre>
+<p>Next we will <a href="../configure/">configure the strategy</a>.</p>
+</section>
           </div>
-          <section>
-            <h2>Tutorials</h2>
-            <div>
-              <p>Lessons that introduce the basics by building simple apps. Most useful when you are new to Passport and getting started.</p>
-              <ul>
-                <li><a href="/tutorials/password/">Username &amp; Password</a></li>
-                <li><a href="/tutorials/google/">Sign In with Google</a></li>
-                <li><a href="/tutorials/email/">Sign In with Email</a></li>
-                <li><a href="/tutorials/auth0/">Auth0 Integration</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>How-to Guides</h2>
-            <div>
-              <p>Step-by-step guides to help you accomplish a task. Most useful when you are trying to solve a specific problem.</p>
-            </div>
-          </section>
-          <section>
-            <h2>Reference</h2>
-            <div>
-              <p>Technical descriptions of how Passport works. Most useful when you need detailed information about Passport's APIs.</p>
-              <ul>
-                <li><a href="/reference/normalized-profile/">Normalized Profile</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>Concepts</h2>
-            <div>
-              <p>Explanations of higher-level topics pertaining to Passport. Most useful for deepening your understanding.</p>
-              <ul>
-                <li><a href="/concepts/authentication/">Authentication</a></li>
-                <li><a href="/concepts/api-authentication/">API Authentication</a></li>
-              </ul>
-            </div>
-          </section>
-        </section>
+        </div>
       </div>
     </div>
     <div class="search-con">
