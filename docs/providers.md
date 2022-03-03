@@ -70,6 +70,11 @@ implementations.
       <td>[Geoff Hollingworth](https://github.com/eusholli)</td>
     </tr>
     <tr>
+      <td>[Authing](https://github.com/authing/passport-authing)</td>
+      <td>OIDC</td>
+      <td>[Authing](https://github.com/authing)</td>
+    </tr>
+    <tr>
       <td>[Auth0](https://github.com/auth0/passport-auth0)</td>
       <td>OAuth 2.0</td>
       <td>[Auth0](https://github.com/auth0)</td>
