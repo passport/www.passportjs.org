@@ -46,7 +46,7 @@ passport.use(new MagicLinkStrategy({
   return sendgrid.send(msg);
 }, function verify(user) {
   return new Promise(function(resolve, reject) {
-    db.get('SELECT rowid AS id, * FROM users WHERE email = ?', [
+    db.get('SELECT * FROM users WHERE email = ?', [
       user.email
     ], function(err, row) {
       if (err) { return reject(err); }
