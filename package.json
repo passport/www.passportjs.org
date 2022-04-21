@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-prebuild": "git config --global url."https://".insteadOf git://",
+    "heroku-prebuild": "git config --global url.\"https://\".insteadOf git://",
     "heroku-postbuild": "git clone -b gh-pages --depth 1 https://github.com/passport/www.passportjs.org.git www && rm -rf www/.git"
   },
   "dependencies": {
