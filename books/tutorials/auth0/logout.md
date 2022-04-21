@@ -2,7 +2,7 @@
 
 Now that users can sign in and sign up, they'll need a way to sign out.
 
-Open `'routes/auth.js'` and add this route at line 41, below the
+Open `'routes/auth.js'` and add this route at line 40, below the
 `'/oauth2/redirect'` route:
 
 ```js
