@@ -127,8 +127,7 @@ GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
   <span class="attr">clientSecret</span>: process.env[<span class="string">'GOOGLE_CLIENT_SECRET'</span>],
   <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/google'</span>,
   <span class="attr">scope</span>: [ <span class="string">'profile'</span> ]
-},
-<span class="function"><span class="keyword">function</span>(<span class="params">issuer, profile, cb</span>) </span>{
+}, <span class="function"><span class="keyword">function</span>(<span class="params">issuer, profile, cb</span>) </span>{
   db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [
     issuer,
     profile.id
@@ -155,7 +154,7 @@ GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
         });
       });
     } <span class="keyword">else</span> {
-      db.get(<span class="string">'SELECT rowid AS id, * FROM users WHERE rowid = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+      db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
         <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
         <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>); }
         <span class="keyword">return</span> cb(<span class="literal">null</span>, row);
