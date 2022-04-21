@@ -124,7 +124,7 @@ newly installed packages at line 2, below where <code>express</code> is <code>re
 <p>The built-in crypto module and the app&#39;s database are also <code>require</code>&#39;d.</p>
 <p>Add the following code at line 7 to configure the <code>LocalStrategy</code>.</p>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
-  db.get(<span class="string">'SELECT rowid AS id, * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
     <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
 
