@@ -25,7 +25,7 @@ app.use(passport.authenticate('session'));
 ```
 
 Finally, we need to configure Passport to manage the login session.  Open
-`'routes/auth.js'` and add the following code at line 48:
+`'routes/auth.js'` and add the following code at line 47:
 
 ```js
 passport.serializeUser(function(user, cb) {
