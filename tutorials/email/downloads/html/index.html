@@ -256,7 +256,7 @@ passport.use(<span class="keyword">new</span> MagicLinkStrategy({
   <span class="keyword">return</span> sendgrid.send(msg);
 }, <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">user</span>) </span>{
   <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>{
-    db.get(<span class="string">'SELECT rowid AS id, * FROM users WHERE email = ?'</span>, [
+    db.get(<span class="string">'SELECT * FROM users WHERE email = ?'</span>, [
       user.email
     ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> reject(err); }
