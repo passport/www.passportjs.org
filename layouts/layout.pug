@@ -7,8 +7,9 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     block title
       title= title
     meta(charset="utf-8")
-    if description
-      meta(name='description', content=description)
+    block description
+      if description
+        meta(name='description', content=description)
     if author && author.name
       meta(name='author', text=author.name)
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')

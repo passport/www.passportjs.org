@@ -22,6 +22,9 @@ include ../mixins/social
 
 block title
   title= book.title + (page.title ? ': ' + page.title : '')
+block description
+  if book.description
+    meta(name='description', content=book.description)
 
 block content
   #book.book
