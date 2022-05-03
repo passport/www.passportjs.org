@@ -46,15 +46,15 @@ site.use('/packages', packagesApp);
 
 
 //site.use('/docs/howto', kerouac.content('howto'));
-site.use('/concepts/authentication', require('kerouac-book')('docs', { layout: 'book/chapter' }));
-site.use('/concepts/api-authentication', require('kerouac-book')('books/concepts/api-authentication', { layout: 'book/chapter' }));
-site.use('/concepts/bearer-token', require('kerouac-book')('books/concepts/bearer-token', { layout: 'book/chapter' }));
-site.use('/concepts/delegated-authorization', require('kerouac-book')('books/concepts/delegated-authorization', { layout: 'book/chapter' }));
-site.use('/reference/normalized-profile', require('kerouac-book')('books/reference/normalized-profile', { layout: 'book/chapter' }));
-site.use('/tutorials/password', require('kerouac-book')('books/tutorials/password', { layout: 'book/chapter' }));
-site.use('/tutorials/google', require('kerouac-book')('books/tutorials/google', { layout: 'book/chapter' }))
-site.use('/tutorials/email', require('kerouac-book')('books/tutorials/email', { layout: 'book/chapter' }))
-site.use('/tutorials/auth0', require('kerouac-book')('books/tutorials/auth0', { layout: 'book/chapter' }))
+site.use('/concepts/authentication', require('kerouac-book')('docs'));
+site.use('/concepts/api-authentication', require('kerouac-book')('books/concepts/api-authentication'));
+site.use('/concepts/bearer-token', require('kerouac-book')('books/concepts/bearer-token'));
+site.use('/concepts/delegated-authorization', require('kerouac-book')('books/concepts/delegated-authorization'));
+site.use('/reference/normalized-profile', require('kerouac-book')('books/reference/normalized-profile'));
+site.use('/tutorials/password', require('kerouac-book')('books/tutorials/password'));
+site.use('/tutorials/google', require('kerouac-book')('books/tutorials/google'))
+site.use('/tutorials/email', require('kerouac-book')('books/tutorials/email'))
+site.use('/tutorials/auth0', require('kerouac-book')('books/tutorials/auth0'))
 site.content('content');
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
