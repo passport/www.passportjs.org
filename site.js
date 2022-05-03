@@ -46,15 +46,15 @@ site.use('/packages', packagesApp);
 
 
 //site.use('/docs/howto', kerouac.content('howto'));
-site.use('/concepts/authentication', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
-site.use('/concepts/api-authentication', require('kerouac-book')('API Authentication', 'books/concepts/api-authentication', { layout: 'book' }));
-site.use('/concepts/bearer-token', require('kerouac-book')('Documentation', 'books/concepts/bearer-token', { layout: 'book' }));
-site.use('/concepts/delegated-authorization', require('kerouac-book')('Delegated Authorization', 'books/concepts/delegated-authorization', { layout: 'book' }));
-site.use('/reference/normalized-profile', require('kerouac-book')('Normalized Profile', 'books/reference/normalized-profile', { layout: 'book' }));
-site.use('/tutorials/password', require('kerouac-book')('Documentation', 'books/tutorials/password', { layout: 'book' }));
-site.use('/tutorials/google', require('kerouac-book')('Documentation', 'books/tutorials/google', { layout: 'book' }))
-site.use('/tutorials/email', require('kerouac-book')('Documentation', 'books/tutorials/email', { layout: 'book' }))
-site.use('/tutorials/auth0', require('kerouac-book')('Documentation', 'books/tutorials/auth0', { layout: 'book' }))
+site.use('/concepts/authentication', require('kerouac-book')('docs', { layout: 'book' }));
+site.use('/concepts/api-authentication', require('kerouac-book')('books/concepts/api-authentication', { layout: 'book' }));
+site.use('/concepts/bearer-token', require('kerouac-book')('books/concepts/bearer-token', { layout: 'book' }));
+site.use('/concepts/delegated-authorization', require('kerouac-book')('books/concepts/delegated-authorization', { layout: 'book' }));
+site.use('/reference/normalized-profile', require('kerouac-book')('books/reference/normalized-profile', { layout: 'book' }));
+site.use('/tutorials/password', require('kerouac-book')('books/tutorials/password', { layout: 'book' }));
+site.use('/tutorials/google', require('kerouac-book')('books/tutorials/google', { layout: 'book' }))
+site.use('/tutorials/email', require('kerouac-book')('books/tutorials/email', { layout: 'book' }))
+site.use('/tutorials/auth0', require('kerouac-book')('books/tutorials/auth0', { layout: 'book' }))
 site.content('content');
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
@@ -77,7 +77,7 @@ site.generate([
     [ '/tutorials/google', require('kerouac-book').browser('books/tutorials/google') ],
     [ '/tutorials/email', require('kerouac-book').browser('books/tutorials/email') ],
     [ '/tutorials/auth0', require('kerouac-book').browser('books/tutorials/auth0') ],
-    //[ '/packages', require('kerouac-npm-packages').browser() ],
+    [ '/packages', require('kerouac-npm-packages').browser() ],
     //[ '/packages', require('kerouac-sitemap').browser(), false ],
     [ require('kerouac-sitemap').browser({ index: true }), false ],
     [ require('kerouac-robotstxt').browser(), false ]
