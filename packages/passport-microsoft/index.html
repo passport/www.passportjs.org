@@ -110,10 +110,23 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 Microsoft&#39;s developer site.</p>
 <pre><code class="lang-js">    <span class="keyword">var</span> MicrosoftStrategy = <span class="built_in">require</span>(<span class="string">'passport-microsoft'</span>).Strategy;
     passport.use(<span class="keyword">new</span> MicrosoftStrategy({
+        <span class="comment">// Standard OAuth2 options</span>
         <span class="attr">clientID</span>: <span class="string">'applicationidfrommicrosoft'</span>,
         <span class="attr">clientSecret</span>: <span class="string">'applicationsecretfrommicrosoft'</span>,
         <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/microsoft/callback"</span>,
-        <span class="attr">scope</span>: [<span class="string">'user.read'</span>]
+        <span class="attr">scope</span>: [<span class="string">'user.read'</span>],
+
+        <span class="comment">// Microsoft specific options</span>
+
+        <span class="comment">// [Optional] The tenant for the application. Defaults to 'common'. </span>
+        <span class="comment">// Used to construct the authorizationURL and tokenURL</span>
+        <span class="attr">tenant</span>: <span class="string">'common'</span>,
+
+        <span class="comment">// [Optional] The authorization URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/authorize`</span>
+        <span class="attr">authorizationURL</span>: <span class="string">'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'</span>,
+
+        <span class="comment">// [Optional] The token URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/token`</span>
+        <span class="attr">tokenURL</span>: <span class="string">'https://login.microsoftonline.com/common/oauth2/v2.0/token'</span>,
       },
       <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
         User.findOrCreate({ <span class="attr">userId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -128,7 +141,12 @@ authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code class="lang-js">    app.get(<span class="string">'/auth/microsoft'</span>,
-      passport.authenticate(<span class="string">'microsoft'</span>));
+      passport.authenticate(<span class="string">'microsoft'</span>, {
+        <span class="comment">// Optionally define any authentication parameters here</span>
+        <span class="comment">// For example, the ones in https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow</span>
+
+        <span class="attr">prompt</span>: <span class="string">'select_account'</span>,
+      }));
 
     app.get(<span class="string">'/auth/microsoft/callback'</span>, 
       passport.authenticate(<span class="string">'microsoft'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
@@ -143,7 +161,7 @@ application:</p>
 <ul>
 <li><a href="https://www.seafish.io">Sean Fisher</a> - <a href="https://github.com/seanfisher/passport-microsoft">passport-microsoft on Github</a></li>
 <li><p><a href="http://github.com/slugbay">Sluggy Bear</a> - Original <a href="https://github.com/slugbay/passport-onedrive">Microsoft OneDrive</a> strategy, upon which this is based</p>
-<p>Copyright (c) 2017 Sean Fisher &lt;<a href="https://www.seafish.io">seafish.io</a>&gt;</p>
+<p>Copyright (c) 2022 Sean Fisher &lt;<a href="https://www.seafish.io">seafish.io</a>&gt;</p>
 </li>
 </ul>
 <h2 id="thanks">Thanks</h2>
@@ -158,13 +176,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-microsoft</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2020-04-23T04:17:42Z">2 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:48:42Z">3 days ago</abbr></li>
               <li><a class="url" href="https://github.com/seanfisher/passport-microsoft">https://github.com/seanfisher/passport-microsoft#readme</a></li>
             </ul>
             <ul>
-              <li><b>3,918</b> downloads in the last day</li>
-              <li><b>18,829</b> downloads in the last week</li>
-              <li><b>78,911</b> downloads in the last month</li>
+              <li><b>682</b> downloads in the last day</li>
+              <li><b>23,844</b> downloads in the last week</li>
+              <li><b>92,162</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
