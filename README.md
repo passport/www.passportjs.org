@@ -4,7 +4,6 @@
 
 Visit [www.passportjs.org](http://www.passportjs.org)
 
-
 ## Contributing
 
 $ heroku git:remote -a www-passportjs-org
