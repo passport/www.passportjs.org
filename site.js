@@ -55,7 +55,7 @@ site.use('/tutorials/password', require('kerouac-book')('books/tutorials/passwor
 site.use('/tutorials/google', require('kerouac-book')('books/tutorials/google'))
 site.use('/tutorials/email', require('kerouac-book')('books/tutorials/email'))
 site.use('/tutorials/auth0', require('kerouac-book')('books/tutorials/auth0'))
-site.content('content');
+site.use(kerouac.content('content'));
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
 //site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
