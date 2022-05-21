@@ -5,6 +5,7 @@
 require('dotenv').config()
 
 var kerouac = require('kerouac');
+var book = require('kerouac-book');
 var moment = require('moment');
 
 
@@ -46,15 +47,15 @@ site.use('/packages', packagesApp);
 
 
 //site.use('/docs/howto', kerouac.content('howto'));
-site.use('/concepts/authentication', require('kerouac-book')('docs'));
-site.use('/concepts/api-authentication', require('kerouac-book')('books/concepts/api-authentication'));
-site.use('/concepts/bearer-token', require('kerouac-book')('books/concepts/bearer-token'));
-site.use('/concepts/delegated-authorization', require('kerouac-book')('books/concepts/delegated-authorization'));
-site.use('/reference/normalized-profile', require('kerouac-book')('books/reference/normalized-profile'));
-site.use('/tutorials/password', require('kerouac-book')('books/tutorials/password'));
-site.use('/tutorials/google', require('kerouac-book')('books/tutorials/google'))
-site.use('/tutorials/email', require('kerouac-book')('books/tutorials/email'))
-site.use('/tutorials/auth0', require('kerouac-book')('books/tutorials/auth0'))
+site.use('/concepts/authentication', book('docs'));
+site.use('/concepts/api-authentication', book('books/concepts/api-authentication'));
+site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
+site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
+site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
+site.use('/tutorials/password', book('books/tutorials/password'));
+site.use('/tutorials/google', book('books/tutorials/google'))
+site.use('/tutorials/email', book('books/tutorials/email'))
+site.use('/tutorials/auth0', book('books/tutorials/auth0'))
 site.use(kerouac.content('content'));
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
@@ -68,19 +69,19 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 
 site.generate([
     kerouac.contentCrawler(),
-    [ '/concepts/authentication', require('kerouac-book').browser('docs') ],
-    [ '/concepts/api-authentication', require('kerouac-book').browser('books/concepts/api-authentication') ],
-    [ '/concepts/delegated-authorization', require('kerouac-book').browser('books/concepts/delegated-authorization') ],
-    [ '/concepts/bearer-token', require('kerouac-book').browser('books/concepts/bearer-token') ],
-    [ '/reference/normalized-profile', require('kerouac-book').browser('books/reference/normalized-profile') ],
-    [ '/tutorials/password', require('kerouac-book').browser('books/tutorials/password') ],
-    [ '/tutorials/google', require('kerouac-book').browser('books/tutorials/google') ],
-    [ '/tutorials/email', require('kerouac-book').browser('books/tutorials/email') ],
-    [ '/tutorials/auth0', require('kerouac-book').browser('books/tutorials/auth0') ],
-    [ '/packages', require('kerouac-npm-packages').browser() ],
+    [ '/concepts/authentication', book.createMapper('docs') ],
+    [ '/concepts/api-authentication', book.createMapper('books/concepts/api-authentication') ],
+    [ '/concepts/delegated-authorization', book.createMapper('books/concepts/delegated-authorization') ],
+    [ '/concepts/bearer-token', book.createMapper('books/concepts/bearer-token') ],
+    [ '/reference/normalized-profile', book.createMapper('books/reference/normalized-profile') ],
+    [ '/tutorials/password', book.createMapper('books/tutorials/password') ],
+    [ '/tutorials/google', book.createMapper('books/tutorials/google') ],
+    [ '/tutorials/email', book.createMapper('books/tutorials/email') ],
+    [ '/tutorials/auth0', book.createMapper('books/tutorials/auth0') ],
+    [ '/packages', require('kerouac-npm-packages').createMapper() ],
     //[ '/packages', require('kerouac-sitemap').browser(), false ],
-    [ require('kerouac-sitemap').browser({ index: true }), false ],
-    [ require('kerouac-robotstxt').browser(), false ]
+    [ require('kerouac-sitemap').createMapper({ index: true }), false ],
+    [ require('kerouac-robotstxt').createMapper(), false ]
   ],
   function(err) {
     console.log('DONE!');
