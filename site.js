@@ -68,7 +68,7 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 // TODO: .well-known/security.txt
 
 site.generate([
-    kerouac.contentCrawler(),
+    kerouac.content.createMapper(),
     [ '/concepts/authentication', book.createMapper('docs') ],
     [ '/concepts/api-authentication', book.createMapper('books/concepts/api-authentication') ],
     [ '/concepts/delegated-authorization', book.createMapper('books/concepts/delegated-authorization') ],
