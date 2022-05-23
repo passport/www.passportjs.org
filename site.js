@@ -67,22 +67,24 @@ site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
 site.page('/robots.txt', require('kerouac-robotstxt')());
 // TODO: .well-known/security.txt
 
-site.generate([
+////[ '/packages', require('kerouac-sitemap').browser(), false ],
+site.generate({
+  '/': [
     kerouac.content.createMapper(),
-    [ '/concepts/authentication', book.createMapper('docs') ],
-    [ '/concepts/api-authentication', book.createMapper('books/concepts/api-authentication') ],
-    [ '/concepts/delegated-authorization', book.createMapper('books/concepts/delegated-authorization') ],
-    [ '/concepts/bearer-token', book.createMapper('books/concepts/bearer-token') ],
-    [ '/reference/normalized-profile', book.createMapper('books/reference/normalized-profile') ],
-    [ '/tutorials/password', book.createMapper('books/tutorials/password') ],
-    [ '/tutorials/google', book.createMapper('books/tutorials/google') ],
-    [ '/tutorials/email', book.createMapper('books/tutorials/email') ],
-    [ '/tutorials/auth0', book.createMapper('books/tutorials/auth0') ],
-    [ '/packages', require('kerouac-npm-packages').createMapper() ],
-    //[ '/packages', require('kerouac-sitemap').browser(), false ],
-    [ require('kerouac-sitemap').createMapper({ index: true }), false ],
-    [ require('kerouac-robotstxt').createMapper(), false ]
+    require('kerouac-sitemap').createMapper({ index: true }),
+    require('kerouac-robotstxt').createMapper()
   ],
+  '/concepts/authentication': book.createMapper('docs'),
+  '/concepts/api-authentication': book.createMapper('books/concepts/api-authentication'),
+  '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
+  '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
+  '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
+  '/tutorials/password': book.createMapper('books/tutorials/password'),
+  '/tutorials/google': book.createMapper('books/tutorials/google'),
+  '/tutorials/email': book.createMapper('books/tutorials/email'),
+  '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
+  '/packages': require('kerouac-npm-packages').createMapper()
+  },
   function(err) {
     console.log('DONE!');
     if (err) {
