@@ -69,6 +69,10 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 
 ////[ '/packages', require('kerouac-sitemap').browser(), false ],
 site.generate({
+  '/packages': [
+    require('kerouac-npm-packages').createMapper(),
+    require('kerouac-sitemap').createMapper(),
+  ],
   '/': [
     kerouac.content.createMapper(),
     require('kerouac-sitemap').createMapper({ index: true }),
@@ -83,7 +87,6 @@ site.generate({
   '/tutorials/google': book.createMapper('books/tutorials/google'),
   '/tutorials/email': book.createMapper('books/tutorials/email'),
   '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
-  '/packages': require('kerouac-npm-packages').createMapper()
   },
   function(err) {
     console.log('DONE!');
