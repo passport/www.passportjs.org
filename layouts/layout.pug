@@ -19,8 +19,10 @@ html(prefix='og: http://ogp.me/ns#', lang='en')
     +ios-web-app(manifest)
     +windows-web-app(manifest, '/browserconfig.xml')
 
-    +opengraph-metadata(title, description, images, author, type, canonicalURL, manifest)
-    +twitter-metadata(title, description, images, author, canonicalURL, manifest)
+    block opengraph-metadata
+      +opengraph-metadata(title, description, images, author, type, canonicalURL, manifest)
+    block twitter-metadata
+      +twitter-metadata(title, description, images, author, canonicalURL, manifest)
     
     +verifications()
     +google-analytics('UA-73332146-2')

@@ -21,10 +21,15 @@ include mixins/app
 include mixins/social
 
 block title
-  title= book.title + (page.title ? ': ' + page.title : '')
+  title= book.title + (file.path != readme.path ? ': ' + page.title : '')
 block description
   if book.description
     meta(name='description', content=book.description)
+block opengraph-metadata
+  +opengraph-metadata(book.title + (file.path != readme.path ? ': ' + page.title : ''), book.description, images, author, type, canonicalURL, manifest)
+block twitter-metadata
+  +twitter-metadata(book.title + (file.path != readme.path ? ': ' + page.title : ''), book.description, images, author, canonicalURL, manifest)
+
 
 block content
   #book.book
