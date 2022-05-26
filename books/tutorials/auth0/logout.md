@@ -7,12 +7,14 @@ Open `'routes/auth.js'` and add this route at line 40, below the
 
 ```js
 router.post('/logout', function(req, res, next) {
-  req.logout();
-  var params = {
-    client_id: process.env['AUTH0_CLIENT_ID'],
-    returnTo: 'http://localhost:3000/'
-  };
-  res.redirect('https://' + process.env['AUTH0_DOMAIN'] + '/v2/logout?' + qs.stringify(params));
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    var params = {
+      client_id: process.env['AUTH0_CLIENT_ID'],
+      returnTo: 'http://localhost:3000/'
+    };
+    res.redirect('https://' + process.env['AUTH0_DOMAIN'] + '/v2/logout?' + qs.stringify(params));
+  });
 });
 ```
 
