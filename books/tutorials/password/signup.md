@@ -3,7 +3,7 @@
 Users can now sign in and sign out.  The only thing that's missing is to let new
 users sign up.
 
-Open `'routes/auth.js'` and add the following route at line 50, below the
+Open `'routes/auth.js'` and add the following route at line 52, below the
 `'/logout'` route:
 
 ```js
@@ -34,7 +34,7 @@ heading:
 
 Finally, we need to add a route that will process the form submission when the
 user clicks "Sign up."  Back within `'routes/auth.js'`, add this route at line
-54, below the `'/signup'` route:
+56, below the `'/signup'` route:
 
 ```js
 router.post('/signup', function(req, res, next) {
