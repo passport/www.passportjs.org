@@ -7,8 +7,10 @@ Open `'routes/auth.js'` and add this route at line 72, below the
 
 ```js
 router.post('/logout', function(req, res, next) {
-  req.logout();
-  res.redirect('/');
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 ```
 
