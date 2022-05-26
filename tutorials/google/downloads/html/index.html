@@ -388,8 +388,10 @@ done.</p>
 <p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 72, below the
 <code>&#39;/oauth2/redirect/google&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  req.logout();
-  res.redirect(<span class="string">'/'</span>);
+  req.logout(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+    res.redirect(<span class="string">'/'</span>);
+  });
 });
 </code></pre>
 <p>Return to the app, where you should already be signed in, and click &quot;Sign out.&quot;</p>
