@@ -114,12 +114,14 @@
 <p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 40, below the
 <code>&#39;/oauth2/redirect&#39;</code> route:</p>
 <pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  req.logout();
-  <span class="keyword">var</span> params = {
-    <span class="attr">client_id</span>: process.env[<span class="string">'AUTH0_CLIENT_ID'</span>],
-    <span class="attr">returnTo</span>: <span class="string">'http://localhost:3000/'</span>
-  };
-  res.redirect(<span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/v2/logout?'</span> + qs.stringify(params));
+  req.logout(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+    <span class="keyword">var</span> params = {
+      <span class="attr">client_id</span>: process.env[<span class="string">'AUTH0_CLIENT_ID'</span>],
+      <span class="attr">returnTo</span>: <span class="string">'http://localhost:3000/'</span>
+    };
+    res.redirect(<span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/v2/logout?'</span> + qs.stringify(params));
+  });
 });
 </code></pre>
 <p>Return to the app, where you should already be signed in, and click &quot;Sign out.&quot;</p>
