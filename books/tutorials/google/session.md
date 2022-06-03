@@ -1,6 +1,6 @@
 # Establish Session
 
-Once the user has signed in with Google, we need to a login session to remember
+Once the user has signed in with Google, we need a login session to remember
 the fact that the user has authenticated as they navigate the app.
 
 Open `'app.js'` and `require` Passport at line 9, below where
