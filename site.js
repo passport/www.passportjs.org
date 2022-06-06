@@ -75,7 +75,7 @@ site.generate({
   ],
   '/': [
     kerouac.content.createMapper(),
-    require('kerouac-sitemap').createMapper({ index: true }),
+    require('kerouac-sitemap').createMapper({ index: 'sitemap-index.xml' }),
     require('kerouac-robotstxt').createMapper()
   ],
   '/concepts/authentication': book.createMapper('docs'),
