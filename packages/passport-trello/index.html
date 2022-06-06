@@ -95,37 +95,43 @@
           <div class="description"><p>Trello strategy for <a href="http://passportjs.org/">passport</a></p>
 <hr>
 <p>Install</p>
-<pre><code>$ npm install pass<span class="keyword">port</span>-trello
-</code></pre><p>Simple usage (CoffeeScript):</p>
-<pre><code class="lang-coffeescript">TrelloStrategy = <span class="built_in">require</span>(<span class="string">'passport-trello'</span>).Strategy
+<pre><code>$ npm i -<span class="type">S</span> pass<span class="keyword">port</span>-trello
+</code></pre><p>Simple usage:</p>
+<pre><code class="lang-javascript">const { Strategy: TrelloStrategy } = require('passport-trello');
 
-passport.use <span class="string">'trello'</span>, <span class="keyword">new</span> TrelloStrategy(
-    consumerKey: TRELLO_ID
-    consumerSecret: TRELLO_SECRET
-    callbackURL: TRELLO_CALLBACK
-    passReqToCallback: <span class="literal">true</span>
-    trelloParams:
-        scope: <span class="string">"read,write"</span>
-        name: <span class="string">"MyApp"</span>
-        expiration: <span class="string">"never"</span>
-    (req, token, tokenSecret, profile, done) -&gt;
-        <span class="keyword">if</span> <span class="keyword">not</span> req.user
-            <span class="comment"># user is not authenticated, log in via trello or do something else</span>
-        <span class="keyword">else</span>
-            <span class="comment"># authorize user to use Trello api</span>
-)
+passport.use('trello', new TrelloStrategy(
+    {
+        consumerKey: TRELLO_ID,
+        consumerSecret: TRELLO_SECRET,
+        callbackURL: TRELLO_CALLBACK,
+        passReqToCallback: true,
+        trelloParams: {
+            scope: "read,write",
+            name: "MyApp",
+            expiration: "never",
+        },
+    }
+    (req, token, tokenSecret, profile, done) =&gt; {
+        if (!req.user) {
+            # user is not authenticated, log in via trello or do something else
+        } else {
+            # authorize user to use Trello api
+        }
+    }
+));
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-trello</span></code></div>
             <ul>
-              <li><span class="version">0.1.5</span> published <abbr class="updated" title="2015-12-02T09:21:49Z">6 years ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-01T07:02:21Z">6 days ago</abbr></li>
               <li><a class="url" href="https://github.com/fuwaneko/passport-trello">https://github.com/fuwaneko/passport-trello#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>46</b> downloads in the last day</li>
-              <li><b>192</b> downloads in the last week</li>
-              <li><b>816</b> downloads in the last month</li>
+              <li><b>12</b> downloads in the last day</li>
+              <li><b>237</b> downloads in the last week</li>
+              <li><b>898</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
