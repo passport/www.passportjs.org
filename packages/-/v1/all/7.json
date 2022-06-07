@@ -317,6 +317,24 @@
     },
     {
       "package": {
+        "name": "passport-fido2-nojwk",
+        "version": "0.0.1",
+        "description": "Fork of https://github.com/tmyt/passport-fido2 without jwk",
+        "keywords": [],
+        "date": "2019-09-23T07:22:36.904Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-fido2-nojwk"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 1,
+        "last-week": 1,
+        "last-month": 20
+      }
+    },
+    {
+      "package": {
         "name": "passport-fido2-webauthn",
         "version": "0.1.0",
         "description": "WebAuthn authentication strategy for Passport.",
@@ -346,6 +364,24 @@
         "bookmarks": 9,
         "subscribers": 2,
         "forks": 2
+      }
+    },
+    {
+      "package": {
+        "name": "passport-fido2",
+        "version": "0.0.3",
+        "description": "**THIS IS BETA**",
+        "keywords": [],
+        "date": "2017-12-20T11:05:04.274Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-fido2"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 0,
+        "last-week": 4,
+        "last-month": 22
       }
     },
     {
@@ -662,68 +698,9 @@
         "subscribers": 2,
         "forks": 0
       }
-    },
-    {
-      "package": {
-        "name": "passport-ghost",
-        "version": "2.3.1",
-        "description": "Passport strategy for Ghost OAuth 2.0",
-        "keywords": [
-          "auth",
-          "ghost",
-          "passportjs",
-          "oauth2"
-        ],
-        "date": "2017-03-10T18:11:44.409Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-ghost",
-          "homepage": "https://ghost.org",
-          "repository": "git://github.com/TryGhost/passport-ghost.git",
-          "bugs": "https://github.com/TryGhost/passport-ghost/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 2,
-        "last-week": 17,
-        "last-month": 83
-      },
-      "interactionCounts": {
-        "bookmarks": 7,
-        "subscribers": 18,
-        "forks": 5
-      }
-    },
-    {
-      "package": {
-        "name": "passport-gitbook",
-        "version": "1.0.0",
-        "description": "GitBook authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "oauth",
-          "oauth2",
-          "authentication",
-          "gitbook",
-          "api"
-        ],
-        "date": "2015-11-26T10:06:25.725Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-gitbook",
-          "homepage": "https://github.com/GitbookIO/passport-gitbook#readme",
-          "repository": "git://github.com/GitbookIO/passport-gitbook.git",
-          "bugs": "http://github.com/GitbookIO/passport-gitbook/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 0,
-        "last-week": 8,
-        "last-month": 16
-      }
     }
   ],
-  "total": 541,
+  "total": 544,
   "urls": {
     "next": "/packages/-/v1/all/8.json",
     "prev": "/packages/-/v1/all/6.json"

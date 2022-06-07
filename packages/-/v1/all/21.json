@@ -2,6 +2,52 @@
   "objects": [
     {
       "package": {
+        "name": "passport-wanliu",
+        "version": "0.0.3",
+        "description": "Wanliu authentication strategy for Passport",
+        "date": "2013-09-07T07:26:04.343Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-wanliu",
+          "repository": "git@github.com:hysios/passport-wanliu.git"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 0,
+        "last-week": 5,
+        "last-month": 19
+      },
+      "interactionCounts": {
+        "bookmarks": 0,
+        "subscribers": 2,
+        "forks": 0
+      }
+    },
+    {
+      "package": {
+        "name": "passport-wargaming",
+        "version": "0.0.1",
+        "description": "Passport for Wargaming.net Openid",
+        "keywords": [
+          "passport",
+          "wargaming.net",
+          "wg",
+          "autorization"
+        ],
+        "date": "2015-03-16T07:48:41.501Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-wargaming"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 0,
+        "last-week": 5,
+        "last-month": 15
+      }
+    },
+    {
+      "package": {
         "name": "passport-warwick-sso-oauth",
         "version": "0.0.5",
         "description": "Warwick Web sign-on (OAuth) authentication strategies for Passport.",
@@ -67,6 +113,41 @@
         "bookmarks": 29,
         "subscribers": 1,
         "forks": 3
+      }
+    },
+    {
+      "package": {
+        "name": "passport-webauthn",
+        "version": "0.0.1",
+        "description": "A WebAuthn authentication strategy for Passport.",
+        "keywords": [
+          "webauthn",
+          "webauth",
+          "fido2",
+          "fido",
+          "passport",
+          "authentication",
+          "auth",
+          "authn"
+        ],
+        "date": "2016-06-03T05:54:29.706Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/passport-webauthn",
+          "homepage": "https://github.com/apowers313/passport-webauthn#readme",
+          "repository": "git+https://github.com/apowers313/passport-webauthn.git",
+          "bugs": "https://github.com/apowers313/passport-webauthn/issues"
+        }
+      },
+      "flags": {},
+      "downloadCounts": {
+        "last-day": 0,
+        "last-week": 3,
+        "last-month": 29
+      },
+      "interactionCounts": {
+        "bookmarks": 1,
+        "subscribers": 2,
+        "forks": 1
       }
     },
     {
@@ -663,97 +744,9 @@
         "subscribers": 92,
         "forks": 56
       }
-    },
-    {
-      "package": {
-        "name": "passport-xero",
-        "version": "1.0.0-a",
-        "description": "Xero authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "xero",
-          "auth",
-          "authentication",
-          "identity"
-        ],
-        "date": "2014-10-13T23:08:30.927Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-xero",
-          "homepage": "https://github.com/octoblu/passport-xero",
-          "repository": "git://github.com/octoblu/passport-xero.git",
-          "bugs": "http://github.com/octoblu/passport-xero/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 27,
-        "last-week": 90,
-        "last-month": 424
-      },
-      "interactionCounts": {
-        "bookmarks": 6,
-        "subscribers": 18,
-        "forks": 7
-      }
-    },
-    {
-      "package": {
-        "name": "passport-xing",
-        "version": "0.1.5",
-        "description": "Xing authentication strategy for Passport.",
-        "date": "2014-01-08T21:11:12.206Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-xing",
-          "repository": "git://github.com/pascal-bach/passport-xing.git"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 5,
-        "last-week": 40,
-        "last-month": 183
-      },
-      "interactionCounts": {
-        "bookmarks": 12,
-        "subscribers": 4,
-        "forks": 2
-      }
-    },
-    {
-      "package": {
-        "name": "passport-xmpp",
-        "version": "1.0.5",
-        "description": "XMPP authentication strategy for Passport.",
-        "keywords": [
-          "passport",
-          "xmpp",
-          "auth",
-          "authentication",
-          "jid",
-          "sasl"
-        ],
-        "date": "2014-10-23T15:11:01.836Z",
-        "links": {
-          "npm": "https://www.npmjs.com/package/passport-xmpp",
-          "homepage": "https://github.com/surevine/passport-xmpp",
-          "repository": "git://github.com/surevine/passport-xmpp.git",
-          "bugs": "http://github.com/surevine/passport-xmpp/issues"
-        }
-      },
-      "flags": {},
-      "downloadCounts": {
-        "last-day": 0,
-        "last-week": 9,
-        "last-month": 31
-      },
-      "interactionCounts": {
-        "bookmarks": 1,
-        "subscribers": 13,
-        "forks": 0
-      }
     }
   ],
-  "total": 541,
+  "total": 544,
   "urls": {
     "next": "/packages/-/v1/all/22.json",
     "prev": "/packages/-/v1/all/20.json"
