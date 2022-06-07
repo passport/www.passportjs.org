@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>passport-fido2-webauthn</title>
+    <meta charset="utf-8">
+    <meta name="description" content="WebAuthn authentication strategy for Passport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/packages/passport-fido2-webauthn/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="passport-fido2-webauthn"/>
+    <meta property="og:description" content="WebAuthn authentication strategy for Passport."/>
+    <meta property="og:url" content="https://www.passportjs.org/packages/passport-fido2-webauthn/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="passport-fido2-webauthn"/>
+    <meta name="twitter:description" content="WebAuthn authentication strategy for Passport."/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="package hproduct" id="package">
+          <div class="description"><h1 id="passport-fido2-webauthn">passport-fido2-webauthn</h1>
+<p><a href="https://www.passportjs.org/">Passport</a> strategy for authenticating
+with <a href="https://www.w3.org/TR/webauthn-2/">Web Authentication</a>.</p>
+<p>This module lets you authenticate using WebAuthn in your Node.js applications.
+By plugging into Passport, WebAuthn authentication can be easily and
+unobtrusively integrated into any application or framework that supports
+<a href="https://github.com/senchalabs/connect#readme">Connect</a>-style middleware,
+including <a href="https://expressjs.com/">Express</a>.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-sh">$ npm install passport-fido2-webauthn
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>The WebAuthn authentication strategy authenticates users using a public
+key-based credential.  The authenticator which stores this credential is
+typically a biometric sensor built into the user&#39;s device or an external
+security key.</p>
+<p>The strategy takes a <code>verify</code> function as an argument, which accepts <code>id</code> and
+<code>userHandle</code> as arguments.  <code>id</code> identifies a public key credential that has
+been associated with a user&#39;s account.  <code>userHandle</code> maps the credential to a
+specific user account.  When authenticating a user, this strategy obtains this
+information from a WebAuthn assertion.</p>
+<p>The <code>verify</code> function is responsible for determining the user to which the
+account at the OP belongs.  Once it has made a determination, it invokes <code>cb</code>
+with the user record and a public key.  The public key is used to
+cryptographically verify the WebAuthn assertion and authentication the user.</p>
+<p>This strategy also takes a <code>register</code> function as an argument, which is called
+when registering a new credential, and accepts <code>user</code>, <code>id</code> and <code>publicKey</code> as
+arguments.  <code>user</code> represents a specific user account with which to associate
+the credential.  <code>id</code> identifies the public key credential.  <code>publicKey</code> is the
+PEM-encoded public key.</p>
+<p>The <code>register</code> function is responsible for associating the new credential with
+the account.  Once complete, it invokes <code>cb</code> with the user record.</p>
+<p>Because the <code>verify</code> and <code>register</code> functions are supplied by the application,
+the app is free to use any database of its choosing.  The example below
+illustrates usage of a SQL database.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> WebAuthnStrategy = <span class="built_in">require</span>(<span class="string">'passport-fido2-webauthn'</span>);
+<span class="keyword">var</span> SessionChallengeStore = <span class="built_in">require</span>(<span class="string">'passport-fido2-webauthn'</span>).SessionChallengeStore;
+
+<span class="keyword">var</span> store = <span class="keyword">new</span> SessionChallengeStore();
+
+passport.use(<span class="keyword">new</span> WebAuthnStrategy({ <span class="attr">store</span>: store },
+  <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">id, userHandle, cb</span>) </span>{
+    db.get(<span class="string">'SELECT * FROM public_key_credentials WHERE external_id = ?'</span>, [ id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+      <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>}); }
+      <span class="keyword">var</span> publicKey = row.public_key;
+      db.get(<span class="string">'SELECT * FROM users WHERE rowid = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+        <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>}); }
+        <span class="keyword">if</span> (Buffer.compare(row.handle, userHandle) != <span class="number">0</span>) {
+          <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>});
+        }
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, row, publicKey);
+      });
+    });
+  },
+  <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params">user, id, publicKey, cb</span>) </span>{
+    db.run(<span class="string">'INSERT INTO users (username, name, handle) VALUES (?, ?, ?)'</span>, [
+      user.name,
+      user.displayName,
+      user.id
+    ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+      <span class="keyword">var</span> newUser = {
+        <span class="attr">id</span>: <span class="keyword">this</span>.lastID,
+        <span class="attr">username</span>: user.name,
+        <span class="attr">name</span>: user.displayName
+      };
+      db.run(<span class="string">'INSERT INTO public_key_credentials (user_id, external_id, public_key) VALUES (?, ?, ?)'</span>, [
+        newUser.id,
+        id,
+        publicKey
+      ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, newUser);
+      });
+    });
+  }
+));
+</code></pre>
+<h4 id="define-routes">Define Routes</h4>
+<p>Two routes are needed in order to allow users to log in with their biometrics or
+security keys.</p>
+<p>The first route generates a randomized challenge, saves it in the
+<code>ChallengeStore</code>, and sends it to the client-side JavaScript for it to be
+included in the authenticator response.  This is necessary in order to protect
+against replay attacks.</p>
+<pre><code class="lang-js">router.post(<span class="string">'/login/public-key/challenge'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  store.challenge(req, <span class="function"><span class="keyword">function</span>(<span class="params">err, challenge</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+    res.json({ <span class="attr">challenge</span>: base64url.encode(challenge) });
+  });
+});
+</code></pre>
+<p>The second route authenticates the authenticator assertion and logs the user in.</p>
+<pre><code class="lang-js">router.post(<span class="string">'/login/public-key'</span>,
+  passport.authenticate(<span class="string">'webauthn'</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+    res.json({ <span class="attr">ok</span>: <span class="literal">true</span> });
+  },
+  <span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>{
+    res.json({ <span class="attr">ok</span>: <span class="literal">false</span> });
+  });
+</code></pre>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><p><a href="https://github.com/passport/todos-express-webauthn">todos-express-webauthn</a></p>
+<p>Illustrates how to use the WebAuthn strategy within an Express application.</p>
+</li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="https://opensource.org/licenses/MIT">The MIT License</a></p>
+<p>Copyright (c) 2011-2022 Jared Hanson &lt;<a href="https://www.jaredhanson.me/">https://www.jaredhanson.me/</a>&gt;</p>
+</div>
+          <div class="metadata">
+            <div class="install"><code>npm install <span class="fn">passport-fido2-webauthn</span></code></div>
+            <ul>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-06T18:49:50Z">19 hours ago</abbr></li>
+              <li><a class="url" href="https://github.com/jaredhanson/passport-webauthn">https://github.com/jaredhanson/passport-webauthn#readme</a></li>
+              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+            </ul>
+            <ul>
+              <li><b>31</b> downloads in the last day</li>
+              <li><b>31</b> downloads in the last week</li>
+              <li><b>31</b> downloads in the last month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
