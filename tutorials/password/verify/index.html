@@ -145,14 +145,14 @@ installed packages at line 2, below where <code>express</code> is <code>require(
 database and verify the hashed password against the password submitted by the
 user.  If that succeeds, the password is valid and the user is authenticated.</p>
 <p>Next, add a route that will authenticate the user when they submit the form by
-clicking &quot;Sign in&quot;.  Continuing within <code>&#39;routes/auth.js&#39;</code>, add the following
+clicking &quot;Sign in.&quot;  Continuing within <code>&#39;routes/auth.js&#39;</code>, add the following
 code at line 28, below the <code>&#39;/login&#39;</code> route.</p>
 <pre><code class="lang-js">router.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>, {
   <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
   <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
 }));
 </code></pre>
-<p>Test it by starting the server.</p>
+<p>Try signing in by starting the server.</p>
 <pre><code class="lang-sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000/">http://localhost:3000</a>, click &quot;Sign in,&quot; and enter
