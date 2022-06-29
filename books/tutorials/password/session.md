@@ -1,6 +1,6 @@
 # Establish Session
 
-Once we've verified the user's password, we need to a login session to remember
+Once we've verified the user's password, we need a login session to remember
 the fact that the user has authenticated as they navigate the app.
 
 To do that, we'll add session support.  Begin by installing the necessary
