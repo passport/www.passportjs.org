@@ -33,8 +33,8 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 ```
 
-Continuing within `'app.js'`, use the newly `require()`'d `authRouter` at line
-27, below where `indexRouter` is `use()`'d.
+Continuing within `'app.js'`, `use()` the newly `require()`'d `authRouter` at
+line 27, below where `indexRouter` is `use()`'d.
 
 ```js
 app.use('/', indexRouter);

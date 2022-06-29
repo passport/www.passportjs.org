@@ -1,18 +1,18 @@
 # Verify Password
 
-Now that we are prompting the user for their username and password, the next
-step is to verify the password.
+In the [previous section](../prompt/), you created a page which prompts the user
+to enter their username and password.  In this section, you'll verify that the
+password is correct.
 
-To do that, we are going to use Passport and the `passport-local` strategy.
-Install both as dependencies:
+Install `passport` and the `passport-local` strategy as dependencies.
 
 ```sh
 $ npm install passport
 $ npm install passport-local
 ```
 
-Next, we need to configure Passport.  Open `'routes/auth.js'` and `require` the
-newly installed packages at line 2, below where `express` is `require`'d:
+Next, configure Passport.  Open `'routes/auth.js'` and `require()` the newly
+installed packages at line 2, below where `express` is `require()`'d.
 
 ```js
 var express = require('express');
@@ -22,7 +22,7 @@ var crypto = require('crypto');
 var db = require('../db');
 ```
 
-The built-in crypto module and the app's database are also `require`'d.
+The built-in crypto module and the app's database are also `require()`'d.
 
 Add the following code at line 7 to configure the `LocalStrategy`.
 
@@ -44,14 +44,12 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 ```
 
 This configures the `LocalStrategy` to fetch the user record from the app's
-database and verify the hashed password that is stored with the record.  If
-that succeeds, the password is valid and the user is authenticated.
+database and verify the hashed password against the password submitted by the
+user.  If that succeeds, the password is valid and the user is authenticated.
 
-Next, we need to add a route that will process the form submission when the user
-clicks "Sign in."
-
-Continuing within `'routes/auth.js'`, add this route at line 28, below the
-`'/login'` route:
+Next, add a route that will authenticate the user when they submit the form by
+clicking "Sign in".  Continuing within `'routes/auth.js'`, add the following
+code at line 28, below the `'/login'` route.
 
 ```js
 router.post('/login/password', passport.authenticate('local', {
@@ -60,16 +58,13 @@ router.post('/login/password', passport.authenticate('local', {
 }));
 ```
 
-We've now got a route that will process the form on the login page!  Let's test
-it out to see what happens.
-
-Start the server:
+Test it by starting the server.
 
 ```sh
 $ npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000), click "Sign in," and enter
+Open [http://localhost:3000](http://localhost:3000/), click "Sign in," and enter
 the following credentials:
 
 ```
@@ -79,5 +74,5 @@ Password: letmein
 
 Click "Sign in."
 
-Uh oh... we are informed that there's an error related to sessions.  Next, we
-will fix that by [establishing a session](../session/).
+Uh oh... the app fails with an error related to sessions.  Next, you will fix
+that error by configuring Passport to [establish a session](../session/).
