@@ -24,7 +24,7 @@ list.
 $ git clone https://github.com/passport/todos-express-starter.git username-password-tutorial
 ```
 
-You now have a directory named `'username-password-tutorial'`.  Change into it:
+You now have a directory named `'username-password-tutorial'`.  Change into it.
 
 ```sh
 $ cd username-password-tutorial
@@ -37,13 +37,13 @@ for styling.  You will use [SQLite](https://www.sqlite.org/) as a database for
 storing data.  Don't worry if you are not familiar with these technologies --
 the necessary code will be provided at each step.
 
-Next, install the dependencies:
+Next, install the dependencies.
 
 ```sh
 $ npm install
 ```
 
-And start the server:
+And start the server.
 
 ```
 $ npm start
@@ -53,4 +53,4 @@ Check to see if its working.  Open [http://localhost:3000](http://localhost:3000
 in your browser.  You should be greeted with a page explaining how _Todos_ helps
 you get things done.
 
-Next, you will [add a sign in page](prompt/) to the app.
+Next, you will [add a signin page](prompt/) to the app.
