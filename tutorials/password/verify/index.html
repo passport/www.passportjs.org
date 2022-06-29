@@ -109,22 +109,22 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="verify-password">Verify Password</h1>
-<p>Now that we are prompting the user for their username and password, the next
-step is to verify the password.</p>
-<p>To do that, we are going to use Passport and the <code>passport-local</code> strategy.
-Install both as dependencies:</p>
+<p>In the <a href="../prompt/">previous section</a>, you created a page which prompts the user
+to enter their username and password.  In this section, you&#39;ll verify that the
+password is correct.</p>
+<p>Install <code>passport</code> and the <code>passport-local</code> strategy as dependencies.</p>
 <pre><code class="lang-sh">$ npm install passport
 $ npm install passport-local
 </code></pre>
-<p>Next, we need to configure Passport.  Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the
-newly installed packages at line 2, below where <code>express</code> is <code>require</code>&#39;d:</p>
+<p>Next, configure Passport.  Open <code>&#39;routes/auth.js&#39;</code> and <code>require()</code> the newly
+installed packages at line 2, below where <code>express</code> is <code>require()</code>&#39;d.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
 <span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
 <span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>);
 <span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../db'</span>);
 </code></pre>
-<p>The built-in crypto module and the app&#39;s database are also <code>require</code>&#39;d.</p>
+<p>The built-in crypto module and the app&#39;s database are also <code>require()</code>&#39;d.</p>
 <p>Add the following code at line 7 to configure the <code>LocalStrategy</code>.</p>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
   db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
@@ -142,29 +142,26 @@ newly installed packages at line 2, below where <code>express</code> is <code>re
 }));
 </code></pre>
 <p>This configures the <code>LocalStrategy</code> to fetch the user record from the app&#39;s
-database and verify the hashed password that is stored with the record.  If
-that succeeds, the password is valid and the user is authenticated.</p>
-<p>Next, we need to add a route that will process the form submission when the user
-clicks &quot;Sign in.&quot;</p>
-<p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 28, below the
-<code>&#39;/login&#39;</code> route:</p>
+database and verify the hashed password against the password submitted by the
+user.  If that succeeds, the password is valid and the user is authenticated.</p>
+<p>Next, add a route that will authenticate the user when they submit the form by
+clicking &quot;Sign in&quot;.  Continuing within <code>&#39;routes/auth.js&#39;</code>, add the following
+code at line 28, below the <code>&#39;/login&#39;</code> route.</p>
 <pre><code class="lang-js">router.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>, {
   <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
   <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
 }));
 </code></pre>
-<p>We&#39;ve now got a route that will process the form on the login page!  Let&#39;s test
-it out to see what happens.</p>
-<p>Start the server:</p>
+<p>Test it by starting the server.</p>
 <pre><code class="lang-sh">$ npm start
 </code></pre>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in,&quot; and enter
+<p>Open <a href="http://localhost:3000/">http://localhost:3000</a>, click &quot;Sign in,&quot; and enter
 the following credentials:</p>
 <pre><code><span class="symbol">Username:</span> alice
 <span class="symbol">Password:</span> letmein
 </code></pre><p>Click &quot;Sign in.&quot;</p>
-<p>Uh oh... we are informed that there&#39;s an error related to sessions.  Next, we
-will fix that by <a href="../session/">establishing a session</a>.</p>
+<p>Uh oh... the app fails with an error related to sessions.  Next, you will fix
+that error by configuring Passport to <a href="../session/">establish a session</a>.</p>
 </section>
           </div>
         </div>

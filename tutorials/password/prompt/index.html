@@ -132,8 +132,8 @@ created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> 
 <pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
 </code></pre>
-<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require()</code>&#39;d <code>authRouter</code> at line
-27, below where <code>indexRouter</code> is <code>use()</code>&#39;d.</p>
+<p>Continuing within <code>&#39;app.js&#39;</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at
+line 27, below where <code>indexRouter</code> is <code>use()</code>&#39;d.</p>
 <pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
 app.use(<span class="string">'/'</span>, authRouter);
 </code></pre>
