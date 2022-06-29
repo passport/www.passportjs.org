@@ -48,7 +48,7 @@ database and verify the hashed password against the password submitted by the
 user.  If that succeeds, the password is valid and the user is authenticated.
 
 Next, add a route that will authenticate the user when they submit the form by
-clicking "Sign in".  Continuing within `'routes/auth.js'`, add the following
+clicking "Sign in."  Continuing within `'routes/auth.js'`, add the following
 code at line 28, below the `'/login'` route.
 
 ```js
@@ -58,7 +58,7 @@ router.post('/login/password', passport.authenticate('local', {
 }));
 ```
 
-Test it by starting the server.
+Try signing in by starting the server.
 
 ```sh
 $ npm start
