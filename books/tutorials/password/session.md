@@ -68,5 +68,5 @@ Click "Sign in."
 You are signed in!  Go ahead and enter some tasks you've been needing to get
 done.
 
-At this point, users can sign in to the app with a username and password!  Next,
-you will [add sign out](../logout/).
+At this point, you have built an app that allows users to sign in with a
+username and password!  Next, you will [add sign out](../logout/).
