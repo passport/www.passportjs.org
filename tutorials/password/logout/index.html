@@ -109,9 +109,11 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="log-out">Log Out</h1>
-<p>Now that users can sign in, they&#39;ll need a way to sign out.</p>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 45, below the
-<code>&#39;/login/password&#39;</code> route:</p>
+<p>In the <a href="../session/">previous section</a>, you established a login session after
+authenticating a username and password.  In this section, you&#39;ll add sign out
+which will terminate the session.</p>
+<p>Open <code>&#39;routes/auth.js&#39;</code> and add the following route at line 45, below the
+<code>&#39;/login/password&#39;</code> route.</p>
 <pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   req.logout(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
@@ -120,8 +122,8 @@
 });
 </code></pre>
 <p>Return to the app, where you should already be signed in, and click &quot;Sign out.&quot;</p>
-<p>We&#39;ve now got a working app where users can sign in and sign out!  Next we
-will let new users <a href="../signup/">sign up</a>.</p>
+<p>You have built an app that allows users to sign in and sign out!  Next, you will
+<a href="../signup/">add a signup page</a> to the app.</p>
 </section>
           </div>
         </div>
