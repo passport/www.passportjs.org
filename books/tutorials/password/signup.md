@@ -18,7 +18,7 @@ will prompt the user to create a new account with their preferred username and
 password.
 
 Open `'views/signup.ejs'` and add the form at line 15, below the "Sign up"
-heading:
+heading.
 
 ```html
 <h1>Sign up</h1>
@@ -37,7 +37,7 @@ heading:
 
 Finally, add a route that will handle the form submission when the user clicks
 "Sign up."  Back within `'routes/auth.js'`, add the following route at line 56,
-below the `'/signup'` route:
+below the `'/signup'` route.
 
 ```js
 router.post('/signup', function(req, res, next) {
