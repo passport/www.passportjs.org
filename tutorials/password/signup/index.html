@@ -122,7 +122,7 @@ this section, you&#39;ll add a signup page that allows users to create an accoun
 will prompt the user to create a new account with their preferred username and
 password.</p>
 <p>Open <code>&#39;views/signup.ejs&#39;</code> and add the form at line 15, below the &quot;Sign up&quot;
-heading:</p>
+heading.</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign up<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
 <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/signup"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
     <span class="tag">&lt;<span class="name">section</span>&gt;</span>
@@ -138,7 +138,7 @@ heading:</p>
 </code></pre>
 <p>Finally, add a route that will handle the form submission when the user clicks
 &quot;Sign up.&quot;  Back within <code>&#39;routes/auth.js&#39;</code>, add the following route at line 56,
-below the <code>&#39;/signup&#39;</code> route:</p>
+below the <code>&#39;/signup&#39;</code> route.</p>
 <pre><code class="lang-js">router.post(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
   <span class="keyword">var</span> salt = crypto.randomBytes(<span class="number">16</span>);
   crypto.pbkdf2(req.body.password, salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
