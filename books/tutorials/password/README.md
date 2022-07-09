@@ -30,9 +30,9 @@ You now have a directory named `'username-password-tutorial'`.  Change into it.
 $ cd username-password-tutorial
 ```
 
-Take a moment browse through the files in the starter app.  As you work through
-this tutorial, you'll be using [Express](https://expressjs.com/) as a web
-framework, along with [EJS](https://ejs.co/) as a template engine and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+Take a moment to browse through the files in the starter app.  As you work
+through this tutorial, you'll be using [Express](https://expressjs.com/) as a
+web framework, along with [EJS](https://ejs.co/) as a template engine and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 for styling.  You will use [SQLite](https://www.sqlite.org/) as a database for
 storing data.  Don't worry if you are not familiar with these technologies --
 the necessary code will be provided at each step.
