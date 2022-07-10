@@ -15,13 +15,16 @@ networks, along with the billions of people that have joined them, have made
 popular option.  Recent innovations, encompassed by [Web Authentication](https://en.wikipedia.org/wiki/WebAuthn)
 (WebAuthn), allow people to log in using fingerprint or facial recognition.
 
-Application architectures are also constantly evolving.  Application logic that,
-in the past, had to execute on the server can now execute in the browser, with
-the frontend invoking backend APIs.  Such architectures rely heavily on
-token-based credentials to protect access.
+Application architectures also impact how authentication is achieved.  To
+support web applications as well as native mobile and desktop applications,
+server-side logic can be exposed as an API which is invoked by applications
+running on a desktop, mobile device, or within a browser executing client-side
+JavaScript.  Access to APIs is protected by token-based credentials, typically
+issued via [OAuth](https://oauth.net/).
 
-Passport reduces the complexity of authenticating a request to a simple
-statement:
+Passport provides a flexible framework which allows an application to make use
+of any of these authentication mechanisms.  Passport reduces the complexity of
+authenticating a request to a simple statement:
 
 ```javascript
 app.post('/login/password', passport.authenticate('local'));
