@@ -146,12 +146,15 @@ networks, along with the billions of people that have joined them, have made
 <a href="https://www.facebook.com/">Facebook</a> or <a href="https://www.google.com/">Google</a> a
 popular option.  Recent innovations, encompassed by <a href="https://en.wikipedia.org/wiki/WebAuthn">Web Authentication</a>
 (WebAuthn), allow people to log in using fingerprint or facial recognition.</p>
-<p>Application architectures are also constantly evolving.  Application logic that,
-in the past, had to execute on the server can now execute in the browser, with
-the frontend invoking backend APIs.  Such architectures rely heavily on
-token-based credentials to protect access.</p>
-<p>Passport reduces the complexity of authenticating a request to a simple
-statement:</p>
+<p>Application architectures also impact how authentication is achieved.  To
+support web applications as well as native mobile and desktop applications,
+server-side logic can be exposed as an API which is invoked by applications
+running on a desktop, mobile device, or within a browser executing client-side
+JavaScript.  Access to APIs is protected by token-based credentials, typically
+issued via <a href="https://oauth.net/">OAuth</a>.</p>
+<p>Passport provides a flexible framework which allows an application to make use
+of any of these authentication mechanisms.  Passport reduces the complexity of
+authenticating a request to a simple statement:</p>
 <pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>));
 </code></pre>
 <p>Hidden behind that simple statement are three fundamental concepts:</p>
