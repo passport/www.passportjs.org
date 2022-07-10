@@ -147,7 +147,7 @@ username and password:</p>
 </code></pre>
 <p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>
 which will authenticate the request.  By default, when authentication succeeds,
-the <code>req.user</code> property is set to the authenticated user, a session is
+the <code>req.user</code> property is set to the authenticated user, a login session is
 established, and the next function in the stack is called.  This next function
 is typically application-specific logic which will process the request on behalf
 of the user.</p>
@@ -155,14 +155,21 @@ of the user.</p>
 the request-response cycle will end.  Any additional functions in the stack will
 not be called.  This default behavior is suitable for APIs obeying <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">representational state transfer</a>
 (REST) constaints, and can be modified using options.</p>
+<p>In traditional web applications, which interact with the user via HTML pages,
+forms, and redirects, the <code>failureRedirect</code> option is commonly used.  Instead
+of responding with <code>401 Unauthorized</code>, the browser will be redirected to the
+given location (typically the login page) with a <code>302 Found</code> response.   This is
+often paired with the <code>failureMessage</code> option, which will add an informative
+message to the session about why authentication failed which can then be
+displayed on the page the user is being redirected to.</p>
 <p>The mechanism used to authenticate the request is implemented by a strategy, of
 which there can be many.  For instance, authenticating a user with a username
 and password entails a different set of operations than authenticating a user
 via OpenID Connect, even though both result in the same outcome of an
 authenticated user.  In the route above, the <code>local</code> strategy is used to verify
 a username and password.</p>
-<p>Prior to employing a strategy to authenticate a request, the strategy must be
-installed and configured.  This brings us to our <a href="/docs/configure/">next</a> topic.</p>
+<p>Prior to employing a strategy to authenticate a request, the <a href="&#39;../strategies/&#39;">strategy must be
+installed and configured</a>.</p>
 </section>
           </div>
         </div>
