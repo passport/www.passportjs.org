@@ -36,9 +36,9 @@ $ npm install passport-openidconnect
 ```
 
 Developers only need to install the packages which provide authentication
-mechanisms required by the application.  These packages are then configured and
-plugged into Passport.  This reduces overall application size by avoiding
-unnecessary dependencies.
+mechanisms required by the application.  These packages are then plugged into
+Passport.  This reduces overall application size by avoiding unnecessary
+dependencies.
 
 ## Configure
 
