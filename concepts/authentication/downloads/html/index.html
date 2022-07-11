@@ -193,10 +193,11 @@ not be called.  This default behavior is suitable for APIs obeying <a href="http
 <p>In traditional web applications, which interact with the user via HTML pages,
 forms, and redirects, the <code>failureRedirect</code> option is commonly used.  Instead
 of responding with <code>401 Unauthorized</code>, the browser will be redirected to the
-given location (typically the login page) with a <code>302 Found</code> response.   This is
-often paired with the <code>failureMessage</code> option, which will add an informative
-message to the session about why authentication failed which can then be
-displayed on the page the user is being redirected to.</p>
+given location with a <code>302 Found</code> response.  This location is typically the
+login page, which gives the user another attempt to log in after an
+authentication failure.  This is often paired with the <code>failureMessage</code> option,
+which will add an informative message to the session about why authentication
+failed which can then be displayed to the user.</p>
 <p>The mechanism used to authenticate the request is implemented by a strategy.
 Authenticating a user with a username and password entails a different set of
 operations than authenticating a user via OpenID Connect.  As such, those two
