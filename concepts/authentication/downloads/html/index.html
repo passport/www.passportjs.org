@@ -218,18 +218,19 @@ must be installed, configured, and registered.</p>
 <h2 id="install">Install</h2>
 <p>Strategies are published to the <a href="https://www.npmjs.com/">npm</a> registry, and
 installed using a package manager.</p>
-<p>The following command will install <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>,
+<p>For example, the following command will install <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>,
 a package which provides a strategy for authenticating with a username and
 password:</p>
 <pre><code class="lang-bash">$ npm install passport-local
 </code></pre>
-<p>The following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
+<p>And the following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
 a package which implements support for <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>:</p>
 <pre><code class="lang-bash">$ npm install passport-openidconnect
 </code></pre>
 <p>Developers only need to install the packages which provide authentication
-mechanisms required by the application.  This reduces overall application size
-by avoiding unnecessary dependencies.</p>
+mechanisms required by the application.  These packages are then configured and
+plugged into Passport.  This reduces overall application size by avoiding
+unnecessary dependencies.</p>
 <h2 id="configure">Configure</h2>
 <p>Once a package has been installed, the strategy needs to be configured.  The
 configuration varies with each authentication mechanism, so strategy-specific
@@ -263,11 +264,11 @@ to be delegated to the application.</p>
 <p>In this particular example, the <code>verify</code> function is executing a SQL query to
 obtain a user record from the database and, after verifying the password,
 yielding the record back to the strategy, thus authenticating the user and
-establishing a session.</p>
+establishing a login session.</p>
 <p>Because a <code>verify</code> function is supplied by the application itself, access to
 persistent storage is not constrained in any way.  The application is free to
 use any data storage system, including relational databases, graph databases,
-or document stores, and structure data within that store according to any
+or document stores, and structure data within that database according to any
 schema.</p>
 <p>A <code>verify</code> function is strategy-specific, and the exact arguments it receives
 and parameters it yields will depend on the underlying authentication mechanism.
