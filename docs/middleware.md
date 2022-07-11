@@ -42,6 +42,3 @@ Authenticating a user with a username and password entails a different set of
 operations than authenticating a user via OpenID Connect.  As such, those two
 mechanisms are implemented by two different strategies.  In the route above, the
 `local` strategy is used to verify a username and password.
-
-Prior to employing a strategy to authenticate a request, the [strategy must be
-installed and configured](/concepts/authentication/strategies/).
