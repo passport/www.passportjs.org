@@ -1,7 +1,3 @@
----
-title: Strategies
----
-
 # Strategies
 
 Strategies are responsible for authenticating requests, which they accomplish by
