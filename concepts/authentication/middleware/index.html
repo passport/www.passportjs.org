@@ -162,12 +162,11 @@ given location (typically the login page) with a <code>302 Found</code> response
 often paired with the <code>failureMessage</code> option, which will add an informative
 message to the session about why authentication failed which can then be
 displayed on the page the user is being redirected to.</p>
-<p>The mechanism used to authenticate the request is implemented by a strategy, of
-which there can be many.  For instance, authenticating a user with a username
-and password entails a different set of operations than authenticating a user
-via OpenID Connect, even though both result in the same outcome of an
-authenticated user.  In the route above, the <code>local</code> strategy is used to verify
-a username and password.</p>
+<p>The mechanism used to authenticate the request is implemented by a strategy.
+Authenticating a user with a username and password entails a different set of
+operations than authenticating a user via OpenID Connect.  As such, those two
+mechanisms are implemented by two different strategies.  In the route above, the
+<code>local</code> strategy is used to verify a username and password.</p>
 <p>Prior to employing a strategy to authenticate a request, the <a href="/concepts/authentication/strategies/">strategy must be
 installed and configured</a>.</p>
 </section>
