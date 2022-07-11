@@ -36,12 +36,11 @@ often paired with the `failureMessage` option, which will add an informative
 message to the session about why authentication failed which can then be
 displayed on the page the user is being redirected to.
 
-The mechanism used to authenticate the request is implemented by a strategy, of
-which there can be many.  For instance, authenticating a user with a username
-and password entails a different set of operations than authenticating a user
-via OpenID Connect, even though both result in the same outcome of an
-authenticated user.  In the route above, the `local` strategy is used to verify
-a username and password.
+The mechanism used to authenticate the request is implemented by a strategy.
+Authenticating a user with a username and password entails a different set of
+operations than authenticating a user via OpenID Connect.  As such, those two
+mechanisms are implemented by two different strategies.  In the route above, the
+`local` strategy is used to verify a username and password.
 
 Prior to employing a strategy to authenticate a request, the [strategy must be
 installed and configured](/concepts/authentication/strategies/).
