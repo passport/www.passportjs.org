@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Documentation: Username &amp; Password</title>
+    <title>Documentation: Sessions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/concepts/authentication/password/">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/authentication/sessions/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +32,8 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Documentation: Username &amp; Password"/>
-    <meta property="og:url" content="https://www.passportjs.org/concepts/authentication/password/"/>
+    <meta property="og:title" content="Documentation: Sessions"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/authentication/sessions/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Documentation: Username &amp; Password"/>
+    <meta name="twitter:title" content="Documentation: Sessions"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -96,8 +96,8 @@
                 <ul data-content="">
                   <li><a href="/concepts/authentication/middleware/">Middleware</a></li>
                   <li><a href="/concepts/authentication/strategies/">Strategies</a></li>
-                  <li><a href="/concepts/authentication/sessions/">Sessions</a></li>
-                  <li><a class="active" href="/concepts/authentication/password/">Username &amp; Password</a></li>
+                  <li><a class="active" href="/concepts/authentication/sessions/">Sessions</a></li>
+                  <li><a href="/concepts/authentication/password/">Username &amp; Password</a></li>
                 </ul>
               </div>
               <div class="accordion" data-accordion="">
@@ -133,95 +133,118 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="username-password">Username &amp; Password</h1>
-<p>A username and password is the traditional, and still most widely used, way for
-users to authenticate to a website.  Support for this mechanism is provided by
-the <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
-package.</p>
-<h2 id="install">Install</h2>
-<p>To install <code>passport-local</code>, execute the following command:</p>
-<pre><code class="lang-bash">$ npm install passport-local
+            <section class="chapter"><h1 id="sessions">Sessions</h1>
+<p>A web application needs the ability to identify users as they browse from page
+to page.  This series of requests and responses, each associated with the same
+user, is known as a session.</p>
+<p>HTTP is a stateless protocol, meaning that each request to an application can be
+understood in isolation - without any context from previous requests.  This
+poses a challenge for web applications with logged in users, as the
+authenticated user needs to be remembered across subsequent requests as they
+navigate the application.</p>
+<p>To solve this challenge, web applications make use of sessions, which allow
+state to be maintained between the application server and the user&#39;s browser.  A
+session is established by setting an <a href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP cookie</a>
+in the browser, which the browser then transmits to the server on every request.
+The server uses the value of the cookie to retrieve information it needs across
+multiple requests.  In effect, this creates a stateful protocol on top of HTTP.</p>
+<p>While sessions are used to maintain authentication state, they can also be used
+by applications to maintain other state unrelated to authentication.  Passport
+is carefully designed to isolate authentication state, referred to as a login
+session, from other state.</p>
+<p>Applications must initialize session support in order to make use of login
+sessions.  In an <a href="https://expressjs.com/">Express</a> app, session support is added
+by using  <a href="https://github.com/expressjs/session"><code>express-session</code></a> middleware.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+
+app.use(session({
+  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+  <span class="attr">resave</span>: <span class="literal">false</span>,
+  <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
+  <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
+}))
 </code></pre>
-<h2 id="configure">Configure</h2>
-<p>The following code is an example that configures and registers the
-<code>LocalStrategy</code>:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
-<span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>);
-
-passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
-  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
-
-    crypto.pbkdf2(password, user.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-      <span class="keyword">if</span> (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
-        <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> });
-      }
-      <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+<p>To maintain a login session, Passport serializes and deserializes user
+information to and from the session.  The information that is stored is
+determined by the application, which supplies a <code>serializeUser</code> and a
+<code>deserializeUser</code> function.</p>
+<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, {
+      <span class="attr">id</span>: user.id,
+      <span class="attr">username</span>: user.username,
+      <span class="attr">picture</span>: user.picture
     });
   });
 });
-</code></pre>
-<p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
-accepts <code>username</code> and <code>password</code> as arguments.  When authenticating a request,
-the strategy parses a username and password, which are submitted via an HTML
-form to the web application.  The strategy then calls the <code>verify</code> function with
-those credentials.</p>
-<p>The <code>verify</code> function is responsible for determining the user to which the
-username belongs, as well as verifying the password.  Because the <code>verify</code>
-function is supplied by the application, the application is free to use a
-database and schema of its choosing.  The example above illustrates usage of a
-SQL database.</p>
-<p>Similarly, the application is free to determine its password storage format.
-The example above illustrates usage of <a href="https://datatracker.ietf.org/doc/html/rfc2898">PBKDF2</a>
-when comparing the user-supplied password with the hashed password stored in the
-database.</p>
-<p>In case of authentication failure, the <code>verify</code> callback supplies a message, via
-the <code>message</code> option, describing why authentication failed.  This will be
-displayed to the user when they are re-prompted to sign in, informing them of
-what went wrong.</p>
-<h2 id="prompt">Prompt</h2>
-<p>The user is prompted to sign in with their username and password by rendering a
-form.  This is accomplished by defining a route:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-    res.render(<span class="string">'login'</span>);
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
   });
+});
 </code></pre>
-<p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login/password"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"username"</span> <span class="attr">required</span> /&gt;</span>
-    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"current-password"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"current-password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">autocomplete</span>=<span class="string">"current-password"</span> <span class="attr">required</span> /&gt;</span>
-    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
-<p>When the user submits the form, it is processed by a route that authenticates
-the user using the username and password they entered.</p>
+<p>A login session is established upon a user successfully authenticating using a
+credential.  The following route will authenticate a user using a username and
+password.  If successfully verified, Passport will call the <code>serializeUser</code>
+function, which in the above example is storing the user&#39;s ID, username, and
+picture.  Any other properties of the user, such as an address or birthday, are
+not stored.</p>
 <pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
   passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
   <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
     res.redirect(<span class="string">'/~'</span> + req.user.username);
   });
 </code></pre>
-<p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
-function in the stack.  In this example, the function is redirecting the
-authenticated user to their profile page.</p>
-<p>When authentication fails, the user is re-prompted to sign in and informed that
-their initial attempt was not successful.  This is accomplished by using the
-<code>failureRedirect</code> option, which will redirect the user to the login page, along
-with the <code>failureMessage</code> option which will add the message to
-<code>req.session.messages</code>.</p>
+<p>As the user navigates from page to page, the session itself can be authenticated
+using the built-in <code>session</code> strategy.  Because an authenticated session is
+typically needed for the majority of routes in an application, it is common to
+use this as <a href="https://expressjs.com/en/guide/using-middleware.html#middleware.application">application-level middleware</a>,
+after <code>session</code> middleware.</p>
+<pre><code class="lang-javascript">app.use(session(<span class="comment">/* ... */</span>);
+app.use(passport.authenticate(<span class="string">'session'</span>));
+</code></pre>
+<p>This can also be accomplished, more succinctly, using the <code>passport.session()</code>
+alias.</p>
+<pre><code class="lang-javascript">app.use(session(<span class="comment">/* ... */</span>);
+app.use(passport.session());
+</code></pre>
+<p>When the session is authenticated, Passport will call the <code>deserializeUser</code>
+function, which in the above example is yielding the previously stored user ID,
+username, and picture.  The <code>req.user</code> property is then set to the yielded
+information.</p>
+<p>There is an inherent tradeoff between the amount of data stored in a session and
+database load incurred when authenticating a session.  This tradeoff is
+particularly pertinent when session data is stored on the client, rather than
+the server, using a package such as <a href="https://github.com/expressjs/cookie-session"><code>cookie-session</code></a>.
+Storing less data in the session will require heavier queries to a database to
+obtain that information.  Conversely, storing more data in the session reduces
+database queries while potentially exceeding the maximum amount of data that can
+be stored in a cookie.</p>
+<p>This tradeoff is controlled by the application and the <code>serializeUser</code> and
+<code>deserializeUser</code> functions it supplies.  In contrast to the above example, the
+following example minimizes the data stored in the session at the expense of
+querying the database for every request in which the session is authenticated.</p>
+<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
+  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user.id);
+  });
+});
+
+passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, cb</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+  });
+});
+</code></pre>
+<p>To balance this tradeoff, it is recommended that any user information needed on
+<em>every</em> request to the application be stored in the session.  For example, if
+the application displays a user element containing the user&#39;s name, email
+address, and photo on every page, that information should be stored in the
+session to eliminate what would otherwise be frequent database queries.
+Specific routes, such as a checkout page, that need additional information such
+as a shipping address, can query the database for that data.</p>
 </section>
           </div>
         </div>
