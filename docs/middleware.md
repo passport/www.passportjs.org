@@ -31,10 +31,11 @@ not be called.  This default behavior is suitable for APIs obeying [representati
 In traditional web applications, which interact with the user via HTML pages,
 forms, and redirects, the `failureRedirect` option is commonly used.  Instead
 of responding with `401 Unauthorized`, the browser will be redirected to the
-given location (typically the login page) with a `302 Found` response.   This is
-often paired with the `failureMessage` option, which will add an informative
-message to the session about why authentication failed which can then be
-displayed on the page the user is being redirected to.
+given location with a `302 Found` response.  This location is typically the
+login page, which gives the user another attempt to log in after an
+authentication failure.  This is often paired with the `failureMessage` option,
+which will add an informative message to the session about why authentication
+failed which can then be displayed to the user.
 
 The mechanism used to authenticate the request is implemented by a strategy.
 Authenticating a user with a username and password entails a different set of
