@@ -96,7 +96,7 @@ Add a route that will authenticate the username and password when the user
 submits the form:
 
 ```js
-router.post('/login/password', passport.authenticate('local', {
+app.post('/login/password', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
 }));
