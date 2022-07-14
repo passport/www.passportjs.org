@@ -1171,8 +1171,10 @@ login session (if any).</p>
 <p>It is a good idea to use POST or DELETE requests instead of GET requests for the 
 logout endpoints, in order to prevent accidental or malicious logouts.</p>
 <pre><code class="lang-javascript">app.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  req.logout();
-  res.redirect(<span class="string">'/'</span>);
+  req.logout(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
+    res.redirect(<span class="string">'/'</span>);
+  });
 });
 </code></pre>
 </section><section class="chapter" id="http-bearer"><h1 id="oauth-2-0">OAuth 2.0</h1>
