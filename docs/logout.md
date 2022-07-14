@@ -14,7 +14,9 @@ logout endpoints, in order to prevent accidental or malicious logouts.
 
 ```javascript
 app.post('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 ```
