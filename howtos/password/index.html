@@ -174,7 +174,7 @@ rendering a login view:</p>
 </code></pre>
 <p>Add a route that will authenticate the username and password when the user
 submits the form:</p>
-<pre><code class="lang-js">router.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>, {
+<pre><code class="lang-js">app.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>, {
   <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
   <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
 }));
