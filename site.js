@@ -6,6 +6,7 @@ require('dotenv').config()
 
 var kerouac = require('kerouac');
 var book = require('kerouac-book');
+var blog = require('kerouac-blog');
 var moment = require('moment');
 
 
@@ -46,11 +47,18 @@ packagesApp.page('/sitemap.xml', require('kerouac-sitemap')());
 site.use('/packages', packagesApp);
 
 
+var blogApp = kerouac();
+
+site.use('/blog', blogApp);
+
+
 //site.use('/docs/howto', kerouac.content('howto'));
 site.use('/concepts/authentication', book('docs'));
 site.use('/concepts/api-authentication', book('books/concepts/api-authentication'));
 site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
 site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
+site.use('/howtos/password', book('books/howtos/password'));
+site.use('/howtos/google', book('books/howtos/google'));
 site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
 site.use('/tutorials/password', book('books/tutorials/password'));
 site.use('/tutorials/google', book('books/tutorials/google'))
@@ -78,15 +86,18 @@ site.generate({
     require('kerouac-sitemap').createMapper({ index: 'sitemap-index.xml' }),
     require('kerouac-robotstxt').createMapper()
   ],
-  '/concepts/authentication': book.createMapper('docs'),
+  '/concepts/authentication': book.createMapper('docs', true),
   '/concepts/api-authentication': book.createMapper('books/concepts/api-authentication'),
   '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
   '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
+  '/howtos/password': book.createMapper('books/howtos/password'),
+  '/howtos/google': book.createMapper('books/howtos/google'),
   '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
   '/tutorials/password': book.createMapper('books/tutorials/password'),
   '/tutorials/google': book.createMapper('books/tutorials/google'),
   '/tutorials/email': book.createMapper('books/tutorials/email'),
   '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
+  '/blog': blog.createMapper(),
   },
   function(err) {
     console.log('DONE!');
