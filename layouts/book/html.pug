@@ -21,7 +21,14 @@ include ../mixins/app
 include ../mixins/social
 
 block title
-  title= title
+  title= book.title
+block description
+  if book.description
+    meta(name='description', content=book.description)
+block opengraph-metadata
+  +opengraph-metadata(book.title, book.description, images, author, type, canonicalURL, manifest)
+block twitter-metadata
+  +twitter-metadata(book.title, book.description, images, author, canonicalURL, manifest)
 
 block content
   #book.book
