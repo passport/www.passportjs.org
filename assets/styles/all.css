@@ -3225,9 +3225,15 @@ body.is-search .search-con {
   #menu .menu-items li.active:nth-child(3) a {
     color: #d4fd02;
   }
+  #menu .menu-items li.active:nth-child(5) {
+    box-shadow: inset 5px 0 0 0 #01b7ee;
+  }
+  #menu .menu-items li.active:nth-child(5) a {
+    color: #01b7ee;
+  }
   #menu .menu-items li a {
     font-size: 24px;
-    line-height: 2.5;
+    line-height: 2;
     color: #fff;
   }
 }
@@ -4089,6 +4095,7 @@ body.is-search .search-con {
   text-align: center;
   margin: 0 auto;
   padding: 0 20px;
+  margin-bottom: 40px;
 }
 .sponsors .intro h1 {
   padding: 0;
