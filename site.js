@@ -79,8 +79,8 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 ////[ '/packages', require('kerouac-sitemap').browser(), false ],
 site.generate({
   '/packages': [
-    //require('kerouac-npm-packages').createMapper(),
-    //require('kerouac-sitemap').createMapper(),
+    require('kerouac-npm-packages').createMapper(),
+    require('kerouac-sitemap').createMapper(),
   ],
   '/': [
     kerouac.content.createMapper(),
