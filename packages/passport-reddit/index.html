@@ -87,12 +87,13 @@
             <li><a href="/docs/">Documentation</a></li>
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
           </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
         </div>
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-reddit">Passport-Reddit</h1>
+          <div class="description"><h1 id="passport-reddit-build-status-coverage-status">Passport-Reddit <a href="https://app.travis-ci.com/Slotos/passport-reddit"><img src="https://app.travis-ci.com/Slotos/passport-reddit.svg" alt="Build Status"></a> <a href="https://codecov.io/gh/Slotos/passport-reddit"><img src="https://codecov.io/gh/Slotos/passport-reddit/branch/main/graph/badge.svg" alt="Coverage Status"></a></h1>
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://reddit.com/">Reddit</a> using the OAuth 2.0 API.</p>
 <p>This module lets you authenticate using Reddit in your Node.js applications.
@@ -108,57 +109,66 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> RedditStrategy({
-    clientID: REDDIT_CONSUMER_KEY,
-    clientSecret: REDDIT_CONSUMER_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/reddit/callback"</span>
+<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> RedditStrategy({
+    <span class="attr">clientID</span>: REDDIT_CONSUMER_KEY,
+    <span class="attr">clientSecret</span>: REDDIT_CONSUMER_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/reddit/callback"</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ redditId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
+  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    User.findOrCreate({ <span class="attr">redditId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
 ));
-</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre>
+<h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;reddit&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/reddit'</span>,
-  passport.authenticate(<span class="string">'reddit'</span>));
+<pre><code class="lang-javascript">app.get(<span class="string">'/auth/reddit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>{
+  passport.authenticate(<span class="string">'reddit'</span>, {
+    <span class="attr">duration</span>: <span class="string">'permanent'</span>,
+  })(req, res, next);
+});
 
-app.get(<span class="string">'/auth/reddit/callback'</span>,
-  passport.authenticate(<span class="string">'reddit'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
-  });
-</code></pre><h2 id="examples">Examples</h2>
+app.get(<span class="string">'/auth/reddit/callback'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>{
+  passport.authenticate(<span class="string">'reddit'</span>, {
+    <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
+    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+  })(req, res, next);
+});
+</code></pre>
+<h5 id="duration-option-on-authenticate-call"><code>duration</code> option on authenticate call</h5>
+<p>This strategy supports<code>duration</code> option on authenticate call, to request an indefinite authorization as opposed to 1 hour default.<br>Possible values: <code>permanent</code> and <code>temporary</code> (1 hour).</p>
+<p>Defined in the official <a href="https://github.com/reddit/reddit/wiki/OAuth2#authorization-parameters">Reddit OAuth spec</a></p>
+<h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/slotos/passport-reddit/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
 <pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
 <span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
-</code></pre><p><a href="http://travis-ci.org/Slotos/passport-reddit"><img src="https://secure.travis-ci.org/Slotos/passport-reddit.png" alt="Build Status"></a></p>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
 <li><a href="http://github.com/slotos">Dmytro Soltys</a></li>
+<li><a href="http://github.com/bpartridge83">Brian Partridge</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Original work Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;
-Modified work Copyright (c) 2013 Dmytro Soltys &lt;<a href="http://slotos.net/">http://slotos.net/</a>&gt;</p>
+<p>Original work Copyright (c) 2012-2013 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
+<p>Modified work Copyright (c) 2013 Dmytro Soltys &lt;<a href="http://slotos.net/">http://slotos.net/</a>&gt;</p>
+<p>Modified work Copyright (c) 2013 Brian Partridge &lt;<a href="http://brianpartridge.com/">http://brianpartridge.com/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-reddit</span></code></div>
             <ul>
-              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2022-06-01T06:58:17Z">7 days ago</abbr></li>
-              <li><a class="url" href="https://github.com/Slotos/passport-reddit"></a></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-07-17T07:28:44Z">4 days ago</abbr></li>
+              <li><a class="url" href="https://github.com/Slotos/passport-reddit">https://github.com/slotos/passport-reddit#readme</a></li>
             </ul>
             <ul>
-              <li><b>147</b> downloads in the last day</li>
-              <li><b>1,036</b> downloads in the last week</li>
-              <li><b>4,649</b> downloads in the last month</li>
+              <li><b>141</b> downloads in the last day</li>
+              <li><b>769</b> downloads in the last week</li>
+              <li><b>3,908</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
