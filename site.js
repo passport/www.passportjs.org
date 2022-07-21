@@ -65,6 +65,7 @@ site.use('/tutorials/google', book('books/tutorials/google'))
 site.use('/tutorials/email', book('books/tutorials/email'))
 site.use('/tutorials/auth0', book('books/tutorials/auth0'))
 site.use(kerouac.content('content'));
+site.use(kerouac.assets('assets'));
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
 //site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
@@ -78,11 +79,12 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 ////[ '/packages', require('kerouac-sitemap').browser(), false ],
 site.generate({
   '/packages': [
-    require('kerouac-npm-packages').createMapper(),
-    require('kerouac-sitemap').createMapper(),
+    //require('kerouac-npm-packages').createMapper(),
+    //require('kerouac-sitemap').createMapper(),
   ],
   '/': [
     kerouac.content.createMapper(),
+    kerouac.assets.createMapper(),
     require('kerouac-sitemap').createMapper({ index: 'sitemap-index.xml' }),
     require('kerouac-robotstxt').createMapper()
   ],
