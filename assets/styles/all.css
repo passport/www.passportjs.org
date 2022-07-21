@@ -4083,6 +4083,220 @@ body.is-search .search-con {
   padding-left: 22px;
   background: url("../../images/ico_download.svg") no-repeat 0 -22px;
 }
+.sponsors .intro {
+  max-width: 840px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.sponsors .intro h1 {
+  padding: 0;
+  margin: 0 0 40px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .sponsors .intro h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+  }
+}
+.sponsors .intro p {
+  margin: 0;
+  padding: 0;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .sponsors .gold {
+    clear: both;
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sponsors .gold:after {
+    clear: both;
+  }
+  .sponsors .gold:after,
+  .sponsors .gold:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .gold .item {
+    float: left;
+    width: 50%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) {
+  .sponsors .gold .item a {
+    height: 180px;
+  }
+}
+.sponsors .gold .item img {
+  max-width: 244px;
+  max-height: 64px;
+}
+.sponsors .gold .item img#snyk {
+  max-height: 128px;
+}
+.sponsors .gold .item p {
+  line-height: 22px;
+}
+@media (min-width: 768px) {
+  .sponsors .silver {
+    clear: both;
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .sponsors .silver:after {
+    clear: both;
+  }
+  .sponsors .silver:after,
+  .sponsors .silver:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .silver .item {
+    float: left;
+    width: 50%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 992px) {
+  .sponsors .silver {
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .sponsors .silver:after {
+    clear: both;
+  }
+  .sponsors .silver:after,
+  .sponsors .silver:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .silver .item {
+    float: left;
+    width: 33.333333333333336%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) {
+  .sponsors .silver .item a {
+    height: 64px;
+  }
+}
+.sponsors .silver .item img {
+  max-width: 244px;
+  max-height: 64px;
+}
+@media (min-width: 768px) {
+  .sponsors .bronze {
+    clear: both;
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .sponsors .bronze:after {
+    clear: both;
+  }
+  .sponsors .bronze:after,
+  .sponsors .bronze:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .bronze .item {
+    float: left;
+    width: 50%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 992px) {
+  .sponsors .bronze {
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .sponsors .bronze:after {
+    clear: both;
+  }
+  .sponsors .bronze:after,
+  .sponsors .bronze:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .bronze .item {
+    float: left;
+    width: 25%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) {
+  .sponsors .bronze .item a {
+    height: 42px;
+  }
+}
+.sponsors .bronze .item img {
+  max-width: 170px;
+  max-height: 42px;
+}
+.sponsors .item {
+  position: relative;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .sponsors .item {
+    padding: 0 10px !important;
+  }
+}
+.sponsors .item a {
+  background: #fff;
+  border: 1px solid #fff;
+  padding: 10px 15px 10px;
+  position: relative;
+  display: block;
+  box-sizing: content-box;
+  min-height: auto;
+}
+.sponsors .item a:hover {
+  border-color: #0a86b1;
+}
+.sponsors .item img {
+  margin: 0 auto;
+  display: block;
+}
 .desktop-only {
   display: none !important;
 }
