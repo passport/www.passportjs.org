@@ -1,3 +1,8 @@
+//-
+  Sponsors layout
+  
+  https://developers.google.com/search/docs/advanced/guidelines/qualify-outbound-links?hl=en&visit_id=637952261394133026-1098207848&rd=1
+//-
 extends layout
 
 include mixins
@@ -13,17 +18,17 @@ block content
       
     .gold
       .item
-        a(href='https://workos.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=passport_js&utm_source=github')
+        a(rel='sponsored' href='https://workos.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=passport_js&utm_source=github')
           img(src='workos.png')
           p
             b Your app, enterprise-ready.
             br
             | Start selling to enterprise customers with just a few lines of code. Add Single Sign-On (and more) in minutes instead of months.
       .item
-        a(href='https://snyk.co/passport')
+        a(rel='sponsored' href='https://snyk.co/passport')
           img#snyk(src='snyk.png')
           
     .bronze
       .item
-        a(href='https://altruistiq.com/')
+        a(rel='sponsored' href='https://altruistiq.com/')
           img(src='altruistiq.svg')
