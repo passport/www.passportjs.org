@@ -1,7 +1,11 @@
-Authenticating with a username and password is one of the most common and
-familiar ways to sign into a website.  This guide describes the steps needed
-to add username and password authentication to a [Node.js](https://nodejs.org/)
-app using the [Express](https://expressjs.com/) web framework.
+This guide describes the steps needed to add username and password
+authentication to a [Node.js](https://nodejs.org/) app using the [Express](https://expressjs.com/)
+web framework.
+
+<div class="alert alert-info">
+This guide assumes familiarity with Passport.  If you are learning, the
+[username and password tutorial](/tutorials/password/) is a better starting point.
+</div>
 
 # Install
 
@@ -22,15 +26,16 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 
 passport.use(new LocalStrategy(function verify(username, password, cb) {
-  db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, user) {
+  db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, row) {
     if (err) { return cb(err); }
-    if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+    if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
     
-    crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+    crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return cb(err); }
-      if (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
+      if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
         return cb(null, false, { message: 'Incorrect username or password.' });
       }
+      var user = row;
       return cb(null, user);
     });
   });
@@ -46,7 +51,7 @@ Modify the `verify` function in the example according your application's
 database, schema, and password-hashing function.
 
 The `verify` function must yield back to the strategy by calling the callback
-with a user if the password is correct:
+with a user object if the password is correct:
 
 ```js
 return cb(null, user);
