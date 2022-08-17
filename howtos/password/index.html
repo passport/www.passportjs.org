@@ -106,10 +106,14 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><p>Authenticating with a username and password is one of the most common and
-familiar ways to sign into a website.  This guide describes the steps needed
-to add username and password authentication to a <a href="https://nodejs.org/">Node.js</a>
-app using the <a href="https://expressjs.com/">Express</a> web framework.</p>
+            <section class="chapter"><p>This guide describes the steps needed to add username and password
+authentication to a <a href="https://nodejs.org/">Node.js</a> app using the <a href="https://expressjs.com/">Express</a>
+web framework.</p>
+<div class="alert alert-info">
+This guide assumes familiarity with Passport.  If you are learning, the
+<a href="/tutorials/password/">username and password tutorial</a> is a better starting point.
+</div>
+
 <h1 id="install">Install</h1>
 <p>Install <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
 using <a href="https://www.npmjs.com/">npm</a>.</p>
@@ -122,15 +126,16 @@ first argument.  For example:</p>
 <span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
 
 passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
-  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
+    <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
 
-    crypto.pbkdf2(password, user.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
+    crypto.pbkdf2(password, row.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-      <span class="keyword">if</span> (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
+      <span class="keyword">if</span> (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
         <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> });
       }
+      <span class="keyword">var</span> user = row;
       <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
     });
   });
@@ -143,7 +148,7 @@ password with the password submitted by the user.</p>
 <p>Modify the <code>verify</code> function in the example according your application&#39;s
 database, schema, and password-hashing function.</p>
 <p>The <code>verify</code> function must yield back to the strategy by calling the callback
-with a user if the password is correct:</p>
+with a user object if the password is correct:</p>
 <pre><code class="lang-js"><span class="keyword">return</span> cb(<span class="literal">null</span>, user);
 </code></pre>
 <p>It must yield back with <code>false</code> if the password is incorrect:</p>
