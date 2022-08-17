@@ -117,8 +117,8 @@ password is correct.</p>
 <pre><code class="lang-sh">$ npm install passport
 $ npm install passport-local
 </code></pre>
-<p>Next, configure Passport.  Open <code>&#39;routes/auth.js&#39;</code> and <code>require()</code> the newly
-installed packages at line 2, below where <code>express</code> is <code>require()</code>&#39;d.</p>
+<p>Next, configure Passport.  Open <code>routes/auth.js</code> and <code>require()</code> the newly
+installed packages at line 2, below <code>require(&#39;express&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
 <span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
@@ -146,8 +146,8 @@ installed packages at line 2, below where <code>express</code> is <code>require(
 database and verify the hashed password against the password submitted by the
 user.  If that succeeds, the password is valid and the user is authenticated.</p>
 <p>Next, add a route that will authenticate the user when they submit the form by
-clicking &quot;Sign in.&quot;  Continuing within <code>&#39;routes/auth.js&#39;</code>, add the following
-code at line 28, below the <code>&#39;/login&#39;</code> route.</p>
+clicking &quot;Sign in.&quot;  Continuing within <code>routes/auth.js</code>, add the following code
+at line 28, below the <code>/login</code> route.</p>
 <pre><code class="lang-js">router.post(<span class="string">'/login/password'</span>, passport.authenticate(<span class="string">'local'</span>, {
   <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
   <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>

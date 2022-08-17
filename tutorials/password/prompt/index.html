@@ -128,13 +128,13 @@ router.get(<span class="string">'/login'</span>, <span class="function"><span cl
 
 <span class="built_in">module</span>.exports = router;
 </code></pre>
-<p>Next, add these routes to the app.  Open <code>&#39;app.js&#39;</code> and <code>require()</code> the newly
-created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is <code>require()</code>&#39;d.</p>
+<p>Next, add these routes to the app.  Open <code>app.js</code> and <code>require()</code> the newly
+created auth routes at line 10, below <code>require(&#39;./routes/index&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
 </code></pre>
-<p>Continuing within <code>&#39;app.js&#39;</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at
-line 27, below where <code>indexRouter</code> is <code>use()</code>&#39;d.</p>
+<p>Continuing within <code>app.js</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at line
+27, below <code>app.use(&#39;/&#39;, indexRouter)</code>.</p>
 <pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
 app.use(<span class="string">'/'</span>, authRouter);
 </code></pre>
@@ -145,7 +145,7 @@ server.</p>
 <p>Open <a href="http://localhost:3000/">http://localhost:3000</a> and click &quot;Sign in.&quot;  You
 are prompted to sign in, but there&#39;s no place to enter a username and password.</p>
 <p>Add an HTML form which will allow the user to input their credentials.  Open
-<code>&#39;views/login.ejs&#39;</code> and add a form at line 15, below the &quot;Sign in&quot; heading.</p>
+<code>views/login.ejs</code> and add a form at line 15, below the &quot;Sign in&quot; heading.</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
 <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login/password"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
     <span class="tag">&lt;<span class="name">section</span>&gt;</span>
