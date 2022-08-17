@@ -25,16 +25,16 @@ router.get('/login', function(req, res, next) {
 module.exports = router;
 ```
 
-Next, add these routes to the app.  Open `'app.js'` and `require()` the newly
-created auth routes at line 10, below where `'routes/index'` is `require()`'d.
+Next, add these routes to the app.  Open `app.js` and `require()` the newly
+created auth routes at line 10, below `require('./routes/index')`.
 
 ```js
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 ```
 
-Continuing within `'app.js'`, `use()` the newly `require()`'d `authRouter` at
-line 27, below where `indexRouter` is `use()`'d.
+Continuing within `app.js`, `use()` the newly `require()`'d `authRouter` at line
+27, below `app.use('/', indexRouter)`.
 
 ```js
 app.use('/', indexRouter);
@@ -52,7 +52,7 @@ Open [http://localhost:3000](http://localhost:3000/) and click "Sign in."  You
 are prompted to sign in, but there's no place to enter a username and password.
 
 Add an HTML form which will allow the user to input their credentials.  Open
-`'views/login.ejs'` and add a form at line 15, below the "Sign in" heading.
+`views/login.ejs` and add a form at line 15, below the "Sign in" heading.
 
 ```html
 <h1>Sign in</h1>

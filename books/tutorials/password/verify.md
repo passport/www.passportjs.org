@@ -11,8 +11,8 @@ $ npm install passport
 $ npm install passport-local
 ```
 
-Next, configure Passport.  Open `'routes/auth.js'` and `require()` the newly
-installed packages at line 2, below where `express` is `require()`'d.
+Next, configure Passport.  Open `routes/auth.js` and `require()` the newly
+installed packages at line 2, below `require('express')`.
 
 ```js
 var express = require('express');
@@ -48,8 +48,8 @@ database and verify the hashed password against the password submitted by the
 user.  If that succeeds, the password is valid and the user is authenticated.
 
 Next, add a route that will authenticate the user when they submit the form by
-clicking "Sign in."  Continuing within `'routes/auth.js'`, add the following
-code at line 28, below the `'/login'` route.
+clicking "Sign in."  Continuing within `routes/auth.js`, add the following code
+at line 28, below the `/login` route.
 
 ```js
 router.post('/login/password', passport.authenticate('local', {

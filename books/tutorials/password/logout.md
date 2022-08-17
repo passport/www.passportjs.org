@@ -4,8 +4,8 @@ In the [previous section](../session/), you established a login session after
 authenticating a username and password.  In this section, you'll add sign out
 which will terminate the session.
 
-Open `'routes/auth.js'` and add the following route at line 45, below the
-`'/login/password'` route.
+Open `routes/auth.js` and add the following route at line 45, below the
+`/login/password` route.
 
 ```js
 router.post('/logout', function(req, res, next) {

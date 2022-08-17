@@ -13,8 +13,8 @@ $ npm install express-session
 $ npm install connect-sqlite3
 ```
 
-Open `'app.js'` and `require()` the additional dependencies at line 8, below
-where `'morgan'` is `require()`'d.
+Open `app.js` and `require()` the additional dependencies at line 8, below
+`require('morgan')`.
 
 ```js
 var logger = require('morgan');
@@ -39,7 +39,7 @@ app.use(passport.authenticate('session'));
 ```
 
 Finally, configure Passport to persist user information in the login session.
-Open `'routes/auth.js'` and add the following code at line 22.
+Open `routes/auth.js` and add the following code at line 22.
 
 ```js
 passport.serializeUser(function(user, cb) {

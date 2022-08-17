@@ -24,7 +24,7 @@ list.
 $ git clone https://github.com/passport/todos-express-starter.git username-password-tutorial
 ```
 
-You now have a directory named `'username-password-tutorial'`.  Change into it.
+You now have a directory named `username-password-tutorial`.  Change into it.
 
 ```sh
 $ cd username-password-tutorial
@@ -45,7 +45,7 @@ $ npm install
 
 And start the server.
 
-```
+```sh
 $ npm start
 ```
 
