@@ -152,7 +152,7 @@ multiple requests.  In effect, this creates a stateful protocol on top of HTTP.<
 <p>While sessions are used to maintain authentication state, they can also be used
 by applications to maintain other state unrelated to authentication.  Passport
 is carefully designed to isolate authentication state, referred to as a login
-session, from other state.</p>
+session, from other state that may be stored in the session.</p>
 <p>Applications must initialize session support in order to make use of login
 sessions.  In an <a href="https://expressjs.com/">Express</a> app, session support is added
 by using  <a href="https://github.com/expressjs/session"><code>express-session</code></a> middleware.</p>
@@ -163,7 +163,7 @@ app.use(session({
   <span class="attr">resave</span>: <span class="literal">false</span>,
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
-}))
+}));
 </code></pre>
 <p>To maintain a login session, Passport serializes and deserializes user
 information to and from the session.  The information that is stored is
