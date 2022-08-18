@@ -105,3 +105,8 @@ app.post('/login/password', passport.authenticate('local', {
   failureRedirect: '/login'
 }));
 ```
+
+<div class="alert alert-warning">
+A session will be established after authentication.  When using this strategy,
+ensure that you have [added support for sessions](/howtos/session/).
+</div>
