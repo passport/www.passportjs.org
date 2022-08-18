@@ -16,6 +16,7 @@ function(homeController, docsController, featuresController, packagesController,
   page('/', controller(homeController), pageview(), adRefresh());
   page('/concepts/authentication/*', controller(docsController), pageview(), adRefresh());
   page('/tutorials/*', highlight());
+  page('/howtos/*', highlight());
   page('/features', controller(featuresController), pageview(), adRefresh());
   page('/packages', controller(packagesController, true), pageview());
   
