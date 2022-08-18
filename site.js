@@ -58,6 +58,7 @@ site.use('/concepts/api-authentication', book('books/concepts/api-authentication
 site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
 site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
 site.use('/howtos/password', book('books/howtos/password'));
+site.use('/howtos/session', book('books/howtos/session'));
 site.use('/howtos/google', book('books/howtos/google'));
 site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
 site.use('/tutorials/password', book('books/tutorials/password'));
@@ -79,8 +80,8 @@ site.page('/robots.txt', require('kerouac-robotstxt')());
 ////[ '/packages', require('kerouac-sitemap').browser(), false ],
 site.generate({
   '/packages': [
-    require('kerouac-npm-packages').createMapper(),
-    require('kerouac-sitemap').createMapper(),
+    //require('kerouac-npm-packages').createMapper(),
+    //require('kerouac-sitemap').createMapper(),
   ],
   '/': [
     kerouac.content.createMapper(),
@@ -93,6 +94,7 @@ site.generate({
   '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
   '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
   '/howtos/password': book.createMapper('books/howtos/password'),
+  '/howtos/session': book.createMapper('books/howtos/session'),
   '/howtos/google': book.createMapper('books/howtos/google'),
   '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
   '/tutorials/password': book.createMapper('books/tutorials/password'),
