@@ -1,22 +1,25 @@
 # Maintain State
 
-When a user signs in to our app with Google, they are redirected to Google.
+In the [previous section](../configure/), you configured Passport to support
+signing in with Google.  In this section, you'll add session support to the app
+in order to maintain state.
+
+When a user signs in to the app with Google, they are redirected to Google.
 Google takes care of authenticating the user and then redirects them back to our
-app.
+app.  For security reasons, it is important that state is maintained and
+validated between these two redirects.
 
-For security, state needs to be maintained between these two redirects.
-Passport does this automatically, but the app first needs session support.
-Let's add that now.
-
-Begin by installing the necessary dependencies:
+Passport validates state automatically, but this requires the app to have
+session support.  Install `express-session` and the `connect-sqlite3` session
+store as dependencies.
 
 ```sh
 $ npm install express-session
 $ npm install connect-sqlite3
 ```
 
-Open `'app.js'` and `require` the additional dependencies at line 8, below
-where `'morgan'` is `require`'d:
+Open `app.js` and `require()` the additional dependencies at line 8, below
+`require('morgan')`.
 
 ```js
 var logger = require('morgan');
@@ -25,8 +28,8 @@ var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 ```
 
-Add the following code at line 28, after `express.static` middleware, to
-add sessions to the application.
+Add the following code at line 28, after `express.static()` middleware, which
+will add session support to the application.
 
 ```js
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,5 +41,5 @@ app.use(session({
 }));
 ```
 
-Now that the app has session support, we are ready to handle the [redirect back
-to our app](../redirect-back/).
+Now that the app has session support, the next step is to handle the [redirect
+back](../redirect-back/) from Google to the app.

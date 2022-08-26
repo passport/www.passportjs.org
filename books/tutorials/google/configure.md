@@ -1,25 +1,27 @@
 # Configure Strategy
 
-Now that we've registered our app with Google, we can configure Passport.
+In the [previous section](../register/), you registered the app with Google.  In
+this section, you'll configure Passport with the information obtained during
+registration.
 
-First, let's create a `'.env'` file to store the client ID and secret we just
-obtained from Google.
+First, create a `.env` file to store the client ID and secret that were obtained
+from Google.
 
 ```sh
 $ touch .env
 ```
 
-Then, add the client ID and secret.  The contents of the file should look
-something like this:
+Then, add the client ID and secret.  The contents of `.env` should look as
+follows.
 
 ```sh
 GOOGLE_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
 GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
 ```
 
-Of course, your client ID and secret should be inserted where noted.
+The client ID and secret obtained from Google should be inserted where noted.
 
-Open `'routes/auth.js'` and add the following code at line 6 to configure the
+Open `routes/auth.js` and add the following code at line 6 to configure the
 `GoogleStrategy`.
 
 ```js
@@ -67,7 +69,7 @@ passport.use(new GoogleStrategy({
 
 This configures the `GoogleStrategy` to fetch the user record associated with
 the Google account.  If a user record does not exist, one is created the first
-time someone signs in.
+time someone signs in.  In either case, the user is authenticated.
 
-The strategy is now configured.  Next we need to [maintain state](../state/)
-when redirecting to Google.
+The strategy is now configured.  Next you will add session support to the app in
+order to [maintain state](../state/) when redirecting to Google.

@@ -1,7 +1,8 @@
 # Register App
 
-Before we can let users sign in to our app with Google, we need to register the
-app with Google.
+In the [previous section](../redirect/), you added a route which redirects the
+user to Google when they click "Sign in with Google."  In this section, you'll
+register the app with Google so that it can make use of Google's APIs.
 
 Go to the [Google Cloud Platform console](https://console.cloud.google.com/).
 
