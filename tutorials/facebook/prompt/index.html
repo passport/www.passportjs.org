@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Documentation</title>
+    <title>Log In with Facebook Tutorial: Login Prompt</title>
     <meta charset="utf-8">
+    <meta name="description" content="In this tutorial you will build an Express app that lets users log in with Facebook.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/docs/">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/facebook/prompt/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +33,9 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Documentation"/>
-    <meta property="og:url" content="https://www.passportjs.org/docs/"/>
+    <meta property="og:title" content="Log In with Facebook Tutorial: Login Prompt"/>
+    <meta property="og:description" content="In this tutorial you will build an Express app that lets users log in with Facebook."/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/facebook/prompt/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +43,8 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Documentation"/>
+    <meta name="twitter:title" content="Log In with Facebook Tutorial: Login Prompt"/>
+    <meta name="twitter:description" content="In this tutorial you will build an Express app that lets users log in with Facebook."/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -81,7 +84,7 @@
         <div class="menu-items">
           <ul>
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/">Documentation</a></li>
             <li><a href="/features/">Features</a></li>
             <li><a href="/packages/">Strategies</a></li>
             <li><a href="/sponsors/">Sponsors</a></li>
@@ -89,56 +92,70 @@
         </div>
       </nav>
       <div id="content">
-        <section class="docs">
-          <div class="intro">
-            <h1>Documentation</h1><p>Passport is middleware for Node.js that makes it easy to implement
-authentication and authorization.  Whether you are building your first login
-page or are an expert in all things identity, the documentation will help you
-understand Passport and use it in your applications.</p>
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/facebook/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/facebook/">Introduction</a></li>
+                  <li><a class="active" href="/tutorials/facebook/prompt/">Login Prompt</a></li>
+                  <li><a href="/tutorials/facebook/redirect/">Redirect to Facebook</a></li>
+                  <li><a href="/tutorials/facebook/register/">Register App</a></li>
+                  <li><a href="/tutorials/facebook/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/facebook/state/">Maintain State</a></li>
+                  <li><a href="/tutorials/facebook/redirect-back/">Redirect Back to App</a></li>
+                  <li><a href="/tutorials/facebook/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/facebook/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="login-prompt">Login Prompt</h1>
+<p>To let users sign in with Facebook, the app needs a page with a button that
+prompts the user to do that.  In this section, you&#39;ll add a signin page.</p>
+<p>Create a file that will contain authentication-related routes.</p>
+<pre><code class="lang-sh">$ touch routes/auth.js
+</code></pre>
+<p>Add the following code to that file, which creates a route that will render the
+signin page.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
 
+<span class="keyword">var</span> router = express.Router();
+
+router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  res.render(<span class="string">'login'</span>);
+});
+
+<span class="built_in">module</span>.exports = router;
+</code></pre>
+<p>Next, add these route to the app.  Open <code>app.js</code> and <code>require()</code> the newly created
+auth routes at line 10, below <code>require(&#39;./routes/index&#39;)</code>.</p>
+<pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
+<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
+</code></pre>
+<p>Continuing within <code>app.js</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at line
+27, below <code>app.use(&#39;/&#39;, indexRouter)</code>.</p>
+<pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
+app.use(<span class="string">'/'</span>, authRouter);
+</code></pre>
+<p>The signin page has been added to the app!  See how it looks by starting the
+server.</p>
+<pre><code class="lang-sh">$ npm start
+</code></pre>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;  You
+are prompted to sign in, but there&#39;s no place to choose Facebook.</p>
+<p>Add a button which will allow the user to sign in with Facebook.  Open
+<code>views/login.ejs</code> and add a link at line 15, below the &quot;Sign in&quot; heading.</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button facebook"</span> <span class="attr">href</span>=<span class="string">"/login/federated/facebook"</span>&gt;</span>Sign in with Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+</code></pre>
+<p>Refresh the page.  The app now has a signin page that prompts the user to sign in
+with Facebook.  Next, you will <a href="../redirect/">redirect the user to Facebook</a>.</p>
+</section>
           </div>
-          <section>
-            <h2>Tutorials</h2>
-            <div>
-              <p>Lessons that introduce the basics by building simple apps. Most useful when you are new to Passport and getting started.</p>
-              <ul>
-                <li><a href="/tutorials/password/">Username &amp; Password</a></li>
-                <li><a href="/tutorials/google/">Sign In with Google</a></li>
-                <li><a href="/tutorials/facebook/">Sign In with Facebook</a></li>
-                <li><a href="/tutorials/email/">Email Magic Link</a></li>
-                <li><a href="/tutorials/auth0/">Auth0 Integration</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>How-to Guides</h2>
-            <div>
-              <p>Step-by-step guides to help you accomplish a task. Most useful when you are trying to solve a specific problem.</p>
-              <ul>
-                <li><a href="/howtos/password/">Username &amp; Password</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>Reference</h2>
-            <div>
-              <p>Technical descriptions of how Passport works. Most useful when you need detailed information about Passport's APIs.</p>
-              <ul>
-                <li><a href="/reference/normalized-profile/">Normalized Profile</a></li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>Concepts</h2>
-            <div>
-              <p>Explanations of higher-level topics pertaining to Passport. Most useful for deepening your understanding.</p>
-              <ul>
-                <li><a href="/concepts/authentication/">Authentication</a></li>
-                <li><a href="/concepts/api-authentication/">API Authentication</a></li>
-              </ul>
-            </div>
-          </section>
-        </section>
+        </div>
       </div>
     </div>
     <div class="search-con">

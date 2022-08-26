@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Log In with Facebook Tutorial: Configure Strategy</title>
+    <meta charset="utf-8">
+    <meta name="description" content="In this tutorial you will build an Express app that lets users log in with Facebook.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/tutorials/facebook/configure/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Log In with Facebook Tutorial: Configure Strategy"/>
+    <meta property="og:description" content="In this tutorial you will build an Express app that lets users log in with Facebook."/>
+    <meta property="og:url" content="https://www.passportjs.org/tutorials/facebook/configure/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Log In with Facebook Tutorial: Configure Strategy"/>
+    <meta name="twitter:description" content="In this tutorial you will build an Express app that lets users log in with Facebook."/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/tutorials/facebook/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/tutorials/facebook/">Introduction</a></li>
+                  <li><a href="/tutorials/facebook/prompt/">Login Prompt</a></li>
+                  <li><a href="/tutorials/facebook/redirect/">Redirect to Facebook</a></li>
+                  <li><a href="/tutorials/facebook/register/">Register App</a></li>
+                  <li><a class="active" href="/tutorials/facebook/configure/">Configure Strategy</a></li>
+                  <li><a href="/tutorials/facebook/state/">Maintain State</a></li>
+                  <li><a href="/tutorials/facebook/redirect-back/">Redirect Back to App</a></li>
+                  <li><a href="/tutorials/facebook/session/">Establish Session</a></li>
+                  <li><a href="/tutorials/facebook/logout/">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="configure-strategy">Configure Strategy</h1>
+<p>In the <a href="../register/">previous section</a>, you registered the app with Facebook.
+In this section, you&#39;ll configure Passport with the information obtained during
+registration.</p>
+<p>First, create a <code>.env</code> file to store the client ID and secret that were obtained
+from Facebook.</p>
+<pre><code class="lang-sh">$ touch .env
+</code></pre>
+<p>Then, add the client ID and secret.  The contents of <code>.env</code> should look as
+follows.</p>
+<pre><code class="lang-sh">FACEBOOK_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
+FACEBOOK_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
+</code></pre>
+<p>The client ID and secret obtained from Facebook should be inserted where noted.</p>
+<p>Open <code>routes/auth.js</code> and add the following code at line 6 to configure the
+<code>FacebookStrategy</code>.</p>
+<pre><code class="lang-js">passport.use(<span class="keyword">new</span> FacebookStrategy({
+  <span class="attr">clientID</span>: process.env[<span class="string">'FACEBOOK_CLIENT_ID'</span>],
+  <span class="attr">clientSecret</span>: process.env[<span class="string">'FACEBOOK_CLIENT_SECRET'</span>],
+  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect/facebook'</span>,
+  <span class="attr">state</span>: <span class="literal">true</span>
+}, <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+  db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [
+    <span class="string">'https://www.facebook.com'</span>,
+    profile.id
+  ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+    <span class="keyword">if</span> (!row) {
+      db.run(<span class="string">'INSERT INTO users (name) VALUES (?)'</span>, [
+        profile.displayName
+      ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+
+        <span class="keyword">var</span> id = <span class="keyword">this</span>.lastID;
+        db.run(<span class="string">'INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)'</span>, [
+          id,
+          <span class="string">'https://www.facebook.com'</span>,
+          profile.id
+        ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+          <span class="keyword">var</span> user = {
+            <span class="attr">id</span>: id,
+            <span class="attr">name</span>: profile.displayName
+          };
+          <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+        });
+      });
+    } <span class="keyword">else</span> {
+      db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+        <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>); }
+        <span class="keyword">return</span> cb(<span class="literal">null</span>, row);
+      });
+    }
+  });
+}));
+</code></pre>
+<p>This configures the <code>FacebookStrategy</code> to fetch the user record associated with
+the Facebook account.  If a user record does not exist, one is created the first
+time someone signs in.  In either case, the user is authenticated.</p>
+<p>The strategy is now configured.  Next you will add session support to the app in
+order to <a href="../state/">maintain state</a> when redirecting to Facebook.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
