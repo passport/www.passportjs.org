@@ -131,7 +131,7 @@ router.get(<span class="string">'/login'</span>, <span class="function"><span cl
 <span class="built_in">module</span>.exports = router;
 </code></pre>
 <p>Next, add these route to the app.  Open <code>app.js</code> and <code>require()</code> the newly created
-auth routes at line 10, below <code>require(&#39;routes/index&#39;)</code>.</p>
+auth routes at line 10, below <code>require(&#39;./routes/index&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
 </code></pre>
