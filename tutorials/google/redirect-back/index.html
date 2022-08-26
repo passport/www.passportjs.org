@@ -113,25 +113,25 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="redirect-back-to-app">Redirect Back to App</h1>
-<p>When a user signs in to our app with Google, they are redirected to Google.
-Google takes care of authenticating the user and then redirects them back to our
-app.</p>
-<p>Let&#39;s close the loop by adding a route that will handle this redirect.</p>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and add this route at line 55, below the
-<code>&#39;/login/federated/google&#39;</code> route:</p>
-<pre><code><span class="selector-tag">router</span><span class="selector-class">.get</span>(<span class="string">'/oauth2/redirect/google'</span>, passport.authenticate(<span class="string">'google'</span>, {
-  <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
-  <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>
+<p>In the <a href="../state/">previous section</a>, you added session support to the app in
+order to maintain state when redirecting to Google.  In this section, you&#39;ll add
+a route that authenticates the user when Google rediects them back to the app.</p>
+<p>Open <code>routes/auth.js</code> and add the following code at line 55, below the
+<code>/login/federated/google</code> route.</p>
+<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/google'</span>, passport.authenticate(<span class="string">'google'</span>, {
+  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
 }));
-</code></pre><p>We&#39;ve now got routes that will redirect the user to Google and handle the
-redirect back to our app!  Let&#39;s test it out to see what happens.</p>
-<p>Start the server:</p>
+</code></pre>
+<p>The app now has routes that handle the complete cycle of redirecting to Google
+and from Google back to the app, with state maintained in between.  Try signing
+in by starting the server.</p>
 <pre><code class="lang-sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
-click &quot;Sign in with Google&quot;.</p>
-<p>Uh oh... we are informed that there&#39;s an error related to sessions.  Next, we
-will fix that by <a href="../session/">establishing a login session</a>.</p>
+click &quot;Sign in with Google.&quot;</p>
+<p>Uh oh... the app fails with an error related to sessions.  Next, you will fix
+that error by configuring Passport to <a href="../session/">establish a session</a>.</p>
 </section>
           </div>
         </div>

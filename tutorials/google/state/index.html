@@ -113,25 +113,28 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="maintain-state">Maintain State</h1>
-<p>When a user signs in to our app with Google, they are redirected to Google.
+<p>In the <a href="../configure/">previous section</a>, you configured Passport to support
+signing in with Google.  In this section, you&#39;ll add session support to the app
+in order to maintain state.</p>
+<p>When a user signs in to the app with Google, they are redirected to Google.
 Google takes care of authenticating the user and then redirects them back to our
-app.</p>
-<p>For security, state needs to be maintained between these two redirects.
-Passport does this automatically, but the app first needs session support.
-Let&#39;s add that now.</p>
-<p>Begin by installing the necessary dependencies:</p>
+app.  For security reasons, it is important that state is maintained and
+validated between these two redirects.</p>
+<p>Passport validates state automatically, but this requires the app to have
+session support.  Install <code>express-session</code> and the <code>connect-sqlite3</code> session
+store as dependencies.</p>
 <pre><code class="lang-sh">$ npm install express-session
 $ npm install connect-sqlite3
 </code></pre>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
-where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
+<p>Open <code>app.js</code> and <code>require()</code> the additional dependencies at line 8, below
+<code>require(&#39;morgan&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
 <span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
 
 <span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
 </code></pre>
-<p>Add the following code at line 28, after <code>express.static</code> middleware, to
-add sessions to the application.</p>
+<p>Add the following code at line 28, after <code>express.static()</code> middleware, which
+will add session support to the application.</p>
 <pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
 app.use(session({
   <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
@@ -140,8 +143,8 @@ app.use(session({
   <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
 }));
 </code></pre>
-<p>Now that the app has session support, we are ready to handle the <a href="../redirect-back/">redirect back
-to our app</a>.</p>
+<p>Now that the app has session support, the next step is to handle the <a href="../redirect-back/">redirect
+back</a> from Google to the app.</p>
 </section>
           </div>
         </div>

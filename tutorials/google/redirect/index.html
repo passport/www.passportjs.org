@@ -113,36 +113,36 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="redirect-to-google">Redirect to Google</h1>
-<p>Now that we are prompting the user to sign in with Google, the next step is to
-redirect the user to Google.</p>
-<p>To do that, we are going to use Passport and the <code>passport-google-oidc</code>
-strategy.  Install both as dependencies:</p>
+<p>In the <a href="../prompt/">previous section</a>, you created a page which prompts the user
+to sign in with Google.  In this section, you&#39;ll add a route which redirects the
+user to Google when they click the button.  It won&#39;t work just yet, because
+there are a few other pieces that need to be put in place.  Subsequent steps
+will add the missing functionality and everything will work by the end of this
+tutorial.</p>
+<p>Install <code>passport</code> and the <code>passport-google-oidc</code> strategy as dependencies.</p>
 <pre><code class="lang-sh">$ npm install passport
 $ npm install passport-google-oidc
 </code></pre>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the newly installed packages, as well as
-the app&#39;s database, at line 2, below where <code>express</code> is <code>require</code>&#39;d:</p>
+<p>Open <code>routes/auth.js</code> and <code>require()</code> the newly installed packages, as well as
+the app&#39;s database, at line 2, below <code>require(&#39;express&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
 <span class="keyword">var</span> GoogleStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-oidc'</span>);
 <span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../db'</span>);
 </code></pre>
-<p>Next, we need to add a route that will redirect the user when they click &quot;Sign
-in with Google&quot;.</p>
-<p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 12, below the
-<code>&#39;/login&#39;</code> route:</p>
+<p>Next, add a route that will redirect the user when they click &quot;Sign in with
+Google&quot;.  Continuing within <code>routes/auth.js</code>, add the following code at line 12,
+below the <code>/login</code> route.</p>
 <pre><code class="lang-js">router.get(<span class="string">'/login/federated/google'</span>, passport.authenticate(<span class="string">'google'</span>));
 </code></pre>
-<p>We&#39;ve now got a route that will redirect the user to Google!  Let&#39;s test it out
-to see what happens.</p>
-<p>Start the server:</p>
+<p>Try signing in by starting the server.</p>
 <pre><code class="lang-sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
-click &quot;Sign in with Google&quot;.</p>
-<p>Uh oh... we are informed the Google authentication strategy is unknown.  We will
-fix that by configuring the strategy.  But first, we need to <a href="../register/">register our app
-with Google</a>.</p>
+click &quot;Sign in with Google.&quot;</p>
+<p>Uh oh... the app fails with an error indicating that the Google authentication
+strategy is unknown.  That will be fixed by <a href="../configure/">configuring the strategy</a>.
+But first, the app needs to be <a href="../register/">registered with Google</a>.</p>
 </section>
           </div>
         </div>

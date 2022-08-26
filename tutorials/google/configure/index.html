@@ -113,18 +113,20 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="configure-strategy">Configure Strategy</h1>
-<p>Now that we&#39;ve registered our app with Google, we can configure Passport.</p>
-<p>First, let&#39;s create a <code>&#39;.env&#39;</code> file to store the client ID and secret we just
-obtained from Google.</p>
+<p>In the <a href="../register/">previous section</a>, you registered the app with Google.  In
+this section, you&#39;ll configure Passport with the information obtained during
+registration.</p>
+<p>First, create a <code>.env</code> file to store the client ID and secret that were obtained
+from Google.</p>
 <pre><code class="lang-sh">$ touch .env
 </code></pre>
-<p>Then, add the client ID and secret.  The contents of the file should look
-something like this:</p>
+<p>Then, add the client ID and secret.  The contents of <code>.env</code> should look as
+follows.</p>
 <pre><code class="lang-sh">GOOGLE_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
 GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
 </code></pre>
-<p>Of course, your client ID and secret should be inserted where noted.</p>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and add the following code at line 6 to configure the
+<p>The client ID and secret obtained from Google should be inserted where noted.</p>
+<p>Open <code>routes/auth.js</code> and add the following code at line 6 to configure the
 <code>GoogleStrategy</code>.</p>
 <pre><code class="lang-js">passport.use(<span class="keyword">new</span> GoogleStrategy({
   <span class="attr">clientID</span>: process.env[<span class="string">'GOOGLE_CLIENT_ID'</span>],
@@ -169,9 +171,9 @@ GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
 </code></pre>
 <p>This configures the <code>GoogleStrategy</code> to fetch the user record associated with
 the Google account.  If a user record does not exist, one is created the first
-time someone signs in.</p>
-<p>The strategy is now configured.  Next we need to <a href="../state/">maintain state</a>
-when redirecting to Google.</p>
+time someone signs in.  In either case, the user is authenticated.</p>
+<p>The strategy is now configured.  Next you will add session support to the app in
+order to <a href="../state/">maintain state</a> when redirecting to Google.</p>
 </section>
           </div>
         </div>

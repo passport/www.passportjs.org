@@ -113,15 +113,20 @@
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <section class="chapter"><h1 id="establish-session">Establish Session</h1>
-<p>Once the user has signed in with Google, we need a login session to remember
-the fact that the user has authenticated as they navigate the app.</p>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> Passport at line 9, below where
-<code>&#39;express-session&#39;</code> is <code>require</code>&#39;d:</p>
+<p>In the <a href="../redirect-back/">previous section</a>, you added a route to authenticate
+the user when Google rediects them back to the app.  In this section, you&#39;ll
+establish a login session which will maintain the user&#39;s authenticated state as
+they navigate the app.</p>
+<p>You already <a href="../state/">added session support</a> to the app in order to maintain
+state between redirects.  This session support will also be used to maintain a
+login session.</p>
+<p>Open <code>app.js</code> and <code>require()</code> Passport at line 9, below
+<code>require(&#39;express-session&#39;)</code>.</p>
 <pre><code class="lang-js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
 </code></pre>
-<p>Add the following code at line 35, after <code>session</code> middleware, to authenticate
-the session.</p>
+<p>Add the following code at line 35, after <code>session()</code> middleware, which will
+authenticate the session.</p>
 <pre><code class="lang-js">app.use(session({
   <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
   <span class="attr">resave</span>: <span class="literal">false</span>,
@@ -130,8 +135,8 @@ the session.</p>
 }));
 app.use(passport.authenticate(<span class="string">'session'</span>));
 </code></pre>
-<p>Finally, we need to configure Passport to manage the login session.  Open
-<code>&#39;routes/auth.js&#39;</code> and add the following code at line 47:</p>
+<p>Finally, configure Passport to persist user information in the login session.
+Open <code>routes/auth.js</code> and add the following code at line 47.</p>
 <pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
   process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
     cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username, <span class="attr">name</span>: user.name });
@@ -144,12 +149,12 @@ passport.deserializeUser(<span class="function"><span class="keyword">function</
   });
 });
 </code></pre>
-<p>Now, let&#39;s retry signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>,
-click &quot;Sign in&quot; and then click &quot;Sign in with Google&quot;.</p>
-<p>We are logged in!  Go ahead and enter some tasks you&#39;ve been needing to get
+<p>Now try signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>, click
+&quot;Sign in&quot; and then click &quot;Sign in with Google.&quot;</p>
+<p>You are signed in!  Go ahead and enter some tasks you&#39;ve been needing to get
 done.</p>
-<p>At this point, users can sign in with Google!  Next, we will add the ability to
-<a href="../logout/">sign out</a>.</p>
+<p>At this point, you have built an app that allows users to sign in with Google!
+Next, you will <a href="../logout/">add sign out</a>.</p>
 </section>
           </div>
         </div>
