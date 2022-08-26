@@ -115,7 +115,7 @@
             <section class="chapter"><h1 id="redirect-back-to-app">Redirect Back to App</h1>
 <p>In the <a href="../state/">previous section</a>, you added session support to the app in
 order to maintain state when redirecting to Google.  In this section, you&#39;ll add
-a route that authenticates the user when Google rediects them back to the app.</p>
+a route that authenticates the user when Google redirects them back to the app.</p>
 <p>Open <code>routes/auth.js</code> and add the following code at line 55, below the
 <code>/login/federated/google</code> route.</p>
 <pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/google'</span>, passport.authenticate(<span class="string">'google'</span>, {
