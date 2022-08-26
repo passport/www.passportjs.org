@@ -23,7 +23,7 @@ list.
 $ git clone https://github.com/passport/todos-express-starter.git google-tutorial
 ```
 
-You now have a directory named `'google-tutorial'`.  Change into it.
+You now have a directory named `google-tutorial`.  Change into it.
 
 ```sh
 $ cd google-tutorial
