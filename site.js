@@ -63,6 +63,7 @@ site.use('/howtos/google', book('books/howtos/google'));
 site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
 site.use('/tutorials/password', book('books/tutorials/password'));
 site.use('/tutorials/google', book('books/tutorials/google'))
+site.use('/tutorials/facebook', book('books/tutorials/facebook'))
 site.use('/tutorials/email', book('books/tutorials/email'))
 site.use('/tutorials/auth0', book('books/tutorials/auth0'))
 site.use(kerouac.content('content'));
@@ -99,6 +100,7 @@ site.generate({
   '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
   '/tutorials/password': book.createMapper('books/tutorials/password'),
   '/tutorials/google': book.createMapper('books/tutorials/google'),
+  '/tutorials/facebook': book.createMapper('books/tutorials/facebook'),
   '/tutorials/email': book.createMapper('books/tutorials/email'),
   '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
   '/blog': blog.createMapper(),
