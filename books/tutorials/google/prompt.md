@@ -25,7 +25,7 @@ module.exports = router;
 ```
 
 Next, add these route to the app.  Open `app.js` and `require()` the newly created
-auth routes at line 10, below `require('routes/index')`.
+auth routes at line 10, below `require('./routes/index')`.
 
 ```js
 var indexRouter = require('./routes/index');
