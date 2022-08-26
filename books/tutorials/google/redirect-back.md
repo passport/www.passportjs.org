@@ -2,7 +2,7 @@
 
 In the [previous section](../state/), you added session support to the app in
 order to maintain state when redirecting to Google.  In this section, you'll add
-a route that authenticates the user when Google rediects them back to the app.
+a route that authenticates the user when Google redirects them back to the app.
 
 Open `routes/auth.js` and add the following code at line 55, below the
 `/login/federated/google` route.

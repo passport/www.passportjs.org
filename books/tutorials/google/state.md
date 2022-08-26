@@ -5,7 +5,7 @@ signing in with Google.  In this section, you'll add session support to the app
 in order to maintain state.
 
 When a user signs in to the app with Google, they are redirected to Google.
-Google takes care of authenticating the user and then redirects them back to our
+Google takes care of authenticating the user and then redirects them back to the
 app.  For security reasons, it is important that state is maintained and
 validated between these two redirects.
 
