@@ -2,7 +2,7 @@ This guide describes the steps needed to add session-based authentication to a
 [Node.js](https://nodejs.org/) app using the [Express](https://expressjs.com/)
 web framework.
 
-# Use Session Middleware
+# Middleware
 
 Add session support by installing [`express-session`](https://github.com/expressjs/session):
 
@@ -23,7 +23,7 @@ app.use(session({
 }));
 ```
 
-# Configure Serialization
+# Configure
 
 Register functions that serialize and deserialize user information to and from
 the session.
@@ -48,7 +48,7 @@ passport.deserializeUser(function(user, cb) {
 });
 ```
 
-# Authenticate Routes
+# Routes
 
 Authenticate _all_ routes by using `passport.authenticate()` as
 application-level middleware.

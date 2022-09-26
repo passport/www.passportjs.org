@@ -16,7 +16,7 @@ using [npm](https://www.npmjs.com/).
 $ npm install passport-local
 ```
 
-# Configure Strategy
+# Configure
 
 Create a new instance of `LocalStrategy` and pass a `verify` function as the
 first argument.  For example:
@@ -68,7 +68,7 @@ And it must yield back with an error if an exception occurred:
 return cb(err);
 ```
 
-# Define Routes
+# Routes
 
 Add a route that will prompt the user to sign in with a username and password by
 rendering a login view:
