@@ -99,8 +99,8 @@
                 <h5 data-control=""><i class="icon-budicon-461"></i><a href="/howtos/password/#install"></a></h5>
                 <ul data-content="">
                   <li><a href="/howtos/password/#install">Install</a></li>
-                  <li><a href="/howtos/password/#configure-strategy">Configure Strategy</a></li>
-                  <li><a href="/howtos/password/#define-routes">Define Routes</a></li>
+                  <li><a href="/howtos/password/#configure">Configure</a></li>
+                  <li><a href="/howtos/password/#routes">Routes</a></li>
                 </ul>
               </div>
             </nav>
@@ -119,7 +119,7 @@ This guide assumes familiarity with Passport.  If you are learning, the
 using <a href="https://www.npmjs.com/">npm</a>.</p>
 <pre><code class="lang-sh">$ npm install passport-local
 </code></pre>
-<h1 id="configure-strategy">Configure Strategy</h1>
+<h1 id="configure">Configure</h1>
 <p>Create a new instance of <code>LocalStrategy</code> and pass a <code>verify</code> function as the
 first argument.  For example:</p>
 <pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
@@ -156,7 +156,7 @@ with a user object if the password is correct:</p>
 <p>And it must yield back with an error if an exception occurred:</p>
 <pre><code class="lang-js"><span class="keyword">return</span> cb(err);
 </code></pre>
-<h1 id="define-routes">Define Routes</h1>
+<h1 id="routes">Routes</h1>
 <p>Add a route that will prompt the user to sign in with a username and password by
 rendering a login view:</p>
 <pre><code class="lang-js">app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
