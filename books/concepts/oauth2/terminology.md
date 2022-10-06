@@ -20,7 +20,7 @@ their consent.  Once authorization has been obtained, the authorization server
 issues access tokens to the application.
 
 The Graph API is a _resource server_ (RS).  The resource server hosts _protected
-resources_, which are typically HTTP endpoints and require the access token as
+resources_, which are typically HTTP endpoints and require an access token as
 a credential to authenticate a request.  In the case of Facebook, these
 resources are friends, posts, photos, and other information people might share
 on a social network.

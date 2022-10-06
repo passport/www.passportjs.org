@@ -6,7 +6,7 @@ the application to access.
 
 OAuth 2.0 can appear quite mysterious to developers, especially to those not
 familiar with implementing security-related functionality.  Even identity
-experts acknowledge the complexities of OAuth 2.0 and how it used to provide
+experts acknowledge the complexities of OAuth 2.0 and how it is used to provide
 authentication and authorization functionality.
 
 Fortunately, Passport makes it easy to integrate OAuth 2.0 without having to

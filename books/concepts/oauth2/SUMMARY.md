@@ -1,2 +1,6 @@
 * [Introduction](README.md)
 * [Terminology](terminology.md)
+* [Flow](flow.md)
+* [Authorize](authorize.md)
+* [Token](token.md)
+* [Resource](resource.md)
