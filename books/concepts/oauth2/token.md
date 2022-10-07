@@ -133,5 +133,5 @@ up to this point looks as follows:
 +-----+                                        +---------+
 ```
 
-Now that the application has obtained an access token, it can [access protected
-resources](../userinfo/).
+Now that the application has obtained an access token, it can [access the user
+profile](../profile/).

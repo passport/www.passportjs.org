@@ -1,4 +1,4 @@
-# Accessing User Info
+# Accessing User Profile
 
 Now that the application has been issued an access token, it can use that token
 to make authenticated API requests.  We'll explore how that is accomplished in
@@ -73,4 +73,4 @@ responses that have occured up to this point looks as follows:
 +-----+                                        +---------+
 ```
 
-Now that Passport has obtained user information, it can [authenticate the user](../authenticate/).
+Now that Passport has obtained the user profile, it can [authenticate the user](../authenticate/).

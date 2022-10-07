@@ -3,5 +3,5 @@
 * [Flow](flow.md)
 * [Authorization](authorization.md)
 * [Token](token.md)
-* [User Info](userinfo.md)
+* [Profile](profile.md)
 * [Authentication](authenticate.md)
