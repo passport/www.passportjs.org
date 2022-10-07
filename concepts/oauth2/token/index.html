@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Understanding OAuth 2.0: Token</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth2/token/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Understanding OAuth 2.0: Token"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth2/token/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Understanding OAuth 2.0: Token"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth2/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/concepts/oauth2/">Introduction</a></li>
+                  <li><a href="/concepts/oauth2/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth2/flow/">Protocol Flow</a></li>
+                  <li><a href="/concepts/oauth2/authorization/">Authorization</a></li>
+                  <li><a class="active" href="/concepts/oauth2/token/">Token</a></li>
+                  <li><a href="/concepts/oauth2/profile/">Profile</a></li>
+                  <li><a href="/concepts/oauth2/authentication/">Authentication</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="issuing-token">Issuing Token</h1>
+<p>Once the application has received the authorization code, the application can
+exchange that code for an access token.  It does this by making a <em>token
+request</em> to the authorization server&#39;s <em>token endpoint</em>
+(<code>/v3.2/oauth/access_token</code>, in the case of Facebook):</p>
+<pre><code class="lang-http"><span class="keyword">POST</span> <span class="string">/v3.2/oauth/access_token</span> HTTP/1.1
+<span class="attribute">Host</span>: graph.facebook.com
+<span class="attribute">Content-Type</span>: application/x-www-form-urlencoded
+
+<span class="routeros"><span class="attribute">grant_type</span>=authorization_code
+&amp;<span class="attribute">code</span>=SplxlOBeZQQYbYS6WxSbIA
+&amp;<span class="attribute">redirect_uri</span>=https%3A%2F%2Fwww.example.com%2Foauth2%2Fredirect%2Ffacebook
+&amp;<span class="attribute">client_id</span>=3087198538966924
+&amp;<span class="attribute">client_secret</span>=q0ajuzz0dvjrylrej0lklqgrz4yhbij3</span>
+</code></pre>
+<p>Let&#39;s examine the parameters in this request.</p>
+<ul>
+<li><p><code>grant_type</code>: Indicates the type of grant being exchanged for an access
+  token.  The value <code>authorization_code</code> indicates that an authorization
+  code is being exchanged, which is used by server-side web applications.</p>
+<p>  Recall that OAuth 2.0 is a framework. Additional grant types are available
+  for exchanging several forms of credentials and supporting other types of
+  applications and use cases.  New types can be defined by extensions to
+  OAuth 2.0.  This guide explains OAuth 2.0 as used by server-side web
+  applications, so details of other grant types are not examined.</p>
+<p>  Exchanging the authorization code is the final step of an authorization
+  code flow, which began with the earlier authorization request in which
+  <code>response_type</code> was set to <code>code</code>.</p>
+</li>
+<li><p><code>code</code>: The authorization code received from the authorization server in the
+  authorization response.</p>
+</li>
+<li><p><code>redirect_uri</code>: The redirect URL included in the earlier authorization
+  request.  Passport adds this automatically to prevent attacks that modify
+  the value of this parameter in the authorization request.</p>
+</li>
+<li><p><code>client_id</code>: Identifies the application to the authorization server.  This
+  is assigned when registering the application with Facebook.</p>
+</li>
+<li><p><code>client_secret</code>: The client secret, which is typically assigned when
+  registering the application.  This acts similarly to a password, allowing
+  the authorization server to authenticate the application.</p>
+</li>
+</ul>
+<p>Because the application is a server-side web application, the token request is
+sent from the backend to Facebook.  This is often referred to as a
+<em>back-channel</em> request.  This is in contrast to the authorization request, which
+is sent using redirects via the user&#39;s web browser.  Requests that flow through
+a web browser are often referred to <em>front-channel</em> requests.</p>
+<p>Given that front-channel requests travel through the user&#39;s web browser, any
+credentials or tokens carried in those requests are accessible to the user as
+well as scripts executing in the browser.  This raises security concerns.</p>
+<p>Because the authorization code flow completes with a back-channel request, it
+has a few important security benefits.  One is the the ability to authenticate
+the client using the client secret, which can be confidentially stored on the
+backend.  Another is that the resulting access token is issued directly to the
+application, without passing through the browser where it may be exposed to the
+user or scripts.</p>
+<p>When Facebook receives this request, it authenticates the application using the
+<code>client_id</code> and <code>client_secret</code>.  It then verifies that the authorization code
+is valid and was issued to the authenticated application.  Finally, it confirms
+that the value of <code>redirect_uri</code> is identical to that included in the earlier
+authorization request.</p>
+<p>If the authorization request is valid and authorized, Facebook issues an access
+token:</p>
+<pre><code>HTTP/1.1 <span class="number">200</span> OK
+<span class="attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="attr">"access_token"</span>: <span class="string">"IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0"</span>,
+  <span class="attr">"token_type"</span>: <span class="string">"bearer"</span>,
+  <span class="attr">"expires_in"</span>: <span class="number">5169265</span>
+}</span>
+</code></pre><p>Let&#39;s examine the parameters in this request.</p>
+<ul>
+<li><p><code>access_token</code>: The access token issued by the authorization server.  This
+  token is a credential the application can use to access the resource
+  server.</p>
+</li>
+<li><p><code>token_type</code>: Indicates the type of token that has been issued.  In this
+  case, the value <code>bearer</code> signifies that the token is a <a href="/concepts/bearer-token/">bearer
+  token</a>.</p>
+<p>  Once again, recall that OAuth 2.0 is a framework.  The set of token types
+  is extensible, and the definition of a type specifies how that token is
+  used to access a protected resource and what additional parameters, if
+  any, are included in the token response.</p>
+<p>  This guide only examines bearer tokens, as they are the most common token
+  type in use today and sufficient for a wide variety of applications.
+  That being said, other token types (such as proof-of-posession) exist, and
+  may be encountered in highly security-sensitive scenarios.</p>
+</li>
+<li><p><code>expires_in</code>: The lifetime of the token, in seconds.  In this case, the
+  token is valid for approximately 60 days.</p>
+</li>
+</ul>
+<p>Keep in mind that at this point, even as the token request and response have been
+completed, Passport is still processing the authorization response using a route:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+}));
+</code></pre>
+<p>The token request is interleaved in the middle of processing the authorization
+response.  A visualization of of the requests and responses that have occured
+up to this point looks as follows:</p>
+<pre><code class="lang-sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
+|     |                                        |         |
+|     |   ----- Token Request  -----&gt; +-----+  |         |
+| App |   &lt;---- Token Response ------ | AS  |  | Browser |
+|     |                               +-----+  |         |
+|     |   ...additional processing...          |         |
++-----+                                        +---------+
+</code></pre>
+<p>Now that the application has obtained an access token, it can <a href="../profile/">access the user
+profile</a>.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

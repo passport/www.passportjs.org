@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Bearer Tokens</title>
+    <title>Understanding OAuth 2.0: Authentication</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/concepts/bearer-token/">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth2/authentication/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +32,8 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Bearer Tokens"/>
-    <meta property="og:url" content="https://www.passportjs.org/concepts/bearer-token/"/>
+    <meta property="og:title" content="Understanding OAuth 2.0: Authentication"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth2/authentication/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Bearer Tokens"/>
+    <meta name="twitter:title" content="Understanding OAuth 2.0: Authentication"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -93,47 +93,76 @@
           <div class="toc">
             <nav data-accordion-group="">
               <div class="accordion" data-accordion="">
-                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/bearer-token/"></a></h5>
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth2/"></a></h5>
                 <ul data-content="">
-                  <li><a class="active" href="/concepts/bearer-token/">Overview</a></li>
+                  <li><a href="/concepts/oauth2/">Introduction</a></li>
+                  <li><a href="/concepts/oauth2/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth2/flow/">Protocol Flow</a></li>
+                  <li><a href="/concepts/oauth2/authorization/">Authorization</a></li>
+                  <li><a href="/concepts/oauth2/token/">Token</a></li>
+                  <li><a href="/concepts/oauth2/profile/">Profile</a></li>
+                  <li><a class="active" href="/concepts/oauth2/authentication/">Authentication</a></li>
                 </ul>
               </div>
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="bearer-token">Bearer Token</h1>
-<p>A bearer token is a type of token that can be used by a client application to
-gain access to an API using only the token itself.</p>
-<p>An example will help illustrate.  Let us suppose an application has been issued
-the string <code>SlAV32hkKG</code> as a token.  The application wishes to use this token to
-obtain information about a user.  The application can do so by making the
-following HTTP request:</p>
-<pre><code class="lang-http"><span class="keyword">GET</span> <span class="string">/userinfo</span> HTTP/1.1
-<span class="attribute">Host</span>: api.example.com
-<span class="attribute">Authorization</span>: Bearer SlAV32hkKG
+            <section class="chapter"><h1 id="authentication">Authentication</h1>
+<p>Remember that OAuth 2.0 is an <em>authorization</em> framework.  Let&#39;s examine how that
+relates to <em>authentication</em>.</p>
+<p>During the authorization process, Facebook authenticated the user and obtained
+their consent to allow the application to access their account (including name
+and email address).  Facebook then issued an access token to the application
+reflecting that authorization.  When the access token is used to access the
+<code>/me</code> API, information about the user who Facebook authenticated is returned.</p>
+<p>This is known as <em>delegated authentication</em>.  In effect, the application is not
+actually authenticating the user - Facebook is.  The application delegated that
+responsibility to Facebook.  The application is relying on Facebook to inform it
+about the user that authenticated.  The end result is the same: the application
+knows who has logged in.</p>
+<p>The distinction between <em>authentication</em> and <em>delegated authentication</em> is worth
+noting, however.  It introduces another entity in the process (Facebook, in this
+case), which has implications.  The user&#39;s log in experience is improved, as
+they no longer have to create an account or yet another password.  On the other
+hand, privacy concerns arise when granting access to data.  Often times the
+benefits outweigh the drawbacks, but each application will have different
+tradeoffs.</p>
+<p>Now that Passport knows who has authenticated, it calls the application&#39;s
+<code>verify</code> function with the profile information as well as the tokens.</p>
+<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
+  clientID: process.env[<span class="string">'FACEBOOK_CLIENT_ID'</span>],
+  clientSecret: process.env[<span class="string">'FACEBOOK_CLIENT_SECRET'</span>],
+  callbackURL: <span class="string">'/oauth2/redirect/facebook'</span>,
+  state: <span class="literal">true</span>
+}, <span class="function"><span class="keyword">function</span> <span class="title">verify</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
+  <span class="comment">// ...</span>
+}));
+</code></pre><p>When the <code>verify</code> function is complete, Passport establishes a login session and
+redirects the user back to application, where they are now logged in.  All of
+this occurs while Passport is processing the authorization response:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+}));
 </code></pre>
-<p>As illustrated in the request, the token string <code>SlAV32hkKG</code> is being used
-direcly in the HTTP <code>Authorization</code> header.  No additional credentials are
-present in the request.</p>
-<p>Bearer tokens derive their name from <a href="https://en.wikipedia.org/wiki/Bearer_instrument">bearer instruments</a>.
-The holder of a bearer instrument, such as a bond, is presumed to be the owner
-of that bond and whoever is physically in possession of the bond is entitled to
-dividend payments.  No additional proof of ownership is required.</p>
-<p>Similarly, any application in possession of a bearer token is entitled access
-to any APIs which accept the token, with whatever permissions the token conveys.</p>
-<p>Bearer tokens are typically issued to clients as the result of an OAuth 2.0
-authorization flow, where they are known as access tokens.  The token is then
-used by the client to access an HTTP resource using the <code>Bearer</code> scheme defined
-by <a href="https://datatracker.ietf.org/doc/html/rfc6750">RFC 6750</a>, as illustrated
-above.  RFC 6750 was specified in the <a href="https://www.ietf.org/">IETF</a> by the
-<a href="https://datatracker.ietf.org/wg/oauth/about/">OAuth Working Group</a>, reinforcing
-the pairing of OAuth 2.0 and bearer tokens.</p>
-<p>That being said, bearer tokens can be obtained by client applications without
-OAuth 2.0.  For instance, it is common, especially in developer-centric
-applications, for a user to generate an &quot;API key&quot; and then copy that API key
-into a script or application that is being developed.  Such an API key is a
-bearer token, but manually generated and pasted into an application by the user,
-rather than requested by and issued to the application via OAuth 2.0.</p>
+<p>The complete visualization of the requests, responses, and function calls that
+occur looks as follows:</p>
+<pre><code class="lang-sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
+|     |                                        |         |
+|     |   ----- Token Request  -----&gt; +-----+  |         |
+|     |   &lt;---- Token Response ------ | AS  |  |         |
+|     |                               +-----+  |         |
+| App |   ------ User Request  -----&gt; +-----+  | Browser |
+|     |   &lt;----- User Response ------ | API |  |         |
+|     |                               +-----+  |         |
+|     |.verify();                              |         |
+|     |.login();                               |         |
+|     |                                        |         |
++-----+ ---- HTTP/1.1 302 [ Location: / ] ---&gt; +---------+
+</code></pre>
+<p>Everything in between the request to the redirection endpoint
+(<code>/oauth2/redirect/facebook</code>) and the redirect to the application (<code>/</code>) is
+handled by Passport.</p>
 </section>
           </div>
         </div>

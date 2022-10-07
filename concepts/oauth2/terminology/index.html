@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
-    <title>Bearer Tokens</title>
+    <title>Understanding OAuth 2.0: Terminology</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="canonical" href="https://www.passportjs.org/concepts/bearer-token/">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth2/terminology/">
     <link rel="manifest" href="/manifest.webmanifest"/>
     <meta name="theme-color" content="#35DF79"/>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
@@ -32,8 +32,8 @@
     <meta name="msapplication-TileColor" content="#35DF79"/>
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Bearer Tokens"/>
-    <meta property="og:url" content="https://www.passportjs.org/concepts/bearer-token/"/>
+    <meta property="og:title" content="Understanding OAuth 2.0: Terminology"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth2/terminology/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1200"/>
@@ -41,7 +41,7 @@
     <meta property="og:site_name" content="Passport.js"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
-    <meta name="twitter:title" content="Bearer Tokens"/>
+    <meta name="twitter:title" content="Understanding OAuth 2.0: Terminology"/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -93,47 +93,49 @@
           <div class="toc">
             <nav data-accordion-group="">
               <div class="accordion" data-accordion="">
-                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/bearer-token/"></a></h5>
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth2/"></a></h5>
                 <ul data-content="">
-                  <li><a class="active" href="/concepts/bearer-token/">Overview</a></li>
+                  <li><a href="/concepts/oauth2/">Introduction</a></li>
+                  <li><a class="active" href="/concepts/oauth2/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth2/flow/">Protocol Flow</a></li>
+                  <li><a href="/concepts/oauth2/authorization/">Authorization</a></li>
+                  <li><a href="/concepts/oauth2/token/">Token</a></li>
+                  <li><a href="/concepts/oauth2/profile/">Profile</a></li>
+                  <li><a href="/concepts/oauth2/authentication/">Authentication</a></li>
                 </ul>
               </div>
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="bearer-token">Bearer Token</h1>
-<p>A bearer token is a type of token that can be used by a client application to
-gain access to an API using only the token itself.</p>
-<p>An example will help illustrate.  Let us suppose an application has been issued
-the string <code>SlAV32hkKG</code> as a token.  The application wishes to use this token to
-obtain information about a user.  The application can do so by making the
-following HTTP request:</p>
-<pre><code class="lang-http"><span class="keyword">GET</span> <span class="string">/userinfo</span> HTTP/1.1
-<span class="attribute">Host</span>: api.example.com
-<span class="attribute">Authorization</span>: Bearer SlAV32hkKG
-</code></pre>
-<p>As illustrated in the request, the token string <code>SlAV32hkKG</code> is being used
-direcly in the HTTP <code>Authorization</code> header.  No additional credentials are
-present in the request.</p>
-<p>Bearer tokens derive their name from <a href="https://en.wikipedia.org/wiki/Bearer_instrument">bearer instruments</a>.
-The holder of a bearer instrument, such as a bond, is presumed to be the owner
-of that bond and whoever is physically in possession of the bond is entitled to
-dividend payments.  No additional proof of ownership is required.</p>
-<p>Similarly, any application in possession of a bearer token is entitled access
-to any APIs which accept the token, with whatever permissions the token conveys.</p>
-<p>Bearer tokens are typically issued to clients as the result of an OAuth 2.0
-authorization flow, where they are known as access tokens.  The token is then
-used by the client to access an HTTP resource using the <code>Bearer</code> scheme defined
-by <a href="https://datatracker.ietf.org/doc/html/rfc6750">RFC 6750</a>, as illustrated
-above.  RFC 6750 was specified in the <a href="https://www.ietf.org/">IETF</a> by the
-<a href="https://datatracker.ietf.org/wg/oauth/about/">OAuth Working Group</a>, reinforcing
-the pairing of OAuth 2.0 and bearer tokens.</p>
-<p>That being said, bearer tokens can be obtained by client applications without
-OAuth 2.0.  For instance, it is common, especially in developer-centric
-applications, for a user to generate an &quot;API key&quot; and then copy that API key
-into a script or application that is being developed.  Such an API key is a
-bearer token, but manually generated and pasted into an application by the user,
-rather than requested by and issued to the application via OAuth 2.0.</p>
+            <section class="chapter"><h1 id="terminology">Terminology</h1>
+<p>In order to understand OAuth 2.0, it is first necessary to define the
+fundamental concepts used within the protocol.  To make these concepts easier to
+grasp, this guide will analyze OAuth 2.0 in the context of a common real-world
+scenario: logging in with <a href="https://www.facebook.com/">Facebook</a> and accesing the
+Facebook <a href="https://developers.facebook.com/docs/graph-api">Graph API</a>.  That
+said, the concepts themselves apply to other OAuth 2.0-powered services, and the
+details described in this guide are not specific to Facebook.</p>
+<p>In this scenario, your application will prompt the user to log in with Facebook.
+Facebook will then authenticate the user.  Once Facebook has obtained the user&#39;s
+consent, Facebook will issue an access token to your application.  Your
+application then uses the access token to access the Graph API.</p>
+<p>In OAuth 2.0 terminology, Facebook is an <em>authorization server</em> (AS).  The
+purpose of the authorization server is to authenticate the user and obtain
+authorization.  Authorization is typically obtained by prompting the user for
+their consent.  Once authorization has been obtained, the authorization server
+issues access tokens to the application.</p>
+<p>The Graph API is a <em>resource server</em> (RS).  The resource server hosts <em>protected
+resources</em>, which are typically HTTP endpoints and require an access token as
+a credential to authenticate a request.  In the case of Facebook, these
+resources are friends, posts, photos, and other information people might share
+on a social network.</p>
+<p>Your application is a <em>client</em>.  The client requests authorization from the user
+and, if granted, uses the issued access token to access protected resources.</p>
+<p>The user is referred to as a <em>resource owner</em>.  The resource owner is an entity
+that is capable of granting access to a protected resource.  In social
+networking scenarios, this is typically the user who created the posts or photos
+being accessed.  In enterprise environments, this is often a priviledged
+administrator that manages company data.</p>
 </section>
           </div>
         </div>

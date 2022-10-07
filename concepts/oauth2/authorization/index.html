@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Understanding OAuth 2.0: Authorization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth2/authorization/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Understanding OAuth 2.0: Authorization"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth2/authorization/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Understanding OAuth 2.0: Authorization"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth2/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/concepts/oauth2/">Introduction</a></li>
+                  <li><a href="/concepts/oauth2/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth2/flow/">Protocol Flow</a></li>
+                  <li><a class="active" href="/concepts/oauth2/authorization/">Authorization</a></li>
+                  <li><a href="/concepts/oauth2/token/">Token</a></li>
+                  <li><a href="/concepts/oauth2/profile/">Profile</a></li>
+                  <li><a href="/concepts/oauth2/authentication/">Authentication</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="requesting-authorization">Requesting Authorization</h1>
+<p>The OAuth 2.0 protocol flow begins when the application requests authorization
+from the user.  The authorization request is typically triggered based on the
+user taking an action.  In the case of Facebook, such an action would be the
+user clicking the &quot;Log In with Facebook&quot; button.</p>
+<p>For example, when the user clicks the following button:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button"</span> <span class="attr">href</span>=<span class="string">"/login/federated/facebook"</span>&gt;</span>Log In with Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+</code></pre>
+<p>The user&#39;s web browser makes a request to the application:</p>
+<pre><code class="lang-http"><span class="keyword">GET</span> <span class="string">/login/federated/facebook</span> HTTP/1.1
+<span class="attribute">Host</span>: www.example.com
+</code></pre>
+<p>This request is handled by a route in the application:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/login/federated/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>));
+</code></pre>
+<p>The route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth2/"><code>passport-oauth2</code></a>
+strategy, which responds by redirecting the user&#39;s web browser to Facebook:</p>
+<pre><code class="lang-http">HTTP/1.1 <span class="number">302</span> Found
+<span class="attribute">Location</span>: https://www.facebook.com/v3.2/dialog/oauth?response_type=code&amp;client_id=3087198538966924&amp;redirect_uri=https%3A%2F%2Fwww.example.com%2Foauth2%2Fredirect%2Ffacebook&amp;state=ar75nSeG
+</code></pre>
+<p>The web browser follows this redirect and makes a request to Facebook:</p>
+<pre><code class="lang-http"><span class="keyword">GET</span> <span class="string">/v3.2/dialog/oauth?response_type=code&amp;client_id=3087198538966924&amp;redirect_uri=https%3A%2F%2Fwww.example.com%2Foauth2%2Fredirect%2Ffacebook&amp;state=ar75nSeG</span> HTTP/1.1
+<span class="attribute">Host</span>: www.facebook.com
+</code></pre>
+<p>This request to Facebook (the authorization server) is an <em>authorization
+request</em>.  The request is sent to the authorization server&#39;s <em>authorization
+endpoint</em> (<code>/v3.2/dialog/oauth</code>, in the case of Facebook).  Let&#39;s examine the
+parameters in this request.</p>
+<ul>
+<li><p><code>response_type</code>: Indicates the type of grant desired from the authorization
+  server&#39;s response.  The value <code>code</code> indicates that an authorization code
+  is desired, which is used by server-side web applications.</p>
+<p>  Recall that OAuth 2.0 is a framework.  Other response types are available
+  that support other types of applications.  New types can be defined by
+  extensions to OAuth 2.0.  This guide explains OAuth 2.0 as used by
+  server-side web applications, so details of other response types are not
+  examined.</p>
+<p>  The authorization code response is the first step in a larger
+  authorization code flow.  It will be paired with the later step of
+  exchanging the code for an access token.</p>
+</li>
+<li><p><code>client_id</code>: Identifies the application to the authorization server.  This
+  is assigned when registering the application with Facebook.</p>
+</li>
+<li><p><code>redirect_uri</code>: URL to which the authorization server will redirect the user
+  after completing interaction with the user.</p>
+</li>
+<li><p><code>state</code>: A value used by the application to maintain state between the
+  redirects to the authorization server and back to the application.
+  Passport adds this automatically to prevent cross-site request forgery
+  (CSRF) attacks.</p>
+</li>
+</ul>
+<p>At this point, Facebook will interact with the user.  This interaction will
+typically involve logging the user in (if they are not already logged in) and
+obtaining their consent (if it has not been previously obtained).  Once that
+has been completed, Facebook redirects the user back to the application with
+an authorization code:</p>
+<pre><code class="lang-http">HTTP/1.1 <span class="number">302</span> Found
+<span class="attribute">Location</span>: https://www.example.com/oauth2/redirect/facebook?code=SplxlOBeZQQYbYS6WxSbIA&amp;state=ar75nSeG
+</code></pre>
+<p>The web browser follows this redirect and makes a request to the application:</p>
+<pre><code class="lang-http"><span class="keyword">GET</span> <span class="string">/oauth2/redirect/facebook?code=SplxlOBeZQQYbYS6WxSbIA&amp;state=ar75nSeG</span> HTTP/1.1
+<span class="attribute">Host</span>: www.example.com
+</code></pre>
+<p>This request to the application is an <em>authorization response</em>.  The request is
+sent to the application&#39;s <em>redirection endpoint</em> (<code>/oauth2/redirect/facebook</code>,
+in this case), which corresponds to the value of the <code>redirect_uri</code> parameter in
+the authorization request.  This endpoint is often also referred to as a
+callback URL, as it was known in the earlier OAuth 1.0 protocol.  Let&#39;s examine
+the parameters in this request.</p>
+<ul>
+<li><p><code>code</code>: The authorization code generated by the authorization server.</p>
+</li>
+<li><p><code>state</code>: The value sent by the application in the authorization request.</p>
+</li>
+</ul>
+<p>This request is handled by a route in the application:</p>
+<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+}));
+</code></pre>
+<p>This route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth2/"><code>passport-oauth2</code></a>
+strategy.  The strategy first verifies the validity of the <code>state</code> parameter to
+prevent CSRF attacks.  It then <a href="../token/">exchanges the authorization code for an access
+token</a>.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>
