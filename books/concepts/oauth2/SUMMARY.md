@@ -1,6 +1,6 @@
 * [Introduction](README.md)
 * [Terminology](terminology.md)
-* [Flow](flow.md)
+* [Protocol Flow](flow.md)
 * [Authorization](authorization.md)
 * [Token](token.md)
 * [Profile](profile.md)
