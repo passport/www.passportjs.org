@@ -1,12 +1,13 @@
 # Authentication
 
-Remember that OAuth 2.0 is an _authorization_ framework.  How does that relate
-to _authentication_?  During the authorization process, Facebook authenticated
-the user and obtained their consent to allow the application to access their
-account (including name and email address).  Facebook then issued an access
-token to the application reflecting that authorization.  When the access token
-is used to access the `/me` API, information about the user who Facebook
-authenticated is returned.
+Remember that OAuth 2.0 is an _authorization_ framework.  Let's examine how that
+relates to _authentication_.
+
+During the authorization process, Facebook authenticated the user and obtained
+their consent to allow the application to access their account (including name
+and email address).  Facebook then issued an access token to the application
+reflecting that authorization.  When the access token is used to access the
+`/me` API, information about the user who Facebook authenticated is returned.
 
 This is known as _delegated authentication_.  In effect, the application is not
 actually authenticating the user - Facebook is.  The application delegated that
