@@ -63,11 +63,8 @@ occur looks as follows:
 |     |.login();                               |         |
 |     |                                        |         |
 +-----+ ---- HTTP/1.1 302 [ Location: / ] ---> +---------+
-
-AS: Authorization Server (Facebook)
 ```
 
 Everything in between the request to the redirection endpoint
 (`/oauth2/redirect/facebook`) and the redirect to the application (`/`) is
 handled by Passport.
-

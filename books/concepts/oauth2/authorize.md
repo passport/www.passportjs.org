@@ -24,7 +24,7 @@ This request is handled by a route in the application:
 router.get('/login/federated/facebook', passport.authenticate('facebook'));
 ```
 
-The route invokes the [`passport-oauth2`](https://www.passportjs.org/packages/passport-oauth2/)
+The route invokes Passport, and in particular the [`passport-oauth2`](https://www.passportjs.org/packages/passport-oauth2/)
 strategy, which responds by redirecting the user's web browser to Facebook:
 
 ```http
@@ -109,6 +109,7 @@ router.get('/oauth2/redirect/facebook', passport.authenticate('facebook', {
 }));
 ```
 
-This route invokes the `passport-oauth2` strategy.  The strategy first verifies
-the validity of the `state` parameter to prevent CSRF attacks.  It then
-[exchanges the authorization code for an access token](../token/).
+This route invokes Passport, and in particular the [`passport-oauth2`](https://www.passportjs.org/packages/passport-oauth2/)
+strategy.  The strategy first verifies the validity of the `state` parameter to
+prevent CSRF attacks.  It then [exchanges the authorization code for an access
+token](../token/).

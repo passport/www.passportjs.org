@@ -1,7 +1,7 @@
 # Issuing Tokens
 
 Once the application has received the authorization code, the application can
-exchange that code for a set of tokens.  It does this by making a _token
+exchange that code for an access token.  It does this by making a _token
 request_ to the authorization server's _token endpoint_
 (`/v3.2/oauth/access_token`, in the case of Facebook):
 
@@ -71,8 +71,8 @@ is valid and was issued to the authenticated application.  Finally, it confirms
 that the value of `redirect_uri` is identical to that included in the earlier
 authorization request.
 
-If the authorization request is valid and authorized, Facebook issues a set of
-tokens including an access token:
+If the authorization request is valid and authorized, Facebook issues an access
+token:
 
 ```
 HTTP/1.1 200 OK
@@ -124,17 +124,13 @@ response.  A visualization of of the requests and responses that have occured
 up to this point looks as follows:
 
 ```sh
-+-----+ <-- POST /oauth2/redirect/facebook -- +----
-|     |                                       |
-|     |   ---- Token Request  --> +-----+     |
-| App |   <--- Token Response --- | AS  |     | UA
-|     |                           +-----+     |
-|     |   ...
-|     |   
-+-----+
-
-AS: Authorization Server (Facebook)
-UA: User Agent (aka, web browser)
++-----+ <-- POST /oauth2/redirect/facebook --- +---------+
+|     |                                        |         |
+|     |   ----- Token Request  -----> +-----+  |         |
+| App |   <---- Token Response ------ | AS  |  | Browser |
+|     |                               +-----+  |         |
+|     |   ...                                  |         |
++-----+                                        +---------+
 ```
 
 Now that the application has obtained an access token, it can [access protected
