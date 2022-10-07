@@ -3,7 +3,7 @@
 Once the application has received the authorization code, the application can
 exchange that code for a set of tokens.  It does this by making a _token
 request_ to the authorization server's _token endpoint_
-(`/v3.2/oauth/access_token`, in the case of Facebook).
+(`/v3.2/oauth/access_token`, in the case of Facebook):
 
 ```http
 POST /v3.2/oauth/access_token HTTP/1.1
@@ -23,12 +23,11 @@ Let's examine the parameters in this request.
       token.  The value `authorization_code` indicates that an authorization
       code is being exchanged, which is used by server-side web applications.
       
-      Recall that OAuth 2.0 describes itself as a framework. Additional grant
-      types are available for exchanging several forms of credentials and
-      supporting other types of applications and use cases.  New types can be
-      defined by extensions to OAuth 2.0.  This guide explains OAuth 2.0 as used
-      by server-side web applications, so details of other grant types are not
-      examined.
+      Recall that OAuth 2.0 is a framework. Additional grant types are available
+      for exchanging several forms of credentials and supporting other types of
+      applications and use cases.  New types can be defined by extensions to
+      OAuth 2.0.  This guide explains OAuth 2.0 as used by server-side web
+      applications, so details of other grant types are not examined.
       
       Exchanging the authorization code is the final step of an authorization
       code flow, which began with the earlier authorization request in which
@@ -73,7 +72,7 @@ that the value of `redirect_uri` is identical to that included in the earlier
 authorization request.
 
 If the authorization request is valid and authorized, Facebook issues a set of
-tokens including an access token.  
+tokens including an access token:
 
 ```
 HTTP/1.1 200 OK
@@ -109,6 +108,34 @@ Let's examine the parameters in this request.
   * `expires_in`: The lifetime of the token, in seconds.  In this case, the
       token is valid for approximately 60 days.
 
+
+Keep in mind that at this point, even as the token request and response have been
+completed, Passport is still processing the authorization response using a route:
+
+```js
+router.get('/oauth2/redirect/facebook', passport.authenticate('facebook', {
+  successReturnToOrRedirect: '/',
+  failureRedirect: '/login'
+}));
+```
+
+The token request is interleaved in the middle of processing the authorization
+response.  A visualization of of the requests and responses that have occured
+up to this point looks as follows:
+
+```sh
++-----+ <-- POST /oauth2/redirect/facebook -- +----
+|     |                                       |
+|     |   ---- Token Request  --> +-----+     |
+| App |   <--- Token Response --- | AS  |     | UA
+|     |                           +-----+     |
+|     |   ...
+|     |   
++-----+
+
+AS: Authorization Server (Facebook)
+UA: User Agent (aka, web browser)
+```
 
 Now that the application has obtained an access token, it can [access protected
 resources](../resource/).

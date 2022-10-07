@@ -4,3 +4,4 @@
 * [Authorize](authorize.md)
 * [Token](token.md)
 * [Resource](resource.md)
+* [Authentication](authenticate.md)

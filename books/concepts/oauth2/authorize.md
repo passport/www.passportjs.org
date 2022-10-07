@@ -48,11 +48,11 @@ parameters in this request.
       server's response.  The value `code` indicates that an authorization code
       is desired, which is used by server-side web applications.
       
-      Recall that OAuth 2.0 describes itself as a framework.  Other response
-      types are available that support other types of applications.  New types
-      can be defined by extensions to OAuth 2.0.  This guide explains OAuth 2.0
-      as used by server-side web applications, so details of other response
-      types are not examined.
+      Recall that OAuth 2.0 is a framework.  Other response types are available
+      that support other types of applications.  New types can be defined by
+      extensions to OAuth 2.0.  This guide explains OAuth 2.0 as used by
+      server-side web applications, so details of other response types are not
+      examined.
       
       The authorization code response is the first step in a larger
       authorization code flow.  It will be paired with the later step of
@@ -74,7 +74,7 @@ At this point, Facebook will interact with the user.  This interaction will
 typically involve logging the user in (if they are not already logged in) and
 obtaining their consent (if it has not been previously obtained).  Once that
 has been completed, Facebook redirects the user back to the application with
-an authorization code.
+an authorization code:
 
 ```http
 HTTP/1.1 302 Found
