@@ -1,4 +1,4 @@
-# Issuing Tokens
+# Issuing Token
 
 Once the application has received the authorization code, the application can
 exchange that code for an access token.  It does this by making a _token
@@ -129,9 +129,9 @@ up to this point looks as follows:
 |     |   ----- Token Request  -----> +-----+  |         |
 | App |   <---- Token Response ------ | AS  |  | Browser |
 |     |                               +-----+  |         |
-|     |   ...                                  |         |
+|     |   ...additional processing...          |         |
 +-----+                                        +---------+
 ```
 
 Now that the application has obtained an access token, it can [access protected
-resources](../resource/).
+resources](../userinfo/).

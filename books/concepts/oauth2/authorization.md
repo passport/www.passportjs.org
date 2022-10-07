@@ -1,4 +1,4 @@
-# Obtaining Authorization
+# Requesting Authorization
 
 The OAuth 2.0 protocol flow begins when the application requests authorization
 from the user.  The authorization request is typically triggered based on the

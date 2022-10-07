@@ -1,4 +1,4 @@
-# Accessing Resources
+# Accessing User Info
 
 Now that the application has been issued an access token, it can use that token
 to make authenticated API requests.  We'll explore how that is accomplished in
@@ -6,9 +6,9 @@ this chapter.
 
 Before we begin, it should be noted that the OAuth 2.0 protocol aspects of the
 sequence are complete.  OAuth 2.0 is used to obtain authorization from the user
-(which was done with the authorization request and response) and exchange that
-authorization for an access token (which was done with the token request and
-response).  At this point, the sequence is transitioning to use HTTP and the
+(which was done with the [authorization request and response](../authorization/))
+and exchange that authorization for an access token (which was done with the
+[token request and response](../token/)).  At this point, the sequence is transitioning to use HTTP and the
 authentication features of that protocol.
 
 Passport now makes a request to the Facebook Graph API, in particular the
@@ -22,7 +22,7 @@ Host: graph.facebook.com
 Authorization: Bearer IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0
 ```
 
-Note that the access token that was just issued is being used as credential in
+Note that the access token that was just issued is being used as a credential in
 the `Authorization` header.  Because the token is a bearer token, it is utilized
 by simply including the access token string in the request according to the
 `Bearer` scheme, as specified by [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750).
@@ -59,5 +59,18 @@ router.get('/oauth2/redirect/facebook', passport.authenticate('facebook', {
 The user request is interleaved in the middle of processing the authorization
 response, after the prior token request.  A visualization of of the requests and
 responses that have occured up to this point looks as follows:
+
+```sh
++-----+ <-- POST /oauth2/redirect/facebook --- +---------+
+|     |                                        |         |
+|     |   ----- Token Request  -----> +-----+  |         |
+|     |   <---- Token Response ------ | AS  |  |         |
+| App |                               +-----+  | Browser |
+|     |   ------ User Request  -----> +-----+  |         |
+|     |   <----- User Response ------ | API |  |         |
+|     |                               +-----+  |         |
+|     |   ...additional processing...          |         |
++-----+                                        +---------+
+```
 
 Now that Passport has obtained user information, it can [authenticate the user](../authenticate/).
