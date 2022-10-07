@@ -56,6 +56,7 @@ site.use('/blog', blogApp);
 site.use('/concepts/authentication', book('docs'));
 site.use('/concepts/api-authentication', book('books/concepts/api-authentication'));
 site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
+site.use('/concepts/oauth2', book('books/concepts/oauth2'));
 site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
 site.use('/howtos/password', book('books/howtos/password'));
 site.use('/howtos/session', book('books/howtos/session'));
@@ -94,6 +95,7 @@ site.generate({
   '/concepts/api-authentication': book.createMapper('books/concepts/api-authentication'),
   '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
   '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
+  '/concepts/oauth2': book.createMapper('books/concepts/oauth2'),
   '/howtos/password': book.createMapper('books/howtos/password'),
   '/howtos/session': book.createMapper('books/howtos/session'),
   '/howtos/google': book.createMapper('books/howtos/google'),

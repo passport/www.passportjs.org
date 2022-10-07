@@ -15,6 +15,7 @@ function(homeController, docsController, featuresController, packagesController,
   
   page('/', controller(homeController), pageview(), adRefresh());
   page('/concepts/authentication/*', controller(docsController), pageview(), adRefresh());
+  page('/concepts/oauth2/*', highlight());
   page('/tutorials/*', highlight());
   page('/howtos/*', highlight());
   page('/features', controller(featuresController), pageview(), adRefresh());
