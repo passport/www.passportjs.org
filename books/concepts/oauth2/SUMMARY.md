@@ -4,4 +4,4 @@
 * [Authorization](authorization.md)
 * [Token](token.md)
 * [Profile](profile.md)
-* [Authentication](authenticate.md)
+* [Authentication](authentication.md)

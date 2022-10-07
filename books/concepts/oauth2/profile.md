@@ -73,4 +73,4 @@ responses that have occured up to this point looks as follows:
 +-----+                                        +---------+
 ```
 
-Now that Passport has obtained the user profile, it can [authenticate the user](../authenticate/).
+Now that Passport has obtained the user profile, it can [authenticate the user](../authentication/).
