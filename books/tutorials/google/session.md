@@ -1,18 +1,24 @@
 # Establish Session
 
-Once the user has signed in with Google, we need to a login session to remember
-the fact that the user has authenticated as they navigate the app.
+In the [previous section](../redirect-back/), you added a route to authenticate
+the user when Google rediects them back to the app.  In this section, you'll
+establish a login session which will maintain the user's authenticated state as
+they navigate the app.
 
-Open `'app.js'` and `require` Passport at line 9, below where
-`'express-session'` is `require`'d:
+You already [added session support](../state/) to the app in order to maintain
+state between redirects.  This session support will also be used to maintain a
+login session.
+
+Open `app.js` and `require()` Passport at line 9, below
+`require('express-session')`.
 
 ```js
 var session = require('express-session');
 var passport = require('passport');
 ```
 
-Add the following code at line 35, after `session` middleware, to authenticate
-the session.
+Add the following code at line 35, after `session()` middleware, which will
+authenticate the session.
 
 ```js
 app.use(session({
@@ -24,8 +30,8 @@ app.use(session({
 app.use(passport.authenticate('session'));
 ```
 
-Finally, we need to configure Passport to manage the login session.  Open
-`'routes/auth.js'` and add the following code at line 48:
+Finally, configure Passport to persist user information in the login session.
+Open `routes/auth.js` and add the following code at line 47.
 
 ```js
 passport.serializeUser(function(user, cb) {
@@ -41,11 +47,11 @@ passport.deserializeUser(function(user, cb) {
 });
 ```
 
-Now, let's retry signing in.  Open [http://localhost:3000](http://localhost:3000),
-click "Sign in" and then click "Sign in with Google".
+Now try signing in.  Open [http://localhost:3000](http://localhost:3000), click
+"Sign in" and then click "Sign in with Google."
 
-We are logged in!  Go ahead and enter some tasks you've been needing to get
+You are signed in!  Go ahead and enter some tasks you've been needing to get
 done.
 
-At this point, users can sign in with Google!  Next, we will add the ability to
-[sign out](../logout/).
+At this point, you have built an app that allows users to sign in with Google!
+Next, you will [add sign out](../logout/).

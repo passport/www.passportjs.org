@@ -5,6 +5,8 @@
 require('dotenv').config()
 
 var kerouac = require('kerouac');
+var book = require('kerouac-book');
+var blog = require('kerouac-blog');
 var moment = require('moment');
 
 
@@ -45,17 +47,28 @@ packagesApp.page('/sitemap.xml', require('kerouac-sitemap')());
 site.use('/packages', packagesApp);
 
 
+var blogApp = kerouac();
+
+site.use('/blog', blogApp);
+
+
 //site.use('/docs/howto', kerouac.content('howto'));
-site.use('/concepts/authentication', require('kerouac-book')('Documentation', 'docs', { layout: 'book' }));
-site.use('/concepts/api-authentication', require('kerouac-book')('API Authentication', 'books/concepts/api-authentication', { layout: 'book' }));
-site.use('/concepts/bearer-token', require('kerouac-book')('Documentation', 'books/concepts/bearer-token', { layout: 'book' }));
-site.use('/concepts/delegated-authorization', require('kerouac-book')('Delegated Authorization', 'books/concepts/delegated-authorization', { layout: 'book' }));
-site.use('/reference/normalized-profile', require('kerouac-book')('Normalized Profile', 'books/reference/normalized-profile', { layout: 'book' }));
-site.use('/tutorials/password', require('kerouac-book')('Documentation', 'books/tutorials/password', { layout: 'book' }));
-site.use('/tutorials/google', require('kerouac-book')('Documentation', 'books/tutorials/google', { layout: 'book' }))
-site.use('/tutorials/email', require('kerouac-book')('Documentation', 'books/tutorials/email', { layout: 'book' }))
-site.use('/tutorials/auth0', require('kerouac-book')('Documentation', 'books/tutorials/auth0', { layout: 'book' }))
-site.content('content');
+site.use('/concepts/authentication', book('docs'));
+site.use('/concepts/api-authentication', book('books/concepts/api-authentication'));
+site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
+site.use('/concepts/oauth2', book('books/concepts/oauth2'));
+site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
+site.use('/howtos/password', book('books/howtos/password'));
+site.use('/howtos/session', book('books/howtos/session'));
+site.use('/howtos/google', book('books/howtos/google'));
+site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
+site.use('/tutorials/password', book('books/tutorials/password'));
+site.use('/tutorials/google', book('books/tutorials/google'))
+site.use('/tutorials/facebook', book('books/tutorials/facebook'))
+site.use('/tutorials/email', book('books/tutorials/email'))
+site.use('/tutorials/auth0', book('books/tutorials/auth0'))
+site.use(kerouac.content('content'));
+site.use(kerouac.assets('assets'));
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
 //site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
@@ -66,22 +79,34 @@ site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
 site.page('/robots.txt', require('kerouac-robotstxt')());
 // TODO: .well-known/security.txt
 
-site.generate([
-    kerouac.contentCrawler(),
-    [ '/concepts/authentication', require('kerouac-book').browser('docs') ],
-    [ '/concepts/api-authentication', require('kerouac-book').browser('books/concepts/api-authentication') ],
-    [ '/concepts/delegated-authorization', require('kerouac-book').browser('books/concepts/delegated-authorization') ],
-    [ '/concepts/bearer-token', require('kerouac-book').browser('books/concepts/bearer-token') ],
-    [ '/reference/normalized-profile', require('kerouac-book').browser('books/reference/normalized-profile') ],
-    [ '/tutorials/password', require('kerouac-book').browser('books/tutorials/password') ],
-    [ '/tutorials/google', require('kerouac-book').browser('books/tutorials/google') ],
-    [ '/tutorials/email', require('kerouac-book').browser('books/tutorials/email') ],
-    [ '/tutorials/auth0', require('kerouac-book').browser('books/tutorials/auth0') ],
-    //[ '/packages', require('kerouac-npm-packages').browser() ],
-    //[ '/packages', require('kerouac-sitemap').browser(), false ],
-    [ require('kerouac-sitemap').browser({ index: true }), false ],
-    [ require('kerouac-robotstxt').browser(), false ]
+////[ '/packages', require('kerouac-sitemap').browser(), false ],
+site.generate({
+  '/packages': [
+    //require('kerouac-npm-packages').createMapper(),
+    //require('kerouac-sitemap').createMapper(),
   ],
+  '/': [
+    kerouac.content.createMapper(),
+    kerouac.assets.createMapper(),
+    require('kerouac-sitemap').createMapper({ index: 'sitemap-index.xml' }),
+    require('kerouac-robotstxt').createMapper()
+  ],
+  '/concepts/authentication': book.createMapper('docs', true),
+  '/concepts/api-authentication': book.createMapper('books/concepts/api-authentication'),
+  '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
+  '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
+  '/concepts/oauth2': book.createMapper('books/concepts/oauth2'),
+  '/howtos/password': book.createMapper('books/howtos/password'),
+  '/howtos/session': book.createMapper('books/howtos/session'),
+  '/howtos/google': book.createMapper('books/howtos/google'),
+  '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
+  '/tutorials/password': book.createMapper('books/tutorials/password'),
+  '/tutorials/google': book.createMapper('books/tutorials/google'),
+  '/tutorials/facebook': book.createMapper('books/tutorials/facebook'),
+  '/tutorials/email': book.createMapper('books/tutorials/email'),
+  '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
+  '/blog': blog.createMapper(),
+  },
   function(err) {
     console.log('DONE!');
     if (err) {

@@ -1,10 +1,10 @@
-all: pages assets
+www: html assets
 
-pages:
+html:
 	node site
 
 assets:
 	make -C web
 
 
-.PHONY: pages assets
+.PHONY: html assets

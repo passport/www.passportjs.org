@@ -1,18 +1,20 @@
 # Establish Session
 
-Once we've verified the user's password, we need to a login session to remember
-the fact that the user has authenticated as they navigate the app.
+In the [previous section](../verify/), you configured Passport and added a route
+to authenticate a username and password.  In this section, you'll establish a
+login session which will maintain the user's authenticated state as they
+navigate the app.
 
-To do that, we'll add session support.  Begin by installing the necessary
-dependencies:
+In order to establish a login session, the app needs session support.  Install
+`express-session` and the `connect-sqlite3` session store as dependencies.
 
 ```sh
 $ npm install express-session
 $ npm install connect-sqlite3
 ```
 
-Open `'app.js'` and `require` the additional dependencies at line 8, below
-where `'morgan'` is `require`'d:
+Open `app.js` and `require()` the additional dependencies at line 8, below
+`require('morgan')`.
 
 ```js
 var logger = require('morgan');
@@ -22,8 +24,8 @@ var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 ```
 
-Add the following code at line 29, after `express.static` middleware, to
-maintain and authenticate the session.
+Add the following code at line 29, after `express.static()` middleware, which
+will add session support to the app and then authenticate the session.
 
 ```js
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,8 +38,8 @@ app.use(session({
 app.use(passport.authenticate('session'));
 ```
 
-Finally, we need to configure Passport to manage the login session.  Open
-`'routes/auth.js'` and add the following code at line 22:
+Finally, configure Passport to persist user information in the login session.
+Open `routes/auth.js` and add the following code at line 22.
 
 ```js
 passport.serializeUser(function(user, cb) {
@@ -53,8 +55,8 @@ passport.deserializeUser(function(user, cb) {
 });
 ```
 
-Now, let's retry signing in.  Open [http://localhost:3000](http://localhost:3000),
-click "Sign in," and enter the following credentials:
+Now try signing in.  Open [http://localhost:3000](http://localhost:3000), click
+"Sign in," and enter the following credentials:
 
 ```
 Username: alice
@@ -63,8 +65,8 @@ Password: letmein
 
 Click "Sign in."
 
-We are logged in!  Go ahead and enter some tasks you've been needing to get
+You are signed in!  Go ahead and enter some tasks you've been needing to get
 done.
 
-At this point, users can sign in with a username and password!  Next, we will
-add the ability to [sign out](../logout/).
+At this point, you have built an app that allows users to sign in with a
+username and password!  Next, you will [add sign out](../logout/).

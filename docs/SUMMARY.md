@@ -4,6 +4,7 @@
 
 * [Middleware](middleware.md)
 * [Strategies](strategies.md)
+* [Sessions](sessions.md)
 * [Username & Password](password.md)
 
 ### Social

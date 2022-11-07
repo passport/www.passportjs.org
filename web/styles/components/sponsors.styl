@@ -1,0 +1,107 @@
+.sponsors
+  .intro
+    max-width 840px
+    width 100%
+    text-align center
+    margin 0 auto
+    padding 0 20px
+    margin-bottom 40px
+
+    h1
+      padding: 0
+      margin: 0 0 40px
+      font-size: 30px
+      font-weight: 400
+      line-height: 1
+      +breakpoint("tablet")
+        margin-bottom: 20px
+        font-size: 50px
+        
+    p
+      margin: 0
+      padding: 0
+      color: rgba(255,255,255,.8)
+      line-height 1.8
+      font-size: 18px;
+    
+  .gold
+    +breakpoint("tablet")
+      clear both
+      grid(2, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+      text-align center
+    
+    .item
+      a
+        +breakpoint("tablet")
+          height 180px
+      img
+        max-width 244px
+        max-height: 64px
+      img#snyk
+        max-height: 128px
+      p
+        line-height 22px
+      
+  .silver
+    +breakpoint("tablet")
+      clear both
+      grid(2, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+    +breakpoint("desktop")
+      grid(3, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+      
+    .item
+      a
+        +breakpoint("tablet")
+          height 64px
+      img
+        max-width 244px
+        max-height 64px
+        
+  .bronze
+    +breakpoint("tablet")
+      clear both
+      grid(2, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+    +breakpoint("desktop")
+      grid(4, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+      
+    .item
+      a
+        +breakpoint("tablet")
+          height 42px
+      img
+        max-width 170px
+        max-height 42px
+      
+  .item
+    position relative
+    margin-bottom 20px
+    +breakpoint("tablet")
+      padding 0 10px!important
+    a
+      background white
+      border 1px solid white
+      padding 10px 15px 10px
+      position relative
+      display block
+      box-sizing content-box
+      min-height auto
+      &:hover
+        border-color #0A86B1
+    img
+      margin 0 auto
+      display block

@@ -21,7 +21,15 @@ include mixins/app
 include mixins/social
 
 block title
-  title= title
+  title= book.title + (file.path != readme.path ? ': ' + page.title : '')
+block description
+  if book.description
+    meta(name='description', content=book.description)
+block opengraph-metadata
+  +opengraph-metadata(book.title + (file.path != readme.path ? ': ' + page.title : ''), book.description, images, author, type, canonicalURL, manifest)
+block twitter-metadata
+  +twitter-metadata(book.title + (file.path != readme.path ? ': ' + page.title : ''), book.description, images, author, canonicalURL, manifest)
+
 
 block content
   #book.book
@@ -36,10 +44,11 @@ block content
             ul(data-content='')
               each article in part.articles
                 li
-                  a(href=filters.resolveFile(article.path), class='') #{article.title}
+                  a(href=filters.resolveFile(article.path), class=(article.path == file.path ? 'active' : '')) #{article.title}
 
     a#go-top(href='#top')
       i.icon-budicon-462
 
     .contents
-      |!{ content }
+      section.chapter
+        |!{ content }

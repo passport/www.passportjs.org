@@ -1,7 +1,7 @@
 # Bearer Token
 
 A bearer token is a type of token that can be used by a client application to
-gain access to an API or remote service using only the token itself.
+gain access to an API using only the token itself.
 
 An example will help illustrate.  Let us suppose an application has been issued
 the string `SlAV32hkKG` as a token.  The application wishes to use this token to

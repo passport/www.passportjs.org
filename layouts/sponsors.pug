@@ -1,0 +1,34 @@
+//-
+  Sponsors layout
+  
+  https://developers.google.com/search/docs/advanced/guidelines/qualify-outbound-links
+//-
+extends layout
+
+include mixins
+include mixins/app
+include mixins/social
+
+block content
+
+  section.sponsors
+    .intro
+      h1 Sponsors
+      |!{content}
+      
+    .gold
+      .item
+        a(rel='sponsored' href='https://workos.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=passport_js&utm_source=github')
+          img(src='workos.png')
+          p
+            b Your app, enterprise-ready.
+            br
+            | Start selling to enterprise customers with just a few lines of code. Add Single Sign-On (and more) in minutes instead of months.
+      .item
+        a(rel='sponsored' href='https://snyk.co/passport')
+          img#snyk(src='snyk.png')
+          
+    .bronze
+      .item
+        a(rel='sponsored' href='https://altruistiq.com/')
+          img(src='altruistiq.svg')

@@ -1,10 +1,11 @@
 # Sign Up
 
-Users can now sign in and sign out.  The only thing that's missing is to let new
-users sign up.
+In the [previous section](../logout/), you added sign out and now have an app
+that allows users to both sign in and sign out.  Only one feature remains.  In
+this section, you'll add a signup page that allows users to create an account.
 
-Open `'routes/auth.js'` and add the following route at line 50, below the
-`'/logout'` route:
+Open `routes/auth.js` and add the following route at line 52, below the
+`/logout` route.
 
 ```js
 router.get('/signup', function(req, res, next) {
@@ -12,10 +13,12 @@ router.get('/signup', function(req, res, next) {
 });
 ```
 
-This route will render the signup page.  Let's add an HTML form to that page.
+This route will render the signup page.  Add an HTML form to that page which
+will prompt the user to create a new account with their preferred username and
+password.
 
-Open `'views/signup.ejs'` and add the form at line 15, below the "Sign up"
-heading:
+Open `views/signup.ejs` and add the form at line 15, below the "Sign up"
+heading.
 
 ```html
 <h1>Sign up</h1>
@@ -32,9 +35,9 @@ heading:
 </form>
 ```
 
-Finally, we need to add a route that will process the form submission when the
-user clicks "Sign up."  Back within `'routes/auth.js'`, add this route at line
-54, below the `'/signup'` route:
+Finally, add a route that will handle the form submission when the user clicks
+"Sign up."  Back within `routes/auth.js`, add the following route at line 56,
+below the `/signup` route.
 
 ```js
 router.post('/signup', function(req, res, next) {
@@ -65,4 +68,4 @@ and hashed password.  Once the record is created, the user is logged in.
 
 Return to the app and create a new account.
 
-That's it!  Users can now sign in, sign out, and sign up!
+You have built an app that allows users to sign up, sign in, and sign out!

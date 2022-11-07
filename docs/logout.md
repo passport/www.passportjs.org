@@ -13,8 +13,10 @@ It is a good idea to use POST or DELETE requests instead of GET requests for the
 logout endpoints, in order to prevent accidental or malicious logouts.
 
 ```javascript
-app.post('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+app.post('/logout', function(req, res, next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 ```

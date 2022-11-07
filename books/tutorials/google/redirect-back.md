@@ -1,32 +1,29 @@
 # Redirect Back to App
 
-When a user signs in to our app with Google, they are redirected to Google.
-Google takes care of authenticating the user and then redirects them back to our
-app.
+In the [previous section](../state/), you added session support to the app in
+order to maintain state when redirecting to Google.  In this section, you'll add
+a route that authenticates the user when Google redirects them back to the app.
 
-Let's close the loop by adding a route that will handle this redirect.
+Open `routes/auth.js` and add the following code at line 55, below the
+`/login/federated/google` route.
 
-Open `'routes/auth.js'` and add this route at line 56, below the
-`'/login/federated/google'` route:
-
-```
+```js
 router.get('/oauth2/redirect/google', passport.authenticate('google', {
   successRedirect: '/',
   failureRedirect: '/login'
 }));
 ```
 
-We've now got routes that will redirect the user to Google and handle the
-redirect back to our app!  Let's test it out to see what happens.
-
-Start the server:
+The app now has routes that handle the complete cycle of redirecting to Google
+and from Google back to the app, with state maintained in between.  Try signing
+in by starting the server.
 
 ```sh
 $ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000), click "Sign in" and then
-click "Sign in with Google".
+click "Sign in with Google."
 
-Uh oh... we are informed that there's an error related to sessions.  Next, we
-will fix that by [establishing a login session](../session/).
+Uh oh... the app fails with an error related to sessions.  Next, you will fix
+that error by configuring Passport to [establish a session](../session/).

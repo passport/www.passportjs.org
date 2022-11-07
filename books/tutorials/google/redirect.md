@@ -1,18 +1,21 @@
 # Redirect to Google
 
-Now that we are prompting the user to sign in with Google, the next step is to
-redirect the user to Google.
+In the [previous section](../prompt/), you created a page which prompts the user
+to sign in with Google.  In this section, you'll add a route which redirects the
+user to Google when they click the button.  It won't work just yet, because
+there are a few other pieces that need to be put in place.  Subsequent steps
+will add the missing functionality and everything will work by the end of this
+tutorial.
 
-To do that, we are going to use Passport and the `passport-google-oidc`
-strategy.  Install both as dependencies:
+Install `passport` and the `passport-google-oidc` strategy as dependencies.
 
 ```sh
 $ npm install passport
 $ npm install passport-google-oidc
 ```
 
-Open `'routes/auth.js'` and `require` the newly installed packages, as well as
-the app's database, at line 2, below where `express` is `require`'d:
+Open `routes/auth.js` and `require()` the newly installed packages, as well as
+the app's database, at line 2, below `require('express')`.
 
 ```js
 var express = require('express');
@@ -21,28 +24,23 @@ var GoogleStrategy = require('passport-google-oidc');
 var db = require('../db');
 ```
 
-Next, we need to add a route that will redirect the user when they click "Sign
-in with Google".
-
-Continuing within `'routes/auth.js'`, add this route at line 12, below the
-`'/login'` route:
+Next, add a route that will redirect the user when they click "Sign in with
+Google".  Continuing within `routes/auth.js`, add the following code at line 12,
+below the `/login` route.
 
 ```js
 router.get('/login/federated/google', passport.authenticate('google'));
 ```
 
-We've now got a route that will redirect the user to Google!  Let's test it out
-to see what happens.
-
-Start the server:
+Try signing in by starting the server.
 
 ```sh
 $ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000), click "Sign in" and then
-click "Sign in with Google".
+click "Sign in with Google."
 
-Uh oh... we are informed the Google authentication strategy is unknown.  We will
-fix that by configuring the strategy.  But first, we need to [register our app
-with Google](../register/).
+Uh oh... the app fails with an error indicating that the Google authentication
+strategy is unknown.  That will be fixed by [configuring the strategy](../configure/).
+But first, the app needs to be [registered with Google](../register/).

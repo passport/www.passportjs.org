@@ -1,7 +1,3 @@
----
-title: Strategies
----
-
 # Strategies
 
 Strategies are responsible for authenticating requests, which they accomplish by
@@ -20,7 +16,7 @@ must be installed, configured, and registered.
 Strategies are published to the [npm](https://www.npmjs.com/) registry, and
 installed using a package manager.
 
-The following command will install [`passport-local`](https://www.passportjs.org/packages/passport-local/),
+For example, the following command will install [`passport-local`](https://www.passportjs.org/packages/passport-local/),
 a package which provides a strategy for authenticating with a username and
 password:
 
@@ -28,7 +24,7 @@ password:
 $ npm install passport-local
 ```
 
-The following command will install [`passport-openidconnect`](https://www.passportjs.org/packages/passport-openidconnect/),
+And the following command will install [`passport-openidconnect`](https://www.passportjs.org/packages/passport-openidconnect/),
 a package which implements support for [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html):
 
 ```bash
@@ -36,8 +32,9 @@ $ npm install passport-openidconnect
 ```
 
 Developers only need to install the packages which provide authentication
-mechanisms required by the application.  This reduces overall application size
-by avoiding unnecessary dependencies.
+mechanisms required by the application.  These packages are then plugged into
+Passport.  This reduces overall application size by avoiding unnecessary
+dependencies.
 
 ## Configure
 
@@ -80,12 +77,12 @@ to be delegated to the application.
 In this particular example, the `verify` function is executing a SQL query to
 obtain a user record from the database and, after verifying the password,
 yielding the record back to the strategy, thus authenticating the user and
-establishing a session.
+establishing a login session.
 
 Because a `verify` function is supplied by the application itself, access to
 persistent storage is not constrained in any way.  The application is free to
 use any data storage system, including relational databases, graph databases,
-or document stores, and structure data within that store according to any
+or document stores, and structure data within that database according to any
 schema.
 
 A `verify` function is strategy-specific, and the exact arguments it receives
