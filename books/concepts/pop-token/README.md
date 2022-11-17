@@ -15,3 +15,16 @@ illegitimate means.  Because tokens transit the network, they are subject to
 being intercepted and stolen.  The attacker can then use the token, as if it
 where the legitimate application, and the API has no way to prevent such usage.
 
+
+WIP:
+
+Define terms:
+presenter
+sender-constrained:
+holder-of-key:
+
+Other methods:
+mTLS
+Token Binding
+
+Primary aim is to prevent use of leaked or stolen access tokens
