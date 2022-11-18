@@ -146,20 +146,20 @@ recommended to use an authorization framework such as <a href="/guide/oauth2-api
 <p>Support for Basic and Digest schemes is provided by the <a href="https://github.com/jaredhanson/passport-http">passport-http</a>
 module.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-http
+<pre><code class="bash">$ npm install passport-http
 </code></pre>
 <h3 id="basic">Basic</h3>
 <p>The Basic scheme uses a username and password to authenticate a user.  These
 credentials are transported in plain text, so it is advised to use HTTPS when
 implementing this scheme.</p>
 <h2 id="configuration">Configuration</h2>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> BasicStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>{
-    User.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">if</span> (!user.validPassword(password)) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BasicStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">username, password, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: username }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (!user.<span class="title function_">validPassword</span>(password)) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -167,10 +167,10 @@ implementing this scheme.</p>
 <p>The verify callback for Basic authentication accepts <code>username</code> and <code>password</code>
 arguments.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
-<pre><code class="lang-javascript">app.get(<span class="string">'/api/me'</span>,
-  passport.authenticate(<span class="string">'basic'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;basic&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>basic</code> strategy to protect API
@@ -180,17 +180,17 @@ endpoints.  Sessions are not typically needed by APIs, so they can be disabled.<
 primary benefit over Basic is that it uses a challenge-response paradigm to
 avoid sending the password in the clear.</p>
 <h2 id="configuration">Configuration</h2>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> DigestStrategy({ <span class="attr">qop</span>: <span class="string">'auth'</span> },
-  <span class="function"><span class="keyword">function</span>(<span class="params">username, done</span>) </span>{
-    User.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, user.password);
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DigestStrategy</span>({ <span class="attr">qop</span>: <span class="string">&#x27;auth&#x27;</span> },
+  <span class="keyword">function</span>(<span class="params">username, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: username }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, user.<span class="property">password</span>);
     });
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">params, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">params, done</span>) {
     <span class="comment">// validate nonces as necessary</span>
-    done(<span class="literal">null</span>, <span class="literal">true</span>)
+    <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
 </code></pre>
@@ -202,10 +202,10 @@ match that contained in the request.</p>
 <p>The second &quot;validate callback&quot; accepts nonce related params, which can be
 checked to avoid replay attacks.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
-<pre><code class="lang-javascript">app.get(<span class="string">'/api/me'</span>,
-  passport.authenticate(<span class="string">'digest'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;digest&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API

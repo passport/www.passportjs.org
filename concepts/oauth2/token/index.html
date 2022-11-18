@@ -112,11 +112,11 @@
 exchange that code for an access token.  It does this by making a <em>token
 request</em> to the authorization server&#39;s <em>token endpoint</em>
 (<code>/v3.2/oauth/access_token</code>, in the case of Facebook):</p>
-<pre><code class="lang-http"><span class="keyword">POST</span> <span class="string">/v3.2/oauth/access_token</span> HTTP/1.1
-<span class="attribute">Host</span>: graph.facebook.com
-<span class="attribute">Content-Type</span>: application/x-www-form-urlencoded
+<pre><code class="http"><span class="keyword">POST</span> <span class="string">/v3.2/oauth/access_token</span> <span class="meta">HTTP/1.1</span>
+<span class="attribute">Host</span><span class="punctuation">: </span>graph.facebook.com
+<span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded
 
-<span class="routeros"><span class="attribute">grant_type</span>=authorization_code
+<span class="language-routeros"><span class="attribute">grant_type</span>=authorization_code
 &amp;<span class="attribute">code</span>=SplxlOBeZQQYbYS6WxSbIA
 &amp;<span class="attribute">redirect_uri</span>=https%3A%2F%2Fwww.example.com%2Foauth2%2Fredirect%2Ffacebook
 &amp;<span class="attribute">client_id</span>=3087198538966924
@@ -172,14 +172,14 @@ that the value of <code>redirect_uri</code> is identical to that included in the
 authorization request.</p>
 <p>If the authorization request is valid and authorized, Facebook issues an access
 token:</p>
-<pre><code>HTTP/1.1 <span class="number">200</span> OK
-<span class="attribute">Content-Type</span>: application/json
+<pre><code><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
+<span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json
 
-<span class="json">{
-  <span class="attr">"access_token"</span>: <span class="string">"IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0"</span>,
-  <span class="attr">"token_type"</span>: <span class="string">"bearer"</span>,
-  <span class="attr">"expires_in"</span>: <span class="number">5169265</span>
-}</span>
+<span class="language-json"><span class="punctuation">{</span>
+  <span class="attr">&quot;access_token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;token_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bearer&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;expires_in&quot;</span><span class="punctuation">:</span> <span class="number">5169265</span>
+<span class="punctuation">}</span></span>
 </code></pre><p>Let&#39;s examine the parameters in this request.</p>
 <ul>
 <li><p><code>access_token</code>: The access token issued by the authorization server.  This
@@ -204,15 +204,15 @@ token:</p>
 </ul>
 <p>Keep in mind that at this point, even as the token request and response have been
 completed, Passport is still processing the authorization response using a route:</p>
-<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
-  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
 </code></pre>
 <p>The token request is interleaved in the middle of processing the authorization
 response.  A visualization of of the requests and responses that have occured
 up to this point looks as follows:</p>
-<pre><code class="lang-sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
+<pre><code class="sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
 |     |                                        |         |
 |     |   ----- Token Request  -----&gt; +-----+  |         |
 | App |   &lt;---- Token Response ------ | AS  |  | Browser |

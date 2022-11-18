@@ -118,10 +118,10 @@ the user signed in with Facebook.  In this section, you&#39;ll add sign out whic
 will terminate the session.</p>
 <p>Open <code>routes/auth.js</code> and add the following route at line 72, below the
 <code>/oauth2/redirect/facebook</code> route:</p>
-<pre><code class="lang-js">router.post(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  req.logout(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+  req.<span class="title function_">logout</span>(<span class="keyword">function</span>(<span class="params">err</span>) {
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">next</span>(err); }
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 });
 </code></pre>

@@ -141,26 +141,26 @@ the <a href="https://www.passportjs.org/packages/passport-local/"><code>passport
 package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-local</code>, execute the following command:</p>
-<pre><code class="lang-bash">$ npm install passport-local
+<pre><code class="bash">$ npm install passport-local
 </code></pre>
 <h2 id="configure">Configure</h2>
 <p>The following code is an example that configures and registers the
 <code>LocalStrategy</code>:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>);
-<span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">LocalStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-local&#x27;</span>);
+<span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">username, password, cb</span>) </span>{
-  db.get(<span class="string">'SELECT * FROM users WHERE username = ?'</span>, [ username ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> }); }
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>(<span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">username, password, cb</span>) {
+  db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
 
-    crypto.pbkdf2(password, user.salt, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">'sha256'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-      <span class="keyword">if</span> (!crypto.timingSafeEqual(user.hashed_password, hashedPassword)) {
-        <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Incorrect username or password.'</span> });
+    crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+      <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
+        <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> });
       }
-      <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
     });
   });
 });
@@ -186,33 +186,33 @@ what went wrong.</p>
 <h2 id="prompt">Prompt</h2>
 <p>The user is prompted to sign in with their username and password by rendering a
 form.  This is accomplished by defining a route:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-    res.render(<span class="string">'login'</span>);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
+  <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+    res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>);
   });
 </code></pre>
 <p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login/password"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/password&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"username"</span> <span class="attr">required</span> /&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;username&quot;</span> <span class="attr">required</span> /&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"current-password"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"current-password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">autocomplete</span>=<span class="string">"current-password"</span> <span class="attr">required</span> /&gt;</span>
+        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;current-password&quot;</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;current-password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;current-password&quot;</span> <span class="attr">required</span> /&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
 <h2 id="authenticate">Authenticate</h2>
 <p>When the user submits the form, it is processed by a route that authenticates
 the user using the username and password they entered.</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
-  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/~'</span> + req.user.username);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
 </code></pre>
 <p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next

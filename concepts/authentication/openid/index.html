@@ -143,23 +143,23 @@ sign the user in.</p>
 <p>Support for OpenID is provided by the <a href="https://github.com/jaredhanson/passport-openid">passport-openid</a>
 module.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-openid
+<pre><code class="bash">$ npm install passport-openid
 </code></pre>
 <h2 id="configuration">Configuration</h2>
 <p>When using OpenID, a return URL and realm must be specified.  The <code>returnURL</code> is
 the URL to which the user will be redirected after authenticating with their
 OpenID provider.  <code>realm</code> indicates the part of URL-space for which
 authentication is valid.  Typically this will be the root URL of the website.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , OpenIDStrategy = <span class="built_in">require</span>(<span class="string">'passport-openid'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , <span class="title class_">OpenIDStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-openid&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> OpenIDStrategy({
-    <span class="attr">returnURL</span>: <span class="string">'http://www.example.com/auth/openid/return'</span>,
-    <span class="attr">realm</span>: <span class="string">'http://www.example.com/'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OpenIDStrategy</span>({
+    <span class="attr">returnURL</span>: <span class="string">&#x27;http://www.example.com/auth/openid/return&#x27;</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;http://www.example.com/&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">identifier, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">openId</span>: identifier }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      done(err, user);
+  <span class="keyword">function</span>(<span class="params">identifier, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">openId</span>: identifier }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -169,13 +169,13 @@ containing the user&#39;s claimed identifier.</p>
 <h2 id="form">Form</h2>
 <p>A form is placed on a web page, allowing the user to enter their OpenID and
 sign in.</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/auth/openid"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/auth/openid&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
         <span class="tag">&lt;<span class="name">label</span>&gt;</span>OpenID:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"openid_identifier"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;openid_identifier&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Sign In"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Sign In&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
@@ -185,29 +185,29 @@ form submission containing an OpenID identifier.  During authentication, the
 user will be redirected to their OpenID provider.  The second route is the URL
 to which the user will be returned after authenticating with their OpenID
 provider.</p>
-<pre><code class="lang-javascript"><span class="comment">// Accept the OpenID identifier and redirect the user to their OpenID</span>
+<pre><code class="javascript"><span class="comment">// Accept the OpenID identifier and redirect the user to their OpenID</span>
 <span class="comment">// provider for authentication.  When complete, the provider will redirect</span>
 <span class="comment">// the user back to the application at:</span>
 <span class="comment">//     /auth/openid/return</span>
-app.post(<span class="string">'/auth/openid'</span>, passport.authenticate(<span class="string">'openid'</span>));
+app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/openid&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;openid&#x27;</span>));
 
 <span class="comment">// The OpenID provider has redirected the user back to the application.</span>
 <span class="comment">// Finish the authentication process by verifying the assertion.  If valid,</span>
 <span class="comment">// the user will be logged in.  Otherwise, authentication has failed.</span>
-app.get(<span class="string">'/auth/openid/return'</span>,
-  passport.authenticate(<span class="string">'openid'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/openid/return&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;openid&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+                                    <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
 </code></pre>
 <h2 id="profile-exchange">Profile Exchange</h2>
 <p>OpenID can optionally be configured to retrieve profile information about the
 user being authenticated.  Profile exchange is enabled by setting the <code>profile</code>
 option to <code>true</code>.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> OpenIDStrategy({
-    <span class="attr">returnURL</span>: <span class="string">'http://www.example.com/auth/openid/return'</span>,
-    <span class="attr">realm</span>: <span class="string">'http://www.example.com/'</span>,
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OpenIDStrategy</span>({
+    <span class="attr">returnURL</span>: <span class="string">&#x27;http://www.example.com/auth/openid/return&#x27;</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;http://www.example.com/&#x27;</span>,
     <span class="attr">profile</span>: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">identifier, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">identifier, profile, done</span>) {
     <span class="comment">// ...</span>
   }
 ));

@@ -117,29 +117,29 @@ in.  After they&#39;ve logged in, the user will be redirected back to our app.</
 <p>Open <code>&#39;routes/auth.js&#39;</code> and add the following code at the end of the file, which
 creates two routes.  The first will redirect the user to the sigin page.  The
 second will process the authentication result when the user is redirected back.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
-<span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);
-<span class="keyword">var</span> router = express.Router();
+<pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
+<span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);
+<span class="keyword">var</span> router = express.<span class="title class_">Router</span>();
 
-router.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'openidconnect'</span>));
+router.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;openidconnect&#x27;</span>));
 
-router.get(<span class="string">'/oauth2/redirect'</span>, passport.authenticate(<span class="string">'openidconnect'</span>, {
-  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;openidconnect&#x27;</span>, {
+  <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
 
-<span class="built_in">module</span>.exports = router;
+<span class="variable language_">module</span>.<span class="property">exports</span> = router;
 </code></pre>
 <p>Next, we need to add these routes to our app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
 newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
 <code>require</code>&#39;d:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
-<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
+<pre><code class="js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);
+<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/auth&#x27;</span>);
 </code></pre>
 <p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
 below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
-<pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
-app.use(<span class="string">'/'</span>, authRouter);
+<pre><code class="js">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter);
+app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, authRouter);
 </code></pre>
 <p>The routes have been added to the app.  Next we need to <a href="../state/">maintain state</a>
 when redirecting to Auth0.</p>

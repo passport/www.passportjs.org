@@ -2649,15 +2649,18 @@
     width: 11px;
   }
 }
+pre code,
 pre code.hljs {
   background: #212121;
   display: block;
+  overflow-x: auto;
   padding: 20px;
   font-family: Menlo, Courier New;
   font-size: 13px;
   border-radius: 3px;
 }
 @media (min-width: 768px) {
+  pre code,
   pre code.hljs {
     font-size: 13px;
   }

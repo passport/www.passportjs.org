@@ -137,9 +137,9 @@
             <section class="chapter"><h1 id="log-in">Log In</h1>
 <p>Passport exposes a <code>login()</code> function on <code>req</code> (also aliased as <code>logIn()</code>) that
 can be used to establish a login session.</p>
-<pre><code class="lang-javascript">req.login(user, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-  <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
-  <span class="keyword">return</span> res.redirect(<span class="string">'/users/'</span> + req.user.username);
+<pre><code class="javascript">req.<span class="title function_">login</span>(user, <span class="keyword">function</span>(<span class="params">err</span>) {
+  <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">next</span>(err); }
+  <span class="keyword">return</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/users/&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
 });
 </code></pre>
 <p>When the login operation completes, <code>user</code> will be assigned to <code>req.user</code>.</p>

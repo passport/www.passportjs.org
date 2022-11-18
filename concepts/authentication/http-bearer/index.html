@@ -179,15 +179,15 @@ type of token issued.</p>
 <p>Bearer tokens can be authenticated using the <a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>
 module.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-http-bearer
+<pre><code class="bash">$ npm install passport-http-bearer
 </code></pre>
 <h2 id="configuration">Configuration</h2>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> BearerStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
-    User.findOne({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">'read'</span> });
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BearerStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">token, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: token }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">&#x27;read&#x27;</span> });
     });
   }
 ));
@@ -197,10 +197,10 @@ When invoking <code>done</code>, optional <code>info</code> can be passed, which
 Passport at <code>req.authInfo</code>.  This is typically used to convey the scope of the
 token, and can be used when making access control checks.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
-<pre><code class="lang-javascript">app.get(<span class="string">'/api/me'</span>,
-  passport.authenticate(<span class="string">'bearer'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bearer&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API

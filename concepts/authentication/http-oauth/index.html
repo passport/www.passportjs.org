@@ -170,33 +170,33 @@ considerations involved.</p>
 <p>Once issued, OAuth tokens can be authenticated using the <a href="https://github.com/jaredhanson/passport-http-oauth">passport-http-oauth</a>
 module.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-http-oauth
+<pre><code class="bash">$ npm install passport-http-oauth
 </code></pre>
 <h2 id="configuration">Configuration</h2>
-<pre><code class="lang-javascript">passport.use(<span class="string">'token'</span>, <span class="keyword">new</span> TokenStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">consumerKey, done</span>) </span>{
-    Consumer.findOne({ <span class="attr">key</span>: consumerKey }, <span class="function"><span class="keyword">function</span> (<span class="params">err, consumer</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, consumer, consumer.secret);
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;token&#x27;</span>, <span class="keyword">new</span> <span class="title class_">TokenStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">consumerKey, done</span>) {
+    <span class="title class_">Consumer</span>.<span class="title function_">findOne</span>({ <span class="attr">key</span>: consumerKey }, <span class="keyword">function</span> (<span class="params">err, consumer</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!consumer) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, consumer, consumer.<span class="property">secret</span>);
     });
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, done</span>) </span>{
-    AccessToken.findOne({ <span class="attr">token</span>: accessToken }, <span class="function"><span class="keyword">function</span> (<span class="params">err, token</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      Users.findById(token.userId, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+  <span class="keyword">function</span>(<span class="params">accessToken, done</span>) {
+    <span class="title class_">AccessToken</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: accessToken }, <span class="keyword">function</span> (<span class="params">err, token</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!token) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="title class_">Users</span>.<span class="title function_">findById</span>(token.<span class="property">userId</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
         <span class="comment">// fourth argument is optional info.  typically used to pass</span>
         <span class="comment">// details needed to authorize the request (ex: `scope`)</span>
-        <span class="keyword">return</span> done(<span class="literal">null</span>, user, token.secret, { <span class="attr">scope</span>: token.scope });
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, token.<span class="property">secret</span>, { <span class="attr">scope</span>: token.<span class="property">scope</span> });
       });
     });
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">timestamp, nonce, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">timestamp, nonce, done</span>) {
     <span class="comment">// validate the timestamp and nonce as necessary</span>
-    done(<span class="literal">null</span>, <span class="literal">true</span>)
+    <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
 </code></pre>
@@ -212,10 +212,10 @@ does not match the request signature.</p>
 <p>A final &quot;validate callback&quot; is optional, which can be used to prevent replay
 attacks by checking the timestamp and nonce used in the request.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
-<pre><code class="lang-javascript">app.get(<span class="string">'/api/me'</span>,
-  passport.authenticate(<span class="string">'token'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
 </code></pre>
 <p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API

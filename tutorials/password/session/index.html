@@ -116,39 +116,39 @@ login session which will maintain the user&#39;s authenticated state as they
 navigate the app.</p>
 <p>In order to establish a login session, the app needs session support.  Install
 <code>express-session</code> and the <code>connect-sqlite3</code> session store as dependencies.</p>
-<pre><code class="lang-sh">$ npm install express-session
+<pre><code class="sh">$ npm install express-session
 $ npm install connect-sqlite3
 </code></pre>
 <p>Open <code>app.js</code> and <code>require()</code> the additional dependencies at line 8, below
 <code>require(&#39;morgan&#39;)</code>.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
-<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<pre><code class="js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
-<span class="keyword">var</span> SQLiteStore = <span class="built_in">require</span>(<span class="string">'connect-sqlite3'</span>)(session);
+<span class="keyword">var</span> <span class="title class_">SQLiteStore</span> = <span class="built_in">require</span>(<span class="string">&#x27;connect-sqlite3&#x27;</span>)(session);
 </code></pre>
 <p>Add the following code at line 29, after <code>express.static()</code> middleware, which
 will add session support to the app and then authenticate the session.</p>
-<pre><code class="lang-js">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
-app.use(session({
-  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+<pre><code class="js">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
+app.<span class="title function_">use</span>(<span class="title function_">session</span>({
+  <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>,
   <span class="attr">resave</span>: <span class="literal">false</span>,
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
-  <span class="attr">store</span>: <span class="keyword">new</span> SQLiteStore({ <span class="attr">db</span>: <span class="string">'sessions.db'</span>, <span class="attr">dir</span>: <span class="string">'./var/db'</span> })
+  <span class="attr">store</span>: <span class="keyword">new</span> <span class="title class_">SQLiteStore</span>({ <span class="attr">db</span>: <span class="string">&#x27;sessions.db&#x27;</span>, <span class="attr">dir</span>: <span class="string">&#x27;./var/db&#x27;</span> })
 }));
-app.use(passport.authenticate(<span class="string">'session'</span>));
+app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
 </code></pre>
 <p>Finally, configure Passport to persist user information in the login session.
 Open <code>routes/auth.js</code> and add the following code at line 22.</p>
-<pre><code class="lang-js">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    cb(<span class="literal">null</span>, { <span class="attr">id</span>: user.id, <span class="attr">username</span>: user.username });
+<pre><code class="js">passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="title function_">cb</span>(<span class="literal">null</span>, { <span class="attr">id</span>: user.<span class="property">id</span>, <span class="attr">username</span>: user.<span class="property">username</span> });
   });
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
 </code></pre>

@@ -115,57 +115,57 @@
 <p>Now that we&#39;ve set up SendGrid, we are ready to configure Passport and the
 <code>passport-magic-link</code> strategy.</p>
 <p>Install the necessary dependencies:</p>
-<pre><code class="lang-sh">$ npm install passport
+<pre><code class="sh">$ npm install passport
 $ npm install passport-magic-link
 $ npm install @sendgrid/mail
 </code></pre>
 <p>Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the newly installed packages at line 2,
 below where <code>express</code> is <code>require</code>&#39;d:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
-<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> MagicLinkStrategy = <span class="built_in">require</span>(<span class="string">'passport-magic-link'</span>).Strategy;
-<span class="keyword">var</span> sendgrid = <span class="built_in">require</span>(<span class="string">'@sendgrid/mail'</span>);
-<span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../db'</span>);
+<pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">MagicLinkStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-magic-link&#x27;</span>).<span class="property">Strategy</span>;
+<span class="keyword">var</span> sendgrid = <span class="built_in">require</span>(<span class="string">&#x27;@sendgrid/mail&#x27;</span>);
+<span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">&#x27;../db&#x27;</span>);
 </code></pre>
 <p>The app&#39;s database is also <code>require</code>&#39;d.</p>
 <p>Add the following code at line 7 to configure the <code>MagicLinkStrategy</code>.</p>
-<pre><code>sendgrid.setApiKey(process.env[<span class="string">'SENDGRID_API_KEY'</span>]);
+<pre><code>sendgrid.setApiKey(process.env[<span class="string">&#x27;SENDGRID_API_KEY&#x27;</span>]);
 
 passport.use(<span class="keyword">new</span> MagicLinkStrategy({
-  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
-  <span class="attr">userFields</span>: [ <span class="string">'email'</span> ],
-  <span class="attr">tokenField</span>: <span class="string">'token'</span>,
-  <span class="attr">verifyUserAfterToken</span>: <span class="literal">true</span>
+  <span class="attribute">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>,
+  <span class="attribute">userFields</span>: [ <span class="string">&#x27;email&#x27;</span> ],
+  <span class="attribute">tokenField</span>: <span class="string">&#x27;token&#x27;</span>,
+  <span class="attribute">verifyUserAfterToken</span>: <span class="literal">true</span>
 }, <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">user, token</span>) </span>{
-  <span class="keyword">var</span> link = <span class="string">'http://localhost:3000/login/email/verify?token='</span> + token;
+  <span class="keyword">var</span> link = <span class="string">&#x27;http://localhost:3000/login/email/verify?token=&#x27;</span> + token;
   <span class="keyword">var</span> msg = {
-    <span class="attr">to</span>: user.email,
-    <span class="attr">from</span>: process.env[<span class="string">'EMAIL'</span>],
-    <span class="attr">subject</span>: <span class="string">'Sign in to Todos'</span>,
-    <span class="attr">text</span>: <span class="string">'Hello! Click the link below to finish signing in to Todos.\r\n\r\n'</span> + link,
-    <span class="attr">html</span>: <span class="string">'&lt;h3&gt;Hello!&lt;/h3&gt;&lt;p&gt;Click the link below to finish signing in to Todos.&lt;/p&gt;&lt;p&gt;&lt;a href="'</span> + link + <span class="string">'"&gt;Sign in&lt;/a&gt;&lt;/p&gt;'</span>,
+    <span class="attribute">to</span>: user.email,
+    <span class="attribute">from</span>: process.env[<span class="string">&#x27;EMAIL&#x27;</span>],
+    <span class="attribute">subject</span>: <span class="string">&#x27;Sign in to Todos&#x27;</span>,
+    <span class="attribute">text</span>: <span class="string">&#x27;Hello! Click the link below to finish signing in to Todos.\r\n\r\n&#x27;</span> + link,
+    <span class="attribute">html</span>: <span class="string">&#x27;&lt;h3&gt;Hello!&lt;/h3&gt;&lt;p&gt;Click the link below to finish signing in to Todos.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;&#x27;</span> + link + <span class="string">&#x27;&quot;&gt;Sign in&lt;/a&gt;&lt;/p&gt;&#x27;</span>,
   };
   <span class="keyword">return</span> sendgrid.send(msg);
 }, <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">user</span>) </span>{
   <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>{
-    db.get(<span class="string">'SELECT * FROM users WHERE email = ?'</span>, [
+    db.get(<span class="string">&#x27;SELECT * FROM users WHERE email = ?&#x27;</span>, [
       user.email
     ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> reject(err); }
       <span class="keyword">if</span> (!row) {
-        db.run(<span class="string">'INSERT INTO users (email, email_verified) VALUES (?, ?)'</span>, [
+        db.run(<span class="string">&#x27;INSERT INTO users (email, email_verified) VALUES (?, ?)&#x27;</span>, [
           user.email,
           <span class="number">1</span>
         ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
           <span class="keyword">if</span> (err) { <span class="keyword">return</span> reject(err); }
           <span class="keyword">var</span> id = <span class="keyword">this</span>.lastID;
           <span class="keyword">var</span> obj = {
-            <span class="attr">id</span>: id,
-            <span class="attr">email</span>: user.email
+            <span class="attribute">id:</span><span class="string"> id</span>,
+            <span class="attribute">email</span>: user.email
           };
           <span class="keyword">return</span> resolve(obj);
         });
-      } <span class="keyword">else</span> {
+      } <span class="title">else</span> {
         <span class="keyword">return</span> resolve(row);
       }
     });

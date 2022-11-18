@@ -115,38 +115,38 @@
 with Auth0.</p>
 <p>First, let&#39;s create a <code>&#39;.env&#39;</code> file to store the domain, client ID, and client
 secret we just obtained from Auth0.</p>
-<pre><code class="lang-sh">$ touch .env
+<pre><code class="sh">$ <span class="built_in">touch</span> .<span class="built_in">env</span>
 </code></pre>
 <p>Then, add the domain, client ID and secret.  The contents of the file should
 look something like this:</p>
-<pre><code class="lang-sh">AUTH0_DOMAIN=__INSERT_DOMAIN_HERE__
+<pre><code class="sh">AUTH0_DOMAIN=__INSERT_DOMAIN_HERE__
 AUTH0_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
 AUTH0_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
 </code></pre>
 <p>For this integration, we are going to use Passport and the
 <code>passport-openidconnect</code> strategy.  Install both as dependencies:</p>
-<pre><code class="lang-sh">$ npm install passport
+<pre><code class="sh">$ npm install passport
 $ npm install passport-openidconnect
 </code></pre>
 <p>Now, let&#39;s create a file that will contain authentication-related functionality:</p>
-<pre><code class="lang-sh">$ touch routes/auth.js
+<pre><code class="sh">$ <span class="built_in">touch</span> routes/auth.js
 </code></pre>
 <p>Add the following code to that file, which configures the strategy to work with
 Auth0.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> OpenIDConnectStrategy = <span class="built_in">require</span>(<span class="string">'passport-openidconnect'</span>);
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">OpenIDConnectStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-openidconnect&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> OpenIDConnectStrategy({
-  <span class="attr">issuer</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/'</span>,
-  <span class="attr">authorizationURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/authorize'</span>,
-  <span class="attr">tokenURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/oauth/token'</span>,
-  <span class="attr">userInfoURL</span>: <span class="string">'https://'</span> + process.env[<span class="string">'AUTH0_DOMAIN'</span>] + <span class="string">'/userinfo'</span>,
-  <span class="attr">clientID</span>: process.env[<span class="string">'AUTH0_CLIENT_ID'</span>],
-  <span class="attr">clientSecret</span>: process.env[<span class="string">'AUTH0_CLIENT_SECRET'</span>],
-  <span class="attr">callbackURL</span>: <span class="string">'/oauth2/redirect'</span>,
-  <span class="attr">scope</span>: [ <span class="string">'profile'</span> ]
-}, <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">issuer, profile, cb</span>) </span>{
-  <span class="keyword">return</span> cb(<span class="literal">null</span>, profile);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OpenIDConnectStrategy</span>({
+  <span class="attr">issuer</span>: <span class="string">&#x27;https://&#x27;</span> + process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_DOMAIN&#x27;</span>] + <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">authorizationURL</span>: <span class="string">&#x27;https://&#x27;</span> + process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_DOMAIN&#x27;</span>] + <span class="string">&#x27;/authorize&#x27;</span>,
+  <span class="attr">tokenURL</span>: <span class="string">&#x27;https://&#x27;</span> + process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_DOMAIN&#x27;</span>] + <span class="string">&#x27;/oauth/token&#x27;</span>,
+  <span class="attr">userInfoURL</span>: <span class="string">&#x27;https://&#x27;</span> + process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_DOMAIN&#x27;</span>] + <span class="string">&#x27;/userinfo&#x27;</span>,
+  <span class="attr">clientID</span>: process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_CLIENT_ID&#x27;</span>],
+  <span class="attr">clientSecret</span>: process.<span class="property">env</span>[<span class="string">&#x27;AUTH0_CLIENT_SECRET&#x27;</span>],
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;/oauth2/redirect&#x27;</span>,
+  <span class="attr">scope</span>: [ <span class="string">&#x27;profile&#x27;</span> ]
+}, <span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">issuer, profile, cb</span>) {
+  <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, profile);
 }));
 </code></pre>
 <p>Now that the strategy is configured, we are ready to <a href="../routes/">add login routes</a>

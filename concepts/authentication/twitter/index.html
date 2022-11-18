@@ -141,7 +141,7 @@ Twitter is provided by the <a href="https://www.passportjs.org/packages/passport
 package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-twitter</code>, execute the following command:</p>
-<pre><code class="lang-bash">$ npm install passport-twitter
+<pre><code class="bash">$ npm install passport-twitter
 </code></pre>
 <h2 id="configure">Configure</h2>
 <p>Before your application can make use of Log in with Twitter, you must register
@@ -151,49 +151,49 @@ registered, your app will be issued an API key and secret which will be used in
 the strategy configuration.</p>
 <p>The following code is an example that configures and registers the
 <code>TwitterStrategy</code>:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-<span class="keyword">var</span> TwitterStrategy = <span class="built_in">require</span>(<span class="string">'passport-twitter'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+<span class="keyword">var</span> <span class="title class_">TwitterStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-twitter&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> TwitterStrategy({
-    <span class="attr">consumerKey</span>: process.env[<span class="string">'TWITTER_API_KEY'</span>],
-    <span class="attr">consumerSecret</span>: process.env[<span class="string">'TWITTER_API_SECRET'</span>],
-    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/oauth/callback/twitter'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">TwitterStrategy</span>({
+    <span class="attr">consumerKey</span>: process.<span class="property">env</span>[<span class="string">&#x27;TWITTER_API_KEY&#x27;</span>],
+    <span class="attr">consumerSecret</span>: process.<span class="property">env</span>[<span class="string">&#x27;TWITTER_API_SECRET&#x27;</span>],
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://www.example.com/oauth/callback/twitter&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
-    db.get(<span class="string">'SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?'</span>, [
-      <span class="string">'https://twitter.com'</span>,
-      profile.id
-    ], <span class="function"><span class="keyword">function</span>(<span class="params">err, cred</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+  <span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) {
+    db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?&#x27;</span>, [
+      <span class="string">&#x27;https://twitter.com&#x27;</span>,
+      profile.<span class="property">id</span>
+    ], <span class="keyword">function</span>(<span class="params">err, cred</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!cred) {
         <span class="comment">// The Twitter account has not logged in to this app before.  Create</span>
         <span class="comment">// new user record and link it to the Twitter account.</span>
-        db.run(<span class="string">'INSERT INTO users (name) VALUES (?)'</span>, [
-          profile.displayName
-        ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+        db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO users (name) VALUES (?)&#x27;</span>, [
+          profile.<span class="property">displayName</span>
+        ], <span class="keyword">function</span>(<span class="params">err</span>) {
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
 
-          <span class="keyword">var</span> id = <span class="keyword">this</span>.lastID;
-          db.run(<span class="string">'INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)'</span>, [
+          <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
+          db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
             id,
-            <span class="string">'https://twitter.com'</span>,
-            profile.id
-          ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-            <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+            <span class="string">&#x27;https://twitter.com&#x27;</span>,
+            profile.<span class="property">id</span>
+          ], <span class="keyword">function</span>(<span class="params">err</span>) {
+            <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
             <span class="keyword">var</span> user = {
-              <span class="attr">id</span>: id.toString(),
-              <span class="attr">name</span>: profile.displayName
+              <span class="attr">id</span>: id.<span class="title function_">toString</span>(),
+              <span class="attr">name</span>: profile.<span class="property">displayName</span>
             };
-            <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+            <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
           });
         });
       } <span class="keyword">else</span> {
         <span class="comment">// The Twitter account has previously logged in to the app.  Get the</span>
         <span class="comment">// user record linked to the Twitter account and log the user in.</span>
-        db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ cred.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-          <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-          <span class="keyword">if</span> (!user) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>); }
-          <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+        db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE id = ?&#x27;</span>, [ cred.<span class="property">user_id</span> ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+          <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+          <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
         });
       }
     };
@@ -230,19 +230,19 @@ and functionality provided by the base <a href="/docs/oauth/">OAuth strategy</a>
 <h2 id="prompt">Prompt</h2>
 <p>Place a button on the application&#39;s login page, prompting the user to sign in
 with Twitter.</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/login/twitter"</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span>Sign in with Twitter<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login/twitter&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span>Sign in with Twitter<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 <p>Define a route that, when the button is clicked, will redirect the user to
 Twitter, where they will authenticate.</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login/twitter'</span>, passport.authenticate(<span class="string">'twitter'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/twitter&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>));
 </code></pre>
 <h2 id="authenticate">Authenticate</h2>
 <p>After the user has authenticated with Twitter, they will be redirected back to
 your application.  Define a route which will handle this redirect.</p>
-<pre><code>app.get(<span class="string">'/oauth/callback/twitter'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>, { failureRedirect: <span class="string">'/login'</span>, failureMessage: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/oauth/callback/twitter&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attribute">failureMessage</span>: true }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><p>When a request to this route is processed, the strategy will authenticate the
 fact that the user signed in with Twitter and obtain that user&#39;s profile

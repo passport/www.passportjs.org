@@ -119,15 +119,15 @@ add a route that authenticates the user when Facebook redirects them back to the
 app.</p>
 <p>Open <code>routes/auth.js</code> and add the following code at line 55, below the
 <code>/login/federated/facebook</code> route.</p>
-<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
-  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, {
+  <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
 </code></pre>
 <p>The app now has routes that handle the complete cycle of redirecting to Facebook
 and from Facebook back to the app, with state maintained in between.  Try
 signing in by starting the server.</p>
-<pre><code class="lang-sh">$ npm start
+<pre><code class="sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
 click &quot;Sign in with Facebook.&quot;</p>

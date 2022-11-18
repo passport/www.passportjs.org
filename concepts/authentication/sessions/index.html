@@ -156,10 +156,10 @@ session, from other state that may be stored in the session.</p>
 <p>Applications must initialize session support in order to make use of login
 sessions.  In an <a href="https://expressjs.com/">Express</a> app, session support is added
 by using  <a href="https://github.com/expressjs/session"><code>express-session</code></a> middleware.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
-app.use(session({
-  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+app.<span class="title function_">use</span>(<span class="title function_">session</span>({
+  <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>,
   <span class="attr">resave</span>: <span class="literal">false</span>,
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
@@ -169,19 +169,19 @@ app.use(session({
 information to and from the session.  The information that is stored is
 determined by the application, which supplies a <code>serializeUser</code> and a
 <code>deserializeUser</code> function.</p>
-<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, {
-      <span class="attr">id</span>: user.id,
-      <span class="attr">username</span>: user.username,
-      <span class="attr">picture</span>: user.picture
+<pre><code class="javascript">passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, {
+      <span class="attr">id</span>: user.<span class="property">id</span>,
+      <span class="attr">username</span>: user.<span class="property">username</span>,
+      <span class="attr">picture</span>: user.<span class="property">picture</span>
     });
   });
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
 </code></pre>
@@ -191,10 +191,10 @@ password.  If successfully verified, Passport will call the <code>serializeUser<
 function, which in the above example is storing the user&#39;s ID, username, and
 picture.  Any other properties of the user, such as an address or birthday, are
 not stored.</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
-  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/~'</span> + req.user.username);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
 </code></pre>
 <p>As the user navigates from page to page, the session itself can be authenticated
@@ -202,13 +202,13 @@ using the built-in <code>session</code> strategy.  Because an authenticated sess
 typically needed for the majority of routes in an application, it is common to
 use this as <a href="https://expressjs.com/en/guide/using-middleware.html#middleware.application">application-level middleware</a>,
 after <code>session</code> middleware.</p>
-<pre><code class="lang-javascript">app.use(session(<span class="comment">/* ... */</span>);
-app.use(passport.authenticate(<span class="string">'session'</span>));
+<pre><code class="javascript">app.<span class="title function_">use</span>(<span class="title function_">session</span>(<span class="comment">/* ... */</span>);
+app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
 </code></pre>
 <p>This can also be accomplished, more succinctly, using the <code>passport.session()</code>
 alias.</p>
-<pre><code class="lang-javascript">app.use(session(<span class="comment">/* ... */</span>);
-app.use(passport.session());
+<pre><code class="javascript">app.<span class="title function_">use</span>(<span class="title function_">session</span>(<span class="comment">/* ... */</span>);
+app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>());
 </code></pre>
 <p>When the session is authenticated, Passport will call the <code>deserializeUser</code>
 function, which in the above example is yielding the previously stored user ID,
@@ -226,16 +226,16 @@ be stored in a cookie.</p>
 <code>deserializeUser</code> functions it supplies.  In contrast to the above example, the
 following example minimizes the data stored in the session at the expense of
 querying the database for every request in which the session is authenticated.</p>
-<pre><code class="lang-javascript">passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, user.id);
+<pre><code class="javascript">passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user.<span class="property">id</span>);
   });
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, cb</span>) </span>{
-  db.get(<span class="string">'SELECT * FROM users WHERE id = ?'</span>, [ id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">id, cb</span>) {
+  db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE id = ?&#x27;</span>, [ id ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
 </code></pre>

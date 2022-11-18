@@ -116,15 +116,15 @@
 verify the email address when they click the link.</p>
 <p>Open <code>&#39;routes/auth.js&#39;</code>, add this route at line 67, below the <code>&#39;/login/email/check&#39;</code>
 route:</p>
-<pre><code class="lang-js">router.get(<span class="string">'/login/email/verify'</span>, passport.authenticate(<span class="string">'magiclink'</span>, {
-  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/login/email/verify&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
 </code></pre>
 <p>This route will verify the email address when the link is clicked.</p>
 <p>Let&#39;s test it out to see what happens.</p>
 <p>Start the server:</p>
-<pre><code class="lang-sh">$ npm start
+<pre><code class="sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot;, enter your
 email address and click &quot;Sign in with Email&quot;.</p>

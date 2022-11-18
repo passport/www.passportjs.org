@@ -116,40 +116,40 @@
 <p>To let users sign in with Facebook, the app needs a page with a button that
 prompts the user to do that.  In this section, you&#39;ll add a signin page.</p>
 <p>Create a file that will contain authentication-related routes.</p>
-<pre><code class="lang-sh">$ touch routes/auth.js
+<pre><code class="sh">$ <span class="built_in">touch</span> routes/auth.js
 </code></pre>
 <p>Add the following code to that file, which creates a route that will render the
 signin page.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 
-<span class="keyword">var</span> router = express.Router();
+<span class="keyword">var</span> router = express.<span class="title class_">Router</span>();
 
-router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  res.render(<span class="string">'login'</span>);
+router.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+  res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>);
 });
 
-<span class="built_in">module</span>.exports = router;
+<span class="variable language_">module</span>.<span class="property">exports</span> = router;
 </code></pre>
 <p>Next, add these route to the app.  Open <code>app.js</code> and <code>require()</code> the newly created
 auth routes at line 10, below <code>require(&#39;./routes/index&#39;)</code>.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);
-<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">'./routes/auth'</span>);
+<pre><code class="js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);
+<span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/auth&#x27;</span>);
 </code></pre>
 <p>Continuing within <code>app.js</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at line
 27, below <code>app.use(&#39;/&#39;, indexRouter)</code>.</p>
-<pre><code class="lang-js">app.use(<span class="string">'/'</span>, indexRouter);
-app.use(<span class="string">'/'</span>, authRouter);
+<pre><code class="js">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter);
+app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, authRouter);
 </code></pre>
 <p>The signin page has been added to the app!  See how it looks by starting the
 server.</p>
-<pre><code class="lang-sh">$ npm start
+<pre><code class="sh">$ npm start
 </code></pre>
 <p>Open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;  You
 are prompted to sign in, but there&#39;s no place to choose Facebook.</p>
 <p>Add a button which will allow the user to sign in with Facebook.  Open
 <code>views/login.ejs</code> and add a link at line 15, below the &quot;Sign in&quot; heading.</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
-<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button facebook"</span> <span class="attr">href</span>=<span class="string">"/login/federated/facebook"</span>&gt;</span>Sign in with Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;button facebook&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/login/federated/facebook&quot;</span>&gt;</span>Sign in with Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 <p>Refresh the page.  The app now has a signin page that prompts the user to sign in
 with Facebook.  Next, you will <a href="../redirect/">redirect the user to Facebook</a>.</p>

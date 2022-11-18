@@ -129,25 +129,25 @@ benefits outweigh the drawbacks, but each application will have different
 tradeoffs.</p>
 <p>Now that Passport knows who has authenticated, it calls the application&#39;s
 <code>verify</code> function with the profile information as well as the tokens.</p>
-<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
-  clientID: process.env[<span class="string">'FACEBOOK_CLIENT_ID'</span>],
-  clientSecret: process.env[<span class="string">'FACEBOOK_CLIENT_SECRET'</span>],
-  callbackURL: <span class="string">'/oauth2/redirect/facebook'</span>,
-  state: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span> <span class="title">verify</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">FacebookStrategy</span>({
+  <span class="attribute">clientID</span>: process.env[<span class="string">&#x27;FACEBOOK_CLIENT_ID&#x27;</span>],
+  <span class="attribute">clientSecret</span>: process.env[<span class="string">&#x27;FACEBOOK_CLIENT_SECRET&#x27;</span>],
+  <span class="attribute">callbackURL</span>: <span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>,
+  <span class="attribute">state</span>: true
+}, function <span class="built_in">verify</span>(accessToken, refreshToken, profile, cb) {
   <span class="comment">// ...</span>
 }));
 </code></pre><p>When the <code>verify</code> function is complete, Passport establishes a login session and
 redirects the user back to application, where they are now logged in.  All of
 this occurs while Passport is processing the authorization response:</p>
-<pre><code class="lang-js">router.get(<span class="string">'/oauth2/redirect/facebook'</span>, passport.authenticate(<span class="string">'facebook'</span>, {
-  <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
 </code></pre>
 <p>The complete visualization of the requests, responses, and function calls that
 occur looks as follows:</p>
-<pre><code class="lang-sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
+<pre><code class="sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
 |     |                                        |         |
 |     |   ----- Token Request  -----&gt; +-----+  |         |
 |     |   &lt;---- Token Response ------ | AS  |  |         |

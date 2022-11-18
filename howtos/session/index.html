@@ -111,13 +111,13 @@
 web framework.</p>
 <h1 id="middleware">Middleware</h1>
 <p>Add session support by installing <a href="https://github.com/expressjs/session"><code>express-session</code></a>:</p>
-<pre><code class="lang-sh">$ npm install express-session
+<pre><code class="sh">$ npm install express-session
 </code></pre>
 <p>Use it as application-level middleware.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<pre><code class="js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
-app.use(session({
-  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>,
+app.<span class="title function_">use</span>(<span class="title function_">session</span>({
+  <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>,
   <span class="attr">resave</span>: <span class="literal">false</span>,
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
@@ -126,36 +126,36 @@ app.use(session({
 <h1 id="configure">Configure</h1>
 <p>Register functions that serialize and deserialize user information to and from
 the session.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
-passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, {
-      <span class="attr">id</span>: user.id,
-      <span class="attr">username</span>: user.username,
-      <span class="attr">picture</span>: user.picture
+passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, {
+      <span class="attr">id</span>: user.<span class="property">id</span>,
+      <span class="attr">username</span>: user.<span class="property">username</span>,
+      <span class="attr">picture</span>: user.<span class="property">picture</span>
     });
   });
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, cb</span>) </span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> cb(<span class="literal">null</span>, user);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
+    <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
 </code></pre>
 <h1 id="routes">Routes</h1>
 <p>Authenticate <em>all</em> routes by using <code>passport.authenticate()</code> as
 application-level middleware.</p>
-<pre><code class="lang-js">app.use(passport.authenticate(<span class="string">'session'</span>));
+<pre><code class="js">app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
 </code></pre>
 <p>Note that this middleware must be <code>use()</code>&#39;d <em>after</em> <code>session()</code> middleware added
 in the previous step.</p>
 <p>Alternatively, authenticate specific routes by using <code>passport.authenticate()</code>
 on routes mounted at a path.</p>
-<pre><code class="lang-js">app.get(<span class="string">'/pages'</span>,
-  passport.authenticate(<span class="string">'session'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/pages&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>),
+  <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
     <span class="comment">/* ... */</span>
   });
 </code></pre>

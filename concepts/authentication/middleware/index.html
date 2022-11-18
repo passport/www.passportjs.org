@@ -141,10 +141,10 @@ requests.  Middleware was popularized in <a href="https://nodejs.org/">Node.js</
 Given its popularity, middleware is easily adaptable to other web frameworks.</p>
 <p>The following code is an example of a route that authenticates a user with a
 username and password:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/password'</span>,
-  passport.authenticate(<span class="string">'local'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/~'</span> + req.user.username);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
 </code></pre>
 <p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>

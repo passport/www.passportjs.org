@@ -158,7 +158,7 @@ necessary configuration, and accommodates any provider-specific quirks. See
 <p>Support for OAuth is provided by the <a href="https://github.com/jaredhanson/passport-oauth">passport-oauth</a>
 module.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-oauth
+<pre><code class="bash">$ npm install passport-oauth
 </code></pre>
 <h3 id="oauth-1-0">OAuth 1.0</h3>
 <p>OAuth 1.0 is a delegated authentication strategy that involves multiple steps.
@@ -170,20 +170,20 @@ as a <em>consumer</em>, is identified by a consumer key and consumer secret.</p>
 <h2 id="configuration">Configuration</h2>
 <p>When using the generic OAuth strategy, the key, secret, and endpoints are
 specified as options.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , OAuthStrategy = <span class="built_in">require</span>(<span class="string">'passport-oauth'</span>).OAuthStrategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , <span class="title class_">OAuthStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-oauth&#x27;</span>).<span class="property">OAuthStrategy</span>;
 
-passport.use(<span class="string">'provider'</span>, <span class="keyword">new</span> OAuthStrategy({
-    <span class="attr">requestTokenURL</span>: <span class="string">'https://www.provider.com/oauth/request_token'</span>,
-    <span class="attr">accessTokenURL</span>: <span class="string">'https://www.provider.com/oauth/access_token'</span>,
-    <span class="attr">userAuthorizationURL</span>: <span class="string">'https://www.provider.com/oauth/authorize'</span>,
-    <span class="attr">consumerKey</span>: <span class="string">'123-456-789'</span>,
-    <span class="attr">consumerSecret</span>: <span class="string">'shhh-its-a-secret'</span>,
-    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.com/auth/provider/callback'</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;provider&#x27;</span>, <span class="keyword">new</span> <span class="title class_">OAuthStrategy</span>({
+    <span class="attr">requestTokenURL</span>: <span class="string">&#x27;https://www.provider.com/oauth/request_token&#x27;</span>,
+    <span class="attr">accessTokenURL</span>: <span class="string">&#x27;https://www.provider.com/oauth/access_token&#x27;</span>,
+    <span class="attr">userAuthorizationURL</span>: <span class="string">&#x27;https://www.provider.com/oauth/authorize&#x27;</span>,
+    <span class="attr">consumerKey</span>: <span class="string">&#x27;123-456-789&#x27;</span>,
+    <span class="attr">consumerSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.com/auth/provider/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      done(err, user);
+  <span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -198,23 +198,23 @@ additional information.</p>
 OAuth transaction and redirects the user to the service provider.  The second
 route is the URL to which the user will be redirected after authenticating with
 the provider.</p>
-<pre><code class="lang-javascript"><span class="comment">// Redirect the user to the OAuth provider for authentication.  When</span>
+<pre><code class="javascript"><span class="comment">// Redirect the user to the OAuth provider for authentication.  When</span>
 <span class="comment">// complete, the provider will redirect the user back to the application at</span>
 <span class="comment">//     /auth/provider/callback</span>
-app.get(<span class="string">'/auth/provider'</span>, passport.authenticate(<span class="string">'provider'</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>));
 
 <span class="comment">// The OAuth provider has redirected the user back to the application.</span>
 <span class="comment">// Finish the authentication process by attempting to obtain an access</span>
 <span class="comment">// token.  If authorization was granted, the user will be logged in.</span>
 <span class="comment">// Otherwise, authentication has failed.</span>
-app.get(<span class="string">'/auth/provider/callback'</span>,
-  passport.authenticate(<span class="string">'provider'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                      <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+                                      <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
 </code></pre>
 <h2 id="link">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/provider"</span>&gt;</span>Log In with OAuth Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 <h3 id="oauth-2-0">OAuth 2.0</h3>
 <p>OAuth 2.0 is the successor to OAuth 1.0, and is designed to overcome perceived
@@ -227,19 +227,19 @@ secret.</p>
 <h2 id="configuration">Configuration</h2>
 <p>When using the generic OAuth 2.0 strategy, the client ID, client secret, and
 endpoints are specified as options.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , OAuth2Strategy = <span class="built_in">require</span>(<span class="string">'passport-oauth'</span>).OAuth2Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , <span class="title class_">OAuth2Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-oauth&#x27;</span>).<span class="property">OAuth2Strategy</span>;
 
-passport.use(<span class="string">'provider'</span>, <span class="keyword">new</span> OAuth2Strategy({
-    <span class="attr">authorizationURL</span>: <span class="string">'https://www.provider.com/oauth2/authorize'</span>,
-    <span class="attr">tokenURL</span>: <span class="string">'https://www.provider.com/oauth2/token'</span>,
-    <span class="attr">clientID</span>: <span class="string">'123-456-789'</span>,
-    <span class="attr">clientSecret</span>: <span class="string">'shhh-its-a-secret'</span>
-    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.com/auth/provider/callback'</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;provider&#x27;</span>, <span class="keyword">new</span> <span class="title class_">OAuth2Strategy</span>({
+    <span class="attr">authorizationURL</span>: <span class="string">&#x27;https://www.provider.com/oauth2/authorize&#x27;</span>,
+    <span class="attr">tokenURL</span>: <span class="string">&#x27;https://www.provider.com/oauth2/token&#x27;</span>,
+    <span class="attr">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span>
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.com/auth/provider/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -253,29 +253,29 @@ provider; refer to <a href="/guide/profile/">User Profile</a> for additional inf
 <p>Two routes are required for OAuth 2.0 authentication.  The first route redirects
 the user to the service provider.  The second route is the URL to which the user
 will be redirected after authenticating with the provider.</p>
-<pre><code class="lang-javascript"><span class="comment">// Redirect the user to the OAuth 2.0 provider for authentication.  When</span>
+<pre><code class="javascript"><span class="comment">// Redirect the user to the OAuth 2.0 provider for authentication.  When</span>
 <span class="comment">// complete, the provider will redirect the user back to the application at</span>
 <span class="comment">//     /auth/provider/callback</span>
-app.get(<span class="string">'/auth/provider'</span>, passport.authenticate(<span class="string">'provider'</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>));
 
 <span class="comment">// The OAuth 2.0 provider has redirected the user back to the application.</span>
 <span class="comment">// Finish the authentication process by attempting to obtain an access</span>
 <span class="comment">// token.  If authorization was granted, the user will be logged in.</span>
 <span class="comment">// Otherwise, authentication has failed.</span>
-app.get(<span class="string">'/auth/provider/callback'</span>,
-  passport.authenticate(<span class="string">'provider'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                      <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+                                      <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
 </code></pre>
 <h2 id="scope">Scope</h2>
 <p>When requesting access using OAuth 2.0, the scope of access is controlled by the
 scope option.</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/provider'</span>,
-  passport.authenticate(<span class="string">'provider'</span>, { <span class="attr">scope</span>: <span class="string">'email'</span> })
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: <span class="string">&#x27;email&#x27;</span> })
 );
 </code></pre>
 <p>Multiple scopes can be specified as an array.</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/provider'</span>,
-  passport.authenticate(<span class="string">'provider'</span>, { <span class="attr">scope</span>: [<span class="string">'email'</span>, <span class="string">'sms'</span>] })
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;sms&#x27;</span>] })
 );
 </code></pre>
 <p>Values for the <code>scope</code> option are provider-specific.  Consult the provider&#39;s
@@ -283,7 +283,7 @@ documentation for details regarding supported scopes.</p>
 <h2 id="link">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/provider"</span>&gt;</span>Log In with OAuth 2.0 Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth 2.0 Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 </section>
           </div>
