@@ -6,5 +6,8 @@ html:
 assets:
 	make -C web
 
+api:
+	make -C api
 
-.PHONY: html assets
+
+.PHONY: html assets api
