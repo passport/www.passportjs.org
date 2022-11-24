@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Strategy | passport-local API Reference</title>
+    <link rel="stylesheet" href="http://localhost:8080/assets/styles/all.css">
+  </head>
+
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="api">
+          <nav>
+            <h2><a href="index.html">passport-local</a></h2><h3><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a></h3><h4>Properties</h4><ul><li>.name</li></ul><h4>Methods</h4><ul><li>.authenticate()</li></ul>
+          </nav><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <h1>Strategy</h1>
+            
+
+
+
+
+<section>
+  <header>
+  
+    <h2><span class="attribs"><span class="type-signature"></span></span>Strategy</h2>
+    
+      A `Strategy` that is responsible for authenticating requests that
+carry a username and password in the body of the request.  These credentials
+are typically submitted by the user via an HTML form.
+    
+  
+  </header>
+
+  <article>
+    <div class="container-overview">
+    
+      
+
+
+  
+    <h4 class="name" id="Strategy"><span class="type-signature"></span>new Strategy<span class="signature">([options], verify)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>options</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>usernameField</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    Form field name where
+         the username is found.
+    
+    
+      
+          <strong>Default:</strong> <code>'username'</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>passwordField</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    Form field name where
+         the password is found.
+    
+    
+      
+          <strong>Default:</strong> <code>'password'</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>passReqToCallback</code>
+    
+    
+    
+        
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    When `true`, the
+         `verify` function receives the request object as the first argument,
+         in conformance with `verifyWithReqFn`.
+    
+    
+      
+          <strong>Default:</strong> <code>false</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>verify</code>
+    
+    
+    
+        
+<span class="param-type"><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#~verifyFn">&lt;Strategy~verifyFn></a></span>
+|
+
+<span class="param-type"><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#~verifyWithReqFn">&lt;Strategy~verifyWithReqFn></a></span>
+
+
+
+    
+    
+    Function which
+         verifies username and password.
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  Create a new `Strategy` object.
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <pre><code>var LocalStrategy = require('passport-local').Strategy;
+
+new LocalStrategy(function(username, password, cb) {
+  users.findOne({ username: username }, function(err, user) {
+    if (err) { return cb(err); }
+    if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+
+    crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+      if (err) { return cb(err); }
+      if (!crypto.timingSafeEqual(user.hashedPassword, hashedPassword)) {
+        return cb(null, false, { message: 'Incorrect username or password.' });
+      }
+      return cb(null, user);
+    });
+  });
+});</code></pre>
+
+
+  <pre><code>var LocalStrategy = require('passport-local');
+
+new LocalStrategy(function(username, password, cb) {
+  // ...
+});</code></pre>
+
+  <i>Construct strategy using top-level export.</i>
+
+
+
+
+
+    
+    </div>
+    
+    
+    
+      
+
+
+  <ul>
+  
+    <li>Extends: &lt;base.Strategy></li>
+  
+  </ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <h3 class="subsection-title">Members</h3>
+      
+        
+<h4 class="name" id="name"><span class="type-signature">(readonly) </span>name<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+  The name of the strategy, which is set to `'local'`.
+</div>
+
+
+
+  <h5>Type:</h5>
+  <ul>
+    <li>
+      
+<span class="param-type">&lt;string></span>
+
+
+
+    </li>
+  </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+      
+    
+    
+    
+      <h3>Methods</h3>
+      
+        
+
+
+  
+    <h4 class="name" id="authenticate"><span class="type-signature">(protected) </span>authenticate<span class="signature">(req, [options])</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>req</code>
+    
+    
+    
+        
+<span class="param-type">&lt;http.IncomingMessage></span>
+
+
+
+    
+    
+    The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage">`IncomingMessage`</a>
+         object.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>options</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>badRequestMessage</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    Message
+         to display when a request does not include a username or password.
+         Used in conjunction with `failureMessage` or `failureFlash` options.
+    
+    
+      
+          <strong>Default:</strong> <code>'Missing credentials'</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  Authenticate request by verifying username and password.
+
+This function is protected, and should not be called directly.  Instead,
+use `passport.authenticate()` middleware and specify the <a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#name">`name`</a>
+of this strategy and any options.
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <pre><code>passport.authenticate('local');</code></pre>
+
+
+
+
+
+      
+    
+    
+    
+      <h3 class="subsection-title">Type Definitions</h3>
+      
+          
+
+
+  
+    <h4 class="name" id="~verifyFn"><span class="type-signature"></span>verifyFn<span class="signature">(username, password, cb)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>username</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    The username received in the request.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>password</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    The passport received in the request.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>cb</code>
+    
+    
+    
+        
+<span class="param-type">&lt;function></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>err</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Error></span>
+
+
+
+    
+    
+    An `Error` if an error occured; otherwise `null`.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>user</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+|
+
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    An `Object` representing the authenticated
+         user if verification was successful; otherwise `false`.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>info</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    Additional application-specific context that will be
+         passed through for additional request processing.
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  Verifies `username` and `password` and yields authenticated user.
+
+This function is called by `<a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a>` to verify a username and
+password, and must invoke `cb` to yield the result.
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+          
+
+
+  
+    <h4 class="name" id="~verifyWithReqFn"><span class="type-signature"></span>verifyWithReqFn<span class="signature">(req, username, password, cb)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>req</code>
+    
+    
+    
+        
+<span class="param-type">&lt;http.IncomingMessage></span>
+
+
+
+    
+    
+    The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage">`IncomingMessage`</a>
+         object.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>username</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    The username received in the request.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>password</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    The passport received in the request.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>cb</code>
+    
+    
+    
+        
+<span class="param-type">&lt;function></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>err</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Error></span>
+
+
+
+    
+    
+    An `Error` if an error occured; otherwise `null`.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>user</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+|
+
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    An `Object` representing the authenticated
+         user if verification was successful; otherwise `false`.
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>info</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    Additional application-specific context that will be
+         passed through for additional request processing.
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  Verifies `username` and `password` and yields authenticated user.
+
+This function is called by `<a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a>` to verify a username and
+password when the `passReqToCallback` option is set, and must invoke `cb` to
+yield the result.
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    
+    
+  </article>
+
+</section>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

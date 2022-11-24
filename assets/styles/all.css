@@ -3038,10 +3038,10 @@ a {
 }
 ul {
   margin: 0;
-  padding: 0;
+  padding-left: 26px;
 }
-ul li {
-  list-style: none;
+.api ul p {
+  display: inline;
 }
 html.is-menu,
 html.is-menu body {
@@ -3103,6 +3103,10 @@ body.is-search .search-con {
   #menu {
     width: 350px;
   }
+}
+#menu ul {
+  margin: 0;
+  padding: 0;
 }
 #menu .menu-logo {
   display: block;
@@ -3908,6 +3912,8 @@ body.is-search .search-con {
   display: inline-block;
   width: 35%;
   list-style: square;
+  margin: 0;
+  padding: 0;
 }
 .docs section li {
   list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-book'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'%3E%3C/path%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'%3E%3C/path%3E%3C/svg%3E");
@@ -4014,6 +4020,7 @@ body.is-search .search-con {
   }
 }
 .toc li {
+  list-style: none;
   line-height: 2.5;
 }
 @media (min-width: 992px) {
@@ -4058,6 +4065,80 @@ body.is-search .search-con {
     -webkit-transition: none !important;
     transition: none !important;
   }
+}
+.api .contents h3 {
+  color: #fff;
+}
+.api nav {
+  padding: 20px;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .api nav {
+    margin-top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .api nav {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    width: 20%;
+    min-height: 1px;
+    padding: 0 0 0 30px;
+    background-color: transparent;
+  }
+}
+.api nav h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0;
+}
+.api nav h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.api nav h4 {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 4px;
+}
+.api nav ul {
+  margin: 0;
+  x-padding-left: 18px;
+}
+@media (min-width: 992px) {
+  .api nav ul {
+    padding-left: 4px;
+  }
+}
+.api nav li {
+  margin: 0;
+  x-font-size: 14px;
+  list-style: none;
+  x-line-height: 2.5;
+}
+@media (min-width: 992px) {
+  .api nav li {
+    x-line-height: 1.9;
+  }
+}
+.api nav li a {
+  x-font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+@media (min-width: 992px) {
+  .api nav li a:hover,
+  .api nav li a.active {
+    color: #01b7ee;
+  }
+}
+.api .name,
+.api .signature {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
 .package .description {
   padding-right: 20px;
