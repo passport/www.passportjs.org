@@ -1,5 +1,8 @@
-html:
-	echo "Make passport-local"
-	make -C 1.x
+MODULES = 1.x
 
-.PHONY: html
+all:
+	@for dir in $(MODULES); do \
+		$(MAKE) -C $$dir; \
+	done
+
+.PHONY: all
