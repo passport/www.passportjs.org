@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -d src ]; then
+  git clone https://github.com/jaredhanson/passport-local.git src
+else
+  git pull
+fi
