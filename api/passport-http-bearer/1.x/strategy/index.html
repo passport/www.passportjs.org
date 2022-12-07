@@ -47,7 +47,7 @@
       <div id="content">
         <div class="api">
           <nav>
-            <h2><a href="/api/passport-local/1.x/">passport-http-bearer</a></h2><h3><a href="/api/passport-local/1.x/strategy/">Strategy</a></h3><h4>Properties</h4><ul><li>.name</li></ul><h4>Methods</h4><ul><li>.authenticate()</li></ul>
+            <h2><a href="/api/passport-http-bearer/1.x/">passport-http-bearer</a></h2><h3><a href="/api/passport-http-bearer/1.x/strategy/">Strategy</a></h3><h4>Properties</h4><ul><li>.name</li></ul><h4>Methods</h4><ul><li>.authenticate()</li></ul>
           </nav><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
             <h1>Strategy</h1>
@@ -200,7 +200,7 @@ access protected resources.</p>
     
     <p>When <code>true</code>, the
 <code>verify</code> function receives the request object as the first argument,
-in accordance with the <code><a href="/api/passport-local/1.x/strategy/#~verifyWithReqFn">Strategy~verifyWithReqFn</a></code> signature.</p>
+in accordance with the <code><a href="/api/passport-http-bearer/1.x/strategy/#~verifyWithReqFn">Strategy~verifyWithReqFn</a></code> signature.</p>
     
     
       
@@ -228,10 +228,10 @@ in accordance with the <code><a href="/api/passport-local/1.x/strategy/#~verifyW
     
     
         
-<span class="param-type"><a href="/api/passport-local/1.x/strategy/#~verifyFn">&lt;Strategy~verifyFn></a></span>
+<span class="param-type"><a href="/api/passport-http-bearer/1.x/strategy/#~verifyFn">&lt;Strategy~verifyFn></a></span>
 |
 
-<span class="param-type"><a href="/api/passport-local/1.x/strategy/#~verifyWithReqFn">&lt;Strategy~verifyWithReqFn></a></span>
+<span class="param-type"><a href="/api/passport-http-bearer/1.x/strategy/#~verifyWithReqFn">&lt;Strategy~verifyWithReqFn></a></span>
 
 
 
@@ -487,7 +487,7 @@ function will be called to verify the token and authenticate the request.  If
 a token is not present, authentication will fail with the appropriate
 challenge and status code.</p>
 <p>This function is protected, and should not be called directly.  Instead,
-use <code>passport.authenticate()</code> middleware and specify the <a href="/api/passport-local/1.x/strategy/#name"><code>name</code></a>
+use <code>passport.authenticate()</code> middleware and specify the <a href="/api/passport-http-bearer/1.x/strategy/#name"><code>name</code></a>
 of this strategy and any options.</p>
 
 
@@ -710,7 +710,7 @@ passed through for additional request processing.</p>
 
 
   <p>Verifies <code>token</code> and yields authenticated user.</p>
-<p>This function is called by <code><a href="/api/passport-local/1.x/strategy/">Strategy</a></code> to verify an access token, and
+<p>This function is called by <code><a href="/api/passport-http-bearer/1.x/strategy/">Strategy</a></code> to verify an access token, and
 must invoke <code>cb</code> to yield the result.</p>
 
 
@@ -943,7 +943,7 @@ passed through for additional request processing.</p>
 
 
   <p>Verifies <code>token</code> and yields authenticated user.</p>
-<p>This function is called by <code><a href="/api/passport-local/1.x/strategy/">Strategy</a></code> to verify an access token when
+<p>This function is called by <code><a href="/api/passport-http-bearer/1.x/strategy/">Strategy</a></code> to verify an access token when
 the <code>passReqToCallback</code> option is set, and must invoke <code>cb</code> to yield the
 result.</p>
 
