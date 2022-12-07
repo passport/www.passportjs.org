@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Strategy | passport-http-bearer API Reference</title>
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="api">
+          <nav>
+            <h2><a href="/api/passport-local/1.x/">passport-http-bearer</a></h2><h3><a href="/api/passport-local/1.x/strategy/">Strategy</a></h3><h4>Properties</h4><ul><li>.name</li></ul><h4>Methods</h4><ul><li>.authenticate()</li></ul>
+          </nav><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <h1>Strategy</h1>
+            
+
+
+
+
+<section>
+  <header>
+  
+    <h2><span class="attribs"><span class="type-signature"></span></span>Strategy</h2>
+    
+      <p>This <code>Strategy</code> authenticates HTTP requests that use the Bearer
+authentication scheme, as specified by <a href="https://www.rfc-editor.org/rfc/rfc6750">RFC 6750</a>.</p>
+<p>The bearer token credential can be sent in the HTTP request in one of three
+different ways.  Preferably, the token is sent in the &quot;Authorization&quot; header
+field:</p>
+<pre class="prettyprint source lang-http"><code>GET /resource HTTP/1.1
+Host: server.example.com
+Authorization: Bearer mF_9.B5f-4.1JqM
+</code></pre>
+<p>Alternatively, the token can be sent in a form-encoded body, using the
+<code>access_token</code> parameter:</p>
+<pre class="prettyprint source lang-http"><code>POST /resource HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+
+access_token=mF_9.B5f-4.1JqM
+</code></pre>
+<p>Or, in the URL, using the <code>access_token</code> query parameter:</p>
+<pre class="prettyprint source lang-http"><code>GET /resource?access_token=mF_9.B5f-4.1JqM HTTP/1.1
+Host: server.example.com
+</code></pre>
+    
+  
+  </header>
+
+  <article>
+    <div class="container-overview">
+    
+      
+
+
+  
+    <h4 class="name" id="Strategy"><span class="type-signature"></span>new Strategy<span class="signature">([options], verify)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>options</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>realm</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    <p>Value indicating the protection
+space over which credentials are valid.</p>
+    
+    
+      
+          <strong>Default:</strong> <code>'Users'</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>scope</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    <p>Value indicating required scope needed to
+access protected resources.</p>
+    
+    
+      
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>passReqToCallback</code>
+    
+    
+    
+        
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    <p>When <code>true</code>, the
+<code>verify</code> function receives the request object as the first argument,
+in accordance with the <code><a href="/api/passport-local/1.x/strategy/#~verifyWithReqFn">Strategy~verifyWithReqFn</a></code> signature.</p>
+    
+    
+      
+          <strong>Default:</strong> <code>false</code>.
+      
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>verify</code>
+    
+    
+    
+        
+<span class="param-type"><a href="/api/passport-local/1.x/strategy/#~verifyFn">&lt;Strategy~verifyFn></a></span>
+|
+
+<span class="param-type"><a href="/api/passport-local/1.x/strategy/#~verifyWithReqFn">&lt;Strategy~verifyWithReqFn></a></span>
+
+
+
+    
+    
+    <p>Function which
+verifies access token.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  <p>Create a new <code>Strategy</code> object.</p>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <pre><code>var BearerStrategy = require('passport-http-bearer').Strategy;
+
+new BearerStrategy(function(token, cb) {
+  tokens.findOne({ value: token }, function(err, claims) {
+    if (err) { return cb(err); }
+    if (!claims) { return cb(null, false); }
+
+    users.findOne({ id: claims.userID }, function (err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      return cb(null, user, { scope: claims.scope });
+    });
+  });
+});</code></pre>
+
+
+
+
+
+    
+    </div>
+    
+    
+    
+      
+
+
+  <ul>
+  
+    <li>Extends: &lt;base.Strategy></li>
+  
+  </ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <h3 class="subsection-title">Members</h3>
+      
+        
+<h4 class="name" id="name"><span class="type-signature">(readonly) </span>name<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+  <p>The name of the strategy, set to <code>'bearer'</code>.</p>
+</div>
+
+
+
+  <h5>Type:</h5>
+  <ul>
+    <li>
+      
+<span class="param-type">&lt;string></span>
+
+
+
+    </li>
+  </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+      
+    
+    
+    
+      <h3>Methods</h3>
+      
+        
+
+
+  
+    <h4 class="name" id="authenticate"><span class="type-signature">(protected) </span>authenticate<span class="signature">(req)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>req</code>
+    
+    
+    
+        
+<span class="param-type">&lt;http.IncomingMessage></span>
+
+
+
+    
+    
+    <p>The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage"><code>IncomingMessage</code></a>
+object.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  <p>Authenticate request by verifying access token.</p>
+<p>When a bearer token is sent in the request, it will be parsed and the verify
+function will be called to verify the token and authenticate the request.  If
+a token is not present, authentication will fail with the appropriate
+challenge and status code.</p>
+<p>This function is protected, and should not be called directly.  Instead,
+use <code>passport.authenticate()</code> middleware and specify the <a href="/api/passport-local/1.x/strategy/#name"><code>name</code></a>
+of this strategy and any options.</p>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <pre><code>passport.authenticate('bearer');</code></pre>
+
+
+
+
+
+      
+    
+    
+    
+      <h3 class="subsection-title">Type Definitions</h3>
+      
+          
+
+
+  
+    <h4 class="name" id="~verifyFn"><span class="type-signature"></span>verifyFn<span class="signature">(token, cb)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>token</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    <p>The access token received in the request.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>cb</code>
+    
+    
+    
+        
+<span class="param-type">&lt;function></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>err</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Error></span>
+
+
+
+    
+    
+    <p>An <code>Error</code> if an error occured; otherwise <code>null</code>.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>user</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+|
+
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    <p>An <code>Object</code> representing the authenticated
+user if verification was successful; otherwise <code>false</code>.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>info</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    <p>Additional application-specific context that will be
+passed through for additional request processing.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  <p>Verifies <code>token</code> and yields authenticated user.</p>
+<p>This function is called by <code><a href="/api/passport-local/1.x/strategy/">Strategy</a></code> to verify an access token, and
+must invoke <code>cb</code> to yield the result.</p>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+          
+
+
+  
+    <h4 class="name" id="~verifyWithReqFn"><span class="type-signature"></span>verifyWithReqFn<span class="signature">(req, token, cb)</span><span class="type-signature"></span></h4>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+<ul>
+  
+  <li>
+    
+      <code>req</code>
+    
+    
+    
+        
+<span class="param-type">&lt;http.IncomingMessage></span>
+
+
+
+    
+    
+    <p>The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage"><code>IncomingMessage</code></a>
+object.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>token</code>
+    
+    
+    
+        
+<span class="param-type">&lt;string></span>
+
+
+
+    
+    
+    <p>The access token received in the request.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>cb</code>
+    
+    
+    
+        
+<span class="param-type">&lt;function></span>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+<ul>
+  
+  <li>
+    
+      <code>err</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Error></span>
+
+
+
+    
+    
+    <p>An <code>Error</code> if an error occured; otherwise <code>null</code>.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>user</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+|
+
+<span class="param-type">&lt;boolean></span>
+
+
+
+    
+    
+    <p>An <code>Object</code> representing the authenticated
+user if verification was successful; otherwise <code>false</code>.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+  <li>
+    
+      <code>info</code>
+    
+    
+    
+        
+<span class="param-type">&lt;Object></span>
+
+
+
+    
+    
+    <p>Additional application-specific context that will be
+passed through for additional request processing.</p>
+    
+    
+    
+    
+    
+  </li>
+
+  
+</ul>
+
+
+    
+    
+  </li>
+
+  
+</ul>
+
+
+
+
+
+  <p>Verifies <code>token</code> and yields authenticated user.</p>
+<p>This function is called by <code><a href="/api/passport-local/1.x/strategy/">Strategy</a></code> to verify an access token when
+the <code>passReqToCallback</code> option is set, and must invoke <code>cb</code> to yield the
+result.</p>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    
+    
+  </article>
+
+</section>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
