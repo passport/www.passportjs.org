@@ -17,4 +17,4 @@ clean:
 		$(MAKE) -C $$dir clean; \
 	done
 
-.PHONY: all
+.PHONY: all install clean

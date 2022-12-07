@@ -10,4 +10,4 @@ install:
 clean:
 	rm -rf out
 
-.PHONY: all
+.PHONY: all install clean
