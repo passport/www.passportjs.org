@@ -1,6 +1,23 @@
-build:
-	@echo "Make API"
-	make -C passport-local
-	make -C passport-http-bearer
+MODULES = \
+passport-http-bearer \
+passport-local
 
-.PHONY: build
+DESTDIR ?= $(CURDIR)/var/www
+
+all:
+	echo $(MODULES)
+	@for dir in $(MODULES); do \
+		$(MAKE) -C $$dir; \
+	done
+
+install:
+	@for dir in $(MODULES); do \
+		DESTDIR=$(DESTDIR)/$$dir $(MAKE) -C $$dir install; \
+	done
+
+clean:
+	@for dir in $(MODULES); do \
+		$(MAKE) -C $$dir clean; \
+	done
+
+.PHONY: all install lean
