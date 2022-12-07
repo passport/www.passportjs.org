@@ -7,7 +7,7 @@ assets:
 	make -C web
 
 api:
-	make -C api
+	JSDOCFLAGS="-c $(CURDIR)/etc/conf.json -t $(CURDIR)/node_modules/@passportjs.org/jsdoc-template" make -C api
 	DESTDIR=$(CURDIR)/www/api make -C api install
 
 

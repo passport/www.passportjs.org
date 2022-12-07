@@ -1,7 +1,7 @@
 DESTDIR ?= ./var/www
 
 all:
-	jsdoc -t ../../../node_modules/@passportjs.org/jsdoc-template -P src/package.json -r src
+	jsdoc $(JSDOCFLAGS) -P src/package.json -r src
 
 install:
 	mkdir -p $(DESTDIR)
