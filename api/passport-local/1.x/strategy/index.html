@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Strategy | passport-local API Reference</title>
-    <link rel="stylesheet" href="http://localhost:8080/assets/styles/all.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -61,9 +61,9 @@
   
     <h2><span class="attribs"><span class="type-signature"></span></span>Strategy</h2>
     
-      A `Strategy` that is responsible for authenticating requests that
+      <p>A <code>Strategy</code> that is responsible for authenticating requests that
 carry a username and password in the body of the request.  These credentials
-are typically submitted by the user via an HTML form.
+are typically submitted by the user via an HTML form.</p>
     
   
   </header>
@@ -128,8 +128,8 @@ are typically submitted by the user via an HTML form.
 
     
     
-    Form field name where
-         the username is found.
+    <p>Form field name where
+the username is found.</p>
     
     
       
@@ -155,8 +155,8 @@ are typically submitted by the user via an HTML form.
 
     
     
-    Form field name where
-         the password is found.
+    <p>Form field name where
+the password is found.</p>
     
     
       
@@ -182,9 +182,9 @@ are typically submitted by the user via an HTML form.
 
     
     
-    When `true`, the
-         `verify` function receives the request object as the first argument,
-         in conformance with `verifyWithReqFn`.
+    <p>When <code>true</code>, the
+<code>verify</code> function receives the request object as the first argument,
+in accordance with <code><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#~verifyWithReqFn">Strategy~verifyWithReqFn</a></code>.</p>
     
     
       
@@ -221,8 +221,8 @@ are typically submitted by the user via an HTML form.
 
     
     
-    Function which
-         verifies username and password.
+    <p>Function which
+verifies username and password.</p>
     
     
     
@@ -237,7 +237,7 @@ are typically submitted by the user via an HTML form.
 
 
 
-  Create a new `Strategy` object.
+  <p>Create a new <code>Strategy</code> object.</p>
 
 
 
@@ -362,7 +362,7 @@ new LocalStrategy(function(username, password, cb) {
 
 
 <div class="description">
-  The name of the strategy, which is set to `'local'`.
+  <p>The name of the strategy, which is set to <code>'local'</code>.</p>
 </div>
 
 
@@ -460,8 +460,8 @@ new LocalStrategy(function(username, password, cb) {
 
     
     
-    The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage">`IncomingMessage`</a>
-         object.
+    <p>The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage"><code>IncomingMessage</code></a>
+object.</p>
     
     
     
@@ -506,9 +506,9 @@ new LocalStrategy(function(username, password, cb) {
 
     
     
-    Message
-         to display when a request does not include a username or password.
-         Used in conjunction with `failureMessage` or `failureFlash` options.
+    <p>Message
+to display when a request does not include a username or password.
+Used in conjunction with <code>failureMessage</code> or <code>failureFlash</code> options.</p>
     
     
       
@@ -535,11 +535,10 @@ new LocalStrategy(function(username, password, cb) {
 
 
 
-  Authenticate request by verifying username and password.
-
-This function is protected, and should not be called directly.  Instead,
-use `passport.authenticate()` middleware and specify the <a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#name">`name`</a>
-of this strategy and any options.
+  <p>Authenticate request by verifying username and password.</p>
+<p>This function is protected, and should not be called directly.  Instead,
+use <code>passport.authenticate()</code> middleware and specify the <a href="https://www.passportjs.org/api/passport-local/1.x/strategy/#name"><code>name</code></a>
+of this strategy and any options.</p>
 
 
 
@@ -643,7 +642,7 @@ of this strategy and any options.
 
     
     
-    The username received in the request.
+    <p>The username received in the request.</p>
     
     
     
@@ -665,7 +664,7 @@ of this strategy and any options.
 
     
     
-    The passport received in the request.
+    <p>The passport received in the request.</p>
     
     
     
@@ -710,7 +709,7 @@ of this strategy and any options.
 
     
     
-    An `Error` if an error occured; otherwise `null`.
+    <p>An <code>Error</code> if an error occured; otherwise <code>null</code>.</p>
     
     
     
@@ -735,8 +734,8 @@ of this strategy and any options.
 
     
     
-    An `Object` representing the authenticated
-         user if verification was successful; otherwise `false`.
+    <p>An <code>Object</code> representing the authenticated
+user if verification was successful; otherwise <code>false</code>.</p>
     
     
     
@@ -758,8 +757,8 @@ of this strategy and any options.
 
     
     
-    Additional application-specific context that will be
-         passed through for additional request processing.
+    <p>Additional application-specific context that will be
+passed through for additional request processing.</p>
     
     
     
@@ -782,10 +781,9 @@ of this strategy and any options.
 
 
 
-  Verifies `username` and `password` and yields authenticated user.
-
-This function is called by `<a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a>` to verify a username and
-password, and must invoke `cb` to yield the result.
+  <p>Verifies <code>username</code> and <code>password</code> and yields authenticated user.</p>
+<p>This function is called by <code><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a></code> to verify a username and
+password, and must invoke <code>cb</code> to yield the result.</p>
 
 
 
@@ -876,8 +874,8 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage">`IncomingMessage`</a>
-         object.
+    <p>The Node.js <a href="https://nodejs.org/api/http.html#class-httpincomingmessage"><code>IncomingMessage</code></a>
+object.</p>
     
     
     
@@ -899,7 +897,7 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    The username received in the request.
+    <p>The username received in the request.</p>
     
     
     
@@ -921,7 +919,7 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    The passport received in the request.
+    <p>The passport received in the request.</p>
     
     
     
@@ -966,7 +964,7 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    An `Error` if an error occured; otherwise `null`.
+    <p>An <code>Error</code> if an error occured; otherwise <code>null</code>.</p>
     
     
     
@@ -991,8 +989,8 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    An `Object` representing the authenticated
-         user if verification was successful; otherwise `false`.
+    <p>An <code>Object</code> representing the authenticated
+user if verification was successful; otherwise <code>false</code>.</p>
     
     
     
@@ -1014,8 +1012,8 @@ password, and must invoke `cb` to yield the result.
 
     
     
-    Additional application-specific context that will be
-         passed through for additional request processing.
+    <p>Additional application-specific context that will be
+passed through for additional request processing.</p>
     
     
     
@@ -1038,11 +1036,10 @@ password, and must invoke `cb` to yield the result.
 
 
 
-  Verifies `username` and `password` and yields authenticated user.
-
-This function is called by `<a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a>` to verify a username and
-password when the `passReqToCallback` option is set, and must invoke `cb` to
-yield the result.
+  <p>Verifies <code>username</code> and <code>password</code> and yields authenticated user.</p>
+<p>This function is called by <code><a href="https://www.passportjs.org/api/passport-local/1.x/strategy/">Strategy</a></code> to verify a username and
+password when the <code>passReqToCallback</code> option is set, and must invoke <code>cb</code> to
+yield the result.</p>
 
 
 
