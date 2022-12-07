@@ -5,7 +5,6 @@ passport-local
 DESTDIR ?= $(CURDIR)/var/www
 
 all:
-	echo $(MODULES)
 	@for dir in $(MODULES); do \
 		$(MAKE) -C $$dir; \
 	done

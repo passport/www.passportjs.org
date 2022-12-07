@@ -8,6 +8,7 @@ assets:
 
 api:
 	make -C api
+	DESTDIR=$(CURDIR)/www/api make -C api install
 
 
 .PHONY: html assets api
