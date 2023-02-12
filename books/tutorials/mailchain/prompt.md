@@ -63,7 +63,8 @@ heading:
 <form action="/login/mailchain" method="post">
 	<section>
 		<label for="mailchain_address">Mailchain Address or ENS Name</label>
-		<input id="mailchain_address" name="mailchain_address" type="text" autocomplete="username" placeholder="...@mailchain.com or ensname.eth" required autofocus>
+		<input id="mailchain_address" name="mailchain_address" type="text" autocomplete="username"
+			placeholder="...@mailchain.com or ensname.eth" required autofocus>
 	</section>
 	<button type="submit">Sign in with Mailchain</button>
 </form>
