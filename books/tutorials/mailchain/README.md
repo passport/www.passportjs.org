@@ -1,8 +1,16 @@
 # Introduction
 
-We will build a todo list app in this tutorial, complete with functionality that
-allows users to sign in with Mailchain, the communication layer for Web3 offering
-completely private Web3 email.  By following along with this tutorial, you will
+Mailchain is the communication layer for Web3 offering private, end-to-end encrypted email using
+blockchain wallet addresses and web3 identities (e.g. an Ethereum address, ENS name, Unstoppable
+Domains name, etc.). Instead of users needing to sign data with a blockchain wallet, passwordless
+authentication with magic links for Passport.js improves the safety of users:
+
+* User signup and login without passwords or needing to sign data
+* Supports magic links sent to ENS names, Ethereum addresses, Mailchain accounts and more
+* Handles secure token generation, expiration and confirmation
+
+In this tutorial, we will build a todo list app in this tutorial, complete with functionality
+that allows users to sign in with Mailchain.  By following along with this tutorial, you will
 learn how to use Passport for authentication.
 
 If you want to see where we are headed, here's an example of the final result:
