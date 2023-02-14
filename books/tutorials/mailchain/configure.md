@@ -15,18 +15,17 @@ Open `'routes/auth.js'` and `require` the newly installed packages at line 2,
 below where `express` is `require`'d:
 
 ```js
-var express = require('express');
-var passport = require('passport');
-var MagicLinkStrategy = require('passport-magic-link').Strategy;
-var Mailchain = require('@mailchain/sdk').Mailchain;
-var db = require('../db');
+var passport = require("passport");
+var MagicLinkStrategy = require("passport-magic-link").Strategy;
+var Mailchain = require("@mailchain/sdk").Mailchain;
+var db = require("../db");
 ```
 
 The app's database is also `require`'d.
 
 Add the following code at line 8 to configure the `MagicLinkStrategy`.
 
-```
+```js
 var mailchain = Mailchain.fromSecretRecoveryPhrase(process.env.SECRET_RECOVERY_PHRASE);
 let fromAddress = async function fromAddress() {
   return process.env['FROM_ADDRESS'] || mailchain.user().address;
@@ -90,17 +89,27 @@ passport.use(new MagicLinkStrategy({
 }));
 ```
 
-This configures the `MagicLinkStrategy` to send mails containing a magic link
-using Mailchain.  When the user clicks on the magic link, the user record
-associated with the Mailchain address will be found.  If a user record does not
-exist, one is created the first time someone signs in.
+This configures the `MagicLinkStrategy` to sanitize the input address, then send
+mails containing a magic link using Mailchain. When the user clicks on the magic
+link, the user record associated with the Mailchain address will be found. If a
+user record does not exist, one is created the first time someone signs in.
 
-We also need to update our database scheme. Open `'db.js'` and insert the following at line 16:
-```
+We also need to update our database scheme. Open `'db.js'` and insert the
+following at line 16:
+
+```js
 mailchain_address TEXT UNIQUE, \
 mailchain_address_verified INTEGER, \
 ```
 
+We will now delete the database and re-create it. NOTE: This will delete any
+data you may have added in this tutorial so far. If you are considering adding
+this solution to an existing app, you would simply run a DB migration to alter
+your `users` table.
 
-The strategy is now configured.  Next we need to [send the user a magic link](../send/)
-when they click "Sign in with Mailchain."
+```sh
+$ rm ./var/db/todos.db
+```
+
+The strategy is now configured. Next we need to
+[send the user a magic link](../send/) when they click "Sign in with Mailchain"
