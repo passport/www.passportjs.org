@@ -70,7 +70,7 @@ passport.use(new MagicLinkStrategy({
       if (err) { return reject(err); }
       if (!row) {
         db.run('INSERT INTO users (mailchain_address, mailchain_address_verified) VALUES (?, ?)', [
-          createMailchainAddress(user.mailchain_address,)
+          createMailchainAddress(user.mailchain_address),
           1
         ], function(err) {
           if (err) { return reject(err); }
