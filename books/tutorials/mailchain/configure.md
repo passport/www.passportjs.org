@@ -28,7 +28,23 @@ Add the following code at line 8 to configure the `MagicLinkStrategy`.
 
 ```
 var mailchain = Mailchain.fromSecretRecoveryPhrase(process.env.SECRET_RECOVERY_PHRASE);
-let fromAddress = process.env['FROM_ADDRESS'] || await mailchain.user().address;
+let fromAddress = async function fromAddress() {
+  return process.env['FROM_ADDRESS'] || mailchain.user().address;
+}
+let createMailchainAddress = function(address) {
+    switch (address) {
+    case address.match(/^[\d\w\-\_]*@mailchain\.com$/)?.input: // Mailchain address:
+      return address
+    case address.match(/^0x[a-fA-F0-9]{40}$/)?.input: // Ethereum address:
+        return address + '@ethereum.mailchain.com'
+    case address.match(/^.*\.eth$/)?.input:  // ENS address:
+        return address + '@ens.mailchain.com'
+    case address.match(/^.*\.*@mailchain$/)?.input: // Mailchain address without .com:
+        return address + '.com'
+    default:
+        console.error("Invalid address");
+    }
+}
 passport.use(new MagicLinkStrategy({
   secret: 'keyboard cat', // change this to something secret
   userFields: [ 'mailchain_address' ],
@@ -38,7 +54,7 @@ passport.use(new MagicLinkStrategy({
   var link = 'http://localhost:3000/login/mailchain/verify?token=' + token;
 
   var msg = {
-    to: [ user.mailchain_address ],
+    to: [ createMailchainAddress(user.mailchain_address) ],
     from: fromAddress,
     subject: 'Sign in to Todos',
     content: {
@@ -50,19 +66,19 @@ passport.use(new MagicLinkStrategy({
 }, function verify(user) {
   return new Promise(function(resolve, reject) {
     db.get('SELECT * FROM users WHERE mailchain_address = ?', [
-      user.mailchain_address
+      createMailchainAddress(user.mailchain_address)
     ], function(err, row) {
       if (err) { return reject(err); }
       if (!row) {
         db.run('INSERT INTO users (mailchain_address, mailchain_address_verified) VALUES (?, ?)', [
-          user.mailchain_address,
+          createMailchainAddress(user.mailchain_address,)
           1
         ], function(err) {
           if (err) { return reject(err); }
           var id = this.lastID;
           var obj = {
             id: id,
-            mailchain_address: user.mailchain_address
+            mailchain_address: createMailchainAddress(user.mailchain_address)
           };
           return resolve(obj);
         });
