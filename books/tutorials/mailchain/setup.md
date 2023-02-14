@@ -1,9 +1,6 @@
 # Set Up Mailchain
 
-Before we can let users sign in to our app with web3 email, we need a way to send
-Mailchain messages.
-
-For that, we are going to use [Mailchain](https://mailchain.com/).
+Now we need a way to send [Mailchain](https://mailchain.com/) messages from our app.
 
 For the purposes of this tutorial, we suggest you create a Mailchain account for testing.
 

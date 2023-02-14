@@ -26,11 +26,10 @@ module.exports = router;
 ```
 
 Next, we need to add this route to the app.  Open `'app.js'` and `require` the
-newly created auth routes at line 10, below where `'routes/index'` is
+newly created auth route at line 10, below where `'routes/index'` is
 `require`'d:
 
 ```js
-var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 ```
 
@@ -38,28 +37,15 @@ Continuing within `'app.js'`, use the newly `require`'d `authRouter` at line 27,
 below where `indexRouter` is `use`'d.
 
 ```js
-app.use('/', indexRouter);
 app.use('/', authRouter);
 ```
 
-The login page has been added to our app!  Let's see how it looks.
+Now we will update the login page so the use can enter a Mailchain address.
 
-Start the server:
-
-```sh
-$ npm start
-```
-
-And open [http://localhost:3000](http://localhost:3000) and click "Sign in."  We
-are prompted to sign in, but there's no place to enter a Mailchain address.
-
-For that we need an HTML form.  Let's add that now.
-
-Open `'views/login.ejs'` and add the form at line 15, below the "Sign in"
+Open `'views/login.ejs'` and add the form at line 15, below `<h1>Sign in</h1>`.
 heading:
 
 ```html
-<h1>Sign in</h1>
 <form action="/login/mailchain" method="post">
 	<section>
 		<label for="mailchain_address">Mailchain Address or ENS Name</label>

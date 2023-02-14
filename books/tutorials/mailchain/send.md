@@ -4,7 +4,7 @@ Now that we are prompting the user for their Mailchain address, and have the
 strategy configured, the next step is to send the user a Mailchain message when
 they click "Sign in with Mailchain."
 
-Open `'routes/auth.js'`, add this route at line 57, below the `'/login'` route:
+Open `'routes/auth.js'`, add this route at line 74, below the `'/login'` route:
 
 ```js
 router.post('/login/mailchain', passport.authenticate('magiclink', {
