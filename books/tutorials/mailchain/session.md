@@ -15,7 +15,6 @@ Open `'app.js'` and `require` the additional dependencies at line 8, below
 where `'morgan'` is `require`'d:
 
 ```js
-var logger = require('morgan');
 var passport = require('passport');
 var session = require('express-session');
 
@@ -26,7 +25,6 @@ Add the following code at line 29, after `express.static` middleware, to
 maintain and authenticate the session.
 
 ```js
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -37,7 +35,7 @@ app.use(passport.authenticate('session'));
 ```
 
 Finally, we need to configure Passport to manage the login session.  Open
-`'routes/auth.js'` and add the following code at line 53:
+`'routes/auth.js'` and add the following code at line 70, below our Passport strategy:
 
 ```js
 passport.serializeUser(function(user, cb) {
@@ -53,7 +51,13 @@ passport.deserializeUser(function(user, cb) {
 });
 ```
 
-Now, let's retry signing in.  Open [http://localhost:3000](http://localhost:3000),
+Now, let's retry signing in. Start the server:
+
+```sh
+$ npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000),
 click "Sign in", enter your Mailchain address and click "Sign in with Mailchain".
 
 Now, check your Mailchain Inbox and click the link.

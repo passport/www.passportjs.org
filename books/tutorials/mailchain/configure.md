@@ -27,9 +27,7 @@ Add the following code at line 8 to configure the `MagicLinkStrategy`.
 
 ```js
 var mailchain = Mailchain.fromSecretRecoveryPhrase(process.env.SECRET_RECOVERY_PHRASE);
-let fromAddress = async function fromAddress() {
-  return process.env['FROM_ADDRESS'] || mailchain.user().address;
-}
+var fromAddress = process.env['FROM_ADDRESS'] || mailchain.user().address;
 let createMailchainAddress = function(address) {
     switch (address) {
     case address.match(/^[\d\w\-\_]*@mailchain\.com$/)?.input: // Mailchain address:
@@ -51,7 +49,7 @@ passport.use(new MagicLinkStrategy({
   verifyUserAfterToken: true
 }, async function send(user, token) {
   var link = 'http://localhost:3000/login/mailchain/verify?token=' + token;
-
+  
   var msg = {
     to: [ createMailchainAddress(user.mailchain_address) ],
     from: fromAddress,
@@ -65,19 +63,19 @@ passport.use(new MagicLinkStrategy({
 }, function verify(user) {
   return new Promise(function(resolve, reject) {
     db.get('SELECT * FROM users WHERE mailchain_address = ?', [
-      createMailchainAddress(user.mailchain_address)
+      user.mailchain_address
     ], function(err, row) {
       if (err) { return reject(err); }
       if (!row) {
         db.run('INSERT INTO users (mailchain_address, mailchain_address_verified) VALUES (?, ?)', [
-          createMailchainAddress(user.mailchain_address),
+          user.mailchain_address,
           1
         ], function(err) {
           if (err) { return reject(err); }
           var id = this.lastID;
           var obj = {
             id: id,
-            mailchain_address: createMailchainAddress(user.mailchain_address)
+            mailchain_address: user.mailchain_address
           };
           return resolve(obj);
         });
@@ -93,23 +91,6 @@ This configures the `MagicLinkStrategy` to sanitize the input address, then send
 mails containing a magic link using Mailchain. When the user clicks on the magic
 link, the user record associated with the Mailchain address will be found. If a
 user record does not exist, one is created the first time someone signs in.
-
-We also need to update our database scheme. Open `'db.js'` and insert the
-following at line 16:
-
-```js
-mailchain_address TEXT UNIQUE, \
-mailchain_address_verified INTEGER, \
-```
-
-We will now delete the database and re-create it. NOTE: This will delete any
-data you may have added in this tutorial so far. If you are considering adding
-this solution to an existing app, you would simply run a DB migration to alter
-your `users` table.
-
-```sh
-$ rm ./var/db/todos.db
-```
 
 The strategy is now configured. Next we need to
 [send the user a magic link](../send/) when they click "Sign in with Mailchain"

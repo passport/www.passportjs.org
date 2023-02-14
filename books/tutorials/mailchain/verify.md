@@ -3,7 +3,7 @@
 Now that we've sent the user a Mailchain message with a magic link, the next
 step is to verify the Mailchain address when they click the link.
 
-Open `'routes/auth.js'`, add this route at line 66, below the
+Open `'routes/auth.js'`, add this route at line 83, below the
 `'/login/mailchain/check'` route:
 
 ```js
@@ -58,6 +58,8 @@ Open `'views/login/mailchain/check.ejs'`, add the following code:
       <p>
         Authentication powered by
         <a href="https://www.passportjs.org">Passport</a>
+        <br />
+        &amp; <a href="https://mailchain.com">Mailchain</a>
       </p>
     </footer>
   </body>
