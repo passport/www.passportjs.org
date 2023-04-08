@@ -9,5 +9,12 @@ running on a desktop or mobile operating system.
 
 In order to support this assortment of applications, OAuth 2.0 provides an
 extensible set of _flows_.  A flow determines how an application obtains an
-access token.  A flow, in conjunction with the type of application, impact the
-security considerations when storing and using that access token.  
+access token.  The characteristics of a flow, along with the characteristics of
+the application itself, impact the security considerations that need to be taken
+into account when using OAuth 2.0.
+
+This guide provides an brief overview of the most commonly used OAuth 2.0 flows.
+It then outlines how those flows are used by different types of applications.
+After reading this guide, you will have a better understanding of which OAuth
+2.0 flow to use in which types of applications, and how to use Passport to
+authenticate users using those applications.
