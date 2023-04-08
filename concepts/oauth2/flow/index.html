@@ -109,19 +109,23 @@
           <div class="contents">
             <section class="chapter"><h1 id="protocol-flow">Protocol Flow</h1>
 <p>OAuth 2.0 is an authorization framework that supports a wide range of
-applications.  The framework does this through an suite of extensible grant
+applications.  The framework does this through a suite of extensible grant
 types.  These grant types are often referred to as <em>flows</em>, as they determine
 the user experience when granting authorization.</p>
 <p>This guide explains the <em>authorization code</em> flow.  This is the flow used by
 server-side web applications.  The user interacts in this flow via their web
 browser, and the protocol itself makes extensive use of HTTP redirections.
-This flow proceeds through three steps:</p>
+This flow proceeds through these steps:</p>
 <ol>
 <li>The application <a href="../authorization/">requests authorization</a> from the user
-by redirecting the user to the authorization server, which will obtain the
-user&#39;s consent.</li>
-<li>The application receives an authorization code representing the user&#39;s
-authorization, which it <a href="../token/">exchanges for an access token</a>.</li>
+by redirecting the user to the authorization server.</li>
+<li>The authorization server authenticates the user and obtains the user&#39;s
+consent, permitting the application to access protected resources via an
+API.</li>
+<li>The authorization server redirects the user back to the application with an
+authorization code, representing the authorization obtained from the user.</li>
+<li>The application <a href="../token/">exchanges the authorization code</a> for an access
+token.</li>
 <li>The application uses the access token to <a href="../profile/">request protected
 resources</a>.</li>
 </ol>
