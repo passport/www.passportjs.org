@@ -42,3 +42,18 @@ A browser follows this redirect by making an HTTP request to the application:
 GET /oauth2/redirect HTTP/1.1
 Host: client.example.com
 ```
+
+Note that the authorization response includes the access token in the fragment
+of the URL, which is not present in the HTTP request to the application.  In
+this case, the application responds with a page that executes a script.  The
+script, in turn, will extract the access token and other parameters contained in
+the fragment.  At this point, the access token is available to the application.
+
+Unlike the authorization code flow, the token endpoint is not used by the
+implicit flow as there are no intermediate credentials such as an authorization
+code to exchange for an access token.  An access token is directly, or
+implicitly, issued as a result of an implicit flow, which is how this flow
+derives its name.
+
+While this flow is optimized for applications executing in a browser, those
+optimizations have security tradeoffs that should not be ignored.
