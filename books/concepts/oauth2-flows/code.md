@@ -27,20 +27,26 @@ in and obtaining their consent.
 
 Once the user has authorized access, the authorization server redirects the user
 back to the application's _redirection endpoint_ with an authorization response
-containing an authorization code.  A browser sends an authorization response
-with an HTTP request to the application:
+containing an authorization code.
+
+```http
+HTTP/1.1 302 Found
+Location: https://client.example.com/oauth2/redirect?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
+```
+
+A browser follows this redirect by making an HTTP request to the application:
 
 ```http
 GET /oauth2/redirect?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz HTTP/1.1
 Host: client.example.com
 ```
 
-The authorization code is then exchanged for access token when the client makes
-a token request to the authorization server's _token endpoint_.  Unlike the
-prior two requests, this request is sent directly from the application to the
-authorization server in what is referred to as a _back-channel_ request.  This
-is in contrast to requests using redirects via the user's web browser, which are
-known as _front-channel_ requests.
+The authorization code is then exchanged for access token when the application
+makes a token request to the authorization server's _token endpoint_.  Unlike
+the prior two requests, this request is sent directly from the application to
+the authorization server in what is referred to as a _back-channel_ request.
+This is in contrast to requests using redirects via the user's web browser,
+which are known as _front-channel_ requests.
 
 ```http
 POST /oauth2/token HTTP/1.1
