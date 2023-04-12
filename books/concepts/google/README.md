@@ -1,7 +1,7 @@
 # Google
 
 [Google Identity](https://developers.google.com/identity) offers a suite of SDKs
-and protocols that enables users to sign into app using their Google accounts
+and protocols that enables users to sign into apps using their Google accounts
 and authorize apps to use Google services.
 
 The SDKs that Google offers support a range of platforms, including the web,
