@@ -1,6 +1,6 @@
 # OpenID Connect
 
-Google Identity implements [OpenID Connect](https://developers.google.com/identity/openid-connect/openid-connect),
+Google Identity supports [OpenID Connect](https://developers.google.com/identity/openid-connect/openid-connect),
 an open, industry-standard protocol that provides an identity layer on top of
 [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2).  Combined,
 these two protocols offer a complete authentication and authorization solution.
