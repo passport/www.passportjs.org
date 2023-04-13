@@ -1,3 +1,22 @@
 # Google Sign-In
 
-Google provides [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in)
+Google provides [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in),
+which was [deprecated](https://developers.google.com/identity/sign-in/web/deprecation-and-sunset)
+on March 31, 2023.  Google Sign-In is a browser-based SDK for adding
+authentication to a website.  It has been superseded by [Sign In with Google](../gsi/)
+which offers similar functionality and security enhancements.
+
+Google Sign-In is based on OpenID Connect and OAuth 2.0, and implements a
+variant of the implicit flow known as the [IDP-IFrame-based](https://lists.openid.net/pipermail/openid-specs-ab/2015-November/005865.html)
+implicit flow.  The implicit flow executes within a browser using client-side
+JavaScript and offers token lifecycle management and performance optimizations.
+
+Due to the fact that this library is deprecated, new applications should adopt
+[Sign In with Google](../gsi/) if they rely on Google as their primary method of
+authenticating users.  Existing applications are encouraged to [migrate](https://developers.google.com/identity/gsi/web/guides/migration).
+Existing applications that have not yet been migrated will continue to function
+until Google Sign-In is sunset, the date for which is to be determined.
+
+For those applications that continue to use this legacy library, Google Sign-In
+can be used in combination with the [passport-google-id-token](https://www.npmjs.com/package/passport-google-id-token)
+strategy to [add authentication to the application's backend](https://developers.google.com/identity/sign-in/web/backend-auth).

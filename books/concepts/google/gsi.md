@@ -16,7 +16,7 @@ client-side JavaScript and offers enhanced user experience via [One Tap](https:/
 [automatic sign-in](https://developers.google.com/identity/gsi/web/guides/offerings#automatic_sign-in),
 and a [personalized button](https://developers.google.com/identity/gsi/web/guides/offerings#sign_in_with_google_button).
 
-For applications that rely on Google as their primary means of authenticating
+For applications that rely on Google as their primary method of authenticating
 users, these enhancements may increase conversion and use of Sign In with Google
 should be considered.  In this case, Sign In with Google can be used in
 combination with the [passport-google-one-tap](https://www.passportjs.org/packages/passport-google-one-tap/)
