@@ -11,5 +11,5 @@ strongest protections.
 If you want to add a "Sign in with Google" button to your website or
 application, we recommend using [OpenID Connect](../openid-connect/), rather
 than OAuth 2.0.  OpenID Connect provides an identity layer on top of OAuth 2.0,
-so using the combination provides complete authentication and authorization
+and using the combination provides complete authentication and authorization
 capabilities, two features which are often paired together.

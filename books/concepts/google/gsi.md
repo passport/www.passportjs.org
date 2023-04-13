@@ -6,9 +6,9 @@ is also referred to as Google Identity Services (GIS) when it is [used for
 authorization](https://developers.google.com/identity/oauth2/web/guides/overview)
 to obtain access tokens for Google APIs.
 
-(Note that Sign In with Google should not be confused with the legacy, yet
-similarly named, [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in)
-library.  This legacy library is set to be deprecated on March 31, 2023.)
+(Note that Sign In with Google should not be confused with the similarly named
+[Google Sign-In](../sign-in/).  This legacy library was deprecated on March 31,
+2023.)
 
 Sign In with Google is based on OpenID Connect and OAuth 2.0, and implements a
 variant of the implicit flow.  The implicit flow executes within a browser using
