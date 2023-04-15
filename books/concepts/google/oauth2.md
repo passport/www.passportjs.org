@@ -13,3 +13,5 @@ application, we recommend using [OpenID Connect](../openid-connect/), rather
 than OAuth 2.0.  OpenID Connect provides an identity layer on top of OAuth 2.0,
 and using the combination provides complete authentication and authorization
 capabilities, two features which are often paired together.
+
+That being said, applications can 

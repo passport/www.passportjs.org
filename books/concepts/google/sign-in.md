@@ -14,8 +14,8 @@ JavaScript and offers token lifecycle management and performance optimizations.
 Due to the fact that this library is deprecated, new applications should adopt
 [Sign In with Google](../gsi/) if they rely on Google as their primary method of
 authenticating users.  Existing applications are encouraged to [migrate](https://developers.google.com/identity/gsi/web/guides/migration).
-Existing applications that have not yet been migrated will continue to function
-until Google Sign-In is [sunset](https://developers.google.com/identity/sign-in/web/deprecation-and-sunset),
+Existing applications that have not yet migrated will continue to function until
+Google Sign-In is [sunset](https://developers.google.com/identity/sign-in/web/deprecation-and-sunset),
 the date for which is to be determined.
 
 For those applications that continue to use this legacy library, Google Sign-In
