@@ -14,4 +14,7 @@ than OAuth 2.0.  OpenID Connect provides an identity layer on top of OAuth 2.0,
 and using the combination provides complete authentication and authorization
 capabilities, two features which are often paired together.
 
-That being said, applications can 
+That being said, many applications don't require the capabilities of OpenID
+Connect.  For instance, some applications may only need authorized access to
+Google APIs, without using Google for authentication.  In these scenarios,
+using OAuth 2.0 alone remains a viable and popular option.
