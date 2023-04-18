@@ -26,6 +26,4 @@ Just as with Sign In with Google, we recommend using [OpenID Connect](../openid-
 for applications that offer Google alongside other social login options.  This
 eliminates the need to add a client-side JavaScript dependency, and instead
 operates on the server-side where the resulting tokens can receive the strongest
-security protections.  Furthermore, Passport itself lowers the implementation
-time and reduces the amount of knowledge required to add OAuth support to an
-application.
+security protections.
