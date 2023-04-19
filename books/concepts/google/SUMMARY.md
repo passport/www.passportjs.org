@@ -1,1 +1,5 @@
 * [Introduction](README.md)
+* [OpenID Connect](openid-connect.md)
+* [OAuth 2.0](oauth2.md)
+* [Sign In with Google](gsi.md)
+* [Google Sign-In](sign-in.md)

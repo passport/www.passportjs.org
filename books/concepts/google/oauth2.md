@@ -5,7 +5,7 @@ an open, industry-standard protocol that enables apps to securely call APIs.
 
 Support for using OAuth 2.0 within Passport is provided by the [passport-google-oauth20](https://www.passportjs.org/packages/passport-google-oauth20/)
 strategy.  This strategy implements the OAuth 2.0 authorization code flow and
-operates entirely within the backend, where the resulting tokens can receive the
+operates entirely on the server-side, where the resulting tokens can receive the
 strongest protections.
 
 If you want to add a "Sign in with Google" button to your website or
