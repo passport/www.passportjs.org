@@ -1,6 +1,6 @@
 # OAuth 1.0
 
-The Google Identity Platform previously supported [OAuth 1.0](https://web.archive.org/web/20150317172055/https://developers.google.com/accounts/docs/OAuth).
+Google previously supported [OAuth 1.0](https://web.archive.org/web/20150317172055/https://developers.google.com/accounts/docs/OAuth).
 OAuth 1.0 was [deprecated](https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html)
 on April 20, 2012 and shut down on April 20, 2015.
 

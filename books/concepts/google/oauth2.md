@@ -1,6 +1,6 @@
 # OAuth 2.0
 
-Google Identity supports [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2),
+Google supports [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2),
 an open, industry-standard protocol that enables apps to securely call APIs.
 
 Support for using OAuth 2.0 within Passport is provided by the [passport-google-oauth20](https://www.passportjs.org/packages/passport-google-oauth20/)

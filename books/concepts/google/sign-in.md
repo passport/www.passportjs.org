@@ -6,10 +6,15 @@ on March 31, 2023.  Google Sign-In is a browser-based SDK for adding
 authentication to a website.  It has been superseded by [Sign In with Google](../gsi/)
 which offers similar functionality and security enhancements.
 
+(Note: Google Sign-In was previously known as Google+ Sign-In, until the
+[introduction of the Google Identity Platform](https://developers.googleblog.com/2015/05/introducing-google-identity-platform.html)
+on May 28, 2015.  [Google+](https://en.wikipedia.org/wiki/Google%2B) was a
+reference to Google's social network which was [shut down](https://blog.google/technology/safety-security/expediting-changes-google-plus/)
+on April 2, 2019.)
+
 Google Sign-In is based on OpenID Connect and OAuth 2.0, and implements a
 variant of the implicit flow known as the [IDP-IFrame-based](https://lists.openid.net/pipermail/openid-specs-ab/2015-November/005865.html)
-implicit flow.  The implicit flow executes within a browser using client-side
-JavaScript and offers token lifecycle management and performance optimizations.
+implicit flow.
 
 Due to the fact that this library is deprecated, new applications should adopt
 [Sign In with Google](../gsi/) if they rely on Google as their primary method of

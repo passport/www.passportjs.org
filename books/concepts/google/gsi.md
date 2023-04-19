@@ -6,7 +6,7 @@ is also referred to as Google Identity Services (GIS) when it is [used for
 authorization](https://developers.google.com/identity/oauth2/web/guides/overview)
 to obtain access tokens for Google APIs.
 
-(Note that Sign In with Google should not be confused with the similarly named
+(Note: Sign In with Google should not be confused with the similarly named
 [Google Sign-In](../sign-in/).  This legacy library was deprecated on March 31,
 2023.)
 
