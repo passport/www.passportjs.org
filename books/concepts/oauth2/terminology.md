@@ -5,8 +5,8 @@ fundamental concepts used within the protocol.  To make these concepts easier to
 grasp, this guide will analyze OAuth 2.0 in the context of a common real-world
 scenario: logging in with [Facebook](https://www.facebook.com/) and accesing the
 Facebook [Graph API](https://developers.facebook.com/docs/graph-api).  That
-said, the concepts themselves apply to other OAuth 2.0-powered services, and the
-details described in this guide are not specific to Facebook.
+said, the concepts themselves apply to other OAuth 2.0-protected services, and
+the details described in this guide are not specific to Facebook.
 
 In this scenario, your application will prompt the user to log in with Facebook.
 Facebook will then authenticate the user.  Once Facebook has obtained the user's
