@@ -1,6 +1,12 @@
 ---
 title: "OAuth 2.0"
 layout: "feature"
+
+features:
+  - title: Server-side and client-side flows
+    image: icon-budicon-285
+  - title: Foo bar
+    image: icon-budicon-297
 ---
 
 OAuth 2.0 is a delegated authorization framework that connects your application

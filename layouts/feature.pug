@@ -10,3 +10,8 @@ block content
     h1= title
     |!{content}
 
+    ul
+      each feature in features
+        li
+          i(class=feature.image)
+          p= feature.title
