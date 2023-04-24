@@ -121,31 +121,32 @@
     grid-template-columns: repeat(2, minmax(0, 1fr))
     text-align: left
 
-  dl div
+  div.feature
     display: block
     border: 1px solid red
     box-sizing: border-box
     position: relative
+    padding-left: 64px
     
-    dt
-      display: block
-      border: 1px solid blue
+  dt
+    display: block
+    border: 1px solid blue
+    box-sizing: border-box
+  
+    div
+      align-items: center
       box-sizing: border-box
+      justify-content: center
+      display: flex
+      position: absolute
+      top: 0
+      left: 0
+      border: 1px solid green
+      height: 40px
+      width: 40px
     
-      div
-        align-items: center
-        box-sizing: border-box
-        justify-content: center
-        display: flex
-        position: absolute
-        top: 0
-        left: 0
-        border: 1px solid green
-        height: 40px
-        width: 40px
-      
-        i
-          display: block
+      i
+        display: block
       
     dd
       display: block
