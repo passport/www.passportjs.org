@@ -10,8 +10,11 @@ block content
     h1= title
     |!{content}
 
-    ul
+    dl
       each feature in features
-        li
-          i(class=feature.image)
-          p= feature.title
+        div
+          dt
+            div
+              i(class=feature.image)
+            |!{feature.title}
+          dd Foo

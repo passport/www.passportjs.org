@@ -3,7 +3,9 @@ title: "OAuth 2.0"
 layout: "feature"
 
 features:
-  - title: Server-side and client-side flows
+  - title: Server-side flow
+    image: icon-budicon-285
+  - title: Client-side flows
     image: icon-budicon-285
   - title: Foo bar
     image: icon-budicon-297
