@@ -3,12 +3,23 @@ title: "OAuth 2.0"
 layout: "feature"
 
 features:
-  - title: Server-side flow
+  - title: Traditional Websites & Applications
     image: icon-budicon-285
-  - title: Client-side flows
+    description: Easily implement authorization using page-based browser
+      redirects and the authorization code flow.
+  - title: Single-Page Applications
     image: icon-budicon-285
-  - title: Foo bar
+    description: Use client-side JavaScript frameworks or progressive
+      enhancement with implicit flows and token-based authentication to the
+      backend.
+  - title: Native Applications
+    description: Secure authentication to desktop and mobile applications
+      with Proof Key for Code Exchange (PKCE).
+  - title: Minimal configuration
     image: icon-budicon-297
+    description: Pre-configured to work out-of-the box with popular providers
+      including <a href="../google/">Google</a>, Facebook, GitHub, and hundreds
+      more.
 ---
 
 OAuth 2.0 is a delegated authorization framework that connects your application
