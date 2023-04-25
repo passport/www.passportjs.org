@@ -112,3 +112,45 @@
 
   .item-9
     background-color: lighten(#D3FD03, 20%)
+
+  dl
+    display: grid
+    box-sizing: border-box
+    column-gap: 32px
+    row-gap: 64px
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+    text-align: left
+
+  div.feature
+    display: block
+    border: 1px solid red
+    box-sizing: border-box
+    position: relative
+    padding-left: 64px
+    
+  dt
+    display: block
+    border: 1px solid blue
+    box-sizing: border-box
+  
+    div
+      align-items: center
+      box-sizing: border-box
+      justify-content: center
+      display: flex
+      position: absolute
+      top: 0
+      left: 0
+      border: 1px solid green
+      height: 40px
+      width: 40px
+    
+      i
+        display: block
+      
+    dd
+      display: block
+      border: 1px solid yellow
+      box-sizing: border-box
+      margin: 8px 0 0 0
+
