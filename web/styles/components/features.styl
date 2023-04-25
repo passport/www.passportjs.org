@@ -33,6 +33,13 @@
       margin-bottom: 60px
       font-size: 50px
 
+  p
+    margin: 0
+    padding: 0
+    color: rgba(255,255,255,.8)
+    line-height 1.8
+    font-size: 18px;
+
   ul
     text-align: center;
     +breakpoint("desktop")
@@ -123,14 +130,15 @@
 
   div.feature
     display: block
-    border: 1px solid red
+    xborder: 1px solid red
     box-sizing: border-box
     position: relative
     padding-left: 64px
     
   dt
     display: block
-    border: 1px solid blue
+    font-weight: 600
+    xborder: 1px solid blue
     box-sizing: border-box
   
     div
@@ -141,16 +149,16 @@
       position: absolute
       top: 0
       left: 0
-      border: 1px solid green
+      xborder: 1px solid green
       height: 40px
       width: 40px
     
       i
         display: block
       
-    dd
-      display: block
-      border: 1px solid yellow
-      box-sizing: border-box
-      margin: 8px 0 0 0
+  dd
+    display: block
+    xborder: 1px solid yellow
+    box-sizing: border-box
+    margin: 8px 0 0 0
 
