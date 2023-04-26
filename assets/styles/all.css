@@ -3776,6 +3776,13 @@ body.is-search .search-con {
     font-size: 50px;
   }
 }
+.features p {
+  margin: 0;
+  padding: 0;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  font-size: 18px;
+}
 .features ul {
   text-align: center;
 }
@@ -3870,6 +3877,48 @@ body.is-search .search-con {
 }
 .features .item-9 {
   background-color: #dcfd35;
+}
+.features dl {
+  display: grid;
+  box-sizing: border-box;
+  column-gap: 32px;
+  row-gap: 64px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  text-align: left;
+}
+.features div.feature {
+  display: block;
+  xborder: 1px solid #f00;
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 64px;
+}
+.features dt {
+  display: block;
+  font-weight: 600;
+  xborder: 1px solid #01b7ee;
+  box-sizing: border-box;
+}
+.features dt div {
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  xborder: 1px solid #35df79;
+  height: 40px;
+  width: 40px;
+}
+.features dt div i {
+  display: block;
+}
+.features dd {
+  display: block;
+  xborder: 1px solid #d4fd02;
+  box-sizing: border-box;
+  margin: 8px 0 0 0;
 }
 .docs .intro {
   max-width: 840px;
