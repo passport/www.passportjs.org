@@ -3,7 +3,7 @@ title: "OAuth 2.0"
 layout: "feature"
 
 features:
-  - name: Traditional Websites & Applications
+  - name: Websites & Web Applications
     icon: icon-budicon-377
     description: Easily implement authentication using page-based browser
       redirects and the authorization code flow.
