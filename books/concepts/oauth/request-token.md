@@ -2,7 +2,10 @@
 
 Before the application can request authorization from the user, it must first
 obtain a _request token_.  The request token identifies the authorization
-request.  If the user grants access...
+request.  If the user grants access, the application can exchange this request
+token for an _access token_.  To obtain a request token, the application makes
+a request to the service providers's _request token URL_
+(`/oauth/request_token`, in the case of Twitter):
 
 ```http
 POST /oauth/request_token HTTP/1.1
@@ -15,6 +18,10 @@ Authorization: OAuth oauth_callback="https%3A%2F%2Fwww.example.com%2Foauth%2Fcal
   oauth_version="1.0",
   oauth_signature="qCMIWvfCvmP0ZsfWGTPnuaPXsQE%3D"
 ```
+
+When Twitter receives this request, it authenticates the application by
+verifying that the signature was produced by corresponding consumer key and
+secret.  If successful, Twitter generates a request token and secret:
 
 ```
 HTTP/1.1 200 OK
