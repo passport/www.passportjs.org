@@ -3,27 +3,28 @@ title: "OAuth 2.0"
 layout: "feature"
 
 features:
-  - name: Traditional Websites & Applications
+  - name: Websites & Web Applications
     icon: icon-budicon-377
     description: Easily implement authentication using page-based browser
-      redirects and the authorization code flow.
+      redirects with the authorization code flow.
   - name: Single-Page Applications
     icon: icon-budicon-661
     description: Use client-side JavaScript frameworks or progressive
-      enhancement with implicit flows and token-based authentication to the
+      enhancement with the implicit flow and token-based authentication to the
       backend.
   - name: Minimal configuration
     icon: icon-budicon-325
-    description: Pre-configured to work out-of-the box with popular providers
-      including Google, <a href="/tutorials/facebook/">Facebook</a>, GitHub, and hundreds
-      more.
+    description: Pre-configured to work out-of-the-box with popular providers
+      including <a href="/tutorials/facebook/">Facebook</a>, Google, GitHub, and
+      hundreds more.
   - name: 3rd-Party API Integration
     icon: icon-budicon-280
     description: Integrate with third-party APIs using access tokens and refresh
       tokens.
   - name: API Authorization
     icon: icon-budicon-285
-    description: Protect access to APIs using access tokens.
+    description: Protect access to APIs using access tokens ranging from
+     standard bearer tokens to high security proof-of-possession tokens.
   - name: Native Applications
     icon: icon-budicon-237
     description: Secure authentication to desktop and mobile applications
