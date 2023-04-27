@@ -14,3 +14,6 @@ If the authorization request is valid and authorized, Twitter issues an access
 token:
 
 Let's examine the parameters in this response.
+
+Now that the application has obtained an access token, it can [access the user
+profile](../profile/).

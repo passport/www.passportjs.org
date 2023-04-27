@@ -28,5 +28,3 @@ The route invokes Passport, and in particular the [`passport-oauth1`](https://ww
 strategy.  The strategy will redirect the user's web browser to Twitter, but
 first it must [obtain a request token](../request-token/).
 
-Now that the application has obtained an access token, it can [access the user
-profile](../profile/).
