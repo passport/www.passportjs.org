@@ -91,4 +91,4 @@ router.get('/oauth/callback/twitter', passport.authenticate('twitter', {
 
 This route invokes Passport, and in particular the [`passport-oauth1`](https://www.passportjs.org/packages/passport-oauth1/)
 strategy.  The strategy first loads the previously stored secret associated with
-the request token.  It then [exchanges the request token for an access token](../token/).
+the request token.  It then [exchanges the request token for an access token](../access-token/).
