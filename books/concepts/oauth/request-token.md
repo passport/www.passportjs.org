@@ -19,7 +19,8 @@ Authorization: OAuth oauth_callback="https%3A%2F%2Fwww.example.com%2Foauth%2Fcal
   oauth_signature="qCMIWvfCvmP0ZsfWGTPnuaPXsQE%3D"
 ```
 
-Let's examine the parameters in this request.
+The parameters for this request are conveyed in the `Authorization` header.
+Let's examine them.
 
 TODO:
 
@@ -41,13 +42,13 @@ user's web browser to Twitter:
 
 ```http
 HTTP/1.1 302 Found
-Location: https://api.twitter.com/oauth/authenticate?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g
+Location: https://api.twitter.com/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
 ```
 
 The web browser follows this redirect and makes a request to Twitter:
 
 ```http
-GET /oauth/authenticate?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g HTTP/1.1
+GET /oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0 HTTP/1.1
 Host: api.twitter.com
 ```
 
@@ -64,13 +65,13 @@ has been completed, Twitter redirects the user back to the application:
 
 ```http
 HTTP/1.1 302 Found
-Location: https://www.example.com/oauth/callback/twitter?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g&oauth_verifier=TODO
+Location: https://www.example.com/oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY
 ```
 
 The web browser follows this redirect and makes a request to the application:
 
 ```http
-GET /oauth/callback/twitter?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g&oauth_verifier=TODO HTTP/1.1
+GET /oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY HTTP/1.1
 Host: www.example.com
 ```
 
