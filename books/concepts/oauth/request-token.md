@@ -19,6 +19,10 @@ Authorization: OAuth oauth_callback="https%3A%2F%2Fwww.example.com%2Foauth%2Fcal
   oauth_signature="qCMIWvfCvmP0ZsfWGTPnuaPXsQE%3D"
 ```
 
+Let's examine the parameters in this request.
+
+TODO:
+
 When Twitter receives this request, it authenticates the application by
 verifying that the signature was produced by corresponding consumer key and
 secret.  If successful, Twitter generates a request token and secret:
@@ -32,6 +36,9 @@ oauth_token_secret=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&
 oauth_callback_confirmed=true
 ```
 
+Now that the application has obtained a request token, it can redirect the
+user's web browser to Twitter:
+
 ```http
 HTTP/1.1 302 Found
 Location: https://api.twitter.com/oauth/authenticate?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g
@@ -43,3 +50,45 @@ The web browser follows this redirect and makes a request to Twitter:
 GET /oauth/authenticate?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g HTTP/1.1
 Host: api.twitter.com
 ```
+
+This request is sent to the service providers's _user authorization URL_
+(`/oauth/authenticate`, in the case of Twitter).  Let's examine the parameters
+in this request.
+
+TODO
+
+At this point, Twitter will interact with the user.  This interaction will
+typically involve logging the user in (if they are not already logged in) and
+obtaining their consent (if it has not been previously obtained).  Once that
+has been completed, Twitter redirects the user back to the application:
+
+```http
+HTTP/1.1 302 Found
+Location: https://www.example.com/oauth/callback/twitter?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g&oauth_verifier=TODO
+```
+
+The web browser follows this redirect and makes a request to the application:
+
+```http
+GET /oauth/callback/twitter?oauth_token=cTgIrQAAAAAAC3ETAAABh7iw_6g&oauth_verifier=TODO HTTP/1.1
+Host: www.example.com
+```
+
+This request is sent to the application's _callback URL_ (`/oauth/callback/twitter`,
+in this case), which corresponds to the value of the `oauth_callback` parameter in
+the earlier request.  Let's examine the parameters in this request.
+
+TODO
+
+This request is handled by a route in the application:
+
+```js
+router.get('/oauth/callback/twitter', passport.authenticate('twitter', {
+  successReturnToOrRedirect: '/',
+  failureRedirect: '/login'
+}));
+```
+
+This route invokes Passport, and in particular the [`passport-oauth1`](https://www.passportjs.org/packages/passport-oauth1/)
+strategy.  The strategy first loads the previously stored secret associated with
+the request token.  It then [exchanges the request token for an access token](../token/).

@@ -85,7 +85,7 @@ Content-Type: application/json
 }
 ```
 
-Let's examine the parameters in this request.
+Let's examine the parameters in this response.
 
   * `access_token`: The access token issued by the authorization server.  This
       token is a credential the application can use to access the resource
