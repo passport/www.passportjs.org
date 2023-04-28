@@ -17,7 +17,7 @@ In OAuth 1.0 terminology, Twitter is a _service provider_.  A service provider
 is a web service that allows access via OAuth.  A service provider authenticates
 the user and obtains authorization.  Authorization is typically obtained by
 prompting the user for their consent.  Once authorization has been obtained, the
-authorization server issues access tokens to the application.
+service provider issues access tokens to the application.
 
 The Twitter API provides access to _protected resources_ hosted by the service
 provider.  These resources are typically HTTP endpoints and require an access
