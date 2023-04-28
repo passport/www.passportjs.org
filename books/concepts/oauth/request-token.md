@@ -22,6 +22,9 @@ Authorization: OAuth oauth_callback="https%3A%2F%2Fwww.example.com%2Foauth%2Fcal
 The parameters for this request are conveyed in the `Authorization` header.
 Let's examine them.
 
+  * `oauth_callback`: URL to which the service provider will redirect the user
+      after completing interaction with the user.
+
   * `oauth_consumer_key`: Identifies the application to the service provider.
       This is assigned when registering the application with Twitter.
       
@@ -35,10 +38,9 @@ Let's examine them.
   * `oauth_version`: The version of OAuth used to authorize the request, set to
       "1.0".
       
-  * `oauth_signature`: The signature computed by using the ...
-
-
-TODO:
+  * `oauth_signature`: A cryptographic signature used to authenticate the
+      request.  Passport computes this automatically using the application's
+      consumer secret.
 
 When Twitter receives this request, it authenticates the application by
 verifying that the signature was produced by corresponding consumer key and
