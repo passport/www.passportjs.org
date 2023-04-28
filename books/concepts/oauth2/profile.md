@@ -17,7 +17,7 @@ returns data about the [user](https://developers.facebook.com/docs/graph-api/ref
 whose access token is used to authenticate the API request:
 
 ```http
-POST /v3.2/me HTTP/1.1
+GET /v3.2/me HTTP/1.1
 Host: graph.facebook.com
 Authorization: Bearer IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0
 ```

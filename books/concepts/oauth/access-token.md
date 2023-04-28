@@ -24,7 +24,7 @@ Let's examine them.
 If the authorization request is valid and authorized, Twitter issues an access
 token:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/x-www-form-urlencoded
 

@@ -28,7 +28,7 @@ When Twitter receives this request, it authenticates the application by
 verifying that the signature was produced by corresponding consumer key and
 secret.  If successful, Twitter generates a request token and secret:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/x-www-form-urlencoded
 
