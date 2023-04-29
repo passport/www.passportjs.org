@@ -92,9 +92,8 @@ This request is sent to the service providers's _user authorization URL_
 (`/oauth/authenticate`, in the case of Twitter).  Let's examine the parameters
 in this request.
 
-  * `oauth_token`: The unauthorized request token.  The user will be requested
-      to authorize this token.  If granted, the request token can be exchanged
-      for an access token.
+  * `oauth_token`: The unauthorized request token obtained in the previous step,
+      which the user is being requested to authorize.
 
 At this point, Twitter will interact with the user.  This interaction will
 typically involve logging the user in (if they are not already logged in) and
@@ -117,7 +116,11 @@ This request is sent to the application's _callback URL_ (`/oauth/callback/twitt
 in this case), which corresponds to the value of the `oauth_callback` parameter in
 the earlier request.  Let's examine the parameters in this request.
 
-TODO
+  * `oauth_token`: The request token, which the user has now either authorized
+      or denied.
+      
+  * `oauth_verifier`: The verification code required to exchange the request
+      token for an access token.
 
 This request is handled by a route in the application:
 
