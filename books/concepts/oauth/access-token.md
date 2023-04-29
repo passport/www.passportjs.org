@@ -45,8 +45,13 @@ Let's examine them.
       request.  Passport computes this automatically using the application's
       consumer secret and the request token secret.
 
-If the authorization request is valid and authorized, Twitter issues an access
-token:
+When Twitter receives this request, it authenticates the application by
+verifying that the signature was produced by the corresponding consumer key and
+secret along with the request token secret.  It then verifies that the request
+token is valid and was issued to the authenticated application.  Finally, it
+verifies that verification code is valid.
+
+If the request is valid and authorized, Twitter issues an access token:
 
 ```http
 HTTP/1.1 200 OK
