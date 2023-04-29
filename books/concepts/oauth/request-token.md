@@ -43,7 +43,7 @@ Let's examine them.
       consumer secret.
 
 When Twitter receives this request, it authenticates the application by
-verifying that the signature was produced by corresponding consumer key and
+verifying that the signature was produced by the corresponding consumer key and
 secret.  If successful, Twitter generates a request token and secret:
 
 ```http
@@ -55,8 +55,21 @@ oauth_token_secret=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&
 oauth_callback_confirmed=true
 ```
 
-Now that the application has obtained a request token, it can redirect the
-user's web browser to Twitter:
+Let's examine the parameters in this response.
+
+  * `oauth_token`: A _unauthorized_ request token.  The user will be requested
+      to authorize this token.  If granted, the request token can be exchanged
+      for an access token.
+      
+  * `oauth_token_secret`: A shared secret used to cryptographically demonstrate
+      ownership of the request token when exchanging it for an access token.
+
+  * `oauth_callback_confirmed`: TODO
+
+Now that the application has obtained a request token, it is ready to request
+authorization from the user.   First, Passport stores the token secret so that
+it can be later loaded when obtaining an access token.  Then, the user's web
+browser is redirected to Twitter:
 
 ```http
 HTTP/1.1 302 Found
