@@ -64,7 +64,12 @@ Let's examine the parameters in this response.
   * `oauth_token_secret`: A shared secret used to cryptographically demonstrate
       ownership of the request token when exchanging it for an access token.
 
-  * `oauth_callback_confirmed`: TODO
+  * `oauth_callback_confirmed`: A flag set to `true` to indicate that the
+      service provider received the application's callback URL in the
+      `oauth_callback` parameter.  This indicates that the service provider
+      supports [OAuth 1.0a](https://oauth.net/core/1.0a/), which addresses a
+      [session fixation vulnerability](https://oauth.net/advisories/2009-1/) in
+      [OAuth 1.0](https://oauth.net/core/1.0/).
 
 Now that the application has obtained a request token, it is ready to request
 authorization from the user.   First, Passport stores the token secret so that
@@ -87,7 +92,9 @@ This request is sent to the service providers's _user authorization URL_
 (`/oauth/authenticate`, in the case of Twitter).  Let's examine the parameters
 in this request.
 
-TODO
+  * `oauth_token`: The unauthorized request token.  The user will be requested
+      to authorize this token.  If granted, the request token can be exchanged
+      for an access token.
 
 At this point, Twitter will interact with the user.  This interaction will
 typically involve logging the user in (if they are not already logged in) and
