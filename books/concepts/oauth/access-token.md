@@ -62,6 +62,11 @@ oauth_token_secret=PbKfYqSryyeKDWz4ebtY3o5ogNLG11WJuZBc9fQrQo
 ```
 
 Let's examine the parameters in this response.
+      
+  * `oauth_token`: An access token.
+      
+  * `oauth_token_secret`: A shared secret used to cryptographically demonstrate
+      ownership of the access token when accessing protected resources.
 
 Now that the application has obtained an access token, it can [access the user
 profile](../profile/).
