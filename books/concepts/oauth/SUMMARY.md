@@ -4,3 +4,4 @@
 * [Request Token](request-token.md)
 * [Access Token](access-token.md)
 * [Profile](profile.md)
+* [Authentication](authentication.md)
