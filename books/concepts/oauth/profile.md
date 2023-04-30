@@ -49,6 +49,10 @@ consumer secret).  Tokens that require a corresponding cryptographic signature
 are referred to as proof-of-possession tokens, where knowledge of the secret
 demonstrates proof that the application is the owner of the access token.
 
+When Twitter receives this request, it verifies that the access token and
+signature are valid and that the authorization granted permits access to the
+resource.  If so, Twitter responds with information about the user.
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -60,3 +64,5 @@ Content-Type: application/json
   "name": "Sean Cook"
 }
 ```
+
+Now that Passport has obtained the user profile, it can [authenticate the user](../authentication/).
