@@ -23,8 +23,8 @@ features:
       tokens.
   - name: API Authorization
     icon: icon-budicon-285
-    description: Protect access to APIs using access tokens ranging from
-     standard bearer tokens to high security proof-of-possession tokens.
+    description: Protect access to APIs using standard bearer access tokens or
+     high security proof-of-possession tokens.
   - name: Native Applications
     icon: icon-budicon-237
     description: Secure authentication to desktop and mobile applications
