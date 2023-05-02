@@ -24,7 +24,7 @@ Google Sign-In is [sunset](https://developers.google.com/identity/sign-in/web/de
 the date for which is to be determined.
 
 For those applications that continue to use this legacy library, Google Sign-In
-can be used in combination with the [passport-google-id-token](https://www.npmjs.com/package/passport-google-id-token)
+can be used in combination with the [`passport-google-id-token`](https://www.npmjs.com/package/passport-google-id-token)
 strategy to [add authentication to the application's backend](https://developers.google.com/identity/sign-in/web/backend-auth).
 
 Just as with Sign In with Google, we recommend using [OpenID Connect](../openid-connect/)

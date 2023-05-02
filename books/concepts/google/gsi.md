@@ -19,7 +19,7 @@ and a [personalized button](https://developers.google.com/identity/gsi/web/guide
 For applications that rely on Google as their primary method of authenticating
 users, these enhancements may increase conversion and use of Sign In with Google
 should be considered.  In this case, Sign In with Google can be used in
-combination with the [passport-google-one-tap](https://www.passportjs.org/packages/passport-google-one-tap/)
+combination with the [`passport-google-one-tap`](https://www.passportjs.org/packages/passport-google-one-tap/)
 strategy to [add authentication to the application's backend](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token).
 
 For applications that offer Google alongside other social login options, we

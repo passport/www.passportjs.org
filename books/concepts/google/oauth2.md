@@ -3,7 +3,7 @@
 Google supports [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2),
 an open, industry-standard protocol that enables apps to securely call APIs.
 
-Support for using OAuth 2.0 within Passport is provided by the [passport-google-oauth20](https://www.passportjs.org/packages/passport-google-oauth20/)
+Support for using OAuth 2.0 within Passport is provided by the [`passport-google-oauth20`](https://www.passportjs.org/packages/passport-google-oauth20/)
 strategy.  This strategy implements the OAuth 2.0 authorization code flow and
 operates entirely on the server-side, where the resulting tokens can receive the
 strongest protections.
