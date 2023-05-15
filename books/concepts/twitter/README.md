@@ -2,8 +2,8 @@
 
 Twitter was one of the pioneering social networks to allow people to "connect"
 their accounts to other websites.  On April 15, 2009, [Log in with Twitter](https://developer.twitter.com/en/docs/authentication/guides/log-in-with-twitter)
-was introduced.  Also known as Sign in with Twitter, the name by which it was
-[originally known](https://web.archive.org/web/20090419165334/http://apiwiki.twitter.com/Sign-in-with-Twitter),
+was introduced.  Also referred to as Sign in with Twitter, the name by which it
+was [originally known](https://web.archive.org/web/20090419165334/http://apiwiki.twitter.com/Sign-in-with-Twitter),
 this allowed Twitter to be used for [social login](https://en.wikipedia.org/wiki/Social_login),
 and was built on OAuth 1.0, which was already being used for authorizing access
 to the Twitter API.
