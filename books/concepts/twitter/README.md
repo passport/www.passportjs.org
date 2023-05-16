@@ -11,8 +11,8 @@ to the Twitter API.
 Today, use of Twitter for signing in trails substantially behind larger
 platforms such as Google, Facebook, and Apple.  That being said, Twitter remains
 a widely used option on many websites.  Additionally, many websites integrate
-with the Twitter API and need users to authorize access, even if they sign in
-with another authentication method.
+with Twitter APIs and need users to authorize access, even if they sign in with
+another authentication method.
 
 While Twitter pioneered use of OAuth 1.0, support for OAuth 2.0 was made
 [generally available](https://twittercommunity.com/t/announcing-oauth-2-0-general-availability/163555)

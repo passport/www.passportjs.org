@@ -1,8 +1,8 @@
 # OAuth 1.0
 
 Twitter supports [OAuth 1.0a](https://developer.twitter.com/en/docs/authentication/oauth-1-0a),
-which has been an integral part of Twitter's developer platform since its
-inception.
+which has been an integral part of Twitter's [developer platform](https://developer.twitter.com/en)
+since its inception.
 
 [Launched](https://blog.twitter.com/official/en_us/a/2006/introducing-the-twitter-api.html)
 in September 2006, the Twitter API originally used basic username and password
