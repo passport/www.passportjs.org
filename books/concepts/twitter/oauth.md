@@ -16,3 +16,12 @@ Support for integrating with Twitter using OAuth 1.0 and Passport is provided by
 the [`passport-twitter`](http://www.passportjs.org/packages/passport-twitter/)
 strategy.  This strategy inherits from [`passport-oauth1`](http://www.passportjs.org/packages/passport-oauth1/)
 and configures it to work out-of-the-box with Twitter's OAuth 1.0 endpoints.
+
+OAuth 1.0 is a supported authentication method across most of the APIs within
+Twitter's platform, including the Twitter API [v1.1](https://developer.twitter.com/en/docs/twitter-api/v1)
+and [v2](https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api)
+as well as the [Twitter Ads API](https://developer.twitter.com/en/docs/twitter-ads-api).
+
+While OAuth 1.0 is supported, Twitter also supports [OAuth 2.0](../oauth2/).  It
+is recommended that new applications adopt OAuth 2.0 and existing applications
+plan to [migrate](https://developer.twitter.com/en/docs/twitter-api/migrate/overview).

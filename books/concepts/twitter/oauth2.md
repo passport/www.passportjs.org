@@ -20,6 +20,6 @@ previous [v1.1](https://developer.twitter.com/en/docs/twitter-api/v1) and OAuth
 
 Twitter recommends that new applications be implemented using v2 and OAuth 2.0
 and that existing applications [migrate](https://developer.twitter.com/en/docs/twitter-api/migrate/overview).
-Some aspects of Twitter's platform, such as the [Twitter Ads API](https://developer.twitter.com/en/docs/twitter-ads-api),
+Some APIs within Twitter's platform, such as the [Twitter Ads API](https://developer.twitter.com/en/docs/twitter-ads-api),
 do not yet support OAuth 2.0.  Applications that depend on such APIs can
 continue to use [OAuth 1.0](../oauth/).
