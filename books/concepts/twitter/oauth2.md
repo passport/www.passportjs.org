@@ -9,7 +9,7 @@ the user.
 
 Support for integrating with Twitter using OAuth 2.0 and Passport is provided by
 the [`@superfaceai/passport-twitter-oauth2`](https://www.npmjs.com/package/@superfaceai/passport-twitter-oauth2)
-strategy.  This strategy inherits from [`passport-oauth2`](http://www.passportjs.org/packages/passport-oauth2/)
+strategy.  This strategy inherits from [`passport-oauth2`](https://www.passportjs.org/packages/passport-oauth2/)
 and configures it to work out-of-the-box with Twitter's OAuth 2.0 endpoints.
 
 OAuth 2.0 is a supported authentication method for the [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api),

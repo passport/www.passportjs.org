@@ -13,8 +13,8 @@ authentication was phased out and OAuth became mandatory in what was known as
 the [OAuthpocalypse](https://techcrunch.com/2010/08/13/oauthpocalypse/).
 
 Support for integrating with Twitter using OAuth 1.0 and Passport is provided by
-the [`passport-twitter`](http://www.passportjs.org/packages/passport-twitter/)
-strategy.  This strategy inherits from [`passport-oauth1`](http://www.passportjs.org/packages/passport-oauth1/)
+the [`passport-twitter`](https://www.passportjs.org/packages/passport-twitter/)
+strategy.  This strategy inherits from [`passport-oauth1`](https://www.passportjs.org/packages/passport-oauth1/)
 and configures it to work out-of-the-box with Twitter's OAuth 1.0 endpoints.
 
 OAuth 1.0 is a supported authentication method across most of the APIs within
