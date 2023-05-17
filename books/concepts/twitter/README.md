@@ -14,12 +14,12 @@ a widely used option on many websites.  Additionally, many websites integrate
 with Twitter APIs and need users to authorize access, even if they sign in with
 another authentication method.
 
-While Twitter pioneered use of OAuth 1.0, support for OAuth 2.0 was made
-[generally available](https://twittercommunity.com/t/announcing-oauth-2-0-general-availability/163555)
-in December 2021 (after a [public beta](https://twittercommunity.com/t/announcing-oauth-2-0-beta/159189)
-period starting in September 2021), almost a decade after OAuth 2.0 was
-approved by the [IETF](https://www.ietf.org/).
+Integration with Twitter is done primarily via the [Twitter API](https://developer.twitter.com/en/docs/twitter-api),
+which allows developers to access the conversation happening on Twitter.
+Other APIs are also offered as part of Twitter's platform, such as the
+[Twitter Ads API](https://developer.twitter.com/en/docs/twitter-ads-api) for
+programmatically managing advertising campaigns.
 
 Passport can be used to let people sign in with Twitter or obtain authorized
-access to the Twitter API on behalf of users, and supports both OAuth 2.0 and
-OAuth 1.0.
+access to the Twitter API on behalf of users, and supports both [OAuth 2.0](./oauth2/)
+and [OAuth 1.0](./oauth/).
