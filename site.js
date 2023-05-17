@@ -56,10 +56,11 @@ site.use('/blog', blogApp);
 site.use('/concepts/authentication', book('docs'));
 site.use('/concepts/api-authentication', book('books/concepts/api-authentication'));
 site.use('/concepts/bearer-token', book('books/concepts/bearer-token'));
-site.use('/concepts/oauth2', book('books/concepts/oauth2'));
-site.use('/concepts/oauth', book('books/concepts/oauth'));
 site.use('/concepts/delegated-authorization', book('books/concepts/delegated-authorization'));
 site.use('/concepts/google', book('books/concepts/google'));
+site.use('/concepts/oauth', book('books/concepts/oauth'));
+site.use('/concepts/oauth2', book('books/concepts/oauth2'));
+site.use('/concepts/twitter', book('books/concepts/twitter'));
 site.use('/howtos/password', book('books/howtos/password'));
 site.use('/howtos/session', book('books/howtos/session'));
 site.use('/howtos/google', book('books/howtos/google'));
@@ -97,9 +98,10 @@ site.generate({
   '/concepts/api-authentication': book.createMapper('books/concepts/api-authentication'),
   '/concepts/delegated-authorization': book.createMapper('books/concepts/delegated-authorization'),
   '/concepts/bearer-token': book.createMapper('books/concepts/bearer-token'),
-  '/concepts/oauth2': book.createMapper('books/concepts/oauth2'),
-  '/concepts/oauth': book.createMapper('books/concepts/oauth'),
   '/concepts/google': book.createMapper('books/concepts/google'),
+  '/concepts/oauth': book.createMapper('books/concepts/oauth'),
+  '/concepts/oauth2': book.createMapper('books/concepts/oauth2'),
+  '/concepts/twitter': book.createMapper('books/concepts/twitter'),
   '/howtos/password': book.createMapper('books/howtos/password'),
   '/howtos/session': book.createMapper('books/howtos/session'),
   '/howtos/google': book.createMapper('books/howtos/google'),
