@@ -21,5 +21,5 @@ Other APIs are also offered as part of Twitter's platform, such as the
 programmatically managing advertising campaigns.
 
 Passport can be used to let people sign in with Twitter or obtain authorized
-access to the Twitter API on behalf of users, and supports both [OAuth 2.0](./oauth2/)
+access to Twitter APIs on behalf of users, and supports both [OAuth 2.0](./oauth2/)
 and [OAuth 1.0](./oauth/).
