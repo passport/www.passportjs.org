@@ -5,13 +5,12 @@ layout: "feature"
 features:
   - name: Websites & Web Applications
     icon: icon-budicon-377
-    description: Easily implement authentication using page-based browser
-      redirects with the authorization code flow.
+    description: Easily implement authentication with familiar page-based
+      navigation.
   - name: Single-Page Applications
     icon: icon-budicon-661
     description: Use client-side JavaScript frameworks or progressive
-      enhancement with the implicit flow and token-based authentication to the
-      backend.
+      enhancement for dynamic user interfaces.
   - name: Minimal configuration
     icon: icon-budicon-325
     description: Pre-configured to work out-of-the-box with popular providers
@@ -23,12 +22,12 @@ features:
       tokens.
   - name: API Authorization
     icon: icon-budicon-285
-    description: Protect access to APIs using standard bearer access tokens or
-     high security proof-of-possession tokens.
+    description: Protect access to APIs using standard bearer tokens or high
+     security proof-of-possession tokens.
   - name: Native Applications
     icon: icon-budicon-237
     description: Secure authentication to desktop and mobile applications
-      with Proof Key for Code Exchange (PKCE).
+      installed on user's devices.
 ---
 
 OAuth 2.0 is a delegated authorization framework that connects your application
