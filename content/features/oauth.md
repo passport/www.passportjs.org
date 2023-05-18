@@ -5,8 +5,8 @@ layout: "feature"
 features:
   - name: Websites & Web Applications
     icon: icon-budicon-377
-    description: Easily implement authorization by redirecting the user to the
-      service provider.
+    description: Easily implement authentication with familiar page-based
+      navigation.
   - name: Minimal configuration
     icon: icon-budicon-325
     description: Pre-configured to work out-of-the-box with popular providers
@@ -14,7 +14,7 @@ features:
   - name: 3rd-Party API Integration
     icon: icon-budicon-280
     description: Integrate with third-party APIs using access tokens and
-      secrets.
+      client credentials.
   - name: API Authorization
     icon: icon-budicon-285
     description: Protect access to APIs using access tokens and cryptographic
