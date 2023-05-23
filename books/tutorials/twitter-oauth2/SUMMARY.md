@@ -4,3 +4,4 @@
 * [Login Prompt](prompt.md)
 * [Redirect to Twitter](redirect.md)
 * [Register App](register.md)
+* [Configure Strategy](configure.md)
