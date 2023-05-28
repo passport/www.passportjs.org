@@ -17,7 +17,15 @@ stack, collectively known as [FIDO2](https://fidoalliance.org/fido2/), is paired
 with software that authenticates public key credentials on the server-side.
 
 Compared with the relative simplicity of authenticating a username and password
-(setting aside the inherent security concerns), authenticating public key
-credentials involves many more moving pieces.  Additionally, a user is being
-authenticated with a possession factor - something they have like their laptop
-with fingerprint recognition or a portable security key such as a [YubiKey](https://www.yubico.com/).
+(setting aside the inherent security concerns), authenticating a public key
+credential involves many more moving pieces.  Furthermore, a user is being
+authenticated with a possession factor (something they have, like their laptop
+with fingerprint recognition or a portable security key such as a [YubiKey](https://www.yubico.com/)),
+as opposed to a knowledge factor (something they know, like their password).
+
+This shift in how a user authenticates, while improving security, also
+introduces new experiences that a user needs to understand and new technologies
+that a developer must comprehend.  This guide provides an overview of WebAuthn.
+It details how Passport works when authenticating public key credentials and
+explains concepts developers should consider to make it easy for users to use
+public key credentials.
