@@ -20,7 +20,7 @@ Compared with the relative simplicity of authenticating a username and password
 (setting aside the inherent security concerns), authenticating a public key
 credential involves many more moving pieces.  Furthermore, a user is being
 authenticated with a possession factor (something they have, like their laptop
-with fingerprint recognition or a portable security key such as a [YubiKey](https://www.yubico.com/)),
+with fingerprint reader or portable security key such as a [YubiKey](https://www.yubico.com/)),
 as opposed to a knowledge factor (something they know, like their password).
 
 This shift in how a user authenticates, while improving security, also
