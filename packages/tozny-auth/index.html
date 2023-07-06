@@ -106,16 +106,16 @@ app.</p>
 <p><a href="http://passportjs.org/">Passport</a> is an authentication framework for <a href="http://expressjs.com/">Express</a>.
 Using Passport, you can add Tozny support to your app by instantiating the Tozny
 strategy:</p>
-<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>)
-  , tozny    = <span class="keyword">require</span>(<span class="string">'tozny-auth'</span>);
+<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , tozny    = <span class="keyword">require</span>(<span class="string">&#x27;tozny-auth&#x27;</span>);
 
-<span class="keyword">var</span> realm = <span class="keyword">new</span> tozny.Realm(realmKeyId, realmSecret, apiUrl);
-passport.<span class="keyword">use</span>(<span class="title">new</span> <span class="title">tozny</span>.<span class="title">Strategy</span>(<span class="title">realm</span>));
+<span class="keyword">var</span> realm = <span class="keyword">new</span> tozny.<span class="title function_ invoke__">Realm</span>(realmKeyId, realmSecret, apiUrl);
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> tozny.<span class="title function_ invoke__">Strategy</span>(realm));
 </code></pre><p>Then create a login handler using passport:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'tozny'</span>, {
-    <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
-    <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;tozny&#x27;</span>, {
+    <span class="attribute">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+    <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
   }));
 </code></pre><p>There are some more details required to get Passport fully set up.
 See <a href="examples/secretmessage/index.js">examples/secretmessage/index.js</a> for a documented, working
@@ -126,7 +126,7 @@ generated from source file comments.
 The documentation is built using <a href="https://github.com/senchalabs/jsduck">jsduck</a>,
 which you will need to install.</p>
 <p>Run the command:</p>
-<pre><code>npm <span class="keyword">run</span><span class="bash"> doc</span>
+<pre><code>npm <span class="built_in">run</span> doc
 </code></pre><p>Then view the documentation by opening <code>doc/index.html</code>.</p>
 <h2 id="running-the-tests">Running the Tests</h2>
 <p>Install project dependencies:</p>
@@ -148,13 +148,13 @@ To run the complete test suite, set these environment variables:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">tozny-auth</span></code></div>
             <ul>
-              <li><span class="version">1.3.2</span> published <abbr class="updated" title="2022-06-27T19:20:01Z">24 days ago</abbr></li>
+              <li><span class="version">1.3.2</span> published <abbr class="updated" title="2022-06-27T19:20:01Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/tozny/sdk-node">https://github.com/tozny/sdk-node</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>20</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>34</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

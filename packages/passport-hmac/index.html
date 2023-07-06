@@ -124,21 +124,21 @@ the request. If the request signature calculated by the service matches the
 <em>signature</em> provided in the <em>authentication</em> header, the requester will have
 shown they have possession of the <em>identifier</em>&#39;s secret access key.</p>
 <p>Following is psuedogrammer adapted from AWS Signature 2 documentation.</p>
-<pre><code><span class="attribute">Authorization</span> = <span class="string">"identifier"</span> + <span class="string">" "</span> + publicKey + <span class="string">":"</span> + signature;
+<pre><code><span class="attribute">Authorization</span> = <span class="string">&quot;identifier&quot;</span> + <span class="string">&quot; &quot;</span> + publicKey + <span class="string">&quot;:&quot;</span> + signature;
 
 <span class="attribute">signature</span> = Base64( HMAC-SHA1( YourSecretAccessKeyID, UTF-8-Encoding-Of( StringToSign ) ) );
 
-<span class="attribute">StringToSign</span> = HTTP-Verb + <span class="string">"\n"</span> +
-    Content-MD5 + <span class="string">"\n"</span> +
-    Content-Type + <span class="string">"\n"</span> +
-    Date + <span class="string">"\n"</span>;
+<span class="attribute">StringToSign</span> = HTTP-Verb + <span class="string">&quot;\n&quot;</span> +
+    Content-MD5 + <span class="string">&quot;\n&quot;</span> +
+    Content-Type + <span class="string">&quot;\n&quot;</span> +
+    Date + <span class="string">&quot;\n&quot;</span>;
 </code></pre><p>The elements in <code>StrinToSign</code> are positional in nature. The names of the headers
 are not included, only their values. If a positional header is not present in
 the request (for example, <code>Content-Type</code> or <code>Content-MD5</code> are meaningless in a
 GET request), substitute an empty string for that position.</p>
 <p>TODO: implement Time Stamp Requirement</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-hmac
+<pre><code class="bash">$ npm install passport-hmac
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -152,12 +152,12 @@ key to compare the <em>signature</em>.</p>
 <p>The <code>done</code> callback <em>MUST</em> be called at some point and should contain an error,
 <code>false</code> if a user is not found, or the user and private key if the user was
 found.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> HmacStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">publicKey, done</span>) </span>{
-    User.findOne({ <span class="attr">publicKey</span>: publicKey }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, privateKey);
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">HmacStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">publicKey, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">publicKey</span>: publicKey }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, privateKey);
     });
   }
 ));
@@ -177,17 +177,17 @@ place of the default error messages returned when an error occurs.</li>
 requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/profile'</span>,
-  passport.authenticate(<span class="string">'hmac'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/profile&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;hmac&#x27;</span>),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   }
 });
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>TODO: write some Examples</p>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -200,14 +200,14 @@ $ npm <span class="built_in">test</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hmac</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T12:45:09Z">a month ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T12:45:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/chatter/passport-hmac">https://github.com/chatter/passport-hmac#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>12</b> downloads in the last day</li>
-              <li><b>39</b> downloads in the last week</li>
-              <li><b>106</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>28</b> downloads in the last week</li>
+              <li><b>183</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

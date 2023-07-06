@@ -100,45 +100,45 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
 <h2 id="installation">Installation</h2>
 <p>  $ npm install passport-passwordless</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript">  passport.use(<span class="keyword">new</span> PasswordlessStrategy({ 
+<pre><code class="javascript">  passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">PasswordlessStrategy</span>({ 
     <span class="comment">//... configuration ... </span>
-  }, <span class="function"><span class="keyword">function</span> (<span class="params">req, user, done</span>) </span>{
+  }, <span class="keyword">function</span> (<span class="params">req, user, done</span>) {
 
     <span class="comment">//.. validate the logged in user and build your final user object</span>
 
-    <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   };
 </code></pre>
 <h2 id="minimal-configuration-sample">Minimal configuration sample</h2>
-<pre><code class="lang-javascript">  {
-    <span class="attr">allowTokenReuse</span> : <span class="literal">true</span>,
-    <span class="attr">tokenLifeTime</span>   : <span class="number">1000</span> * <span class="number">60</span> * <span class="number">10</span>,
+<pre><code class="javascript">  {
+    allowTokenReuse : <span class="literal">true</span>,
+    tokenLifeTime   : <span class="number">1000</span> * <span class="number">60</span> * <span class="number">10</span>,
 
-    <span class="attr">store</span> : {
-      <span class="attr">path</span>   : __dirname + <span class="string">'/node_modules/passwordless-redis'</span>,
-      <span class="attr">config</span> : [
+    store : {
+      path   : __dirname + <span class="string">&#x27;/node_modules/passwordless-redis&#x27;</span>,
+      config : [
         <span class="number">6379</span>,
-        <span class="string">'127.0.0.1'</span>,
+        <span class="string">&#x27;127.0.0.1&#x27;</span>,
         {
 
         }
       ]
     },
-    <span class="attr">delivery</span> : {
-      <span class="attr">type</span> : <span class="string">'emailjs'</span>,
-      <span class="attr">allowGet</span> : <span class="literal">true</span>,
-      <span class="attr">path</span> : __dirname + <span class="string">'/node_modules/emailjs'</span>,
-      <span class="attr">config</span> : {
-        <span class="attr">server</span> : {
-          <span class="attr">user</span>     : <span class="string">'test.user@domain.com'</span>, 
-          <span class="attr">password</span> : <span class="string">'yourPwd'</span>, 
-          <span class="attr">host</span>     : <span class="string">'yourSmtp'</span>, 
-          <span class="attr">ssl</span>      : <span class="literal">true</span>
+    delivery : {
+      type : <span class="string">&#x27;emailjs&#x27;</span>,
+      allowGet : <span class="literal">true</span>,
+      path : __dirname + <span class="string">&#x27;/node_modules/emailjs&#x27;</span>,
+      config : {
+        server : {
+          user     : <span class="string">&#x27;test.user@domain.com&#x27;</span>, 
+          password : <span class="string">&#x27;yourPwd&#x27;</span>, 
+          host     : <span class="string">&#x27;yourSmtp&#x27;</span>, 
+          ssl      : <span class="literal">true</span>
         },
-        <span class="attr">msg</span> : {
-          <span class="attr">text</span>    : <span class="string">'Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid='</span>,
-          <span class="attr">html</span>    : <span class="string">'&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;'</span>
-          <span class="attr">subject</span> : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
+        msg : {
+          text    : <span class="string">&#x27;Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&#x27;</span>,
+          html    : <span class="string">&#x27;&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;&#x27;</span>
+          subject : <span class="string">&#x27;Token for &lt;%= hostname %&gt;&#x27;</span>
         }
       }
     }
@@ -146,24 +146,24 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
 </code></pre>
 <h2 id="configuration-with-description">Configuration with description</h2>
 <p>The path parameter for the store and delivery configuration is needed to exclude obsolete library dependencies of this package. So the delivery / store package can be required from the parent lib.</p>
-<pre><code class="lang-javascript">  {
+<pre><code class="javascript">  {
     <span class="comment">//If this property will be set to true, each authentication request generates a new passwordless instance to handle multiple and dynamic configurations</span>
-    <span class="comment">//If it's set to false, the passwordless instance will be created by instantiating the strategy</span>
-    <span class="attr">dynamicConfig</span> : <span class="literal">false</span>,
+    <span class="comment">//If it&#x27;s set to false, the passwordless instance will be created by instantiating the strategy</span>
+    dynamicConfig : <span class="literal">false</span>,
 
     <span class="comment">//all passwordless internal parameters, that are used to parse the request query object</span>
-    <span class="attr">userField</span>     : <span class="string">'user'</span>,
-    <span class="attr">tokenField</span>    : <span class="string">'tokenField'</span>,
-    <span class="attr">uidField</span>      : <span class="string">'uidField'</span>,
-    <span class="attr">deliveryField</span> : <span class="string">'delivery'</span>,
-    <span class="attr">originField</span>   : <span class="literal">null</span>,
+    userField     : <span class="string">&#x27;user&#x27;</span>,
+    tokenField    : <span class="string">&#x27;tokenField&#x27;</span>,
+    uidField      : <span class="string">&#x27;uidField&#x27;</span>,
+    deliveryField : <span class="string">&#x27;delivery&#x27;</span>,
+    originField   : <span class="literal">null</span>,
 
     <span class="comment">//token relevant parameters</span>
-    <span class="attr">allowTokenReuse</span> : <span class="literal">true</span>,
-    <span class="attr">tokenLifeTime</span>   : <span class="number">1000</span> * <span class="number">60</span> * <span class="number">10</span>,
+    allowTokenReuse : <span class="literal">true</span>,
+    tokenLifeTime   : <span class="number">1000</span> * <span class="number">60</span> * <span class="number">10</span>,
 
     <span class="comment">//specify maximal token length</span>
-    <span class="attr">maxTokenLength</span> : <span class="number">16</span>,
+    maxTokenLength : <span class="number">16</span>,
 
     <span class="comment">//If you want to create your own token type use this function, to use your own algorithm. </span>
     <span class="comment">//tokenAlgorithm : function() {</span>
@@ -176,11 +176,11 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
     <span class="comment">//internally it looks like the following code :</span>
     <span class="comment">//  var store = require(this.options.store);</span>
     <span class="comment">//  store.call(this.options.store.config);</span>
-    <span class="attr">store</span> : {
-      <span class="attr">path</span>   : __dirname + <span class="string">'/node_modules/passwordless-redis'</span>,
-      <span class="attr">config</span> : [
+    store : {
+      path   : __dirname + <span class="string">&#x27;/node_modules/passwordless-redis&#x27;</span>,
+      config : [
         <span class="number">6379</span>,
-        <span class="string">'127.0.0.1'</span>,
+        <span class="string">&#x27;127.0.0.1&#x27;</span>,
         {
 
         }
@@ -201,42 +201,42 @@ By plugging into Passport, <a href="https://github.com/florianheinemann/password
     <span class="comment">//      callback(err);</span>
     <span class="comment">//    };</span>
     <span class="comment">//  }</span>
-    <span class="attr">delivery</span> : {
-      <span class="attr">type</span> : <span class="string">'emailjs'</span>,
-      <span class="attr">allowGet</span> : <span class="literal">true</span>,
+    delivery : {
+      type : <span class="string">&#x27;emailjs&#x27;</span>,
+      allowGet : <span class="literal">true</span>,
 
-      <span class="attr">path</span> : __dirname + <span class="string">'/node_modules/emailjs'</span>,
-      <span class="attr">config</span> : {
-        <span class="attr">server</span> : {
-          <span class="attr">user</span>     : <span class="string">'test.user@domain.com'</span>, 
-          <span class="attr">password</span> : <span class="string">'yourPwd'</span>, 
-          <span class="attr">host</span>     : <span class="string">'yourSmtp'</span>, 
-          <span class="attr">ssl</span>      : <span class="literal">true</span>
+      path : __dirname + <span class="string">&#x27;/node_modules/emailjs&#x27;</span>,
+      config : {
+        server : {
+          user     : <span class="string">&#x27;test.user@domain.com&#x27;</span>, 
+          password : <span class="string">&#x27;yourPwd&#x27;</span>, 
+          host     : <span class="string">&#x27;yourSmtp&#x27;</span>, 
+          ssl      : <span class="literal">true</span>
         },
 
         <span class="comment">//all message parameters are compiled as an underscore template (http://underscorejs.org/#template)</span>
         <span class="comment">//the following parameters are available:</span>
         <span class="comment">// {</span>
-        <span class="comment">//   hostName    : 'localhost:3000',</span>
+        <span class="comment">//   hostName    : &#x27;localhost:3000&#x27;,</span>
         <span class="comment">//   tokenToSend : tokenToSend,</span>
         <span class="comment">//   uidToSend   : uidToSend,</span>
         <span class="comment">//   recipient   : recipient,</span>
         <span class="comment">//   req         : req </span>
         <span class="comment">// }</span>
-        <span class="attr">msg</span> : {
-          <span class="attr">text</span>    : <span class="string">'Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid='</span>,
+        msg : {
+          text    : <span class="string">&#x27;Hello!\nAccess your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&#x27;</span>,
           <span class="comment">//a html property was added by my self, to be able add html body automatically to the configuration</span>
-          <span class="attr">html</span>    : <span class="string">'&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;'</span>
-          <span class="attr">subject</span> : <span class="string">'Token for &lt;%= hostname %&gt;'</span>
+          html    : <span class="string">&#x27;&lt;html&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;br&gt;&lt;p&gt;Access your account here: http://&lt;%= hostname %&gt;?token=&lt;%= tokenToSend %&gt;&amp;uid=&lt;%= uidToSend %&gt;&lt;/p&gt;&#x27;</span>
+          subject : <span class="string">&#x27;Token for &lt;%= hostname %&gt;&#x27;</span>
         }
       }
     },
 
     <span class="comment">//is used to check if an user is authorized to request a token</span>
-    <span class="comment">//call the callback with an error and an user object (user object needs an parameter called "id" to specify it's email adress, sms, ...)</span>
+    <span class="comment">//call the callback with an error and an user object (user object needs an parameter called &quot;id&quot; to specify it&#x27;s email adress, sms, ...)</span>
     <span class="comment">//the default access functions contains the following function</span>
-    <span class="attr">access</span> : <span class="function"><span class="keyword">function</span>(<span class="params">user, callback</span>) </span>{
-      callback(<span class="literal">null</span>, user);
+    access : <span class="keyword">function</span>(<span class="params">user, callback</span>) {
+      <span class="title function_">callback</span>(<span class="literal">null</span>, user);
     }
   }
 </code></pre>
@@ -250,13 +250,13 @@ Copyright © 2016 <copyright holders></p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-passwordless</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:16:10Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:16:10Z">a year ago</abbr></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>35</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>28</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

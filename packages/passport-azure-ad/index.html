@@ -120,45 +120,45 @@ User sends a request to the protected web api which contains an access_token in 
 <h3 id="4-1-oidcstrategy">4.1 OIDCStrategy</h3>
 <h4 id="4-1-1-configure-strategy-and-provide-callback-function">4.1.1 Configure strategy and provide callback function</h4>
 <h5 id="4-1-1-1-sample-using-the-oidcstrategy">4.1.1.1 Sample using the OIDCStrategy</h5>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> OIDCStrategy({
-    <span class="attr">identityMetadata</span>: config.creds.identityMetadata,
-    <span class="attr">clientID</span>: config.creds.clientID,
-    <span class="attr">responseType</span>: config.creds.responseType,
-    <span class="attr">responseMode</span>: config.creds.responseMode,
-    <span class="attr">redirectUrl</span>: config.creds.redirectUrl,
-    <span class="attr">allowHttpForRedirectUrl</span>: config.creds.allowHttpForRedirectUrl,
-    <span class="attr">clientSecret</span>: config.creds.clientSecret,
-    <span class="attr">validateIssuer</span>: config.creds.validateIssuer,
-    <span class="attr">isB2C</span>: config.creds.isB2C,
-    <span class="attr">issuer</span>: config.creds.issuer,
-    <span class="attr">passReqToCallback</span>: config.creds.passReqToCallback,
-    <span class="attr">scope</span>: config.creds.scope,
-    <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
-    <span class="attr">loggingNoPII</span>: config.creds.loggingNoPII,
-    <span class="attr">nonceLifetime</span>: config.creds.nonceLifetime,
-    <span class="attr">nonceMaxAmount</span>: config.creds.nonceMaxAmount,
-    <span class="attr">useCookieInsteadOfSession</span>: config.creds.useCookieInsteadOfSession,
-    <span class="attr">cookieSameSite</span>: config.creds.cookieSameSite, <span class="comment">// boolean</span>
-    <span class="attr">cookieEncryptionKeys</span>: config.creds.cookieEncryptionKeys,
-    <span class="attr">clockSkew</span>: config.creds.clockSkew,
-    <span class="attr">proxy</span>: { <span class="attr">port</span>: <span class="string">'proxyport'</span>, <span class="attr">host</span>: <span class="string">'proxyhost'</span>, <span class="attr">protocol</span>: <span class="string">'http'</span> },
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OIDCStrategy</span>({
+    <span class="attr">identityMetadata</span>: config.<span class="property">creds</span>.<span class="property">identityMetadata</span>,
+    <span class="attr">clientID</span>: config.<span class="property">creds</span>.<span class="property">clientID</span>,
+    <span class="attr">responseType</span>: config.<span class="property">creds</span>.<span class="property">responseType</span>,
+    <span class="attr">responseMode</span>: config.<span class="property">creds</span>.<span class="property">responseMode</span>,
+    <span class="attr">redirectUrl</span>: config.<span class="property">creds</span>.<span class="property">redirectUrl</span>,
+    <span class="attr">allowHttpForRedirectUrl</span>: config.<span class="property">creds</span>.<span class="property">allowHttpForRedirectUrl</span>,
+    <span class="attr">clientSecret</span>: config.<span class="property">creds</span>.<span class="property">clientSecret</span>,
+    <span class="attr">validateIssuer</span>: config.<span class="property">creds</span>.<span class="property">validateIssuer</span>,
+    <span class="attr">isB2C</span>: config.<span class="property">creds</span>.<span class="property">isB2C</span>,
+    <span class="attr">issuer</span>: config.<span class="property">creds</span>.<span class="property">issuer</span>,
+    <span class="attr">passReqToCallback</span>: config.<span class="property">creds</span>.<span class="property">passReqToCallback</span>,
+    <span class="attr">scope</span>: config.<span class="property">creds</span>.<span class="property">scope</span>,
+    <span class="attr">loggingLevel</span>: config.<span class="property">creds</span>.<span class="property">loggingLevel</span>,
+    <span class="attr">loggingNoPII</span>: config.<span class="property">creds</span>.<span class="property">loggingNoPII</span>,
+    <span class="attr">nonceLifetime</span>: config.<span class="property">creds</span>.<span class="property">nonceLifetime</span>,
+    <span class="attr">nonceMaxAmount</span>: config.<span class="property">creds</span>.<span class="property">nonceMaxAmount</span>,
+    <span class="attr">useCookieInsteadOfSession</span>: config.<span class="property">creds</span>.<span class="property">useCookieInsteadOfSession</span>,
+    <span class="attr">cookieSameSite</span>: config.<span class="property">creds</span>.<span class="property">cookieSameSite</span>, <span class="comment">// boolean</span>
+    <span class="attr">cookieEncryptionKeys</span>: config.<span class="property">creds</span>.<span class="property">cookieEncryptionKeys</span>,
+    <span class="attr">clockSkew</span>: config.<span class="property">creds</span>.<span class="property">clockSkew</span>,
+    <span class="attr">proxy</span>: { <span class="attr">port</span>: <span class="string">&#x27;proxyport&#x27;</span>, <span class="attr">host</span>: <span class="string">&#x27;proxyhost&#x27;</span>, <span class="attr">protocol</span>: <span class="string">&#x27;http&#x27;</span> },
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">iss, sub, profile, accessToken, refreshToken, done</span>) </span>{
-    <span class="keyword">if</span> (!profile.oid) {
-      <span class="keyword">return</span> done(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No oid found"</span>), <span class="literal">null</span>);
+  <span class="keyword">function</span>(<span class="params">iss, sub, profile, accessToken, refreshToken, done</span>) {
+    <span class="keyword">if</span> (!profile.<span class="property">oid</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;No oid found&quot;</span>), <span class="literal">null</span>);
     }
     <span class="comment">// asynchronous verification, for effect...</span>
-    process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
-      findByOid(profile.oid, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+    process.<span class="title function_">nextTick</span>(<span class="keyword">function</span> (<span class="params"></span>) {
+      <span class="title function_">findByOid</span>(profile.<span class="property">oid</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
         <span class="keyword">if</span> (err) {
-          <span class="keyword">return</span> done(err);
+          <span class="keyword">return</span> <span class="title function_">done</span>(err);
         }
         <span class="keyword">if</span> (!user) {
-          <span class="comment">// "Auto-registration"</span>
-          users.push(profile);
-          <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+          <span class="comment">// &quot;Auto-registration&quot;</span>
+          users.<span class="title function_">push</span>(profile);
+          <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
         }
-        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
       });
     });
   }
@@ -169,10 +169,10 @@ User sends a request to the protected web api which contains an access_token in 
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
 <ul>
-<li>v1 tenant-specific endpoint<pre><code>http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_name.onmicrosoft.<span class="keyword">com</span>/.well-known/openid-configuration
-http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_guid/.well-known/openid-configuration
+<li>v1 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
+https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
 </code></pre></li>
-<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known<span class="regexp">/openid-configuration</span>
+<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
 </code></pre></li>
 <li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
 https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
@@ -259,19 +259,19 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 </ul>
 <h5 id="4-1-1-3-verify-callback">4.1.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use one of the following signatures for the verify callback</p>
-<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, jwtClaims, access_token, refresh_token, params, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, access_token, refresh_token, params, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, access_token, refresh_token, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span></span>
+<pre><code>  <span class="keyword">function</span>(iss, sub, profile, jwtClaims, access_token, refresh_token, params, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(iss, sub, profile, access_token, refresh_token, params, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(iss, sub, profile, access_token, refresh_token, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(iss, sub, profile, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(iss, sub, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(profile, <span class="keyword">done</span>)
 </code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use one of the following signatures for the verify callback</p>
-<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, jwtClaims, access_token, refresh_token, params, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, access_token, refresh_token, params, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, access_token, refresh_token, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, profile, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(req, iss, sub, done)</span></span>
-  <span class="function"><span class="keyword">function</span><span class="params">(req, profile, done)</span></span>
+<pre><code>  <span class="keyword">function</span>(req, iss, sub, profile, jwtClaims, access_token, refresh_token, params, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(req, iss, sub, profile, access_token, refresh_token, params, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(req, iss, sub, profile, access_token, refresh_token, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(req, iss, sub, profile, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(req, iss, sub, <span class="keyword">done</span>)
+  <span class="keyword">function</span>(req, profile, <span class="keyword">done</span>)
 </code></pre><h4 id="4-1-1-4-jwe-support">4.1.1.4 JWE support</h4>
 <p>  We support encrypted id_token in JWE Compact Serialization format. </p>
 <p>  The key encryption algorithms supported are: </p>
@@ -281,46 +281,46 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 <p>  In order to decrypt the id_token, keys have to be provided in JWK format using <code>jweKeyStore</code> option. We will first
   try the key with the corresponding kid. If decryption fails, we will try every possible key in <code>jweKeyStore</code>. 
   The following is an example of <code>jweKeyStore</code>:</p>
-<pre><code class="lang-javascript">
+<pre><code class="javascript">
     <span class="attr">jweKeyStore</span>: [ 
-      { <span class="string">'kid'</span>: <span class="string">'sym_key_256'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE='</span> }, 
-      { <span class="string">'kid'</span>: <span class="string">'sym_key_128'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'GawgguFyGrWKav7AX4VKUg'</span>}, 
-      { <span class="string">'kid'</span>: <span class="string">'sym_key_384'</span>, <span class="string">'kty'</span>: <span class="string">'oct'</span>, <span class="string">'k'</span>: <span class="string">'AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v'</span>},
-      { <span class="string">'kid'</span>: <span class="string">'rsa_key'</span>, 
-        <span class="string">'kty'</span>: <span class="string">'RSA'</span>, 
-        <span class="string">"n"</span>:<span class="string">"6-FrFkt_TByQ_L5d7or-9PVAowpswxUe3dJeYFTY0Lgq7zKI5OQ5RnSrI0\n\
+      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_256&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE=&#x27;</span> }, 
+      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_128&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;GawgguFyGrWKav7AX4VKUg&#x27;</span>}, 
+      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_384&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v&#x27;</span>},
+      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;rsa_key&#x27;</span>, 
+        <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>, 
+        <span class="string">&quot;n&quot;</span>:<span class="string">&quot;6-FrFkt_TByQ_L5d7or-9PVAowpswxUe3dJeYFTY0Lgq7zKI5OQ5RnSrI0\n\
              T9yrfnRzE9oOdd4zmVj9txVLI-yySvinAu3yQDQou2Ga42ML_-K4Jrd5cl\n\
              MUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5\n\
              n6x5r2y1C_8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u_mIdyw\n\
              yGfgiT3tw0FsWvki_KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyB\n\
-             VuNY-J_elq-HgJ_dZK6g7vMNvXz2_vT-SykIkzwiD9eSI9UWfsjw"</span>,
-        <span class="string">"e"</span>:<span class="string">"AQAB"</span>,
-        <span class="string">"d"</span>:<span class="string">"C6EGZYf9U6RI5Z0BBoSlwy_gKumVqRx-dBMuAfPM6KVbwIUuSJKT3ExeL5\n\
+             VuNY-J_elq-HgJ_dZK6g7vMNvXz2_vT-SykIkzwiD9eSI9UWfsjw&quot;</span>,
+        <span class="string">&quot;e&quot;</span>:<span class="string">&quot;AQAB&quot;</span>,
+        <span class="string">&quot;d&quot;</span>:<span class="string">&quot;C6EGZYf9U6RI5Z0BBoSlwy_gKumVqRx-dBMuAfPM6KVbwIUuSJKT3ExeL5\n\
              P0Ky1b4p-j2S3u7Afnvrrj4HgVLnC1ks6rEOc2ne5DYQq8szST9FMutyul\n\
              csNUKLOM5cVromALPz3PAqE2OCLChTiQZ5XZ0AiH-KcG-3hKMa-g1MVnGW\n\
              -SSmm27XQwRtUtFQFfxDuL0E0fyA9O9ZFBV5201ledBaLdDcPBF8cHC53G\n\
              m5G6FRX3QVpoewm3yGk28Wze_YvNl8U3hvbxei2Koc_b9wMbFxvHseLQrx\n\
-             vFg_2byE2em8FrxJstxgN7qhMsYcAyw1qGJY-cYX-Ab_1bBCpdcQ"</span>,
-        <span class="string">"p"</span>:<span class="string">"_avCCyuo7hHlqu9Ec6R47ub_Ul_zNiS-xvkkuYwW-4lNnI66A5zMm_BOQV\n\
+             vFg_2byE2em8FrxJstxgN7qhMsYcAyw1qGJY-cYX-Ab_1bBCpdcQ&quot;</span>,
+        <span class="string">&quot;p&quot;</span>:<span class="string">&quot;_avCCyuo7hHlqu9Ec6R47ub_Ul_zNiS-xvkkuYwW-4lNnI66A5zMm_BOQV\n\
              MnaCkBua1OmOgx7e63-jHFvG5lyrhyYEmkA2CS3kMCrI-dx0fvNMLEXInP\n\
-             xd4np_7GUd1_XzPZEkPxBhqf09kqryHMj_uf7UtPcrJNvFY-GNrzlJk"</span>,
-        <span class="string">"q"</span>:<span class="string">"7gvYRkpqM-SC883KImmy66eLiUrGE6G6_7Y8BS9oD4HhXcZ4rW6JJKuBzm\n\
+             xd4np_7GUd1_XzPZEkPxBhqf09kqryHMj_uf7UtPcrJNvFY-GNrzlJk&quot;</span>,
+        <span class="string">&quot;q&quot;</span>:<span class="string">&quot;7gvYRkpqM-SC883KImmy66eLiUrGE6G6_7Y8BS9oD4HhXcZ4rW6JJKuBzm\n\
              7FlnsVhVGro9M-QQ_GSLaDoxOPQfHQq62ERt-y_lCzSsMeWHbqOMci_pbt\n\
-             vJknpMv4ifsQXKJ4Lnk_AlGr-5r5JR5rUHgPFzCk9dJt69ff3QhzG2c"</span>,
-        <span class="string">"dp"</span>:<span class="string">"ErP3OpudePAY3uGFSoF16Sde69PnOra62jDEZGnPx_v3nPNpA5sr-tNc8\n\
+             vJknpMv4ifsQXKJ4Lnk_AlGr-5r5JR5rUHgPFzCk9dJt69ff3QhzG2c&quot;</span>,
+        <span class="string">&quot;dp&quot;</span>:<span class="string">&quot;ErP3OpudePAY3uGFSoF16Sde69PnOra62jDEZGnPx_v3nPNpA5sr-tNc8\n\
               bQP074yQl5kzSFRjRlstyW0TpBVMP0ocbD8RsN4EKsgJ1jvaSIEoP87Ox\n\
-              duGkim49wFA0Qxf_NyrcYUnz6XSidY3lC_pF4JDJXg5bP_x0MUkQCTtQE"</span>,
-        <span class="string">"dq"</span>:<span class="string">"YbBsthPt15Pshb8rN8omyfy9D7-m4AGcKzqPERWuX8bORNyhQ5M8JtdXc\n\
+              duGkim49wFA0Qxf_NyrcYUnz6XSidY3lC_pF4JDJXg5bP_x0MUkQCTtQE&quot;</span>,
+        <span class="string">&quot;dq&quot;</span>:<span class="string">&quot;YbBsthPt15Pshb8rN8omyfy9D7-m4AGcKzqPERWuX8bORNyhQ5M8JtdXc\n\
               u8UmTez0j188cNMJgkiN07nYLIzNT3Wg822nhtJaoKVwZWnS2ipoFlgrB\n\
-              gmQiKcGU43lfB5e3qVVYUebYY0zRGBM1Fzetd6Yertl5Ae2g2CakQAcPs"</span>,
-        <span class="string">"qi"</span>:<span class="string">"lbljWyVY-DD_Zuii2ifAz0jrHTMvN-YS9l_zyYyA_Scnalw23fQf5WIcZ\n\
+              gmQiKcGU43lfB5e3qVVYUebYY0zRGBM1Fzetd6Yertl5Ae2g2CakQAcPs&quot;</span>,
+        <span class="string">&quot;qi&quot;</span>:<span class="string">&quot;lbljWyVY-DD_Zuii2ifAz0jrHTMvN-YS9l_zyYyA_Scnalw23fQf5WIcZ\n\
               ibxJJll5H0kNTIk8SCxyPzNShKGKjgpyZHsJBKgL3iAgmnwk6k8zrb_lq\n\
-              a0sd1QWSB-Rqiw7AqVqvNUdnIqhm-v3R8tYrxzAqkUsGcFbQYj4M5_F_4"</span>
+              a0sd1QWSB-Rqiw7AqVqvNUdnIqhm-v3R8tYrxzAqkUsGcFbQYj4M5_F_4&quot;</span>
       },
-      { <span class="string">'kid'</span>: <span class="string">'ras_key_2'</span>,
-        <span class="string">'kty'</span>: <span class="string">'RSA'</span>,
-        <span class="string">'privatePemKey'</span>: 
-          <span class="string">'-----BEGIN RSA PRIVATE KEY-----\n\
+      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;ras_key_2&#x27;</span>,
+        <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>,
+        <span class="string">&#x27;privatePemKey&#x27;</span>: 
+          <span class="string">&#x27;-----BEGIN RSA PRIVATE KEY-----\n\
           MIIEowIBAAKCAQEA6+FrFkt/TByQ/L5d7or+9PVAowpswxUe3dJeYFTY0Lgq7zKI\n\
           5OQ5RnSrI0T9yrfnRzE9oOdd4zmVj9txVLI+yySvinAu3yQDQou2Ga42ML/+K4Jr\n\
           d5clMUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5n6\n\
@@ -346,7 +346,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
           AHD7AoGBAJW5Y1slWPgw/2bootonwM9I6x0zLzfmEvZf88mMgP0nJ2pcNt30H+Vi\n\
           HGYm8SSZZeR9JDUyJPEgscj8zUoShio4KcmR7CQSoC94gIJp8JOpPM62/5amtLHd\n\
           UFkgfkaosOwKlarzVHZyKoZvr90fLWK8cwKpFLBnBW0GI+DOfxf+\n\
-          -----END RSA PRIVATE KEY-----\n'</span>;
+          -----END RSA PRIVATE KEY-----\n&#x27;</span>;
       }
   ]
 
@@ -354,22 +354,22 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 <h4 id="4-1-2-use-passport-authenticate-to-protect-routes">4.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
 <p>To complete the sample, provide a route that corresponds to the path 
 configuration parameter that is sent to the strategy:</p>
-<pre><code class="lang-javascript">
-app.get(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    log.info(<span class="string">'Login was called in the Sample'</span>);
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">
+app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    log.<span class="title function_">info</span>(<span class="string">&#x27;Login was called in the Sample&#x27;</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 
-<span class="function"><span class="keyword">function</span> <span class="title">regenerateSessionAfterAuthentication</span>(<span class="params">req, res, next</span>) </span>{
-  <span class="keyword">var</span> passportInstance = req.session.passport;
-  <span class="keyword">return</span> req.session.regenerate(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>)</span>{
+<span class="keyword">function</span> <span class="title function_">regenerateSessionAfterAuthentication</span>(<span class="params">req, res, next</span>) {
+  <span class="keyword">var</span> passportInstance = req.<span class="property">session</span>.<span class="property">passport</span>;
+  <span class="keyword">return</span> req.<span class="property">session</span>.<span class="title function_">regenerate</span>(<span class="keyword">function</span> (<span class="params">err</span>){
     <span class="keyword">if</span> (err) {
-      <span class="keyword">return</span> next(err);
+      <span class="keyword">return</span> <span class="title function_">next</span>(err);
     }
-    req.session.passport = passportInstance;
-    <span class="keyword">return</span> req.session.save(next);
+    req.<span class="property">session</span>.<span class="property">passport</span> = passportInstance;
+    <span class="keyword">return</span> req.<span class="property">session</span>.<span class="title function_">save</span>(next);
   });
 }
 
@@ -378,16 +378,16 @@ app.get(<span class="string">'/login'</span>,
 <span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
 <span class="comment">//   home page.  Otherwise, the primary route function function will be called,</span>
 <span class="comment">//   which, in this example, will redirect the user to the home page.</span>
-app.post(<span class="string">'/auth/openid/return'</span>,
-  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
+app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/openid/return&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span> }),
   regenerateSessionAfterAuthentication,
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{ 
-    res.redirect(<span class="string">'/'</span>);
+  <span class="keyword">function</span>(<span class="params">req, res</span>) { 
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 
-app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  req.logout();
-  res.redirect(<span class="string">'/'</span>);
+app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
+  req.<span class="title function_">logout</span>();
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 
 </code></pre>
@@ -419,64 +419,64 @@ the strategy.</p>
 </li>
 </ul>
 <p>Example:</p>
-<pre><code>  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">failureRedirect:</span> <span class="string">'/'</span>, <span class="string">session:</span> <span class="literal">false</span>, <span class="string">customState:</span> <span class="string">'my_state'</span>, <span class="string">resourceURL:</span> <span class="string">'https://graph.microsoft.com/mail.send'</span>});
+<pre><code>  passport.<span class="title function_ invoke__">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">session</span>: <span class="literal">false</span>, <span class="attr">customState</span>: <span class="string">&#x27;my_state&#x27;</span>, <span class="attr">resourceURL</span>: <span class="string">&#x27;https://graph.microsoft.com/mail.send&#x27;</span>});
 
-  passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { <span class="string">tenantIdOrName:</span> <span class="string">'contoso.onmicrosoft.com'</span> });
+  passport.<span class="title function_ invoke__">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">tenantIdOrName</span>: <span class="string">&#x27;contoso.onmicrosoft.com&#x27;</span> });
 </code></pre><h4 id="4-1-4-session-free-support">4.1.4 Session free support</h4>
 <p>Passport framework uses session to keep a persistent login session. As a plug in, we also use session to store state and nonce by default, regardless whether you use { session: false } option in passport.authenticate or not. To be completely session free, you must configure passport-azure-ad to create state/nonce cookie instead of saving them in session. Please follow the following example:</p>
-<pre><code>  passport.use(<span class="keyword">new</span> OIDCStrategy({
+<pre><code>  <span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">OIDCStrategy</span>({
     ...
-    nonceLifetime: <span class="number">600</span>,  <span class="comment">// state/nonce cookie expiration in seconds</span>
-    nonceMaxAmount: <span class="number">5</span>,   <span class="comment">// max amount of state/nonce cookie you want to keep (cookie is deleted after validation so this can be very small)</span>
-    useCookieInsteadOfSession: <span class="literal">true</span>,  <span class="comment">// use cookie, not session</span>
-    cookieEncryptionKeys: [ { key: <span class="string">'12345678901234567890123456789012'</span>, <span class="string">'iv'</span>: <span class="string">'123456789012'</span> }],  <span class="comment">// encrypt/decrypt key and iv, see `cookieEncryptionKeys` instruction in section 4.1.1.2</span>
+    <span class="attribute">nonceLifetime</span>: <span class="number">600</span>,  <span class="comment">// state/nonce cookie expiration in seconds</span>
+    <span class="attribute">nonceMaxAmount</span>: <span class="number">5</span>,   <span class="comment">// max amount of state/nonce cookie you want to keep (cookie is deleted after validation so this can be very small)</span>
+    <span class="attribute">useCookieInsteadOfSession</span>: true,  <span class="comment">// use cookie, not session</span>
+    <span class="attribute">cookieEncryptionKeys</span>: [ { <span class="attribute">key</span>: <span class="string">&#x27;12345678901234567890123456789012&#x27;</span>, <span class="string">&#x27;iv&#x27;</span>: <span class="string">&#x27;123456789012&#x27;</span> }],  <span class="comment">// encrypt/decrypt key and iv, see `cookieEncryptionKeys` instruction in section 4.1.1.2</span>
   },
     <span class="comment">// any supported verify callback</span>
-    <span class="function"><span class="keyword">function</span><span class="params">(iss, sub, profile, accessToken, refreshToken, done)</span> </span>{
+    <span class="built_in">function</span>(iss, sub, profile, accessToken, refreshToken, done) {
     ...
   });
 
-  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'azuread-openidconnect'</span>, { session: <span class="literal">false</span> }));
+  app.<span class="built_in">get</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attribute">session</span>: false }));
 
 </code></pre><h3 id="4-2-bearerstrategy">4.2 BearerStrategy</h3>
 <h4 id="4-2-1-configure-strategy-and-provide-callback-function">4.2.1 Configure strategy and provide callback function</h4>
 <h5 id="4-2-1-1-sample-using-the-bearerstrategy">4.2.1.1 Sample using the BearerStrategy</h5>
-<pre><code class="lang-javascript">
+<pre><code class="javascript">
 <span class="comment">// We pass these options in to the ODICBearerStrategy.</span>
 
 <span class="keyword">var</span> options = {
-  <span class="attr">identityMetadata</span>: config.creds.identityMetadata,
-  <span class="attr">clientID</span>: config.creds.clientID,
-  <span class="attr">validateIssuer</span>: config.creds.validateIssuer,
-  <span class="attr">issuer</span>: config.creds.issuer,
-  <span class="attr">passReqToCallback</span>: config.creds.passReqToCallback,
-  <span class="attr">isB2C</span>: config.creds.isB2C,
-  <span class="attr">policyName</span>: config.creds.policyName,
-  <span class="attr">allowMultiAudiencesInToken</span>: config.creds.allowMultiAudiencesInToken,
-  <span class="attr">audience</span>: config.creds.audience,
-  <span class="attr">loggingLevel</span>: config.creds.loggingLevel,
-  <span class="attr">loggingNoPII</span>: config.creds.loggingNoPII,
-  <span class="attr">clockSkew</span>: config.creds.clockSkew,
-  <span class="attr">scope</span>: config.creds.scope
+  <span class="attr">identityMetadata</span>: config.<span class="property">creds</span>.<span class="property">identityMetadata</span>,
+  <span class="attr">clientID</span>: config.<span class="property">creds</span>.<span class="property">clientID</span>,
+  <span class="attr">validateIssuer</span>: config.<span class="property">creds</span>.<span class="property">validateIssuer</span>,
+  <span class="attr">issuer</span>: config.<span class="property">creds</span>.<span class="property">issuer</span>,
+  <span class="attr">passReqToCallback</span>: config.<span class="property">creds</span>.<span class="property">passReqToCallback</span>,
+  <span class="attr">isB2C</span>: config.<span class="property">creds</span>.<span class="property">isB2C</span>,
+  <span class="attr">policyName</span>: config.<span class="property">creds</span>.<span class="property">policyName</span>,
+  <span class="attr">allowMultiAudiencesInToken</span>: config.<span class="property">creds</span>.<span class="property">allowMultiAudiencesInToken</span>,
+  <span class="attr">audience</span>: config.<span class="property">creds</span>.<span class="property">audience</span>,
+  <span class="attr">loggingLevel</span>: config.<span class="property">creds</span>.<span class="property">loggingLevel</span>,
+  <span class="attr">loggingNoPII</span>: config.<span class="property">creds</span>.<span class="property">loggingNoPII</span>,
+  <span class="attr">clockSkew</span>: config.<span class="property">creds</span>.<span class="property">clockSkew</span>,
+  <span class="attr">scope</span>: config.<span class="property">creds</span>.<span class="property">scope</span>
 };
 
-<span class="keyword">var</span> bearerStrategy = <span class="keyword">new</span> BearerStrategy(options,
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
-    log.info(<span class="string">'verifying the user'</span>);
-    log.info(token, <span class="string">'was the token retreived'</span>);
-    findById(token.oid, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+<span class="keyword">var</span> bearerStrategy = <span class="keyword">new</span> <span class="title class_">BearerStrategy</span>(options,
+  <span class="keyword">function</span>(<span class="params">token, done</span>) {
+    log.<span class="title function_">info</span>(<span class="string">&#x27;verifying the user&#x27;</span>);
+    log.<span class="title function_">info</span>(token, <span class="string">&#x27;was the token retreived&#x27;</span>);
+    <span class="title function_">findById</span>(token.<span class="property">oid</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
       <span class="keyword">if</span> (!user) {
-        <span class="comment">// "Auto-registration"</span>
-        log.info(<span class="string">'User was added automatically as they were new. Their oid is: '</span>, token.oid);
-        users.push(token);
-        owner = token.oid;
-        <span class="keyword">return</span> done(<span class="literal">null</span>, token);
+        <span class="comment">// &quot;Auto-registration&quot;</span>
+        log.<span class="title function_">info</span>(<span class="string">&#x27;User was added automatically as they were new. Their oid is: &#x27;</span>, token.<span class="property">oid</span>);
+        users.<span class="title function_">push</span>(token);
+        owner = token.<span class="property">oid</span>;
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, token);
       }
-      owner = token.oid;
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, token);
+      owner = token.<span class="property">oid</span>;
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, token);
     });
   }
 );
@@ -486,10 +486,10 @@ the strategy.</p>
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
 <ul>
-<li>v1 tenant-specific endpoint<pre><code>http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_name.onmicrosoft.<span class="keyword">com</span>/.well-known/openid-configuration
-http<span class="variable">s:</span>//login.microsoftonline.<span class="keyword">com</span>/your_tenant_guid/.well-known/openid-configuration
+<li>v1 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
+https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
 </code></pre></li>
-<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known<span class="regexp">/openid-configuration</span>
+<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
 </code></pre></li>
 <li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
 https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
@@ -543,12 +543,12 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </ul>
 <h5 id="4-2-1-3-verify-callback">4.2.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use the following verify callback</p>
-<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span></span>
+<pre><code>  <span class="keyword">function</span><span class="params">(token, done)</span>
 </code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use the following verify callback</p>
-<pre><code>  <span class="function"><span class="keyword">function</span><span class="params">(req, token, done)</span></span>
+<pre><code>  <span class="keyword">function</span><span class="params">(req, token, done)</span>
 </code></pre><h4 id="4-2-2-use-passport-authenticate-to-protect-resources-or-apis">4.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
 <p>In the following example, we are using passport to protect &#39;/api/tasks&#39;. User sends a GET request to &#39;/api/tasks&#39; with access_token in authorization header or body. Passport validates the access_token, adds the related claims from access_token to <code>req.user</code>, and passes the request to listTasks middleware. The listTasks middleware can then read the user information in <code>req.user</code> and list all the tasks related to this user. Note that we do authentication every time, so we don&#39;t need to keep this user in session, and this can be achieved  by using <code>session: false</code> option.</p>
-<pre><code class="lang-javascript">  server.get(<span class="string">'/api/tasks'</span>, passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
+<pre><code class="javascript">  server.<span class="title function_">get</span>(<span class="string">&#x27;/api/tasks&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth-bearer&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
 </code></pre>
 <h4 id="4-2-3-options-available-for-passport-authenticate">4.2.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
@@ -558,7 +558,7 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </li>
 </ul>
 <p>Example:</p>
-<pre><code>  passport.authenticate(<span class="string">'oauth-bearer'</span>, { <span class="string">session:</span> <span class="literal">false</span> });
+<pre><code>  passport.authenticate(<span class="string">&#x27;oauth-bearer&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> });
 </code></pre><h2 id="5-test">5. Test</h2>
 <p>In the library root folder, type the following command to install the dependency packages:</p>
 <pre><code>    $ npm <span class="keyword">install</span>
@@ -596,25 +596,25 @@ access token for the scope, and use BearerStrategy to validate the scope. Note f
 <p>For <code>thumbprint</code> and <code>privatePEMKey</code> parameters, you need to specify a certificate for your app and register the public key in Azure Active Directory. <code>thumbprint</code> is the base64url format of the thumbprint of the public key, and <code>privatePEMKey</code> is the private pem key string. For a v1 tenant, you can follow <a href="http://www.andrewconnell.com/blog/user-app-app-only-permissions-client-credentials-grant-flow-in-azure-ad-office-365-apis">this post</a> to generate a certificate and register the public key. For a v2 tenant, you can go to your application page in the <a href="https://apps.dev.microsoft.com">v2 portal</a> and click <code>Generate New Key Pair</code>. A certificate will be generated for you to download. The corresponding public key is automatically registered in this case.  </p>
 <h4 id="5-2-3-run-the-tests">5.2.3. Run the tests</h4>
 <p>Type the following commands to run the tests:</p>
-<pre><code>    <span class="variable">$ </span>cd test/End_to_end_test
-    <span class="variable">$ </span>npm install
-    <span class="variable">$ </span>npm install grunt -g
-    <span class="variable">$ </span>grunt run_tests_with_e2e
+<pre><code>    <span class="variable">$</span> <span class="built_in">cd</span> test/End_to_end_test
+    <span class="variable">$</span> npm install
+    <span class="variable">$</span> npm install grunt <span class="literal">-g</span>
+    <span class="variable">$</span> grunt run_tests_with_e2e
 </code></pre><p>Tests will run automatically and in the terminal you can see how many tests are passing/failing. More details can be found <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">here</a>.</p>
 <h2 id="6-logging">6. Logging</h2>
 <h4 id="personal-identifiable-information-pii-organizational-identifiable-information-oii-">Personal Identifiable Information (PII) &amp; Organizational Identifiable Information (OII)</h4>
 <p>By default, passport-azure-ad logging does not capture or log any PII or OII. The library allows app developers to turn this on by configuring <code>loggingNoPII</code> in the config options. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.</p>
-<pre><code class="lang-javascript"><span class="comment">//PII or OII logging disabled. Default Logger does not capture any PII or OII.</span>
+<pre><code class="javascript"><span class="comment">//PII or OII logging disabled. Default Logger does not capture any PII or OII.</span>
 <span class="keyword">var</span> options = {
   ...
-  loggingNoPII: <span class="literal">true</span>,
+  <span class="attr">loggingNoPII</span>: <span class="literal">true</span>,
   ...
 };
 
 <span class="comment">//PII or OII logging enabled</span>
 <span class="keyword">var</span> options = {
   ...
-  loggingNoPII: <span class="literal">false</span>,
+  <span class="attr">loggingNoPII</span>: <span class="literal">false</span>,
   ...
 };
 </code></pre>
@@ -664,14 +664,14 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">4.3.3</span> published <abbr class="updated" title="2022-06-23T12:18:39Z">a month ago</abbr></li>
+              <li><span class="version">4.3.5</span> published <abbr class="updated" title="2023-04-10T22:40:35Z">3 months ago</abbr></li>
               <li><a class="url" href="https://github.com/AzureAD/microsoft-authentication-library-for-js">https://github.com/AzureAD/microsoft-authentication-library-for-js#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>15,644</b> downloads in the last day</li>
-              <li><b>77,119</b> downloads in the last week</li>
-              <li><b>323,948</b> downloads in the last month</li>
+              <li><b>21,376</b> downloads in the last day</li>
+              <li><b>107,392</b> downloads in the last week</li>
+              <li><b>559,574</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

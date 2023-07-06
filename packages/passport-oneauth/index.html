@@ -101,7 +101,7 @@ By plugging into Passport, Oneauth authentication can be integrated into any app
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-oneauth
+<pre><code class="bash">$ npm install passport-oneauth
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
@@ -118,17 +118,17 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 GitHub profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> OneauthStrategy = <span class="built_in">require</span>(<span class="string">'passport-oneauth'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">OneauthStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-oneauth&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> OneauthStrategy({
-    <span class="attr">clientID</span>: ONEAUTH_CLIENT_ID,
-    <span class="attr">clientSecret</span>: ONEAUTH_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/oneauth/callback"</span>,
-    <span class="attr">include</span> : [<span class="string">"facebook"</span>,<span class="string">"twitter"</span>,<span class="string">"github"</span>,<span class="string">"lms"</span>]
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OneauthStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">ONEAUTH_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">ONEAUTH_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/oneauth/callback&quot;</span>,
+    include : [<span class="string">&quot;facebook&quot;</span>,<span class="string">&quot;twitter&quot;</span>,<span class="string">&quot;github&quot;</span>,<span class="string">&quot;lms&quot;</span>]
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">oneauthId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">oneauthId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -138,14 +138,14 @@ passport.use(<span class="keyword">new</span> OneauthStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/oneauth'</span>,
-  passport.authenticate(<span class="string">'oneauth'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/oneauth&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oneauth&#x27;</span>));
 
-app.get(<span class="string">'/auth/oneauth/callback'</span>,
-  passport.authenticate(<span class="string">'oneauth'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/oneauth/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oneauth&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -159,14 +159,14 @@ corresponding references to Oneauth.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oneauth</span></code></div>
             <ul>
-              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2022-05-12T15:52:11Z">2 months ago</abbr></li>
+              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2022-05-12T15:52:11Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/coding-blocks/passport-oneauth">https://github.com/coding-blocks/passport-oneauth#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>26</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

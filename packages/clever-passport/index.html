@@ -103,25 +103,25 @@
 <p>To use this module, you will need a <a href="https://apps.clever.com/signup">Clever Developer Account</a> . Then create an application and retrieve/fill out the following: clientID, clientSecret, and redirect URIs (enter your redirect URIs).</p>
 <h4 id="configuration">Configuration</h4>
 <p>Initialize the strategy as follows:</p>
-<pre><code class="lang-js"><span class="keyword">const</span> CleverStrategy = <span class="built_in">require</span>(<span class="string">'clever-passport'</span>).Strategy;
-passport.use(<span class="keyword">new</span> CleverStrategy({
-    <span class="attr">clientID</span>: <span class="string">"&lt;client id&gt;"</span>,
-    <span class="attr">clientSecret</span>: <span class="string">"&lt;client secret&gt;"</span>,
-    <span class="attr">callbackURL</span>: <span class="string">"&lt;callback url&gt;"</span>,
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">CleverStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;clever-passport&#x27;</span>).<span class="property">Strategy</span>;
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">CleverStrategy</span>({
+    <span class="attr">clientID</span>: <span class="string">&quot;&lt;client id&gt;&quot;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&quot;&lt;client secret&gt;&quot;</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;&lt;callback url&gt;&quot;</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">cleverId</span>: profile.data.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-        <span class="keyword">return</span> done(err, user);
+}, <span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">cleverId</span>: profile.<span class="property">data</span>.<span class="property">id</span> }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
 }}));
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code> to authunicate the requests.</p>
 <p>For example, you could implement it with <a href="http://expressjs.com/">Express</a> like this:</p>
-<pre><code class="lang-js">app.get(<span class="string">"/login"</span>, passport.authenticate(<span class="string">"clever"</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;clever&quot;</span>));
 
-app.get(<span class="string">"/callback"</span>, passport.authenticate(<span class="string">"clever"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/login"</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">"/"</span>); <span class="comment">//redirect on successful authentication</span>
+app.<span class="title function_">get</span>(<span class="string">&quot;/callback&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;clever&quot;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&quot;/login&quot;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>); <span class="comment">//redirect on successful authentication</span>
 });
 </code></pre>
 <h2 id="disclaimer">Disclaimer</h2>
@@ -130,14 +130,14 @@ app.get(<span class="string">"/callback"</span>, passport.authenticate(<span cla
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">clever-passport</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-04-04T22:06:08Z">4 months ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-04-04T22:06:08Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/milanmdev/clever-passport">https://github.com/milanmdev/clever-passport#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>24</b> downloads in the last month</li>
+              <li><b>20</b> downloads in the last day</li>
+              <li><b>80</b> downloads in the last week</li>
+              <li><b>250</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

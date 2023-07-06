@@ -112,10 +112,10 @@ these credentials and calls <code>done</code> providing a user, as well as <code
 specifying a client ID, client secret, and callback URL.</p>
 <pre><code>passport.use(<span class="built_in">new</span> TaobaoStrategy({
     sandbox: <span class="keyword">true</span>, // <span class="keyword">set</span> <span class="keyword">true</span> <span class="keyword">to</span> use taobao sandbox environment, <span class="keyword">default</span> <span class="keyword">false</span>
-    profile: <span class="string">'seller'</span>, // <span class="keyword">set</span> <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">user</span> profile <span class="keyword">as</span> seller, <span class="keyword">default</span> <span class="string">'buyer'</span>
+    profile: <span class="string">&#x27;seller&#x27;</span>, // <span class="keyword">set</span> <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">user</span> profile <span class="keyword">as</span> seller, <span class="keyword">default</span> <span class="string">&#x27;buyer&#x27;</span>
     clientID: client_id,
     clientSecret: client_secret,
-    callbackURL: "http://127.0.0.1:3000/auth/taobao/callback"
+    callbackURL: &quot;http://127.0.0.1:3000/auth/taobao/callback&quot;
   },
   <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
     <span class="keyword">User</span>.findOrCreate({ taobaoId: profile.id }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
@@ -128,18 +128,18 @@ specifying a client ID, client secret, and callback URL.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/taobao'</span>,
-  passport.authenticate(<span class="string">'taobao'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/taobao&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;taobao&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to taobao for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/taobao/callback'</span>,
-  passport.authenticate(<span class="string">'taobao'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/taobao/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;taobao&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="license">License</h2>
 <p>(The MIT License)</p>
@@ -147,14 +147,14 @@ app.get(<span class="string">'/auth/taobao/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-taobao2</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:34Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:34Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/richarddzh/passport-taobao">https://github.com/richarddzh/passport-taobao</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

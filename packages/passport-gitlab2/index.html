@@ -110,7 +110,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-gitlab2
+<pre><code class="bash">$ npm install passport-gitlab2
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>Passport-GitLab requires GitLab 9.0.0 or higher to work. Before using the OAuth2
@@ -127,14 +127,14 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 GitLab profile. The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> GitLabStrategy({
-    <span class="attr">clientID</span>: GITLAB_APP_ID,
-    <span class="attr">clientSecret</span>: GITLAB_APP_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/gitlab/callback"</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">GitLabStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">GITLAB_APP_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">GITLAB_APP_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/gitlab/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({<span class="attr">gitlabId</span>: profile.id}, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({<span class="attr">gitlabId</span>: profile.<span class="property">id</span>}, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -144,15 +144,15 @@ complete authentication.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/gitlab'</span>, passport.authenticate(<span class="string">'gitlab'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/gitlab&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;gitlab&#x27;</span>));
 
-app.get(<span class="string">'/auth/gitlab/callback'</span>,
-  passport.authenticate(<span class="string">'gitlab'</span>, {
-    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/gitlab/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;gitlab&#x27;</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
   }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="faq">FAQ</h2>
@@ -160,11 +160,11 @@ app.get(<span class="string">'/auth/gitlab/callback'</span>,
 <p>Passport-GitLab automatically uses <a href="http://gitlab.com/">GitLab.com</a> as
 authentication endpoint when not configured otherwise. You can use the <code>baseURL</code>
 parameter to point to any other GitLab instance as following:</p>
-<pre><code class="lang-js"><span class="keyword">new</span> GitLabStrategy({
-  <span class="attr">clientID</span>: GITLAB_APP_ID,
-  <span class="attr">clientSecret</span>: GITLAB_APP_SECRET,
-  <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/gitlab/callback"</span>,
-  <span class="attr">baseURL</span>: <span class="string">"https://gitlab.example.com/"</span>
+<pre><code class="js"><span class="keyword">new</span> <span class="title class_">GitLabStrategy</span>({
+  <span class="attr">clientID</span>: <span class="variable constant_">GITLAB_APP_ID</span>,
+  <span class="attr">clientSecret</span>: <span class="variable constant_">GITLAB_APP_SECRET</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/gitlab/callback&quot;</span>,
+  <span class="attr">baseURL</span>: <span class="string">&quot;https://gitlab.example.com/&quot;</span>
 }), ...)
 </code></pre>
 <p>All URLs (e.g. token-url, authorization-url, profile-url) are automatically
@@ -174,9 +174,9 @@ URLs manually if needed.</p>
 <p>GitLab supports multiple scopes at the moment like <code>read_user</code> and <code>api</code>.
 By default, the <code>read_user</code> scope is used. Changing the OAuth2 scope to
 <code>api</code> works as following:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/gitlab'</span>,
-  passport.authenticate(<span class="string">'gitlab'</span>, {
-    <span class="attr">scope</span>: [<span class="string">'api'</span>]
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/gitlab&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;gitlab&#x27;</span>, {
+    <span class="attr">scope</span>: [<span class="string">&#x27;api&#x27;</span>]
   }));
 </code></pre>
 <p>More information can be found in the <a href="https://docs.gitlab.com/ce/integration/oauth_provider.html#authorized-applications">official GitLab documentation</a>.</p>
@@ -190,35 +190,35 @@ and enforces it using <a href="http://jscs.info/">JSCS</a> as additional linter 
 <a href="http://jshint.com/">JSHint</a>. These measures ensuring a high level of code
 quality and easy maintainability of it. You can test if your changes comply
 with the code style by executing:</p>
-<pre><code class="lang-bash">$ make lint
+<pre><code class="bash">$ make lint
 </code></pre>
 <h4 id="tests">Tests</h4>
 <p>The test suite is located in the <code>test/</code> directory. All new features are
 expected to have corresponding test cases. Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>The test suite covers 100% of the code base. All new feature development is
 expected to maintain that level. Coverage reports can be viewed by executing:</p>
-<pre><code class="lang-bash">$ make coverage-view
+<pre><code class="bash">$ make coverage-view
 </code></pre>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2016-2019 Fabio Huser <a href="mailto:&#102;&#97;&#98;&#x69;&#111;&#64;&#x66;&#x68;&#x31;&#x2e;&#x63;&#x68;">&#102;&#97;&#98;&#x69;&#111;&#64;&#x66;&#x68;&#x31;&#x2e;&#x63;&#x68;</a></p>
+<p>Copyright (c) 2016-2019 Fabio Huser <a href="mailto:&#x66;&#x61;&#98;&#x69;&#x6f;&#x40;&#x66;&#x68;&#x31;&#x2e;&#x63;&#104;">&#x66;&#x61;&#98;&#x69;&#x6f;&#x40;&#x66;&#x68;&#x31;&#x2e;&#x63;&#104;</a></p>
 <p>Copyright (c) 2011-2016 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-gitlab2</span></code></div>
             <ul>
-              <li><span class="version">5.0.0</span> published <abbr class="updated" title="2022-06-23T12:39:45Z">a month ago</abbr></li>
+              <li><span class="version">5.0.0</span> published <abbr class="updated" title="2022-06-23T12:39:45Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/fh1ch/passport-gitlab2">https://github.com/fh1ch/passport-gitlab2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>5,690</b> downloads in the last day</li>
-              <li><b>27,967</b> downloads in the last week</li>
-              <li><b>114,723</b> downloads in the last month</li>
+              <li><b>7,543</b> downloads in the last day</li>
+              <li><b>32,389</b> downloads in the last week</li>
+              <li><b>156,356</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

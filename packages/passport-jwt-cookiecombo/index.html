@@ -105,28 +105,28 @@ the user comes from the token. You just use <code>req.user</code> in your action
 <h2 id="install">Install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt-cookiecombo
 </code></pre><h2 id="tl-dr">TL;DR</h2>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Configure Strategy</span>
 <span class="comment">// =============================================================================</span>
-<span class="keyword">var</span> JwtCookieComboStrategy = <span class="built_in">require</span>(<span class="string">'passport-jwt-cookiecombo'</span>);
+<span class="keyword">var</span> <span class="title class_">JwtCookieComboStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-jwt-cookiecombo&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> JwtCookieComboStrategy({
-    <span class="attr">secretOrPublicKey</span>: <span class="string">'StRoNGs3crE7'</span>
-}, (payload, done) =&gt; {
-    <span class="keyword">return</span> done(<span class="literal">null</span>, payload.user);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JwtCookieComboStrategy</span>({
+    <span class="attr">secretOrPublicKey</span>: <span class="string">&#x27;StRoNGs3crE7&#x27;</span>
+}, <span class="function">(<span class="params">payload, done</span>) =&gt;</span> {
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, payload.<span class="property">user</span>);
 }));
 </code></pre>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Sign Token</span>
 <span class="comment">// =============================================================================</span>
-<span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>);
+<span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>);
 
-router.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'local'</span>), (req, res) =&gt; {
-    jwt.sign({ <span class="attr">user</span>: req.user }, <span class="string">'StRoNGs3crE7'</span>, (err, token) =&gt; {
-        <span class="keyword">if</span> (err) <span class="keyword">return</span> res.json(err);
+router.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>), <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
+    jwt.<span class="title function_">sign</span>({ <span class="attr">user</span>: req.<span class="property">user</span> }, <span class="string">&#x27;StRoNGs3crE7&#x27;</span>, <span class="function">(<span class="params">err, token</span>) =&gt;</span> {
+        <span class="keyword">if</span> (err) <span class="keyword">return</span> res.<span class="title function_">json</span>(err);
 
         <span class="comment">// Send Set-Cookie header</span>
-        res.cookie(<span class="string">'jwt'</span>, token, {
+        res.<span class="title function_">cookie</span>(<span class="string">&#x27;jwt&#x27;</span>, token, {
             <span class="attr">httpOnly</span>: <span class="literal">true</span>,
             <span class="attr">sameSite</span>: <span class="literal">true</span>,
             <span class="attr">signed</span>: <span class="literal">true</span>,
@@ -134,99 +134,99 @@ router.post(<span class="string">'/login'</span>, passport.authenticate(<span cl
         });
 
         <span class="comment">// Return json web token</span>
-        <span class="keyword">return</span> res.json({
+        <span class="keyword">return</span> res.<span class="title function_">json</span>({
             <span class="attr">jwt</span>: token
         });
     });
 });
 </code></pre>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Authenticate Requests</span>
 <span class="comment">// =============================================================================</span>
-<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 
-app.use(<span class="string">'/api/v1'</span>, passport.authenticate(<span class="string">'jwt-cookiecombo'</span>, {
+app.<span class="title function_">use</span>(<span class="string">&#x27;/api/v1&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;jwt-cookiecombo&#x27;</span>, {
     <span class="attr">session</span>: <span class="literal">false</span>
-}), (req, res, next) =&gt; {
-    <span class="keyword">return</span> next();
+}), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
+    <span class="keyword">return</span> <span class="title function_">next</span>();
 });
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="sample-login-with-set-cookie">Sample Login with Set-Cookie</h3>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Dependencies</span>
 <span class="comment">// =============================================================================</span>
-<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
-<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>);
-<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>);
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>);
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 </code></pre>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Express App inits cookie with a secret</span>
 <span class="comment">// =============================================================================</span>
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 <span class="comment">// Pass a secret to sign the secured http cookie</span>
-app.use(cookieParser(config.jwt.secret));
+app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>(config.<span class="property">jwt</span>.<span class="property">secret</span>));
 </code></pre>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Login route with any Passport authentication strategy</span>
 <span class="comment">// =============================================================================</span>
 <span class="comment">// Passport provides us the authenticated user in the request</span>
-router.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'local'</span>, {
+router.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, {
     <span class="attr">session</span>: <span class="literal">false</span>
-}), (req, res) =&gt; {
+}), <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
     <span class="comment">// Create and sign json web token with the user as payload</span>
-    jwt.sign({
-        <span class="attr">user</span>: req.user
-    }, config.jwt.secret, config.jwt.options, (err, token) =&gt; {
-        <span class="keyword">if</span> (err) <span class="keyword">return</span> res.status(<span class="number">500</span>).json(err);
+    jwt.<span class="title function_">sign</span>({
+        <span class="attr">user</span>: req.<span class="property">user</span>
+    }, config.<span class="property">jwt</span>.<span class="property">secret</span>, config.<span class="property">jwt</span>.<span class="property">options</span>, <span class="function">(<span class="params">err, token</span>) =&gt;</span> {
+        <span class="keyword">if</span> (err) <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">500</span>).<span class="title function_">json</span>(err);
 
         <span class="comment">// Send the Set-Cookie header with the jwt to the client</span>
-        res.cookie(<span class="string">'jwt'</span>, token, config.jwt.cookie);
+        res.<span class="title function_">cookie</span>(<span class="string">&#x27;jwt&#x27;</span>, token, config.<span class="property">jwt</span>.<span class="property">cookie</span>);
 
         <span class="comment">// Response json with the jwt</span>
-        <span class="keyword">return</span> res.json({
+        <span class="keyword">return</span> res.<span class="title function_">json</span>({
             <span class="attr">jwt</span>: token
         });
     });
 });
 </code></pre>
-<pre><code class="lang-javascript"><span class="comment">// =============================================================================</span>
+<pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Sample Passport Authentication where the user is set for the jwt payload</span>
 <span class="comment">// =============================================================================</span>
-passport.use(<span class="keyword">new</span> LocalStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>({
     <span class="comment">// My users have only email</span>
-    <span class="attr">usernameField</span>: <span class="string">'email'</span>,
+    <span class="attr">usernameField</span>: <span class="string">&#x27;email&#x27;</span>,
     <span class="attr">session</span>: <span class="literal">false</span>
-}, (username, password, done) =&gt; {
-    User.findOne({
+}, <span class="function">(<span class="params">username, password, done</span>) =&gt;</span> {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({
         <span class="attr">email</span>: username
     })
     <span class="comment">// Explicitly select the password when the model hides it</span>
-    .select(<span class="string">'password role'</span>).exec(<span class="function">(<span class="params">err, user</span>) =&gt;</span> {
-        <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err);
+    .<span class="title function_">select</span>(<span class="string">&#x27;password role&#x27;</span>).<span class="title function_">exec</span>(<span class="function">(<span class="params">err, user</span>) =&gt;</span> {
+        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">done</span>(err);
 
         <span class="comment">// Copy the user w/o the password into a new object</span>
-        <span class="keyword">if</span> (user &amp;&amp; user.verifyPassword(password)) <span class="keyword">return</span> done(<span class="literal">null</span>, {
-            <span class="attr">id</span>: user._id,
-            <span class="attr">role</span>: user.role
+        <span class="keyword">if</span> (user &amp;&amp; user.<span class="title function_">verifyPassword</span>(password)) <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, {
+            <span class="attr">id</span>: user.<span class="property">_id</span>,
+            <span class="attr">role</span>: user.<span class="property">role</span>
         });
 
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
     });
 }));
 </code></pre>
 <h3 id="jwt-cookie-combo-passport-strategy">JWT Cookie Combo Passport Strategy</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> JwtCookieComboStrategy = <span class="built_in">require</span>(<span class="string">'passport-jwt-cookiecombo'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">JwtCookieComboStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-jwt-cookiecombo&#x27;</span>);
 
 <span class="comment">// Authenticate API calls with the Cookie Combo Strategy</span>
-passport.use(<span class="keyword">new</span> JwtCookieComboStrategy({
-    <span class="attr">secretOrPublicKey</span>: config.jwt.secret,
-    <span class="attr">jwtVerifyOptions</span>: config.jwt.options,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JwtCookieComboStrategy</span>({
+    <span class="attr">secretOrPublicKey</span>: config.<span class="property">jwt</span>.<span class="property">secret</span>,
+    <span class="attr">jwtVerifyOptions</span>: config.<span class="property">jwt</span>.<span class="property">options</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">false</span>
-}, (payload, done) =&gt; {
-    <span class="keyword">return</span> done(<span class="literal">null</span>, payload.user, {});
+}, <span class="function">(<span class="params">payload, done</span>) =&gt;</span> {
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, payload.<span class="property">user</span>, {});
 }));
 </code></pre>
 <p>The following possible options for a JsonWebToken will be directly passed on to <a href="https://github.com/auth0/node-jsonwebtoken/blob/master/README.md#jwtverifytoken-secretorpublickey-options-callback">jsonwebtoken.verify</a>.</p>
@@ -244,20 +244,20 @@ encoded public key for RSA and ECDSA.</p>
 </ul>
 <p><code>}</code></p>
 <h3 id="jwt-cookie-combo-global-api-routes-protection">JWT Cookie Combo global API routes protection</h3>
-<pre><code class="lang-javascript">app.use(<span class="string">'/api/v1'</span>, passport.authenticate(<span class="string">'jwt-cookiecombo'</span>, {
+<pre><code class="javascript">app.<span class="title function_">use</span>(<span class="string">&#x27;/api/v1&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;jwt-cookiecombo&#x27;</span>, {
     <span class="attr">session</span>: <span class="literal">false</span>
-}), (req, res, next) =&gt; {
-    <span class="keyword">return</span> next();
+}), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
+    <span class="keyword">return</span> <span class="title function_">next</span>();
 });
 </code></pre>
 <h3 id="sample-config">Sample Config</h3>
-<pre><code class="lang-javascript"><span class="built_in">module</span>.exports = {
+<pre><code class="javascript"><span class="variable language_">module</span>.<span class="property">exports</span> = {
     <span class="attr">jwt</span>: {
-        <span class="attr">secret</span>: process.env.JWT_SECRET || <span class="string">'SetStrongSecretInDotEnv'</span>,
+        <span class="attr">secret</span>: process.<span class="property">env</span>.<span class="property">JWT_SECRET</span> || <span class="string">&#x27;SetStrongSecretInDotEnv&#x27;</span>,
         <span class="attr">options</span>: {
-            <span class="attr">audience</span>: <span class="string">'https://example.io'</span>,
-            <span class="attr">expiresIn</span>: <span class="string">'12h'</span>, <span class="comment">// 1d</span>
-            <span class="attr">issuer</span>: <span class="string">'example.io'</span>
+            <span class="attr">audience</span>: <span class="string">&#x27;https://example.io&#x27;</span>,
+            <span class="attr">expiresIn</span>: <span class="string">&#x27;12h&#x27;</span>, <span class="comment">// 1d</span>
+            <span class="attr">issuer</span>: <span class="string">&#x27;example.io&#x27;</span>
         },
         <span class="attr">cookie</span>: {
             <span class="attr">httpOnly</span>: <span class="literal">true</span>,
@@ -285,27 +285,27 @@ encoded public key for RSA and ECDSA.</p>
 </table>
 <h3 id="sample-token">Sample Token</h3>
 <h5 id="header-algorithm-token-type">HEADER: ALGORITHM &amp; TOKEN TYPE</h5>
-<pre><code class="lang-javascript">{
-    <span class="string">"alg"</span>: <span class="string">"HS256"</span>,
-    <span class="string">"typ"</span>: <span class="string">"JWT"</span>
+<pre><code class="javascript">{
+    <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,
+    <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>
 }
 </code></pre>
 <h5 id="payload-data">PAYLOAD: DATA</h5>
-<pre><code class="lang-javascript">{
-    <span class="string">"user"</span>: {
-        <span class="string">"id"</span>: <span class="string">"577839eeddde013794ae2332"</span>,
-        <span class="string">"role"</span>: <span class="string">"admin"</span>
+<pre><code class="javascript">{
+    <span class="string">&quot;user&quot;</span>: {
+        <span class="string">&quot;id&quot;</span>: <span class="string">&quot;577839eeddde013794ae2332&quot;</span>,
+        <span class="string">&quot;role&quot;</span>: <span class="string">&quot;admin&quot;</span>
     },
-    <span class="string">"iat"</span>: <span class="number">1468340405</span>,
-    <span class="string">"exp"</span>: <span class="number">1468383605</span>,
-    <span class="string">"aud"</span>: <span class="string">"https://example.io"</span>,
-    <span class="string">"iss"</span>: <span class="string">"example.io"</span>
+    <span class="string">&quot;iat&quot;</span>: <span class="number">1468340405</span>,
+    <span class="string">&quot;exp&quot;</span>: <span class="number">1468383605</span>,
+    <span class="string">&quot;aud&quot;</span>: <span class="string">&quot;https://example.io&quot;</span>,
+    <span class="string">&quot;iss&quot;</span>: <span class="string">&quot;example.io&quot;</span>
 }
 </code></pre>
 <h5 id="verify-signature">VERIFY SIGNATURE</h5>
-<pre><code class="lang-javascript">HMACSHA256 (
-  base64UrlEncode(header) + <span class="string">"."</span> +
-  base64UrlEncode(payload),
+<pre><code class="javascript"><span class="title class_">HMACSHA256</span> (
+  <span class="title function_">base64UrlEncode</span>(header) + <span class="string">&quot;.&quot;</span> +
+  <span class="title function_">base64UrlEncode</span>(payload),
   secret
 )
 </code></pre>
@@ -317,14 +317,14 @@ encoded public key for RSA and ECDSA.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-jwt-cookiecombo</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T12:52:27Z">a month ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T12:52:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/codebarista/passport-jwt-cookiecombo">https://github.com/codebarista/passport-jwt-cookiecombo#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>213</b> downloads in the last day</li>
-              <li><b>1,328</b> downloads in the last week</li>
-              <li><b>7,288</b> downloads in the last month</li>
+              <li><b>279</b> downloads in the last day</li>
+              <li><b>962</b> downloads in the last week</li>
+              <li><b>6,226</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

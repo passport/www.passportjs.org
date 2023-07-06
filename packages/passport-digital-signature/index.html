@@ -102,13 +102,13 @@
 <p>The local authentication strategy authenticates users using a publicKey and a
 signature field provided in the request. The strategy requires a <code>verify</code> callback,
 which accepts these a credentials object and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js">    passport.use(<span class="keyword">new</span> DigitalSignatureStrategy(
-      <span class="function"><span class="keyword">function</span>(<span class="params">credentials, done</span>) </span>{
-        User.findOne({ <span class="attr">sin</span>: credentials.sin }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-          <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-          <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-          <span class="keyword">if</span> (!user.verifyPassword(password)) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-          <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+<pre><code class="js">    passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DigitalSignatureStrategy</span>(
+      <span class="keyword">function</span>(<span class="params">credentials, done</span>) {
+        <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">sin</span>: credentials.<span class="property">sin</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+          <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+          <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+          <span class="keyword">if</span> (!user.<span class="title function_">verifyPassword</span>(password)) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+          <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
         });
       }
     ));
@@ -118,10 +118,10 @@ which accepts these a credentials object and calls <code>done</code> providing a
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">    app.post(<span class="string">'/login'</span>,
-      passport.authenticate(<span class="string">'digital-signature'</span>),
-      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">    app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;digital-signature&#x27;</span>),
+      <span class="keyword">function</span>(<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
       });
 </code></pre>
 <h2 id="see-also">See Also</h2>
@@ -156,13 +156,13 @@ THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-digital-signature</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:28:51Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:28:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/johnhenry/passport-digital-signature">https://github.com/johnhenry/passport-digital-signature</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

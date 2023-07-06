@@ -100,54 +100,54 @@
 <p>The module works almost identically except that the <code>verify</code> function is passed the <code>ActiveDirectory</code> object as a parameter so that you can use the query functions included in <a href="https://github.com/gheeres/node-activedirectory"><code>activedirectory</code></a> during verification. This is useful when using nested AD groups where you want to identify if a user is a member of a root level group.</p>
 <h3 id="example">Example</h3>
 <h4 id="setup">Setup</h4>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-<span class="keyword">var</span> ActiveDirectoryStrategy = <span class="built_in">require</span>(<span class="string">'passport-activedirectory'</span>)
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+<span class="keyword">var</span> <span class="title class_">ActiveDirectoryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-activedirectory&#x27;</span>)
 
-passport.use(<span class="keyword">new</span> ActiveDirectoryStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ActiveDirectoryStrategy</span>({
   <span class="attr">integrated</span>: <span class="literal">false</span>,
   <span class="attr">ldap</span>: {
-    <span class="attr">url</span>: <span class="string">'ldap://my.domain.com'</span>,
-    <span class="attr">baseDN</span>: <span class="string">'DC=my,DC=domain,DC=com'</span>,
-    <span class="attr">username</span>: <span class="string">'readuser@my.domain.com'</span>,
-    <span class="attr">password</span>: <span class="string">'readuserspassword'</span>
+    <span class="attr">url</span>: <span class="string">&#x27;ldap://my.domain.com&#x27;</span>,
+    <span class="attr">baseDN</span>: <span class="string">&#x27;DC=my,DC=domain,DC=com&#x27;</span>,
+    <span class="attr">username</span>: <span class="string">&#x27;readuser@my.domain.com&#x27;</span>,
+    <span class="attr">password</span>: <span class="string">&#x27;readuserspassword&#x27;</span>
   }
-}, <span class="function"><span class="keyword">function</span> (<span class="params">profile, ad, done</span>) </span>{
-  ad.isUserMemberOf(profile._json.dn, <span class="string">'AccessGroup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, isMember</span>) </span>{
-    <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err)
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile)
+}, <span class="keyword">function</span> (<span class="params">profile, ad, done</span>) {
+  ad.<span class="title function_">isUserMemberOf</span>(profile.<span class="property">_json</span>.<span class="property">dn</span>, <span class="string">&#x27;AccessGroup&#x27;</span>, <span class="keyword">function</span> (<span class="params">err, isMember</span>) {
+    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">done</span>(err)
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile)
   })
 }))
 </code></pre>
 <h4 id="protecting-a-path">Protecting a path</h4>
-<pre><code class="lang-js"><span class="keyword">var</span> opts = { <span class="attr">failWithError</span>: <span class="literal">true</span> }
-app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'ActiveDirectory'</span>, opts), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-  res.json(req.user)
-}, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
-  res.status(<span class="number">401</span>).send(<span class="string">'Not Authenticated'</span>)
+<pre><code class="js"><span class="keyword">var</span> opts = { <span class="attr">failWithError</span>: <span class="literal">true</span> }
+app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ActiveDirectory&#x27;</span>, opts), <span class="keyword">function</span>(<span class="params">req, res</span>) {
+  res.<span class="title function_">json</span>(req.<span class="property">user</span>)
+}, <span class="keyword">function</span> (<span class="params">err</span>) {
+  res.<span class="title function_">status</span>(<span class="number">401</span>).<span class="title function_">send</span>(<span class="string">&#x27;Not Authenticated&#x27;</span>)
 })
 
 <span class="comment">// example request</span>
-<span class="comment">// &gt; curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","password":"xyz"}' http://localhost/login</span>
+<span class="comment">// &gt; curl -H &quot;Content-Type: application/json&quot; -X POST -d &#x27;{&quot;username&quot;:&quot;xyz&quot;,&quot;password&quot;:&quot;xyz&quot;}&#x27; http://localhost/login</span>
 </code></pre>
 <h4 id="optionally-reuse-an-existing-instance-of-activedirectory">Optionally reuse an existing instance of <code>activedirectory</code></h4>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-<span class="keyword">var</span> ActiveDirectoryStrategy = <span class="built_in">require</span>(<span class="string">'passport-activedirectory'</span>)
-<span class="keyword">var</span> ActiveDirectory = <span class="built_in">require</span>(<span class="string">'activedirectory'</span>)
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+<span class="keyword">var</span> <span class="title class_">ActiveDirectoryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-activedirectory&#x27;</span>)
+<span class="keyword">var</span> <span class="title class_">ActiveDirectory</span> = <span class="built_in">require</span>(<span class="string">&#x27;activedirectory&#x27;</span>)
 
-<span class="keyword">var</span> ad = <span class="keyword">new</span> ActiveDirectory({
-  <span class="attr">url</span>: <span class="string">'ldap://my.domain.com'</span>,
-  <span class="attr">baseDN</span>: <span class="string">'DC=my,DC=domain,DC=com'</span>,
-  <span class="attr">username</span>: <span class="string">'readuser@my.domain.com'</span>,
-  <span class="attr">password</span>: <span class="string">'readuserspassword'</span>
+<span class="keyword">var</span> ad = <span class="keyword">new</span> <span class="title class_">ActiveDirectory</span>({
+  <span class="attr">url</span>: <span class="string">&#x27;ldap://my.domain.com&#x27;</span>,
+  <span class="attr">baseDN</span>: <span class="string">&#x27;DC=my,DC=domain,DC=com&#x27;</span>,
+  <span class="attr">username</span>: <span class="string">&#x27;readuser@my.domain.com&#x27;</span>,
+  <span class="attr">password</span>: <span class="string">&#x27;readuserspassword&#x27;</span>
 })
 
-passport.use(<span class="keyword">new</span> ActiveDirectoryStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ActiveDirectoryStrategy</span>({
   <span class="attr">integrated</span>: <span class="literal">false</span>,
   <span class="attr">ldap</span>: ad
-}, <span class="function"><span class="keyword">function</span> (<span class="params">profile, ad, done</span>) </span>{
-  ad.isUserMemberOf(profile._json.dn, <span class="string">'AccessGroup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, isMember</span>) </span>{
-    <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err)
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile)
+}, <span class="keyword">function</span> (<span class="params">profile, ad, done</span>) {
+  ad.<span class="title function_">isUserMemberOf</span>(profile.<span class="property">_json</span>.<span class="property">dn</span>, <span class="string">&#x27;AccessGroup&#x27;</span>, <span class="keyword">function</span> (<span class="params">err, isMember</span>) {
+    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">done</span>(err)
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile)
   })
 }))
 </code></pre>
@@ -198,14 +198,14 @@ passport.use(<span class="keyword">new</span> ActiveDirectoryStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-activedirectory</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T12:12:56Z">a month ago</abbr></li>
+              <li><span class="version">1.4.0</span> published <abbr class="updated" title="2023-03-01T16:42:06Z">4 months ago</abbr></li>
               <li><a class="url" href="https://github.com/bhoriuchi/passport-activedirectory">https://github.com/bhoriuchi/passport-activedirectory#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>323</b> downloads in the last day</li>
-              <li><b>2,085</b> downloads in the last week</li>
-              <li><b>8,597</b> downloads in the last month</li>
+              <li><b>418</b> downloads in the last day</li>
+              <li><b>2,463</b> downloads in the last week</li>
+              <li><b>11,776</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

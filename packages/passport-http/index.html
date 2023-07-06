@@ -123,8 +123,8 @@ authenticate requests.  Requests containing an &#39;Authorization&#39; header do
 require session support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>, 
-  passport.authenticate(<span class="string">'basic'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/private&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;basic&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>);
   });
@@ -140,7 +140,7 @@ does not match that contained in the request.</p>
 <p>The strategy also accepts an optional <code>validate</code> callback, which receives
 nonce-related <code>params</code> that can be further inspected to determine if the request
 is valid.</p>
-<pre><code>passport.use(<span class="built_in">new</span> DigestStrategy({ qop: <span class="string">'auth'</span> },
+<pre><code>passport.use(<span class="built_in">new</span> DigestStrategy({ qop: <span class="string">&#x27;auth&#x27;</span> },
   <span class="keyword">function</span>(username, done) {
     <span class="keyword">User</span>.findOne({ username: username }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
@@ -159,16 +159,16 @@ authenticate requests.  Requests containing an &#39;Authorization&#39; header do
 require session support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>, 
-  passport.authenticate(<span class="string">'digest'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/private&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;digest&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h4 id="examples">Examples</h4>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-http/tree/master/examples/digest">Digest example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-http"><img src="https://secure.travis-ci.org/jaredhanson/passport-http.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -181,13 +181,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http</span></code></div>
             <ul>
-              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T12:45:33Z">a month ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T12:45:33Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-http">https://github.com/jaredhanson/passport-http</a></li>
             </ul>
             <ul>
-              <li><b>18,990</b> downloads in the last day</li>
-              <li><b>97,317</b> downloads in the last week</li>
-              <li><b>434,486</b> downloads in the last month</li>
+              <li><b>22,661</b> downloads in the last day</li>
+              <li><b>107,062</b> downloads in the last week</li>
+              <li><b>527,822</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

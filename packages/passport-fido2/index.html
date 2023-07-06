@@ -100,31 +100,31 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-fido2
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
-<pre><code>passport.use(<span class="keyword">new</span> Fido2Strategy({
+<pre><code>passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">Fido2Strategy</span>({
   <span class="attr">readProfile</span>: <span class="function">(<span class="params">id, callback</span>) =&gt;</span> {
-    fs.readFile(<span class="string">`./keys/<span class="subst">${id}</span>.profile`</span>, (err, data) =&gt; {
-      <span class="keyword">if</span>(err) <span class="keyword">return</span> callback(err, <span class="literal">null</span>, <span class="literal">null</span>);
-      <span class="keyword">try</span> { data = <span class="built_in">JSON</span>.parse(data); } <span class="keyword">catch</span>(e) { <span class="keyword">return</span> callback(e, <span class="literal">null</span>, <span class="literal">null</span>); }
-      callback(<span class="literal">null</span>, data.key, data.profile);
+    fs.<span class="title function_">readFile</span>(<span class="string">`./keys/<span class="subst">${id}</span>.profile`</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> {
+      <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="title function_">callback</span>(err, <span class="literal">null</span>, <span class="literal">null</span>);
+      <span class="keyword">try</span> { data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data); } <span class="keyword">catch</span>(e) { <span class="keyword">return</span> <span class="title function_">callback</span>(e, <span class="literal">null</span>, <span class="literal">null</span>); }
+      <span class="title function_">callback</span>(<span class="literal">null</span>, data.<span class="property">key</span>, data.<span class="property">profile</span>);
     });
   }
 },
-<span class="function"><span class="keyword">function</span>(<span class="params">id, profile, done</span>)</span>{
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+<span class="keyword">function</span>(<span class="params">id, profile, done</span>){
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>){
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   });
 });
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/fido2'</span>,
-  passport.authenticate(<span class="string">'fido2'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/fido2&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;fido2&#x27;</span>));
 
-app.get(<span class="string">'/auth/line/callback'</span>,
-  passport.authenticate(<span class="string">'fido2'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">successRedirect</span>: <span class="string">'/'</span> }));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/line/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;fido2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span> }));
 
 </code></pre>
 <h3 id="generate-challenge">Generate challenge</h3>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/fido2/challenge'</span>,
-  (req, res) =&gt; res.send(Fido2Strategy.challenge(<span class="string">'hmac-secret'</span>)));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/fido2/challenge&#x27;</span>,
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">send</span>(<span class="title class_">Fido2Strategy</span>.<span class="title function_">challenge</span>(<span class="string">&#x27;hmac-secret&#x27;</span>)));
 
 </code></pre>
 <h2 id="options">Options</h2>
@@ -151,13 +151,13 @@ app.get(<span class="string">'/auth/line/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-fido2</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:36:57Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:36:57Z">a year ago</abbr></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

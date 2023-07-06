@@ -104,11 +104,11 @@ unobtrusively integrated into any application or framework that supports
 <h2 id="install">Install</h2>
 <pre><code>$ npm install pass<span class="keyword">port</span>-myusa
 </code></pre><h4 id="development-install">Development Install</h4>
-<pre><code><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com:Innovation-Toolkit/passport-myusa.git</span>
-<span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> passport-myusa</span>
-<span class="meta">$</span><span class="bash"> sudo npm link</span>
-change to your project's directory
-<span class="meta">$</span><span class="bash"> npm link passport-myusa</span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> git://github.com:Innovation-Toolkit/passport-myusa.git</span>
+<span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> passport-myusa</span>
+<span class="meta prompt_">$ </span><span class="language-bash">sudo npm <span class="built_in">link</span></span>
+change to your project&#x27;s directory
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">link</span> passport-myusa</span>
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The MyUSA authentication strategy authenticates users using an MyUSA
@@ -117,14 +117,14 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
 <p>Note that the <code>callbackURL</code> must match <strong>exactly</strong> the callback registered
 for your application at <a href="https://my.usa.gov/apps">MyUSA</a>.</p>
-<pre><code>passport.use(<span class="keyword">new</span> MyUSAStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MyUSAStrategy({
     clientID: MYUSA_CLIENT_ID,
     clientSecret: MYUSA_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/myusa/callback"</span>
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/myusa/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ myusaId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ myusaId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -135,21 +135,21 @@ authenticate requests.  Set the requested scope, such as <code>profile</code>,
 in the optional parameters during the authenticate phase.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/myusa'</span>,
-  passport.authenticate(<span class="string">'myusa'</span>, { <span class="attribute">scope</span>: [<span class="string">'profile.email'</span>] }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/myusa&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;myusa&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;profile.email&#x27;</span>] }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/myusa/callback'</span>, 
-  passport.authenticate(<span class="string">'myusa'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/myusa/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;myusa&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/Innovation-Toolkit/passport-myusa/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
 <p><a href="https://travis-ci.org/Innovation-Toolkit/passport-myusa"><img src="https://travis-ci.org/Innovation-Toolkit/passport-myusa.png?branch=master" alt="Build Status"></a> <a href="https://gemnasium.com/Innovation-Toolkit/passport-myusa"><img src="https://gemnasium.com/Innovation-Toolkit/passport-myusa.png" alt="Dependency Status"></a></p>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="notes-on-myusa-authentication">Notes on MyUSA Authentication</h2>
 <p>Register your application with <a href="https://my.usa.gov/apps">MyUSA</a> and save your Client ID and Secret.  Select the scopes that your application requires. Valid scopes are:</p>
 <ul>
@@ -180,8 +180,8 @@ application:</p>
 <p>The REST API for profile information is <code>https://my.usa.gov/api/profile</code></p>
 <p>All API calls, including GET requests, must include the <code>Authorization: Bearer &lt;token&gt;</code> HTTP header. MyUSA does <strong>not</strong> support GET requests with the authorization token specified using a query string.</p>
 <p>An example using <a href="https://github.com/ciaranj/node-oauth">node-oauth</a>:</p>
-<pre><code><span class="keyword">var</span> OAuth2 = require(<span class="string">'oauth'</span>).OAuth2;
-<span class="keyword">var</span> oauth = <span class="keyword">new</span> <span class="type">OAuth2</span>(CLIENT_ID, CLIENT_SECRET, <span class="string">''</span>,
+<pre><code><span class="keyword">var</span> OAuth2 = require(<span class="string">&#x27;oauth&#x27;</span>).OAuth2;
+<span class="keyword">var</span> oauth = <span class="keyword">new</span> <span class="type">OAuth2</span>(CLIENT_ID, CLIENT_SECRET, <span class="string">&#x27;&#x27;</span>,
     AUTHORIZATION_URL, TOKEN_URL, <span class="literal">null</span>);
 <span class="comment">// Use authorization headers for GET, not query string</span>
 oauth.useAuthorizationHeaderforGET(<span class="literal">true</span>);
@@ -199,13 +199,13 @@ oauth2.<span class="keyword">get</span>(PROFILE_URL, ACCESS_TOKEN, <span class="
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-myusa</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:05:09Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:05:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Innovation-Toolkit/passport-myusa">https://github.com/Innovation-Toolkit/passport-myusa</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

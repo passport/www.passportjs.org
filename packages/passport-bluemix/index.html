@@ -107,33 +107,33 @@ Manage your client configurations in <a href="https://idaas.ng.bluemix.net/idaas
 this strategy requires a <code>verify</code> callback which can be used to create/verify an user in your
 application. Calling <code>done(null, profile)</code> will save user profile from IBM to the current passport session.
 You can also write anything to the passport session, for example <code>user</code>.</p>
-<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-, BlueMixOAuth2Strategy = <span class="built_in">require</span>(<span class="string">'passport-bluemix'</span>).BlueMixOAuth2Strategy;
+<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+, BlueMixOAuth2Strategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-bluemix&#x27;</span>).BlueMixOAuth2Strategy;
 
-passport.use(<span class="string">'bluemix'</span>, <span class="keyword">new</span> BlueMixOAuth2Strategy({
-    <span class="attr">authorizationURL</span> : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/authorize'</span>,
-    <span class="attr">tokenURL</span> : <span class="string">'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/token'</span>,
-    <span class="attr">clientID</span> : <span class="string">'your_app_client_id'</span>,
-    <span class="attr">scope</span>: <span class="string">'profile'</span>,
-    <span class="attr">grant_type</span>: <span class="string">'authorization_code'</span>,
-    <span class="attr">clientSecret</span> : <span class="string">'your_app_client_secret'</span>,
-    <span class="attr">callbackURL</span> : <span class="string">'your_callback_url'</span>,
-    <span class="attr">profileURL</span>: <span class="string">'https://idaas.ng.bluemix.net/idaas/resources/profile.jsp'</span>
+passport.<span class="keyword">use</span>(<span class="string">&#x27;bluemix&#x27;</span>, <span class="keyword">new</span> <span class="title class_">BlueMixOAuth2Strategy</span>({
+    authorizationURL : <span class="string">&#x27;https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/authorize&#x27;</span>,
+    tokenURL : <span class="string">&#x27;https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/token&#x27;</span>,
+    clientID : <span class="string">&#x27;your_app_client_id&#x27;</span>,
+    scope: <span class="string">&#x27;profile&#x27;</span>,
+    grant_type: <span class="string">&#x27;authorization_code&#x27;</span>,
+    clientSecret : <span class="string">&#x27;your_app_client_secret&#x27;</span>,
+    callbackURL : <span class="string">&#x27;your_callback_url&#x27;</span>,
+    profileURL: <span class="string">&#x27;https://idaas.ng.bluemix.net/idaas/resources/profile.jsp&#x27;</span>
 }, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     ... <span class="comment">//find or create new user</span>
-    <span class="keyword">return</span> done(<span class="literal">null</span>, ...);
+    <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, ...);
 }));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;bluemix&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/ibm'</span>, passport.authenticate(<span class="string">'bluemix'</span>, {requestedAuthnPolicy: <span class="string">'http://www.ibm.com/idaas/authnpolicy/basic'</span>}));
-app.get(<span class="string">'/auth/ibm/callback'</span>, 
-        passport.authenticate(<span class="string">'bluemix'</span>),
-        <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ibm&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;bluemix&#x27;</span>, {<span class="attribute">requestedAuthnPolicy</span>: <span class="string">&#x27;http://www.ibm.com/idaas/authnpolicy/basic&#x27;</span>}));
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ibm/callback&#x27;</span>, 
+        passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;bluemix&#x27;</span>),
+        <span class="built_in">function</span>(req, res) {
         <span class="comment">// Successful authentication, redirect home.</span>
-        res.redirect(<span class="string">'/'</span>);
+        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -146,13 +146,13 @@ app.get(<span class="string">'/auth/ibm/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bluemix</span></code></div>
             <ul>
-              <li><span class="version">0.1.2-b</span> published <abbr class="updated" title="2022-06-23T12:20:51Z">a month ago</abbr></li>
+              <li><span class="version">0.1.2-b</span> published <abbr class="updated" title="2022-06-23T12:20:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/m1nhhoang/passport-bluemix">https://github.com/m1nhhoang/passport-bluemix</a></li>
             </ul>
             <ul>
-              <li><b>49</b> downloads in the last day</li>
-              <li><b>269</b> downloads in the last week</li>
-              <li><b>875</b> downloads in the last month</li>
+              <li><b>65</b> downloads in the last day</li>
+              <li><b>435</b> downloads in the last week</li>
+              <li><b>1,373</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

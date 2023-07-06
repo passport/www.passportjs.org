@@ -109,41 +109,41 @@ unobtrusively integrated into any application or framework that supports
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The strategy accepts a callback which is called after the user has been authenticated. The
 profile and OAuth credentials can be saved or mapped to a user record.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> GooglePlusStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-plus'</span>);
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">GooglePlusStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-google-plus&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> GooglePlusStrategy({
-    <span class="attr">clientId</span>: <span class="string">'YOUR_CLIENT_ID'</span>,
-    <span class="attr">clientSecret</span>: <span class="string">'YOUR_CLIENT_SECRET'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">GooglePlusStrategy</span>({
+    <span class="attr">clientId</span>: <span class="string">&#x27;YOUR_CLIENT_ID&#x27;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&#x27;YOUR_CLIENT_SECRET&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">tokens, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">tokens, profile, done</span>) {
     <span class="comment">// Create or update user, call done() when complete...</span>
-    done(<span class="literal">null</span>, profile, tokens);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile, tokens);
   }
 ));
 </code></pre>
 <h4 id="configure-google-sign-in-button">Configure Google+ Sign-In Button</h4>
-<pre><code class="lang-html"><span class="comment">&lt;!-- Add where you want your sign-in button to render --&gt;</span>
-<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"signinButton"</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"g-signin"</span>
-    <span class="attr">data-scope</span>=<span class="string">"https://www.googleapis.com/auth/plus.login"</span>
-    <span class="attr">data-clientid</span>=<span class="string">"YOUR_CLIENT_ID"</span>
-    <span class="attr">data-redirecturi</span>=<span class="string">"postmessage"</span>
-    <span class="attr">data-accesstype</span>=<span class="string">"offline"</span>
-    <span class="attr">data-cookiepolicy</span>=<span class="string">"single_host_origin"</span>
-    <span class="attr">data-callback</span>=<span class="string">"signInCallback"</span>&gt;</span>
+<pre><code class="html"><span class="comment">&lt;!-- Add where you want your sign-in button to render --&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;signinButton&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;g-signin&quot;</span>
+    <span class="attr">data-scope</span>=<span class="string">&quot;https://www.googleapis.com/auth/plus.login&quot;</span>
+    <span class="attr">data-clientid</span>=<span class="string">&quot;YOUR_CLIENT_ID&quot;</span>
+    <span class="attr">data-redirecturi</span>=<span class="string">&quot;postmessage&quot;</span>
+    <span class="attr">data-accesstype</span>=<span class="string">&quot;offline&quot;</span>
+    <span class="attr">data-cookiepolicy</span>=<span class="string">&quot;single_host_origin&quot;</span>
+    <span class="attr">data-callback</span>=<span class="string">&quot;signInCallback&quot;</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">span</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;result&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
 <h4 id="handle-the-callback-forward-the-authorization-code">Handle the callback &amp; forward the authorization code</h4>
-<pre><code class="lang-js"><span class="function"><span class="keyword">function</span> <span class="title">signInCallback</span>(<span class="params">authResult</span>) </span>{
-  <span class="keyword">if</span> (authResult.code) {
-    $.post(<span class="string">'/auth/google/callback'</span>, { <span class="attr">code</span>: authResult.code})
-    .done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
-      $(<span class="string">'#signinButton'</span>).hide();
+<pre><code class="js"><span class="keyword">function</span> <span class="title function_">signInCallback</span>(<span class="params">authResult</span>) {
+  <span class="keyword">if</span> (authResult.<span class="property">code</span>) {
+    $.<span class="title function_">post</span>(<span class="string">&#x27;/auth/google/callback&#x27;</span>, { <span class="attr">code</span>: authResult.<span class="property">code</span>})
+    .<span class="title function_">done</span>(<span class="keyword">function</span>(<span class="params">data</span>) {
+      $(<span class="string">&#x27;#signinButton&#x27;</span>).<span class="title function_">hide</span>();
     }); 
-  } <span class="keyword">else</span> <span class="keyword">if</span> (authResult.error) {
-    <span class="built_in">console</span>.log(<span class="string">'There was an error: '</span> + authResult.error);
+  } <span class="keyword">else</span> <span class="keyword">if</span> (authResult.<span class="property">error</span>) {
+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;There was an error: &#x27;</span> + authResult.<span class="property">error</span>);
   }
 };
 </code></pre>
@@ -152,9 +152,9 @@ passport.use(<span class="keyword">new</span> GooglePlusStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/auth/google/callback'</span>, passport.authenticate(<span class="string">'google'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/google/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>), <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Return user back to client</span>
-    res.send(req.user);
+    res.<span class="title function_">send</span>(req.<span class="property">user</span>);
 });
 </code></pre>
 <h2 id="usage-for-web-client-side-flow">Usage for <a href="https://developers.google.com/+/web/signin/#using_the_client-side_flow">Web Client-Side Flow</a></h2>
@@ -163,41 +163,41 @@ data is limited to public information.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The strategy accepts a callback which is called after the user has been authenticated. The
 profile and OAuth credentials can be saved or mapped to a user record.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> GooglePlusStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-plus'</span>);
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">GooglePlusStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-google-plus&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> GooglePlusStrategy({
-    <span class="attr">clientId</span>: <span class="string">'YOUR_CLIENT_ID'</span>,
-    <span class="attr">apiKey</span>: <span class="string">'YOUR_API_KEY'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">GooglePlusStrategy</span>({
+    <span class="attr">clientId</span>: <span class="string">&#x27;YOUR_CLIENT_ID&#x27;</span>,
+    <span class="attr">apiKey</span>: <span class="string">&#x27;YOUR_API_KEY&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">tokens, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">tokens, profile, done</span>) {
     <span class="comment">// Create or update user, call done() when complete...</span>
-    done(<span class="literal">null</span>, profile, tokens);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile, tokens);
   }
 ));
 </code></pre>
 <h4 id="configure-google-sign-in-button">Configure Google+ Sign-In Button</h4>
-<pre><code class="lang-html"><span class="comment">&lt;!-- Add where you want your sign-in button to render --&gt;</span>
-<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"signinButton"</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"g-signin"</span>
-    <span class="attr">data-scope</span>=<span class="string">"https://www.googleapis.com/auth/plus.login"</span>
-    <span class="attr">data-clientid</span>=<span class="string">"YOUR_CLIENT_ID"</span>
-    <span class="attr">data-redirecturi</span>=<span class="string">"postmessage"</span>
-    <span class="attr">data-accesstype</span>=<span class="string">"online"</span>
-    <span class="attr">data-cookiepolicy</span>=<span class="string">"single_host_origin"</span>
-    <span class="attr">data-callback</span>=<span class="string">"signInCallback"</span>&gt;</span>
+<pre><code class="html"><span class="comment">&lt;!-- Add where you want your sign-in button to render --&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;signinButton&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;g-signin&quot;</span>
+    <span class="attr">data-scope</span>=<span class="string">&quot;https://www.googleapis.com/auth/plus.login&quot;</span>
+    <span class="attr">data-clientid</span>=<span class="string">&quot;YOUR_CLIENT_ID&quot;</span>
+    <span class="attr">data-redirecturi</span>=<span class="string">&quot;postmessage&quot;</span>
+    <span class="attr">data-accesstype</span>=<span class="string">&quot;online&quot;</span>
+    <span class="attr">data-cookiepolicy</span>=<span class="string">&quot;single_host_origin&quot;</span>
+    <span class="attr">data-callback</span>=<span class="string">&quot;signInCallback&quot;</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">span</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;result&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
 <h4 id="handle-the-callback-forward-the-identity-token">Handle the callback &amp; forward the identity token</h4>
-<pre><code class="lang-js"><span class="function"><span class="keyword">function</span> <span class="title">signInCallback</span>(<span class="params">authResult</span>) </span>{
-  <span class="keyword">if</span> (authResult.code) {
-    $.post(<span class="string">'/auth/google/callback'</span>, { <span class="attr">id_token</span>: authResult.id_token})
-    .done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
-      $(<span class="string">'#signinButton'</span>).hide();
+<pre><code class="js"><span class="keyword">function</span> <span class="title function_">signInCallback</span>(<span class="params">authResult</span>) {
+  <span class="keyword">if</span> (authResult.<span class="property">code</span>) {
+    $.<span class="title function_">post</span>(<span class="string">&#x27;/auth/google/callback&#x27;</span>, { <span class="attr">id_token</span>: authResult.<span class="property">id_token</span>})
+    .<span class="title function_">done</span>(<span class="keyword">function</span>(<span class="params">data</span>) {
+      $(<span class="string">&#x27;#signinButton&#x27;</span>).<span class="title function_">hide</span>();
     }); 
-  } <span class="keyword">else</span> <span class="keyword">if</span> (authResult.error) {
-    <span class="built_in">console</span>.log(<span class="string">'There was an error: '</span> + authResult.error);
+  } <span class="keyword">else</span> <span class="keyword">if</span> (authResult.<span class="property">error</span>) {
+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;There was an error: &#x27;</span> + authResult.<span class="property">error</span>);
   }
 };
 </code></pre>
@@ -205,14 +205,14 @@ passport.use(<span class="keyword">new</span> GooglePlusStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-plus</span></code></div>
             <ul>
-              <li><span class="version">0.5.1</span> published <abbr class="updated" title="2022-06-23T12:42:15Z">a month ago</abbr></li>
+              <li><span class="version">0.5.1</span> published <abbr class="updated" title="2022-06-23T12:42:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/sqrrrl/passport-google-plus">https://github.com/sqrrrl/passport-google-plus</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>49</b> downloads in the last day</li>
-              <li><b>283</b> downloads in the last week</li>
-              <li><b>1,222</b> downloads in the last month</li>
+              <li><b>43</b> downloads in the last day</li>
+              <li><b>198</b> downloads in the last week</li>
+              <li><b>1,142</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

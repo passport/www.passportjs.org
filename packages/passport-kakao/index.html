@@ -96,7 +96,7 @@
           <div class="description"><h1 id="passport-kakao">passport-kakao</h1>
 <p>kakao oauth2 로그인과 passport 모듈 연결체.</p>
 <h2 id="install">install</h2>
-<pre><code class="lang-sh">npm install passport-kakao
+<pre><code class="sh">npm install passport-kakao
 </code></pre>
 <h2 id="how-to-use">how to use</h2>
 <ul>
@@ -109,19 +109,19 @@
 <blockquote>
 <p>clientSecret을 활성화 한 경우 해당 파라메터를 같이 넘겨줘야한다.</p>
 </blockquote>
-<pre><code class="lang-javascript"><span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-<span class="keyword">const</span> KakaoStrategy = <span class="built_in">require</span>(<span class="string">'passport-kakao'</span>).Strategy
+<pre><code class="javascript"><span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+<span class="keyword">const</span> <span class="title class_">KakaoStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-kakao&#x27;</span>).<span class="property">Strategy</span>
 
-passport.use(<span class="keyword">new</span> KakaoStrategy({
-    <span class="attr">clientID</span> : clientID,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">KakaoStrategy</span>({
+    clientID : clientID,
     <span class="attr">clientSecret</span>: clientSecret, <span class="comment">// clientSecret을 사용하지 않는다면 넘기지 말거나 빈 스트링을 넘길 것</span>
-    <span class="attr">callbackURL</span> : callbackURL
+    callbackURL : callbackURL
   },
-  (accessToken, refreshToken, profile, done) =&gt; {
+  <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
     <span class="comment">// 사용자의 정보는 profile에 들어있다.</span>
-    User.findOrCreate(..., (err, user) =&gt; {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err) }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user)
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err) }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user)
     })
   }
 ))
@@ -212,57 +212,57 @@ npm install
 <p>(1) <strong>mean.io app을 생성</strong> 한다. (ex : mean init kakaoTest)</p>
 <p>(2) 해당 모듈을 연동할 mean.io app에 설치한다.(npm install passport-kakao --save)</p>
 <p>(3) <strong>server/config/env/development.js</strong> 와 <strong>production.js</strong> 에 kakao 관련 설정을 아래와 같이 추가한다.</p>
-<pre><code class="lang-javascript"><span class="meta">'use strict'</span>
+<pre><code class="javascript"><span class="meta">&#x27;use strict&#x27;</span>
 
-<span class="built_in">module</span>.exports = {
-  <span class="attr">db</span>: <span class="string">'mongodb'</span>,
+<span class="variable language_">module</span>.<span class="property">exports</span> = {
+  <span class="attr">db</span>: <span class="string">&#x27;mongodb&#x27;</span>,
   <span class="attr">app</span>: {
-    <span class="attr">name</span>: <span class="string">'passport-kakao'</span>,
+    <span class="attr">name</span>: <span class="string">&#x27;passport-kakao&#x27;</span>,
   },
   <span class="comment">// 그외 설정들....,</span>
   <span class="attr">kakao</span>: {
-    <span class="attr">clientID</span>: <span class="string">'kakao app rest api key'</span>,
-    <span class="attr">callbackURL</span>: <span class="string">'http://localhost:3000/oauth'</span>,
+    <span class="attr">clientID</span>: <span class="string">&#x27;kakao app rest api key&#x27;</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://localhost:3000/oauth&#x27;</span>,
   },
 }
 </code></pre>
 <p>(4) <strong>server/config/models/users.js</strong> 의 사용자 스키마 정의에 <strong>kakao: {}</strong> 를 추가한다.</p>
 <p>(5) <strong>server/config/passport.js</strong> 파일에 아래 구문을 추가한다.</p>
-<pre><code class="lang-javascript"><span class="comment">// 최상단 require되는 구문에 추가</span>
-<span class="keyword">var</span> KakaoStrategy = <span class="built_in">require</span>(<span class="string">'passport-kakao'</span>).Strategy
+<pre><code class="javascript"><span class="comment">// 최상단 require되는 구문에 추가</span>
+<span class="keyword">var</span> <span class="title class_">KakaoStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-kakao&#x27;</span>).<span class="property">Strategy</span>
 
-passport.use(
-  <span class="keyword">new</span> KakaoStrategy(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">KakaoStrategy</span>(
     {
-      <span class="attr">clientID</span>: config.kakao.clientID,
-      <span class="attr">callbackURL</span>: config.kakao.callbackURL,
+      <span class="attr">clientID</span>: config.<span class="property">kakao</span>.<span class="property">clientID</span>,
+      <span class="attr">callbackURL</span>: config.<span class="property">kakao</span>.<span class="property">callbackURL</span>,
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-      User.findOne(
+    <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+      <span class="title class_">User</span>.<span class="title function_">findOne</span>(
         {
-          <span class="string">'kakao.id'</span>: profile.id,
+          <span class="string">&#x27;kakao.id&#x27;</span>: profile.<span class="property">id</span>,
         },
-        <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+        <span class="keyword">function</span>(<span class="params">err, user</span>) {
           <span class="keyword">if</span> (err) {
-            <span class="keyword">return</span> done(err)
+            <span class="keyword">return</span> <span class="title function_">done</span>(err)
           }
           <span class="keyword">if</span> (!user) {
-            user = <span class="keyword">new</span> User({
-              <span class="attr">name</span>: profile.username,
-              <span class="attr">username</span>: profile.id,
-              <span class="attr">roles</span>: [<span class="string">'authenticated'</span>],
-              <span class="attr">provider</span>: <span class="string">'kakao'</span>,
-              <span class="attr">kakao</span>: profile._json,
+            user = <span class="keyword">new</span> <span class="title class_">User</span>({
+              <span class="attr">name</span>: profile.<span class="property">username</span>,
+              <span class="attr">username</span>: profile.<span class="property">id</span>,
+              <span class="attr">roles</span>: [<span class="string">&#x27;authenticated&#x27;</span>],
+              <span class="attr">provider</span>: <span class="string">&#x27;kakao&#x27;</span>,
+              <span class="attr">kakao</span>: profile.<span class="property">_json</span>,
             })
 
-            user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+            user.<span class="title function_">save</span>(<span class="keyword">function</span>(<span class="params">err</span>) {
               <span class="keyword">if</span> (err) {
-                <span class="built_in">console</span>.log(err)
+                <span class="variable language_">console</span>.<span class="title function_">log</span>(err)
               }
-              <span class="keyword">return</span> done(err, user)
+              <span class="keyword">return</span> <span class="title function_">done</span>(err, user)
             })
           } <span class="keyword">else</span> {
-            <span class="keyword">return</span> done(err, user)
+            <span class="keyword">return</span> <span class="title function_">done</span>(err, user)
           }
         }
       )
@@ -271,43 +271,43 @@ passport.use(
 )
 </code></pre>
 <p>(6) <strong>server/routes/users.js</strong> 에 아래와 같은 구문을 추가한다.</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">'/auth/kakao'</span>,
-  passport.authenticate(<span class="string">'kakao'</span>, {
-    <span class="attr">failureRedirect</span>: <span class="string">'#!/login'</span>,
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/kakao&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;kakao&#x27;</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;#!/login&#x27;</span>,
   }),
-  users.signin
+  users.<span class="property">signin</span>
 )
 
-app.get(
-  <span class="string">'/oauth'</span>,
-  passport.authenticate(<span class="string">'kakao'</span>, {
-    <span class="attr">failureRedirect</span>: <span class="string">'#!/login'</span>,
+app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/oauth&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;kakao&#x27;</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;#!/login&#x27;</span>,
   }),
-  users.authCallback
+  users.<span class="property">authCallback</span>
 )
 </code></pre>
 <p>(7) <strong>public/auth/views/index.html</strong> 에 kakao login을 연결한다.</p>
-<pre><code class="lang-html"><span class="comment">&lt;!-- 아래는 예시 --&gt;</span>
+<pre><code class="html"><span class="comment">&lt;!-- 아래는 예시 --&gt;</span>
 <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-offset-1 col-md-5"</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/facebook"</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/public/auth/assets/img/icons/facebook.png"</span> /&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-offset-1 col-md-5&quot;</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/facebook&quot;</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/public/auth/assets/img/icons/facebook.png&quot;</span> /&gt;</span>
       <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/twitter"</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/public/auth/assets/img/icons/twitter.png"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/twitter&quot;</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/public/auth/assets/img/icons/twitter.png&quot;</span> /&gt;</span>
       <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 
       <span class="comment">&lt;!-- kakao login --&gt;</span>
-      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/kakao"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/kakao&quot;</span>&gt;</span>
         <span class="tag">&lt;<span class="name">img</span>
-          <span class="attr">src</span>=<span class="string">"https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"</span>
+          <span class="attr">src</span>=<span class="string">&quot;https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png&quot;</span>
         /&gt;</span>
       <span class="tag">&lt;/<span class="name">a</span>&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-6&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
@@ -319,14 +319,14 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kakao</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:52:52Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:52:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/rotoshine/passport-kakao">https://github.com/rotoshine/passport-kakao#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>454</b> downloads in the last day</li>
-              <li><b>2,023</b> downloads in the last week</li>
-              <li><b>7,441</b> downloads in the last month</li>
+              <li><b>885</b> downloads in the last day</li>
+              <li><b>3,300</b> downloads in the last week</li>
+              <li><b>12,347</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

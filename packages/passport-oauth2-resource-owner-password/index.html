@@ -99,7 +99,7 @@
 request body, as <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-27#section-1.3.3">defined</a>
 by the OAuth 2.0 specification.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">npm install passport-oauth2-resource-owner-password
+<pre><code class="bash">npm install passport-oauth2-resource-owner-password
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -107,21 +107,21 @@ by the OAuth 2.0 specification.</p>
 using a client ID, username, and password
 The strategy requires a <code>verify</code> callback,
 which accepts those credentials and calls <code>done</code> providing a client.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> ResourceOwnerPasswordStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">clientId, clientSecret, username, password, done</span>) </span>{
-    Clients.findOne({ <span class="attr">clientId</span>: clientId }, <span class="function"><span class="keyword">function</span> (<span class="params">err, client</span>) </span>{
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ResourceOwnerPasswordStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">clientId, clientSecret, username, password, done</span>) {
+    <span class="title class_">Clients</span>.<span class="title function_">findOne</span>({ <span class="attr">clientId</span>: clientId }, <span class="keyword">function</span> (<span class="params">err, client</span>) {
       <span class="comment">// this strategy does not require clientSecret as it is intended to be used in cases</span>
       <span class="comment">// (such as mobile apps) which are inherintly insecure</span>
 
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
 
-      Users.findOne({ <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-        <span class="keyword">if</span> (hashsum(user.salt + password) !== user.secret) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="title class_">Users</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: username }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+        <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+        <span class="keyword">if</span> (<span class="title function_">hashsum</span>(user.<span class="property">salt</span> + password) !== user.<span class="property">secret</span>) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
 
-        <span class="keyword">return</span> done(<span class="literal">null</span>, { <span class="attr">client</span>: client, <span class="attr">user</span>: user });
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, { <span class="attr">client</span>: client, <span class="attr">user</span>: user });
       })
     });
   }
@@ -133,17 +133,17 @@ strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
 middleware to implement the token endpoint:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">'/oauth/token'</span>
-, passport.authenticate(
-    [ <span class="string">'basic'</span>
-    , <span class="string">'oauth2-client-password'</span>
-    , <span class="string">'oauth2-resource-owner-password'</span>
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/oauth/token&#x27;</span>
+, passport.<span class="title function_">authenticate</span>(
+    [ <span class="string">&#x27;basic&#x27;</span>
+    , <span class="string">&#x27;oauth2-client-password&#x27;</span>
+    , <span class="string">&#x27;oauth2-resource-owner-password&#x27;</span>
     ]
   , { <span class="attr">session</span>: <span class="literal">false</span> }
   )
-, oauth2orize.token()
-, oauth2orize.errorHandler()
+, oauth2orize.<span class="title function_">token</span>()
+, oauth2orize.<span class="title function_">errorHandler</span>()
 );
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -154,7 +154,7 @@ demonstrates how to implement a complete OAuth 2.0 authorization server.
 tokens from the token endpoint.</p>
 <h2 id="tests">Tests</h2>
 <p>TODO</p>
-<pre><code class="lang-bash">npm install --dev
+<pre><code class="bash">npm install --dev
 make <span class="built_in">test</span>
 </code></pre>
 <p><a href="http://travis-ci.org/coolaj86/passport-oauth2-resource-owner-password"><img src="https://secure.travis-ci.org/coolaj86/passport-oauth2-resource-owner-password.png" alt="Build Status"></a></p>
@@ -170,13 +170,13 @@ make <span class="built_in">test</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-resource-owner-password</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:10:58Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:10:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/coolaj86/passport-oauth2-resource-owner-password">https://github.com/coolaj86/passport-oauth2-resource-owner-password</a></li>
             </ul>
             <ul>
-              <li><b>86</b> downloads in the last day</li>
-              <li><b>280</b> downloads in the last week</li>
-              <li><b>1,147</b> downloads in the last month</li>
+              <li><b>64</b> downloads in the last day</li>
+              <li><b>312</b> downloads in the last week</li>
+              <li><b>1,663</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -96,7 +96,7 @@
           <div class="description"><h1 id="passport-keystone">Passport-Keystone</h1>
 <p>OpenStack Keystone authentication strategy for <a href="http://passportjs.org/">Passport</a> and Node.js</p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install passport-keystone
+<pre><code class="sh">npm install passport-keystone
 </code></pre>
 <h2 id="example"><a href="https://passport-keystone-proxy.herokuapp.com/">Example</a></h2>
 <p>Check out the <a href="https://passport-keystone-proxy.herokuapp.com/">live demo</a>, source code <a href="https://github.com/eddywashere/passport-keystone/tree/master/examples">here</a>, to see an express app configured for authentication with the <a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html">Rackspace Cloud Identity Service</a>, an implementation of OpenStack Keystone Service. Also included in the example is the <a href="https://github.com/eddywashere/proxy-keystone">Proxy-Keystone</a> middleware, a simple proxy for keystone service catalog endpoints.</p>
@@ -105,86 +105,86 @@
 <p>The keystone authentication strategy authenticates users using a username and
 password from the POST body.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user that is attached to <code>req.user</code>.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> KeystoneStrategy({
-   <span class="attr">region</span>: your.region, <span class="comment">// required</span>
-   <span class="attr">authUrl</span>: your.authUrl, <span class="comment">// required</span>
-   <span class="attr">usernameField</span>: <span class="string">'username'</span>, <span class="comment">// optional</span>
-   <span class="attr">passwordField</span>: <span class="string">'password'</span> <span class="comment">// optional</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">KeystoneStrategy</span>({
+   <span class="attr">region</span>: your.<span class="property">region</span>, <span class="comment">// required</span>
+   <span class="attr">authUrl</span>: your.<span class="property">authUrl</span>, <span class="comment">// required</span>
+   <span class="attr">usernameField</span>: <span class="string">&#x27;username&#x27;</span>, <span class="comment">// optional</span>
+   <span class="attr">passwordField</span>: <span class="string">&#x27;password&#x27;</span> <span class="comment">// optional</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">user, done</span>) {
     <span class="keyword">var</span> user = {
-      <span class="attr">id</span>: identity.user.id,
-      <span class="attr">token</span>: identity.token.id,
-      <span class="attr">username</span>: identity.user.name,
-      <span class="attr">serviceCatalog</span>: identity.raw.access.serviceCatalog
+      <span class="attr">id</span>: identity.<span class="property">user</span>.<span class="property">id</span>,
+      <span class="attr">token</span>: identity.<span class="property">token</span>.<span class="property">id</span>,
+      <span class="attr">username</span>: identity.<span class="property">user</span>.<span class="property">name</span>,
+      <span class="attr">serviceCatalog</span>: identity.<span class="property">raw</span>.<span class="property">access</span>.<span class="property">serviceCatalog</span>
     };
-    <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   }
 ));
 </code></pre>
 <h4 id="need-to-set-session-expiration-to-token-expiration-">Need to set session expiration to token expiration?</h4>
 <p>The following example uses <code>passReqToCallback</code> to send the <code>req</code> object to next callback, where session expiration can be configured.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> KeystoneStrategy({
-    <span class="attr">region</span>: your.region, <span class="comment">// required</span>
-    <span class="attr">authUrl</span>: your.authUrl, <span class="comment">// required</span>
-    <span class="attr">usernameField</span>: <span class="string">'username'</span>, <span class="comment">// optional</span>
-    <span class="attr">passwordField</span>: <span class="string">'password'</span> <span class="comment">// optional</span>
-    <span class="attr">passReqToCallback</span> : <span class="literal">true</span> <span class="comment">// allows us to interact with req object</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">req, identity, done</span>) </span>{
-  <span class="keyword">if</span> (!req.user) {
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">KeystoneStrategy</span>({
+    <span class="attr">region</span>: your.<span class="property">region</span>, <span class="comment">// required</span>
+    <span class="attr">authUrl</span>: your.<span class="property">authUrl</span>, <span class="comment">// required</span>
+    <span class="attr">usernameField</span>: <span class="string">&#x27;username&#x27;</span>, <span class="comment">// optional</span>
+    <span class="attr">passwordField</span>: <span class="string">&#x27;password&#x27;</span> <span class="comment">// optional</span>
+    passReqToCallback : <span class="literal">true</span> <span class="comment">// allows us to interact with req object</span>
+}, <span class="keyword">function</span>(<span class="params">req, identity, done</span>) {
+  <span class="keyword">if</span> (!req.<span class="property">user</span>) {
     <span class="keyword">var</span> user = {
-        <span class="attr">id</span>: identity.user.id,
-        <span class="attr">token</span>: identity.token.id,
-        <span class="attr">username</span>: identity.user.name,
-        <span class="attr">serviceCatalog</span>: identity.raw.access.serviceCatalog
+        <span class="attr">id</span>: identity.<span class="property">user</span>.<span class="property">id</span>,
+        <span class="attr">token</span>: identity.<span class="property">token</span>.<span class="property">id</span>,
+        <span class="attr">username</span>: identity.<span class="property">user</span>.<span class="property">name</span>,
+        <span class="attr">serviceCatalog</span>: identity.<span class="property">raw</span>.<span class="property">access</span>.<span class="property">serviceCatalog</span>
     };
 
     <span class="comment">// Set session expiration to token expiration</span>
-    req.session.cookie.expires = <span class="built_in">Date</span>.parse(identity.token.expires) - <span class="built_in">Date</span>.now();
+    req.<span class="property">session</span>.<span class="property">cookie</span>.<span class="property">expires</span> = <span class="title class_">Date</span>.<span class="title function_">parse</span>(identity.<span class="property">token</span>.<span class="property">expires</span>) - <span class="title class_">Date</span>.<span class="title function_">now</span>();
 
-    done(<span class="literal">null</span>, user);
+    <span class="title function_">done</span>(<span class="literal">null</span>, user);
   } <span class="keyword">else</span> {
       <span class="comment">// user already exists</span>
-      <span class="keyword">var</span> user = req.user; <span class="comment">// pull the user out of the session</span>
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">var</span> user = req.<span class="property">user</span>; <span class="comment">// pull the user out of the session</span>
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   }
 }));
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;keystone&#39;</code> strategy, to
 authenticate requests.</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'keystone'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;keystone&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
 <p>Example form markup</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
   <span class="tag">&lt;<span class="name">label</span>&gt;</span>Username:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span>
+  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span>
   <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>/&gt;</span>
-  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>/&gt;</span>
+  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>/&gt;</span>
+  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>/&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
 <p>Example request via curl</p>
-<pre><code class="lang-sh">curl -v -d <span class="string">"username=bob&amp;password=secret"</span> http://127.0.0.1:3000/login
+<pre><code class="sh">curl -v -d <span class="string">&quot;username=bob&amp;password=secret&quot;</span> http://127.0.0.1:3000/login
 </code></pre>
 <p>Checkout <a href="http://passportjs.org/guide/authenticate/">Passportjs.org</a> for more authentication examples.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-keystone</span></code></div>
             <ul>
-              <li><span class="version">0.2.5</span> published <abbr class="updated" title="2022-06-23T12:53:21Z">a month ago</abbr></li>
+              <li><span class="version">0.2.5</span> published <abbr class="updated" title="2022-06-23T12:53:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/eddywashere/passport-keystone">https://github.com/eddywashere/passport-keystone</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

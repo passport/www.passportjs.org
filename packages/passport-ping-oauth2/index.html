@@ -110,14 +110,14 @@ the client identifer and secret, are specified as options.  The strategy
 requires a <code>verify</code> callback, which receives an access token and profile,
 and calls <code>done</code> providing a user.</p>
 <pre><code>passport.use(<span class="keyword">new</span> <span class="type">OAuth2Strategy</span>({
-    authorizationURL: <span class="type"></span>'https:<span class="type"></span>//www.example.com/as/authorization.oauth2<span class="string">',
-    tokenURL: '</span>https:<span class="type"></span>//www.example.com/as/token.oauth2<span class="string">',
+    authorizationURL: <span class="type"></span>&#x27;https:<span class="type"></span>//www.example.com/as/authorization.oauth2<span class="string">&#x27;,
+    tokenURL: &#x27;</span>https:<span class="type"></span>//www.example.com/as/token.oauth2<span class="string">&#x27;,
     clientID: EXAMPLE_CLIENT_ID,
     clientSecret: EXAMPLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/oauth2/callback'</span>
+    callbackURL: &quot;http://localhost:3000/auth/oauth2/callback&#x27;</span>
   },
   <span class="function"><span class="keyword">function</span></span>(accessToken, refreshToken, profile, done) {
-    User.findOne({ <span class="string">'ping.id'</span> : <span class="type">profile</span>.id }, <span class="function"><span class="keyword">function</span> </span>(err, user) {
+    User.findOne({ <span class="string">&#x27;ping.id&#x27;</span> : <span class="type">profile</span>.id }, <span class="function"><span class="keyword">function</span> </span>(err, user) {
         <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
         <span class="keyword">if</span> (user) {
             <span class="keyword">return</span> done(<span class="literal">null</span>, user);
@@ -140,22 +140,22 @@ and calls <code>done</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/oauth2'</span>,
-    passport.authenticate(<span class="string">'oauth2'</span>, { <span class="attribute">scope </span>: [<span class="string">'openid'</span>, <span class="string">'profile'</span>, <span class="string">'email'</span>] }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/oauth2&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;oauth2&#x27;</span>, { <span class="attribute">scope </span>: [<span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;email&#x27;</span>] }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/oauth2/callback'</span>,
-    passport.authenticate(<span class="string">'oauth2'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-    function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/oauth2/callback&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;oauth2&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="built_in">function</span>(req, res) {
         <span class="comment">// Successful authentication, redirect home.</span>
-        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
 </code></pre><h2 id="related-modules">Related Modules</h2>
 <ul>
 <li><a href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a> — OAuth 2.0 authentication strategy</li>
 </ul>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/bsmckamey">Brenden McKamey</a></li>
@@ -167,14 +167,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ping-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:10Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Bayer-Group/passport-ping-oauth2">https://github.com/MonsantoCo/passport-ping-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>259</b> downloads in the last day</li>
-              <li><b>940</b> downloads in the last week</li>
-              <li><b>4,792</b> downloads in the last month</li>
+              <li><b>100</b> downloads in the last day</li>
+              <li><b>442</b> downloads in the last week</li>
+              <li><b>2,094</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

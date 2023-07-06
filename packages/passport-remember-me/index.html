@@ -112,19 +112,19 @@ consumes the token and calls <code>done</code> providing a user.</p>
 security reasons, remember me tokens should be invalidated after being used.
 The <code>issue</code> callback supplies a new token that will be stored in the cookie for
 next use.</p>
-<pre><code>passport.use(<span class="keyword">new</span> RememberMeStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(token, done)</span> </span>{
-    Token.consume(token, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> RememberMeStrategy(
+  <span class="keyword">function</span>(token, <span class="keyword">done</span>) {
+    Token.consume(token, <span class="keyword">function</span> (err, user) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">if</span> (<span class="operator">!</span>user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
     });
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-    <span class="keyword">var</span> token = utils.generateToken(<span class="number">64</span>);
-    Token.save(token, { userId: user.id }, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, token);
+  <span class="keyword">function</span>(user, <span class="keyword">done</span>) {
+    var token <span class="operator">=</span> utils.generateToken(<span class="number">64</span>);
+    Token.save(token, { userId<span class="operator">:</span> user.<span class="built_in">id</span> }, <span class="keyword">function</span>(err) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, token);
     });
   }
 ));
@@ -133,14 +133,14 @@ next use.</p>
 authenticate requests.</p>
 <p>This is typically used in an application&#39;s middleware stack, to log the user
 back in the next time they visit any page on your site.  For example:</p>
-<pre><code>app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">cookieParser</span>());
-  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">bodyParser</span>());
-  app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">session</span>({ <span class="title">secret</span>: '<span class="title">keyboard</span> <span class="title">cat</span>' }));
-  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
-  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">session</span>());
-  app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">authenticate</span>('<span class="title">remember</span>-<span class="title">me</span>'));
-  app.<span class="keyword">use</span>(<span class="title">app</span>.<span class="title">router</span>);
+<pre><code><span class="keyword">app</span>.configure(function() {
+  <span class="keyword">app</span>.<span class="keyword">use</span>(express.cookieParser());
+  <span class="keyword">app</span>.<span class="keyword">use</span>(express.bodyParser());
+  <span class="keyword">app</span>.<span class="keyword">use</span>(express.session({ secret: &#x27;keyboard <span class="keyword">cat</span>&#x27; }));
+  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.initialize());
+  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.session());
+  <span class="keyword">app</span>.<span class="keyword">use</span>(passport.authenticate(&#x27;remember-me&#x27;));
+  <span class="keyword">app</span>.<span class="keyword">use</span>(<span class="keyword">app</span>.router);
 });
 </code></pre><p>Note that <code>passport.session()</code> should be mounted <em>above</em> <code>remember-me</code>
 authentication, so that tokens aren&#39;t exchanged for currently active login
@@ -148,27 +148,27 @@ sessions.</p>
 <h4 id="setting-the-remember-me-cookie">Setting the Remember Me Cookie</h4>
 <p>If the user enables &quot;remember me&quot; mode, an initial cookie should be set when
 they login.</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'local'</span>, { failureRedirect: <span class="string">'/login'</span>, failureFlash: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>{
+<pre><code>app.<span class="title function_ invoke__">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_ invoke__">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  function(req, res, next) {
     <span class="comment">// issue a remember me cookie if the option was checked</span>
-    <span class="keyword">if</span> (!req.body.remember_me) { <span class="keyword">return</span> next(); }
+    <span class="keyword">if</span> (!req.body.remember_me) { <span class="keyword">return</span> <span class="title function_ invoke__">next</span>(); }
 
-    <span class="keyword">var</span> token = utils.generateToken(<span class="number">64</span>);
-    Token.save(token, { userId: req.user.id }, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      res.cookie(<span class="string">'remember_me'</span>, token, { path: <span class="string">'/'</span>, httpOnly: <span class="literal">true</span>, maxAge: <span class="number">604800000</span> }); <span class="comment">// 7 days</span>
-      <span class="keyword">return</span> next();
+    <span class="keyword">var</span> token = utils.<span class="title function_ invoke__">generateToken</span>(<span class="number">64</span>);
+    Token.<span class="title function_ invoke__">save</span>(token, { <span class="attr">userId</span>: req.user.id }, function(err) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err); }
+      res.<span class="title function_ invoke__">cookie</span>(<span class="string">&#x27;remember_me&#x27;</span>, token, { <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">httpOnly</span>: <span class="literal">true</span>, <span class="attr">maxAge</span>: <span class="number">604800000</span> }); <span class="comment">// 7 days</span>
+      <span class="keyword">return</span> <span class="title function_ invoke__">next</span>();
     });
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    res.<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-remember-me/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-remember-me"><img src="https://secure.travis-ci.org/jaredhanson/passport-remember-me.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -181,13 +181,13 @@ they login.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-remember-me</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:23:16Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:23:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-remember-me"></a></li>
             </ul>
             <ul>
-              <li><b>250</b> downloads in the last day</li>
-              <li><b>1,233</b> downloads in the last week</li>
-              <li><b>6,113</b> downloads in the last month</li>
+              <li><b>226</b> downloads in the last day</li>
+              <li><b>1,191</b> downloads in the last week</li>
+              <li><b>5,924</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

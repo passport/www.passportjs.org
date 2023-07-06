@@ -97,7 +97,7 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating
 with <a href="http://steamcommunity.com/">Steam</a> using OpenID 2.0.</p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-bash">$ npm install --save passport-steam
+<pre><code class="bash">$ npm install --save passport-steam
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -105,14 +105,14 @@ with <a href="http://steamcommunity.com/">Steam</a> using OpenID 2.0.</p>
 which is also an OpenID 2.0 identifier.  The strategy requires a <code>validate</code>
 callback, which accepts this identifier and calls <code>done</code> providing a user.
 Additionally, options can be supplied to specify a return URL and realm.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> SteamStrategy({
-    <span class="attr">returnURL</span>: <span class="string">'http://localhost:3000/auth/steam/return'</span>,
-    <span class="attr">realm</span>: <span class="string">'http://localhost:3000/'</span>,
-    <span class="attr">apiKey</span>: <span class="string">'your steam API key'</span>
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SteamStrategy</span>({
+    <span class="attr">returnURL</span>: <span class="string">&#x27;http://localhost:3000/auth/steam/return&#x27;</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;http://localhost:3000/&#x27;</span>,
+    <span class="attr">apiKey</span>: <span class="string">&#x27;your steam API key&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">identifier, profile, done</span>) </span>{
-    User.findByOpenID({ <span class="attr">openId</span>: identifier }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">identifier, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findByOpenID</span>({ <span class="attr">openId</span>: identifier }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -123,18 +123,18 @@ Additionally, options can be supplied to specify a return URL and realm.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/steam'</span>,
-  passport.authenticate(<span class="string">'steam'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/steam&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;steam&#x27;</span>),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// The request will be redirected to Steam for authentication, so</span>
     <span class="comment">// this function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/steam/return'</span>,
-  passport.authenticate(<span class="string">'steam'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/steam/return&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;steam&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -154,14 +154,14 @@ app.get(<span class="string">'/auth/steam/return'</span>,
 <li><p>Edit <code>examples/signon/app.js</code> with your favorite text editor</p>
 </li>
 <li><p>Update the <code>localhost</code> parameter and add your API key in this block within <code>examples/signon/app.js</code></p>
-<pre><code> <span class="attribute">returnURL</span>: <span class="string">'http://localhost:3000/auth/steam/return'</span>,
-     <span class="attribute">realm</span>: <span class="string">'http://localhost:3000/'</span>,
-     <span class="attribute">apiKey</span>: <span class="string">'Your API key here'</span>
+<pre><code> returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
+     realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
+     apiKey: &#x27;Your API key here&#x27;
 </code></pre></li>
 <li><p>Save your changes to <code>examples/signon/app.js</code></p>
 </li>
 <li><p>Start the example</p>
-<pre><code> npm <span class="keyword">run</span><span class="bash"> example</span>
+<pre><code> npm <span class="built_in">run</span> example
 </code></pre></li>
 <li><p>Go to the address you put in <code>realm</code> in your browser.</p>
 </li>
@@ -182,21 +182,21 @@ app.get(<span class="string">'/auth/steam/return'</span>,
 <li><p>Edit <code>examples/signon/app-router.js</code> with your favorite text editor</p>
 </li>
 <li><p>Update the <code>localhost</code> parameter and add your API key in this block within <code>examples/signon/app-router.js</code></p>
-<pre><code> <span class="attribute">returnURL</span>: <span class="string">'http://localhost:3000/auth/steam/return'</span>,
-     <span class="attribute">realm</span>: <span class="string">'http://localhost:3000/'</span>,
-     <span class="attribute">apiKey</span>: <span class="string">'Your API key here'</span>
+<pre><code> returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
+     realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
+     apiKey: &#x27;Your API key here&#x27;
 </code></pre></li>
 <li><p>Save your changes to <code>examples/signon/app-router.js</code></p>
 </li>
 <li><p>Start the example</p>
-<pre><code> npm <span class="keyword">run</span><span class="bash"> example-router</span>
+<pre><code> npm <span class="built_in">run</span> example-router
 </code></pre></li>
 <li><p>Go to the address you put in <code>realm</code> in your browser.</p>
 </li>
 </ol>
 <h2 id="tests">Tests</h2>
 <p>If you would like to contribute, please provide accompanying tests with <a href="https://github.com/sindresorhus/ava">AVA</a></p>
-<pre><code class="lang-bash">$ npm install -g ava
+<pre><code class="bash">$ npm install -g ava
 $ ava
 </code></pre>
 <p><a href="http://travis-ci.org/liamcurry/passport-steam"><img src="https://secure.travis-ci.org/liamcurry/passport-steam.png" alt="Build Status"></a></p>
@@ -230,13 +230,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-steam</span></code></div>
             <ul>
-              <li><span class="version">1.0.17</span> published <abbr class="updated" title="2022-06-23T13:32:46Z">a month ago</abbr></li>
+              <li><span class="version">1.0.18</span> published <abbr class="updated" title="2023-06-18T15:16:33Z">18 days ago</abbr></li>
               <li><a class="url" href="https://github.com/liamcurry/passport-steam">https://github.com/liamcurry/passport-steam#readme</a></li>
             </ul>
             <ul>
-              <li><b>1,123</b> downloads in the last day</li>
-              <li><b>5,397</b> downloads in the last week</li>
-              <li><b>22,963</b> downloads in the last month</li>
+              <li><b>2,160</b> downloads in the last day</li>
+              <li><b>8,695</b> downloads in the last week</li>
+              <li><b>34,253</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

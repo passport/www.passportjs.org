@@ -104,15 +104,15 @@ using ONLY OAuth 2.0.</p>
 <p>The Fitbit OAuth 2.0 authentication strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code><span class="keyword">var</span> FitbitStrategy = <span class="built_in">require</span>( <span class="string">'passport-fitbit-oauth2'</span> ).FitbitOAuth2Strategy;;
+<pre><code><span class="keyword">var</span> FitbitStrategy = <span class="keyword">require</span>( <span class="string">&#x27;passport-fitbit-oauth2&#x27;</span> ).FitbitOAuth2Strategy;;
 
-passport.use(<span class="keyword">new</span> FitbitStrategy({
-    <span class="attr">clientID</span>:     FITBIT_CLIENT_ID,
-    <span class="attr">clientSecret</span>: FITBIT_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://yourdormain:3000/auth/fitbit/callback"</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> FitbitStrategy({
+    clientID:     FITBIT_CLIENT_ID,
+    clientSecret: FITBIT_CLIENT_SECRET,
+    callbackURL: <span class="string">&quot;http://yourdormain:3000/auth/fitbit/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">fitbitId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
+    User.findOrCreate({ fitbitId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       <span class="keyword">return</span> done(err, user);
     });
   }
@@ -122,26 +122,26 @@ passport.use(<span class="keyword">new</span> FitbitStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/fitbit'</span>,
-  passport.authenticate(<span class="string">'fitbit'</span>, { <span class="attribute">scope</span>: [<span class="string">'activity'</span>,<span class="string">'heartrate'</span>,<span class="string">'location'</span>,<span class="string">'profile'</span>] }
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/fitbit&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;fitbit&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;activity&#x27;</span>,<span class="string">&#x27;heartrate&#x27;</span>,<span class="string">&#x27;location&#x27;</span>,<span class="string">&#x27;profile&#x27;</span>] }
 ));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>( <span class="string">'/auth/fitbit/callback'</span>, passport.authenticate( <span class="string">'fitbit'</span>, { 
-        <span class="attribute">successRedirect</span>: <span class="string">'/auth/fitbit/success'</span>,
-        <span class="attribute">failureRedirect</span>: <span class="string">'/auth/fitbit/failure'</span>
+<span class="selector-tag">app</span><span class="selector-class">.get</span>( <span class="string">&#x27;/auth/fitbit/callback&#x27;</span>, passport.<span class="built_in">authenticate</span>( <span class="string">&#x27;fitbit&#x27;</span>, { 
+        <span class="attribute">successRedirect</span>: <span class="string">&#x27;/auth/fitbit/success&#x27;</span>,
+        <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/auth/fitbit/failure&#x27;</span>
 }));
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-fitbit-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T12:37:15Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T12:37:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/thegameofcode/passport-fitbit-oauth2">https://github.com/thegameofcode/passport-fitbit-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>12</b> downloads in the last day</li>
-              <li><b>43</b> downloads in the last week</li>
-              <li><b>185</b> downloads in the last month</li>
+              <li><b>25</b> downloads in the last day</li>
+              <li><b>104</b> downloads in the last week</li>
+              <li><b>344</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

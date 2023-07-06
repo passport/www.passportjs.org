@@ -99,18 +99,18 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-zendesk
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configuration">Configuration</h4>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> ZendeskStrategy = <span class="built_in">require</span>(<span class="string">'passport-zendesk'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">ZendeskStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-zendesk&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> ZendeskStrategy({
-    <span class="attr">subdomain</span>: <span class="string">'yourZendeskSubdomain'</span>,
-    <span class="attr">clientID</span>: <span class="string">'yourClientIdentifier'</span>,
-    <span class="attr">clientSecret</span>: <span class="string">'yourClientSecret'</span>
-    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/zendesk/callback'</span>,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ZendeskStrategy</span>({
+    <span class="attr">subdomain</span>: <span class="string">&#x27;yourZendeskSubdomain&#x27;</span>,
+    <span class="attr">clientID</span>: <span class="string">&#x27;yourClientIdentifier&#x27;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&#x27;yourClientSecret&#x27;</span>
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/zendesk/callback&#x27;</span>,
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -120,23 +120,23 @@ passport.use(<span class="keyword">new</span> ZendeskStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/zendesk'</span>,
-  passport.authenticate(<span class="string">'zendesk'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zendesk&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zendesk&#x27;</span>));
 
-app.get(<span class="string">'/auth/zendesk/callback'</span>,
-  passport.authenticate(<span class="string">'zendesk'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zendesk/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zendesk&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h4 id="using-a-global-zendesk-oauth-client">Using a Global Zendesk OAuth Client</h4>
 <p>If you&#39;ve set up a global Zendesk OAuth Client and you wish to authenticate with multiple Zendesk subdomains, passport-zendesk will look for a subdomain parameter in the query string and the post body. Using the configuraiton specified above, a login link for example.zendesk.com would look like this:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/zendesk?subdomain=example"</span>&gt;</span>Login with example.zendesk.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/zendesk?subdomain=example&quot;</span>&gt;</span>Login with example.zendesk.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 <p>You may also specify the subdomain explicitly in the authenticate() options:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/zendesk'</span>,
-  passport.authenticate(<span class="string">'zendesk'</span>, { <span class="attr">subdomain</span>: <span class="string">'example'</span>}));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zendesk&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zendesk&#x27;</span>, { <span class="attr">subdomain</span>: <span class="string">&#x27;example&#x27;</span>}));
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working sample: <a href="https://github.com/radialpoint/passport-zendesk/tree/master/examples/login">login example</a>.</p>
@@ -148,14 +148,14 @@ app.get(<span class="string">'/auth/zendesk/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zendesk</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:53:35Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:53:35Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/zendesk/passport-zendesk">http://github.com/radialpoint/passport-zendesk</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>389</b> downloads in the last day</li>
-              <li><b>1,710</b> downloads in the last week</li>
-              <li><b>6,618</b> downloads in the last month</li>
+              <li><b>517</b> downloads in the last day</li>
+              <li><b>2,061</b> downloads in the last week</li>
+              <li><b>9,693</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

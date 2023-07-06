@@ -96,39 +96,39 @@
           <div class="description"><h1 id="passport-npm">passport-npm</h1>
 <p>Passport strategy for authenticating an <code>npm</code> client.</p>
 <h2 id="usage">usage</h2>
-<pre><code class="lang-js"><span class="keyword">const</span> { NPMStrategy, NPMStrategyErrorHandler } = <span class="built_in">require</span>(<span class="string">'passport-npm'</span>);
+<pre><code class="js"><span class="keyword">const</span> { <span class="title class_">NPMStrategy</span>, <span class="title class_">NPMStrategyErrorHandler</span> } = <span class="built_in">require</span>(<span class="string">&#x27;passport-npm&#x27;</span>);
 <span class="comment">// check the login of a user and create a user object</span>
 <span class="comment">// set user to `false` if login is invalid</span>
-<span class="function"><span class="keyword">function</span> <span class="title">authenticate</span>(<span class="params">{
-  req, <span class="regexp">//</span> HTTP.IncomingMessage
-  name, <span class="regexp">//</span> string
-  password <span class="regexp">//</span> string
-}, done</span>) </span>{
-  done(<span class="literal">null</span>, <span class="comment">/* User on success || false on failure */</span>);
+<span class="keyword">function</span> <span class="title function_">authenticate</span>(<span class="params">{
+  req, // HTTP.IncomingMessage
+  name, // string
+  password // string
+}, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, <span class="comment">/* User on success || false on failure */</span>);
 }
 <span class="comment">// creates a string for `npm` to store in user .npmrc</span>
 <span class="comment">// send a falsey string to not use tokens (not recommended)</span>
 <span class="comment">//</span>
 <span class="comment">// use this to prevent `npm` from storing username and password on disk</span>
 <span class="comment">// commonly used to store an access token</span>
-<span class="function"><span class="keyword">function</span> <span class="title">serializeNPMToken</span>(<span class="params">{
-  req, <span class="regexp">//</span> HTTP.IncomingMessage
-  name, <span class="regexp">//</span> string
-  password <span class="regexp">//</span> string
-}, done</span>) </span>{
-  done(<span class="literal">null</span>, <span class="comment">/* non-falsey token string || false to store username and password instead */</span>)
+<span class="keyword">function</span> <span class="title function_">serializeNPMToken</span>(<span class="params">{
+  req, // HTTP.IncomingMessage
+  name, // string
+  password // string
+}, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, <span class="comment">/* non-falsey token string || false to store username and password instead */</span>)
 }
 <span class="comment">// similar to `authenticate`</span>
 <span class="comment">//</span>
 <span class="comment">// consumes the result token string serializeToken</span>
-<span class="function"><span class="keyword">function</span> <span class="title">deserializeNPMToken</span>(<span class="params">{
-  req, <span class="regexp">//</span> HTTP.IncomingMessage
-  token <span class="regexp">//</span> string
-}, done</span>) </span>{
-  done(<span class="literal">null</span>, <span class="comment">/* User on success || false on failure */</span>);
+<span class="keyword">function</span> <span class="title function_">deserializeNPMToken</span>(<span class="params">{
+  req, // HTTP.IncomingMessage
+  token // string
+}, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, <span class="comment">/* User on success || false on failure */</span>);
 }
 
-passport.use(<span class="keyword">new</span> NPMStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">NPMStrategy</span>({
   <span class="comment">// router needs to support router.put(...middleware)</span>
   <span class="comment">// registers PUT: /-/user/org.couchdb.user:*</span>
   router, <span class="comment">// optional</span>
@@ -136,27 +136,27 @@ passport.use(<span class="keyword">new</span> NPMStrategy({
   serializeNPMToken,
   deserializeNPMToken
 }));
-router.get(<span class="string">'/privileged'</span>,
-  passport.initialize(),
-  passport.authenticate(<span class="string">'npm'</span>, {
-    <span class="comment">// npm client doesn't have compatible sessions with PassportJS</span>
+router.<span class="title function_">get</span>(<span class="string">&#x27;/privileged&#x27;</span>,
+  passport.<span class="title function_">initialize</span>(),
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;npm&#x27;</span>, {
+    <span class="comment">// npm client doesn&#x27;t have compatible sessions with PassportJS</span>
     <span class="comment">// - does not use a cookie</span>
     <span class="comment">// - uses bearer tokens and basic auth via HTTP authorization header</span>
     <span class="attr">session</span>: <span class="literal">false</span>,
-    <span class="comment">// npm client doesn't have compatible response parsing with PassportJS</span>
+    <span class="comment">// npm client doesn&#x27;t have compatible response parsing with PassportJS</span>
     <span class="comment">// error.status will be the expected status code of the error</span>
     <span class="comment">// <span class="doctag">NOTE:</span> `npm` does not like status codes that are not:</span>
     <span class="comment">//   200, 201, 400, 401, 403, or 500</span>
     <span class="attr">failWithError</span>: <span class="literal">true</span>
   }),
   <span class="comment">// function to convert responses so npm client understands them</span>
-  NPMStrategyErrorHandler
+  <span class="title class_">NPMStrategyErrorHandler</span>
   ...
 );
 </code></pre>
 <h2 id="recommended-npm-configuration">Recommended npm configuration</h2>
 <p>In your project repositories wishing to connect to the <code>npm</code> authenticated server place a local <code>$PROJECT/.npmrc</code> file with:</p>
-<pre><code class="lang-ini"><span class="attr">registry</span>=http://path.to.server.local:<span class="number">1337</span>/
+<pre><code class="ini"><span class="attr">registry</span>=http://path.to.server.local:<span class="number">1337</span>/
 <span class="attr">always-auth</span>=<span class="literal">true</span>
 </code></pre>
 <p>Then run <code>npm login</code> to put your authentication information in your user configuration at <code>~/.npmrc</code>.</p>
@@ -178,7 +178,7 @@ router.get(<span class="string">'/privileged'</span>,
 <h2 id="don-t-want-to-support-basic-auth-for-npm-">Don&#39;t want to support basic auth for npm?</h2>
 <ol>
 <li><p>Manually add your <code>_authToken</code> to your <code>.npmrc</code> file with syntax like:</p>
-<pre><code class="lang-ini">//my.registry.invalid/:_authToken=&quot;string to pass to deserializeToken&quot;
+<pre><code class="ini">//my.registry.invalid/:<span class="attr">_authToken</span>=<span class="string">&quot;string to pass to deserializeToken&quot;</span>
 </code></pre>
 </li>
 <li><p>create a <code>authenticate</code> method that always generates a falsey user.</p>
@@ -186,10 +186,10 @@ router.get(<span class="string">'/privileged'</span>,
 <li>create a <code>serializeToken</code> method that always generates an Error.</li>
 </ol>
 <h2 id="local-testing">Local testing</h2>
-<pre><code class="lang-sh"><span class="comment"># startup</span>
+<pre><code class="sh"><span class="comment"># startup</span>
 PORT=8080 node example.js
 </code></pre>
-<pre><code class="lang-sh">npm login --registry=http://localhost:8080/
+<pre><code class="sh">npm login --registry=http://localhost:8080/
 <span class="comment"># username = user</span>
 <span class="comment"># password = pass</span>
 <span class="comment"># email = # ignored</span>
@@ -205,14 +205,14 @@ npm --registry=http://localhost:8080/ install passport-npm
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-npm</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:06:51Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-10-08T22:00:58Z">9 months ago</abbr></li>
               <li><a class="url" href="https://github.com/godaddy/passport-npm">https://github.com/godaddy/passport-npm#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>16</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

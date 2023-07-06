@@ -109,14 +109,14 @@ integrated into any application or framework that supports
 account and OAuth 2.0 JWT bearer tokens.  The strategy requires a <code>verify</code> callback,
 which accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> VsoOAuth2Strategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> VsoOAuth2Strategy({
     clientID: VSO_CLIENT_ID,
     clientSecret: VSO_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://www.example.com/auth/vso/callback"</span>
+    callbackURL: <span class="string">&quot;http://www.example.com/auth/vso/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ vsoId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ vsoId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -125,20 +125,20 @@ which accepts these credentials and calls <code>done</code> providing a user, as
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/vso'</span>,
-  passport.authenticate(<span class="string">'vso'</span>, { <span class="attribute">scope</span>: [<span class="string">'wl.signin'</span>, <span class="string">'wl.basic'</span>] }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/vso&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;vso&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;wl.signin&#x27;</span>, <span class="string">&#x27;wl.basic&#x27;</span>] }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/vso/callback'</span>, 
-  passport.authenticate(<span class="string">'vso'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/vso/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;vso&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/hallipr/passport-vso/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/hallipr">Patrick Hallisey</a></li>
@@ -152,13 +152,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-vso</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:44:28Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:44:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/hallipr/passport-vso">https://github.com/hallipr/passport-vso#readme</a></li>
             </ul>
             <ul>
-              <li><b>8</b> downloads in the last day</li>
-              <li><b>58</b> downloads in the last week</li>
-              <li><b>309</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>87</b> downloads in the last week</li>
+              <li><b>453</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

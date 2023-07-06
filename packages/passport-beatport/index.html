@@ -100,15 +100,15 @@ with <a href="http://www.beatport.com">Beatport</a> using the OAuth 1.0 API.</p>
 <pre><code>$ npm install pass<span class="keyword">port</span>-beatport
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code><span class="keyword">var</span> BeatportStartegy = <span class="built_in">require</span>(<span class="string">'passport-beatport'</span>).Strategy;
+<pre><code><span class="keyword">var</span> BeatportStartegy = <span class="keyword">require</span>(<span class="string">&#x27;passport-beatport&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> BeatportStartegy({
-    <span class="attr">consumerKey</span>: EXAMPLE_CONSUMER_KEY,
-    <span class="attr">consumerSecret</span>: EXAMPLE_CONSUMER_SECRET, 
-    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/beatport/callback'</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> BeatportStartegy({
+    consumerKey: EXAMPLE_CONSUMER_KEY,
+    consumerSecret: EXAMPLE_CONSUMER_SECRET, 
+    callbackURL: <span class="string">&#x27;https://www.example.net/auth/beatport/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
+    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       done(err, user);
     });
   }
@@ -118,14 +118,14 @@ passport.use(<span class="keyword">new</span> BeatportStartegy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/beatport'</span>,
-  passport.authenticate(<span class="string">'beatport'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/beatport&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;beatport&#x27;</span>));
 
-app.get(<span class="string">'/auth/beatport/callback'</span>, 
-  passport.authenticate(<span class="string">'beatport'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/beatport/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;beatport&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -139,13 +139,13 @@ app.get(<span class="string">'/auth/beatport/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-beatport</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:19:57Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:19:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/fastman/passport-beatport"></a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>14</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

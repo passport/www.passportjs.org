@@ -106,7 +106,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="https://github.com/Genially/passport-google-one-tap/actions"><img src="https://github.com/Genially/passport-google-one-tap/actions/workflows/qa.yml/badge.svg" alt="Build status"></a>
 <a href="https://codecov.io/gh/Genially/passport-google-one-tap"><img src="https://codecov.io/gh/Genially/passport-google-one-tap/branch/main/graph/badge.svg?token=fOgYwD6XoD" alt="codecov"></a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">npm install passport-google-one-tap
+<pre><code class="bash">npm install passport-google-one-tap
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="create-an-application">Create an Application</h3>
@@ -122,11 +122,11 @@ the official <a href="https://developers.google.com/identity/gsi/web/guides/disp
 the strategy configuration and the login uri must be the same that you will configure
 in the <a href="#authenticate-requests">Authenticate Requests</a> section.</p>
 <p>Minimal example:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://accounts.google.com/gsi/client"</span> <span class="attr">async</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://accounts.google.com/gsi/client&quot;</span> <span class="attr">async</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
 <span class="tag">&lt;<span class="name">div</span>
-  <span class="attr">id</span>=<span class="string">"g_id_onload"</span>
-  <span class="attr">data-client_id</span>=<span class="string">"YOUR_GOOGLE_CLIENT_ID"</span>
-  <span class="attr">data-login_uri</span>=<span class="string">"https://your.domain/auth/one-tap/callback"</span>
+  <span class="attr">id</span>=<span class="string">&quot;g_id_onload&quot;</span>
+  <span class="attr">data-client_id</span>=<span class="string">&quot;YOUR_GOOGLE_CLIENT_ID&quot;</span>
+  <span class="attr">data-login_uri</span>=<span class="string">&quot;https://your.domain/auth/one-tap/callback&quot;</span>
 &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
 <h3 id="configure-strategy">Configure Strategy</h3>
@@ -137,20 +137,20 @@ application are supplied as options when creating the strategy. The strategy
 also requires a <code>verify</code> callback, which receives the <code>profile</code> with the authenticated user&#39;s
 Google profile. The <code>verify</code> callback must call <code>done</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> GoogleOneTapStrategy =
-  <span class="built_in">require</span>(<span class="string">"passport-google-one-tap"</span>).GoogleOneTapStrategy;
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">GoogleOneTapStrategy</span> =
+  <span class="built_in">require</span>(<span class="string">&quot;passport-google-one-tap&quot;</span>).<span class="property">GoogleOneTapStrategy</span>;
 
-passport.use(
-  <span class="keyword">new</span> GoogleOneTapStrategy(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">GoogleOneTapStrategy</span>(
     {
-      <span class="attr">clientID</span>: GOOGLE_CLIENT_ID, <span class="comment">// your google client ID</span>
-      <span class="attr">clientSecret</span>: GOOGLE_CLIENT_SECRET, <span class="comment">// your google client secret</span>
+      <span class="attr">clientID</span>: <span class="variable constant_">GOOGLE_CLIENT_ID</span>, <span class="comment">// your google client ID</span>
+      <span class="attr">clientSecret</span>: <span class="variable constant_">GOOGLE_CLIENT_SECRET</span>, <span class="comment">// your google client secret</span>
       <span class="attr">verifyCsrfToken</span>: <span class="literal">false</span>, <span class="comment">// whether to validate the csrf token or not</span>
     },
-    <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
+    <span class="keyword">function</span> (<span class="params">profile, done</span>) {
       <span class="comment">// Here your app code, for example:</span>
-      User.findOrCreate({ <span class="attr">googleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-        <span class="keyword">return</span> done(err, user);
+      <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">googleId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
       });
     }
   )
@@ -161,18 +161,20 @@ passport.use(
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.post(
-  <span class="string">"/auth/one-tap/callback"</span>,
-  passport.authenticate(
-    <span class="string">"google-one-tap"</span>,
-    { <span class="attr">failureRedirect</span>: <span class="string">"/login"</span> },
-    (err, user) =&gt; {
+<pre><code class="javascript">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+
+app.<span class="title function_">post</span>(
+  <span class="string">&quot;/auth/one-tap/callback&quot;</span>,
+  passport.<span class="title function_">authenticate</span>(
+    <span class="string">&quot;google-one-tap&quot;</span>,
+    { <span class="attr">failureRedirect</span>: <span class="string">&quot;/login&quot;</span> },
+    <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
       <span class="comment">// Do whatever you need</span>
     }
   ),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+  <span class="keyword">function</span> (<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">"/"</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
 </code></pre>
@@ -203,14 +205,14 @@ SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-one-tap</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:41:10Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2023-06-07T08:02:42Z">a month ago</abbr></li>
               <li><a class="url" href="https://github.com/Genially/passport-google-one-tap">https://github.com/Genially/passport-google-one-tap#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>143</b> downloads in the last day</li>
-              <li><b>1,188</b> downloads in the last week</li>
-              <li><b>6,032</b> downloads in the last month</li>
+              <li><b>4,212</b> downloads in the last day</li>
+              <li><b>14,967</b> downloads in the last week</li>
+              <li><b>55,012</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

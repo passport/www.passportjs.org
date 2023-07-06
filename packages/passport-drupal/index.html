@@ -110,16 +110,16 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new Strategy({
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">Strategy</span>({
     <span class="attribute">consumerKey</span>: DRUPAL_CONSUMER_KEY,
     <span class="attribute">consumerSecret</span>: DRUPAL_CONSUMER_SECRET,
-    <span class="attribute">providerURL</span>: <span class="string">"http://drupal.example.com"</span>,
-    <span class="attribute">providerBackendURL</span>: <span class="string">"http://private.drupal.example.com"</span>, <span class="comment">// &lt;---- Used for server to server requests such as token verification and profile requests. Defaults to providerURL.</span>
-    <span class="attribute">resourceEndpoint</span>: <span class="string">"oauthlogin/api/user/info"</span> <span class="comment">// &lt;---- optional. Defaults to `rest/system/connect`</span>
+    <span class="attribute">providerURL</span>: <span class="string">&quot;http://drupal.example.com&quot;</span>,
+    <span class="attribute">providerBackendURL</span>: <span class="string">&quot;http://private.drupal.example.com&quot;</span>, <span class="comment">// &lt;---- Used for server to server requests such as token verification and profile requests. Defaults to providerURL.</span>
+    <span class="attribute">resourceEndpoint</span>: <span class="string">&quot;oauthlogin/api/user/info&quot;</span> <span class="comment">// &lt;---- optional. Defaults to `rest/system/connect`</span>
   },
-  function(token, tokenSecret, profile, done) {
+  <span class="built_in">function</span>(token, tokenSecret, profile, done) {
     profile.oauth = { <span class="attribute">token</span>: token, <span class="attribute">token_secret</span>: tokenSecret };
-    done(null, profile);
+    <span class="built_in">done</span>(null, profile);
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -127,35 +127,35 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-JavaScript">app.get(<span class="string">'/auth/drupal'</span>,
-  passport.authenticate(<span class="string">'drupal'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="JavaScript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/drupal&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;drupal&#x27;</span>),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// The request will be redirected to the Drupal website for</span>
     <span class="comment">// authentication, so this function will not be called.</span>
 });
 
-app.get(<span class="string">'/auth/drupal/callback'</span>,
-  passport.authenticate(<span class="string">'drupal'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/drupal/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;drupal&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre>
 <p>If you want to store access tokens locally (e.g. in a persistent session store),
 you can add something like the following to prevent requesting new ones every
 time:</p>
-<pre><code class="lang-JavaScript">app.get(<span class="string">'/auth/drupal/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  <span class="keyword">var</span> tokens = req.session[<span class="string">'my-session-key'</span>];
-  <span class="keyword">if</span> (req.cookies[<span class="string">'my-cookie-key'</span>] &amp;&amp; tokens) {
+<pre><code class="JavaScript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/drupal/login&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+  <span class="keyword">var</span> tokens = req.<span class="property">session</span>[<span class="string">&#x27;my-session-key&#x27;</span>];
+  <span class="keyword">if</span> (req.<span class="property">cookies</span>[<span class="string">&#x27;my-cookie-key&#x27;</span>] &amp;&amp; tokens) {
     <span class="comment">// If all the data is there, load user profile</span>
-    strategy.userProfile(tokens.oauth_token, tokens.oauth_token_secret, {}, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) <span class="keyword">return</span> res.redirect(<span class="string">'/auth/drupal'</span>);
-      req.session.user = user;
-      res.redirect(<span class="string">'/'</span>);
+    strategy.<span class="title function_">userProfile</span>(tokens.<span class="property">oauth_token</span>, tokens.<span class="property">oauth_token_secret</span>, {}, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) <span class="keyword">return</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/auth/drupal&#x27;</span>);
+      req.<span class="property">session</span>.<span class="property">user</span> = user;
+      res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
   } <span class="keyword">else</span> {
     <span class="comment">// If not, start OAuth authentication</span>
-    res.redirect(<span class="string">'/auth/drupal'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/auth/drupal&#x27;</span>);
   }
 });
 </code></pre>
@@ -234,13 +234,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-drupal</span></code></div>
             <ul>
-              <li><span class="version">0.3.3</span> published <abbr class="updated" title="2022-06-23T12:31:09Z">a month ago</abbr></li>
+              <li><span class="version">0.3.3</span> published <abbr class="updated" title="2022-06-23T12:31:09Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/mixmarket/passport-drupal.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>24</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

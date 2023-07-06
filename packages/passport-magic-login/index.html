@@ -122,47 +122,47 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-magic-login
 </code></pre><h3 id="frontend-usage">Frontend usage</h3>
 <p>This is what the usage from the frontend looks like once you&#39;ve set it all up. It only requires a single request:</p>
-<pre><code class="lang-JS"><span class="comment">// POST a request with the users email or phone number to the server</span>
-fetch(<span class="string">`/auth/magiclogin`</span>, {
+<pre><code class="JS"><span class="comment">// POST a request with the users email or phone number to the server</span>
+<span class="title function_">fetch</span>(<span class="string">`/auth/magiclogin`</span>, {
   <span class="attr">method</span>: <span class="string">`POST`</span>,
-  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify({
+  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>({
     <span class="comment">// `destination` is required.</span>
     <span class="attr">destination</span>: email,
     <span class="comment">// However, you can POST anything in your payload and it will show up in your verify() method</span>
     <span class="attr">name</span>: name,
   }),
-  <span class="attr">headers</span>: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> }
+  <span class="attr">headers</span>: { <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> }
 })
-  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())
-  .then(<span class="function"><span class="params">json</span> =&gt;</span> {
-    <span class="keyword">if</span> (json.success) {
+  .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="title function_">json</span>())
+  .<span class="title function_">then</span>(<span class="function"><span class="params">json</span> =&gt;</span> {
+    <span class="keyword">if</span> (json.<span class="property">success</span>) {
       <span class="comment">// The request successfully completed and the email to the user with the</span>
       <span class="comment">// magic login link was sent!</span>
       <span class="comment">// You can now prompt the user to click on the link in their email</span>
       <span class="comment">// We recommend you display json.code in the UI (!) so the user can verify</span>
-      <span class="comment">// that they're clicking on the link for their _current_ login attempt</span>
-      <span class="built_in">document</span>.body.innerText = json.code
+      <span class="comment">// that they&#x27;re clicking on the link for their _current_ login attempt</span>
+      <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerText</span> = json.<span class="property">code</span>
     }
   })
 </code></pre>
 <h3 id="backend-setup">Backend setup</h3>
 <p>To make this work so easily, you first need to setup passport-magic-login:</p>
-<pre><code class="lang-JS"><span class="keyword">import</span> MagicLoginStrategy <span class="keyword">from</span> <span class="string">"passport-magic-login"</span>
+<pre><code class="JS"><span class="keyword">import</span> <span class="title class_">MagicLoginStrategy</span> <span class="keyword">from</span> <span class="string">&quot;passport-magic-login&quot;</span>
 
 <span class="comment">// IMPORTANT: ALL OPTIONS ARE REQUIRED!</span>
-<span class="keyword">const</span> magicLogin = <span class="keyword">new</span> MagicLoginStrategy({
+<span class="keyword">const</span> magicLogin = <span class="keyword">new</span> <span class="title class_">MagicLoginStrategy</span>({
   <span class="comment">// Used to encrypt the authentication token. Needs to be long, unique and (duh) secret.</span>
-  <span class="attr">secret</span>: process.env.MAGIC_LINK_SECRET,
+  <span class="attr">secret</span>: process.<span class="property">env</span>.<span class="property">MAGIC_LINK_SECRET</span>,
 
   <span class="comment">// The authentication callback URL</span>
-  <span class="attr">callbackUrl</span>: <span class="string">"/auth/magiclogin/callback"</span>,
+  <span class="attr">callbackUrl</span>: <span class="string">&quot;/auth/magiclogin/callback&quot;</span>,
 
   <span class="comment">// Called with th e generated magic link so you can send it to the user</span>
-  <span class="comment">// "destination" is what you POST-ed from the client</span>
-  <span class="comment">// "href" is your confirmUrl with the confirmation token,</span>
-  <span class="comment">// for example "/auth/magiclogin/confirm?token=&lt;longtoken&gt;"</span>
+  <span class="comment">// &quot;destination&quot; is what you POST-ed from the client</span>
+  <span class="comment">// &quot;href&quot; is your confirmUrl with the confirmation token,</span>
+  <span class="comment">// for example &quot;/auth/magiclogin/confirm?token=&lt;longtoken&gt;&quot;</span>
   <span class="attr">sendMagicLink</span>: <span class="keyword">async</span> (destination, href) =&gt; {
-    <span class="keyword">await</span> sendEmail({
+    <span class="keyword">await</span> <span class="title function_">sendEmail</span>({
       <span class="attr">to</span>: destination,
       <span class="attr">body</span>: <span class="string">`Click this link to finish logging in: https://yourcompany.com<span class="subst">${href}</span>`</span>
     })
@@ -170,31 +170,37 @@ fetch(<span class="string">`/auth/magiclogin`</span>, {
 
   <span class="comment">// Once the user clicks on the magic link and verifies their login attempt,</span>
   <span class="comment">// you have to match their email to a user record in the database.</span>
-  <span class="comment">// If it doesn't exist yet they are trying to sign up so you have to create a new one.</span>
-  <span class="comment">// "payload" contains { "destination": "email" }</span>
+  <span class="comment">// If it doesn&#x27;t exist yet they are trying to sign up so you have to create a new one.</span>
+  <span class="comment">// &quot;payload&quot; contains { &quot;destination&quot;: &quot;email&quot; }</span>
   <span class="comment">// In standard passport fashion, call callback with the error as the first argument (if there was one)</span>
   <span class="comment">// and the user data as the second argument!</span>
   <span class="attr">verify</span>: <span class="function">(<span class="params">payload, callback</span>) =&gt;</span> {
     <span class="comment">// Get or create a user with the provided email from the database</span>
-    getOrCreateUserWithEmail(payload.destination)
-      .then(<span class="function"><span class="params">user</span> =&gt;</span> {
-        callback(<span class="literal">null</span>, user)
+    <span class="title function_">getOrCreateUserWithEmail</span>(payload.<span class="property">destination</span>)
+      .<span class="title function_">then</span>(<span class="function"><span class="params">user</span> =&gt;</span> {
+        <span class="title function_">callback</span>(<span class="literal">null</span>, user)
       })
-      .catch(<span class="function"><span class="params">err</span> =&gt;</span> {
-        callback(err)
+      .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> {
+        <span class="title function_">callback</span>(err)
       })
+  }
+
+
+  <span class="comment">// Optional: options passed to the jwt.sign call (https://github.com/auth0/node-jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback)</span>
+  <span class="attr">jwtOptions</span>: {
+    <span class="attr">expiresIn</span>: <span class="string">&quot;2 days&quot;</span>,
   }
 })
 
 <span class="comment">// Add the passport-magic-login strategy to Passport</span>
-passport.use(magicLogin)
+passport.<span class="title function_">use</span>(magicLogin)
 </code></pre>
 <p>Once you&#39;ve got that, you&#39;ll then need to add a couple of routes to your Express server:</p>
-<pre><code class="lang-JS"><span class="comment">// This is where we POST to from the frontend</span>
-app.post(<span class="string">"/auth/magiclogin"</span>, magicLogin.send);
+<pre><code class="JS"><span class="comment">// This is where we POST to from the frontend</span>
+app.<span class="title function_">post</span>(<span class="string">&quot;/auth/magiclogin&quot;</span>, magicLogin.<span class="property">send</span>);
 
 <span class="comment">// The standard passport callback setup</span>
-app.get(magicLogin.callbackUrl, passport.authenticate(<span class="string">"magiclogin"</span>));
+app.<span class="title function_">get</span>(magicLogin.<span class="property">callbackUrl</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;magiclogin&quot;</span>));
 </code></pre>
 <p>That&#39;s it, you&#39;re ready to authenticate! 🎉</p>
 <h2 id="license">License</h2>
@@ -203,13 +209,13 @@ app.get(magicLogin.callbackUrl, passport.authenticate(<span class="string">"magi
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-magic-login</span></code></div>
             <ul>
-              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-05-12T15:47:53Z">2 months ago</abbr></li>
+              <li><span class="version">1.2.2</span> published <abbr class="updated" title="2023-01-11T14:20:37Z">6 months ago</abbr></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>965</b> downloads in the last day</li>
-              <li><b>4,376</b> downloads in the last week</li>
-              <li><b>19,394</b> downloads in the last month</li>
+              <li><b>648</b> downloads in the last day</li>
+              <li><b>3,859</b> downloads in the last week</li>
+              <li><b>18,815</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -106,12 +106,12 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code>$ npm <span class="keyword">install</span> <span class="comment">--save passport-pop3</span>
+<pre><code>$ npm install <span class="comment">--save passport-pop3</span>
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The POP3 authentication strategy authenticates users using a username and password, and you must provide <code>host</code> and <code>port</code> for POP3 authentication.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> POP3Strategy({
-    <span class="attr">host</span>: <span class="string">'localhost'</span>,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">POP3Strategy</span>({
+    <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,
     <span class="attr">port</span>: <span class="number">995</span>
   }
 ));
@@ -130,12 +130,12 @@ unobtrusively integrated into any application or framework that supports
 <p>By default, <code>POP3Strategy</code> expects to find credentials in parameters
 named username and password. If your site prefers to name these fields
 differently, options are available to change the defaults.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> POP3Strategy({
-    <span class="attr">host</span>: <span class="string">'localhost'</span>,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">POP3Strategy</span>({
+    <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,
     <span class="attr">port</span>: <span class="number">110</span>,
     <span class="attr">enabletls</span>: <span class="literal">false</span>,
-    <span class="attr">usernameField</span>: <span class="string">'email'</span>,
-    <span class="attr">passwordField</span>: <span class="string">'passwd'</span>,
+    <span class="attr">usernameField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attr">passwordField</span>: <span class="string">&#x27;passwd&#x27;</span>,
   }
 ));
 </code></pre>
@@ -144,10 +144,10 @@ differently, options are available to change the defaults.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'pop3'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;pop3&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="license">License</h2>
@@ -156,14 +156,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-pop3</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:19:52Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:19:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/chunkai1312/passport-pop3">https://github.com/chunkai1312/passport-pop3#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

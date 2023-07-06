@@ -100,26 +100,26 @@
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Untappd authentication strategy authenticates users using an Untappd account and OAuth 2.0 tokens. The strategy requires a verify callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying an app ID, app secret, callback URL.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> UntappdStrategy({
-  <span class="attr">clientID</span>: <span class="string">'UNTAPPD_CLIENT_ID'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'UNTAPPD_CLIENT_SECRET'</span>,
-  <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/untappd/callback'</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-  User.findOrCreate({ <span class="attr">untappdId</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-    done(err, user);
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">UntappdStrategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;UNTAPPD_CLIENT_ID&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;UNTAPPD_CLIENT_SECRET&#x27;</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/untappd/callback&#x27;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">untappdId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 });
 </code></pre>
 <h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;untappd&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/untappd'</span>, passport.authenticate(<span class="string">'untappd'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/untappd&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;untappd&#x27;</span>));
 
-app.get(<span class="string">'/auth/untappd/callback'</span>,
-  passport.authenticate(<span class="string">'untappd'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/untappd/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;untappd&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="license">License</h2>
@@ -129,14 +129,14 @@ app.get(<span class="string">'/auth/untappd/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-untappd</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:42:10Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:42:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/shuhei/passport-untappd">https://github.com/shuhei/passport-untappd</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

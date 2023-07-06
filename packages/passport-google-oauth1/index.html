@@ -125,14 +125,14 @@ strategy also requires a <code>verify</code> callback, which receives the access
 corresponding secret as arguments, as well as <code>profile</code> which contains the
 authenticated user&#39;s Google profile.   The <code>verify</code> callback must call <code>cb</code>
 providing a user to complete authentication.</p>
-<pre><code>passport.use(<span class="keyword">new</span> GoogleStrategy({
-    consumerKey: <span class="string">'www.example.com'</span>,
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> GoogleStrategy({
+    consumerKey: <span class="symbol">&#x27;www.example.com</span>&#x27;,
     consumerSecret: GOOGLE_CONSUMER_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/google/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/google/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, cb)</span> </span>{
-    User.findOrCreate({ googleId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ googleId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
@@ -141,14 +141,14 @@ providing a user to complete authentication.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/google'</span>,
-  passport.authenticate(<span class="string">'google'</span>, { <span class="attribute">scope</span>: <span class="string">'https://www.google.com/m8/feeds'</span> }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/google&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, { <span class="attribute">scope</span>: <span class="string">&#x27;https://www.google.com/m8/feeds&#x27;</span> }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/google/callback'</span>, 
-  passport.authenticate(<span class="string">'google'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/google/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
@@ -162,13 +162,13 @@ corresponding references to Google.</p>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -187,14 +187,14 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-oauth1</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:41:39Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:41:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-google-oauth1">https://github.com/jaredhanson/passport-google-oauth1#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>9,366</b> downloads in the last day</li>
-              <li><b>49,182</b> downloads in the last week</li>
-              <li><b>247,323</b> downloads in the last month</li>
+              <li><b>10,961</b> downloads in the last day</li>
+              <li><b>45,771</b> downloads in the last week</li>
+              <li><b>230,954</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -125,7 +125,7 @@ and requires <a href="https://shibboleth.stanford.edu/">registration</a>.</p>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-stanford
 </code></pre><p>or, to add it to your
 <a href="https://www.npmjs.org/doc/package.json.html">package.json</a> file: this</p>
-<pre><code>npm <span class="keyword">install</span> <span class="comment">--save passport-stanford</span>
+<pre><code>npm install <span class="comment">--save passport-stanford</span>
 </code></pre><h1 id="usage">Usage</h1>
 <p>There is a fully-working example server script in
 <a href="/scottylogan/passport-stanford/blob/master/test/app.js">/test/app.js</a>,
@@ -148,19 +148,19 @@ several <code>node</code> modules, in addition to the <code>http</code> and <cod
 </ul>
 <p>Once the <code>passport-stanford</code> module is loaded, it can be used to create
 a new Passport Strategy:</p>
-<pre><code><span class="keyword">var</span> suSAML = <span class="keyword">require</span>(<span class="string">'passport-stanford'</span>);
+<pre><code><span class="keyword">var</span> suSAML = <span class="keyword">require</span>(<span class="string">&#x27;passport-stanford&#x27;</span>);
 
 ...
 
 <span class="comment">// create a Stanford SAML Strategy and tell Passport to use it</span>
-<span class="keyword">var</span> saml = <span class="keyword">new</span> suSAML.Strategy({
-  idp:        <span class="string">'itlabv2'</span>,
-  entityId:   <span class="string">'http://localhost/'</span>,
-  path:       acsPath,
-  loginPath:  loginPath,
+<span class="keyword">var</span> saml = <span class="keyword">new</span> suSAML.<span class="title function_ invoke__">Strategy</span>({
+  <span class="attr">idp</span>:        <span class="string">&#x27;itlabv2&#x27;</span>,
+  <span class="attr">entityId</span>:   <span class="string">&#x27;http://localhost/&#x27;</span>,
+  <span class="attr">path</span>:       acsPath,
+  <span class="attr">loginPath</span>:  loginPath,
 });
 
-passport.<span class="keyword">use</span>(<span class="title">saml</span>);
+passport.<span class="keyword">use</span>(saml);
 </code></pre><p>To use a different IdP, just change the <code>idp</code> setting, or use the
 <code>cert</code> and <code>entryPoint</code> <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">settings</a>.</p>
 <p><code>acsPath</code> is the path to the SAML 2.0 Assertion Consumer Service -
@@ -176,41 +176,41 @@ the IdP. Logins will be GET requests, and response will be POST
 requests:</p>
 <pre><code>app.<span class="keyword">get</span>(loginPath,
   passport.authenticate(saml.name),
-  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+  saml.<span class="keyword">return</span>(<span class="string">&#x27;/&#x27;</span>)
 );
 
 app.post(acsPath,
   passport.authenticate(saml.name),
-  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+  saml.<span class="keyword">return</span>(<span class="string">&#x27;/&#x27;</span>)
 );
 </code></pre><p><code>return</code> is a method from the Strategy object to return either to the
 URL that triggered the authentication request, or to the URL passed
 into <code>return</code>, or to <code>/</code>.</p>
 <p>There&#39;s also a <code>metadata</code> method that can be used to provide SAML 2.0
 metadata for your SP; it&#39;s also configured as a GET:</p>
-<pre><code>app.<span class="builtin-name">get</span>(<span class="string">'/metadata'</span>,
+<pre><code>app.<span class="built_in">get</span>(<span class="string">&#x27;/metadata&#x27;</span>,
   saml.metadata()
 );
 </code></pre><p>Normally, to protect a route with Passport, you have to write code like
 this:</p>
-<pre><code>app.<span class="builtin-name">get</span>(<span class="string">"/profile"</span>, function(req, res) {
-  <span class="keyword">if</span> (req.isAuthenticated()) {
-    res.render(<span class="string">"profile"</span>, {<span class="built_in"> user </span>: req.user });
-  } <span class="keyword">else</span> {
-    res.redirect(<span class="string">"/login"</span>);
+<pre><code>app.get(<span class="string">&quot;/profile&quot;</span>, function(req, res) {
+  if (req.isAuthenticated()) {
+    res.render(<span class="string">&quot;profile&quot;</span>, { <span class="keyword">user</span> <span class="title">: req</span>.<span class="keyword">user</span> <span class="title">});
+  } else</span> {
+    res.redirect(<span class="string">&quot;/login&quot;</span>);
   }
 });
 </code></pre><p>Since this is a common requirement, this module provides a <code>protect</code>
 method to enforces SAML authentication:</p>
-<pre><code>app.<span class="builtin-name">get</span>(<span class="string">'/profile'</span>, 
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
   saml.protect(),
-  function(req, res) {
-    res.render(<span class="string">'profile'</span>, {<span class="built_in"> user </span>: req.user    });
+  <span class="keyword">function</span>(req, res) {
+    res.render(<span class="string">&#x27;profile&#x27;</span>, { <span class="keyword">user</span> : req.<span class="keyword">user</span>    });
   }
 );
 </code></pre><p>You can also protect a set of routes by calling <code>protect</code> from
 <code>app.use</code>:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.use</span>(<span class="selector-tag">saml</span><span class="selector-class">.protect</span>());
+<pre><code><span class="keyword">app</span>.<span class="keyword">use</span>(saml.protect());
 </code></pre><p>Any route requested after this middleware will require authentication.</p>
 <h2 id="signed-responses">Signed Responses</h2>
 <p><code>passport-stanford</code> includes the public certs used by the Stanford IdPs
@@ -223,17 +223,17 @@ pair. The test app
 kage.json">/test/package.json</a> contains a <code>gencert</code> script to generate a key and
 self-signed certificate. To configure encryption, add the paths to your
 key and cert to the config:</p>
-<pre><code><span class="string">saml</span> <span class="string">=</span> <span class="string">new</span> <span class="string">suSAML.Strategy({</span>
-  <span class="attr">protocol:</span>           <span class="string">'http://'</span><span class="string">,</span>
-  <span class="attr">idp:</span>                <span class="string">'itlab'</span><span class="string">,</span>
-  <span class="attr">entityId:</span>           <span class="string">'https://github.com/scottylogan/passport-stanford'</span><span class="string">,</span>
-  <span class="attr">path:</span>               <span class="string">acsPath,</span>
-  <span class="attr">loginPath:</span>          <span class="string">loginPath,</span>
-  <span class="attr">passReqToCallback:</span>  <span class="literal">true</span><span class="string">,</span>
-  <span class="attr">passport:</span>           <span class="string">passport,</span>
-  <span class="attr">decryptionPvkPath:</span>  <span class="string">'./private.pem'</span><span class="string">,</span>
-  <span class="attr">decryptionCertPath:</span> <span class="string">'./public.pem'</span><span class="string">,</span>
-<span class="string">});</span>
+<pre><code>saml = <span class="keyword">new</span> suSAML.<span class="title function_ invoke__">Strategy</span>({
+  <span class="attr">protocol</span>:           <span class="string">&#x27;http://&#x27;</span>,
+  <span class="attr">idp</span>:                <span class="string">&#x27;itlab&#x27;</span>,
+  <span class="attr">entityId</span>:           <span class="string">&#x27;https://github.com/scottylogan/passport-stanford&#x27;</span>,
+  <span class="attr">path</span>:               acsPath,
+  <span class="attr">loginPath</span>:          loginPath,
+  <span class="attr">passReqToCallback</span>:  <span class="literal">true</span>,
+  <span class="attr">passport</span>:           passport,
+  <span class="attr">decryptionPvkPath</span>:  <span class="string">&#x27;./private.pem&#x27;</span>,
+  <span class="attr">decryptionCertPath</span>: <span class="string">&#x27;./public.pem&#x27;</span>,
+});
 </code></pre><p>The public certificate will be included in the automatically generated
 metadata. You will need to provide the metadata to your IdP.</p>
 <h2 id="user-information">User Information</h2>
@@ -244,26 +244,26 @@ friendly-named attributes are available in <code>req.user</code>.</p>
 <h2 id="pretending-to-be-shibboleth">Pretending to be Shibboleth</h2>
 <p>To make your SP look more like a Shibboleth SP, you can use different
 paths for the ACS and Metadata:</p>
-<pre><code>app.post(<span class="string">'/Shibboleth.sso/SAML2/POST'</span>,
+<pre><code>app.post(<span class="string">&#x27;/Shibboleth.sso/SAML2/POST&#x27;</span>,
   passport.authenticate(saml.name),
-  saml.<span class="keyword">return</span>(<span class="string">'/'</span>)
+  saml.<span class="keyword">return</span>(<span class="string">&#x27;/&#x27;</span>)
 );
 
-app.<span class="keyword">get</span>(<span class="string">'/Shibboleth.sso/Metadata'</span>,
+app.<span class="keyword">get</span>(<span class="string">&#x27;/Shibboleth.sso/Metadata&#x27;</span>,
   saml.metadata()
 );
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stanford</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:16Z">a month ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/scottylogan/passport-stanford">https://github.com/scottylogan/passport-stanford</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>89</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

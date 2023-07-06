@@ -108,14 +108,14 @@ unobtrusively integrated into any application or framework that supports
 app.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a appId, prvKey, and appSecret.</p>
-<pre><code>passport.use(<span class="keyword">new</span> CivicStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CivicStrategy({
     appId: APP_ID,
     prvKey: PRIVATE_KEY,
-    appSecret: <span class="string">"Something-secret"</span>
+    appSecret: <span class="string">&quot;Something-secret&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span> </span>{
-    User.findOrCreate({ civicId: profile.userId }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(profile, done) {
+    User.findOrCreate({ civicId: profile.userId }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -123,15 +123,15 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <p>The verify callback can be supplied with the <code>request</code> object by setting
 the <code>passReqToCallback</code> option to true, and changing callback arguments
 accordingly.</p>
-<pre><code>passport.use(<span class="keyword">new</span> CivicStrategy({
-    appId: APP_ID,
-    prvKey: PRIVATE_KEY,
-    appSecret: <span class="string">"Something-secret"</span>
-    passReqToCallback: <span class="literal">true</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">CivicStrategy</span>({
+    <span class="attribute">appId</span>: APP_ID,
+    <span class="attribute">prvKey</span>: PRIVATE_KEY,
+    <span class="attribute">appSecret</span>: <span class="string">&quot;Something-secret&quot;</span>
+    <span class="attribute">passReqToCallback</span>: true
   },
-  <span class="keyword">function</span>(req, profile, done) {
-    // request <span class="keyword">object</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">first</span> argument
-    // ...
+  <span class="built_in">function</span>(req, profile, done) {
+    <span class="comment">// request object is now first argument</span>
+    <span class="comment">// ...</span>
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -139,14 +139,14 @@ accordingly.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/civic'</span>,
-  passport.authenticate(<span class="string">'civic'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/civic&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;civic&#x27;</span>));
 
-app.get(<span class="string">'/auth/civic'</span>,
-  passport.authenticate(<span class="string">'civic'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/civic&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;civic&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -159,14 +159,14 @@ app.get(<span class="string">'/auth/civic'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-civic</span></code></div>
             <ul>
-              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2022-06-23T12:23:45Z">a month ago</abbr></li>
+              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2022-07-25T15:14:12Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/SpringRole/passport-civic">https://github.com/SpringRole/passport-civic</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

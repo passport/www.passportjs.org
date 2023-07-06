@@ -109,15 +109,15 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 1.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a applicationURL, consumerKey, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> AtlassianOAuthStrategy({
-        applicationURL:<span class="string">"http://localhost:2990/jira"</span>,
-        callbackURL:<span class="string">"http://localhost:5000/auth/atlassian-oauth/callback"</span>,
-        consumerKey:<span class="string">"atlassian-oauth-sample"</span>,
-        consumerSecret:<span class="string">"&lt;RSA private key&gt;"</span>,
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">AtlassianOAuthStrategy</span>({
+        <span class="attribute">applicationURL</span>:<span class="string">&quot;http://localhost:2990/jira&quot;</span>,
+        <span class="attribute">callbackURL</span>:<span class="string">&quot;http://localhost:5000/auth/atlassian-oauth/callback&quot;</span>,
+        <span class="attribute">consumerKey</span>:<span class="string">&quot;atlassian-oauth-sample&quot;</span>,
+        <span class="attribute">consumerSecret</span>:<span class="string">&quot;&lt;RSA private key&gt;&quot;</span>,
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ userid: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(token, tokenSecret, profile, done) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">userid</span>: profile.id }, function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -126,17 +126,17 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/atlassian-oauth'</span>,
-    passport.authenticate(<span class="string">'atlassian-oauth'</span>),
-    <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
+<pre><code>app.get(<span class="string">&#x27;/auth/atlassian-oauth&#x27;</span>,
+    passport.authenticate(<span class="string">&#x27;atlassian-oauth&#x27;</span>),
+    <span class="keyword">function</span> <span class="params">(req, res)</span> {
         <span class="comment">// The request will be redirected to the Atlassian app for authentication, so this</span>
         <span class="comment">// function will not be called.</span>
     });
 
-app.get(<span class="string">'/auth/atlassian-oauth/callback'</span>,
-    passport.authenticate(<span class="string">'atlassian-oauth'</span>, { failureRedirect:<span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
-        res.redirect(<span class="string">'/'</span>);
+app.get(<span class="string">&#x27;/auth/atlassian-oauth/callback&#x27;</span>,
+    passport.authenticate(<span class="string">&#x27;atlassian-oauth&#x27;</span>, { failureRedirect:<span class="string">&#x27;/login&#x27;</span> }),
+    <span class="keyword">function</span> <span class="params">(req, res)</span> {
+        res.redirect(<span class="string">&#x27;/&#x27;</span>);
     });
 </code></pre><h4 id="atlassian-application-setup">Atlassian Application Setup</h4>
 <p>Configure an <a href="https://confluence.atlassian.com/display/JIRA/Configuring+Application+Links">application link</a> in the 
@@ -172,13 +172,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-atlassian-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:16:57Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:16:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://bitbucket.org/knecht_andreas/passport-atlassian-oauth.git"></a></li>
             </ul>
             <ul>
-              <li><b>834</b> downloads in the last day</li>
-              <li><b>4,967</b> downloads in the last week</li>
-              <li><b>20,047</b> downloads in the last month</li>
+              <li><b>1,644</b> downloads in the last day</li>
+              <li><b>7,864</b> downloads in the last week</li>
+              <li><b>44,940</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

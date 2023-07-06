@@ -103,7 +103,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
 <a href="https://github.com/rkusa/koa-passport">koa-passport</a> it can be integrated into
 <a href="http://koajs.com/">Koa</a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-client-certificate
+<pre><code class="bash">$ npm install passport-client-certificate
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -117,19 +117,19 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
 <pre><code>- `passReqToCallback`  when `true`, `req` is the first argument to the
 <span class="title">   verify callback (default:</span> `false`)
 </code></pre><p>  Examples:</p>
-<pre><code class="lang-javascript">  passport.use(<span class="keyword">new</span> ClientCertStrategy(
-    <span class="function"><span class="keyword">function</span> (<span class="params">certificate, done</span>) </span>{
-      <span class="keyword">if</span> (!config.auth.client_certificates_enabled) {
-        <span class="keyword">return</span> done(<span class="keyword">new</span> UnauthorizedError(<span class="string">'Unsupported authentication method'</span>))
+<pre><code class="javascript">  passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>(
+    <span class="keyword">function</span> (<span class="params">certificate, done</span>) {
+      <span class="keyword">if</span> (!config.<span class="property">auth</span>.<span class="property">client_certificates_enabled</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="keyword">new</span> <span class="title class_">UnauthorizedError</span>(<span class="string">&#x27;Unsupported authentication method&#x27;</span>))
       }
 
-      <span class="keyword">const</span> fingerprint = clientCert.fingerprint.toUpperCase()
-      Account.findByFingerprint(fingerprint)
-        .then(<span class="function"><span class="keyword">function</span> (<span class="params">userObj</span>) </span>{
-          <span class="keyword">if</span> (!userObj || userObj.is_disabled || userObj.fingerprint !== fingerprint) {
-            <span class="keyword">return</span> done(<span class="keyword">new</span> UnauthorizedError(<span class="string">'Unknown or invalid account'</span>))
+      <span class="keyword">const</span> fingerprint = clientCert.<span class="property">fingerprint</span>.<span class="title function_">toUpperCase</span>()
+      <span class="title class_">Account</span>.<span class="title function_">findByFingerprint</span>(fingerprint)
+        .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">userObj</span>) {
+          <span class="keyword">if</span> (!userObj || userObj.<span class="property">is_disabled</span> || userObj.<span class="property">fingerprint</span> !== fingerprint) {
+            <span class="keyword">return</span> <span class="title function_">done</span>(<span class="keyword">new</span> <span class="title class_">UnauthorizedError</span>(<span class="string">&#x27;Unknown or invalid account&#x27;</span>))
           }
-          done(<span class="literal">null</span>, userObj)
+          <span class="title function_">done</span>(<span class="literal">null</span>, userObj)
         })
     }))
 
@@ -139,14 +139,14 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'client-cert'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;client-cert&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -156,14 +156,14 @@ $ npm <span class="built_in">test</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-client-certificate</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:24:03Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:24:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ripple/passport-client-certificate">https://github.com/ripple/passport-client-certificate#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>16</b> downloads in the last day</li>
-              <li><b>57</b> downloads in the last week</li>
-              <li><b>429</b> downloads in the last month</li>
+              <li><b>7</b> downloads in the last day</li>
+              <li><b>37</b> downloads in the last week</li>
+              <li><b>343</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

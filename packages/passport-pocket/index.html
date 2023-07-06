@@ -110,12 +110,12 @@ access token and username as arguments. The <code>verify</code> callback must
 call <code>done</code> providing a user to complete authentication.</p>
 <p>In order to identify your application to Pocket, specify the consumer key and callback URL within <code>options</code>.<br>The consumer key and secret are obtained by <a href="http://getpocket.com/developer/apps/new">creating an application</a> at
 Pockets&#39;s <a href="http://getpocket.com/developer/">developer</a> site.</p>
-<pre><code>POCKET_CONSUMER_KEY = <span class="string">"Pocket consumer key"</span>;
+<pre><code>POCKET_CONSUMER_KEY = <span class="string">&quot;Pocket consumer key&quot;</span>;
 
 <span class="comment">// Passport Set up</span>
 <span class="keyword">var</span> pocketStrategy = <span class="keyword">new</span> PocketStrategy({
         consumerKey    : POCKET_CONSUMER_KEY,
-        callbackURL    : <span class="string">"http://127.0.0.1:3000/auth/pocket/callback"</span>
+        callbackURL    : <span class="string">&quot;http://127.0.0.1:3000/auth/pocket/callback&quot;</span>
     },<span class="function"><span class="keyword">function</span><span class="params">(username, accessToken, done)</span> </span>{
         process.nextTick(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
             <span class="keyword">return</span> done(<span class="keyword">null</span>, {
@@ -126,22 +126,22 @@ Pockets&#39;s <a href="http://getpocket.com/developer/">developer</a> site.</p>
     }
 );
 
-passport.<span class="keyword">use</span>(<span class="title">pocketStrategy</span>);
+passport.<span class="keyword">use</span>(pocketStrategy);
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;pocket&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code><span class="comment">// Passport routes for express</span>
-server.get(<span class="string">'/auth/pocket'</span>,passport.authenticate(<span class="string">'pocket'</span>),
-<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<span class="selector-tag">server</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/pocket&#x27;</span>,passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;pocket&#x27;</span>),
+<span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to Pocket for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
 });
 
-server.get(<span class="string">'/auth/pocket/callback'</span>, passport.authenticate(<span class="string">'pocket'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<span class="selector-tag">server</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/pocket/callback&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;pocket&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+<span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example check the server.js file[Moving it to a folder].</p>
@@ -153,13 +153,13 @@ server.get(<span class="string">'/auth/pocket/callback'</span>, passport.authent
 <pre><code>PHPBBMODDERS BEERWARE LICENSE
 <span class="built_in">version</span> <span class="number">1</span>, may <span class="number">7</span> <span class="number">2008</span>
 
-this license <span class="keyword">is</span> based <span class="keyword">on</span> Poul-Henning Kamp 's original
-beerware license. <span class="keyword">it</span>'s been slightly modified <span class="keyword">to</span> be more suitable <span class="keyword">for</span> having
+this license <span class="keyword">is</span> based <span class="keyword">on</span> Poul-Henning Kamp &#x27;s original
+beerware license. <span class="keyword">it</span>&#x27;s been slightly modified <span class="keyword">to</span> be more suitable <span class="keyword">for</span> having
 <span class="keyword">in</span> a separate <span class="built_in">file</span>.
 
 <span class="keyword">as</span> long <span class="keyword">as</span> you keep any copyright notices <span class="keyword">and</span> any mentions <span class="keyword">of</span> this license
 intact (<span class="keyword">and</span> include this <span class="built_in">file</span> <span class="keyword">if</span> <span class="keyword">it</span> <span class="keyword">is</span> a released package), you can do
-whatever you want <span class="keyword">with</span> this stuff. <span class="keyword">if</span> we meet one <span class="built_in">day</span>, <span class="keyword">and</span> you think <span class="keyword">it</span>'s
+whatever you want <span class="keyword">with</span> this stuff. <span class="keyword">if</span> we meet one <span class="built_in">day</span>, <span class="keyword">and</span> you think <span class="keyword">it</span>&#x27;s
 worth <span class="keyword">it</span>, you can buy <span class="keyword">me</span> a beer <span class="keyword">in</span> <span class="literal">return</span>.
 
 there <span class="keyword">is</span> no warranty <span class="keyword">for</span> this work, use <span class="keyword">it</span> <span class="keyword">at</span> your own risk.
@@ -167,13 +167,13 @@ there <span class="keyword">is</span> no warranty <span class="keyword">for</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-pocket</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:19:28Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:19:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Siedrix/passport-pocket"></a></li>
             </ul>
             <ul>
-              <li><b>43</b> downloads in the last day</li>
-              <li><b>160</b> downloads in the last week</li>
-              <li><b>423</b> downloads in the last month</li>
+              <li><b>28</b> downloads in the last day</li>
+              <li><b>79</b> downloads in the last week</li>
+              <li><b>356</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -106,21 +106,21 @@ Jared Hanson.</p>
 <h4 id="usage">Usage</h4>
 <p>The module works with htpasswd files created using bcrypt only. For example, to
 create a password file, use a command like this:</p>
-<pre><code><span class="symbol">htpasswd</span> -c -<span class="keyword">B </span>.htpasswd myuser
+<pre><code><span class="symbol">htpasswd</span> -c -<span class="keyword">B</span> .htpasswd myuser
 </code></pre><h4 id="configure-strategy">Configure Strategy</h4>
 <p>The local authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(<span class="selector-tag">new</span> <span class="selector-tag">LocalHtpasswdStrategy</span>({<span class="attribute">file</span>: filename});
+<pre><code>passport.use(<span class="keyword">new</span> <span class="constructor">LocalHtpasswdStrategy({<span class="params">file</span>: <span class="params">filename</span>})</span>;
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;local-htpasswd&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'local-htpasswd'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;local-htpasswd&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h4 id="data">Data</h4>
 <p>The module doesn&#39;t store or persist users. The user is made available as an
@@ -129,13 +129,13 @@ object with a single property <code>username</code> with the given username. </p
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-local-htpasswd</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:58:09Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:58:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/morungos/passport-local-htpasswd">https://github.com/morungos/passport-local-htpasswd#readme</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>13</b> downloads in the last week</li>
-              <li><b>61</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>27</b> downloads in the last week</li>
+              <li><b>138</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

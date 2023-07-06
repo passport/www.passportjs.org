@@ -96,23 +96,23 @@
           <div class="description"><h1 id="passport_eloqua">passport_eloqua</h1>
 <p>Eloqua OAuth2 strategy for Passport</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm install passport_eloqua</span>
+<pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport_eloqua</span>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Eloqua authentication strategy authenticates  Oracle Eloqua API users via OAuth 2.0 mechanism.  The strategy 
 requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client Secret, and callback URL.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> EloquaStrategy({
-    <span class="attr">authorizationURL</span>: <span class="string">'https://login.eloqua.com/auth/oauth2/authorize'</span>,
-    <span class="attr">tokenURL</span>: <span class="string">'https://login.eloqua.com/auth/oauth2/token'</span>,
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/example/callback"</span>,
-    <span class="attr">scope</span>: <span class="string">'full'</span> <span class="comment">// default</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">EloquaStrategy</span>({
+    <span class="attr">authorizationURL</span>: <span class="string">&#x27;https://login.eloqua.com/auth/oauth2/authorize&#x27;</span>,
+    <span class="attr">tokenURL</span>: <span class="string">&#x27;https://login.eloqua.com/auth/oauth2/token&#x27;</span>,
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/example/callback&quot;</span>,
+    <span class="attr">scope</span>: <span class="string">&#x27;full&#x27;</span> <span class="comment">// default</span>
   }, 
-  (accessToken, refreshToken, profile, done) =&gt; {
-    done(error);
+  <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
+    <span class="title function_">done</span>(error);
   }
 ));
 </code></pre>
@@ -131,14 +131,14 @@ requires a <code>verify</code> callback, which accepts these credentials and cal
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport_eloqua</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:54:22Z">a month ago</abbr></li>
-              <li><a class="url" href="https://github.com/bedrockdata/passport_eloqua">https://github.com/bedrockdata/passport_eloqua#readme</a></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:54:22Z">a year ago</abbr></li>
+              <li><a class="url" href="git+ssh://git@github.com/bedrockdata/passport_eloqua.git">https://github.com/bedrockdata/passport_eloqua#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>14</b> downloads in the last week</li>
-              <li><b>21</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

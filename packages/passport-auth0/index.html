@@ -128,12 +128,12 @@
 <h3 id="state-parameter">State parameter</h3>
 <p>The Auth0 Passport strategy enforces the use of the <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
 <p>If you require the <code>state</code> parameter to be omitted (which is not recommended), you can suppress it when calling the Auth0 Passport strategy constructor:</p>
-<pre><code class="lang-js"><span class="keyword">const</span> Auth0Strategy = <span class="built_in">require</span>(<span class="string">'passport-auth0'</span>);
-<span class="keyword">const</span> strategy = <span class="keyword">new</span> Auth0Strategy({
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">Auth0Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-auth0&#x27;</span>);
+<span class="keyword">const</span> strategy = <span class="keyword">new</span> <span class="title class_">Auth0Strategy</span>({
      <span class="comment">// ...</span>
      <span class="attr">state</span>: <span class="literal">false</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) {
     <span class="comment">// ...</span>
   }
 );
@@ -141,53 +141,53 @@
 <p><a href="https://github.com/auth0/passport-auth0/issues/40#issuecomment-511592801">More on state handling here</a>.</p>
 <h3 id="scopes">Scopes</h3>
 <p>If you want to change the scope of the ID token provided, add a <code>scope</code> property to the authenticate configuration passed when defining the route. These must be <a href="https://auth0.com/docs/scopes/current/oidc-scopes">OIDC standard scopes</a>. If you need data outside of the standard scopes, you can add <a href="https://auth0.com/docs/scopes/current/custom-claims">custom claims</a> to the token.</p>
-<pre><code class="lang-js">app.get(
-    <span class="string">'/login'</span>,
-    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">scope</span>: <span class="string">'openid email profile'</span>}), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">get</span>(
+    <span class="string">&#x27;/login&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {<span class="attr">scope</span>: <span class="string">&#x27;openid email profile&#x27;</span>}), 
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
 <h3 id="force-a-specific-idp">Force a Specific IdP</h3>
 <p>If you want to force a specific identity provider you can use:</p>
-<pre><code class="lang-js">app.get(
-    <span class="string">'/login/google'</span>,
-    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">connection</span>: <span class="string">'google-oauth2'</span>}), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">get</span>(
+    <span class="string">&#x27;/login/google&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {<span class="attr">connection</span>: <span class="string">&#x27;google-oauth2&#x27;</span>}), 
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
 <p>If you force an identity provider you can also request custom scope from that identity provider:</p>
-<pre><code class="lang-js">app.get(
-    <span class="string">'/login/google'</span>, 
-    passport.authenticate(<span class="string">'auth0'</span>, {
-        <span class="attr">connection</span>: <span class="string">'google-oauth2'</span>,
-        <span class="attr">connection_scope</span>: <span class="string">'https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly'</span>
+<pre><code class="js">app.<span class="title function_">get</span>(
+    <span class="string">&#x27;/login/google&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {
+        <span class="attr">connection</span>: <span class="string">&#x27;google-oauth2&#x27;</span>,
+        <span class="attr">connection_scope</span>: <span class="string">&#x27;https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly&#x27;</span>
     }), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
 <h3 id="getting-access-tokens">Getting Access Tokens</h3>
 <p>If you want to specify an audience for the returned <code>access_token</code> you can:</p>
-<pre><code class="lang-js">app.get(
-    <span class="string">'/login'</span>,
-    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">audience</span>: <span class="string">'urn:my-api'</span>}), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-      res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">get</span>(
+    <span class="string">&#x27;/login&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {<span class="attr">audience</span>: <span class="string">&#x27;urn:my-api&#x27;</span>}), 
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+      res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
 <h3 id="silent-authentication">Silent Authentication</h3>
 <p>If you want to check authentication without showing a prompt:</p>
-<pre><code class="lang-js">app.get(
-    <span class="string">'/login'</span>,
-    passport.authenticate(<span class="string">'auth0'</span>, {<span class="attr">prompt</span>: <span class="string">'none'</span>}), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">get</span>(
+    <span class="string">&#x27;/login&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {<span class="attr">prompt</span>: <span class="string">&#x27;none&#x27;</span>}), 
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
@@ -216,14 +216,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth0</span></code></div>
             <ul>
-              <li><span class="version">1.4.2</span> published <abbr class="updated" title="2022-07-12T20:36:53Z">9 days ago</abbr></li>
+              <li><span class="version">1.4.3</span> published <abbr class="updated" title="2023-06-02T23:13:59Z">a month ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-auth0">https://github.com/auth0/passport-auth0#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>9,150</b> downloads in the last day</li>
-              <li><b>50,693</b> downloads in the last week</li>
-              <li><b>185,682</b> downloads in the last month</li>
+              <li><b>11,330</b> downloads in the last day</li>
+              <li><b>50,388</b> downloads in the last week</li>
+              <li><b>236,938</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

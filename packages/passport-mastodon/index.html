@@ -102,48 +102,48 @@
 <h3 id="create-an-application">Create an Application</h3>
 <p>Before using passport-mastodon, you must register an application with Mastodon. If you have not already done so, a new application can be created by Mastodon REST API. Your application will be issued an app ID and app secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your application.</p>
 <p>Sample</p>
-<pre><code><span class="variable">$</span> curl <span class="literal">-X</span> POST <span class="literal">-sS</span> https://<span class="variable">$</span>{MASTODON_HOST}/api/v1/apps \
-  <span class="operator">-F</span> <span class="string">"client_name=<span class="variable">$</span>{CLIENT_NAME}"</span> \
-  <span class="operator">-F</span> <span class="string">"redirect_uris=<span class="variable">$</span>{CALLBACK_URL}"</span> \
-  <span class="operator">-F</span> <span class="string">"scopes=read write"</span>
+<pre><code><span class="variable">$</span> <span class="built_in">curl</span> <span class="literal">-X</span> POST <span class="literal">-sS</span> https://<span class="variable">$</span>{MASTODON_HOST}/api/v1/apps \
+  <span class="operator">-F</span> <span class="string">&quot;client_name=<span class="variable">$</span>{CLIENT_NAME}&quot;</span> \
+  <span class="operator">-F</span> <span class="string">&quot;redirect_uris=<span class="variable">$</span>{CALLBACK_URL}&quot;</span> \
+  <span class="operator">-F</span> <span class="string">&quot;scopes=read write&quot;</span>
 </code></pre><p>See: <a href="https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md#apps">Mastodon API overview - Apps</a></p>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Mastodom authentication strategy authenticates users using a Mastodon account and OAuth 2.0 tokens. The app ID and secret obtained when creating an application are supplied as options when creating the strategy. The strategy also requires a verify callback, which receives the access token and optional refresh token, as well as profile which contains the authenticated user&#39;s Mastodon profile. The verify callback must call cb providing a user to complete authentication.</p>
-<pre><code>passport.use(<span class="keyword">new</span> MastodomStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MastodomStrategy({
     clientID: MASTODON_APP_ID,
     clientSecret: MASTODON_APP_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/mastodon/callback"</span>
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/mastodon/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
-    User.findOrCreate({ exampleId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ exampleId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use passport.authenticate(), specifying the &#39;oauth2&#39; strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an Express application:</p>
-<pre><code>app.get(<span class="string">'/auth/example'</span>,
-  passport.authenticate(<span class="string">'mastodon'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/example&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mastodon&#x27;</span>));
 
-app.get(<span class="string">'/auth/mastodon/callback'</span>,
-  passport.authenticate(<span class="string">'mastodon'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/mastodon/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mastodon&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mastodon</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:00:45Z">a month ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:00:45Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/techfeed/passport-mastodon">https://github.com/techfeed/passport-mastodon#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>13</b> downloads in the last week</li>
-              <li><b>30</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>9</b> downloads in the last week</li>
+              <li><b>50</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

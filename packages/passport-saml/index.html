@@ -105,49 +105,49 @@
 <p>The examples utilize the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
 <h3 id="configure-strategy">Configure strategy</h3>
 <p>The SAML identity provider will redirect you to the URL provided by the <code>path</code> configuration.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> SamlStrategy = <span class="built_in">require</span>(<span class="string">'passport-saml'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">const</span> <span class="title class_">SamlStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-saml&#x27;</span>).<span class="property">Strategy</span>;
 [...]
 
-passport.use(<span class="keyword">new</span> SamlStrategy(
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SamlStrategy</span>(
   {
-    <span class="attr">path</span>: <span class="string">'/login/callback'</span>,
-    <span class="attr">entryPoint</span>: <span class="string">'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php'</span>,
-    <span class="attr">issuer</span>: <span class="string">'passport-saml'</span>,
-    <span class="attr">cert</span>: <span class="string">'fake cert'</span>, <span class="comment">// cert must be provided</span>
+    <span class="attr">path</span>: <span class="string">&#x27;/login/callback&#x27;</span>,
+    <span class="attr">entryPoint</span>: <span class="string">&#x27;https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php&#x27;</span>,
+    <span class="attr">issuer</span>: <span class="string">&#x27;passport-saml&#x27;</span>,
+    <span class="attr">cert</span>: <span class="string">&#x27;fake cert&#x27;</span>, <span class="comment">// cert must be provided</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
-    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">profile, done</span>) {
+    <span class="title function_">findByEmail</span>(profile.<span class="property">email</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   })
 );
 </code></pre>
 <h3 id="configure-strategy-for-multiple-providers">Configure strategy for multiple providers</h3>
 <p>You can pass a <code>getSamlOptions</code> parameter to <code>MultiSamlStrategy</code> which will be called before the SAML flows. Passport-SAML will pass in the request object so you can decide which configuation is appropriate.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> { MultiSamlStrategy } = <span class="built_in">require</span>(<span class="string">'passport-saml'</span>);
+<pre><code class="javascript"><span class="keyword">const</span> { <span class="title class_">MultiSamlStrategy</span> } = <span class="built_in">require</span>(<span class="string">&#x27;passport-saml&#x27;</span>);
 [...]
 
-passport.use(<span class="keyword">new</span> MultiSamlStrategy(
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">MultiSamlStrategy</span>(
   {
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>, <span class="comment">// makes req available in callback</span>
-    <span class="attr">getSamlOptions</span>: <span class="function"><span class="keyword">function</span>(<span class="params">request, done</span>) </span>{
-      findProvider(request, <span class="function"><span class="keyword">function</span>(<span class="params">err, provider</span>) </span>{
+    <span class="attr">getSamlOptions</span>: <span class="keyword">function</span>(<span class="params">request, done</span>) {
+      <span class="title function_">findProvider</span>(request, <span class="keyword">function</span>(<span class="params">err, provider</span>) {
         <span class="keyword">if</span> (err) {
-          <span class="keyword">return</span> done(err);
+          <span class="keyword">return</span> <span class="title function_">done</span>(err);
         }
-        <span class="keyword">return</span> done(<span class="literal">null</span>, provider.configuration);
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, provider.<span class="property">configuration</span>);
       });
     }
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, profile, done</span>) </span>{
-    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, profile, done</span>) {
+    <span class="title function_">findByEmail</span>(profile.<span class="property">email</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   })
 );
@@ -161,7 +161,7 @@ You can override these defaults by passing a new value through the <code>getSaml
 </blockquote>
 <h4 id="the-profile-object-">The profile object:</h4>
 <p>The profile object referenced above contains the following:</p>
-<pre><code class="lang-typescript"><span class="keyword">type</span> Profile = {
+<pre><code class="typescript"><span class="keyword">type</span> <span class="title class_">Profile</span> = {
   issuer?: <span class="built_in">string</span>;
   sessionIndex?: <span class="built_in">string</span>;
   nameID?: <span class="built_in">string</span>;
@@ -170,12 +170,12 @@ You can override these defaults by passing a new value through the <code>getSaml
   spNameQualifier?: <span class="built_in">string</span>;
   mail?: <span class="built_in">string</span>; <span class="comment">// InCommon Attribute urn:oid:0.9.2342.19200300.100.1.3</span>
   email?: <span class="built_in">string</span>; <span class="comment">// `mail` if not present in the assertion</span>
-  getAssertionXml(): <span class="built_in">string</span>; <span class="comment">// get the raw assertion XML</span>
-  getAssertion(): object; <span class="comment">// get the assertion XML parsed as a JavaScript object</span>
-  getSamlResponseXml(): <span class="built_in">string</span>; <span class="comment">// get the raw SAML response XML</span>
-  ID?: <span class="built_in">string</span>;
+  <span class="title function_">getAssertionXml</span>(): <span class="built_in">string</span>; <span class="comment">// get the raw assertion XML</span>
+  <span class="title function_">getAssertion</span>(): <span class="built_in">object</span>; <span class="comment">// get the assertion XML parsed as a JavaScript object</span>
+  <span class="title function_">getSamlResponseXml</span>(): <span class="built_in">string</span>; <span class="comment">// get the raw SAML response XML</span>
+  <span class="variable constant_">ID</span>?: <span class="built_in">string</span>;
 } &amp; {
-  [attributeName: <span class="built_in">string</span>]: unknown; <span class="comment">// arbitrary `AttributeValue`s</span>
+  [<span class="attr">attributeName</span>: <span class="built_in">string</span>]: <span class="built_in">unknown</span>; <span class="comment">// arbitrary `AttributeValue`s</span>
 };
 </code></pre>
 <h4 id="config-parameter-details-">Config parameter details:</h4>
@@ -214,21 +214,21 @@ You can override these defaults by passing a new value through the <code>getSaml
 <li><code>disableRequestAcsUrl</code>: if truthy, SAML AuthnRequest from the service provider will not include the optional AssertionConsumerServiceURL. Default is falsy so it is automatically included.</li>
 <li><code>scoping</code>: An optional configuration which implements the functionality <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">explained in the SAML spec paragraph &quot;3.4.1.2 Element <Scoping>&quot;</a>. The config object is structured as following:</li>
 </ul>
-<pre><code class="lang-javascript">{
+<pre><code class="javascript">{
   <span class="attr">idpList</span>: [ <span class="comment">// optional</span>
     {
       <span class="attr">entries</span>: [ <span class="comment">// required</span>
         {
-          <span class="attr">providerId</span>: <span class="string">'yourProviderId'</span>, <span class="comment">// required for each entry</span>
-          <span class="attr">name</span>: <span class="string">'yourName'</span>, <span class="comment">// optional</span>
-          <span class="attr">loc</span>: <span class="string">'yourLoc'</span>, <span class="comment">// optional</span>
+          <span class="attr">providerId</span>: <span class="string">&#x27;yourProviderId&#x27;</span>, <span class="comment">// required for each entry</span>
+          <span class="attr">name</span>: <span class="string">&#x27;yourName&#x27;</span>, <span class="comment">// optional</span>
+          <span class="attr">loc</span>: <span class="string">&#x27;yourLoc&#x27;</span>, <span class="comment">// optional</span>
         }
       ],
-      <span class="attr">getComplete</span>: <span class="string">'URI to your complete IDP list'</span>, <span class="comment">// optional</span>
+      <span class="attr">getComplete</span>: <span class="string">&#x27;URI to your complete IDP list&#x27;</span>, <span class="comment">// optional</span>
     },
   ],
   <span class="attr">proxyCount</span>: <span class="number">2</span>, <span class="comment">// optional</span>
-  <span class="attr">requesterId</span>: <span class="string">'requesterId'</span>, <span class="comment">// optional</span>
+  <span class="attr">requesterId</span>: <span class="string">&#x27;requesterId&#x27;</span>, <span class="comment">// optional</span>
 }
 </code></pre>
 <ul>
@@ -251,35 +251,35 @@ for each target, and use this custom name when calling <code>passport.authentica
 <h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
 <p>The authentication callback must be invoked after the <code>body-parser</code> middlerware.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
+<pre><code class="javascript"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&quot;body-parser&quot;</span>);
 
-app.post(
-  <span class="string">"/login/callback"</span>,
-  bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">false</span> }),
-  passport.authenticate(<span class="string">"saml"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/"</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">"/"</span>);
+app.<span class="title function_">post</span>(
+  <span class="string">&quot;/login/callback&quot;</span>,
+  bodyParser.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">false</span> }),
+  passport.<span class="title function_">authenticate</span>(<span class="string">&quot;saml&quot;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span> (<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
 </code></pre>
 <h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying <code>saml</code> as the strategy:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">"/login"</span>,
-  passport.authenticate(<span class="string">"saml"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/"</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">"/"</span>);
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&quot;/login&quot;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&quot;saml&quot;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span> (<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
 </code></pre>
 <p>...or, if you wish to add or override query string parameters:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">"/login"</span>,
-  passport.authenticate(<span class="string">"saml"</span>, {
-    <span class="attr">additionalParams</span>: { <span class="attr">username</span>: <span class="string">"user@domain.com"</span> },
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&quot;/login&quot;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&quot;saml&quot;</span>, {
+    <span class="attr">additionalParams</span>: { <span class="attr">username</span>: <span class="string">&quot;user@domain.com&quot;</span> },
   }),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">"/"</span>);
+  <span class="keyword">function</span> (<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
 </code></pre>
@@ -292,10 +292,10 @@ app.post(
 <p>Passport-SAML uses the HTTP Redirect Binding for its <code>AuthnRequest</code>s (unless overridden with the <code>authnRequestBinding</code> parameter), and expects to receive the messages back via the HTTP POST binding.</p>
 <p>Authentication requests sent by Passport-SAML can be signed using RSA signature with SHA1, SHA256 or SHA512 hashing algorithms.</p>
 <p>To select hashing algorithm, use:</p>
-<pre><code class="lang-js">...
-  signatureAlgorithm: <span class="string">'sha1'</span> <span class="comment">// (default, but not recommended anymore these days)</span>
-  <span class="attr">signatureAlgorithm</span>: <span class="string">'sha256'</span>, <span class="comment">// (preferred - your IDP should support it, otherwise think about upgrading it)</span>
-  <span class="attr">signatureAlgorithm</span>: <span class="string">'sha512'</span> <span class="comment">// (most secure - check if your IDP supports it)</span>
+<pre><code class="js">...
+  <span class="attr">signatureAlgorithm</span>: <span class="string">&#x27;sha1&#x27;</span> <span class="comment">// (default, but not recommended anymore these days)</span>
+  <span class="attr">signatureAlgorithm</span>: <span class="string">&#x27;sha256&#x27;</span>, <span class="comment">// (preferred - your IDP should support it, otherwise think about upgrading it)</span>
+  <span class="attr">signatureAlgorithm</span>: <span class="string">&#x27;sha512&#x27;</span> <span class="comment">// (most secure - check if your IDP supports it)</span>
 ...
 </code></pre>
 <p>To sign them you need to provide a private key in the PEM format via the <code>privateKey</code> configuration key.</p>
@@ -318,28 +318,28 @@ See example from tests of the first version of <a href="test/static/acme_tools_c
 </ol>
 <p>See example from tests of <a href="test/static/singleline_acme_tools_com.key">singleline private key</a>.</p>
 <p>Add it to strategy options like this:</p>
-<pre><code class="lang-javascript">privateKey: fs.readFileSync(<span class="string">"./privateKey.pem"</span>, <span class="string">"utf-8"</span>);
+<pre><code class="javascript"><span class="attr">privateKey</span>: fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;./privateKey.pem&quot;</span>, <span class="string">&quot;utf-8&quot;</span>);
 </code></pre>
 <p>It is a good idea to validate the signatures of the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s public PEM-encoded X.509 signing certificate using the <code>cert</code> configuration key. The &quot;BEGIN CERTIFICATE&quot; and &quot;END CERTIFICATE&quot; lines should be stripped out and the certificate should be provided on a single line.</p>
-<pre><code class="lang-javascript">cert: <span class="string">"MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=="</span>;
+<pre><code class="javascript"><span class="attr">cert</span>: <span class="string">&quot;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&quot;</span>;
 </code></pre>
 <p>If you have a certificate in the binary DER encoding, you can convert it to the necessary PEM encoding like this:</p>
-<pre><code class="lang-bash">     openssl x509 -inform der -<span class="keyword">in</span> my_certificate.cer -out my_certificate.pem
+<pre><code class="bash">     openssl x509 -inform der -<span class="keyword">in</span> my_certificate.cer -out my_certificate.pem
 </code></pre>
 <p>If the Identity Provider has multiple signing certificates that are valid (such as during the rolling from an old key to a new key and responses signed with either key are valid) then the <code>cert</code> configuration key can be an array:</p>
-<pre><code class="lang-javascript">cert: [<span class="string">"MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=="</span>, <span class="string">"MIIEOTCCAyGgAwIBAgIJAKZgJdKdCdL6M ... g="</span>];
+<pre><code class="javascript"><span class="attr">cert</span>: [<span class="string">&quot;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&quot;</span>, <span class="string">&quot;MIIEOTCCAyGgAwIBAgIJAKZgJdKdCdL6M ... g=&quot;</span>];
 </code></pre>
 <p>The <code>cert</code> configuration key can also be a function that receives a callback as argument calls back a possible error and a certificate or array of certificates. This allows the Identity Provider to be polled for valid certificates and the new certificate can be used if it is changed:</p>
-<pre><code class="lang-javascript">    cert: <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>{ callback(<span class="literal">null</span>,polledCertificates); }
+<pre><code class="javascript">    <span class="attr">cert</span>: <span class="keyword">function</span>(<span class="params">callback</span>) { <span class="title function_">callback</span>(<span class="literal">null</span>,polledCertificates); }
 </code></pre>
 <h2 id="usage-with-active-directory-federation-services">Usage with Active Directory Federation Services</h2>
 <p>Here is a configuration that has been proven to work with ADFS:</p>
-<pre><code class="lang-javascript">  {
-    <span class="attr">entryPoint</span>: <span class="string">'https://ad.example.net/adfs/ls/'</span>,
-    <span class="attr">issuer</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
-    <span class="attr">callbackUrl</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
-    <span class="attr">cert</span>: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>,
-    <span class="attr">authnContext</span>: <span class="string">'http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows'</span>,
+<pre><code class="javascript">  {
+    <span class="attr">entryPoint</span>: <span class="string">&#x27;https://ad.example.net/adfs/ls/&#x27;</span>,
+    <span class="attr">issuer</span>: <span class="string">&#x27;https://your-app.example.net/login/callback&#x27;</span>,
+    <span class="attr">callbackUrl</span>: <span class="string">&#x27;https://your-app.example.net/login/callback&#x27;</span>,
+    <span class="attr">cert</span>: <span class="string">&#x27;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&#x27;</span>,
+    <span class="attr">authnContext</span>: <span class="string">&#x27;http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows&#x27;</span>,
     <span class="attr">identifierFormat</span>: <span class="literal">null</span>
   }
 </code></pre>
@@ -366,14 +366,14 @@ of how things are stored, checked to see if they exist, and eventually removed i
 the server/process that generated the request id and stored in memory could be different than the server/process handling the
 SAML response. The <code>InResponseTo</code> could fail in this case erroneously.</p>
 <p>To support this scenario you can provide an implementation for a cache provider by providing an object with following functions:</p>
-<pre><code class="lang-javascript">{
-    <span class="attr">saveAsync</span>: <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{
+<pre><code class="javascript">{
+    <span class="attr">saveAsync</span>: <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">key, value</span>) {
       <span class="comment">// saves the key with the optional value, returns the saved value</span>
     },
-    <span class="attr">getAsync</span>: <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{
+    <span class="attr">getAsync</span>: <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">key</span>) {
       <span class="comment">// returns the value if found, null otherwise</span>
     },
-    <span class="attr">removeAsync</span>: <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{
+    <span class="attr">removeAsync</span>: <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">key</span>) {
       <span class="comment">// removes the key from the cache, returns the</span>
       <span class="comment">// key removed, null if no key is removed</span>
     }
@@ -403,14 +403,14 @@ SAML response. The <code>InResponseTo</code> could fail in this case erroneously
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml</span></code></div>
             <ul>
-              <li><span class="version">3.2.1</span> published <abbr class="updated" title="2022-06-23T13:25:22Z">a month ago</abbr></li>
+              <li><span class="version">3.2.4</span> published <abbr class="updated" title="2022-11-13T00:59:25Z">8 months ago</abbr></li>
               <li><a class="url" href="https://github.com/node-saml/passport-saml">https://github.com/node-saml/passport-saml#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>28,378</b> downloads in the last day</li>
-              <li><b>143,401</b> downloads in the last week</li>
-              <li><b>604,818</b> downloads in the last month</li>
+              <li><b>32,796</b> downloads in the last day</li>
+              <li><b>150,060</b> downloads in the last week</li>
+              <li><b>780,013</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

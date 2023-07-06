@@ -103,81 +103,81 @@
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure strategy</h3>
 <p>This example utilizes a development namespace (auth10-dev) on <a href="https://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Access Control Service</a> and is using Google as the only identity provider configured for the sample application.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> wsfedsaml2(
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>(
   {
-    <span class="attr">path</span>: <span class="string">'/login/callback'</span>,
-    <span class="attr">realm</span>: <span class="string">'urn:node:app'</span>,
-    <span class="attr">homeRealm</span>: <span class="string">''</span>, <span class="comment">// optionally specify an identity provider to avoid showing the idp selector</span>
-    <span class="attr">identityProviderUrl</span>: <span class="string">'https://auth10-dev.accesscontrol.windows.net/v2/wsfederation'</span>,
-    <span class="attr">cert</span>: <span class="string">'MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg='</span>
+    <span class="attr">path</span>: <span class="string">&#x27;/login/callback&#x27;</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;urn:node:app&#x27;</span>,
+    <span class="attr">homeRealm</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// optionally specify an identity provider to avoid showing the idp selector</span>
+    <span class="attr">identityProviderUrl</span>: <span class="string">&#x27;https://auth10-dev.accesscontrol.windows.net/v2/wsfederation&#x27;</span>,
+    <span class="attr">cert</span>: <span class="string">&#x27;MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg=&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
-    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">profile, done</span>) {
+    <span class="title function_">findByEmail</span>(profile.<span class="property">email</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   })
 ));
 </code></pre>
 <h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/callback'</span>,
-  passport.authenticate(<span class="string">'wsfed-saml2'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
 <h3 id="jwt">Jwt</h3>
 <p>Although this started as wsfed&amp;saml we added support for wsfed&amp;jwt. Usage is</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> wsfedsaml2(
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>(
   {
     <span class="attr">jwt</span>: {
       <span class="comment">//same options than node-jsonwebtoken</span>
-      <span class="attr">algorithm</span>: <span class="string">'RS256'</span>
+      <span class="attr">algorithm</span>: <span class="string">&#x27;RS256&#x27;</span>
     },
-    <span class="attr">cert</span>: <span class="string">'MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg='</span>
+    <span class="attr">cert</span>: <span class="string">&#x27;MIIDFjCCAf6gAwIBAgIQDRRprj9lv5RBvaQdlFltDzANBgkqhkiG9w0BAQUFADAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTEwOTIxMDMzMjMyWhcNMTIwOTIwMDkzMjMyWjAvMS0wKwYDVQQDEyRhdXRoMTAtZGV2LmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEIAEB/KKT3ehNMy2MQEyJIQ14CnZ8DC2FZgL5Gw3UBSdRb9JinK/gw7yOQtwKfJUqeoZaUSAAdcdbgqwVxOnMBfWiYX7DGlEznSfqYVnjOWjqqjpoe0h6RaOkdWovDtoidmqVV1tWRJFjkj895clPxkLpnqqcycfXtSdZen0SroGyirD2mhMc9ccLbJ3zRnBNjlvpo5zow1zYows09tNC2EhGROL/OS4JNRQnJRICZC+WkA7Igf3xb4btJOzIPYhFiqCGrd/81CHmAyEuNzyc60I5yomDQfZ91Eb5Uk3F7mlfAlYB2aZwDwldLSOlVE8G1E5xFexF/5KyPC4ShNodAgMBAAGjLjAsMAsGA1UdDwQEAwIE8DAdBgNVHQ4EFgQUyYfx/r0czsPgTzitqey+fGMQpkcwDQYJKoZIhvcNAQEFBQADggEBAB5dgQlM3tKS+/cjlvMCPjZH0Iqo/Wxecri3YWi2iVziZ/TQ3dSV+J/iTyduN7rJmFQzTsNERcsgyAwblwnEKXXvlWo8G/+VDIMh3zVPNQFKns5WPkfkhoSVlnZPTQ8zdXAcWgDXbCgvdqIPozdgL+4l0W0XVL1ugA4/hmMXh4TyNd9Qj7MWvlmwVjevpSqN4wG735jAZFHb/L/vvc91uKqP+JvLNj8tPFVxatzi56X1V8jBM61Hx1Z9D0RCDjtmcQVysVEylW9O6mNy6ZrhLm0q5yecWudfBbTKDqRoCHQRjrMU2c5q/ZFDtgjLim7FaNxFbgTyjeRCPclEhfemYVg=&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
-    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">profile, done</span>) {
+    <span class="title function_">findByEmail</span>(profile.<span class="property">email</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   })
 ));
 </code></pre>
 <h3 id="configure-strategy-for-adfs-ws-fed-">Configure strategy for ADFS (WS-Fed)</h3>
 <p>This example utilizes a strategy with ADFS using WS-Fed.</p>
-<pre><code class="lang-javascript">passport.use(<span class="string">'wsfed-saml2'</span>, <span class="keyword">new</span> wsfedsaml2({
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, <span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>({
     <span class="comment">// ADFS RP identifier</span>
-    <span class="attr">realm</span>: <span class="string">'urn:node:wsfedapp'</span>,
-    <span class="attr">identityProviderUrl</span>: <span class="string">'https://my-adfs/adfs/ls'</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;urn:node:wsfedapp&#x27;</span>,
+    <span class="attr">identityProviderUrl</span>: <span class="string">&#x27;https://my-adfs/adfs/ls&#x27;</span>,
     <span class="comment">// ADFS token signing certificate</span>
-    <span class="attr">thumbprint</span>: <span class="string">'5D27....D27E'</span>
-    <span class="comment">// or cert: fs.readFileSync("adfs_signing_key.cer")</span>
-}, <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
+    <span class="attr">thumbprint</span>: <span class="string">&#x27;5D27....D27E&#x27;</span>
+    <span class="comment">// or cert: fs.readFileSync(&quot;adfs_signing_key.cer&quot;)</span>
+}, <span class="keyword">function</span> (<span class="params">profile, done</span>) {
  <span class="comment">// ...</span>
 }));
 
 </code></pre>
 <h3 id="configure-strategy-for-adfs-samlp-">Configure strategy for ADFS (SAMLp)</h3>
 <p>This example utilizes a strategy using SAMLp and RP token encryption.</p>
-<pre><code class="lang-javascript">passport.use(<span class="string">'wsfed-saml2'</span>, <span class="keyword">new</span> wsfedsaml2({
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, <span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>({
     <span class="comment">// ADFS RP identifier</span>
-    <span class="attr">realm</span>: <span class="string">'urn:node:samlapp'</span>,
-    <span class="attr">identityProviderUrl</span>: <span class="string">'https://my-adfs/adfs/ls'</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;urn:node:samlapp&#x27;</span>,
+    <span class="attr">identityProviderUrl</span>: <span class="string">&#x27;https://my-adfs/adfs/ls&#x27;</span>,
     <span class="comment">// ADFS token signing certificate</span>
-    <span class="attr">thumbprint</span>: <span class="string">'5D27...D27E'</span>,
-    <span class="comment">// or cert: fs.readFileSync("adfs_signing_key.cer")</span>
-    <span class="attr">protocol</span>: <span class="string">"samlp"</span>,
+    <span class="attr">thumbprint</span>: <span class="string">&#x27;5D27...D27E&#x27;</span>,
+    <span class="comment">// or cert: fs.readFileSync(&quot;adfs_signing_key.cer&quot;)</span>
+    <span class="attr">protocol</span>: <span class="string">&quot;samlp&quot;</span>,
     <span class="comment">// This is the private key (use case where ADFS</span>
     <span class="comment">// is configured for RP token encryption)</span>
-    <span class="attr">decryptionKey</span>: fs.readFileSync(<span class="string">"server.key"</span>)
-}, <span class="function"><span class="keyword">function</span> (<span class="params">profile, done</span>) </span>{
+    <span class="attr">decryptionKey</span>: fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;server.key&quot;</span>)
+}, <span class="keyword">function</span> (<span class="params">profile, done</span>) {
  <span class="comment">// ...</span>
 }));
 </code></pre>
@@ -193,13 +193,13 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wsfed-saml2</span></code></div>
             <ul>
-              <li><span class="version">4.6.1</span> published <abbr class="updated" title="2022-06-23T13:49:59Z">a month ago</abbr></li>
+              <li><span class="version">4.6.3</span> published <abbr class="updated" title="2023-02-28T17:12:19Z">4 months ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-wsfed-saml2">https://github.com/auth0/passport-wsfed-saml2#readme</a></li>
             </ul>
             <ul>
-              <li><b>298</b> downloads in the last day</li>
-              <li><b>1,848</b> downloads in the last week</li>
-              <li><b>8,055</b> downloads in the last month</li>
+              <li><b>241</b> downloads in the last day</li>
+              <li><b>1,318</b> downloads in the last week</li>
+              <li><b>9,338</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

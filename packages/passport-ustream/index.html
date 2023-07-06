@@ -100,11 +100,11 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-ustream
 </code></pre><h2 id="usage">Usage</h2>
 <p>####Configure Strategy</p>
-<pre><code><span class="keyword">var</span> UstreamStrategy = <span class="built_in">require</span>(<span class="string">'passport-ustream'</span>).Strategy;
+<pre><code><span class="keyword">var</span> UstreamStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-ustream&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> UstreamStrategy({
-    <span class="attr">clientID</span>: <span class="string">'ABC123'</span>,
-    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/ustream/callback"</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">UstreamStrategy</span>({
+    clientID: <span class="string">&#x27;ABC123&#x27;</span>,
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/ustream/callback&quot;</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
     <span class="comment">// find that user</span>
@@ -115,14 +115,14 @@ passport.use(<span class="keyword">new</span> UstreamStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ustream</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:42:46Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:42:46Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/superpan/passport-ustream">https://github.com/superpan/passport-ustream</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

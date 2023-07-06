@@ -99,42 +99,42 @@
 <a href="https://travis-ci.org/TDAF/passport-taccounts-oauth2"><img src="https://travis-ci.org/TDAF/passport-taccounts-oauth2.svg" alt="Build Status"></a>
 <a href="https://coveralls.io/r/TDAF/passport-taccounts-oauth2"><img src="https://img.shields.io/coveralls/TDAF/passport-taccounts-oauth2.svg" alt="Coverage Status"></a></p>
 <h2 id="basic-usage">Basic usage</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-    TAccountsStrategy = <span class="built_in">require</span>(<span class="string">'passport-taccounts-oauth2'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+    <span class="title class_">TAccountsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-taccounts-oauth2&#x27;</span>);
 
 <span class="keyword">var</span> options = {
-  <span class="attr">clientID</span>: <span class="string">'2b8672be-5c80-ac91-96da-f4b922105431'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'f5d689ac-fc2c-4e32-ac8a-321212ca1a8d'</span>,
-  <span class="attr">callbackURL</span>: <span class="string">'http://localhost/auth/taccounts/callback'</span>
+  <span class="attr">clientID</span>: <span class="string">&#x27;2b8672be-5c80-ac91-96da-f4b922105431&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;f5d689ac-fc2c-4e32-ac8a-321212ca1a8d&#x27;</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;http://localhost/auth/taccounts/callback&#x27;</span>
 };
 
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> TAccountsStrategy(options, verify);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">TAccountsStrategy</span>(options, verify);
 
-<span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">accessToken, refreshToken, user, done</span>) </span>{
-  <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+<span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">accessToken, refreshToken, user, done</span>) {
+  <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }
 
-passport.use(strategy);
+passport.<span class="title function_">use</span>(strategy);
 </code></pre>
 <h2 id="user-profile">User profile</h2>
 <p>To make integrations easier, the user profile is normalized according to <a href="http://passportjs.org/docs/profile">passport recommendations</a>.
 The original payload is also returned for those who need additional information from Telefonica Accounts. For example:</p>
-<pre><code class="lang-json">{
-  <span class="attr">"email"</span>: <span class="string">"frodo.bolson@telefonica.com"</span>,
-  <span class="attr">"local_company_alias"</span>: <span class="string">"HI_frodo"</span>,
-  <span class="attr">"company"</span>: <span class="string">"Telefónica S.A."</span>,
-  <span class="attr">"tags"</span>: [
-      <span class="string">"ldap_auth"</span>,
-      <span class="string">"telefonica_user"</span>
-  ],
-  <span class="attr">"sub"</span>: <span class="string">"9d2ccf1f-746d-4455-9793-44e1bc8caaa6"</span>,
-  <span class="attr">"locale"</span>: <span class="string">"es"</span>,
-  <span class="attr">"email_verified"</span>: <span class="literal">true</span>,
-  <span class="attr">"updated_at"</span>: <span class="string">"2016-10-25T10:28:35.289Z"</span>,
-  <span class="attr">"name"</span>: <span class="string">"FRODO BOLSON"</span>,
-  <span class="attr">"phone_number"</span>: <span class="string">"+34666666666"</span>,
-  <span class="attr">"phone_number_verified"</span>: <span class="literal">true</span>
-}
+<pre><code class="json"><span class="punctuation">{</span>
+  <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;frodo.bolson@telefonica.com&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;local_company_alias&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HI_frodo&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;company&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Telefónica S.A.&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+      <span class="string">&quot;ldap_auth&quot;</span><span class="punctuation">,</span>
+      <span class="string">&quot;telefonica_user&quot;</span>
+  <span class="punctuation">]</span><span class="punctuation">,</span>
+  <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;9d2ccf1f-746d-4455-9793-44e1bc8caaa6&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;locale&quot;</span><span class="punctuation">:</span> <span class="string">&quot;es&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;email_verified&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>
+  <span class="attr">&quot;updated_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2016-10-25T10:28:35.289Z&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;FRODO BOLSON&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;phone_number&quot;</span><span class="punctuation">:</span> <span class="string">&quot;+34666666666&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;phone_number_verified&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span>
+<span class="punctuation">}</span>
 </code></pre>
 <h2 id="advanced-options">Advanced options</h2>
 <p>You can pass extra parameters as options. They are usually not needed, unless you
@@ -148,24 +148,24 @@ are running your own TAccounts service:</p>
 <h3 id="logout-from-telef-nica-accounts">Logout from Telefónica Accounts</h3>
 <p>The strategy exposes a new method <code>logout</code> as an addition to the common passportJS ones. Use this method to create a middleware that logouts the user directly from
 Telefónica Accounts and redirects back to the specified <code>logoutCallbackURL</code></p>
-<pre><code class="lang-js">
+<pre><code class="js">
 <span class="keyword">var</span> options = {
    <span class="comment">// Other options</span>
-  <span class="attr">logoutCallbackURL</span>: <span class="string">'http://localhost/auth/logout'</span>
+  <span class="attr">logoutCallbackURL</span>: <span class="string">&#x27;http://localhost/auth/logout&#x27;</span>
 };
 
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> TAccountsStrategy(options, verify);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">TAccountsStrategy</span>(options, verify);
 
-passport.use(strategy);
+passport.<span class="title function_">use</span>(strategy);
 
-app.get(<span class="string">'/auth/taccounts/'</span>, passport.authenticate(<span class="string">'taccounts'</span>));
-app.get(<span class="string">'/auth/taccounts/callback'</span>, passport.authenticate(<span class="string">'taccounts'</span>));
-app.get(<span class="string">'/auth/taccounts/logout'</span>, strategy.logout());
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/taccounts/&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;taccounts&#x27;</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/taccounts/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;taccounts&#x27;</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/taccounts/logout&#x27;</span>, strategy.<span class="title function_">logout</span>());
 
-app.get(<span class="string">'/auth/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/logout&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) {
   <span class="comment">// Gets redirected here after logging out from Telefónica Accounts</span>
-  req.logout();
-  res.redirect(<span class="string">'/'</span>);
+  req.<span class="title function_">logout</span>();
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre>
 <h2 id="license">License</h2>
@@ -177,14 +177,14 @@ app.get(<span class="string">'/auth/logout'</span>, <span class="function"><span
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-taccounts-oauth2</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:16Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Telefonica/passport-taccounts-oauth2">https://github.com/TDAF/passport-taccounts-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>23</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>32</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

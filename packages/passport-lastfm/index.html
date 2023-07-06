@@ -102,52 +102,52 @@
 <h2 id="usage">Usage</h2>
 <hr>
 <p>Set up passport strategies.  Be sure initialize with api_key and secret</p>
-<pre><code><span class="keyword">var</span> LastFMStrategy = <span class="built_in">require</span>(<span class="string">'passport-lastfm'</span>)
-<span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
-<span class="keyword">var</span> cb_url = <span class="string">'http://localhost:8000'</span>;
+<pre><code><span class="keyword">var</span> LastFMStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-lastfm&#x27;</span>)
+<span class="keyword">var</span> _ = <span class="keyword">require</span>(<span class="string">&#x27;lodash&#x27;</span>);
+<span class="keyword">var</span> cb_url = <span class="string">&#x27;http://localhost:8000&#x27;</span>;
 
-passport.use(<span class="keyword">new</span> LastFmStrategy({
-  <span class="string">'api_key'</span>: process.env.LASTFM_KEY,
-  <span class="string">'secret'</span>: process.env.LASTFM_SECRET,
-  <span class="string">'callbackURL'</span>: cb_url + <span class="string">'/auth/lastfm/callback'</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">LastFmStrategy</span>({
+  <span class="string">&#x27;api_key&#x27;</span>: process.env.LASTFM_KEY,
+  <span class="string">&#x27;secret&#x27;</span>: process.env.LASTFM_SECRET,
+  <span class="string">&#x27;callbackURL&#x27;</span>: cb_url + <span class="string">&#x27;/auth/lastfm/callback&#x27;</span>
 }, <span class="function"><span class="keyword">function</span>(<span class="params">req, sessionKey, done</span>) </span>{
-  <span class="comment">// Find/Update user's lastfm session</span>
+  <span class="comment">// Find/Update user&#x27;s lastfm session</span>
 
   <span class="comment">// If user logged in</span>
   <span class="keyword">if</span> (req.user){
-    User.findById(req.user.id, <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
-      <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err);
+    User.<span class="title function_ invoke__">findById</span>(req.user.id, (err, user) =&gt; {
+      <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err);
 
-      <span class="keyword">var</span> creds = _.find(req.user.tokens, {<span class="keyword">type</span>:<span class="string">'lastfm'</span>});
+      <span class="keyword">var</span> creds = _.<span class="title function_ invoke__">find</span>(req.user.tokens, {<span class="attr">type</span>:<span class="string">&#x27;lastfm&#x27;</span>});
       <span class="comment">// if creds already present</span>
       <span class="keyword">if</span> (user.lastfm &amp;&amp; creds){
-        req.flash(<span class="string">'info'</span>, {msg:<span class="string">'Account already linked'</span>});
+        req.<span class="title function_ invoke__">flash</span>(<span class="string">&#x27;info&#x27;</span>, {<span class="attr">msg</span>:<span class="string">&#x27;Account already linked&#x27;</span>});
 
-        <span class="keyword">return</span> done(err, user, {msg:<span class="string">'Account already linked'</span>})
+        <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err, user, {<span class="attr">msg</span>:<span class="string">&#x27;Account already linked&#x27;</span>})
       }
 
       <span class="keyword">else</span>{
-        user.tokens.push({<span class="keyword">type</span>:<span class="string">'lastfm'</span>, username:sessionKey.username, key:sessionKey.key });
+        user.tokens.<span class="title function_ invoke__">push</span>({<span class="attr">type</span>:<span class="string">&#x27;lastfm&#x27;</span>, <span class="attr">username</span>:sessionKey.username, <span class="attr">key</span>:sessionKey.key });
         user.lastfm = sessionKey.key;
 
-        user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
-          <span class="keyword">if</span> (err) <span class="keyword">return</span> done(err);
-          req.flash(<span class="string">'success'</span>, {msg:<span class="string">"Last.fm authentication success"</span>});
-          <span class="keyword">return</span> done(err, user, sessionKey);
+        user.<span class="title function_ invoke__">save</span>(function(err){
+          <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err);
+          req.<span class="title function_ invoke__">flash</span>(<span class="string">&#x27;success&#x27;</span>, {<span class="attr">msg</span>:<span class="string">&quot;Last.fm authentication success&quot;</span>});
+          <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err, user, sessionKey);
         });
       }
     });
   }
   <span class="keyword">else</span>{
-    <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, {message:<span class="string">'Must be logged in'</span>});
+    <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, {<span class="attr">message</span>:<span class="string">&#x27;Must be logged in&#x27;</span>});
   }
 }));
 
 </code></pre><p>In route handlers</p>
-<pre><code>app.get(<span class="string">'/auth/lastfm'</span>, passport.authenticate(<span class="string">'lastfm'</span>));
-app.get(<span class="string">'/auth/lastfm/callback'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span></span>{
-  passport.authenticate(<span class="string">'lastfm'</span>, {failureRedirect:<span class="string">'/'</span>}, <span class="function"><span class="keyword">function</span><span class="params">(err, user, sesh)</span></span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/lastfm&#x27;</span>, passport.authenticate(<span class="string">&#x27;lastfm&#x27;</span>));
+app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/lastfm/callback&#x27;</span>, <span class="keyword">function</span>(req, res, next){
+  passport.authenticate(<span class="string">&#x27;lastfm&#x27;</span>, {failureRedirect:<span class="string">&#x27;/&#x27;</span>}, <span class="keyword">function</span>(err, <span class="keyword">user</span>, sesh){
+    res.redirect(<span class="string">&#x27;/&#x27;</span>);
   })(req, {} );
 });
 
@@ -155,14 +155,14 @@ app.get(<span class="string">'/auth/lastfm/callback'</span>, <span class="functi
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lastfm</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:21Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/kizzlebot/passport-lastfm">https://github.com/kizzlebot/passport-lastfm#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3</b> downloads in the last day</li>
-              <li><b>29</b> downloads in the last week</li>
-              <li><b>95</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>52</b> downloads in the last week</li>
+              <li><b>252</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

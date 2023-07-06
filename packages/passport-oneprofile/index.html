@@ -100,12 +100,12 @@
 </code></pre><p>More detail please refer to <a href="http://passportjs.org/guide/configure/">Passport configuration</a> page. Some key points are listed below:</p>
 <ol>
 <li><p>Add two middleware to Express project - <code>passport.initialize()</code> and <code>passport.session()</code></p>
-<pre><code> <span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>);
+<pre><code> <span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">&#x27;passport&#x27;</span>);
  app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
    <span class="comment">// Some middleware ...</span>
 
-   app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
-   app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">session</span>());
+   app.<span class="keyword">use</span>(passport.initialize());
+   app.<span class="keyword">use</span>(passport.session());
 
    <span class="comment">// Other middleware ...</span>
  });
@@ -123,29 +123,29 @@
 </ol>
 <h3 id="2-add-customized-passport-strategy-">2. Add customized passport strategy.</h3>
 <p>  Set one profile as an authentication strategy. Set <code>ONES_KEY</code>, <code>ONES_SECRET</code> and <code>ONES_HOST</code> in system environment variables or hard code to replace them.</p>
-<pre><code>    <span class="keyword">var</span> oneProfileStrategy = <span class="built_in">require</span>(<span class="string">'passport-oneprofile'</span>);
+<pre><code>    <span class="keyword">var</span> oneProfileStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-oneprofile&#x27;</span>);
 
-    passport.use(<span class="keyword">new</span> oneProfileStrategy({
+    passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title function_ invoke__">oneProfileStrategy</span>({
         <span class="attr">opId</span>: process.env.ONES_KEY,
         <span class="attr">opSecret</span>: process.env.ONES_SECRET,
         <span class="attr">opHost</span>: process.env.ONES_HOST
-    }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user, done</span>) </span>{
+    }, function(err, user, done) {
       <span class="comment">// Do anything for the returned user, or just pass it to callback</span>
-        done(err, user);
+        <span class="title function_ invoke__">done</span>(err, user);
       })
     );
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oneprofile</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:12:52Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:12:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/StubHubLabs/node-oneprofile.git">https://github.com/StubHubLabs/node-oneprofile</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

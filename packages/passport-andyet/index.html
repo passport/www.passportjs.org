@@ -98,33 +98,33 @@
 <h2 id="install">Install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-andyet
 </code></pre><h2 id="usage">Usage</h2>
-<pre><code class="lang-js"><span class="keyword">var</span> AndyetStrategy = <span class="built_in">require</span>(<span class="string">'passport-andyet'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">AndyetStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-andyet&#x27;</span>).<span class="property">Strategy</span>;
 
-Passport.use(<span class="keyword">new</span> AndyetStrategy({
-    <span class="attr">clientId</span>: YOUR_CLIENT_ID,
-    <span class="attr">clientSecret</span>: YOUR_CLIENT_SECRET,
-    <span class="attr">apps</span>: <span class="string">'https://apps.andyet.com'</span>, <span class="comment">// this is the default, but can be overridden</span>
-    <span class="attr">api</span>: <span class="string">'https://api.andbang.com'</span> <span class="comment">// again, this is the default</span>
-}, <span class="function"><span class="keyword">function</span> (<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+<span class="title class_">Passport</span>.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AndyetStrategy</span>({
+    <span class="attr">clientId</span>: <span class="variable constant_">YOUR_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">YOUR_CLIENT_SECRET</span>,
+    <span class="attr">apps</span>: <span class="string">&#x27;https://apps.andyet.com&#x27;</span>, <span class="comment">// this is the default, but can be overridden</span>
+    <span class="attr">api</span>: <span class="string">&#x27;https://api.andbang.com&#x27;</span> <span class="comment">// again, this is the default</span>
+}, <span class="keyword">function</span> (<span class="params">accessToken, refreshToken, profile, done</span>) {
     <span class="comment">// profile is the json object representing the user as fetched from the /me route of the api</span>
     <span class="comment">// you can use that data to look up a local user, or whatever else you need to do here</span>
-    <span class="comment">// when you're finished call done with an error parameter first (if there was an error) and</span>
+    <span class="comment">// when you&#x27;re finished call done with an error parameter first (if there was an error) and</span>
     <span class="comment">// the user object second</span>
-    done(<span class="literal">null</span>, profile);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 });
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-andyet</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:14:08Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:14:08Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/andyet/passport-andyet">https://github.com/andyet/passport-andyet</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

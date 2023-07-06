@@ -109,41 +109,41 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(<span class="selector-tag">new</span> <span class="selector-tag">AttApiAlphaStrategy</span>({
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">AttApiAlphaStrategy</span>({
     <span class="attribute">clientID</span>: CLIENT_ID
-    clientSecret: CLIENT_SECRET,
-    callbackURL: <span class="string">"http://localhost:5000/users/auth/callback"</span>
+    <span class="attribute">clientSecret</span>: CLIENT_SECRET,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:5000/users/auth/callback&quot;</span>
   }));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;att-alpha&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/'</span>, function (req, res) {
-  <span class="selector-tag">if</span>(req.user){
-    <span class="selector-tag">res</span><span class="selector-class">.send</span>(<span class="string">'&lt;h1&gt;AT&amp;T Alpha OAuth2 Example - Logout&lt;/h1&gt;&lt;a href="/logout"&gt;Logout&lt;/a&gt;'</span>);
-    <span class="selector-tag">console</span><span class="selector-class">.log</span>(req.user);
-  } <span class="selector-tag">else</span> {
-    <span class="selector-tag">res</span><span class="selector-class">.send</span>(<span class="string">'&lt;h1&gt;AT&amp;T Alpha OAuth2 Example - Please login&lt;/h1&gt;&lt;a href="/auth"&gt;login&lt;/a&gt;'</span>);
+<pre><code>app.get(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span> (req, res) {
+  <span class="keyword">if</span>(req.user){
+    res.send(<span class="string">&#x27;&lt;h1&gt;AT&amp;T Alpha OAuth2 Example - Logout&lt;/h1&gt;&lt;a href=&quot;/logout&quot;&gt;Logout&lt;/a&gt;&#x27;</span>);
+    console.log(req.user);
+  } <span class="keyword">else</span> {
+    res.send(<span class="string">&#x27;&lt;h1&gt;AT&amp;T Alpha OAuth2 Example - Please login&lt;/h1&gt;&lt;a href=&quot;/auth&quot;&gt;login&lt;/a&gt;&#x27;</span>);
   }
 });
 
-<span class="comment">// GET /auth</span>
-<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
-<span class="comment">//   request.  The first step in AT&amp;T Alpha authentication will involve</span>
-<span class="comment">//   redirecting the user to apimatrix.tfoundry.com.  After authorization, apimatrix will</span>
-<span class="comment">//   redirect the user back to this application at /users/auth/att/callback</span>
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth'</span>,
-  passport.authenticate(<span class="string">'att-alpha'</span>, { <span class="attribute">scope</span>: [<span class="string">'profile'</span>, <span class="string">'addressbook'</span>] }));
+<span class="regexp">//</span> GET /auth
+<span class="regexp">//</span>   Use passport.authenticate() as route middleware to authenticate the
+<span class="regexp">//</span>   request.  The first step <span class="keyword">in</span> AT&amp;T Alpha authentication will involve
+<span class="regexp">//</span>   redirecting the user to apimatrix.tfoundry.com.  After authorization, apimatrix will
+<span class="regexp">//</span>   redirect the user back to this application at <span class="regexp">/users/</span>auth<span class="regexp">/att/</span>callback
+app.get(<span class="string">&#x27;/auth&#x27;</span>,
+  passport.authenticate(<span class="string">&#x27;att-alpha&#x27;</span>, { scope: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;addressbook&#x27;</span>] }));
 
-<span class="comment">// GET /users/auth/att/callback</span>
-<span class="comment">//   Use passport.authenticate() as route middleware to authenticate the</span>
-<span class="comment">//   request.  If authentication fails, the user will be redirected back to the</span>
-<span class="comment">//   login page.  Otherwise, the primary route function function will be called,</span>
-<span class="comment">//   which, in this example, will redirect the user to the home page.</span>
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/users/auth/att/callback'</span>, 
-  passport.authenticate(<span class="string">'att-alpha'</span>, { <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
-                                     <span class="attribute">failureRedirect</span>: <span class="string">'/'</span> }));
+<span class="regexp">//</span> GET <span class="regexp">/users/</span>auth<span class="regexp">/att/</span>callback
+<span class="regexp">//</span>   Use passport.authenticate() as route middleware to authenticate the
+<span class="regexp">//</span>   request.  If authentication fails, the user will be redirected back to the
+<span class="regexp">//</span>   login page.  Otherwise, the primary route <span class="keyword">function</span> <span class="keyword">function</span> will be called,
+<span class="regexp">//</span>   which, <span class="keyword">in</span> this example, will redirect the user to the home page.
+app.get(<span class="string">&#x27;/users/auth/att/callback&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;att-alpha&#x27;</span>, { successRedirect: <span class="string">&#x27;/&#x27;</span>,
+                                     failureRedirect: <span class="string">&#x27;/&#x27;</span> }));
 </code></pre><h4 id="extended-permissions">Extended Permissions</h4>
 <p>If you need extended permissions from the user, the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>. See above</p>
@@ -174,13 +174,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-att-alpha</span></code></div>
             <ul>
-              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2022-06-23T12:17:09Z">a month ago</abbr></li>
+              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2022-06-23T12:17:09Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/att-innovate/passport-att-alpha"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

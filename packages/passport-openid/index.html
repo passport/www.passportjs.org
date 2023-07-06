@@ -110,8 +110,8 @@ identifier.  The strategy requires a <code>validate</code> callback, which accep
 identifier and calls <code>done</code> providing a user.  Additionally, options can be
 supplied to specify a return URL and realm.</p>
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> OpenIDStrategy({
-    returnURL: <span class="symbol">'http</span>://localhost:<span class="number">3000</span>/auth/openid/<span class="keyword">return</span>',
-    realm: <span class="symbol">'http</span>://localhost:<span class="number">3000</span>/'
+    returnURL: <span class="symbol">&#x27;http</span>://localhost:<span class="number">3000</span>/auth/openid/<span class="keyword">return</span>&#x27;,
+    realm: <span class="symbol">&#x27;http</span>://localhost:<span class="number">3000</span>/&#x27;
   },
   <span class="keyword">function</span>(identifier, done) {
     User.findByOpenID({ openId: identifier }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
@@ -124,14 +124,14 @@ supplied to specify a return URL and realm.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/auth/openid'</span>,
-  passport.authenticate(<span class="string">'openid'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/auth/openid&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;openid&#x27;</span>));
 
-app.get(<span class="string">'/auth/openid/return'</span>, 
-  passport.authenticate(<span class="string">'openid'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/openid/return&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;openid&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h4 id="saving-associations">Saving Associations</h4>
 <p>Associations between a relying party and an OpenID provider are used to verify
@@ -169,8 +169,8 @@ strategy.load<span class="constructor">Association(<span class="params">function
 </table>
 
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-openid"><img src="https://secure.travis-ci.org/jaredhanson/passport-openid.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -183,13 +183,13 @@ strategy.load<span class="constructor">Association(<span class="params">function
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-openid</span></code></div>
             <ul>
-              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2022-06-23T13:13:46Z">a month ago</abbr></li>
+              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2022-06-23T13:13:46Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-openid">https://github.com/jaredhanson/passport-openid</a></li>
             </ul>
             <ul>
-              <li><b>1,559</b> downloads in the last day</li>
-              <li><b>10,548</b> downloads in the last week</li>
-              <li><b>47,073</b> downloads in the last month</li>
+              <li><b>1,476</b> downloads in the last day</li>
+              <li><b>6,154</b> downloads in the last week</li>
+              <li><b>37,375</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

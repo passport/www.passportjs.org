@@ -96,16 +96,16 @@
           <div class="description"><h1 id="passport-sbhs">passport-sbhs</h1>
 <p>Passport strategy for SBHS&#39; OAuth2 implementation.</p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-js">npm install passport-sbhs
+<pre><code class="js">npm install passport-sbhs
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>Use this strategy just like you would use the <a href="https://github.com/jaredhanson/passport-oauth2">standard OAuth2 strategy</a>. The only difference is that this adds some convenience functions and the profile variable in the verification callback actually works.</p>
 <p>To access protected JSON data, you can call <code>getJSONResource</code> with the endpoint URL, or you could use some of the methods below to save a few lines of code. All they do is request the JSON you want, and parse it with <code>JSON.parse</code>.</p>
-<pre><code class="lang-js">userProfile(accessToken, callback);        <span class="comment">// User Information</span>
-awardScheme(accessToken, callback);        <span class="comment">// Award Scheme Participation</span>
-timetable(accessToken, callback);          <span class="comment">// Timetable</span>
-day(accessToken, callback, date);          <span class="comment">// Day Timetable and Various Details</span>
-dailyNotices(accessToken, callback, date); <span class="comment">// Daily Notices</span>
+<pre><code class="js"><span class="title function_">userProfile</span>(accessToken, callback);        <span class="comment">// User Information</span>
+<span class="title function_">awardScheme</span>(accessToken, callback);        <span class="comment">// Award Scheme Participation</span>
+<span class="title function_">timetable</span>(accessToken, callback);          <span class="comment">// Timetable</span>
+<span class="title function_">day</span>(accessToken, callback, date);          <span class="comment">// Day Timetable and Various Details</span>
+<span class="title function_">dailyNotices</span>(accessToken, callback, date); <span class="comment">// Daily Notices</span>
 </code></pre>
 <blockquote>
 <p>The date parameters are optional. The format is YYYY-MM-DD.</p>
@@ -117,12 +117,12 @@ dailyNotices(accessToken, callback, date); <span class="comment">// Daily Notice
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-sbhs</span></code></div>
             <ul>
-              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T13:26:46Z">a month ago</abbr></li>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T13:26:46Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Inexistante/passport-sbhs.git">https://github.com/Inexistante/passport-sbhs</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>

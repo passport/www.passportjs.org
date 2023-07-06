@@ -101,15 +101,15 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-thinkful
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> ThinkfulStrategy(
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ThinkfulStrategy</span>(
   { <span class="attr">secret</span>: publicPrivateSigningKey },
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, user, done</span>) </span>{
-    request.get(USER_API_ENDPOINT)
-      .set(<span class="string">'Authorization'</span>, req.headers.authorization)
-      .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>{
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-        <span class="keyword">if</span> (!res.body || !res.body.user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-        <span class="keyword">return</span> done(<span class="literal">null</span>, res.body.user);
+  <span class="keyword">function</span> (<span class="params">req, user, done</span>) {
+    request.<span class="title function_">get</span>(<span class="variable constant_">USER_API_ENDPOINT</span>)
+      .<span class="title function_">set</span>(<span class="string">&#x27;Authorization&#x27;</span>, req.<span class="property">headers</span>.<span class="property">authorization</span>)
+      .<span class="title function_">end</span>(<span class="keyword">function</span> (<span class="params">err, res</span>) {
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+        <span class="keyword">if</span> (!res.<span class="property">body</span> || !res.<span class="property">body</span>.<span class="property">user</span>) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, res.<span class="property">body</span>.<span class="property">user</span>);
       });
   }
 ));
@@ -126,14 +126,14 @@ app.get(&#39;/users/me&#39;,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-thinkful</span></code></div>
             <ul>
-              <li><span class="version">0.0.0-beta.3</span> published <abbr class="updated" title="2022-06-23T13:36:40Z">a month ago</abbr></li>
+              <li><span class="version">0.0.0-beta.3</span> published <abbr class="updated" title="2022-06-23T13:36:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Thinkful/passport-thinkful">https://github.com/Thinkful/passport-thinkful</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

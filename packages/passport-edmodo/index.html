@@ -109,14 +109,14 @@ unobtrusively integrated into any application or framework that supports
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> EdmodoStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> EdmodoStrategy({
     clientID: EDMODO_CLIENT_ID,
     clientSecret: EDMODO_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/edmodo/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/edmodo/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ edmodoId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ edmodoId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -125,20 +125,20 @@ specifying a client ID, client secret, and callback URL.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/login/edmodo'</span>,
-  passport.authenticate(<span class="string">'edmodo'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/login/edmodo&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;edmodo&#x27;</span>));
 
-app.get(<span class="string">'/login/edmodo/callback'</span>, 
-  passport.authenticate(<span class="string">'edmodo'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/login/edmodo/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;edmodo&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/zaption/passport-edmodo/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><p><a href="http://github.com/cstigler">Charlie Stigler</a> at <a href="http://github.com/zaption">Zaption</a></p>
@@ -153,13 +153,13 @@ app.get(<span class="string">'/login/edmodo/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-edmodo</span></code></div>
             <ul>
-              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T12:32:09Z">a month ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T12:32:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/zaption/passport-edmodo">https://github.com/zaption/passport-edmodo</a></li>
             </ul>
             <ul>
-              <li><b>6</b> downloads in the last day</li>
-              <li><b>16</b> downloads in the last week</li>
-              <li><b>111</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>39</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

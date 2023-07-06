@@ -106,19 +106,19 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passportjs-header
+<pre><code class="bash">$ npm install passportjs-header
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The header authentication strategy authenticates users based on the user id
 sent in the HTTP headers by header worstations. The strategy requires a <code>verify</code>
 callback, which accepts these credentials and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> HeaderStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">userid, done</span>) </span>{
-    User.findOne({ <span class="attr">userid</span>: userid }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">HeaderStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">userid, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">userid</span>: userid }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -128,28 +128,28 @@ callback, which accepts these credentials and calls <code>done</code> providing 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'Header'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/unauthenticated'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;Header&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/unauthenticated&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passportjs-header</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:54:40Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:54:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/chrisns/passportjs-header">https://github.com/chrisns/passportjs-header#readme</a></li>
               <li><a rel="licence" href="http://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html">GNU General Public License v2.0 only</a></li>
             </ul>
             <ul>
-              <li><b>97</b> downloads in the last day</li>
-              <li><b>447</b> downloads in the last week</li>
-              <li><b>2,009</b> downloads in the last month</li>
+              <li><b>57</b> downloads in the last day</li>
+              <li><b>80</b> downloads in the last week</li>
+              <li><b>1,244</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

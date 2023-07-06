@@ -111,16 +111,16 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code class="lang-Javascript"><span class="keyword">var</span> MediaWikiStrategy = <span class="built_in">require</span>(<span class="string">'passport-mediawiki-oauth'</span>).OAuthStrategy;
+<pre><code class="Javascript"><span class="keyword">var</span> <span class="title class_">MediaWikiStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-mediawiki-oauth&#x27;</span>).<span class="property">OAuthStrategy</span>;
 
-passport.use(<span class="keyword">new</span> MediaWikiStrategy({
-    <span class="attr">consumerKey</span>: MEDIAWIKI_CONSUMER_KEY,
-    <span class="attr">consumerSecret</span>: MEDIAWIKI_CONSUMER_SECRET,
-    <span class="attr">callbackURL</span>: MEDIAWIKI_CALLBACK_URL
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">MediaWikiStrategy</span>({
+    <span class="attr">consumerKey</span>: <span class="variable constant_">MEDIAWIKI_CONSUMER_KEY</span>,
+    <span class="attr">consumerSecret</span>: <span class="variable constant_">MEDIAWIKI_CONSUMER_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="variable constant_">MEDIAWIKI_CALLBACK_URL</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">mediawikiGlobalId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">mediawikiGlobalId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -130,24 +130,24 @@ passport.use(<span class="keyword">new</span> MediaWikiStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-Javascript">app.get(<span class="string">'/auth/mediawiki'</span>,
-  passport.authenticate(<span class="string">'mediawiki'</span>, { <span class="attr">scope</span>: MEDIAWIKI_AUTH_SCOPE }));
+<pre><code class="Javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/mediawiki&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;mediawiki&#x27;</span>, { <span class="attr">scope</span>: <span class="variable constant_">MEDIAWIKI_AUTH_SCOPE</span> }));
 
-app.get(<span class="string">'/auth/mediawiki/callback'</span>, 
-  passport.authenticate(<span class="string">'mediawiki'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/mediawiki/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;mediawiki&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://git.wikimedia.org/blob/passport-mediawiki/HEAD/examples%2Foauth%2Fapp.js">OAuth 1.0 example</a>.  To get it up and running, you can do:</p>
-<pre><code>$ cd examples/oauth
-$ npm install
-$ <span class="keyword">node</span> <span class="title">app</span>.js
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> examples/oauth</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">node app.js</span>
 </code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/wikimedia/passport-mediawiki-oauth"><img src="https://secure.travis-ci.org/wikimedia/passport-mediawiki-oauth.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -160,12 +160,12 @@ $ <span class="keyword">node</span> <span class="title">app</span>.js
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mediawiki-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:01:03Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:01:03Z">a year ago</abbr></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -121,15 +121,15 @@ credentials and calls <code>done</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'localapikey'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;localapikey&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/cholalabs/passport-localapikey"><img src="https://secure.travis-ci.org/cholalabs/passport-localapikey.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -156,13 +156,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-localapikey</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:59:21Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:59:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/cholalabs/passport-localapikey"></a></li>
             </ul>
             <ul>
-              <li><b>340</b> downloads in the last day</li>
-              <li><b>1,795</b> downloads in the last week</li>
-              <li><b>7,041</b> downloads in the last month</li>
+              <li><b>172</b> downloads in the last day</li>
+              <li><b>909</b> downloads in the last week</li>
+              <li><b>4,827</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -96,52 +96,52 @@
           <div class="description"><h1 id="hackerverse-passport-strategy">Hackerverse Passport Strategy</h1>
 <h2 id="configuration">Configuration</h2>
 <p>Use the following example implementation to get started with hackerverse&#39;s passport library</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-  Hackerverse = <span class="built_in">require</span>(<span class="string">'passport-hackerverse'</span>).Strategy
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+  <span class="title class_">Hackerverse</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-hackerverse&#x27;</span>).<span class="property">Strategy</span>
 
-passport.use(<span class="string">'hackerverse'</span>, <span class="keyword">new</span> Hackerverse({
-    <span class="attr">clientID</span>: <span class="string">'YOUR_APPLICATION_ID'</span>,
-    <span class="attr">clientSecret</span>: <span class="string">'YOUR_APPLICATION_SECRET'</span>,
-    <span class="attr">callbackURL</span>: <span class="string">'YOUR_CALLBACK_URL'</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;hackerverse&#x27;</span>, <span class="keyword">new</span> <span class="title class_">Hackerverse</span>({
+    <span class="attr">clientID</span>: <span class="string">&#x27;YOUR_APPLICATION_ID&#x27;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&#x27;YOUR_APPLICATION_SECRET&#x27;</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;YOUR_CALLBACK_URL&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>)</span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      done(err, user);
+  <span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>){
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
 </code></pre>
 <h2 id="routes">Routes</h2>
 <p>Two routes are required for the hackerverse passport strategy</p>
-<pre><code class="lang-javascript"><span class="comment">/* 
+<pre><code class="javascript"><span class="comment">/* 
 * This first route redirects the user to the service provider. 
 */</span>
-app.get(<span class="string">'/auth/provider/hackerverse'</span>, passport.authenticate(<span class="string">'hackerverse'</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/hackerverse&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;hackerverse&#x27;</span>));
 
 <span class="comment">/**
 * This next route is used for the callback from the provider
 * If the authentication was a sucess then reditect the user
 * If it has failed bring them to the login page
 **/</span>
-app.get(<span class="string">'/auth/provider/hackerverse/callback'</span>, 
-  passport.authenticate(<span class="string">'provider'</span>, { <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                      <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/hackerverse/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+                                      <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
 </code></pre>
 <h2 id="links">Links</h2>
 <p>A simple example link to use this provider</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/auth/provider/hackerverse"</span>&gt;</span>Log In with Hackerverse!<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider/hackerverse&quot;</span>&gt;</span>Log In with Hackerverse!<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hackerverse</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:43:33Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:43:33Z">a year ago</abbr></li>
               <li><a class="url" href="http://github.com/hackverse/passport-hackerverse.git">https://github.com/hackverse/passport-hackerverse</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

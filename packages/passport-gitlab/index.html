@@ -95,13 +95,13 @@
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="prerequisites">Prerequisites</h1>
 <p>Gitlab &gt;= 7.7</p>
-<pre><code><span class="keyword">var</span> GitlabStrategy = <span class="built_in">require</span>(<span class="string">'passport-gitlab'</span>).Strategy;
+<pre><code><span class="keyword">var</span> GitlabStrategy = <span class="built_in">require</span>(<span class="string">&#x27;passport-gitlab&#x27;</span>).Strategy;
 
 passport.use(<span class="keyword">new</span> GitlabStrategy({
     <span class="attribute">clientID</span>: GITLAB_APP_KEY,
     <span class="attribute">clientSecret</span>: GITLAB_APP_SECRET,
-    <span class="attribute">gitlabURL</span> : <span class="string">"https://gitlab.example.com"</span>,
-    <span class="attribute">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/gitlab/callback"</span>
+    <span class="attribute">gitlabURL</span> : <span class="string">&quot;https://gitlab.example.com&quot;</span>,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/gitlab/callback&quot;</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">token, tokenSecret, profile, done</span>) </span>{
     User.findOrCreate({ <span class="attribute">id:</span><span class="string"> profile.id</span> }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
@@ -113,12 +113,12 @@ passport.use(<span class="keyword">new</span> GitlabStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-gitlab</span></code></div>
             <ul>
-              <li><span class="version">0.5.0</span> published <abbr class="updated" title="2022-06-23T12:39:39Z">a month ago</abbr></li>
+              <li><span class="version">0.5.0</span> published <abbr class="updated" title="2022-06-23T12:39:39Z">a year ago</abbr></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>81</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>11</b> downloads in the last week</li>
+              <li><b>169</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

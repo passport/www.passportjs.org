@@ -102,7 +102,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="https://github.com/senchalabs/connect#readme">Connect</a>-style middleware,
 including <a href="https://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-sh">$ npm install passport-fido2-webauthn
+<pre><code class="sh">$ npm install passport-fido2-webauthn
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>The WebAuthn authentication strategy authenticates users using a public
@@ -128,46 +128,46 @@ the account.  Once complete, it invokes <code>cb</code> with the user record.</p
 <p>Because the <code>verify</code> and <code>register</code> functions are supplied by the application,
 the app is free to use any database of its choosing.  The example below
 illustrates usage of a SQL database.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> WebAuthnStrategy = <span class="built_in">require</span>(<span class="string">'passport-fido2-webauthn'</span>);
-<span class="keyword">var</span> SessionChallengeStore = <span class="built_in">require</span>(<span class="string">'passport-fido2-webauthn'</span>).SessionChallengeStore;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">WebAuthnStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-fido2-webauthn&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">SessionChallengeStore</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-fido2-webauthn&#x27;</span>).<span class="property">SessionChallengeStore</span>;
 
-<span class="keyword">var</span> store = <span class="keyword">new</span> SessionChallengeStore();
+<span class="keyword">var</span> store = <span class="keyword">new</span> <span class="title class_">SessionChallengeStore</span>();
 
-passport.use(<span class="keyword">new</span> WebAuthnStrategy({ <span class="attr">store</span>: store },
-  <span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params">id, userHandle, cb</span>) </span>{
-    db.get(<span class="string">'SELECT * FROM public_key_credentials WHERE external_id = ?'</span>, [ id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-      <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>}); }
-      <span class="keyword">var</span> publicKey = row.public_key;
-      db.get(<span class="string">'SELECT * FROM users WHERE rowid = ?'</span>, [ row.user_id ], <span class="function"><span class="keyword">function</span>(<span class="params">err, row</span>) </span>{
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-        <span class="keyword">if</span> (!row) { <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>}); }
-        <span class="keyword">if</span> (Buffer.compare(row.handle, userHandle) != <span class="number">0</span>) {
-          <span class="keyword">return</span> cb(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">'Invalid key. '</span>});
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WebAuthnStrategy</span>({ <span class="attr">store</span>: store },
+  <span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">id, userHandle, cb</span>) {
+    db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM public_key_credentials WHERE external_id = ?&#x27;</span>, [ id ], <span class="keyword">function</span>(<span class="params">err, row</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+      <span class="keyword">if</span> (!row) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Invalid key. &#x27;</span>}); }
+      <span class="keyword">var</span> publicKey = row.<span class="property">public_key</span>;
+      db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE rowid = ?&#x27;</span>, [ row.<span class="property">user_id</span> ], <span class="keyword">function</span>(<span class="params">err, row</span>) {
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+        <span class="keyword">if</span> (!row) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Invalid key. &#x27;</span>}); }
+        <span class="keyword">if</span> (<span class="title class_">Buffer</span>.<span class="title function_">compare</span>(row.<span class="property">handle</span>, userHandle) != <span class="number">0</span>) {
+          <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Invalid key. &#x27;</span>});
         }
-        <span class="keyword">return</span> cb(<span class="literal">null</span>, row, publicKey);
+        <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, row, publicKey);
       });
     });
   },
-  <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params">user, id, publicKey, cb</span>) </span>{
-    db.run(<span class="string">'INSERT INTO users (username, name, handle) VALUES (?, ?, ?)'</span>, [
-      user.name,
-      user.displayName,
-      user.id
-    ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
+  <span class="keyword">function</span> <span class="title function_">register</span>(<span class="params">user, id, publicKey, cb</span>) {
+    db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO users (username, name, handle) VALUES (?, ?, ?)&#x27;</span>, [
+      user.<span class="property">name</span>,
+      user.<span class="property">displayName</span>,
+      user.<span class="property">id</span>
+    ], <span class="keyword">function</span>(<span class="params">err</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">var</span> newUser = {
-        <span class="attr">id</span>: <span class="keyword">this</span>.lastID,
-        <span class="attr">username</span>: user.name,
-        <span class="attr">name</span>: user.displayName
+        <span class="attr">id</span>: <span class="variable language_">this</span>.<span class="property">lastID</span>,
+        <span class="attr">username</span>: user.<span class="property">name</span>,
+        <span class="attr">name</span>: user.<span class="property">displayName</span>
       };
-      db.run(<span class="string">'INSERT INTO public_key_credentials (user_id, external_id, public_key) VALUES (?, ?, ?)'</span>, [
-        newUser.id,
+      db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO public_key_credentials (user_id, external_id, public_key) VALUES (?, ?, ?)&#x27;</span>, [
+        newUser.<span class="property">id</span>,
         id,
         publicKey
-      ], <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
-        <span class="keyword">if</span> (err) { <span class="keyword">return</span> cb(err); }
-        <span class="keyword">return</span> cb(<span class="literal">null</span>, newUser);
+      ], <span class="keyword">function</span>(<span class="params">err</span>) {
+        <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
+        <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, newUser);
       });
     });
   }
@@ -180,21 +180,21 @@ security keys.</p>
 <code>ChallengeStore</code>, and sends it to the client-side JavaScript for it to be
 included in the authenticator response.  This is necessary in order to protect
 against replay attacks.</p>
-<pre><code class="lang-js">router.post(<span class="string">'/login/public-key/challenge'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  store.challenge(req, <span class="function"><span class="keyword">function</span>(<span class="params">err, challenge</span>) </span>{
-    <span class="keyword">if</span> (err) { <span class="keyword">return</span> next(err); }
-    res.json({ <span class="attr">challenge</span>: base64url.encode(challenge) });
+<pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/login/public-key/challenge&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+  store.<span class="title function_">challenge</span>(req, <span class="keyword">function</span>(<span class="params">err, challenge</span>) {
+    <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">next</span>(err); }
+    res.<span class="title function_">json</span>({ <span class="attr">challenge</span>: base64url.<span class="title function_">encode</span>(challenge) });
   });
 });
 </code></pre>
 <p>The second route authenticates the authenticator assertion and logs the user in.</p>
-<pre><code class="lang-js">router.post(<span class="string">'/login/public-key'</span>,
-  passport.authenticate(<span class="string">'webauthn'</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-    res.json({ <span class="attr">ok</span>: <span class="literal">true</span> });
+<pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/login/public-key&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webauthn&#x27;</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+    res.<span class="title function_">json</span>({ <span class="attr">ok</span>: <span class="literal">true</span> });
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>{
-    res.json({ <span class="attr">ok</span>: <span class="literal">false</span> });
+  <span class="keyword">function</span>(<span class="params">err, req, res, next</span>) {
+    res.<span class="title function_">json</span>({ <span class="attr">ok</span>: <span class="literal">false</span> });
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -210,14 +210,14 @@ against replay attacks.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-fido2-webauthn</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-06T18:49:50Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-06T18:49:50Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-webauthn">https://github.com/jaredhanson/passport-webauthn#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>6</b> downloads in the last day</li>
-              <li><b>204</b> downloads in the last week</li>
-              <li><b>247</b> downloads in the last month</li>
+              <li><b>42</b> downloads in the last day</li>
+              <li><b>236</b> downloads in the last week</li>
+              <li><b>896</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

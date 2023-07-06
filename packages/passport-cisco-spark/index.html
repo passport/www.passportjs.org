@@ -109,14 +109,14 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> CiscoSparkStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> CiscoSparkStrategy({
     clientID: CISCO_SPARK_CLIENT_ID,
     clientSecret: CISCO_SPARK_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/spark/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/spark/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ sparkId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ sparkId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -125,20 +125,20 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/spark'</span>,
-  passport.authenticate(<span class="string">'cisco-spark'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/spark&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;cisco-spark&#x27;</span>));
 
-app.get(<span class="string">'/auth/spark/callback'</span>, 
-  passport.authenticate(<span class="string">'cisco-spark'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/spark/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;cisco-spark&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/bmoyroud/passport-cisco-spark/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="https://travis-ci.org/bmoyroud/passport-cisco-spark"><img src="https://travis-ci.org/bmoyroud/passport-cisco-spark.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -150,14 +150,14 @@ app.get(<span class="string">'/auth/spark/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-cisco-spark</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T12:23:21Z">a month ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T12:23:21Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/bmoyroud/passport-cisco-spark.git">https://github.com/bmoyroud/passport-cisco-spark#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>5</b> downloads in the last day</li>
               <li><b>31</b> downloads in the last week</li>
-              <li><b>115</b> downloads in the last month</li>
+              <li><b>111</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

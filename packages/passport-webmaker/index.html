@@ -118,14 +118,14 @@ The client ID and secret obtained when creating an application are supplied as o
 The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token,
 as well as <code>profile</code> which contains the authenticated user&#39;s Webmaker profile. The <code>verify</code> callback must call <code>done</code>
 providing a user to complete authentication.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> WebmakerStrategy({
-    <span class="attr">clientID</span>: WEBMAKER_CLIENT_ID,
-    <span class="attr">clientSecret</span>: WEBMAKER_CLIENT_SECRET,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WebmakerStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">WEBMAKER_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">WEBMAKER_CLIENT_SECRET</span>,
     <span class="attr">state</span>: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">id</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">id</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
  ));
@@ -133,38 +133,38 @@ providing a user to complete authentication.</p>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p> Use <code>passport.authenticate()</code>, specifying the <code>&#39;webmaker&#39;</code> strategy, to authenticate requests.</p>
 <p> For example, as route middleware in an <a href="https://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-js"> app.get(<span class="string">'/auth/webmaker'</span>, passport.authenticate(<span class="string">'webmaker'</span>));
+<pre><code class="js"> app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/webmaker&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webmaker&#x27;</span>));
 
- app.get(<span class="string">'/auth/webmaker/callback'</span>,
-     passport.authenticate(<span class="string">'webmaker'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attr">successfulRedirect</span>: <span class="string">'/'</span>}));
+ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/webmaker/callback&#x27;</span>,
+     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webmaker&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">successfulRedirect</span>: <span class="string">&#x27;/&#x27;</span>}));
 </code></pre>
 <h2 id="faq">FAQ</h2>
 <p>These are some answers to the most frequently asked questions, if you have additional questions feel free
 to submit an issue ticket and tag whomever is the current project maintainer as well.</p>
 <h5 id="how-do-you-ask-for-additional-permissions-information-">How do you ask for additional permissions/information?</h5>
 <p>You can request additional permissions by appending parameters to the <code>scopes</code> option in <code>passport.authenticate()</code>.</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/webmaker'</span>,
-  passport.authenticate(<span class="string">'webmaker'</span>, { <span class="attr">scopes</span>: [<span class="string">'user'</span>, <span class="string">'email'</span>] }));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/webmaker&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webmaker&#x27;</span>, { <span class="attr">scopes</span>: [<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;email&#x27;</span>] }));
 </code></pre>
 <p><strong>Note:</strong> Your parameter must be called <code>scopes</code> (plural) and not <code>scope</code> (singular), otherwise this will throw an error.</p>
 <h5 id="what-is-the-structure-of-the-user-information-returned-">What is the structure of the user information returned?</h5>
 <p>We follow the standard convention for normalizing profiles as detailed by <a href="http://passportjs.org/docs/profile">passport.js</a>.</p>
-<pre><code class="lang-json">{
-  <span class="attr">"provider"</span>:<span class="string">"webmaker"</span>,
-  <span class="attr">"id"</span>:<span class="number">1022</span>,
-  <span class="attr">"displayName"</span>:<span class="string">"ryan"</span>,
-  <span class="attr">"locale"</span>:<span class="string">"en-US"</span>,
-  <span class="attr">"emails"</span>:[
-    {
-      <span class="attr">"value"</span>:<span class="string">"hello@myemail.com"</span>
-    }
-  ],
-  <span class="attr">"photos"</span>:[
-    {
-      <span class="attr">"value"</span>:<span class="string">"https://example.com/ryan/webmaker-avatar-200x200.png"</span>
-    }
-  ]
-}
+<pre><code class="json"><span class="punctuation">{</span>
+  <span class="attr">&quot;provider&quot;</span><span class="punctuation">:</span><span class="string">&quot;webmaker&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span><span class="number">1022</span><span class="punctuation">,</span>
+  <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span><span class="string">&quot;ryan&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;locale&quot;</span><span class="punctuation">:</span><span class="string">&quot;en-US&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;emails&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span>
+    <span class="punctuation">{</span>
+      <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span><span class="string">&quot;hello@myemail.com&quot;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">]</span><span class="punctuation">,</span>
+  <span class="attr">&quot;photos&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span>
+    <span class="punctuation">{</span>
+      <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span><span class="string">&quot;https://example.com/ryan/webmaker-avatar-200x200.png&quot;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">]</span>
+<span class="punctuation">}</span>
 </code></pre>
 <h5 id="how-can-you-change-what-instance-of-id-webmaker-org-is-being-used-">How can you change what instance of id.webmaker.org is being used?</h5>
 <p>By default all authentication will go through <code>https://id.webmaker.org</code> however, it&#39;s also possible to point
@@ -172,25 +172,25 @@ passport-webmaker at your own instance of <code>id.webmaker.org</code>. This is 
 debug on a developmental/staging server, like we do here at Mozilla on a regular basis.</p>
 <p>Below we append three parameters to the options object to be used when creating the strategy. They are:
 <code>authorizationURL</code>, <code>tokenURL</code> and <code>profileURL</code>. Changing these three URLs is all you need to change your <code>id</code> instance.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> WebmakerStrategy({
-    <span class="attr">clientID</span>: WEBMAKER_CLIENT_ID,
-    <span class="attr">clientSecret</span>: WEBMAKER_CLIENT_SECRET,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WebmakerStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">WEBMAKER_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">WEBMAKER_CLIENT_SECRET</span>,
     <span class="attr">state</span>: <span class="literal">true</span>,
-    <span class="attr">authorizationURL</span>: <span class="string">"https://id.mofostaging.net/login/oauth/authorize"</span>,
-    <span class="attr">tokenURL</span>: <span class="string">"https://id.mofostaging.net/login/oauth/access_token"</span>,
-    <span class="attr">profileURL</span>: <span class="string">"https://id.mofostaging.net/user"</span>
+    <span class="attr">authorizationURL</span>: <span class="string">&quot;https://id.mofostaging.net/login/oauth/authorize&quot;</span>,
+    <span class="attr">tokenURL</span>: <span class="string">&quot;https://id.mofostaging.net/login/oauth/access_token&quot;</span>,
+    <span class="attr">profileURL</span>: <span class="string">&quot;https://id.mofostaging.net/user&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">id</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">id</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
  ));
 </code></pre>
 <h5 id="how-can-i-change-the-login-flow-used-by-passport-webmaker-">How can I change the login flow used by <code>passport-webmaker</code>?</h5>
 <p>You can tell <code>passport-webmaker</code> to use the <code>signup</code> flow vs. the <code>signin</code> flow by assigning the string value to the optional <code>action</code> parameter when calling <code>passport.authenticate()</code>. The default is <code>signin</code>.</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/webmaker'</span>,
-  passport.authenticate(<span class="string">'webmaker'</span>, { <span class="attr">scopes</span>: [<span class="string">'user'</span>, <span class="string">'email'</span>], <span class="attr">action</span>: <span class="string">"signup"</span> }));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/webmaker&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webmaker&#x27;</span>, { <span class="attr">scopes</span>: [<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;email&#x27;</span>], <span class="attr">action</span>: <span class="string">&quot;signup&quot;</span> }));
 </code></pre>
 <h5 id="what-is-error-oauth-2-0-authentication-requires-session-support-when-using-state-">What is &quot;Error: OAuth 2.0 authentication requires session support when using state.&quot;?</h5>
 <p><code>passport-webmaker</code> requires persistent login session support in order to be used properly. It is a requirement
@@ -215,14 +215,14 @@ doesn&#39;t support sessions, or they aren&#39;t being configured properly with 
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-webmaker</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-05-12T16:03:40Z">2 months ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-05-12T16:03:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mozilla/passport-webmaker">https://github.com/mozilla/passport-webmaker#readme</a></li>
               <li><a rel="licence" href="http://www.mozilla.org/MPL/2.0/">Mozilla Public License 2.0</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

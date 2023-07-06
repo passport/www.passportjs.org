@@ -100,27 +100,27 @@
 <p>To add this library as a dependency to your project run
 <code>npm install --save passport-brightspace-auth</code></p>
 <p>Configure it just as you would with any other Passport strategy and then you can use the Passport middleware to authenticate requests.</p>
-<pre><code><span class="keyword">var</span> BrightspaceStrategy = <span class="keyword">require</span>(<span class="string">'passport-brightspace-auth'</span>);
-<span class="keyword">var</span> app = <span class="keyword">require</span>(<span class="string">'express'</span>)();
-<span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">'passport'</span>);
+<pre><code><span class="keyword">var</span> BrightspaceStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-brightspace-auth&#x27;</span>);
+<span class="keyword">var</span> app = <span class="keyword">require</span>(<span class="string">&#x27;express&#x27;</span>)();
+<span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
-passport.<span class="keyword">use</span>(<span class="title">new</span> <span class="title">BrightspaceStrategy</span>());
-app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> BrightspaceStrategy());
+app.<span class="keyword">use</span>(passport.initialize());
 
-app.get(<span class="string">'/'</span>, passport.authenticate(<span class="string">'brightspace'</span>), <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+app.get(<span class="string">&#x27;/&#x27;</span>, passport.authenticate(<span class="string">&#x27;brightspace&#x27;</span>), <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
     <span class="comment">// req.user will be an instance of BrightspaceAuthToken</span>
     <span class="comment">// See https://github.com/Brightspace/node-auth-token</span>
-    res.send(<span class="string">'You are authenticated!'</span>);
+    res.send(<span class="string">&#x27;You are authenticated!&#x27;</span>);
 });
 
 </code></pre><h3 id="options">Options</h3>
 <p>The strategy also supports a few configuration options:</p>
 <pre><code><span class="keyword">var</span> opts = {
-    issuer: <span class="string">'https://auth.brightspace.com/core'</span>,
+    issuer: <span class="string">&#x27;https://auth.brightspace.com/core&#x27;</span>,
     maxClockSkew: <span class="number">300</span>
 };
 
-passport.<span class="keyword">use</span>(<span class="title">new</span> <span class="title">BrightspaceStrategy</span>(<span class="title">opts</span>));
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">BrightspaceStrategy</span>(opts));
 </code></pre><h4 id="issuer">issuer</h4>
 <p>A String specifying the auth instance to connect to. If omitted, the default is <a href="https://auth.brightspace.com/core">https://auth.brightspace.com/core</a>.</p>
 <h4 id="maxclockskew">maxClockSkew</h4>
@@ -129,14 +129,14 @@ passport.<span class="keyword">use</span>(<span class="title">new</span> <span c
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-brightspace-auth</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T12:21:39Z">a month ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T12:21:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Brightspace/passport-brightspace-auth">https://github.com/Brightspace/passport-brightspace-auth#readme</a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>16</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

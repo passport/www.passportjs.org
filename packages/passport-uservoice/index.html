@@ -109,7 +109,7 @@ unobtrusively integrated into any application or framework that supports
         subdomain : <span class="type">SUBDOMAIN</span>,
     consumerKey : <span class="type">USERVOICE_CLIENT_KEY</span>,
     consumerSecret: USERVOICE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/uservoice/callback"</span>
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/uservoice/callback&quot;</span>
   },
   <span class="keyword">function</span>(token, tokenSecret, profile, done) {
     User.findOrCreate({ uservoiceId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
@@ -122,13 +122,13 @@ unobtrusively integrated into any application or framework that supports
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/uservoice'</span>, passport.authenticate(<span class="string">'uservoice'</span>, { <span class="attribute">subdomain </span>: SUBDOMAIN }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/uservoice&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;uservoice&#x27;</span>, { <span class="attribute">subdomain </span>: SUBDOMAIN }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/uservoice/callback'</span>,
-  passport.authenticate(<span class="string">'uservoice'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/uservoice/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;uservoice&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
@@ -136,13 +136,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-uservoice</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:42:40Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:42:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/octoblu/passport-uservoice">https://github.com/octoblu/passport-uservoice</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

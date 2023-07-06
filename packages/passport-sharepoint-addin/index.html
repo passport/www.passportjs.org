@@ -97,23 +97,23 @@
 <p><a href="http://passportjs.org">Passport.js</a> authentication strategy for SharePoint Online and SharePoint on-premise performing authentication via ACS.   </p>
 <p>This module allows you to perform SharePoint add-in authentication for your Node.js <a href="https://expressjs.com/">Express</a> web application. Can be also integrated into other connect-based frameworks. </p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">npm install passport-sharepoint-addin
+<pre><code class="bash">npm install passport-sharepoint-addin
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>For detailed in-depth tutorial and configuration workflow please visit sample here - <a href="https://github.com/s-KaiNet/expressjs-sp-addin">Express SharePoint add-in sample</a>.   </p>
 <h3 id="basic-setup">Basic setup</h3>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> SharePointAddinStrategy({<span class="attr">clientId</span>: <span class="string">''</span>, <span class="attr">clientSecret</span>: <span class="string">''</span>}, <span class="string">'https://site.com/auth/sharepoint/callback'</span>, (profile: ISharePointProfile) =&gt; {
-        <span class="keyword">return</span> User.findOne({ <span class="string">'sharepoint.loginName'</span>: profile.loginName })
-            .then(<span class="function"><span class="params">user</span> =&gt;</span> {
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SharePointAddinStrategy</span>({<span class="attr">clientId</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">clientSecret</span>: <span class="string">&#x27;&#x27;</span>}, <span class="string">&#x27;https://site.com/auth/sharepoint/callback&#x27;</span>, <span class="function">(<span class="params">profile: ISharePointProfile</span>) =&gt;</span> {
+        <span class="keyword">return</span> <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="string">&#x27;sharepoint.loginName&#x27;</span>: profile.<span class="property">loginName</span> })
+            .<span class="title function_">then</span>(<span class="function"><span class="params">user</span> =&gt;</span> {
                 <span class="keyword">if</span> (user) {
                     <span class="keyword">return</span> user;
                 }
 
-                <span class="keyword">const</span> newUser = <span class="keyword">new</span> User();
-                newUser.sharepoint.email = profile.email;
-                newUser.sharepoint.loginName = profile.loginName;
-                newUser.sharepoint.displayName = profile.displayName;
-                <span class="keyword">return</span> newUser.save();
+                <span class="keyword">const</span> newUser = <span class="keyword">new</span> <span class="title class_">User</span>();
+                newUser.<span class="property">sharepoint</span>.<span class="property">email</span> = profile.<span class="property">email</span>;
+                newUser.<span class="property">sharepoint</span>.<span class="property">loginName</span> = profile.<span class="property">loginName</span>;
+                newUser.<span class="property">sharepoint</span>.<span class="property">displayName</span> = profile.<span class="property">displayName</span>;
+                <span class="keyword">return</span> newUser.<span class="title function_">save</span>();
             });
     }));
 </code></pre>
@@ -121,13 +121,13 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-sharepoint-addin</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-05-12T15:57:32Z">2 months ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-05-12T15:57:32Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/s-KaiNet/passport-sharepoint-addin">https://github.com/s-KaiNet/passport-sharepoint-addin</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>25</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

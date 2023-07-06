@@ -98,21 +98,21 @@
 <h1 id="installation">Installation</h1>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span> passport-kuali
 </code></pre><h1 id="usage">Usage</h1>
-<pre><code class="lang-js"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
-<span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-<span class="keyword">const</span> KualiStrategy = <span class="built_in">require</span>(<span class="string">'passport-kuali'</span>)
+<pre><code class="js"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)
+<span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+<span class="keyword">const</span> <span class="title class_">KualiStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-kuali&#x27;</span>)
 
-passport.use(<span class="keyword">new</span> KualiStrategy())
-<span class="keyword">const</span> requireUser = passport.authenticate(<span class="string">'kuali'</span>, {
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">KualiStrategy</span>())
+<span class="keyword">const</span> requireUser = passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;kuali&#x27;</span>, {
   <span class="attr">session</span>: <span class="literal">false</span>, <span class="comment">// Enable if you are using sessions</span>
   <span class="attr">failWithError</span>: <span class="literal">true</span> <span class="comment">// This is enabled to pass whatever error happens to the express error handling middleware</span>
 })
 
-<span class="keyword">const</span> app = express()
+<span class="keyword">const</span> app = <span class="title function_">express</span>()
 
-app.use(passport.initialize())
-app.get(<span class="string">'/me'</span>, requireUser, (req, res, next) =&gt; {
-  res.send(req.user)
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>())
+app.<span class="title function_">get</span>(<span class="string">&#x27;/me&#x27;</span>, requireUser, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
+  res.<span class="title function_">send</span>(req.<span class="property">user</span>)
 })
 </code></pre>
 <h1 id="api">API</h1>
@@ -121,15 +121,15 @@ app.get(<span class="string">'/me'</span>, requireUser, (req, res, next) =&gt; {
 <ul>
 <li><p><code>options.getUserEndpoint</code> - A function that takes in the express request and
 returns a string of the users endpoint. Default is:</p>
-<pre><code class="lang-js">() =&gt; <span class="string">'/api/v1/users/current'</span><span class="string">`</span>
+<pre><code class="js">() =&gt; <span class="string">&#x27;/api/v1/users/current&#x27;</span><span class="string">`</span>
 </code></pre>
 </li>
 <li><p><code>options.getAuthorizationToken</code> - A function that takes in the express request
 and returns the auth token to be passed onto the Kuali auth service.
 Default is:</p>
-<pre><code class="lang-js">req =&gt; {
-  <span class="keyword">const</span> authorization = req.headers[<span class="string">'authorization'</span>] || <span class="string">''</span>
-  <span class="keyword">return</span> authorization.replace(<span class="regexp">/^bearer /i</span>, <span class="string">''</span>).trim()
+<pre><code class="js">req =&gt; {
+  <span class="keyword">const</span> authorization = req.<span class="property">headers</span>[<span class="string">&#x27;authorization&#x27;</span>] || <span class="string">&#x27;&#x27;</span>
+  <span class="keyword">return</span> authorization.<span class="title function_">replace</span>(<span class="regexp">/^bearer /i</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>()
 }
 </code></pre>
 </li>
@@ -137,10 +137,10 @@ Default is:</p>
 the host (or rather, origin) of the request. Should return protocol with the
 hostname. Ex: <code>https://monsters.kuali.co</code>.
 Default is:</p>
-<pre><code class="lang-js">req =&gt; {
-  <span class="keyword">return</span> url.format({
+<pre><code class="js">req =&gt; {
+  <span class="keyword">return</span> url.<span class="title function_">format</span>({
     <span class="attr">protocol</span>: <span class="string">`https:`</span>,
-    <span class="attr">host</span>: req.get(<span class="string">'host'</span>)
+    <span class="attr">host</span>: req.<span class="title function_">get</span>(<span class="string">&#x27;host&#x27;</span>)
   })
 }
 </code></pre>
@@ -155,10 +155,10 @@ user will be provided. If you would like to control the logic of when a user
 is to be mocked (for tests and such), pass in the function and do your logic
 there. By default, the user is not mocked, but if <code>true</code> is passed, the
 default function looks like this:</p>
-<pre><code class="lang-js">() =&gt; ({
-  <span class="attr">id</span>: <span class="string">'59ef62388eb4e253149451fd'</span>,
-  <span class="attr">username</span>: <span class="string">'mockuser'</span>,
-  <span class="attr">displayName</span>: <span class="string">'mockuser'</span>,
+<pre><code class="js">() =&gt; ({
+  <span class="attr">id</span>: <span class="string">&#x27;59ef62388eb4e253149451fd&#x27;</span>,
+  <span class="attr">username</span>: <span class="string">&#x27;mockuser&#x27;</span>,
+  <span class="attr">displayName</span>: <span class="string">&#x27;mockuser&#x27;</span>,
   <span class="attr">impersonatedBy</span>: <span class="literal">null</span>,
   <span class="attr">approved</span>: <span class="literal">true</span>,
   <span class="attr">apps</span>: {
@@ -169,19 +169,19 @@ default function looks like this:</p>
     <span class="attr">users</span>: <span class="literal">true</span>
   },
   <span class="attr">createdAt</span>: <span class="number">1508860880459</span>,
-  <span class="attr">email</span>: <span class="string">'mockuser@example.com'</span>,
+  <span class="attr">email</span>: <span class="string">&#x27;mockuser@example.com&#x27;</span>,
   <span class="attr">firstName</span>: <span class="literal">null</span>,
   <span class="attr">lastName</span>: <span class="literal">null</span>,
   <span class="attr">groupId</span>: <span class="literal">null</span>,
-  <span class="attr">name</span>: <span class="string">'Mock User'</span>,
+  <span class="attr">name</span>: <span class="string">&#x27;Mock User&#x27;</span>,
   <span class="attr">phone</span>: <span class="literal">null</span>,
-  <span class="attr">role</span>: <span class="string">'admin'</span>,
+  <span class="attr">role</span>: <span class="string">&#x27;admin&#x27;</span>,
   <span class="attr">schoolId</span>: <span class="literal">null</span>,
-  <span class="attr">scopesCm</span>: <span class="string">'["OVERLORD","EDIT_CONFIG"]'</span>,
+  <span class="attr">scopesCm</span>: <span class="string">&#x27;[&quot;OVERLORD&quot;,&quot;EDIT_CONFIG&quot;]&#x27;</span>,
   <span class="attr">ssoId</span>: <span class="literal">null</span>,
   <span class="attr">updatedAt</span>: <span class="number">1508860880459</span>,
   <span class="attr">updatedBy</span>: {
-    <span class="attr">id</span>: <span class="string">'59ef62388eb4e253149451fd'</span>
+    <span class="attr">id</span>: <span class="string">&#x27;59ef62388eb4e253149451fd&#x27;</span>
   }
 })
 </code></pre>
@@ -196,7 +196,7 @@ the <code>&#39;kuali&#39;</code> portion of the <code>passport.authenticate()</c
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kuali</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:54:03Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:54:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/KualiCo/passport-kuali">https://github.com/KualiCo/passport-kuali#readme</a></li>
               <li><a rel="licence" href="http://www.gnu.org/licenses/agpl.txt">GNU Affero General Public License v3.0</a></li>
             </ul>

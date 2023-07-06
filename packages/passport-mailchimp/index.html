@@ -107,13 +107,13 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> MailChimpStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> MailChimpStrategy({
     clientID: MAILCHIMP_APP_ID,
     clientSecret: MAILCHIMP_APP_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/mailchimp/callback"</span>
-  }, <span class="function"><span class="keyword">function</span> <span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ mailchimpId: mailchimp.id }, <span class="function"><span class="keyword">function</span><span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/mailchimp/callback&quot;</span>
+  }, <span class="keyword">function</span> <span class="title"></span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ mailchimpId: mailchimp.id }, <span class="keyword">function</span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -122,13 +122,13 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/mailchimp'</span>, passport.authenticate(<span class="string">'mailchimp'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/mailchimp&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mailchimp&#x27;</span>));
 
-app.get(<span class="string">'/auth/mailchimp/callback'</span>,
-  passport.authenticate(<span class="string">'mailchimp'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/mailchimp/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mailchimp&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successul authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <p>Created by <a href="http://github.com/brainflake">Brian Falk</a></p>
@@ -139,14 +139,14 @@ app.get(<span class="string">'/auth/mailchimp/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mailchimp</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:00:15Z">a month ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:00:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/brainflake/passport-mailchimp"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>122</b> downloads in the last day</li>
-              <li><b>524</b> downloads in the last week</li>
-              <li><b>2,345</b> downloads in the last month</li>
+              <li><b>52</b> downloads in the last day</li>
+              <li><b>315</b> downloads in the last week</li>
+              <li><b>1,155</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

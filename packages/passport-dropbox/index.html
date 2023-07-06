@@ -125,14 +125,14 @@ also requires a <code>verify</code> callback, which receives the access token an
 corresponding secret as arguments, as well as <code>profile</code> which contains the
 authenticated user&#39;s Dropbox profile.   The <code>verify</code> callback must call <code>cb</code>
 providing a user to complete authentication.</p>
-<pre><code>passport.use(<span class="keyword">new</span> DropboxStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> DropboxStrategy({
     consumerKey: DROPBOX_APP_KEY,
     consumerSecret: DROPBOX_APP_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/dropbox/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/dropbox/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, cb)</span> </span>{
-    User.findOrCreate({ dropboxId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ dropboxId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
@@ -141,14 +141,14 @@ providing a user to complete authentication.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/dropbox'</span>,
-  passport.authenticate(<span class="string">'dropbox'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/dropbox&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;dropbox&#x27;</span>));
 
-app.get(<span class="string">'/auth/dropbox/callback'</span>, 
-  passport.authenticate(<span class="string">'dropbox'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/dropbox/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;dropbox&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
@@ -162,13 +162,13 @@ corresponding references to Dropbox.</p>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -187,14 +187,14 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dropbox</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:30:51Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:30:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-dropbox">https://github.com/jaredhanson/passport-dropbox#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>53</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>35</b> downloads in the last week</li>
+              <li><b>79</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

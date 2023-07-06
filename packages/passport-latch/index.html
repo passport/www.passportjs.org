@@ -111,12 +111,12 @@ policy, and outside the scope of both Passport and this strategy.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The latch strategy authorizes a user using his accountId previously obtained when pairing his
 account with latch.</p>
-<pre><code>passport.use(<span class="string">'latch_status'</span>, <span class="keyword">new</span> LatchStrategy({appId: <span class="string">'vxXXNTbQUnKXR9tTiZRe'</span>, secretKey: <span class="string">'xA4xFx8pCx4iY4AyJzeFb4sqvNmjiiNT4kk22FNN'</span>},
+<pre><code>passport.<span class="keyword">use</span>(<span class="string">&#x27;latch_status&#x27;</span>, <span class="keyword">new</span> LatchStrategy({appId: <span class="string">&#x27;vxXXNTbQUnKXR9tTiZRe&#x27;</span>, secretKey: <span class="string">&#x27;xA4xFx8pCx4iY4AyJzeFb4sqvNmjiiNT4kk22FNN&#x27;</span>},
     <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
         <span class="comment">// setup function, supply key and period to done callback</span>
         findAccountIdForUserId(user.id, <span class="function"><span class="keyword">function</span><span class="params">(err, obj)</span> </span>{
             <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-            <span class="keyword">return</span> done(<span class="literal">null</span>, obj.accountId);
+            <span class="keyword">return</span> done(<span class="keyword">null</span>, obj.accountId);
         });
     }
 ));
@@ -125,64 +125,64 @@ account with latch.</p>
 requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/latch-status'</span>, 
-    passport.authenticate(<span class="string">'latch_status'</span>, { operationId: <span class="string">'vxXXNTbQUnKXR9tTiZRe'</span>,failureRedirect: <span class="string">'/latchblocked'</span>, failureFlash: <span class="literal">true</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/latch-status&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;latch_status&#x27;</span>, { <span class="attribute">operationId</span>: <span class="string">&#x27;vxXXNTbQUnKXR9tTiZRe&#x27;</span>,<span class="attribute">failureRedirect</span>: <span class="string">&#x27;/latchblocked&#x27;</span>, <span class="attribute">failureFlash</span>: true }),
+    <span class="built_in">function</span>(req, res) {
+        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><p>You can also use latch with any other Passport Strategy, just by quering the latch servers after a successful authentication:</p>
-<pre><code>passport.use(<span class="string">'login_with_latch'</span>, <span class="built_in">new</span> LocalStrategy(<span class="keyword">function</span>(username, <span class="keyword">password</span>, done) {
-    process.nextTick(<span class="keyword">function</span> () {
-        // Find the <span class="keyword">user</span> <span class="keyword">by</span> username.  <span class="keyword">If</span> there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">user</span> <span class="keyword">with</span> the given
-        // username, <span class="keyword">or</span> the <span class="keyword">password</span> <span class="keyword">is</span> <span class="keyword">not</span> correct, <span class="keyword">set</span> the <span class="keyword">user</span> <span class="keyword">to</span> `<span class="keyword">false</span>` <span class="keyword">to</span>
-        // indicate failure <span class="keyword">and</span> <span class="keyword">set</span> a flash message.  Otherwise, <span class="keyword">return</span> the
-        // authenticated `<span class="keyword">user</span>`.
-        findByUsername(username, <span class="keyword">function</span>(err, <span class="keyword">user</span>) {
+<pre><code>passport.use(<span class="string">&#x27;login_with_latch&#x27;</span>, new LocalStrategy(function(username, password, done) {
+    process.nextTick(function () {
+        <span class="comment">// Find the user by username.  If there is no user with the given</span>
+        <span class="comment">// username, or the password is not correct, set the user to `false` to</span>
+        <span class="comment">// indicate failure and set a flash message.  Otherwise, return the</span>
+        <span class="comment">// authenticated `user`.</span>
+        findByUsername(username, function(err, user) {
             <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-            <span class="keyword">if</span> (!<span class="keyword">user</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>, { message: <span class="string">'Invalid username or password'</span> }); }
-            <span class="keyword">if</span> (<span class="keyword">user</span>.<span class="keyword">password</span> != <span class="keyword">password</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>, { message: <span class="string">'Invalid username or password'</span> }); }
+            <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { message: <span class="string">&#x27;Invalid username or password&#x27;</span> }); }
+            <span class="keyword">if</span> (user.password != password) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { message: <span class="string">&#x27;Invalid username or password&#x27;</span> }); }
 
-            // Once the authentication has been succesful, we look <span class="keyword">for</span> his accountId <span class="keyword">by</span> id
-            var accountId = findAccountIdForUserId(<span class="keyword">user</span>.id, <span class="keyword">function</span>(err, obj) {
-                <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">false</span>; }
+            <span class="comment">// Once the authentication has been succesful, we look for his accountId by id</span>
+            <span class="keyword">var</span> accountId = findAccountIdForUserId(user.id, function(err, obj) {
+                <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="literal">false</span>; }
                 <span class="keyword">if</span> (obj) {
                     <span class="keyword">return</span> obj.accountId;
                 } <span class="keyword">else</span> {
-                    <span class="keyword">return</span> <span class="keyword">false</span>;
+                    <span class="keyword">return</span> <span class="literal">false</span>;
                 }
             });
 
             <span class="keyword">if</span> (accountId) {
-                var rv = latch.status(accountId, <span class="keyword">function</span>(err, data) {
-                    <span class="keyword">if</span> ((err) || (!data)) {
-                        <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
+                <span class="keyword">var</span> rv = latch.status(accountId, function(err, <span class="keyword">data</span>) {
+                    <span class="keyword">if</span> ((err) || (!<span class="keyword">data</span>)) {
+                        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
                     } 
-                    <span class="keyword">if</span> (data[<span class="string">'data'</span>][<span class="string">'operations'</span>][<span class="string">'vxXXNTbQUnKXR9tTiZRe'</span>][<span class="string">'status'</span>] == "on") {
-                        // <span class="keyword">If</span> it <span class="keyword">is</span> <span class="string">'on'</span>, it means that the operation <span class="keyword">is</span> <span class="keyword">not</span> blocked
-                        <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
+                    <span class="keyword">if</span> (<span class="keyword">data</span>[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;operations&#x27;</span>][<span class="string">&#x27;vxXXNTbQUnKXR9tTiZRe&#x27;</span>][<span class="string">&#x27;status&#x27;</span>] == <span class="string">&quot;on&quot;</span>) {
+                        <span class="comment">// If it is &#x27;on&#x27;, it means that the operation is not blocked</span>
+                        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
                     } <span class="keyword">else</span> {
-                        // The operation <span class="keyword">is</span> blocked <span class="keyword">by</span> latch
-                        <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>, { message: <span class="string">'Latch is blocking your login'</span> });
+                        <span class="comment">// The operation is blocked by latch</span>
+                        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { message: <span class="string">&#x27;Latch is blocking your login&#x27;</span> });
                     }
                 });
             } <span class="keyword">else</span> {
-                <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
+                <span class="keyword">return</span> done(<span class="literal">null</span>, user);
             }
          })
      });
 }));
 </code></pre><p>And then as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/loginlatch'</span>, 
-    passport.authenticate(<span class="string">'login_with_latch'</span>, { failureRedirect: <span class="string">'/loginlatch'</span>, failureFlash: <span class="literal">true</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/loginlatch&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;login_with_latch&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/loginlatch&#x27;</span>, <span class="attribute">failureFlash</span>: true }),
+    <span class="built_in">function</span>(req, res) {
+        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/elevenpaths/passport-latch/tree/master/examples/">example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://www.elevenpaths.com/">ElevenPaths</a></li>
@@ -194,13 +194,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-latch</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:54:27Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:54:27Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/elevenpaths/latch-plugin-passportjs.git">https://github.com/elevenpaths/latch-plugin-passportjs</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

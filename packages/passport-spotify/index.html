@@ -111,18 +111,18 @@ unobtrusively integrated into any application or framework that supports
 and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> SpotifyStrategy = <span class="built_in">require</span>(<span class="string">'passport-spotify'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">const</span> <span class="title class_">SpotifyStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-spotify&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(
-  <span class="keyword">new</span> SpotifyStrategy(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">SpotifyStrategy</span>(
     {
       <span class="attr">clientID</span>: client_id,
       <span class="attr">clientSecret</span>: client_secret,
-      <span class="attr">callbackURL</span>: <span class="string">'http://localhost:8888/auth/spotify/callback'</span>
+      <span class="attr">callbackURL</span>: <span class="string">&#x27;http://localhost:8888/auth/spotify/callback&#x27;</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
-      User.findOrCreate({ <span class="attr">spotifyId</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-        <span class="keyword">return</span> done(err, user);
+    <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) {
+      <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">spotifyId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
       });
     }
   )
@@ -133,14 +133,14 @@ passport.use(
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/spotify'</span>, passport.authenticate(<span class="string">'spotify'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/spotify&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;spotify&#x27;</span>));
 
-app.get(
-  <span class="string">'/auth/spotify/callback'</span>,
-  passport.authenticate(<span class="string">'spotify'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/spotify/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;spotify&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
@@ -152,19 +152,19 @@ app.get(
 <li><code>user-read-private</code>: Returns private information about the user such as display name and picture, if they are set.</li>
 </ul>
 <p>You can specify the parameters in the <code>authenticate</code> call:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">'/auth/spotify'</span>,
-  passport.authenticate(<span class="string">'spotify'</span>, {
-    <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>]
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/spotify&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;spotify&#x27;</span>, {
+    <span class="attr">scope</span>: [<span class="string">&#x27;user-read-email&#x27;</span>, <span class="string">&#x27;user-read-private&#x27;</span>]
   })
 );
 </code></pre>
 <h3 id="forcing-login-dialog">Forcing login dialog</h3>
 <p>You can force the login dialog using the <code>showDialog</code> parameter when authenticating:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">'/auth/spotify'</span>,
-  passport.authenticate(<span class="string">'spotify'</span>, {
-    <span class="attr">scope</span>: [<span class="string">'user-read-email'</span>, <span class="string">'user-read-private'</span>],
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/spotify&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;spotify&#x27;</span>, {
+    <span class="attr">scope</span>: [<span class="string">&#x27;user-read-email&#x27;</span>, <span class="string">&#x27;user-read-private&#x27;</span>],
     <span class="attr">showDialog</span>: <span class="literal">true</span>
   })
 );
@@ -173,8 +173,8 @@ app.get(
 <p>For a complete, working example, refer to the <a href="https://github.com/jmperez/passport-spotify/tree/master/examples/login">login example</a>.</p>
 <p>You can get your keys on <a href="https://developer.spotify.com/my-applications">Spotify - My Applications</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="build-and-coverage-status">Build and Coverage Status</h2>
 <p><a href="https://travis-ci.org/JMPerez/passport-spotify"><img src="https://travis-ci.org/JMPerez/passport-spotify.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/JMPerez/passport-spotify?branch=master"><img src="https://coveralls.io/repos/JMPerez/passport-spotify/badge.png?branch=master" alt="Coverage Status"></a></p>
 <h2 id="license">License</h2>
@@ -183,13 +183,13 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-spotify</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:31:34Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:31:34Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/JMPerez/passport-spotify">https://github.com/jmperez/passport-spotify#readme</a></li>
             </ul>
             <ul>
-              <li><b>261</b> downloads in the last day</li>
-              <li><b>1,039</b> downloads in the last week</li>
-              <li><b>5,054</b> downloads in the last month</li>
+              <li><b>197</b> downloads in the last day</li>
+              <li><b>1,363</b> downloads in the last week</li>
+              <li><b>5,832</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -109,12 +109,12 @@ You can integrate into below applications or frameworks.
 <p>This YConnect passport module requires your application&#39; id.
 You can get this id from <a href="http://developer.yahoo.co.jp/start/">YConnect admin</a></p>
 <h3 id="authorization-endpoint">Authorization Endpoint</h3>
-<pre><code><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<pre><code><span class="keyword">var</span> passport = <span class="keyword">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> YJStrategy({
-    <span class="attribute">clientID</span>     : &lt;YAHOO_JAPAN_APP_ID&gt;,
-    <span class="attribute">clientSecret</span> : &lt;YAHOO_JAPAN_APP_SECRET&gt;,
-    <span class="attribute">callbackURL</span>  : &lt;CALL_BACK_URL&gt;,
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">YJStrategy</span>({
+    clientID     : &lt;YAHOO_JAPAN_APP_ID&gt;,
+    clientSecret : &lt;YAHOO_JAPAN_APP_SECRET&gt;,
+    callbackURL  : &lt;CALL_BACK_URL&gt;,
 }, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshtoken, profile, done</span>)</span>{
     <span class="comment">// With this accessToken you can access user profile data.</span>
     <span class="comment">// In the case that accessToken is expired, you should</span>
@@ -131,14 +131,14 @@ So this process is not required with this module.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-yj</span></code></div>
             <ul>
-              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-06-23T13:52:34Z">a month ago</abbr></li>
+              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-06-23T13:52:34Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Lewuathe/passport-yj">https://github.com/Lewuathe/passport-yj#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>18</b> downloads in the last day</li>
-              <li><b>22</b> downloads in the last week</li>
-              <li><b>117</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>7</b> downloads in the last week</li>
+              <li><b>39</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

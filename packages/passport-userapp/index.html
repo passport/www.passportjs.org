@@ -108,13 +108,13 @@ unobtrusively integrated into any application or framework that supports
 <p>The userapp authentication strategy authenticates users using either a username and
 password or a session token via a REST call to UserApp. The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user. To be able to use this strategy, you need a <a href="https://app.userapp.io/#/sign-up/">UserApp account</a>, with an <a href="https://help.userapp.io/customer/portal/articles/1322336-how-do-i-find-my-app-id-">App Id</a>.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> UserAppStrategy({
-        <span class="attr">appId</span>: <span class="string">'YOU-USERAPP-APP-ID'</span>
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">UserAppStrategy</span>({
+        <span class="attr">appId</span>: <span class="string">&#x27;YOU-USERAPP-APP-ID&#x27;</span>
     },
-    <span class="function"><span class="keyword">function</span> (<span class="params">userprofile, done</span>) </span>{
-        Users.findOrCreate(userprofile, <span class="function"><span class="keyword">function</span>(<span class="params">err,user</span>) </span>{
-            <span class="keyword">if</span>(err) <span class="keyword">return</span> done(err);
-                <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    <span class="keyword">function</span> (<span class="params">userprofile, done</span>) {
+        <span class="title class_">Users</span>.<span class="title function_">findOrCreate</span>(userprofile, <span class="keyword">function</span>(<span class="params">err,user</span>) {
+            <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="title function_">done</span>(err);
+                <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
             });
         }
     ));
@@ -124,33 +124,33 @@ credentials and calls <code>done</code> providing a user. To be able to use this
 authenticate requests using a username and password. The username and password should be sent as POST parameters with the request.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>, 
-    passport.authenticate(<span class="string">'userapp'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
 </code></pre>
 <p><strong>Stateless Server Sessions</strong></p>
 <p>To make your server stateless (i.e. you could restart your server without logging out your users), just save the UserApp session token in a cookie named <code>ua_session_token</code>:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>, 
-    passport.authenticate(<span class="string">'userapp'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-        res.cookie(<span class="string">'ua_session_token'</span>, req.user.token);
-        res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
+        res.<span class="title function_">cookie</span>(<span class="string">&#x27;ua_session_token&#x27;</span>, req.<span class="property">user</span>.<span class="property">token</span>);
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
 </code></pre>
 <p>Don&#39;t forget to delete it when logging out:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-    req.logout();
-    res.clearCookie(<span class="string">'ua_session_token'</span>);
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span> (<span class="params">req, res</span>) {
+    req.<span class="title function_">logout</span>();
+    res.<span class="title function_">clearCookie</span>(<span class="string">&#x27;ua_session_token&#x27;</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre>
 <p>And to protect your routes, use the <code>passport.authenticate()</code> method, like this:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/account'</span>, 
-    passport.authenticate(<span class="string">'userapp'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }), 
-    <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-        res.render(<span class="string">'account'</span>, { <span class="attr">user</span>:req.user });
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/account&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }), 
+    <span class="keyword">function</span> (<span class="params">req, res</span>) {
+        res.<span class="title function_">render</span>(<span class="string">&#x27;account&#x27;</span>, { <span class="attr">user</span>:req.<span class="property">user</span> });
     });
 </code></pre>
 <h4 id="authenticate-requests-using-a-session-token">Authenticate Requests Using a Session Token</h4>
@@ -158,10 +158,10 @@ application:</p>
 authenticate requests using a session token. The token should be sent as a cookie named <code>ua_session_token</code> (automatically set by the front-end integrations such as the <a href="https://github.com/userapp-io/userapp-angular">AngularJS module</a>).</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/api/call'</span>, passport.authenticate(<span class="string">'userapp'</span>),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/call&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
         <span class="comment">// Return some relevant data, for example the logged in user, articles, etc.</span>
-        res.send({ <span class="attr">user</span>: req.user });
+        res.<span class="title function_">send</span>({ <span class="attr">user</span>: req.<span class="property">user</span> });
     });
 </code></pre>
 <h4 id="authenticate-requests-using-http-basic-authentication">Authenticate Requests Using HTTP Basic Authentication</h4>
@@ -169,21 +169,21 @@ application:</p>
 authenticate requests using HTTP Basic Authentication. It can be used in two ways; 1) with a username and password, or 2) by leaving username empty and setting password to a token.</p>
 <h4 id="user-profile">User Profile</h4>
 <p>The user profile follows the <a href="http://passportjs.org/guide/profile/">Passport Profile Schema</a> when available. Some fields are added to contain all information from the <a href="https://app.userapp.io/#/docs/user/#properties">UserApp User entity</a>.</p>
-<pre><code class="lang-javascript">{
-    <span class="attr">provider</span>: <span class="string">'userapp'</span>,
-    <span class="attr">id</span>: <span class="string">'user_id'</span>,
-    <span class="attr">username</span>: <span class="string">'login'</span>,
-    <span class="attr">name</span>: { <span class="attr">familyName</span>: <span class="string">'last_name'</span>, <span class="attr">givenName</span>: <span class="string">'first_name'</span> },
-    <span class="attr">email</span>: <span class="string">'email'</span>,
-    <span class="attr">emails</span>: [ { <span class="attr">value</span>: <span class="string">'email'</span> } ],
+<pre><code class="javascript">{
+    <span class="attr">provider</span>: <span class="string">&#x27;userapp&#x27;</span>,
+    <span class="attr">id</span>: <span class="string">&#x27;user_id&#x27;</span>,
+    <span class="attr">username</span>: <span class="string">&#x27;login&#x27;</span>,
+    <span class="attr">name</span>: { <span class="attr">familyName</span>: <span class="string">&#x27;last_name&#x27;</span>, <span class="attr">givenName</span>: <span class="string">&#x27;first_name&#x27;</span> },
+    <span class="attr">email</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attr">emails</span>: [ { <span class="attr">value</span>: <span class="string">&#x27;email&#x27;</span> } ],
     <span class="attr">permissions</span>: { <span class="attr">permissionName</span>: { <span class="attr">value</span>: boolean, <span class="attr">override</span>: boolean } },
     <span class="attr">features</span>: { <span class="attr">featureName</span>: { <span class="attr">value</span>: boolean, <span class="attr">override</span>: boolean } },
     <span class="attr">properties</span>: { <span class="attr">propertyName</span>: { <span class="attr">value</span>: mixed, <span class="attr">override</span>: boolean } },
-    <span class="attr">subscription</span>: { <span class="attr">price_list_id</span>: <span class="string">'string'</span>, <span class="attr">plan_id</span>: <span class="string">'string'</span>, <span class="attr">override</span>: boolean },
+    <span class="attr">subscription</span>: { <span class="attr">price_list_id</span>: <span class="string">&#x27;string&#x27;</span>, <span class="attr">plan_id</span>: <span class="string">&#x27;string&#x27;</span>, <span class="attr">override</span>: boolean },
     <span class="attr">lastLoginAt</span>: unix_timestamp,
     <span class="attr">updatedAt</span>: unix_timestamp,
     <span class="attr">createdAt</span>: unix_timestamp,
-    <span class="attr">token</span>: <span class="string">'session token'</span>,
+    <span class="attr">token</span>: <span class="string">&#x27;session token&#x27;</span>,
     <span class="attr">_raw</span>: { <span class="comment">/* raw UserApp User profile */</span> }
 }
 </code></pre>
@@ -225,13 +225,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-userapp</span></code></div>
             <ul>
-              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:28Z">a month ago</abbr></li>
+              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/userapp-io/passport-userapp">https://github.com/userapp-io/passport-userapp</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -103,14 +103,14 @@
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback,
 which accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> BehanceStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BehanceStrategy({
     clientID: BEHANCE_CLIENT_ID,
     clientSecret: BEHANCE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://www.example.com/auth/behance/callback"</span>
+    callbackURL: <span class="string">&quot;http://www.example.com/auth/behance/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ BehanceId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ BehanceId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -119,20 +119,20 @@ which accepts these credentials and calls <code>done</code> providing a user, as
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/behance'</span>,
-  passport.authenticate(<span class="string">'behance'</span>, { <span class="attribute">scope</span>: [<span class="string">'activity_read'</span>], <span class="attribute">state</span>:<span class="string">"some string"</span> }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/behance&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;behance&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;activity_read&#x27;</span>], <span class="attribute">state</span>:<span class="string">&quot;some string&quot;</span> }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/behance/callback'</span>, 
-  passport.authenticate(<span class="string">'behance'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/behance/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;behance&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/metacommunications/passport-behance/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="https://github.com/mogadanez">Alexander Popov</a></li>
@@ -145,13 +145,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-behance</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:20:09Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:20:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/metacommunications/passport-behance"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

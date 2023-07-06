@@ -108,14 +108,14 @@ on OAuth 2.0, but with differences in how the access token is requested
 receives access token, plus information needed refresh the token along with the user profile, and calls <code>done</code>
 providing a user.  <code>verify</code> should either check the user is an existing account, or initiate the process for
 registering a new account.</p>
-<pre><code>  <span class="keyword">var</span> CitrixStrategy = <span class="built_in">require</span>(<span class="string">'citrix-passport2'</span>).Strategy
+<pre><code>  <span class="keyword">var</span> CitrixStrategy = <span class="keyword">require</span>(<span class="string">&#x27;citrix-passport2&#x27;</span>).Strategy
 
-  passport.use(<span class="keyword">new</span> CitrixStrategy({
-      <span class="attr">apiKey</span>: <span class="string">'CITRIX ONLINE API KEY'</span>,
-      <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/citrix/callback"</span>
+  passport.<span class="keyword">use</span>(<span class="keyword">new</span> CitrixStrategy({
+      apiKey: <span class="string">&#x27;CITRIX ONLINE API KEY&#x27;</span>,
+      callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/citrix/callback&quot;</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, accountKey, expiresIn, profile, done</span>) </span>{
-      User.findOrCreate(accountKey, profile, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, accountKey, expiresIn, profile, done)</span> </span>{
+      User.findOrCreate(accountKey, profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
         done(err, user);
       });
     }        
@@ -134,27 +134,27 @@ registering a new account.</p>
 <li><code>sessionKey</code>     (optional)  field within req.session to use for auth persistence</li>
 </ul>
 <p>Where:</p>
-<pre><code> accessToken = <span class="string">"XXX"</span>
- refreshToken = <span class="string">"XXX"</span>
- accountKey = <span class="string">"1234567890"</span>  <span class="comment">// Unique identifier for account</span>
- expiresIn = <span class="string">"0123456"</span>      <span class="comment">// Time before accessToken expires (currently approx 1 year)</span>
- profile = {
-<span class="symbol">   firstName:</span> <span class="string">"John"</span>,
-<span class="symbol">   lastName:</span> <span class="string">"Doe"</span>,
-<span class="symbol">   email:</span> <span class="string">"john.doe@domain.com"</span>,
- }
+<pre><code> accessT<span class="attr">oken</span> <span class="operator">=</span> <span class="string">&quot;XXX&quot;</span>
+ refreshT<span class="attr">oken</span> <span class="operator">=</span> <span class="string">&quot;XXX&quot;</span>
+ accountK<span class="attr">ey</span> <span class="operator">=</span> <span class="string">&quot;1234567890&quot;</span>  <span class="comment">// Unique identifier for account</span>
+ expiresIn = <span class="string">&quot;0123456&quot;</span>      <span class="comment">// Time before accessToken expires (currently approx 1 year)</span>
+ <span class="attr">profile</span> <span class="operator">=</span> <span class="punctuation">{</span>
+<span class="symbol">   firstName:</span> <span class="string">&quot;John&quot;</span>,
+<span class="symbol">   lastName:</span> <span class="string">&quot;Doe&quot;</span>,
+<span class="symbol">   email:</span> <span class="string">&quot;john.doe@domain.com&quot;</span>,
+ <span class="punctuation">}</span>
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;citrix&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example:</p>
-<pre><code>app.get(<span class="string">'/auth'</span>,
-  passport.authenticate(<span class="string">'citrix'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;citrix&#x27;</span>));
 
-app.get(<span class="string">'/auth/citrix/callback'</span>,
-  passport.authenticate(<span class="string">'citrix'</span>, { failureRedirect: <span class="string">'/auth_failed'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/citrix/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;citrix&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/auth_failed&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="related-modules">Related Modules</h2>
 <ul>
@@ -166,13 +166,13 @@ app.get(<span class="string">'/auth/citrix/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-citrix2</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T12:23:39Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T12:23:39Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/kenbell/passport-citrix.git">https://github.com/kenbell/passport-citrix</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

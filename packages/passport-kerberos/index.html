@@ -112,14 +112,14 @@ unobtrusively integrated into any application or framework that supports
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
 <pre><code><span class="comment">// The realm used for kerberos authentication.</span>
-<span class="keyword">var</span> REALM=<span class="string">"EXAMPLE.COM"</span>
+var REALM<span class="operator">=</span><span class="string">&quot;EXAMPLE.COM&quot;</span>
 
-passport.use(<span class="keyword">new</span> KerberosStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(username, done)</span> </span>{
-    User.findOne({ username: username }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, REALM);
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> KerberosStrategy(
+  <span class="keyword">function</span>(username, <span class="keyword">done</span>) {
+    User.findOne({ username<span class="operator">:</span> username }, <span class="keyword">function</span> (err, user) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">if</span> (<span class="operator">!</span>user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user, REALM);
     });
   }
 ));
@@ -128,10 +128,10 @@ passport.use(<span class="keyword">new</span> KerberosStrategy(
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'kerberos'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;kerberos&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>(To be added.)</p>
@@ -147,13 +147,13 @@ Passport-Local - Copyright (c) 2011-2013 Jared Hanson &lt;<a href="http://jaredh
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kerberos</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:53:09Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:53:09Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/joshuah/passport-kerberos.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>22</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

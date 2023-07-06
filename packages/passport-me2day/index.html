@@ -118,14 +118,14 @@ to complete authentication.</p>
 nonce, and callback URL within <code>options</code>.  The user key is
 obtained by <a href="http://me2day.net/me2/app/get_appkey">requesting an application key</a> at
 <a href="https://me2day.net/">me2day</a> site.</p>
-<pre><code>passport.use(<span class="keyword">new</span> Me2dayStrategy({
-    userKey: <span class="string">'--insert-me2day-user-key-here--'</span>
-    , nonce: <span class="string">'--insert-me2day-nonce-here--'</span>
-    , callbackURL: <span class="string">"http://127.0.0.1:3000/auth/me2day/callback"</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">Me2dayStrategy</span>({
+    <span class="attribute">userKey</span>: <span class="string">&#x27;--insert-me2day-user-key-here--&#x27;</span>
+    , <span class="attribute">nonce</span>: <span class="string">&#x27;--insert-me2day-nonce-here--&#x27;</span>
+    , <span class="attribute">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/me2day/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(userKey, profile, done)</span> </span>{
-    User.findOrCreate(profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      done(err, user);
+  <span class="built_in">function</span>(userKey, profile, done) {
+    User.<span class="built_in">findOrCreate</span>(profile, function (err, user) {
+      <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -134,14 +134,14 @@ obtained by <a href="http://me2day.net/me2/app/get_appkey">requesting an applica
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/twitter'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/twitter&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>));
 
-app.get(<span class="string">'/auth/twitter/callback'</span>,
-  passport.authenticate(<span class="string">'twitter'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/twitter/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/outsideris/passport-me2day/tree/master/examples/signin">signin example</a>.</p>
@@ -152,7 +152,7 @@ app.get(<span class="string">'/auth/twitter/callback'</span>,
 <h2 id="licens">Licens</h2>
 <p>e</p>
 <p>(The MIT License)</p>
-<p>Copyright (c) 2012 JeongHoon Byun <a href="mailto:&#x6f;&#117;&#x74;&#115;&#105;&#x64;&#x65;&#x72;&#x69;&#115;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x6f;&#117;&#x74;&#115;&#105;&#x64;&#x65;&#x72;&#x69;&#115;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>Copyright (c) 2012 JeongHoon Byun <a href="mailto:&#x6f;&#117;&#116;&#x73;&#105;&#100;&#101;&#114;&#105;&#115;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x6f;&#117;&#116;&#x73;&#105;&#100;&#101;&#114;&#105;&#115;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
 the Software without restriction, including without limitation the rights to
@@ -171,13 +171,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-me2day</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:00:57Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:00:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/outsideris/passport-me2day"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

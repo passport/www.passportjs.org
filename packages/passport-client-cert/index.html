@@ -104,61 +104,61 @@
 <li><code>passReqToCallback</code> - optional. Causes the request object to be supplied to the verify callback as the first parameter.</li>
 </ul>
 <p>The verify callback is passed with the <a href="https://nodejs.org/api/tls.html#tls_tlssocket_getpeercertificate_detailed">client certificate object</a> and a <code>done</code> callback. The <code>done</code> callback must be called as per the <a href="http://passportjs.org/guide/configure/">passport.js documentation</a>.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> ClientCertStrategy = <span class="built_in">require</span>(<span class="string">'passport-client-cert'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">ClientCertStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-client-cert&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> ClientCertStrategy(<span class="function"><span class="keyword">function</span>(<span class="params">clientCert, done</span>) </span>{
-  <span class="keyword">var</span> cn = clientCert.subject.cn,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>(<span class="keyword">function</span>(<span class="params">clientCert, done</span>) {
+  <span class="keyword">var</span> cn = clientCert.<span class="property">subject</span>.<span class="property">cn</span>,
       user = <span class="literal">null</span>;
 
   <span class="comment">// The CN will typically be checked against a database</span>
-  <span class="keyword">if</span>(cn === <span class="string">'test-cn'</span>) {
-    user = { <span class="attr">name</span>: <span class="string">'Test User'</span> }
+  <span class="keyword">if</span>(cn === <span class="string">&#x27;test-cn&#x27;</span>) {
+    user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
 
-  done(<span class="literal">null</span>, user);
+  <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
 </code></pre>
 <p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing callback arguments accordingly.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> ClientCertStrategy({ <span class="attr">passReqToCallback</span>: <span class="literal">true</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">req, clientCert, done</span>) </span>{
-  <span class="keyword">var</span> cn = clientCert.subject.cn,
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>({ <span class="attr">passReqToCallback</span>: <span class="literal">true</span> }, <span class="keyword">function</span>(<span class="params">req, clientCert, done</span>) {
+  <span class="keyword">var</span> cn = clientCert.<span class="property">subject</span>.<span class="property">cn</span>,
       user = <span class="literal">null</span>;
 
   <span class="comment">// The CN will typically be checked against a database</span>
-  <span class="keyword">if</span>(cn === <span class="string">'test-cn'</span>) {
-    user = { <span class="attr">name</span>: <span class="string">'Test User'</span> }
+  <span class="keyword">if</span>(cn === <span class="string">&#x27;test-cn&#x27;</span>) {
+    user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
 
-  done(<span class="literal">null</span>, user);
+  <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>Install and start the example server app:</p>
-<pre><code>$ npm install
-$ cd example
-$ <span class="keyword">node</span> <span class="title">example-server</span>.js
+<pre><code><span class="variable">$</span> npm install
+<span class="variable">$</span> <span class="built_in">cd</span> example
+<span class="variable">$</span> node example<span class="literal">-server</span>.js
 </code></pre><p>Submit a request with a client certificate:</p>
-<pre><code>$ curl -k <span class="params">--cert</span> certs/joe.crt <span class="params">--key</span> certs/joe.key <span class="params">--cacert</span> certs/ca.crt https:<span class="string">//localhost</span><span class="function">:3443</span>
+<pre><code>$ curl -k <span class="attr">--cert</span> certs/joe<span class="selector-class">.crt</span> <span class="attr">--key</span> certs/joe<span class="selector-class">.key</span> <span class="attr">--cacert</span> certs/ca<span class="selector-class">.crt</span> https:<span class="comment">//localhost:3443</span>
 </code></pre><p>If <code>curl</code> fails and you are using OSX Mavericks or newer (where <a href="http://curl.haxx.se/mail/archive-2013-10/0036.html">support for ad-hoc CA certifcates is broken</a>, try <code>wget</code> instead:</p>
-<pre><code>$ wget -qSO - <span class="params">--no-check-certificate</span> <span class="params">--certificate=certs/joe</span>.crt <span class="params">--private-key=certs/joe</span>.key <span class="params">--ca-certificate=certs/ca</span>.crt https:<span class="string">//localhost</span><span class="function">:3443</span>/
+<pre><code>$ wget -qSO - <span class="attr">--no-check-certificate</span> <span class="attr">--certificate</span>=certs/joe<span class="selector-class">.crt</span> <span class="attr">--private-key</span>=certs/joe<span class="selector-class">.key</span> <span class="attr">--ca-certificate</span>=certs/ca<span class="selector-class">.crt</span> https:<span class="comment">//localhost:3443/</span>
 </code></pre><p>Requests submitted with <code>joe.crt</code> are authorised because <code>joe</code> is in the list of valid users. Requests submitted without a certificate, or with <code>bob.crt</code> will fail with a HTTP <code>401</code>.</p>
 <h2 id="test">Test</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="licence">Licence</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT Licence</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-client-cert</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:23:57Z">a month ago</abbr></li>
+              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:23:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ripjar/passport-client-cert">https://github.com/ripjar/passport-client-cert</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>155</b> downloads in the last day</li>
-              <li><b>710</b> downloads in the last week</li>
-              <li><b>2,232</b> downloads in the last month</li>
+              <li><b>468</b> downloads in the last day</li>
+              <li><b>1,730</b> downloads in the last week</li>
+              <li><b>11,993</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

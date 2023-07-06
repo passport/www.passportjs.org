@@ -103,7 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-faceit
+<pre><code class="bash">$ npm install passport-faceit
 </code></pre>
 <h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -111,21 +111,21 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport       = <span class="built_in">require</span>(<span class="string">"passport"</span>);
-<span class="keyword">var</span> faceitStrategy = <span class="built_in">require</span>(<span class="string">"passport-faceit"</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport       = <span class="built_in">require</span>(<span class="string">&quot;passport&quot;</span>);
+<span class="keyword">var</span> faceitStrategy = <span class="built_in">require</span>(<span class="string">&quot;passport-faceit&quot;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> faceitStrategy({
-    <span class="attr">clientID</span>: FACEIT_CLIENT_ID,
-    <span class="attr">clientSecret</span>: FACEIT_CLIENT_SECRET
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">faceitStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">FACEIT_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">FACEIT_CLIENT_SECRET</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
-    <span class="keyword">const</span> userData = jwt.decode(params.id_token);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) {
+    <span class="keyword">const</span> userData = jwt.<span class="title function_">decode</span>(params.<span class="property">id_token</span>);
 
-    done(<span class="literal">null</span>, {
-      <span class="attr">faceitId</span>: userData.guid,
-      <span class="attr">faceitAvatar</span>: userData.picture,
-      <span class="attr">faceitEmail</span>: userData.email,
-      <span class="attr">faceitNickname</span>: userData.nickname
+    <span class="title function_">done</span>(<span class="literal">null</span>, {
+      <span class="attr">faceitId</span>: userData.<span class="property">guid</span>,
+      <span class="attr">faceitAvatar</span>: userData.<span class="property">picture</span>,
+      <span class="attr">faceitEmail</span>: userData.<span class="property">email</span>,
+      <span class="attr">faceitNickname</span>: userData.<span class="property">nickname</span>
     });
   }
 ));
@@ -135,67 +135,67 @@ passport.use(<span class="keyword">new</span> faceitStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">"/auth/faceit"</span>, passport.authenticate(<span class="string">"faceit"</span>));
-app.get(<span class="string">"/auth/faceit/callback"</span>, passport.authenticate(<span class="string">"faceit"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/"</span> }), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&quot;/auth/faceit&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;faceit&quot;</span>));
+app.<span class="title function_">get</span>(<span class="string">&quot;/auth/faceit/callback&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;faceit&quot;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&quot;/&quot;</span> }), <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">"/"</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
 });
 </code></pre>
 <h2 id="example">Example</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> express        = <span class="built_in">require</span>(<span class="string">"express"</span>);
-<span class="keyword">var</span> bodyParser     = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
-<span class="keyword">var</span> cookieParser   = <span class="built_in">require</span>(<span class="string">"cookie-parser"</span>);
-<span class="keyword">var</span> cookieSession  = <span class="built_in">require</span>(<span class="string">"cookie-session"</span>);
-<span class="keyword">var</span> passport       = <span class="built_in">require</span>(<span class="string">"passport"</span>);
-<span class="keyword">var</span> faceitStrategy = <span class="built_in">require</span>(<span class="string">"passport-faceit"</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> express        = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);
+<span class="keyword">var</span> bodyParser     = <span class="built_in">require</span>(<span class="string">&quot;body-parser&quot;</span>);
+<span class="keyword">var</span> cookieParser   = <span class="built_in">require</span>(<span class="string">&quot;cookie-parser&quot;</span>);
+<span class="keyword">var</span> cookieSession  = <span class="built_in">require</span>(<span class="string">&quot;cookie-session&quot;</span>);
+<span class="keyword">var</span> passport       = <span class="built_in">require</span>(<span class="string">&quot;passport&quot;</span>);
+<span class="keyword">var</span> faceitStrategy = <span class="built_in">require</span>(<span class="string">&quot;passport-faceit&quot;</span>).<span class="property">Strategy</span>;
 
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
-app.set(<span class="string">"views"</span>, <span class="string">"./views"</span>);
-app.set(<span class="string">"view engine"</span>, <span class="string">"ejs"</span>);
+app.<span class="title function_">set</span>(<span class="string">&quot;views&quot;</span>, <span class="string">&quot;./views&quot;</span>);
+app.<span class="title function_">set</span>(<span class="string">&quot;view engine&quot;</span>, <span class="string">&quot;ejs&quot;</span>);
 
 <span class="comment">// Middlewares</span>
-app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">true</span> }));
-app.use(cookieParser());
-app.use(cookieSession({<span class="attr">secret</span>:<span class="string">"somesecrettokenhere"</span>}));
-app.use(passport.initialize());
-app.use(express.static(<span class="string">"./public"</span>));
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>());
+app.<span class="title function_">use</span>(<span class="title function_">cookieSession</span>({<span class="attr">secret</span>:<span class="string">&quot;somesecrettokenhere&quot;</span>}));
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
+app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&quot;./public&quot;</span>));
 
-passport.use(<span class="keyword">new</span> faceitStrategy({
-    <span class="attr">clientID</span>: <span class="string">"098f6b-cd4621d-373cade-4e83262-7b4f6f"</span>,
-    <span class="attr">clientSecret</span>: <span class="string">"4eb20288afaed97e82bde371260db8d8"</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">faceitStrategy</span>({
+    <span class="attr">clientID</span>: <span class="string">&quot;098f6b-cd4621d-373cade-4e83262-7b4f6f&quot;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&quot;4eb20288afaed97e82bde371260db8d8&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
-    <span class="keyword">const</span> userData = jwt.decode(params.id_token);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) {
+    <span class="keyword">const</span> userData = jwt.<span class="title function_">decode</span>(params.<span class="property">id_token</span>);
 
-    done(<span class="literal">null</span>, {
-      <span class="attr">faceitId</span>: userData.guid,
-      <span class="attr">faceitAvatar</span>: userData.picture,
-      <span class="attr">faceitEmail</span>: userData.email,
-      <span class="attr">faceitNickname</span>: userData.nickname
+    <span class="title function_">done</span>(<span class="literal">null</span>, {
+      <span class="attr">faceitId</span>: userData.<span class="property">guid</span>,
+      <span class="attr">faceitAvatar</span>: userData.<span class="property">picture</span>,
+      <span class="attr">faceitEmail</span>: userData.<span class="property">email</span>,
+      <span class="attr">faceitNickname</span>: userData.<span class="property">nickname</span>
     });
   }
 ));
 
-passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
-    done(<span class="literal">null</span>, user);
+passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, done</span>) {
+    <span class="title function_">done</span>(<span class="literal">null</span>, user);
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
-    done(<span class="literal">null</span>, user);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">user, done</span>) {
+    <span class="title function_">done</span>(<span class="literal">null</span>, user);
 });
 
-app.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.render(<span class="string">"index"</span>);
+app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">render</span>(<span class="string">&quot;index&quot;</span>);
 });
 
-app.get(<span class="string">"/auth/faceit"</span>, passport.authenticate(<span class="string">"faceit"</span>));
-app.get(<span class="string">"/auth/faceit/callback"</span>, passport.authenticate(<span class="string">"faceit"</span>, { <span class="attr">failureRedirect</span>: <span class="string">"/"</span> }), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&quot;/auth/faceit&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;faceit&quot;</span>));
+app.<span class="title function_">get</span>(<span class="string">&quot;/auth/faceit/callback&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;faceit&quot;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&quot;/&quot;</span> }), <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">"/"</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
 });
 
-app.listen(<span class="number">3000</span>);
+app.<span class="title function_">listen</span>(<span class="number">3000</span>);
 </code></pre>
 <h2 id="license">License</h2>
 <p>The MIT License (MIT)</p>
@@ -219,13 +219,13 @@ THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-faceit</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-05-12T15:38:49Z">2 months ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-05-12T15:38:49Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Technoblazed/passport-faceit">https://github.com/Technoblazed/passport-faceit</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>50</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

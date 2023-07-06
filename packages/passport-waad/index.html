@@ -98,20 +98,20 @@
 <p>This code is based on passport-azure-ad, a Microsoft open source project (apache license).</p>
 <h2 id="configuration">Configuration</h2>
 <p>This module relies on a great deal of configuration at Azure and also the provision of a configuration file.</p>
-<pre><code class="lang-javascript">{
-    <span class="string">"appUrl"</span>: <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/"</span>,
-    <span class="string">"identityMetadata"</span> : <span class="string">"https://login.windows.net/1ad458eb-55b8-484b-b1b7-379be2dd07f6/federationmetadata/2007-06/federationmetadata.xml"</span>,
-    <span class="string">"loginCallback"</span> :<span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/login/callback/"</span>,
-    <span class="string">"issuer"</span> : <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/"</span>,
-    <span class="string">"logoutCallback"</span> : <span class="string">"https://passporttestazure-colinedwardrhodes-1.c9.io/logout/callback/"</span>,
-    <span class="string">"privateCert"</span> : <span class="string">"./passportConfig/private.pem"</span>,
-    <span class="string">"publicCert"</span> : <span class="string">"./passportConfig/public.pem"</span>,
-    <span class="string">"tenant"</span>:  <span class="string">"ehtTest.onmicrosoft.com"</span>,
-    <span class="string">"clientId"</span>: <span class="string">"e20b5f78-4e8c-4dc2-b891-70d9b6ac4bfb"</span>,
-    <span class="string">"clientSecret"</span>: <span class="string">"bLnXHFXGNGOZ8qU+fe+rekcIZBS5rW6PUOTRlxoS7qA="</span>,
-    <span class="string">"testGroups"</span> : [ { <span class="string">"name"</span> : <span class="string">"ReferralGatewayCoordinator"</span> } ],
-    <span class="string">"testUser"</span> : <span class="string">"colin.rhodes@ehealthtechnologies.com"</span>,
-    <span class="string">"testUserName"</span> : <span class="string">"Colin Rhodes"</span>
+<pre><code class="javascript">{
+    <span class="string">&quot;appUrl&quot;</span>: <span class="string">&quot;https://passporttestazure-colinedwardrhodes-1.c9.io/&quot;</span>,
+    <span class="string">&quot;identityMetadata&quot;</span> : <span class="string">&quot;https://login.windows.net/1ad458eb-55b8-484b-b1b7-379be2dd07f6/federationmetadata/2007-06/federationmetadata.xml&quot;</span>,
+    <span class="string">&quot;loginCallback&quot;</span> :<span class="string">&quot;https://passporttestazure-colinedwardrhodes-1.c9.io/login/callback/&quot;</span>,
+    <span class="string">&quot;issuer&quot;</span> : <span class="string">&quot;https://passporttestazure-colinedwardrhodes-1.c9.io/&quot;</span>,
+    <span class="string">&quot;logoutCallback&quot;</span> : <span class="string">&quot;https://passporttestazure-colinedwardrhodes-1.c9.io/logout/callback/&quot;</span>,
+    <span class="string">&quot;privateCert&quot;</span> : <span class="string">&quot;./passportConfig/private.pem&quot;</span>,
+    <span class="string">&quot;publicCert&quot;</span> : <span class="string">&quot;./passportConfig/public.pem&quot;</span>,
+    <span class="string">&quot;tenant&quot;</span>:  <span class="string">&quot;ehtTest.onmicrosoft.com&quot;</span>,
+    <span class="string">&quot;clientId&quot;</span>: <span class="string">&quot;e20b5f78-4e8c-4dc2-b891-70d9b6ac4bfb&quot;</span>,
+    <span class="string">&quot;clientSecret&quot;</span>: <span class="string">&quot;bLnXHFXGNGOZ8qU+fe+rekcIZBS5rW6PUOTRlxoS7qA=&quot;</span>,
+    <span class="string">&quot;testGroups&quot;</span> : [ { <span class="string">&quot;name&quot;</span> : <span class="string">&quot;ReferralGatewayCoordinator&quot;</span> } ],
+    <span class="string">&quot;testUser&quot;</span> : <span class="string">&quot;colin.rhodes@ehealthtechnologies.com&quot;</span>,
+    <span class="string">&quot;testUserName&quot;</span> : <span class="string">&quot;Colin Rhodes&quot;</span>
 }
 </code></pre>
 <h2 id="installation">Installation</h2>
@@ -119,96 +119,96 @@
 </code></pre><h2 id="usage">Usage</h2>
 <p>This sample uses a SAML protocol with express.  Please pay close attention to the order of the calls - they are order specific!</p>
 <p>Please use the middleware <code>ensureAuthenticated</code> on routes to ensure users cannot access them without passing auth.</p>
-<pre><code class="lang-javascript"><span class="comment">/////////////////////////////////////////////</span>
+<pre><code class="javascript"><span class="comment">/////////////////////////////////////////////</span>
 <span class="comment">//</span>
 <span class="comment">//  passport-waad sample code.</span>
 <span class="comment">//</span>
 <span class="comment">/////////////////////////////////////////////c</span>
 
-<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),
-    path = <span class="built_in">require</span>(<span class="string">'path'</span>),
-    favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>),
-    logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>),
-    cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>),
-    bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
-    expressSession = <span class="built_in">require</span>(<span class="string">'express-session'</span>),
-    waad = <span class="built_in">require</span>(<span class="string">'../../lib/passport-waad'</span>).waadPassport ,
-    passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>),
+    path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>),
+    favicon = <span class="built_in">require</span>(<span class="string">&#x27;serve-favicon&#x27;</span>),
+    logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>),
+    cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>),
+    bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>),
+    expressSession = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>),
+    waad = <span class="built_in">require</span>(<span class="string">&#x27;../../lib/passport-waad&#x27;</span>).<span class="property">waadPassport</span> ,
+    passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
-<span class="keyword">var</span> sessionSecret = <span class="string">'#$&amp;#*(*)#$*(&amp;'</span>;
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> sessionSecret = <span class="string">&#x27;#$&amp;#*(*)#$*(&amp;&#x27;</span>;
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 <span class="comment">//</span>
 <span class="comment">//  Middleware</span>
 <span class="comment">//</span>
-<span class="comment">//app.use(favicon(__dirname + '/public/favicon.ico'));</span>
-app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
-app.use(logger(<span class="string">'dev'</span>));
-app.use(cookieParser(sessionSecret));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+<span class="comment">//app.use(favicon(__dirname + &#x27;/public/favicon.ico&#x27;));</span>
+app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
+app.<span class="title function_">use</span>(<span class="title function_">logger</span>(<span class="string">&#x27;dev&#x27;</span>));
+app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>(sessionSecret));
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
 
-app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));
-app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);
-app.use(<span class="built_in">require</span>(<span class="string">'stylus'</span>).middleware(path.join(__dirname, <span class="string">'public'</span>)));
-app.use(expressSession({ <span class="attr">secret</span>: sessionSecret }));
+app.<span class="title function_">set</span>(<span class="string">&#x27;views&#x27;</span>, path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;views&#x27;</span>));
+app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;jade&#x27;</span>);
+app.<span class="title function_">use</span>(<span class="built_in">require</span>(<span class="string">&#x27;stylus&#x27;</span>).<span class="title function_">middleware</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
+app.<span class="title function_">use</span>(<span class="title function_">expressSession</span>({ <span class="attr">secret</span>: sessionSecret }));
 
 <span class="comment">// Creating the auth object wires passport under the hood.</span>
-<span class="keyword">var</span> auth = <span class="keyword">new</span> waad.waadPassport({
-  <span class="attr">configurationFile</span> : <span class="string">'passportConfig/config.json'</span>,
-  <span class="attr">passport</span> : passport,
-  <span class="attr">name</span> : <span class="string">'saml'</span>,    <span class="comment">//set to test for dev</span>
-  <span class="attr">app</span> : app
+<span class="keyword">var</span> auth = <span class="keyword">new</span> waad.<span class="title function_">waadPassport</span>({
+  configurationFile : <span class="string">&#x27;passportConfig/config.json&#x27;</span>,
+  passport : passport,
+  name : <span class="string">&#x27;saml&#x27;</span>,    <span class="comment">//set to test for dev</span>
+  app : app
 });
 
-<span class="keyword">var</span> router = express.Router();
+<span class="keyword">var</span> router = express.<span class="title class_">Router</span>();
 
-router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
 
-  <span class="keyword">if</span>(req.user) {
-    res.render(<span class="string">'index'</span>, { 
-      <span class="attr">user</span> : req.user,
-      <span class="attr">method</span> : auth.name
+  <span class="keyword">if</span>(req.<span class="property">user</span>) {
+    res.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>, { 
+      user : req.<span class="property">user</span>,
+      method : auth.<span class="property">name</span>
     });
   } <span class="keyword">else</span> {
-    res.render(<span class="string">'notLoggedIn'</span>, { } );
+    res.<span class="title function_">render</span>(<span class="string">&#x27;notLoggedIn&#x27;</span>, { } );
   }
 });
 
 
 <span class="comment">// Order of routes is important!!</span>
-auth.setSSORoutes(
+auth.<span class="title function_">setSSORoutes</span>(
   router,
-  <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>) </span>{ 
-    next();
+  <span class="keyword">function</span>(<span class="params">req,res,next</span>) { 
+    <span class="title function_">next</span>();
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>{ 
-    next();
+  <span class="keyword">function</span>(<span class="params">req,res,next</span>){ 
+    <span class="title function_">next</span>();
   }
 );
-router.get(<span class="string">'/user'</span>,
-  auth.ensureAuthenticated,
-  auth.memberOf(<span class="string">"User"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
-      res.render(<span class="string">'notWorthy'</span>, { <span class="attr">group</span> : <span class="string">'User'</span> } );
+router.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,
+  auth.<span class="property">ensureAuthenticated</span>,
+  auth.<span class="title function_">memberOf</span>(<span class="string">&quot;User&quot;</span>, <span class="keyword">function</span>(<span class="params">req,res</span>) { 
+      res.<span class="title function_">render</span>(<span class="string">&#x27;notWorthy&#x27;</span>, { group : <span class="string">&#x27;User&#x27;</span> } );
   }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
-    res.render(<span class="string">'worthy'</span>, {  <span class="attr">group</span> : <span class="string">'User'</span> });
+  <span class="keyword">function</span>(<span class="params">req,res</span>) { 
+    res.<span class="title function_">render</span>(<span class="string">&#x27;worthy&#x27;</span>, {  group : <span class="string">&#x27;User&#x27;</span> });
   });
 
-router.get(<span class="string">'/nouser'</span>,
-  auth.ensureAuthenticated,
-  auth.memberOf(<span class="string">"NoUser"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
-      res.render(<span class="string">'notWorthy'</span>, { <span class="attr">group</span> : <span class="string">'NoUser'</span> } );
+router.<span class="title function_">get</span>(<span class="string">&#x27;/nouser&#x27;</span>,
+  auth.<span class="property">ensureAuthenticated</span>,
+  auth.<span class="title function_">memberOf</span>(<span class="string">&quot;NoUser&quot;</span>, <span class="keyword">function</span>(<span class="params">req,res</span>) { 
+      res.<span class="title function_">render</span>(<span class="string">&#x27;notWorthy&#x27;</span>, { group : <span class="string">&#x27;NoUser&#x27;</span> } );
   }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>{ 
-    res.render(<span class="string">'worthy'</span>, {  <span class="attr">group</span> : <span class="string">'NoUser'</span> });
+  <span class="keyword">function</span>(<span class="params">req,res</span>) { 
+    res.<span class="title function_">render</span>(<span class="string">&#x27;worthy&#x27;</span>, {  group : <span class="string">&#x27;NoUser&#x27;</span> });
   });
 
 
-app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
-app.use(<span class="string">'/'</span>, router);
+app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
+app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, router);
 
-app.listen(process.env.PORT);
+app.<span class="title function_">listen</span>(process.<span class="property">env</span>.<span class="property">PORT</span>);
 
 </code></pre>
 <h2 id="license">License</h2>
@@ -217,13 +217,13 @@ app.listen(process.env.PORT);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-waad</span></code></div>
             <ul>
-              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T13:44:52Z">a month ago</abbr></li>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T13:44:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ColinEdwardRhodes/passport-waad">https://github.com/ColinEdwardRhodes/azure-waad.git</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>16</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>19</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

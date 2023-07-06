@@ -108,33 +108,33 @@ unobtrusively integrated into any application or framework that supports
 <ul>
 <li><p>The <code>options</code> object accepts to fields (below are the defaults):</p>
 <pre><code>{
-<span class="attribute">findBy</span>: <span class="string">'id'</span>, // or <span class="string">'email'</span> or <span class="string">'nonce'</span> or <span class="string">'publicKey'</span> or any unique field in your database for your users
-in: <span class="string">'body'</span> // or <span class="string">'headers'</span>
+findBy: <span class="string">&#x27;id&#x27;</span>, <span class="regexp">//</span> or <span class="string">&#x27;email&#x27;</span> or <span class="string">&#x27;nonce&#x27;</span> or <span class="string">&#x27;publicKey&#x27;</span> or any unique field <span class="keyword">in</span> your database <span class="keyword">for</span> your users
+<span class="keyword">in</span>: <span class="string">&#x27;body&#x27;</span> <span class="regexp">//</span> or <span class="string">&#x27;headers&#x27;</span>
 }
 </code></pre><p>The <code>in</code> parameter specifies where in the request is the authentication data, i.e. in <code>req.body</code> or in <code>req.headers</code>. The <code>findBy</code> parameter specifies by which (unique) field we should find the user in the database.</p>
 </li>
 <li><p>The <code>verify</code> function accepts these credentials and calls done providing a user:</p>
-<pre><code>passport.use(<span class="keyword">new</span> PublicKeyStrategy(
+<pre><code>passport.use(<span class="built_in">new</span> PublicKeyStrategy(
 {
-  <span class="attr">findBy</span>: <span class="string">'email'</span>,
-  <span class="attr">in</span>: <span class="string">'body'</span>
+  findBy: <span class="string">&#x27;email&#x27;</span>,
+  <span class="keyword">in</span>: <span class="string">&#x27;body&#x27;</span>
 },
-<span class="function"><span class="keyword">function</span>(<span class="params">findByValue, signature, done</span>) </span>{
-  User.findOneBy({ <span class="attr">email</span>: findByValue }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+<span class="keyword">function</span>(findByValue, signature, done) {
+  <span class="keyword">User</span>.findOneBy({ email: findByValue }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-    <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+    <span class="keyword">if</span> (!<span class="keyword">user</span>) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
 
-    <span class="keyword">var</span> verifier = crypto.createVerify(<span class="string">"RSA-SHA256"</span>);
-    verifier.update(user.nonce);
+    var verifier = crypto.createVerify(&quot;RSA-SHA256&quot;);
+    verifier.<span class="keyword">update</span>(<span class="keyword">user</span>.nonce);
 
-    <span class="keyword">var</span> publicKeyBuf = <span class="keyword">new</span> <span class="built_in">Buffer</span>(user.publicKey, <span class="string">'base64'</span>);
+    var publicKeyBuf = <span class="built_in">new</span> Buffer(<span class="keyword">user</span>.publicKey, <span class="string">&#x27;base64&#x27;</span>);
 
-    <span class="keyword">var</span> result = verifier.verify(publicKeyBuf, signature, <span class="string">"base64"</span>);
+    var result = verifier.verify(publicKeyBuf, signature, &quot;base64&quot;);
 
     <span class="keyword">if</span> (result) {
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>);
     } <span class="keyword">else</span> {
-      <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
     }
   });
 }
@@ -146,26 +146,26 @@ in: <span class="string">'body'</span> // or <span class="string">'headers'</spa
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'publicKey'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;publicKey&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For an example incorporated inside <a href="https://feathersjs.com">FeathersJS</a>, please see <a href="https://github.com/amaurymartiny/feathers-authentication-publickey/tree/master/example">here</a></p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-publickey</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T13:20:52Z">a month ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-06-23T13:20:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/timfpark/passport-publickey">https://github.com/timfpark/passport-publickey#readme</a></li>
             </ul>
             <ul>
-              <li><b>31</b> downloads in the last day</li>
-              <li><b>77</b> downloads in the last week</li>
-              <li><b>445</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last day</li>
+              <li><b>36</b> downloads in the last week</li>
+              <li><b>220</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

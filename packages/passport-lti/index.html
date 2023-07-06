@@ -111,79 +111,79 @@
  and the process is just intended to stop.
  Use either this function or the hardcoded key / secret. 
  This one gets priority over the hardcoded key / secret.</p>
-<pre><code> <span class="meta">@param</span> {<span class="built_in">Function</span>} createProvider 
-     <span class="meta">@param</span> {<span class="built_in">Object</span>} req
-     <span class="meta">@param</span> {<span class="built_in">Function</span>} callback
-         <span class="meta">@param</span> {<span class="built_in">Object</span> || <span class="built_in">String</span>} err
-         <span class="meta">@param</span> {<span class="built_in">Object</span>} provider
+<pre><code> @param {<span class="built_in">Function</span>} createProvider 
+     @param {<span class="built_in">Object</span>} req
+     @param {<span class="built_in">Function</span>} callback
+         @param {<span class="built_in">Object</span> || <span class="built_in">String</span>} err
+         @param {<span class="built_in">Object</span>} provider
 </code></pre></li>
 <li><code>consumerKey</code> : Hardcoded consumer key.</li>
 <li><code>consumerSecret</code> : Hardcoded consumer secret.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <h3 id="with-hardcoded-key-secret">With hardcoded key / secret</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> LTIStrategy = <span class="built_in">require</span>(<span class="string">'passport-lti'</span>);
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> LTIStrategy({
-    <span class="attr">consumerKey</span>: <span class="string">'testconsumerkey'</span>,
-    <span class="attr">consumerSecret</span>: <span class="string">'testconsumersecret'</span>
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">LTIStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-lti&#x27;</span>);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">LTIStrategy</span>({
+    <span class="attr">consumerKey</span>: <span class="string">&#x27;testconsumerkey&#x27;</span>,
+    <span class="attr">consumerSecret</span>: <span class="string">&#x27;testconsumersecret&#x27;</span>
     <span class="comment">// pass the req object to callback</span>
     <span class="comment">// passReqToCallback: true,</span>
     <span class="comment">// https://github.com/omsmith/ims-lti#nonce-stores</span>
-    <span class="comment">// nonceStore: new RedisNonceStore('testconsumerkey', redisClient)</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">lti, done</span>) </span>{
+    <span class="comment">// nonceStore: new RedisNonceStore(&#x27;testconsumerkey&#x27;, redisClient)</span>
+}, <span class="keyword">function</span>(<span class="params">lti, done</span>) {
     <span class="comment">// LTI launch parameters</span>
     <span class="comment">// console.dir(lti);</span>
     <span class="comment">// Perform local authentication if necessary</span>
-    <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
 });
-passport.use(strategy);
+passport.<span class="title function_">use</span>(strategy);
 </code></pre>
 <h3 id="with-dynamic-provider">With dynamic provider</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> lti = <span class="built_in">require</span>(<span class="string">"ims-lti"</span>);
-<span class="keyword">var</span> LTIStrategy = <span class="built_in">require</span>(<span class="string">'passport-lti'</span>);
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> LTIStrategy({
-    <span class="attr">createProvider</span> : <span class="function"><span class="keyword">function</span> (<span class="params">req, done</span>) </span>{
-        <span class="comment">// Lookup your LTI customer in your DB with req's params, and get its secret</span>
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> lti = <span class="built_in">require</span>(<span class="string">&quot;ims-lti&quot;</span>);
+<span class="keyword">var</span> <span class="title class_">LTIStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-lti&#x27;</span>);
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">LTIStrategy</span>({
+    createProvider : <span class="keyword">function</span> (<span class="params">req, done</span>) {
+        <span class="comment">// Lookup your LTI customer in your DB with req&#x27;s params, and get its secret</span>
         <span class="comment">// Dummy DB lookup</span>
-        DAO.getConsumer(
-            req.body.oauth_consumer_key,
-            <span class="function"><span class="keyword">function</span> <span class="title">callback</span> (<span class="params">err, consumer</span>)</span>{
+        <span class="variable constant_">DAO</span>.<span class="title function_">getConsumer</span>(
+            req.<span class="property">body</span>.<span class="property">oauth_consumer_key</span>,
+            <span class="keyword">function</span> <span class="title function_">callback</span> (err, consumer){
                 <span class="keyword">if</span>(err){
                     <span class="comment">// Standard error, will crash the process</span>
-                    <span class="keyword">return</span> done(err);
+                    <span class="keyword">return</span> <span class="title function_">done</span>(err);
                 }
 
-                <span class="keyword">if</span>(consumer.is_authorized){
-                    <span class="keyword">var</span> consumer = <span class="keyword">new</span> lti.Provider(consumer_db.oauth_consumer_key, consumer_db.oauth_consumer_secret);
-                    <span class="keyword">return</span> done(<span class="literal">null</span>, consumer);
+                <span class="keyword">if</span>(consumer.<span class="property">is_authorized</span>){
+                    <span class="keyword">var</span> consumer = <span class="keyword">new</span> lti.<span class="title class_">Provider</span>(consumer_db.<span class="property">oauth_consumer_key</span>, consumer_db.<span class="property">oauth_consumer_secret</span>);
+                    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, consumer);
                 }
                 <span class="keyword">else</span> {
                     <span class="comment">// String error, will fail the strategy (and not crash it)</span>
-                    <span class="keyword">return</span> done(<span class="string">"not_authorized"</span>);
+                    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="string">&quot;not_authorized&quot;</span>);
                 }
             }
         );
     }
 );
 
-passport.use(strategy);
+passport.<span class="title function_">use</span>(strategy);
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lti</span></code></div>
             <ul>
-              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T12:59:51Z">a month ago</abbr></li>
+              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T12:59:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/civitaslearning/passport-lti">https://github.com/civitaslearning/passport-lti</a></li>
             </ul>
             <ul>
-              <li><b>177</b> downloads in the last day</li>
-              <li><b>959</b> downloads in the last week</li>
-              <li><b>2,855</b> downloads in the last month</li>
+              <li><b>50</b> downloads in the last day</li>
+              <li><b>228</b> downloads in the last week</li>
+              <li><b>1,186</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -98,7 +98,7 @@
 <a href="https://david-dm.org/ekristen/passport-replicated"><img src="https://david-dm.org/ekristen/passport-replicated.png" alt="Dependencies"></a></p>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with the <a href="http://www.replicated.com">Replicated</a> <a href="http://docs.replicated.com/v1.0/docs/identity-api">Identity API</a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-replicated
+<pre><code class="bash">$ npm install passport-replicated
 
 </code></pre>
 <h2 id="usage">Usage</h2>
@@ -107,16 +107,16 @@
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
 <p>Since you are authenticating off another source, generally you just want to find or create a local record, and move forward.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> ReplicatedStrategy({
-    <span class="attr">usernameField</span>: <span class="string">'email'</span>,
-    <span class="attr">passwordField</span>: <span class="string">'password'</span>,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ReplicatedStrategy</span>({
+    <span class="attr">usernameField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attr">passwordField</span>: <span class="string">&#x27;password&#x27;</span>,
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
-    User.findOrCreate({ ... }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">if</span> (!user.verifyPassword(password)) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+  <span class="keyword">function</span>(<span class="params">profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ ... }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (!user.<span class="title function_">verifyPassword</span>(password)) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -135,12 +135,12 @@ credentials and calls <code>done</code> providing a user.</p>
 <p>By default, <code>ReplicatedStrategy</code> expects to find credentials in parameters
 named username and password. If your site prefers to name these fields
 differently, options are available to change the defaults.</p>
-<pre><code>passport.use(<span class="keyword">new</span> ReplicatedStrategy({
-    usernameField: <span class="string">'email'</span>,
-    passwordField: <span class="string">'passwd'</span>,
-    session: <span class="literal">false</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">ReplicatedStrategy</span>({
+    <span class="attribute">usernameField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attribute">passwordField</span>: <span class="string">&#x27;passwd&#x27;</span>,
+    <span class="attribute">session</span>: false
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span> </span>{
+  <span class="built_in">function</span>(profile, done) {
     <span class="comment">// ...</span>
   }
 ));
@@ -149,15 +149,15 @@ setting the <code>session</code> option to false.</p>
 <p>The verify callback can be supplied with the <code>request</code> object by setting
 the <code>passReqToCallback</code> option to true, and changing callback arguments
 accordingly.</p>
-<pre><code>passport.use(<span class="keyword">new</span> ReplicatedStrategy({
-    usernameField: <span class="string">'email'</span>,
-    passwordField: <span class="string">'passwd'</span>,
-    passReqToCallback: <span class="literal">true</span>,
-    <span class="keyword">session</span>: <span class="literal">false</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">ReplicatedStrategy</span>({
+    <span class="attribute">usernameField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attribute">passwordField</span>: <span class="string">&#x27;passwd&#x27;</span>,
+    <span class="attribute">passReqToCallback</span>: true,
+    <span class="attribute">session</span>: false
   },
-  <span class="keyword">function</span>(req, profile, done) {
-    // request <span class="keyword">object</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">first</span> argument
-    // ...
+  <span class="built_in">function</span>(req, profile, done) {
+    <span class="comment">// request object is now first argument</span>
+    <span class="comment">// ...</span>
   }
 ));
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
@@ -165,14 +165,14 @@ accordingly.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'replicated'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;replicated&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -182,14 +182,14 @@ $ npm <span class="built_in">test</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-replicated</span></code></div>
             <ul>
-              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:24:04Z">a month ago</abbr></li>
+              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:24:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ekristen/passport-replicated">https://github.com/ekristen/passport-replicated#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

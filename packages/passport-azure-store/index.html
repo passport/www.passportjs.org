@@ -100,19 +100,19 @@
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Windows Azure Store authentication strategy authenticates users using a SSO token (SHA signed string with a secret) coming from Windows Azure.  The strategy requires a <code>verify</code> callback.</p>
 <p>For more info read: <a href="https://github.com/WindowsAzure/azure-resource-provider-sdk/blob/master/docs/api-sso.md">https://github.com/WindowsAzure/azure-resource-provider-sdk/blob/master/docs/api-sso.md</a></p>
-<pre><code>passport.use(<span class="keyword">new</span> AzureStoreStrategy({
-  secret: <span class="string">'shhhhh'</span>,
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">AzureStoreStrategy</span>({
+  secret: <span class="string">&#x27;shhhhh&#x27;</span>,
   check_expiration: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span><span class="params">(req, azureInfo, done)</span> </span>{
-  <span class="keyword">var</span> user_id = azureInfo.subscription_id + <span class="string">'_'</span> + azureInfo.cloud_service_name + <span class="string">'_'</span> + azureInfo.resource_name; <span class="comment">// you can do anything with this data, typically you would have to find the user based on this data somehow</span>
+}, <span class="function"><span class="keyword">function</span>(<span class="params">req, azureInfo, done</span>) </span>{
+  <span class="keyword">var</span> user_id = azureInfo.subscription_id + <span class="string">&#x27;_&#x27;</span> + azureInfo.cloud_service_name + <span class="string">&#x27;_&#x27;</span> + azureInfo.resource_name; <span class="comment">// you can do anything with this data, typically you would have to find the user based on this data somehow</span>
   <span class="comment">// lookup in DB</span>
-  done(bull, user);
+  <span class="title function_ invoke__">done</span>(bull, user);
 });
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Then in your app do something like this:</p>
-<pre><code>app.get(<span class="string">'/azure/sso'</span>,
-  passport.authenticate(<span class="string">'azure-store'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/azure/sso&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;azure-store&#x27;</span>),
+  <span class="built_in">function</span>(req, res) {
     ...
   }
 </code></pre><h2 id="credits">Credits</h2>
@@ -125,14 +125,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-store</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:19:15Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:19:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-azure-store"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

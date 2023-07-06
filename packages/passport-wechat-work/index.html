@@ -111,55 +111,55 @@ using the OAuth 2.0 API.</p>
 options的href 可以用来传递微信企业二维码链接的css美化，可参考v.qq.com的微信登录链接</p>
 </li>
 </ul>
-<pre><code>passport.use(<span class="string">"wechat-work"</span>,<span class="keyword">new</span> WechatWorkStrategy({
-    corpId: CORP_ID,
-    corpSecret: CORP_SECRET,
-    agentId: agent_id,
-    callbackURL: <span class="string">"http://localhost:3000/auth/wechat/callback"</span>,
-    href: href,
-    state: <span class="string">"state"</span>,
-    scope: <span class="string">"snsapi_base"</span>,
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(<span class="string">&quot;wechat-work&quot;</span>,new <span class="built_in">WechatWorkStrategy</span>({
+    <span class="attribute">corpId</span>: CORP_ID,
+    <span class="attribute">corpSecret</span>: CORP_SECRET,
+    <span class="attribute">agentId</span>: agent_id,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/wechat/callback&quot;</span>,
+    <span class="attribute">href</span>: href,
+    <span class="attribute">state</span>: <span class="string">&quot;state&quot;</span>,
+    <span class="attribute">scope</span>: <span class="string">&quot;snsapi_base&quot;</span>,
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(profile, done)</span> </span>{
-    User.findOrCreate({ userId: profile.UserId }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(profile, done) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">userId</span>: profile.UserId }, function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   },
-  <span class="function"><span class="keyword">function</span> <span class="title">getAccessToken</span><span class="params">(cb)</span> </span>{ ... },
-  <span class="function"><span class="keyword">function</span> <span class="title">saveAccessToken</span><span class="params">(accessToken,cb)</span></span>{ ... }
+  function <span class="built_in">getAccessToken</span>(cb) { ... },
+  function <span class="built_in">saveAccessToken</span>(accessToken,cb){ ... }
 ))
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>用<code>passport.authenticate()</code>在对应的route下，注意strategy名字和passport.use()时一致。</p>
 <p>For example</p>
-<pre><code>app.get(<span class="string">'/auth/wechatwork'</span>,
-  passport.authenticate(<span class="string">'wechat-work'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/wechatwork&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;wechat-work&#x27;</span>));
 
-app.get(<span class="string">'/auth/wechatwork/callback'</span>,
-  passport.authenticate(<span class="string">'wechat-work'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/wechatwork/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;wechat-work&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="additional">Additional</h2>
 <ul>
-<li>微信企业用户验证只获得了用户基本信息，实际只获得了id，需要详细的用户信息仍需要调用微信的Users API.<pre><code>{
- <span class="attr">"UserId"</span>:<span class="string">"USERID"</span>,
- <span class="attr">"DeviceId"</span>:<span class="string">"DEVICEID"</span>
-}
+<li>微信企业用户验证只获得了用户基本信息，实际只获得了id，需要详细的用户信息仍需要调用微信的Users API.<pre><code><span class="punctuation">{</span>
+ <span class="attr">&quot;UserId&quot;</span><span class="punctuation">:</span><span class="string">&quot;USERID&quot;</span><span class="punctuation">,</span>
+ <span class="attr">&quot;DeviceId&quot;</span><span class="punctuation">:</span><span class="string">&quot;DEVICEID&quot;</span>
+<span class="punctuation">}</span>
 </code></pre></li>
 </ul>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wechat-work</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:46:40Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:46:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/harryhan1989/passport-wechat-work">https://github.com/harryhan1989/passport-wechat-work#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

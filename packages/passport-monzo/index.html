@@ -3,7 +3,6 @@
   <head>
     <title>passport-monzo</title>
     <meta charset="utf-8">
-    <meta name="description" content="Monzo authentication strategy for Passport.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="canonical" href="https://www.passportjs.org/packages/passport-monzo/">
     <link rel="manifest" href="/manifest.webmanifest"/>
@@ -34,7 +33,6 @@
     <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="passport-monzo"/>
-    <meta property="og:description" content="Monzo authentication strategy for Passport."/>
     <meta property="og:url" content="https://www.passportjs.org/packages/passport-monzo/"/>
     <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
     <meta property="og:image:type" content="image/png"/>
@@ -44,7 +42,6 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@passportjs"/>
     <meta name="twitter:title" content="passport-monzo"/>
-    <meta name="twitter:description" content="Monzo authentication strategy for Passport."/>
     <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
     <meta name="flattr:id" content="d5znvd"/>
     <script>
@@ -93,73 +90,16 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-monzo">passport-monzo</h1>
-<p><a href="http://passportjs.org">Passport</a> strategy for authenticating with
-<a href="https://monzo.com">Monzo</a> using the OAuth 2.0 API.</p>
-<p>This module lets you authenticate using Monzo. By plugging into Passport, Monzo
-authentication can be easily and unobtrusively integrated into any application
-or framework that supports <a href="http://www.senchalabs.org/connect">Connect</a>-style
-middleware, including <a href="http://expressjs.com">Express</a>.</p>
-<h2 id="install">Install</h2>
-<p>Using <code>npm</code>:</p>
-<pre><code class="lang-bash">$ npm install passport-monzo
-</code></pre>
-<p>Or <code>yarn</code>:</p>
-<pre><code class="lang-bash">$ yarn install passport-monzo
-</code></pre>
-<h2 id="usage">Usage</h2>
-<h4 id="create-an-application">Create an Application</h4>
-<p>Before using <code>passport-monzo</code>, you must register an application with Monzo. If
-you have not already done so, a new application can be created at the <a href="https://developers.monzo.com">Monzo
-Developer Console</a>. Your application will be
-issued a client ID and client secret, which need to be provided to the strategy.</p>
-<h4 id="configure-strategy">Configure Strategy</h4>
-<p>The Monzo authentication strategy authenticates users using a Monzo account and
-OAuth 2.0 tokens. The client ID and secret obtained when creating an application
-are supplied as options when creating the strategy. The strategy also requires a
-<code>verify</code> callback, which receives the access token and optional refresh token,
-as well as <code>profile</code> which contains the authenticated user&#39;s Monzo profile. The
-<code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> MonzoStrategy = <span class="built_in">require</span>(<span class="string">'passport-monzo'</span>).Strategy;
-
-passport.use(<span class="keyword">new</span> MonzoStrategy({
-    <span class="attr">clientID</span>: MONDO_CLIENT_ID,
-    <span class="attr">clientSecret</span>: MONDO_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/monzo/callback"</span>
-  },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">monzoId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
-    });
-  }
-));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
-<p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;monzo&#39;</code> strategy, to
-authenticate requests.</p>
-<p>For example, as route middleware in an <a href="http://expressjs.com">Express</a>
-application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/monzo'</span>, passport.authenticate(<span class="string">'monzo'</span>));
-
-app.get(<span class="string">'/auth/monzo/callback'</span>, 
-  passport.authenticate(<span class="string">'monzo'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
-  });
-</code></pre>
-</div>
+          <div class="description"><p>Sadly, this package has no README.</p></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-monzo</span></code></div>
             <ul>
-              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2022-06-23T13:04:21Z">a month ago</abbr></li>
-              <li><a class="url" href="git+https://github.com/tombell/passport-monzo.git">https://github.com/tombell/passport-monzo#readme</a></li>
-              <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
+              <li><span class="version"></span> published <abbr class="updated" title="2023-05-12T10:51:10Z">2 months ago</abbr></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>0</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

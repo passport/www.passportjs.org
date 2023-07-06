@@ -98,37 +98,37 @@
 <p>  npm install passport-workwell</p>
 <h2 id="usage">Usage</h2>
 <p>Register the strategy in your passport.js file</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> WorkwellStrategy = <span class="built_in">require</span>(<span class="string">'passport-workwell'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">WorkwellStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-workwell&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> WorkwellStrategy({
-  <span class="attr">clientID</span>: WORKWELL_SERVICE_ID,
-  <span class="attr">clientSecret</span>: WORKWELL_SERVICE_SECRET,
-  <span class="attr">getProfilePage</span>: <span class="string">'url of your web page to get the workwell profile (see below)'</span>,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WorkwellStrategy</span>({
+  <span class="attr">clientID</span>: <span class="variable constant_">WORKWELL_SERVICE_ID</span>,
+  <span class="attr">clientSecret</span>: <span class="variable constant_">WORKWELL_SERVICE_SECRET</span>,
+  <span class="attr">getProfilePage</span>: <span class="string">&#x27;url of your web page to get the workwell profile (see below)&#x27;</span>,
   <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">req, serviceToken, profile, done</span>) </span>{
+}, <span class="keyword">function</span>(<span class="params">req, serviceToken, profile, done</span>) {
   <span class="comment">// asynchronous verification, for effect...</span>
-  process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
-    <span class="comment">// To keep the example simple, the user's Workwell profile is returned to</span>
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span> (<span class="params"></span>) {
+    <span class="comment">// To keep the example simple, the user&#x27;s Workwell profile is returned to</span>
     <span class="comment">// represent the logged-in user. In a typical application, you would want</span>
     <span class="comment">// to associate the Workwell account with a user record in your database,</span>
     <span class="comment">// and return that user instead.</span>
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   });
 }));
 </code></pre>
 <p>and then authenticate as:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/workwell'</span>,
-  passport.authenticate(<span class="string">'workwell'</span>, { <span class="attr">state</span>: <span class="string">'SOME STATE'</span>  }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/workwell&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;workwell&#x27;</span>, { <span class="attr">state</span>: <span class="string">&#x27;SOME STATE&#x27;</span>  }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>){
     <span class="comment">// The request will be redirected to Workwell for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
 </code></pre>
 <p>the login callback:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/workwell/callback'</span>, 
-    passport.authenticate(<span class="string">'workwell'</span>, {
-        <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-        <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/workwell/callback&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;workwell&#x27;</span>, {
+        <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+        <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
     })
 );
 </code></pre>
@@ -136,26 +136,26 @@ passport.use(<span class="keyword">new</span> WorkwellStrategy({
 <p>You need to create a page to get the Workwell profile using the Workwell mobile bridge. Report the URL of this page in the <em>getProfilePage</em> option
 This page will be called with servicetoken get parameter : mypagetogetprofile.html?servicetoken=12345678910. You need to assign the service token parameter to the serviceToken javascript variable.
 Depending on the web framework you use, you will find many scripts to parse the URL to get this parameter.</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">html</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">html</span>&gt;</span>
 <span class="tag">&lt;<span class="name">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">'path/to/javascript/folder/of/your/project/workwell.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&#x27;path/to/javascript/folder/of/your/project/workwell.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">head</span>&gt;</span>
 <span class="tag">&lt;<span class="name">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript">
-        <span class="keyword">var</span> serviceToken = yourFunctionToGetTheServiceTokenGetParameter();
-        Workwell.setServiceToken(serviceToken);
-        Workwell.getUserInfo({
-            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{
-                <span class="keyword">if</span> (data &amp;&amp; data.user &amp;&amp; data.user.email) {
-                    <span class="keyword">var</span> email = data.user.email;
-                    <span class="keyword">var</span> name = data.user.name ? data.user.name : data.user.email;
-                    $<span class="built_in">window</span>.location.href = <span class="string">"/api/auth/workwell/callback?servicetoken="</span> + serviceToken + <span class="string">"&amp;email="</span> + email + <span class="string">"&amp;name="</span> + name;
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript">
+        <span class="keyword">var</span> serviceToken = <span class="title function_">yourFunctionToGetTheServiceTokenGetParameter</span>();
+        <span class="title class_">Workwell</span>.<span class="title function_">setServiceToken</span>(serviceToken);
+        <span class="title class_">Workwell</span>.<span class="title function_">getUserInfo</span>({
+            <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">data</span>) {
+                <span class="keyword">if</span> (data &amp;&amp; data.<span class="property">user</span> &amp;&amp; data.<span class="property">user</span>.<span class="property">email</span>) {
+                    <span class="keyword">var</span> email = data.<span class="property">user</span>.<span class="property">email</span>;
+                    <span class="keyword">var</span> name = data.<span class="property">user</span>.<span class="property">name</span> ? data.<span class="property">user</span>.<span class="property">name</span> : data.<span class="property">user</span>.<span class="property">email</span>;
+                    $window.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&quot;/api/auth/workwell/callback?servicetoken=&quot;</span> + serviceToken + <span class="string">&quot;&amp;email=&quot;</span> + email + <span class="string">&quot;&amp;name=&quot;</span> + name;
                 } <span class="keyword">else</span> {
-                    alert(<span class="string">"Technical issue, unable to get your Workwell profile. Please try later !"</span>);
+                    <span class="title function_">alert</span>(<span class="string">&quot;Technical issue, unable to get your Workwell profile. Please try later !&quot;</span>);
                 }
             },
-            <span class="attr">error</span>: <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>{
-                alert(<span class="string">"Technical issue, unable to get your Workwell profile. Please try later !"</span>);
+            <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">error</span>) {
+                <span class="title function_">alert</span>(<span class="string">&quot;Technical issue, unable to get your Workwell profile. Please try later !&quot;</span>);
             }
         });
     </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
@@ -171,14 +171,14 @@ Depending on the web framework you use, you will find many scripts to parse the 
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-workwell</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:49:28Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:49:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/emathieu13/passport-workwell">https://github.com/emathieu13/passport-workwell</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>20</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>38</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -99,31 +99,31 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-veritone
 </code></pre><h2 id="usage">Usage</h2>
 <p>Please see the <a href="https://github.com/veritone/veritone-sample-app-react/blob/develop/server.js">veritone sample app</a> for a working implementation</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">const</span> Strategy = <span class="built_in">require</span>(<span class="string">'passport-veritone'</span>);
+<pre><code class="javascript"><span class="keyword">const</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">const</span> <span class="title class_">Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-veritone&#x27;</span>);
 
-<span class="keyword">const</span> app = express();
-app.use(passport.initialize());
+<span class="keyword">const</span> app = <span class="title function_">express</span>();
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
 
-passport.use(<span class="keyword">new</span> Strategy({
-  <span class="attr">clientID</span>: <span class="string">'my-veritone-application-id'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'my-veritone-application-oauth2-secret'</span>,
-  <span class="attr">callbackURL</span>: <span class="string">'http://local.veritone.com:9000/auth/veritone/callback'</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-  <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">Strategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;my-veritone-application-id&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;my-veritone-application-oauth2-secret&#x27;</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;http://local.veritone.com:9000/auth/veritone/callback&#x27;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+  <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 
 
-app.get(<span class="string">'/auth/veritone'</span>, passport.authenticate(<span class="string">'veritone'</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/veritone&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;veritone&#x27;</span>));
 
-app.get(<span class="string">'/auth/veritone/callback'</span>,
-  passport.authenticate(<span class="string">'veritone'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), (req, res) =&gt; {
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/veritone/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;veritone&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
     res
-      .cookie(<span class="string">'oauthToken'</span>, req.user.oauthToken, {
+      .<span class="title function_">cookie</span>(<span class="string">&#x27;oauthToken&#x27;</span>, req.<span class="property">user</span>.<span class="property">oauthToken</span>, {
         <span class="attr">secure</span>: <span class="literal">false</span>,
         <span class="attr">httpOnly</span>: <span class="literal">false</span>
       })
-      .redirect(<span class="number">302</span>, <span class="string">`http://local.veritone.com:3000`</span>);
+      .<span class="title function_">redirect</span>(<span class="number">302</span>, <span class="string">`http://local.veritone.com:3000`</span>);
   });
 </code></pre>
 <h1 id="license">License</h1>
@@ -131,7 +131,7 @@ app.get(<span class="string">'/auth/veritone/callback'</span>,
 <p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at</p>
-<pre><code><span class="symbol">http:</span>//www.apache<span class="meta">.org</span>/licenses/LICENSE<span class="number">-2.0</span>
+<pre><code>http:<span class="regexp">//</span>www.apache.org<span class="regexp">/licenses/</span>LICENSE-<span class="number">2.0</span>
 </code></pre><p>Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -141,14 +141,14 @@ limitations under the License.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-veritone</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:16Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/veritone/veritone-sdk"></a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -108,11 +108,11 @@ unobtrusively integrated into any application or framework that supports
 <p>The Appcelerator authentication strategy authenticates users using a Appcelerator account. The strategy requires a <code>verify</code> callback, which accepts
 the session data and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying an optional Appcelerator Dashboard and callback URL.</p>
-<pre><code>AppcStrategy = require(<span class="string">'passport-appc'</span>).Strategy;
+<pre><code>AppcStrategy = require(<span class="string">&#x27;passport-appc&#x27;</span>).Strategy;
 
 passport.use(<span class="built_in">new</span> AppcStrategy({
-        appcURL: "https://360-preprod.cloud.appctest.com",
-        callbackURL: "https://something.cloud.appctest.com"
+        appcURL: &quot;https://360-preprod.cloud.appctest.com&quot;,
+        callbackURL: &quot;https://something.cloud.appctest.com&quot;
     },
     <span class="keyword">function</span>(<span class="keyword">session</span>, done) {
         <span class="keyword">User</span>.findOrCreate({ appcId: <span class="keyword">session</span>.<span class="keyword">user</span>.id }, <span class="keyword">function</span> (err, <span class="keyword">user</span>) {
@@ -125,18 +125,18 @@ passport.use(<span class="built_in">new</span> AppcStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/appc'</span>,
-  passport.authenticate(<span class="string">'appc'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/appc&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;appc&#x27;</span>));
 
-app.get(<span class="string">'/auth/appc/callback'</span>, 
-  passport.authenticate(<span class="string">'appc'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/appc/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;appc&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h1 id="license">License</h1>
 <p>This source code is the intellectual property of Appcelerator, Inc.
 Copyright (c) 2014-2015 Appcelerator, Inc. All Rights Reserved.
@@ -151,14 +151,14 @@ official Appcelerator account at <a href="http://npmjs.org/package/passport-appc
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-appc</span></code></div>
             <ul>
-              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2022-06-23T12:15:20Z">a month ago</abbr></li>
+              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2022-06-23T12:15:20Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/appcelerator-archive/passport-appc">https://github.com/appcelerator/passport-appc</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>14</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -100,24 +100,24 @@
 <p>Infotjenester authentication strategy for <a href="http://passportjs.org/">Passport</a></p>
 <p>This module lets you authenticate using Infotjenester SSO in your Node.js applications. By plugging into Passport, Infotjenester authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.</p>
 <p>##Install</p>
-<pre><code class="lang-shell">npm install passport-infotjenester
+<pre><code class="shell">npm install passport-infotjenester
 </code></pre>
 <p>##Usage</p>
 <p>####Create an Application</p>
 <p>Before using passport-infotjenester, you must register an application with Infotjenester. Your application will be issued a client api-key, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your application.</p>
 <p>####Configure Strategy</p>
 <p>The Infotjenester authentication strategy authenticates users using an Infotjenester account. The client api-key obtained when creating an application is supplied as option when creating the strategy. The strategy also requires a <code>verify</code> callback, which receives the <code>profile</code> which contains the authenticated user&#39;s Infotjenester profile. The <code>verify</code> callback must call cb providing a user to complete authentication. You will also be able to send in a <code>vendor</code> to differentiate between the vendors.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> ItasStategy = <span class="built_in">require</span>(<span class="string">'passport-infotjenester'</span>).Strategy;
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">ItasStategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-infotjenester&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> ItasStategy({
-    <span class="attr">clientApiKey</span>: INFOTJENESTER_CLIENT_API_KEY,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/infotjenester/callback"</span>,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ItasStategy</span>({
+    <span class="attr">clientApiKey</span>: <span class="variable constant_">INFOTJENESTER_CLIENT_API_KEY</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/infotjenester/callback&quot;</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span> <span class="comment">//this is optional -&gt; defaults to false</span>
     <span class="attr">vendor</span>: <span class="number">2</span> <span class="comment">//this is optional -&gt; defaults to 1</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req <span class="regexp">/* &lt;-- depends on passReqToCallback */</span>, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">userId</span>: profile.UserGuid }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">req <span class="comment">/* &lt;-- depends on passReqToCallback */</span>, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">userId</span>: profile.<span class="property">UserGuid</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -127,14 +127,14 @@ passport.use(<span class="keyword">new</span> ItasStategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/infotjenester'</span>,
-  passport.authenticate(<span class="string">'infotjenester'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/infotjenester&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;infotjenester&#x27;</span>));
 
-app.get(<span class="string">'/auth/infotjenester/callback'</span>,
-  passport.authenticate(<span class="string">'infotjenester'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/infotjenester/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;infotjenester&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="license">License</h2>
@@ -144,14 +144,14 @@ Copyright (c) Carsten Jacobsen</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-infotjenester</span></code></div>
             <ul>
-              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2022-06-23T12:49:57Z">a month ago</abbr></li>
+              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2022-06-23T12:49:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/itasdesk/passport-infotjenester">https://github.com/itasdesk/passport-infotjenester#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

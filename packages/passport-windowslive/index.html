@@ -124,14 +124,14 @@ strategy also requires a <code>verify</code> callback, which receives the access
 optional refresh token, as well as <code>profile</code> which contains the authenticated
 user&#39;s Windows Live profile.  The <code>verify</code> callback must call <code>cb</code> providing a
 user to complete authentication.</p>
-<pre><code>passport.use(<span class="keyword">new</span> WindowsLiveStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> WindowsLiveStrategy({
     clientID: WINDOWS_LIVE_CLIENT_ID,
     clientSecret: WINDOWS_LIVE_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://www.example.com/auth/windowslive/callback"</span>
+    callbackURL: <span class="string">&quot;http://www.example.com/auth/windowslive/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
-    User.findOrCreate({ windowsliveId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ windowsliveId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
@@ -140,14 +140,14 @@ user to complete authentication.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/windowslive'</span>,
-  passport.authenticate(<span class="string">'windowslive'</span>, { <span class="attribute">scope</span>: [<span class="string">'wl.signin'</span>, <span class="string">'wl.basic'</span>] }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/windowslive&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;windowslive&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;wl.signin&#x27;</span>, <span class="string">&#x27;wl.basic&#x27;</span>] }));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/windowslive/callback'</span>, 
-  passport.authenticate(<span class="string">'windowslive'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span> }),
-  function(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/windowslive/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;windowslive&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
@@ -160,20 +160,20 @@ with corresponding references to Windows Live.</p>
 <h5 id="how-do-i-obtain-a-refresh-token-">How do I obtain a refresh token?</h5>
 <p>Your authentication request must include <code>wl.offline_access</code> as detailed in
 <a href="https://msdn.microsoft.com/en-us/library/hh243646.aspx">scopes and permissions</a>.</p>
-<pre><code class="lang-js">passport.authenticate(<span class="string">'windowslive'</span>, { <span class="attr">scope</span>: [ <span class="string">'wl.offline_access'</span> ] })
+<pre><code class="js">passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;windowslive&#x27;</span>, { <span class="attr">scope</span>: [ <span class="string">&#x27;wl.offline_access&#x27;</span> ] })
 </code></pre>
 <h2 id="contributing">Contributing</h2>
 <h4 id="tests">Tests</h4>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -192,14 +192,14 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-windowslive</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:48:28Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:48:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-windowslive">https://github.com/jaredhanson/passport-windowslive#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>386</b> downloads in the last day</li>
-              <li><b>2,184</b> downloads in the last week</li>
-              <li><b>31,914</b> downloads in the last month</li>
+              <li><b>126</b> downloads in the last day</li>
+              <li><b>879</b> downloads in the last week</li>
+              <li><b>7,370</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

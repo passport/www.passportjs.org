@@ -110,20 +110,20 @@ with <a href="https://www.predix.io/services/service.html?id=1172">Predix UAA se
 <p>Check out the <code>app.js</code> file in this application to see how to use this Passport strategy in an Express web application.
 <a href="https://github.com/predixdev/predix-nodejs-starter">https://github.com/predixdev/predix-nodejs-starter</a></p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> PredixStrategy = <span class="built_in">require</span>(<span class="string">'passport-predix-oauth'</span>).Strategy;
-<span class="keyword">var</span> predixStrategy = <span class="keyword">new</span> PredixStrategy({
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: CALLBACK_URL,
-    <span class="attr">uaaURL</span>: UAA_URL
-},refreshStrategy.getOAuth2StrategyCallback() <span class="comment">//Create a callback for OAuth2Strategy</span>
-<span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">PredixStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-predix-oauth&#x27;</span>).<span class="property">Strategy</span>;
+<span class="keyword">var</span> predixStrategy = <span class="keyword">new</span> <span class="title class_">PredixStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="variable constant_">CALLBACK_URL</span>,
+    <span class="attr">uaaURL</span>: <span class="variable constant_">UAA_URL</span>
+},refreshStrategy.<span class="title function_">getOAuth2StrategyCallback</span>() <span class="comment">//Create a callback for OAuth2Strategy</span>
+<span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
     token = accessToken;
-    done(<span class="literal">null</span>, profile);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 });
 
-passport.use(predixStrategy);
+passport.<span class="title function_">use</span>(predixStrategy);
 </code></pre>
 <p>In most cases, just setting the uaaURL is all you need. The strategy will append paths to this URL for authorization, token, and user profile.
 If desired, you can pass in those three values instead of uaaURL: authorizationURL, tokenURL, and userProfileURL.
@@ -140,14 +140,14 @@ under which the software has been supplied.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-predix-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.1.55</span> published <abbr class="updated" title="2022-06-23T13:20:10Z">a month ago</abbr></li>
+              <li><span class="version">0.1.55</span> published <abbr class="updated" title="2022-06-23T13:20:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/PredixDev/passport-predix-oauth"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>135</b> downloads in the last day</li>
-              <li><b>675</b> downloads in the last week</li>
-              <li><b>2,070</b> downloads in the last month</li>
+              <li><b>63</b> downloads in the last day</li>
+              <li><b>276</b> downloads in the last week</li>
+              <li><b>1,363</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -106,28 +106,28 @@ of username. The username will be identified as <code>meetup_&lt;meetupID&gt;</c
 can be disabled. If there is no username generated, there will be nothing to identify the user
 unless the user has already logged on. Passport.connect function has to be modified to
 continue the process even when there are no username or email provided.</p>
-<pre><code><span class="comment">// If neither an email or a username was available in the profile, we don't</span>
+<pre><code><span class="comment">// If neither an email or a username was available in the profile, we don&#x27;t</span>
 <span class="comment">// have a way of identifying the user in the future. Throw an error and let</span>
-<span class="comment">// whoever's next in the line take care of it.</span>
+<span class="comment">// whoever&#x27;s next in the line take care of it.</span>
 <span class="keyword">if</span> (!user.username<span class="operator"> &amp;&amp; </span>!user.email) {
-  <span class="keyword">if</span>(!req.user<span class="operator"> || </span>provider != 'meetup') return next(<span class="keyword">new</span> <span class="constructor">Error('Neither <span class="params">a</span> <span class="params">username</span> <span class="params">nor</span> <span class="params">email</span> <span class="params">was</span> <span class="params">available</span>')</span>);
+  <span class="keyword">if</span>(!req.user<span class="operator"> || </span>provider != &#x27;meetup&#x27;) return next(<span class="keyword">new</span> <span class="constructor">Error(&#x27;Neither <span class="params">a</span> <span class="params">username</span> <span class="params">nor</span> <span class="params">email</span> <span class="params">was</span> <span class="params">available</span>&#x27;)</span>);
 }
 </code></pre><p>If username is auto generated, the process should carry on smoothly.</p>
-<pre><code><span class="keyword">var</span> MeetupOAuth2Strategy = <span class="built_in">require</span>(<span class="string">'passport-oauth2-meetup'</span>).Strategy;
+<pre><code><span class="keyword">var</span> MeetupOAuth2Strategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-oauth2-meetup&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> MeetupOAuth2Strategy({
-  <span class="attr">clientID</span>: MEETUP_KEY,
-  <span class="attr">clientSecret</span>: MEETUP_SECRET,
-  <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/meetup/callback"</span>,
-  <span class="attr">autoGenerateUsername</span>: <span class="literal">true</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">MeetupOAuth2Strategy</span>({
+  clientID: MEETUP_KEY,
+  clientSecret: MEETUP_SECRET,
+  callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/meetup/callback&quot;</span>,
+  autoGenerateUsername: <span class="literal">true</span>
 }, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+    <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, profile);
 }));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;meetup&#39;</code> strategy, to
 authenticate requests.  </p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/auth/meetup'</span>,
-  passport.authenticate(<span class="string">'meetup'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/meetup&#x27;</span>,
+  passport.authenticate(<span class="string">&#x27;meetup&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>);
   });
@@ -137,14 +137,14 @@ authenticate requests.  </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-meetup</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:09:58Z">a month ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:09:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/zenvisuals/passport-oauth2-meetup">https://github.com/zenvisuals/passport-oauth2-meetup</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>84</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last day</li>
+              <li><b>38</b> downloads in the last week</li>
+              <li><b>183</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

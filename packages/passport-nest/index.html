@@ -103,15 +103,15 @@
 <p>See /examples for a complete working example.</p>
 <h2 id="usage">Usage</h2>
 <p>Assuming an <a href="http://expressjs.com/">express</a> app:</p>
-<pre><code>passport.use(<span class="keyword">new</span> <span class="type">NestStrategy</span>({
-  clientID: <span class="type">NEST_ID</span>,
-  clientSecret: <span class="type">NEST_SECRET</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">NestStrategy</span>({
+  <span class="attribute">clientID</span>: NEST_ID,
+  <span class="attribute">clientSecret</span>: NEST_SECRET
 }));
 
-app.<span class="keyword">get</span>(<span class="string">'/auth/nest'</span>, passport.authenticate(<span class="string">'nest'</span>));
-app.<span class="keyword">get</span>(<span class="string">'/auth/nest/callback'</span>,
-    passport.authenticate(<span class="string">'nest'</span>, { }),
-    <span class="function"><span class="keyword">function</span></span>(req, res) {
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/nest&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;nest&#x27;</span>));
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/nest/callback&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;nest&#x27;</span>, { }),
+    <span class="built_in">function</span>(req, res) {
       <span class="comment">// token is in req.user.accessToken</span>
     }
    );
@@ -130,13 +130,13 @@ limitations under the License.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-nest</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:05:57Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:05:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nestlabs/passport-nest"></a></li>
             </ul>
             <ul>
-              <li><b>142</b> downloads in the last day</li>
-              <li><b>636</b> downloads in the last week</li>
-              <li><b>2,698</b> downloads in the last month</li>
+              <li><b>67</b> downloads in the last day</li>
+              <li><b>460</b> downloads in the last week</li>
+              <li><b>2,694</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

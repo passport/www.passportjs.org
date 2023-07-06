@@ -113,12 +113,12 @@ applications. It works by simply sending one-time password (OTPW) tokens via ema
 </code></pre><h3 id="usage">Usage</h3>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The zero authentication strategy authenticates users via a one-time password token sent via email ot other means:</p>
-<pre><code class="lang-js"><span class="keyword">const</span> { Strategy, email } = <span class="string">'passport-zero'</span>;
+<pre><code class="js"><span class="keyword">const</span> { <span class="title class_">Strategy</span>, email } = <span class="string">&#x27;passport-zero&#x27;</span>;
 
-passport.use(
-  <span class="keyword">new</span> Strategy({              
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">Strategy</span>({              
     secret,
-    <span class="attr">deliver</span>: email(smtpConfig)                    
+    <span class="attr">deliver</span>: <span class="title function_">email</span>(smtpConfig)                    
   },
   verify
 ))
@@ -137,16 +137,16 @@ passport.use(
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;zero&#39;</code> strategy for two actions:</p>
 <h5 id="request-token">request token</h5>
 <p>In this situation the passport authenticate middleware will check for the correct parameters and send a token via the delivery system in case of success. By default, in the email deliver, it will look for the value &#39;email&#39; in the body and the query (body can disabled by setting the option <code>allowPost</code> to <code>false</code>).</p>
-<pre><code class="lang-js">app.post(<span class="string">'/auth/zero'</span>,
-  passport.authenticate(<span class="string">'zero'</span>, { <span class="attr">action</span> : <span class="string">'requestToken'</span> }), 
-  (req, res) =&gt; res.redirect(<span class="string">'/check-your-inbox'</span>)
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/zero&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zero&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }), 
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
 );
 </code></pre>
 <h5 id="accept-token">accept token</h5>
 <p>In this situation (the default) the passport authenticate middleware will check for a token. By default, in the email deliver, it will look for the value &#39;token&#39; in the body and the query (body can disabled by setting the option <code>allowPost</code> to <code>false</code>).</p>
-<pre><code class="lang-js">app.post(<span class="string">'/auth/zero'</span>,
-  passport.authenticate(<span class="string">'zero'</span>), 
-  (req, res) =&gt; res.redirect(<span class="string">'/profile'</span>)
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/zero&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zero&#x27;</span>), 
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
 );
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -156,10 +156,10 @@ as a starting point for their own web applications. For other examples or more a
 <h2 id="advanced">Advanced</h2>
 <h3 id="email-deliver">Email deliver</h3>
 <p>The zero strategy comes with an email deliver configurator, allowing you to get up and running quickly with an email delivery system.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> { email } = <span class="built_in">require</span>(<span class="string">'passport-zero'</span>);
+<pre><code class="js"><span class="keyword">const</span> { email } = <span class="built_in">require</span>(<span class="string">&#x27;passport-zero&#x27;</span>);
 
 ...
-deliver: email({
+<span class="attr">deliver</span>: <span class="title function_">email</span>({
   ...smtpConfig,
   ...options
 })
@@ -180,8 +180,8 @@ deliver: email({
 </ul>
 <h3 id="custom-deliver">Custom deliver</h3>
 <p>If you want to implement your own deliver mechanism (sms, ...), the deliver module should have the following API shape:</p>
-<pre><code class="lang-js">{
-  <span class="keyword">async</span> send(user, token, req){},
+<pre><code class="js">{
+  <span class="keyword">async</span> <span class="title function_">send</span>(<span class="params">user, token, req</span>){},
   tokenField,
   addressField,
 }
@@ -190,14 +190,14 @@ deliver: email({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zero</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T16:06:19Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T16:06:19Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nickbalestra/zero">https://github.com/nickbalestra/zero#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>42</b> downloads in the last week</li>
-              <li><b>44</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

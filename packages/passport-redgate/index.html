@@ -101,23 +101,23 @@
 <h2 id="installation">Installation</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-redgate
 </code></pre><h2 id="example">Example</h2>
-<pre><code class="lang-js"><span class="keyword">var</span> RedGateStrategy = <span class="built_in">require</span>(<span class="string">'passport-redgate'</span>)
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">RedGateStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-redgate&#x27;</span>)
 
-passport.use(<span class="keyword">new</span> RedGateStrategy({
-    <span class="attr">returnURL</span>: <span class="string">'http://localhost:3000/login'</span>,
-    <span class="attr">realm</span>: <span class="string">'http://localhost:3000/'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">RedGateStrategy</span>({
+    <span class="attr">returnURL</span>: <span class="string">&#x27;http://localhost:3000/login&#x27;</span>,
+    <span class="attr">realm</span>: <span class="string">&#x27;http://localhost:3000/&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">identifier, done</span>) </span>{
-    User.findByOpenID({ <span class="attr">openId</span>: identifier }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">identifier, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findByOpenID</span>({ <span class="attr">openId</span>: identifier }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
 
 
-app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'redgate'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;redgate&#x27;</span>), <span class="keyword">function</span>(<span class="params">req, res</span>){
   <span class="comment">// Successful authentication, redirect home.</span>
-  res.redirect(<span class="string">'/'</span>);
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre>
 <h2 id="license">License</h2>
@@ -126,7 +126,7 @@ app.get(<span class="string">'/login'</span>, passport.authenticate(<span class=
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-redgate</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:22:58Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:22:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ForbesLindesay/passport-redgate"></a></li>
             </ul>
             <ul>

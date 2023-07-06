@@ -102,58 +102,58 @@
 <p>In this mode, this strategy reads an special server variable from IIS (more info about this <a href="https://github.com/tjanczuk/iisnode/issues/87">here</a>) and then generate a profile. You can <strong>optionally</strong> pass LDAP credentials to fetch the profile from Active Directory.</p>
 <p><strong>In your IIS application authentication settings, disable Anonymous and enable Windows Authentication.</strong></p>
 <p>Configure iisnode to pass the special variable <code>LOGON_USER</code> from IIS to node</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>
   <span class="tag">&lt;<span class="name">system.webServer</span>&gt;</span>
     <span class="comment">&lt;!-- ... --&gt;</span>
-    <span class="tag">&lt;<span class="name">iisnode</span> <span class="attr">promoteServerVars</span>=<span class="string">"LOGON_USER"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="name">iisnode</span> <span class="attr">promoteServerVars</span>=<span class="string">&quot;LOGON_USER&quot;</span> /&gt;</span>
   <span class="tag">&lt;/<span class="name">system.webServer</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span>
 </code></pre>
 <p>If you want to use it with LDAP:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> WindowsStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WindowsStrategy</span>({
   <span class="attr">ldap</span>: {
-    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
-    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+    <span class="attr">url</span>:             <span class="string">&#x27;ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">base</span>:            <span class="string">&#x27;DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">bindDN</span>:          <span class="string">&#x27;someAccount&#x27;</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">&#x27;andItsPass&#x27;</span>
   }
-}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
-  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-    done(err, user);
+}, <span class="keyword">function</span>(<span class="params">profile, done</span>){
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">waId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 }));
 </code></pre>
 <p>If you want to use without LDAP:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
-passport.use(<span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
-  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-    done(err, user);
+passport.<span class="title function_">use</span>(<span class="keyword">function</span>(<span class="params">profile, done</span>){
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">waId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 });
 </code></pre>
 <p>NOTE: in this case profile only has <code>displayName</code> and <code>id</code>, both containing just the logon name.</p>
 <p>Then use the strategy in a route as follows:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/express-passport'</span>,
-  passport.authenticate(<span class="string">'WindowsAuthentication'</span>),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>)</span>{
-    res.json(req.user);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/express-passport&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;WindowsAuthentication&#x27;</span>),
+  <span class="keyword">function</span> (<span class="params">req, res</span>){
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
 </code></pre>
 <h2 id="integrated-authentication-with-apache-and-mod_auth_kerb">Integrated Authentication with Apache and mod_auth_kerb</h2>
 <p>You can take advantage of <a href="http://modauthkerb.sourceforge.net/">mod_auth_kerb</a> in linux by using apache as a reverse proxy to your node application. The configuration is not a <em>walk in the park</em> but after you have everything configured it just works.</p>
 <p>####1-Generate a keytab in windows</p>
 <pre><code>ktpass
--<span class="ruby">princ service/server.CONTOSO.COM@CONTOSO.COM
-</span>-<span class="ruby">mapuser user@CONTOSO.COM
-</span>-<span class="ruby">crypto RC4-HMAC-NT
-</span>-<span class="ruby">ptype KRB5_NT_PRINCIPAL
-</span>-<span class="ruby">pass passssswwword
-</span>-<span class="ruby">out FILE.keytab</span>
+<span class="deletion">-princ service/server.CONTOSO.COM@CONTOSO.COM</span>
+<span class="deletion">-mapuser user@CONTOSO.COM</span>
+<span class="deletion">-crypto RC4-HMAC-NT</span>
+<span class="deletion">-ptype KRB5_NT_PRINCIPAL</span>
+<span class="deletion">-pass passssswwword</span>
+<span class="deletion">-out FILE.keytab</span>
 </code></pre><p>####2-Check your /etc/krb5.conf</p>
 <pre><code><span class="attribute">kinit</span> user<span class="variable">@CONTOSO</span>.COM
 </code></pre><p>You should be able to login from the linux machine.</p>
@@ -162,175 +162,175 @@ passport.use(<span class="function"><span class="keyword">function</span>(<span 
 </code></pre><p>####4-Install apache with the modules</p>
 <p>The modules you need are <code>mod-auth-kerb</code>, <code>proxy</code>, <code>proxy_http</code>, <code>headers</code>, <code>rewrite</code>.</p>
 <p>####5-Configure your apache</p>
-<pre><code>&lt;VirtualHost *:<span class="number">8001</span>&gt;
-  ServerAdmin webmaster@localhost
+<pre><code><span class="section">&lt;VirtualHost *<span class="number">:8001</span>&gt;</span>
+  <span class="attribute">ServerAdmin</span> webmaster@localhost
 
-  ProxyPassInterpolateEnv On
-  ProxyPass / http:<span class="comment">//localhost:3000/          # this is the node.js app</span>
-  ProxyPassReverse / http:<span class="comment">//localhost:3000/   # this is the node.js app</span>
-  RewriteEngine On
-  RewriteCond %{LA-U:REMOTE_USER} (.+)
-  RewriteRule . - [E=RU:%<span class="number">1</span>]
-  RequestHeader <span class="keyword">set</span> X-Forwarded-User <span class="comment">%{RU}e</span>
+  <span class="attribute">ProxyPassInterpolateEnv</span> <span class="literal">On</span>
+  <span class="attribute">ProxyPass</span> / http://localhost:<span class="number">3000</span>/          # this is the node.js app
+  <span class="attribute">ProxyPassReverse</span> / http://localhost:<span class="number">3000</span>/   # this is the node.js app
+  <span class="attribute">RewriteEngine</span> <span class="literal">On</span>
+  <span class="attribute">RewriteCond</span> <span class="variable">%{LA-U:REMOTE_USER}</span> (.+)
+  <span class="attribute">RewriteRule</span> . -<span class="meta"> [E=RU:%1]</span>
+  <span class="attribute">RequestHeader</span> set X-Forwarded-User <span class="variable">%{RU}</span>e
 
-  &lt;Proxy <span class="comment">*&gt;</span>
-      Order <span class="comment">deny,allow</span>
-      Allow <span class="comment">from all</span>
-  &lt;/Proxy&gt;
+  <span class="section">&lt;Proxy *&gt;</span>
+      <span class="attribute">Order</span> <span class="literal">deny</span>,<span class="literal">allow</span>
+      <span class="attribute">Allow</span> from <span class="literal">all</span>
+  <span class="section">&lt;/Proxy&gt;</span>
 
-  &lt;Location /&gt;
-      AuthName <span class="comment">"Kerberos Login"</span>
-      AuthType <span class="comment">Kerberos</span>
-      Krb5Keytab /path/<span class="comment">to</span>/your/<span class="comment">FILE.keytab    # VERY IMPORTANT</span>
-      KrbAuthRealm <span class="comment">CONTOSO.COM</span>
-      KrbMethodNegotiate <span class="comment">on</span>
-      KrbSaveCredentials <span class="comment">off</span>
-      KrbVerifyKDC <span class="comment">off</span>
-      KrbServiceName <span class="comment">SERVICE</span>/server.CONTOSO.COM
-      Require valid-user
-  &lt;/<span class="comment">Location&gt;</span>
+  <span class="section">&lt;Location /&gt;</span>
+      <span class="attribute">AuthName</span> <span class="string">&quot;Kerberos Login&quot;</span>
+      <span class="attribute">AuthType</span> Kerberos
+      <span class="attribute">Krb5Keytab</span> /path/to/your/FILE.keytab    # VERY IMPORTANT
+      <span class="attribute">KrbAuthRealm</span> CONTOSO.COM
+      <span class="attribute">KrbMethodNegotiate</span> <span class="literal">on</span>
+      <span class="attribute">KrbSaveCredentials</span> <span class="literal">off</span>
+      <span class="attribute">KrbVerifyKDC</span> <span class="literal">off</span>
+      <span class="attribute">KrbServiceName</span> SERVICE/server.CONTOSO.COM
+      <span class="attribute">Require</span> valid-user
+  <span class="section">&lt;/Location&gt;</span>
 
-  ScriptAlias /cgi-bin/ /usr/<span class="comment">lib</span>/cgi-bin/
-  &lt;Directory <span class="comment">"/usr/lib/cgi-bin"</span><span class="comment">&gt;</span>
-    AllowOverride <span class="comment">None</span>
-    Options <span class="comment">+ExecCGI -MultiViews +SymLinksIfOwnerMatch</span>
-    Order <span class="comment">allow,deny</span>
-    Allow <span class="comment">from all</span>
-  &lt;/Directory&gt;
+  <span class="attribute">ScriptAlias</span> /cgi-bin/ /usr/lib/cgi-bin/
+  <span class="section">&lt;Directory <span class="string">&quot;/usr/lib/cgi-bin&quot;</span>&gt;</span>
+    <span class="attribute">AllowOverride</span> None
+    <span class="attribute">Options</span> +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+    <span class="attribute">Order</span> <span class="literal">allow</span>,<span class="literal">deny</span>
+    <span class="attribute">Allow</span> from <span class="literal">all</span>
+  <span class="section">&lt;/Directory&gt;</span>
 
-  ErrorLog ${APACHE_LOG_DIR}/error.log
+  <span class="attribute">ErrorLog</span> <span class="variable">${APACHE_LOG_DIR}</span>/error.log
 
-  CustomLog <span class="comment">${APACHE_LOG_DIR}</span>/access.<span class="built-in">log</span> combined
-&lt;/<span class="comment">VirtualHost&gt;</span>
+  <span class="attribute">CustomLog</span> <span class="variable">${APACHE_LOG_DIR}</span>/access.log combined
+<span class="section">&lt;/VirtualHost&gt;</span>
 </code></pre><p>####6-Configure Passport.js</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> WindowsStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WindowsStrategy</span>({
   <span class="attr">ldap</span>: {
-    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
-    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+    <span class="attr">url</span>:             <span class="string">&#x27;ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">base</span>:            <span class="string">&#x27;DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">bindDN</span>:          <span class="string">&#x27;someAccount&#x27;</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">&#x27;andItsPass&#x27;</span>
   },
-  <span class="attr">getUserNameFromHeader</span>: <span class="function"><span class="keyword">function</span> (<span class="params">req</span>) </span>{
+  <span class="attr">getUserNameFromHeader</span>: <span class="keyword">function</span> (<span class="params">req</span>) {
     <span class="comment">//in the above apache config we set the x-forwarded-user header.</span>
     <span class="comment">//mod_auth_kerb uses user@domain</span>
-    <span class="keyword">return</span> req.headers[<span class="string">'x-forwarded-user'</span>].split(<span class="string">'@'</span>)[<span class="number">0</span>];
+    <span class="keyword">return</span> req.<span class="property">headers</span>[<span class="string">&#x27;x-forwarded-user&#x27;</span>].<span class="title function_">split</span>(<span class="string">&#x27;@&#x27;</span>)[<span class="number">0</span>];
   }
-}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
-  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-    done(err, user);
+}, <span class="keyword">function</span>(<span class="params">profile, done</span>){
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">waId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 }));
 </code></pre>
 <h2 id="non-integrated-authentication">Non-integrated authentication</h2>
 <p>You can use this module to authenticate users against a LDAP server without integrated authentication.
 You will prompt the user for his username and password in a form like this:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
         <span class="tag">&lt;<span class="name">label</span>&gt;</span>Username:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
         <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Log In"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Log In&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 </code></pre>
 <p>and then have a route like this:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'WindowsAuthentication'</span>, {
-                                  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-                                  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>,
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;WindowsAuthentication&#x27;</span>, {
+                                  <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+                                  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>,
                                   <span class="attr">failureFlash</span>:    <span class="literal">true</span> })
 );
 </code></pre>
 <p>The same configuration as explained above is required with the <code>integrated</code> option in false:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> WindowsStrategy = <span class="built_in">require</span>(<span class="string">'passport-windowsauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> WindowsStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WindowsStrategy</span>({
   <span class="attr">ldap</span>: {
-    <span class="attr">url</span>:             <span class="string">'ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">base</span>:            <span class="string">'DC=wellscordobabank,DC=com'</span>,
-    <span class="attr">bindDN</span>:          <span class="string">'someAccount'</span>,
-    <span class="attr">bindCredentials</span>: <span class="string">'andItsPass'</span>
+    <span class="attr">url</span>:             <span class="string">&#x27;ldap://wellscordoba.wellscordobabank.com/DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">base</span>:            <span class="string">&#x27;DC=wellscordobabank,DC=com&#x27;</span>,
+    <span class="attr">bindDN</span>:          <span class="string">&#x27;someAccount&#x27;</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">&#x27;andItsPass&#x27;</span>
   },
   <span class="attr">integrated</span>:      <span class="literal">false</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>)</span>{
-  User.findOrCreate({ <span class="attr">waId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-    done(err, user);
+}, <span class="keyword">function</span>(<span class="params">profile, done</span>){
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">waId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 }));
 </code></pre>
 <h2 id="example-profile-from-ldap">Example profile from LDAP</h2>
 <p>When you use the LDAP integration the profile follows the <a href="http://passportjs.org/guide/profile/">Passport.js user profile convention</a> and you have also a _json property with all the profile.</p>
 <p>Example:</p>
-<pre><code class="lang-json">{
-  <span class="attr">"id"</span>: <span class="string">"fe59e96-4d82-431e-816a-5a688e4ab547"</span>,
-  <span class="attr">"displayName"</span>: <span class="string">"Jose Romaniello"</span>,
-  <span class="attr">"name"</span>: {
-    <span class="attr">"familyName"</span>: <span class="string">"Romaniello"</span>,
-    <span class="attr">"givenName"</span>: <span class="string">"Jose"</span>
-  },
-  <span class="attr">"emails"</span>: [
-    {
-      <span class="attr">"value"</span>: <span class="string">"jromaniello@wellscordoba.com"</span>
-    }
-  ],
-  <span class="attr">"_json"</span>: {
-    <span class="attr">"dn"</span>: <span class="string">"CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com"</span>,
-    <span class="attr">"controls"</span>: [],
-    <span class="attr">"objectClass"</span>: [
-      <span class="string">"top"</span>,
-      <span class="string">"person"</span>,
-      <span class="string">"organizationalPerson"</span>,
-      <span class="string">"user"</span>
-    ],
-    <span class="attr">"cn"</span>: <span class="string">"Jose Romaniello"</span>,
-    <span class="attr">"sn"</span>: <span class="string">"Romaniello"</span>,
-    <span class="attr">"title"</span>: <span class="string">"cantante desafinado - programador"</span>,
-    <span class="attr">"physicalDeliveryOfficeName"</span>: <span class="string">"Chief Architect"</span>,
-    <span class="attr">"telephoneNumber"</span>: <span class="string">"+543519998822"</span>,
-    <span class="attr">"givenName"</span>: <span class="string">"Jose"</span>,
-    <span class="attr">"distinguishedName"</span>: <span class="string">"CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com"</span>,
-    <span class="attr">"instanceType"</span>: <span class="string">"4"</span>,
-    <span class="attr">"whenCreated"</span>: <span class="string">"20130220172116.0Z"</span>,
-    <span class="attr">"whenChanged"</span>: <span class="string">"20130220183149.0Z"</span>,
-    <span class="attr">"displayName"</span>: <span class="string">"Jose Romaniello"</span>,
-    <span class="attr">"uSNCreated"</span>: <span class="string">"12717"</span>,
-    <span class="attr">"uSNChanged"</span>: <span class="string">"12792"</span>,
-    <span class="attr">"company"</span>: <span class="string">"Wells Cordoba Bank"</span>,
-    <span class="attr">"name"</span>: <span class="string">"Jose Romaniello"</span>,
-    <span class="attr">"objectGUID"</span>: <span class="string">"fe59e96-4d82-431e-816a-5a688e4ab547"</span>,
-    <span class="attr">"userAccountControl"</span>: <span class="string">"66048"</span>,
-    <span class="attr">"badPwdCount"</span>: <span class="string">"0"</span>,
-    <span class="attr">"codePage"</span>: <span class="string">"0"</span>,
-    <span class="attr">"countryCode"</span>: <span class="string">"0"</span>,
-    <span class="attr">"badPasswordTime"</span>: <span class="string">"0"</span>,
-    <span class="attr">"lastLogoff"</span>: <span class="string">"0"</span>,
-    <span class="attr">"lastLogon"</span>: <span class="string">"0"</span>,
-    <span class="attr">"pwdLastSet"</span>: <span class="string">"130058544776047558"</span>,
-    <span class="attr">"primaryGroupID"</span>: <span class="string">"513"</span>,
-    <span class="attr">"objectSid"</span>: <span class="string">"\u0001\u0005\u0000\u0000\u0000\u0000\u0000\u0005\u0015\u0000\u0000\u0000��=��\u001d��uQ��O\u0004\u0000\u0000"</span>,
-    <span class="attr">"accountExpires"</span>: <span class="string">"9223372036854775807"</span>,
-    <span class="attr">"logonCount"</span>: <span class="string">"0"</span>,
-    <span class="attr">"sAMAccountName"</span>: <span class="string">"jromaniello"</span>,
-    <span class="attr">"sAMAccountType"</span>: <span class="string">"805306368"</span>,
-    <span class="attr">"userPrincipalName"</span>: <span class="string">"jromaniello@wellscordobabank.com"</span>,
-    <span class="attr">"objectCategory"</span>: <span class="string">"CN=Person,CN=Schema,CN=Configuration,DC=wellscordobabank,DC=com"</span>,
-    <span class="attr">"dSCorePropagationData"</span>: [
-      <span class="string">"20130220172118.0Z"</span>,
-      <span class="string">"16010101000000.0Z"</span>
-    ],
-    <span class="attr">"lastLogonTimestamp"</span>: <span class="string">"130058572786126285"</span>,
-    <span class="attr">"mail"</span>: <span class="string">"jromaniello@wellscordobabank.com"</span>
-  }
-}
+<pre><code class="json"><span class="punctuation">{</span>
+  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;fe59e96-4d82-431e-816a-5a688e4ab547&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose Romaniello&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+    <span class="attr">&quot;familyName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Romaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;givenName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose&quot;</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="attr">&quot;emails&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+    <span class="punctuation">{</span>
+      <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jromaniello@wellscordoba.com&quot;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">]</span><span class="punctuation">,</span>
+  <span class="attr">&quot;_json&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+    <span class="attr">&quot;dn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;controls&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
+    <span class="attr">&quot;objectClass&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+      <span class="string">&quot;top&quot;</span><span class="punctuation">,</span>
+      <span class="string">&quot;person&quot;</span><span class="punctuation">,</span>
+      <span class="string">&quot;organizationalPerson&quot;</span><span class="punctuation">,</span>
+      <span class="string">&quot;user&quot;</span>
+    <span class="punctuation">]</span><span class="punctuation">,</span>
+    <span class="attr">&quot;cn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose Romaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;sn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Romaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cantante desafinado - programador&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;physicalDeliveryOfficeName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Chief Architect&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;telephoneNumber&quot;</span><span class="punctuation">:</span> <span class="string">&quot;+543519998822&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;givenName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;distinguishedName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN=Jose Romaniello,CN=Users,DC=wellscordobabank,DC=com&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;instanceType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;4&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;whenCreated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20130220172116.0Z&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;whenChanged&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20130220183149.0Z&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose Romaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;uSNCreated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;12717&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;uSNChanged&quot;</span><span class="punctuation">:</span> <span class="string">&quot;12792&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;company&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Wells Cordoba Bank&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jose Romaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;objectGUID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;fe59e96-4d82-431e-816a-5a688e4ab547&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;userAccountControl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;66048&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;badPwdCount&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;codePage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;countryCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;badPasswordTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;lastLogoff&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;lastLogon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;pwdLastSet&quot;</span><span class="punctuation">:</span> <span class="string">&quot;130058544776047558&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;primaryGroupID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;513&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;objectSid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;\u0001\u0005\u0000\u0000\u0000\u0000\u0000\u0005\u0015\u0000\u0000\u0000��=��\u001d��uQ��O\u0004\u0000\u0000&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;accountExpires&quot;</span><span class="punctuation">:</span> <span class="string">&quot;9223372036854775807&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;logonCount&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;sAMAccountName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jromaniello&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;sAMAccountType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;805306368&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;userPrincipalName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jromaniello@wellscordobabank.com&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;objectCategory&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN=Person,CN=Schema,CN=Configuration,DC=wellscordobabank,DC=com&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;dSCorePropagationData&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+      <span class="string">&quot;20130220172118.0Z&quot;</span><span class="punctuation">,</span>
+      <span class="string">&quot;16010101000000.0Z&quot;</span>
+    <span class="punctuation">]</span><span class="punctuation">,</span>
+    <span class="attr">&quot;lastLogonTimestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;130058572786126285&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;mail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jromaniello@wellscordobabank.com&quot;</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
 </code></pre>
 <h2 id="issue-reporting">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
@@ -342,14 +342,14 @@ passport.use(<span class="keyword">new</span> WindowsStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-windowsauth</span></code></div>
             <ul>
-              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T13:48:22Z">a month ago</abbr></li>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T13:48:22Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-windowsauth">https://github.com/auth0/passport-windowsauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>53</b> downloads in the last day</li>
-              <li><b>225</b> downloads in the last week</li>
-              <li><b>1,216</b> downloads in the last month</li>
+              <li><b>97</b> downloads in the last day</li>
+              <li><b>552</b> downloads in the last week</li>
+              <li><b>3,457</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

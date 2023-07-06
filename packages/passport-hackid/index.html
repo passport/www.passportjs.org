@@ -109,14 +109,14 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/facebook/callback"</span>
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/facebook/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ facebookId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ facebookId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -125,27 +125,27 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/facebook&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to Facebook for authentication, so</span>
     <span class="comment">// this function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/facebook/callback'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/facebook/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h4 id="extended-permissions">Extended Permissions</h4>
 <p>If you need extended permissions from the user, the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the user&#39;s statuses and
 checkins:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { <span class="attribute">scope</span>: [<span class="string">'user_status'</span>, <span class="string">'user_checkins'</span>] }),
-  function(req, res){
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/facebook&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;user_status&#x27;</span>, <span class="string">&#x27;user_checkins&#x27;</span>] }),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to Facebook for authentication, with</span>
     <span class="comment">// extended permissions.</span>
   });
@@ -153,9 +153,9 @@ checkins:</p>
 <p>The display mode with which to render the authorization dialog can be set by
 specifying the <code>display</code> option.  Refer to Facebook&#39;s <a href="https://developers.facebook.com/docs/reference/dialogs/oauth/">OAuth Dialog</a>
 documentation for more information.</p>
-<pre><code>app.get(<span class="string">'/auth/facebook'</span>,
-  passport.authenticate(<span class="string">'facebook'</span>, { display: <span class="string">'touch'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/facebook&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, { <span class="attribute">display</span>: <span class="string">&#x27;touch&#x27;</span> }),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// ...</span>
   });
 </code></pre><h2 id="examples">Examples</h2>
@@ -170,8 +170,8 @@ this issue.
 [1]: <a href="https://developers.facebook.com/bugs/196125357123225">https://developers.facebook.com/bugs/196125357123225</a>
 [2]: <a href="https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711">https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711</a></p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-facebook"><img src="https://secure.travis-ci.org/jaredhanson/passport-facebook.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -198,13 +198,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hackid</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T12:43:39Z">a month ago</abbr></li>
+              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T12:43:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/HackBerkeley/passport-hackid"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -98,14 +98,14 @@
 <h1 id="npm"><img src="https://nodei.co/npm/passport-clevercloud.png" alt="npm"></h1>
 <p>Passportjs strategy for CleverCloud</p>
 <h3 id="usage">Usage</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> CleverCloudStrategy = <span class="built_in">require</span>(<span class="string">'CleverCloudStrategy'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">CleverCloudStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;CleverCloudStrategy&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> CleverCloudStrategy({
-   <span class="attr">sso_salt</span>: <span class="string">'secret'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">CleverCloudStrategy</span>({
+   <span class="attr">sso_salt</span>: <span class="string">&#x27;secret&#x27;</span>
  },
- <span class="function"><span class="keyword">function</span>(<span class="params">id, email, done</span>) </span>{
-   User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-     done(err, user);
+ <span class="keyword">function</span>(<span class="params">id, email, done</span>) {
+   <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span> (<span class="params">err, user</span>) {
+     <span class="title function_">done</span>(err, user);
    });
  }
 ));
@@ -114,14 +114,14 @@ passport.use(<span class="keyword">new</span> CleverCloudStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-clevercloud</span></code></div>
             <ul>
-              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T12:23:51Z">a month ago</abbr></li>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T12:23:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Redsmin/passport-clevercloud">https://github.com/Redsmin/passport-clevercloud</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

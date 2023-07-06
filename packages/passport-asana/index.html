@@ -109,14 +109,14 @@
 OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a
 client id , client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> AsanaStrategy({
-    clientID: <span class="string">'1234567890123'</span>,
-    clientSecret: <span class="string">'5ddf23ae77cbe6bff02430f8f37c4900'</span>
-    callbackURL: <span class="string">'https://www.example.com/auth/asana/callback'</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">AsanaStrategy</span>({
+    <span class="attribute">clientID</span>: <span class="string">&#x27;1234567890123&#x27;</span>,
+    <span class="attribute">clientSecret</span>: <span class="string">&#x27;5ddf23ae77cbe6bff02430f8f37c4900&#x27;</span>
+    <span class="attribute">callbackURL</span>: <span class="string">&#x27;https://www.example.com/auth/asana/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ userId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">userId</span>: profile.id }, function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -125,18 +125,18 @@ client id , client secret, and callback URL.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/asana'</span>,
-  passport.authenticate(<span class="string">'Asana'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/asana&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;Asana&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to asana.com for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/asana/callback'</span>,
-  passport.authenticate(<span class="string">'Asana'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/asana/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;Asana&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -150,13 +150,13 @@ app.get(<span class="string">'/auth/asana/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-asana</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:16:09Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:16:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nickls/passport-asana"></a></li>
             </ul>
             <ul>
-              <li><b>95</b> downloads in the last day</li>
-              <li><b>435</b> downloads in the last week</li>
-              <li><b>1,380</b> downloads in the last month</li>
+              <li><b>248</b> downloads in the last day</li>
+              <li><b>941</b> downloads in the last week</li>
+              <li><b>5,147</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

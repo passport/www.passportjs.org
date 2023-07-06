@@ -104,7 +104,7 @@
 <p>Wix Application authentication strategy for Passport.</p>
 <p><em>Useful helper for Wix Application developers</em></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install -S passport-wix-app
+<pre><code class="bash">$ npm install -S passport-wix-app
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>This module parses <code>instance</code> parameter passed by Wix Applications
@@ -122,31 +122,31 @@ official Wix-Dev site:</p>
 <p>The <code>wix-app</code> authentication strategy authenticates a user using <code>instance</code>
 parameter, <a href="http://dev.wix.com/docs/infrastructure/app-instance/">passed by Wix 🌐</a>.</p>
 <p>The strategy requires <code>options</code> and  <code>verify</code> callback.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> WixAppStrategy({<span class="string">"secret"</span>: <span class="string">"WIX-APP-SECRET"</span>},
-  <span class="function"><span class="keyword">function</span> <span class="title">verifyCallback</span> (<span class="params">instance, done</span>) </span>{
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WixAppStrategy</span>({<span class="string">&quot;secret&quot;</span>: <span class="string">&quot;WIX-APP-SECRET&quot;</span>},
+  <span class="keyword">function</span> <span class="title function_">verifyCallback</span> (instance, done) {
 
     <span class="comment">// any user-verification logic</span>
     <span class="comment">// ...</span>
     <span class="comment">// here is an example:</span>
-    User.findOne({
-      <span class="attr">application</span>: instance.instanceId,
-      <span class="attr">userId</span>: instance.uid
-    }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({
+      <span class="attr">application</span>: instance.<span class="property">instanceId</span>,
+      <span class="attr">userId</span>: instance.<span class="property">uid</span>
+    }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
       <span class="comment">// error during verification</span>
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err) }
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err) }
 
       <span class="comment">// user is not found/not authenticated</span>
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>) }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>) }
 
       <span class="comment">// success:</span>
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user)
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user)
     })
   }
 ))
 </code></pre>
 <h4 id="options">Options</h4>
 <p>You can pass additional options to the <code>WixAppStrategy</code> constructor:</p>
-<pre><code class="lang-js"><span class="keyword">new</span> WixAppStrategy(options, callback)
+<pre><code class="js"><span class="keyword">new</span> <span class="title class_">WixAppStrategy</span>(options, callback)
 </code></pre>
 <p>The available options are:</p>
 <ul>
@@ -171,41 +171,41 @@ parameter, <a href="http://dev.wix.com/docs/infrastructure/app-instance/">passed
 <p>Example of parsed instance (taken from
 <a href="http://dev.wix.com/docs/infrastructure/app-instance/#json-example">Wix-documentation 🌐</a>
 and extended with custom fields - <code>ext</code>):</p>
-<pre><code class="lang-js">parsedInstance = {
-    <span class="string">"instanceId"</span>:       <span class="string">"bf296da1-75ce-48e6-9f72-14b7148d4fa2"</span>,
-    <span class="string">"signDate"</span>:         <span class="string">"2015-12-10T06:57:37.201Z"</span>,
-    <span class="string">"uid"</span>:              <span class="string">"da32cbf7-7f8b-4f9b-a97e-e67f3072ce92"</span>,
-    <span class="string">"permissions"</span>:      <span class="string">"OWNER"</span>,
-    <span class="string">"ipAndPort"</span>:        <span class="string">"91.199.119.13/35734"</span>,
-    <span class="string">"vendorProductId"</span>:  <span class="literal">null</span>,
-    <span class="string">"originInstanceId"</span>: <span class="string">"c38e4e00-dcc1-433e-9e90-b332def7b342"</span>,
-    <span class="string">"siteOwnerId"</span>:      <span class="string">"da32cbf7-7f8b-4f9b-a97e-e67f3072ce92"</span>,
+<pre><code class="js">parsedInstance = {
+    <span class="string">&quot;instanceId&quot;</span>:       <span class="string">&quot;bf296da1-75ce-48e6-9f72-14b7148d4fa2&quot;</span>,
+    <span class="string">&quot;signDate&quot;</span>:         <span class="string">&quot;2015-12-10T06:57:37.201Z&quot;</span>,
+    <span class="string">&quot;uid&quot;</span>:              <span class="string">&quot;da32cbf7-7f8b-4f9b-a97e-e67f3072ce92&quot;</span>,
+    <span class="string">&quot;permissions&quot;</span>:      <span class="string">&quot;OWNER&quot;</span>,
+    <span class="string">&quot;ipAndPort&quot;</span>:        <span class="string">&quot;91.199.119.13/35734&quot;</span>,
+    <span class="string">&quot;vendorProductId&quot;</span>:  <span class="literal">null</span>,
+    <span class="string">&quot;originInstanceId&quot;</span>: <span class="string">&quot;c38e4e00-dcc1-433e-9e90-b332def7b342&quot;</span>,
+    <span class="string">&quot;siteOwnerId&quot;</span>:      <span class="string">&quot;da32cbf7-7f8b-4f9b-a97e-e67f3072ce92&quot;</span>,
 
     <span class="comment">// additional params:</span>
-    <span class="string">"ext"</span>: {
-        <span class="string">"ip"</span>:           <span class="string">"91.199.119.13"</span>,
-        <span class="string">"port"</span>:         <span class="number">35734</span>,
-        <span class="string">"signDate"</span>:     <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2015</span>, <span class="number">11</span>, <span class="number">10</span>, <span class="number">06</span>, <span class="number">57</span>, <span class="number">37</span>, <span class="number">201</span>)
+    <span class="string">&quot;ext&quot;</span>: {
+        <span class="string">&quot;ip&quot;</span>:           <span class="string">&quot;91.199.119.13&quot;</span>,
+        <span class="string">&quot;port&quot;</span>:         <span class="number">35734</span>,
+        <span class="string">&quot;signDate&quot;</span>:     <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2015</span>, <span class="number">11</span>, <span class="number">10</span>, <span class="number">06</span>, <span class="number">57</span>, <span class="number">37</span>, <span class="number">201</span>)
     },
 }
 </code></pre>
 <h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;wix-app&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="(http://expressjs.com/)">Express 🌐</a> application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'wix-app'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wix-app&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <p>Or, with late-loaded secret:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'wix-app'</span>, {
-    <span class="attr">secret</span>: <span class="string">'secret-key'</span>,
-    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wix-app&#x27;</span>, {
+    <span class="attr">secret</span>: <span class="string">&#x27;secret-key&#x27;</span>,
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
   }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -218,14 +218,14 @@ and extended with custom fields - <code>ext</code>):</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wix-app</span></code></div>
             <ul>
-              <li><span class="version">1.0.8</span> published <abbr class="updated" title="2022-06-23T13:48:58Z">a month ago</abbr></li>
+              <li><span class="version">1.0.8</span> published <abbr class="updated" title="2022-06-23T13:48:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/maxkoryukov/passport-wix-app">https://maxkoryukov.github.io/passport-wix-app/</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>5</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>41</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

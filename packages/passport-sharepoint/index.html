@@ -105,14 +105,14 @@ By plugging into Passport, SharePoint authentication can be easily and unobtrusi
 account using OAuth 2.0.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> SharePointStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> SharePointStrategy({
     appId: SHAREPOINT_APP_ID ,
     appSecret: SHAREPOINT_APP_SECRET ,
-    callbackURL: <span class="string">"http://localhost:3000/auth/sharepoint/callback"</span>
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/sharepoint/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ userID: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ userID: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -120,32 +120,32 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <p>On the SharePoint side you need a provider hosted AppPart that talks to you Node.JS server and you must register your Node.JS server as a app.
 The AppPart you can simply create via the VS2012 AppPart wizard.
 These AppPart must define the <code>StandardTokens</code> as the url parameter so that the strategy can work.</p>
-<pre><code><span class="xml"><span class="tag">&lt;<span class="name">Content</span> <span class="attr">Type</span>=<span class="string">"html"</span> <span class="attr">Src</span>=<span class="string">"https://nodeserver:3000/auth/sharepoint?</span></span></span><span class="template-variable">{StandardTokens}</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span>
+<pre><code>&lt;Content Type<span class="operator">=</span><span class="string">&quot;html&quot;</span> Src<span class="operator">=</span><span class="string">&quot;https://nodeserver:3000/auth/sharepoint?{StandardTokens}&quot;</span> /&gt;
 </code></pre><p>The Node.JS Server you can register as an app at
 <code>https://sharepoint/_layouts/15/AppRegNew.aspx</code>
 The app id and app secret you specify here is used in our strategy.</p>
 <h4 id="app-permission-request">App Permission Request</h4>
 <p>To load the user profile from the current user automatically, you should add the following permission request to you app manifest or register manually the permission via <a href="https://your-tenant.sharepoint.com/_layouts/15/appinv.aspx">https://your-tenant.sharepoint.com/_layouts/15/appinv.aspx</a></p>
-<pre><code><span class="tag">&lt;<span class="name">AppPermissionRequests</span> <span class="attr">AllowAppOnlyPolicy</span>=<span class="string">"true"</span> &gt;</span>
-  <span class="tag">&lt;<span class="name">AppPermissionRequest</span> <span class="attr">Scope</span>=<span class="string">"http://sharepoint/social/tenant"</span> <span class="attr">Right</span>=<span class="string">"Read"</span> /&gt;</span>
-<span class="tag">&lt;/<span class="name">AppPermissionRequests</span>&gt;</span>
+<pre><code>&lt;AppPermissionRequests AllowAppOnlyPolicy<span class="operator">=</span><span class="string">&quot;true&quot;</span> &gt;
+  &lt;AppPermissionRequest Scope<span class="operator">=</span><span class="string">&quot;http://sharepoint/social/tenant&quot;</span> Right<span class="operator">=</span><span class="string">&quot;Read&quot;</span> /&gt;
+&lt;/AppPermissionRequests&gt;
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;sharepoint&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/sharepoint'</span>,
-  passport.authenticate(<span class="string">'sharepoint'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/sharepoint&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;sharepoint&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to SharePoint for authentication, so</span>
     <span class="comment">// this function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/sharepoint/callback'</span>, 
-  passport.authenticate(<span class="string">'sharepoint'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/sharepoint/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;sharepoint&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -173,12 +173,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-sharepoint</span></code></div>
             <ul>
-              <li><span class="version">0.2.12</span> published <abbr class="updated" title="2022-06-23T13:28:16Z">a month ago</abbr></li>
+              <li><span class="version">0.2.12</span> published <abbr class="updated" title="2022-06-23T13:28:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/QuePort/passport-sharepoint">https://github.com/QuePort/passport-sharepoint</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last day</li>
+              <li><b>19</b> downloads in the last week</li>
               <li><b>97</b> downloads in the last month</li>
             </ul>
           </div>

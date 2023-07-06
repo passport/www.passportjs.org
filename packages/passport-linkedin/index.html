@@ -109,14 +109,14 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> LinkedInStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LinkedInStrategy({
     consumerKey: LINKEDIN_API_KEY,
     consumerSecret: LINKEDIN_SECRET_KEY,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/linkedin/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/linkedin/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ linkedinId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, done) {
+    User.findOrCreate({ linkedinId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -125,38 +125,38 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/linkedin'</span>,
-  passport.authenticate(<span class="string">'linkedin'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/linkedin&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>));
 
-app.get(<span class="string">'/auth/linkedin/callback'</span>, 
-  passport.authenticate(<span class="string">'linkedin'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/linkedin/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h4 id="extended-permissions">Extended Permissions</h4>
 <p>If you need extended permissions from the user, the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the user&#39;s basic profile
 and email address:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/linkedin'</span>,
-  passport.authenticate(<span class="string">'linkedin'</span>, { <span class="attribute">scope</span>: [<span class="string">'r_basicprofile'</span>, <span class="string">'r_emailaddress'</span>] }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/linkedin&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;r_basicprofile&#x27;</span>, <span class="string">&#x27;r_emailaddress&#x27;</span>] }));
 </code></pre><h4 id="profile-fields">Profile Fields</h4>
 <p>The LinkedIn profile is very rich, and may contain a lot of information.  The
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of fields your application needs.  For example, to fetch the user&#39;s ID, name,
 email address, and headline, configure strategy like this.</p>
-<pre><code>passport.use(<span class="keyword">new</span> <span class="type">LinkedInStrategy</span>({
-    <span class="comment">// clientID, clientSecret and callbackURL</span>
-    profileFields: <span class="type"></span>[<span class="string">'id'</span>, <span class="string">'first-name'</span>, <span class="string">'last-name'</span>, <span class="string">'email-address'</span>, <span class="string">'headline'</span>]
+<pre><code>passport.use(new LinkedInStrategy({
+    <span class="regexp">//</span> clientID, clientSecret and callbackURL
+    profileFields: [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;first-name&#x27;</span>, <span class="string">&#x27;last-name&#x27;</span>, <span class="string">&#x27;email-address&#x27;</span>, <span class="string">&#x27;headline&#x27;</span>]
   },
-  <span class="comment">// verify callback</span>
+  <span class="regexp">//</span> verify callback
 ));
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-linkedin/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-linkedin"><img src="https://secure.travis-ci.org/jaredhanson/passport-linkedin.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -169,13 +169,13 @@ email address, and headline, configure strategy like this.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-linkedin</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:51Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-linkedin">https://github.com/jaredhanson/passport-linkedin</a></li>
             </ul>
             <ul>
-              <li><b>429</b> downloads in the last day</li>
-              <li><b>2,258</b> downloads in the last week</li>
-              <li><b>9,705</b> downloads in the last month</li>
+              <li><b>275</b> downloads in the last day</li>
+              <li><b>1,523</b> downloads in the last week</li>
+              <li><b>7,278</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
