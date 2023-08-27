@@ -12,15 +12,15 @@ specification defines a client-side JavaScript API that allows web applications
 to use public key credentials.  This specification itself depends on lower-level
 [specifications](https://fidoalliance.org/specifications/) from the FIDO
 Alliance which define data structures and protocols for a computer or mobile
-phone to communicate with the device on which the credentials are stored.  This
+phone to communicate with an authenticator which stores the credentials.  This
 stack, collectively known as [FIDO2](https://fidoalliance.org/fido2/), is paired
 with software that authenticates public key credentials on the server-side.
 
 Compared with the relative simplicity of authenticating a username and password,
 authenticating a public key credential involves many more moving pieces.
 Furthermore, a user is being authenticated with a possession factor (something
-they have, like their laptop with fingerprint reader or portable security key
-such as a [YubiKey](https://www.yubico.com/)), as opposed to a knowledge factor
+they have, like their laptop with fingerprint sensor or USB security key such as
+a [YubiKey](https://www.yubico.com/)), as opposed to a knowledge factor
 (something they know, like their password).
 
 This shift in how a user authenticates, while improving security, also
