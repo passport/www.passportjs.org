@@ -11,3 +11,9 @@
 WebAuthn/FIDO2 protocol - combination of HTTP, website, API, authenticator, and back in reverse
   diagram this.
   
+Registration: first time flow in which a new credential is created and registered with the server
+  - variations here: add to existing account, create new account
+
+Authentication: flow when a user has already registered
+
+  
