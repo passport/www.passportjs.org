@@ -16,4 +16,20 @@ Registration: first time flow in which a new credential is created and registere
 
 Authentication: flow when a user has already registered
 
-  
+Review Section 1.3.3 about hinting the list of credentials with credential IDs
+
+2.2.1 - Authenticators that only support the § 8.6 FIDO U2F Attestation Statement Format have
+no mechanism to store a user handle, so the returned userHandle will always be null.
+
+Attestation provides verifiable evidence regarding the origin and provenance of an authenticator.  This
+is mostly used in enterprise contexts.  Obtained during registration
+
+
+
+Terminology:
+Level 3 added Backup-related capabilities, note new terminology in terminology section
+  "multi-device credential" vs "single-device credential"
+
+"Bound credential"
+ - Note, however, that a server-side credential might not be physically stored in persistent memory inside the authenticator, hence "bound to" is the primary term. See § 6.2.2 Credential Storage Modality.
+   explain this more

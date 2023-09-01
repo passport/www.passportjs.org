@@ -18,14 +18,13 @@ with software that authenticates public key credentials on the server-side.
 
 Compared with the relative simplicity of authenticating a username and password,
 authenticating a public key credential involves many more moving pieces.
-Furthermore, a user is being authenticated with a possession factor (something
-they have, like their laptop with fingerprint sensor or USB security key such as
-a [YubiKey](https://www.yubico.com/)), as opposed to a knowledge factor
-(something they know, like their password).
+Furthermore, how a user is being authenticated changes from something they know
+(their password) to something they have (their laptop, phone, or USB security
+key).
 
-This shift in how a user authenticates, while improving security, also
-introduces new experiences that a user needs to understand and new technologies
-that a developer must comprehend.  This guide provides an overview of WebAuthn.
-It details how Passport works when authenticating public key credentials and
-explains concepts developers should consider to make it easy for users to use
-public key credentials.
+This shift in authentication, while greatly improving security, also introduces
+new user journeys that a designer must illustrate and new functionality that a
+developer must implement.  This guide provides an overview of WebAuthn and
+explains these new concepts.  It details how Passport works when authenticating
+public key credentials.  This guide will give you a better understanding of how
+to build sign in experiences that are both more secure and easier to use.
