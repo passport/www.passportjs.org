@@ -33,3 +33,11 @@ Level 3 added Backup-related capabilities, note new terminology in terminology s
 "Bound credential"
  - Note, however, that a server-side credential might not be physically stored in persistent memory inside the authenticator, hence "bound to" is the primary term. See § 6.2.2 Credential Storage Modality.
    explain this more
+
+Client vs Client Device distinction - explain this, especially how credentials are bound
+
+In L3 draft, Passkey is now a synonym of discoverable credential
+
+Client-Side Discoverable is also known as Resident Keys
+  - usable when the user is not identified first
+  "This is in contrast to a Server-side Public Key Credential Source, which requires that the authenticator is given both the RP ID and the credential ID but does not require client-side storage of the public key credential source."
