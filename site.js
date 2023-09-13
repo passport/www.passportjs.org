@@ -17,8 +17,6 @@ site.set('base url', 'https://www.passportjs.org');
 site.set('layout engine', 'pug');
 site.locals.pretty = true;
 
-site.use(kerouac.index());
-
 /*
 //site.use('/packages', require('kerouac-npm-packages/app/www/site')());
 site.use('/packages/-/v1', require('kerouac-npm-packages').api.esc.v1());
@@ -38,7 +36,6 @@ packagesApp.locals.timeAgo = function(time) {
 }
 
 packagesApp.set('layout engine', 'pug');
-packagesApp.use(kerouac.index());
 packagesApp.use('/-/v1', require('kerouac-npm-packages').api.esc.v1());
 packagesApp.use('/-', require('kerouac-npm-packages').api.esc());
 packagesApp.use('/', require('kerouac-npm-packages')());
