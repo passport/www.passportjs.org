@@ -68,7 +68,6 @@ site.use('/tutorials/facebook', book('books/tutorials/facebook'))
 site.use('/tutorials/email', book('books/tutorials/email'))
 site.use('/tutorials/auth0', book('books/tutorials/auth0'))
 site.use(kerouac.content('content'));
-site.use(kerouac.assets('assets'));
 //site.assets('assets');
 //site.use('/howto', kerouac.content('howto'));
 //site.use('/blog', require('kerouac-blog')({ layout: 'blog' }));
@@ -77,6 +76,7 @@ site.use('/', require('kerouac-manifest')());
 site.page('/sitemap.xml', require('kerouac-sitemap')());
 site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
 site.page('/robots.txt', require('kerouac-robotstxt')());
+site.use(kerouac.assets('assets'));
 // TODO: .well-known/security.txt
 
 ////[ '/packages', require('kerouac-sitemap').browser(), false ],
@@ -108,7 +108,7 @@ site.generate({
   '/tutorials/facebook': book.createMapper('books/tutorials/facebook'),
   '/tutorials/email': book.createMapper('books/tutorials/email'),
   '/tutorials/auth0': book.createMapper('books/tutorials/auth0'),
-  '/blog': blog.createMapper(),
+  //'/blog': blog.createMapper(),
   },
   function(err) {
     console.log('DONE!');
