@@ -107,13 +107,13 @@ unobtrusively integrated into any application or framework that supports
 <p>The T-Mobile ID authentication strategy authenticates users using their phone number or T-Mobile
 ID username. Developers wishing to utilize this plugin must first redirect their users to the T-Mobile
 authorization endpoint with the appropriate params.</p>
-<pre><code><span class="keyword">var</span> <span class="keyword">params</span> = {<span class="string">'access_type'</span>: <span class="string">'ONLINE'</span>,
-  <span class="string">'redirect_uri'</span>: <span class="string">'https://localhost:3000/auth/tmoid/callback'</span>,
-  <span class="string">'scope'</span>: <span class="string">'TMO_ID_profile,associated_lines,billing_information,entitlements'</span>,
-  <span class="string">'client_id'</span>: TMOBILE_CLIENT_ID,
-  <span class="string">'response_type'</span> : <span class="string">'code'</span>};
+<pre><code><span class="keyword">var</span> <span class="keyword">params</span> = {<span class="string">&#x27;access_type&#x27;</span>: <span class="string">&#x27;ONLINE&#x27;</span>,
+  <span class="string">&#x27;redirect_uri&#x27;</span>: <span class="string">&#x27;https://localhost:3000/auth/tmoid/callback&#x27;</span>,
+  <span class="string">&#x27;scope&#x27;</span>: <span class="string">&#x27;TMO_ID_profile,associated_lines,billing_information,entitlements&#x27;</span>,
+  <span class="string">&#x27;client_id&#x27;</span>: TMOBILE_CLIENT_ID,
+  <span class="string">&#x27;response_type&#x27;</span> : <span class="string">&#x27;code&#x27;</span>};
 
-res.redirect(<span class="string">'https://auth.tmus.net/oauth2/v1/auth?'</span> + qs.stringify(<span class="keyword">params</span>));
+res.redirect(<span class="string">&#x27;https://auth.tmus.net/oauth2/v1/auth?&#x27;</span> + qs.stringify(<span class="keyword">params</span>));
 </code></pre><h4 id="configure-strategy">Configure Strategy</h4>
 <p>The strategy requires four elements in order to properly process the
 authentication request, these are:</p>
@@ -124,27 +124,27 @@ authentication request, these are:</p>
 <li>clientSecret - Your client secret key provided by T-Mobile</li>
 </ol>
 <p><em>Note: The strategy supports other standard passport arguments such as passReqToCallback.</em></p>
-<pre><code><span class="keyword">var</span> TMobileIDStrategy = <span class="built_in">require</span>(<span class="string">'passport-tmobileid'</span>).Strategy;
+<pre><code>var TMobileIDStrategy = require(<span class="string">&#x27;passport-tmobileid&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> TMobileIDStrategy({
-    <span class="attr">redirect_uri</span> : LOCAL_CALLBACK_URL,
-    <span class="attr">tokenURL</span> : <span class="string">'https://token.tmus.net/oauth2/v1/token'</span>,
-    <span class="attr">clientID</span> : TMOBILE_CLIENT_ID,
-    <span class="attr">clientSecret</span> : TMOBILE_CLIENT_SECRET,
-    <span class="attr">passReqToCallback</span> : <span class="literal">true</span> <span class="comment">//to get the req back from passport</span>
+passport.use(<span class="built_in">new</span> TMobileIDStrategy({
+    redirect_uri : LOCAL_CALLBACK_URL,
+    tokenURL : <span class="string">&#x27;https://token.tmus.net/oauth2/v1/token&#x27;</span>,
+    clientID : TMOBILE_CLIENT_ID,
+    clientSecret : TMOBILE_CLIENT_SECRET,
+    passReqToCallback : <span class="keyword">true</span> //<span class="keyword">to</span> <span class="keyword">get</span> the req back <span class="keyword">from</span> passport
 },
-<span class="function"><span class="keyword">function</span>(<span class="params">req, token, expiry, id, done</span>)</span>{
+<span class="keyword">function</span>(req, token, expiry, id, done){
   <span class="keyword">if</span>(err){<span class="keyword">return</span> done(err);}
-  <span class="keyword">if</span>(!token){<span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);} <span class="comment">//No token could be retrieved from the server</span>
+  <span class="keyword">if</span>(!token){<span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);} //<span class="keyword">No</span> token could be retrieved <span class="keyword">from</span> the <span class="keyword">server</span>
   <span class="keyword">if</span>(id) {
-    <span class="comment">//A T-Mobile access token has been provided</span>
-    User.findOne({<span class="string">'user.tmobileid'</span> : id}, <span class="function"><span class="keyword">function</span>(<span class="params">err,user</span>)</span>{
-      <span class="keyword">if</span>(user) { <span class="comment">//a user with this id has been found in your database</span>
-        user.tmobile.access_token = token; <span class="comment">//add the tmobile access token to this user</span>
-        user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
-          <span class="comment">//handle the error</span>
+    //A T-Mobile <span class="keyword">access</span> token has been provided
+    <span class="keyword">User</span>.findOne({<span class="string">&#x27;user.tmobileid&#x27;</span> : id}, <span class="keyword">function</span>(err,<span class="keyword">user</span>){
+      <span class="keyword">if</span>(<span class="keyword">user</span>) { //a <span class="keyword">user</span> <span class="keyword">with</span> this id has been <span class="built_in">found</span> <span class="keyword">in</span> your <span class="keyword">database</span>
+        <span class="keyword">user</span>.tmobile.access_token = token; //<span class="keyword">add</span> the tmobile <span class="keyword">access</span> token <span class="keyword">to</span> this <span class="keyword">user</span>
+        <span class="keyword">user</span>.save(<span class="keyword">function</span>(err){
+          //handle the error
         }
-        <span class="keyword">return</span> done(<span class="literal">null</span>, user); <span class="comment">//success</span>
+        <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">user</span>); //success
     });
   }
 };  
@@ -153,15 +153,15 @@ passport.use(<span class="keyword">new</span> TMobileIDStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/tmoid'</span>,
-  res.redirect(<span class="string">'https://uat.auth.tmus.net/oauth2/v1/auth?'</span> + qs.stringify(params)));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/tmoid&#x27;</span>,
+  res.<span class="built_in">redirect</span>(<span class="string">&#x27;https://uat.auth.tmus.net/oauth2/v1/auth?&#x27;</span> + qs.<span class="built_in">stringify</span>(params)));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/tmoid/callback'</span>,
-  passport.authenticate(<span class="string">'tmoid'</span>, {
-    <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>,
-    <span class="attribute">successRedirect</span>: <span class="string">'/profile'</span>
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/tmoid/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;tmoid&#x27;</span>, {
+    <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>,
+    <span class="attribute">successRedirect</span>: <span class="string">&#x27;/profile&#x27;</span>
   }),
-    function(req, res) {
+    <span class="built_in">function</span>(req, res) {
       <span class="comment">// Successful authentication, do nothing.</span>
   });
 </code></pre><h2 id="examples">Examples</h2>
@@ -178,12 +178,12 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tmobileid</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:37:10Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:37:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/tmobile/passport-tmobileid">https://github.com/tmobile/passport-tmobileid</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
+              <li><b>1</b> downloads in the last week</li>
               <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>

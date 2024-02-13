@@ -100,48 +100,48 @@
 applications.</p>
 <h2 id="install">Install</h2>
 <p>This is stored in a private repository. Add the following in your package.json file.</p>
-<pre><code class="lang-json">{
-  <span class="attr">"dependencies"</span>: {
-    <span class="attr">"bypass-passport-strategy"</span>: <span class="string">"git@github.com:bypasslane/bypass-passport-strategy.git"</span>
-  }
-}
+<pre><code class="json"><span class="punctuation">{</span>
+  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+    <span class="attr">&quot;bypass-passport-strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;git@github.com:bypasslane/bypass-passport-strategy.git&quot;</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The local authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> BypassStrategy = <span class="built_in">require</span>(<span class="string">"bypass-passport-strategy"</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">BypassStrategy</span> = <span class="built_in">require</span>(<span class="string">&quot;bypass-passport-strategy&quot;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> BypassStrategy({<span class="attr">server</span>: <span class="string">'http://where-my-auth-is'</span>}));
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BypassStrategy</span>({<span class="attr">server</span>: <span class="string">&#x27;http://where-my-auth-is&#x27;</span>}));
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;bypasstoken&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'bypasstoken'</span>),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bypasstoken&#x27;</span>),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">bypass-passport-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-04-12T04:51:23Z">3 months ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-04-12T04:51:23Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/bypasslane/bypass-passport-strategy">https://github.com/bypasslane/bypass-passport-strategy#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

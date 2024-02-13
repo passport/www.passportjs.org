@@ -122,15 +122,15 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 Google profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code><span class="keyword">var</span> MondoStrategy = <span class="built_in">require</span>(<span class="string">'passport-mondo'</span>).Strategy;
+<pre><code><span class="keyword">var</span> MondoStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-mondo&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> MondoStrategy({
-    <span class="attr">clientID</span>: MONDO_CLIENT_ID,
-    <span class="attr">clientSecret</span>: MONDO_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/mondo/callback"</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> MondoStrategy({
+    clientID: MONDO_CLIENT_ID,
+    clientSecret: MONDO_CLIENT_SECRET,
+    callbackURL: <span class="string">&quot;http://www.example.com/auth/mondo/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">mondoId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
+    User.findOrCreate({ mondoId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
       <span class="keyword">return</span> cb(err, user);
     });
   }
@@ -140,14 +140,14 @@ passport.use(<span class="keyword">new</span> MondoStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/mondo'</span>,
-  passport.authenticate(<span class="string">'mondo'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/mondo&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mondo&#x27;</span>));
 
-app.get(<span class="string">'/auth/mondo/callback'</span>,
-  passport.authenticate(<span class="string">'mondo'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/mondo/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;mondo&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
@@ -158,11 +158,11 @@ You&#39;ll need to enter a valid client Id and secret to run the example.</p>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>Coverage reports can be viewed by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -174,14 +174,14 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mondo-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:03:57Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:03:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/timReynolds/passport-mondo-oauth2">https://github.com/timReynolds/passport-mondo-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3</b> downloads in the last day</li>
-              <li><b>31</b> downloads in the last week</li>
-              <li><b>96</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>27</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

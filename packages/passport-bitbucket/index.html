@@ -127,14 +127,14 @@ strategy also requires a <code>verify</code> callback, which receives the access
 corresponding secret as arguments, as well as <code>profile</code> which contains the
 authenticated user&#39;s Bitbucket profile.   The <code>verify</code> callback must call <code>cb</code>
 providing a user to complete authentication.</p>
-<pre><code>passport.use(<span class="keyword">new</span> BitbucketStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BitbucketStrategy({
     consumerKey: BITBUCKET_CONSUMER_KEY,
     consumerSecret: BITBUCKET_CONSUMER_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/bitbucket/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/bitbucket/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, cb)</span> </span>{
-    User.findOrCreate({ bitbucketId: profile.username }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ bitbucketId: profile.username }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
@@ -143,14 +143,14 @@ providing a user to complete authentication.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/bitbucket'</span>,
-  passport.authenticate(<span class="string">'bitbucket'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/bitbucket&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;bitbucket&#x27;</span>));
 
-app.get(<span class="string">'/auth/bitbucket/callback'</span>, 
-  passport.authenticate(<span class="string">'bitbucket'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/bitbucket/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;bitbucket&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
@@ -164,13 +164,13 @@ corresponding references to Bitbucket.</p>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -189,14 +189,14 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bitbucket</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:20:21Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:20:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-bitbucket">https://github.com/jaredhanson/passport-bitbucket#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>10</b> downloads in the last day</li>
-              <li><b>96</b> downloads in the last week</li>
-              <li><b>224</b> downloads in the last month</li>
+              <li><b>8</b> downloads in the last day</li>
+              <li><b>91</b> downloads in the last week</li>
+              <li><b>231</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

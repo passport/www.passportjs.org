@@ -104,38 +104,38 @@
 <p>  &quot;passport-ufshib&quot;: &quot;*&quot;</p>
 <h2 id="-usage">##Usage</h2>
 <p>This module provides a Strategy for the <a href="http://passportjs.org/">Passport</a> framework, which is typically used with <a href="http://expressjs.com/">Express</a>. Thus, there are several modules you need to require in your server script in addition to this module.</p>
-<pre><code>  <span class="keyword">var</span> http         = <span class="built_in">require</span>(<span class="string">'http'</span>);                     <span class="comment">//http server</span>
-  <span class="keyword">var</span> https        = <span class="built_in">require</span>(<span class="string">'https'</span>);                    <span class="comment">//https server</span>
-  <span class="keyword">var</span> fs           = <span class="built_in">require</span>(<span class="string">'fs'</span>);                       <span class="comment">//file system</span>
-  <span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">"express"</span>);                  <span class="comment">//express middleware</span>
-  <span class="keyword">var</span> morgan       = <span class="built_in">require</span>(<span class="string">'morgan'</span>);                   <span class="comment">//logger for express</span>
-  <span class="keyword">var</span> bodyParser   = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);              <span class="comment">//body parsing middleware</span>
-  <span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);            <span class="comment">//cookie parsing middleware</span>
-  <span class="keyword">var</span> session      = <span class="built_in">require</span>(<span class="string">'express-session'</span>);          <span class="comment">//express session management</span>
-  <span class="keyword">var</span> passport     = <span class="built_in">require</span>(<span class="string">'passport'</span>);                 <span class="comment">//authentication middleware</span>
-  <span class="keyword">var</span> ufshib       = <span class="built_in">require</span>(<span class="string">'passport-ufshib'</span>);          <span class="comment">//UF Shibboleth auth strategy</span>
+<pre><code>  <span class="keyword">var</span> http         = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);                     <span class="comment">//http server</span>
+  <span class="keyword">var</span> https        = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>);                    <span class="comment">//https server</span>
+  <span class="keyword">var</span> fs           = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);                       <span class="comment">//file system</span>
+  <span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);                  <span class="comment">//express middleware</span>
+  <span class="keyword">var</span> morgan       = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);                   <span class="comment">//logger for express</span>
+  <span class="keyword">var</span> bodyParser   = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>);              <span class="comment">//body parsing middleware</span>
+  <span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>);            <span class="comment">//cookie parsing middleware</span>
+  <span class="keyword">var</span> session      = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);          <span class="comment">//express session management</span>
+  <span class="keyword">var</span> passport     = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);                 <span class="comment">//authentication middleware</span>
+  <span class="keyword">var</span> ufshib       = <span class="built_in">require</span>(<span class="string">&#x27;passport-ufshib&#x27;</span>);          <span class="comment">//UF Shibboleth auth strategy</span>
 </code></pre><p>  You must create a shibboleth2.json file and locate it in a ./config directory off the root of your server.
   Example shibboleth2.json contents:</p>
-<pre><code>  {
-      <span class="attr">"idp_entrypoint"</span>: <span class="string">"https://{IDP_HOST}/idp/profile/SAML2/Redirect/SSO"</span>,
-      <span class="attr">"domain"</span>: <span class="string">"your.website.ufl.edu"</span>,
-       <span class="attr">"entityId"</span> :<span class="string">"urn:edu:ufl:dev:00000"</span>,
-       <span class="attr">"cert_path"</span>: <span class="string">"./security/server-cert.pem"</span>,
-       <span class="attr">"pvt_key_path"</span>: <span class="string">"./security/server-pvk.pem"</span>,
-       <span class="attr">"attribute_path"</span>: <span class="string">"./config/attribute-map.xml"</span>,
-       <span class="attr">"status_401_route"</span>: <span class="string">"/api"</span>
-  }
+<pre><code>  <span class="punctuation">{</span>
+      <span class="attr">&quot;idp_entrypoint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://{IDP_HOST}/idp/profile/SAML2/Redirect/SSO&quot;</span><span class="punctuation">,</span>
+      <span class="attr">&quot;domain&quot;</span><span class="punctuation">:</span> <span class="string">&quot;your.website.ufl.edu&quot;</span><span class="punctuation">,</span>
+       <span class="attr">&quot;entityId&quot;</span> <span class="punctuation">:</span><span class="string">&quot;urn:edu:ufl:dev:00000&quot;</span><span class="punctuation">,</span>
+       <span class="attr">&quot;cert_path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./security/server-cert.pem&quot;</span><span class="punctuation">,</span>
+       <span class="attr">&quot;pvt_key_path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./security/server-pvk.pem&quot;</span><span class="punctuation">,</span>
+       <span class="attr">&quot;attribute_path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./config/attribute-map.xml&quot;</span><span class="punctuation">,</span>
+       <span class="attr">&quot;status_401_route&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/api&quot;</span>
+  <span class="punctuation">}</span>
 </code></pre><p>  Also place a current attribute-map.xml file in the ./config directory.  The location to place this is configurable from within the shibboleth2.json file.</p>
 <p>  You must use openssl to create a self signed certificate and private key pair to use to encrypt traffic with the IDP. The paths to where you put your cert/key pair is configurable in the shibboleth2.json file as well.  I put them in another directory ./security located off the root of the server as well.</p>
 <p>  The status_401_route object allows you to have different redirect behavior for api routes.  In angularjs it is not convenient to call an api and get redirected to a login page for an expired session. So this allows you to configure a route that starts with /api, for example, and have it return a 401 instead of a logon page redirect.  This will save you XSS errors in your users browser.  Typically when you recieve an api error with status 401, you would reload the entire page, triggering a redirect to the logon page at the IDP.</p>
 <p>  <code>&quot;status_401_route&quot;: &quot;/api&quot;</code></p>
 <p>  The script creates the UF Shibboleth Strategy, and tells Passport to use it.</p>
-<pre><code>    <span class="keyword">var</span> strategy = <span class="keyword">new</span> ufshib.Strategy({
-        callbackUrl: loginCallbackUrl,
-        forced: <span class="keyword">true</span>
+<pre><code>    <span class="keyword">var</span> strategy = <span class="keyword">new</span> ufshib.<span class="title function_ invoke__">Strategy</span>({
+        <span class="attr">callbackUrl</span>: loginCallbackUrl,
+        <span class="attr">forced</span>: <span class="literal">true</span>
     });
 
-    passport.<span class="keyword">use</span>(<span class="title">strategy</span>);
+    passport.<span class="keyword">use</span>(strategy);
 </code></pre><p>You will typically want to use sessions to allow users to authenticate only once per-sesion. The next functions are called by Passport to serialize and deserialize the user to the session. As noted in the comments, you would typically want to serialize only the unique ID (<code>.netID</code>) and reconstitute the user from your database during deserialzie. But to keep things simple, the script serializes the entire user and deserializes it again.</p>
 <pre><code>    passport.serialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span>{
         <span class="keyword">done</span>(null, user);
@@ -156,10 +156,10 @@
 </code></pre><p>The <code>ufshib.backToUrl()</code> is a convenience middleware that will redirect the browser back to the URL that was originally requested before authentication.</p>
 <p>Lastly, the script tells Express to use the <code>ensureAuth()</code> middleware provided by this module to secure all routes declared after this.</p>
 <pre><code>    <span class="comment">//secure all routes following this</span>
-    app.<span class="keyword">use</span>(<span class="title">ufshib</span>.<span class="title">ensureAuth</span>(<span class="title">loginUrl</span>));
+    app.use(ufshib.ensure<span class="constructor">Auth(<span class="params">loginUrl</span>)</span>);
 </code></pre><p>Any route requested after this middleware will require authentication. When requested, those routes will automatically redirect to the <code>loginUrl</code> if the user has not already authenticated. After successful authentication, the browser will be redirected back to the original URL, and the user information will be available via the <code>.user</code> property on the request object.</p>
 <p>Note that <code>ensureAuth</code> can also be used to selectively secure routes. For example:</p>
-<pre><code>    app.get('protected/resource', ensureAuth(loginUrl), function(req, res) {
+<pre><code>    app.get(&#x27;protected/resource&#x27;, ensureAuth(loginUrl), function(req, res) {
         //<span class="keyword">user</span> <span class="title">has</span> authenticated, do normal route processing
         //<span class="keyword">user</span> <span class="title">is</span> available via req.<span class="keyword">user</span>
     <span class="title">});</span>
@@ -167,14 +167,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ufshib</span></code></div>
             <ul>
-              <li><span class="version">0.1.8</span> published <abbr class="updated" title="2022-06-23T13:41:28Z">a month ago</abbr></li>
+              <li><span class="version">0.1.8</span> published <abbr class="updated" title="2022-06-23T13:41:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/crohead13/passport-ufshib">https://www.ufl.edu</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

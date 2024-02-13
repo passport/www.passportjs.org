@@ -108,46 +108,46 @@
 <li><code>passReqToCallback</code> - optional. Causes the request object to be supplied to the verify callback as the first parameter.</li>
 </ul>
 <p>The verify callback decides whether to authenticate each request. It called with the extracted header names/values and a <a href="http://passportjs.org/guide/configure/">passport.js <code>done</code> callback</a>.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
-<span class="keyword">var</span> Strategy = <span class="built_in">require</span>(<span class="string">'passport-trusted-headers'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
+<span class="keyword">var</span> <span class="title class_">Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-trusted-headers&#x27;</span>).<span class="property">Strategy</span>;
 
 <span class="keyword">var</span> options =  {
-  <span class="attr">headers</span>: [<span class="string">'TLS_CLIENT_DN'</span>]
+  <span class="attr">headers</span>: [<span class="string">&#x27;TLS_CLIENT_DN&#x27;</span>]
 }
 
-passport.use(<span class="keyword">new</span> Strategy(options, <span class="function"><span class="keyword">function</span>(<span class="params">requestHeaders, done</span>) </span>{
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">Strategy</span>(options, <span class="keyword">function</span>(<span class="params">requestHeaders, done</span>) {
   <span class="keyword">var</span> user = <span class="literal">null</span>;
-  <span class="keyword">var</span> userDn = requestHeaders.TLS_CLIENT_DN;
+  <span class="keyword">var</span> userDn = requestHeaders.<span class="property">TLS_CLIENT_DN</span>;
 
   <span class="comment">// Authentication logic here!</span>
-  <span class="keyword">if</span>(userDn === <span class="string">'CN=test-cn'</span>) {
-    user = { <span class="attr">name</span>: <span class="string">'Test User'</span> }
+  <span class="keyword">if</span>(userDn === <span class="string">&#x27;CN=test-cn&#x27;</span>) {
+    user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
 
-  done(<span class="literal">null</span>, user);
+  <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
 </code></pre>
 <p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing callback arguments accordingly.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> options =  {
-  <span class="attr">headers</span>: [<span class="string">'TLS_CLIENT_DN'</span>],
+<pre><code class="javascript"><span class="keyword">var</span> options =  {
+  <span class="attr">headers</span>: [<span class="string">&#x27;TLS_CLIENT_DN&#x27;</span>],
   <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
 }
 
-passport.use(<span class="keyword">new</span> Strategy(options, <span class="function"><span class="keyword">function</span>(<span class="params">req, requestHeaders, done</span>) </span>{
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">Strategy</span>(options, <span class="keyword">function</span>(<span class="params">req, requestHeaders, done</span>) {
   <span class="keyword">var</span> user = <span class="literal">null</span>;
-  <span class="keyword">var</span> userDn = requestHeaders.TLS_CLIENT_DN;
+  <span class="keyword">var</span> userDn = requestHeaders.<span class="property">TLS_CLIENT_DN</span>;
 
   <span class="comment">// Authentication logic here!</span>
-  <span class="keyword">if</span>(userDn === <span class="string">'CN=test-cn'</span>) {
-    user = { <span class="attr">name</span>: <span class="string">'Test User'</span> }
+  <span class="keyword">if</span>(userDn === <span class="string">&#x27;CN=test-cn&#x27;</span>) {
+    user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
 
-  done(<span class="literal">null</span>, user);
+  <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
 </code></pre>
 <h2 id="test">Test</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="contibuting">Contibuting</h2>
 <p>Contributions are welcome! Please write unit tests, follow the existing coding style and lint with <a href="http://eslint.org/">eslint</a>.</p>
 <h2 id="authors">Authors</h2>
@@ -158,14 +158,14 @@ passport.use(<span class="keyword">new</span> Strategy(options, <span class="fun
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-trusted-header</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:39:16Z">a month ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:39:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ripjar/passport-trusted-header">https://github.com/ripjar/passport-trusted-header</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>324</b> downloads in the last day</li>
-              <li><b>1,818</b> downloads in the last week</li>
-              <li><b>10,074</b> downloads in the last month</li>
+              <li><b>345</b> downloads in the last day</li>
+              <li><b>2,247</b> downloads in the last week</li>
+              <li><b>11,550</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

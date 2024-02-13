@@ -115,18 +115,18 @@ unobtrusively integrated into any application or framework that supports
 and OpenID Connect tokens. The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> PhantAuthStrategy = <span class="built_in">require</span>(<span class="string">'passport-phantauth'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">const</span> <span class="title class_">PhantAuthStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-phantauth&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(
-  <span class="keyword">new</span> PhantAuthStrategy(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">PhantAuthStrategy</span>(
     {
       <span class="attr">clientID</span>: client_id,
       <span class="attr">clientSecret</span>: client_secret,
-      <span class="attr">callbackURL</span>: <span class="string">'http://localhost:8888/auth/phantauth/callback'</span>
+      <span class="attr">callbackURL</span>: <span class="string">&#x27;http://localhost:8888/auth/phantauth/callback&#x27;</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) </span>{
-      User.findOrCreate({ <span class="attr">userId</span>: profile.id }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-        <span class="keyword">return</span> done(err, user);
+    <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, expires_in, profile, done</span>) {
+      <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">userId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
       });
     }
   )
@@ -137,17 +137,17 @@ passport.use(
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/phantauth'</span>, passport.authenticate(<span class="string">'phantauth'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/phantauth&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;phantauth&#x27;</span>), <span class="keyword">function</span>(<span class="params">req, res</span>) {
   <span class="comment">// The request will be redirected to PhantAuth for authentication, so this</span>
   <span class="comment">// function will not be called.</span>
 });
 
-app.get(
-  <span class="string">'/auth/phantauth/callback'</span>,
-  passport.authenticate(<span class="string">'phantauth'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/phantauth/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;phantauth&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
@@ -155,12 +155,12 @@ app.get(
 <p>Depending on the data you want to fetch, you may want to specify OpenID Connect scopes. For more information about scopes check <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect Core</a>.</p>
 <p>By default, all OpenID Connect scope is passed. That means that you fetch all information.</p>
 <p>You can specify the parameters in the <code>authenticate</code> call:</p>
-<pre><code class="lang-javascript">app.get(
-  <span class="string">'/auth/phantauth'</span>,
-  passport.authenticate(<span class="string">'phantauth'</span>, {
-    <span class="attr">scope</span>: [<span class="string">'profile'</span>, <span class="string">'email'</span>]
+<pre><code class="javascript">app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/phantauth&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;phantauth&#x27;</span>, {
+    <span class="attr">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]
   }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// The request will be redirected to PhantAuth for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   }
@@ -170,8 +170,8 @@ app.get(
 <p>For a complete, working example, check <a href="https://phantauth-sample-passport.now.sh/">Phantauth Sample Passport</a> website. For source, refer to <a href="https://github.com/phantauth/phantauth-sample-passport">GitHub repository</a>).</p>
 <p>For a minimal, working example, refer to the <a href="https://github.com/phantauth/passport-phantauth/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="license">License</h2>
 <p>based on <a href="https://github.com/JMPerez/passport-spotify">passport-spotify</a> by José M. Pérez</p>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
@@ -179,14 +179,14 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-phantauth</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-05-12T15:53:49Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-05-12T15:53:49Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/phantauth/passport-phantauth">https://github.com/phantauth/passport-phantauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

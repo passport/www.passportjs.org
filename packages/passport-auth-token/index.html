@@ -113,7 +113,7 @@ unobtrusively integrated into any application or framework that supports
 The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.
 Here is the pseudo code.</p>
-<pre><code>passport.use(<span class="string">'authtoken'</span>, <span class="keyword">new</span> AuthTokenStrategy(
+<pre><code>passport.use(<span class="string">&#x27;authtoken&#x27;</span>, <span class="keyword">new</span> AuthTokenStrategy(
   function(token, done) {
     AccessToken.findOne({
       id: token
@@ -151,24 +151,24 @@ Here is the pseudo code.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>,
+<pre><code>app.post(<span class="string">&#x27;/login&#x27;</span>,
   passport.authenticate(
-    <span class="string">'authtoken'</span>,
+    <span class="string">&#x27;authtoken&#x27;</span>,
     {
       session: <span class="literal">false</span>,
       optional: <span class="literal">false</span>
     }
   ),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+  <span class="keyword">function</span><span class="params">(req, res)</span> {
+    res.redirect(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre><p>You can also set the parameter <code>optional</code> to true, so the same call can be both authenticated and not authenticated.</p>
 <h2 id="examples">Examples</h2>
 <p>For complete, working examples, refer to the multiple <a href="https://github.com/jaredhanson/passport-token/tree/master/examples">examples</a> included. (NOT UPDATED)</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/mbell8903">Mike Bell</a></li>
@@ -180,14 +180,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth-token</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:17:21Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:17:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mbell8903/passport-auth-token">https://github.com/mbell8903/passport-auth-token</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>958</b> downloads in the last day</li>
-              <li><b>4,423</b> downloads in the last week</li>
-              <li><b>19,151</b> downloads in the last month</li>
+              <li><b>1,007</b> downloads in the last day</li>
+              <li><b>5,194</b> downloads in the last week</li>
+              <li><b>28,909</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

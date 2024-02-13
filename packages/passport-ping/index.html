@@ -110,41 +110,41 @@ unobtrusively integrated into any application or framework that supports
 and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts
 these credentials and calls <code>done</code> providing a user, as well as <code>options</code>
 specifying a host, port, client ID, client secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> PingStrategy({
-    clientID: <span class="string">'123-456-789'</span> ,
-    clientSecret: <span class="string">'shhh-its-a-secret'</span> ,
-    callbackURL: <span class="string">'https://www.example.net/auth/ping/callback'</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">PingStrategy</span>({
+    <span class="attribute">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span> ,
+    <span class="attribute">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span> ,
+    <span class="attribute">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/ping/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+    User.<span class="built_in">findOrCreate</span>(..., function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
 
-passport.use(<span class="keyword">new</span> PingStrategy({
-    host: <span class="string">'localhost'</span> ,
-    clientID: <span class="string">'123-456-789'</span> ,
-    clientSecret: <span class="string">'shhh-its-a-secret'</span> ,
-    callbackURL: <span class="string">'https://www.example.net/auth/ping/callback'</span>
+<span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">PingStrategy</span>({
+    <span class="attribute">host</span>: <span class="string">&#x27;localhost&#x27;</span> ,
+    <span class="attribute">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span> ,
+    <span class="attribute">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span> ,
+    <span class="attribute">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/ping/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+    User.<span class="built_in">findOrCreate</span>(..., function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
 
-passport.use(<span class="keyword">new</span> PingStrategy({
-    host: <span class="string">'localhost'</span> ,
-    port: <span class="number">9031</span> ,
-    clientID: <span class="string">'123-456-789'</span> ,
-    clientSecret: <span class="string">'shhh-its-a-secret'</span> ,
-    callbackURL: <span class="string">'https://www.example.net/auth/ping/callback'</span>
+<span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">PingStrategy</span>({
+    <span class="attribute">host</span>: <span class="string">&#x27;localhost&#x27;</span> ,
+    <span class="attribute">port</span>: <span class="number">9031</span> ,
+    <span class="attribute">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span> ,
+    <span class="attribute">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span> ,
+    <span class="attribute">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/ping/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+    User.<span class="built_in">findOrCreate</span>(..., function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -153,14 +153,14 @@ passport.use(<span class="keyword">new</span> PingStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/ping'</span>,
-  passport.authenticate(<span class="string">'ping'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ping&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;ping&#x27;</span>));
 
-app.get(<span class="string">'/auth/ping/callback'</span>,
-  passport.authenticate(<span class="string">'ping'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ping/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;ping&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -172,14 +172,14 @@ app.get(<span class="string">'/auth/ping/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ping</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:18:04Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:18:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/athieme/passport-ping">https://github.com/athieme/passport-ping</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>86</b> downloads in the last day</li>
-              <li><b>620</b> downloads in the last week</li>
-              <li><b>2,402</b> downloads in the last month</li>
+              <li><b>2,489</b> downloads in the last day</li>
+              <li><b>13,941</b> downloads in the last week</li>
+              <li><b>94,327</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

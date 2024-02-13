@@ -102,25 +102,25 @@
 <p><a href="https://github.com/alphagov/verify-service-provider/README.md">Set up the VSP</a>.</p>
 <h2 id="usage">Usage</h2>
 <h3 id="step-1-install-passport-verify">Step 1. Install <code>passport-verify</code></h3>
-<pre><code class="lang-bash">npm install --save passport-verify
+<pre><code class="bash">npm install --save passport-verify
 </code></pre>
 <h3 id="step-2-configure-the-passport-verify-strategy">Step 2. Configure the <code>passport-verify</code> strategy</h3>
 <p>Use the <code>createIdentityStrategy</code> method to create a strategy when configuring passport.js. For more information about the method, see the <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createidentitystrategy">API documentation for <code>createIdentityStrategy</code></a>.</p>
 <p>The code block shows an example of how to <a href="http://passportjs.org/docs/configure#strategies">configure the <code>passport-verify</code> strategy</a>.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> passportVerify = <span class="built_in">require</span>(<span class="string">'passport-verify'</span>)
-<span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)
+<pre><code class="javascript"><span class="keyword">const</span> passportVerify = <span class="built_in">require</span>(<span class="string">&#x27;passport-verify&#x27;</span>)
+<span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)
 
 <span class="comment">// Real applications should have a real backend for storing users.</span>
 <span class="keyword">const</span> fakeUserDatabase = {}
 
 <span class="comment">// Passport-Verify dependes on any bodyParser</span>
 <span class="comment">// to be configured as a middleware.</span>
-app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}))
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({<span class="attr">extended</span>: <span class="literal">false</span>}))
 
-passport.use(passportVerify.createIdentityStrategy(
+passport.<span class="title function_">use</span>(passportVerify.<span class="title function_">createIdentityStrategy</span>(
 
  <span class="comment">// verifyServiceProviderHost</span>
- <span class="string">'http://localhost:50400'</span>,
+ <span class="string">&#x27;http://localhost:50400&#x27;</span>,
 
  <span class="comment">// A callback for an identity authentication.</span>
  <span class="comment">// This function is called at the end of the authentication flow</span>
@@ -128,72 +128,72 @@ passport.use(passportVerify.createIdentityStrategy(
  <span class="comment">// it should either return a user object or false if the user is not</span>
  <span class="comment">// accepted by the application for whatever reason. It can also return a</span>
  <span class="comment">// Promise in case it is asynchronous.</span>
- <span class="function"><span class="keyword">function</span> <span class="title">handleIdentity</span> (<span class="params">identity</span>) </span>{
+ <span class="keyword">function</span> <span class="title function_">handleIdentity</span> (identity) {
 
    <span class="comment">// This should be an error case if the local matching strategy is</span>
    <span class="comment">// done correctly.</span>
-   <span class="keyword">if</span> (fakeUserDatabase[user.pid]) {
-     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(
-       <span class="string">'Local matching strategy has defined '</span> +
-       <span class="string">'the user to be new to the application, '</span> +
-       <span class="string">'but the User PID already exists.'</span>)
+   <span class="keyword">if</span> (fakeUserDatabase[user.<span class="property">pid</span>]) {
+     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+       <span class="string">&#x27;Local matching strategy has defined &#x27;</span> +
+       <span class="string">&#x27;the user to be new to the application, &#x27;</span> +
+       <span class="string">&#x27;but the User PID already exists.&#x27;</span>)
    }
 
-   fakeUserDatabase[user.pid] = <span class="built_in">Object</span>.assign({<span class="attr">id</span>: identity.pid}, identity.attributes)
-   <span class="keyword">return</span> <span class="built_in">Object</span>.assign({ <span class="attr">levelOfAssurance</span>: identity.levelOfAssurance }, fakeUserDatabase[identity.pid])
+   fakeUserDatabase[user.<span class="property">pid</span>] = <span class="title class_">Object</span>.<span class="title function_">assign</span>({<span class="attr">id</span>: identity.<span class="property">pid</span>}, identity.<span class="property">attributes</span>)
+   <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">assign</span>({ <span class="attr">levelOfAssurance</span>: identity.<span class="property">levelOfAssurance</span> }, fakeUserDatabase[identity.<span class="property">pid</span>])
  },
 
 <span class="comment">// A callback that saves the unique request ID associated with the SAML messages</span>
-<span class="comment">// to the user's session.</span>
+<span class="comment">// to the user&#x27;s session.</span>
 <span class="comment">// This function is called after the Verify Service Provider has generated and</span>
 <span class="comment">// returned the AuthnRequest and associated RequestID.</span>
 <span class="comment">// The requestID should be saved in a secure manner, and such that it</span>
-<span class="comment">// corresponds to the user's current session and can be retrieved in order to validate</span>
+<span class="comment">// corresponds to the user&#x27;s current session and can be retrieved in order to validate</span>
 <span class="comment">// that SAML response that is returned from the IDP corresponds to the original AuthnRequest.</span>
-<span class="function"><span class="keyword">function</span> <span class="title">saveRequestId</span> (<span class="params">requestId, request</span>) </span>{
+<span class="keyword">function</span> <span class="title function_">saveRequestId</span> (requestId, request) {
 
   <span class="comment">// The following is an example that saves the requestId using the express-session middleware</span>
   <span class="comment">// This would require express-session to be initialised with a secure secret e.g:</span>
 
-  <span class="comment">// const session = require('express-session')</span>
+  <span class="comment">// const session = require(&#x27;express-session&#x27;)</span>
   <span class="comment">//</span>
   <span class="comment">// app.use(session({</span>
-  <span class="comment">//  secret: 'super secret secure token',</span>
+  <span class="comment">//  secret: &#x27;super secret secure token&#x27;,</span>
   <span class="comment">//  resave: true,</span>
   <span class="comment">//  saveUninitialized: true</span>
   <span class="comment">// }))</span>
 
-  request.session.requestId = requestId
+  request.<span class="property">session</span>.<span class="property">requestId</span> = requestId
 },
 
-<span class="comment">// A callback that returns the requestId that corresponds to the user's session.</span>
+<span class="comment">// A callback that returns the requestId that corresponds to the user&#x27;s session.</span>
 <span class="comment">// This is used by the Verify Service Provider to ensure SAMLResponses received from IDPS</span>
-<span class="comment">// correspond to a the user's active session.</span>
-<span class="function"><span class="keyword">function</span> <span class="title">loadRequestId</span> (<span class="params">request</span>) </span>{
+<span class="comment">// correspond to a the user&#x27;s active session.</span>
+<span class="keyword">function</span> <span class="title function_">loadRequestId</span> (request) {
 
   <span class="comment">// The following is an example that retrieves the request ID from the aforementioned</span>
   <span class="comment">// express-session object.</span>
-  <span class="keyword">return</span> request.session.requestId
+  <span class="keyword">return</span> request.<span class="property">session</span>.<span class="property">requestId</span>
 },
 <span class="comment">// Service Entity Id</span>
-<span class="string">'http://your-service-entity-id'</span>
+<span class="string">&#x27;http://your-service-entity-id&#x27;</span>
 <span class="comment">// This is only required when your Verify Service Provider is set up to be multi tenanted.</span>
 <span class="comment">// If it is provided, it is passed to the Verify Service Provider with each request, and</span>
 <span class="comment">// used to identify this service.</span>
 
 <span class="comment">// Saml Form Template Location</span>
-<span class="string">'saml-form-template.njk'</span>,
+<span class="string">&#x27;saml-form-template.njk&#x27;</span>,
 <span class="comment">// This is an optional parameter which can be used to style the saml form</span>
 <span class="comment">// used to send the authn request to Verify.</span>
-<span class="comment">// This template should only be rendered if Javascript has been disabled in the user's browser.</span>
+<span class="comment">// This template should only be rendered if Javascript has been disabled in the user&#x27;s browser.</span>
 <span class="comment">// If provided, the ssoLocation and samlRequest recieved from the Verify Service Provider</span>
 <span class="comment">// will be provided to the named template for rendering.</span>
 <span class="comment">// If this is not provided, passport-verify will render a default auto posting form</span>
 <span class="comment">// with the correct attributes.</span>
 
 <span class="comment">// Level of Assurance</span>
-<span class="comment">// LEVEL_1 or LEVEL2 depending on your service's requirements. Defaults to LEVEL_2.</span>
-<span class="string">'LEVEL_2'</span>
+<span class="comment">// LEVEL_1 or LEVEL2 depending on your service&#x27;s requirements. Defaults to LEVEL_2.</span>
+<span class="string">&#x27;LEVEL_2&#x27;</span>
 ))
 </code></pre>
 <p>If your service uses Matching Service Adapter, you should use the <code>createStrategy</code> method to create a strategy when configuring passport.js. See the <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createstrategy">API documentation for the createStrategy method</a> for more details.</p>
@@ -202,32 +202,32 @@ passport.use(passportVerify.createIdentityStrategy(
 <p>See the API documentation for more details about the <a href="https://alphagov.github.io/passport-verify/modules/_create_identity_response_handler_.html#createidentityresponsehandler"><code>createIdentityResponseHandler</code> method</a>
 and its <a href="https://alphagov.github.io/passport-verify/interfaces/_create_identity_response_handler_.responsescenarios.html">callbacks</a>.</p>
 <p>The exact routes depend on how you plan on using the responses from GOV.UK Verify Hub. The example in the code block configures a route to allow a verified user to access the service:</p>
-<pre><code class="lang-javascript">
+<pre><code class="javascript">
 <span class="comment">// route for authenticating a user</span>
-app.post(<span class="string">'/verify/start'</span>, passport.authenticate(<span class="string">'verify'</span>))
+app.<span class="title function_">post</span>(<span class="string">&#x27;/verify/start&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;verify&#x27;</span>))
 
 <span class="comment">// route for handling a callback from verify</span>
-app.post(<span class="string">'/verify/response'</span>, (req, res, next) =&gt; (
+app.<span class="title function_">post</span>(<span class="string">&#x27;/verify/response&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> (
 
    <span class="comment">// in this example, authenticate() is being called from within the route handler</span>
    <span class="comment">// rather than being used as middleware, this provides access to the request</span>
    <span class="comment">// and response objects through closure</span>
-   <span class="keyword">const</span> authMiddleware = passport.authenticate(<span class="string">'verify'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, identity, infoOrError, status</span>) </span>{
+   <span class="keyword">const</span> authMiddleware = passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;verify&#x27;</span>, <span class="keyword">function</span> (<span class="params">error, identity, infoOrError, status</span>) {
 
     <span class="keyword">if</span> (error) {
-      <span class="keyword">return</span> res.send(<span class="string">`TODO: render error-page with message <span class="subst">${error: error.message}</span>`</span>)
+      <span class="keyword">return</span> res.<span class="title function_">send</span>(<span class="string">`TODO: render error-page with message <span class="subst">${error: error.message}</span>`</span>)
     }
 
     <span class="keyword">if</span> (identity) {
       <span class="comment">// passport-verify requires the use of a custom callback to handle successful</span>
       <span class="comment">// authentication</span>
-      <span class="keyword">return</span> req.logIn(identity, () =&gt; res.send(<span class="string">'TODO: redirect to service landing page'</span>)))
+      <span class="keyword">return</span> req.<span class="title function_">logIn</span>(identity, <span class="function">() =&gt;</span> res.<span class="title function_">send</span>(<span class="string">&#x27;TODO: redirect to service landing page&#x27;</span>)))
     }
 
-    <span class="keyword">return</span> res.send(<span class="string">`TODO: redirect to authentication failed page with <span class="subst">${error: infoOrError}</span>`</span>)
+    <span class="keyword">return</span> res.<span class="title function_">send</span>(<span class="string">`TODO: redirect to authentication failed page with <span class="subst">${error: infoOrError}</span>`</span>)
 
   })
-  authMiddleware(req, res, next)
+  <span class="title function_">authMiddleware</span>(req, res, next)
 </code></pre>
 <p>If your service uses a Matching Service Adapter, you should use the <code>createResponseHandler</code> method to configure routes for the authentication flow. See the API documentation for more details about the <a href="https://alphagov.github.io/passport-verify/modules/_create_response_handler_.html#createresponsehandler"><code>createResponseHandler</code> method</a>
 and its <a href="https://alphagov.github.io/passport-verify/interfaces/_create_response_handler_.responsescenarios.html#onauthnfailed">callbacks</a>.</p>
@@ -259,7 +259,7 @@ To enable logs, set this variable;</p>
 </code></pre><p><strong>Compile and test the code</strong></p>
 <pre><code>npm <span class="built_in">test</span>
 </code></pre><p><strong>Install dependencies, compile and test the code - run this before commiting</strong></p>
-<pre><code>npm <span class="keyword">run</span><span class="bash"> pre-commit</span>
+<pre><code>npm <span class="built_in">run</span> pre-commit
 </code></pre><h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>If you think you have discovered a security issue in this code please email <a href="mailto:disclosure@digital.cabinet-office.gov.uk">disclosure@digital.cabinet-office.gov.uk</a> with details.</p>
 <p>For non-security related bugs and feature requests please <a href="https://github.com/alphagov/passport-verify/issues/new">raise an issue</a> in the github issue tracker.</p>
@@ -267,14 +267,14 @@ To enable logs, set this variable;</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-verify</span></code></div>
             <ul>
-              <li><span class="version">2.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:10Z">a month ago</abbr></li>
+              <li><span class="version">2.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/alphagov/passport-verify">https://github.com/alphagov/passport-verify#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>60</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>15</b> downloads in the last week</li>
+              <li><b>64</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

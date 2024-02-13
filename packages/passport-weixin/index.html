@@ -96,61 +96,61 @@
           <div class="description"><h2 id="passport-weixin">passport-weixin</h2>
 <p>passport oauth2 strategy for weixin and weapp</p>
 <h3 id="install">Install</h3>
-<pre><code class="lang-bash">npm install passport-weixin
+<pre><code class="bash">npm install passport-weixin
 </code></pre>
 <h3 id="usage">Usage</h3>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , WeixinStrategy = <span class="built_in">require</span>(<span class="string">'passport-weixin'</span>)
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , <span class="title class_">WeixinStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-weixin&#x27;</span>)
   ;
 <span class="comment">//扫码登录</span>
 <span class="comment">//微信官网文档：https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419316505&amp;token=&amp;lang=zh_CN</span>
-passport.use(<span class="string">'loginByWeixin'</span>,<span class="keyword">new</span> WeixinStrategy({
-  <span class="attr">clientID</span>: <span class="string">'CLIENTID'</span>
-  , <span class="attr">clientSecret</span>: <span class="string">'CLIENT SECRET'</span>
-  , <span class="attr">callbackURL</span>: <span class="string">'CALLBACK URL'</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;loginByWeixin&#x27;</span>,<span class="keyword">new</span> <span class="title class_">WeixinStrategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;CLIENTID&#x27;</span>
+  , <span class="attr">clientSecret</span>: <span class="string">&#x27;CLIENT SECRET&#x27;</span>
+  , <span class="attr">callbackURL</span>: <span class="string">&#x27;CALLBACK URL&#x27;</span>
   , <span class="attr">requireState</span>: <span class="literal">false</span>
-  , <span class="attr">scope</span>: <span class="string">'snsapi_login'</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
-  done(<span class="literal">null</span>, profile);
+  , <span class="attr">scope</span>: <span class="string">&#x27;snsapi_login&#x27;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>){
+  <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 
 <span class="comment">//微信客户端登录</span>
 <span class="comment">//微信官网文档：http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html</span>
-passport.use(<span class="string">'loginByWeixinClient'</span>,<span class="keyword">new</span> WeixinStrategy({
-  <span class="attr">clientID</span>: <span class="string">'CLIENTID'</span>
-  , <span class="attr">clientSecret</span>: <span class="string">'CLIENT SECRET'</span>
-  , <span class="attr">callbackURL</span>: <span class="string">'CALLBACK URL'</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;loginByWeixinClient&#x27;</span>,<span class="keyword">new</span> <span class="title class_">WeixinStrategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;CLIENTID&#x27;</span>
+  , <span class="attr">clientSecret</span>: <span class="string">&#x27;CLIENT SECRET&#x27;</span>
+  , <span class="attr">callbackURL</span>: <span class="string">&#x27;CALLBACK URL&#x27;</span>
   , <span class="attr">requireState</span>: <span class="literal">false</span>
-  , <span class="attr">authorizationURL</span>: <span class="string">'https://open.weixin.qq.com/connect/oauth2/authorize'</span> <span class="comment">//[公众平台-网页授权获取用户基本信息]的授权URL 不同于[开放平台-网站应用微信登录]的授权URL</span>
-  , <span class="attr">scope</span>: <span class="string">'snsapi_userinfo'</span> <span class="comment">//[公众平台-网页授权获取用户基本信息]的应用授权作用域 不同于[开放平台-网站应用微信登录]的授权URL</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
-  done(<span class="literal">null</span>, profile);
+  , <span class="attr">authorizationURL</span>: <span class="string">&#x27;https://open.weixin.qq.com/connect/oauth2/authorize&#x27;</span> <span class="comment">//[公众平台-网页授权获取用户基本信息]的授权URL 不同于[开放平台-网站应用微信登录]的授权URL</span>
+  , <span class="attr">scope</span>: <span class="string">&#x27;snsapi_userinfo&#x27;</span> <span class="comment">//[公众平台-网页授权获取用户基本信息]的应用授权作用域 不同于[开放平台-网站应用微信登录]的授权URL</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>){
+  <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 
 </code></pre>
 <p>路由配置如下</p>
-<pre><code class="lang-js">    <span class="comment">//在PC端通过扫描登录，使用/auth/loginByWeixin</span>
-    app.get(<span class="string">"/auth/loginByWeixin"</span>,
-        passport.authenticate(<span class="string">'loginByWeixin'</span>,{ <span class="attr">successRedirect</span>: <span class="string">'/test/hello'</span>,
-            <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> })
+<pre><code class="js">    <span class="comment">//在PC端通过扫描登录，使用/auth/loginByWeixin</span>
+    app.<span class="title function_">get</span>(<span class="string">&quot;/auth/loginByWeixin&quot;</span>,
+        passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;loginByWeixin&#x27;</span>,{ <span class="attr">successRedirect</span>: <span class="string">&#x27;/test/hello&#x27;</span>,
+            <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> })
     );
 
     <span class="comment">//在微信客户端登录，使用/auth/loginByWeixinClient</span>
-    app.get(<span class="string">"/auth/loginByWeixinClient"</span>,
-        passport.authenticate(<span class="string">'loginByWeixinClient'</span>,{ <span class="attr">successRedirect</span>: <span class="string">'/test/hello'</span>,
-            <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> })
+    app.<span class="title function_">get</span>(<span class="string">&quot;/auth/loginByWeixinClient&quot;</span>,
+        passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;loginByWeixinClient&#x27;</span>,{ <span class="attr">successRedirect</span>: <span class="string">&#x27;/test/hello&#x27;</span>,
+            <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> })
     );
 </code></pre>
 <h3 id="weapp-">Weapp 微信小程序</h3>
 <h4 id="-">配置</h4>
 <p>test/bootstrap/providers.json</p>
-<pre><code class="lang-json">...
-    &quot;clientID&quot;: &quot;替换为自己的小程序AppID&quot;,
-    &quot;clientSecret&quot;: &quot;替换为自己的小程序AppSecret&quot;,
+<pre><code class="json">...
+    <span class="attr">&quot;clientID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;替换为自己的小程序AppID&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;clientSecret&quot;</span><span class="punctuation">:</span> <span class="string">&quot;替换为自己的小程序AppSecret&quot;</span><span class="punctuation">,</span>
 ...
 </code></pre>
 <h4 id="-">启动测试服务</h4>
-<pre><code class="lang-bash"><span class="comment"># npm install</span>
+<pre><code class="bash"><span class="comment"># npm install</span>
 <span class="comment"># npm start</span>
 </code></pre>
 <h4 id="https">HTTPS</h4>
@@ -164,14 +164,14 @@ passport.use(<span class="string">'loginByWeixinClient'</span>,<span class="keyw
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-weixin</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:47:40Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:47:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/wyntau/passport-weixin">https://github.com/Treri/passport-weixin</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>45</b> downloads in the last week</li>
-              <li><b>210</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>13</b> downloads in the last week</li>
+              <li><b>77</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

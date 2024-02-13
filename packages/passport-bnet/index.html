@@ -103,28 +103,28 @@ service. In order to use it you need to register an application at the
 <pre><code>$ npm install pass<span class="keyword">port</span>-bnet
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure">Configure</h3>
-<pre><code class="lang-js"><span class="keyword">var</span> BnetStrategy = <span class="built_in">require</span>(<span class="string">'passport-bnet'</span>).Strategy;
-<span class="keyword">var</span> BNET_ID = process.env.BNET_ID
-<span class="keyword">var</span> BNET_SECRET = process.env.BNET_SECRET
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">BnetStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-bnet&#x27;</span>).<span class="property">Strategy</span>;
+<span class="keyword">var</span> <span class="variable constant_">BNET_ID</span> = process.<span class="property">env</span>.<span class="property">BNET_ID</span>
+<span class="keyword">var</span> <span class="variable constant_">BNET_SECRET</span> = process.<span class="property">env</span>.<span class="property">BNET_SECRET</span>
 
 <span class="comment">// Use the BnetStrategy within Passport.</span>
-passport.use(<span class="keyword">new</span> BnetStrategy({
-    <span class="attr">clientID</span>: BNET_ID,
-    <span class="attr">clientSecret</span>: BNET_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"https://localhost:3000/auth/bnet/callback"</span>,
-    <span class="attr">region</span>: <span class="string">"us"</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BnetStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">BNET_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">BNET_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;https://localhost:3000/auth/bnet/callback&quot;</span>,
+    <span class="attr">region</span>: <span class="string">&quot;us&quot;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 </code></pre>
 <h3 id="authenticate-requests">Authenticate Requests</h3>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/bnet'</span>,
-    passport.authenticate(<span class="string">'bnet'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bnet&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bnet&#x27;</span>));
 
-app.get(<span class="string">'/auth/bnet/callback'</span>,
-    passport.authenticate(<span class="string">'bnet'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-        res.redirect(<span class="string">'/'</span>);
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bnet/callback&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bnet&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>){
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
 </code></pre>
 <h2 id="license">License</h2>
@@ -133,14 +133,14 @@ app.get(<span class="string">'/auth/bnet/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bnet</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:21:03Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:21:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Blizzard/passport-bnet">https://github.com/Blizzard/passport-bnet#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>63</b> downloads in the last day</li>
-              <li><b>424</b> downloads in the last week</li>
-              <li><b>1,674</b> downloads in the last month</li>
+              <li><b>43</b> downloads in the last day</li>
+              <li><b>147</b> downloads in the last week</li>
+              <li><b>688</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

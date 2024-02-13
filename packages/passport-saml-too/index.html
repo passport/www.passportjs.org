@@ -103,55 +103,55 @@
 <h3 id="configure-strategy">Configure strategy</h3>
 <p>This example utilizes the <a href="https://openidp.feide.no/">Feide OpenIdp identity provider</a>. You need an account there to log in with this. You also need to <a href="https://openidp.feide.no/simplesaml/module.php/metaedit/index.php">register your site</a> as a service provider.</p>
 <p>The SAML identity provider will redirect you to the URL provided by the <code>path</code> configuration.</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> SamlStrategy(
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SamlStrategy</span>(
   {
-    <span class="attr">path</span>: <span class="string">'/login/callback'</span>,
-    <span class="attr">entryPoint</span>: <span class="string">'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php'</span>,
-    <span class="attr">issuer</span>: <span class="string">'passport-saml'</span>
+    <span class="attr">path</span>: <span class="string">&#x27;/login/callback&#x27;</span>,
+    <span class="attr">entryPoint</span>: <span class="string">&#x27;https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php&#x27;</span>,
+    <span class="attr">issuer</span>: <span class="string">&#x27;passport-saml&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">profile, done</span>) </span>{
-    findByEmail(profile.email, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">profile, done</span>) {
+    <span class="title function_">findByEmail</span>(profile.<span class="property">email</span>, <span class="keyword">function</span>(<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   })
 ));
 </code></pre>
 <h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login/callback'</span>,
-  passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;saml&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
 <h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying <code>saml</code> as the strategy:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'saml'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/'</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;saml&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
 <h2 id="security-and-signatures">Security and signatures</h2>
 <p>Passport-SAML uses the HTTP Redirect Binding for its <code>AuthnRequest</code>s, and expects to receive the messages back via the HTTP POST binding.</p>
 <p>Authentication requests sent by Passport-SAML can be signed using RSA-SHA1. To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key. For example:</p>
-<pre><code class="lang-javascript">    privateCert: fs.readFileSync(<span class="string">'./cert.pem'</span>, <span class="string">'utf-8'</span>)
+<pre><code class="javascript">    <span class="attr">privateCert</span>: fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./cert.pem&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)
 </code></pre>
 <p>It is a good idea to validate the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s certificate using the <code>cert</code> confguration key:</p>
-<pre><code class="lang-javascript">    cert: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>
+<pre><code class="javascript">    <span class="attr">cert</span>: <span class="string">&#x27;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&#x27;</span>
 </code></pre>
 <h2 id="usage-with-active-directory-federation-services">Usage with Active Directory Federation Services</h2>
 <p>Here is a configuration that has been proven to work with ADFS:</p>
-<pre><code class="lang-javascript">  {
-    <span class="attr">entryPoint</span>: <span class="string">'https://ad.example.net/adfs/ls/'</span>,
-    <span class="attr">issuer</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
-    <span class="attr">callbackUrl</span>: <span class="string">'https://your-app.example.net/login/callback'</span>,
-    <span class="attr">cert</span>: <span class="string">'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W=='</span>,
+<pre><code class="javascript">  {
+    <span class="attr">entryPoint</span>: <span class="string">&#x27;https://ad.example.net/adfs/ls/&#x27;</span>,
+    <span class="attr">issuer</span>: <span class="string">&#x27;https://your-app.example.net/login/callback&#x27;</span>,
+    <span class="attr">callbackUrl</span>: <span class="string">&#x27;https://your-app.example.net/login/callback&#x27;</span>,
+    <span class="attr">cert</span>: <span class="string">&#x27;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&#x27;</span>,
     <span class="attr">identifierFormat</span>: <span class="literal">null</span>
   }
 </code></pre>
@@ -160,12 +160,12 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml-too</span></code></div>
             <ul>
-              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T13:26:22Z">a month ago</abbr></li>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T13:26:22Z">a year ago</abbr></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>56</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>8</b> downloads in the last week</li>
+              <li><b>42</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -100,11 +100,11 @@ This module is a Passport strategy wrapper for <a href="http://akera.io">akera-a
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-akera
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure strategy</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> AkeraStrategy = <span class="built_in">require</span>(<span class="string">'passport-akera'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">AkeraStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-akera&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> AkeraStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AkeraStrategy</span>({
     <span class="attr">server</span>: {
-      <span class="attr">host</span>: <span class="string">'localhost'</span>,
+      <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,
       <span class="attr">port</span>: <span class="number">8383</span>,
       <span class="attr">useSSL</span>: <span class="literal">true</span>
     },
@@ -138,32 +138,32 @@ passport.use(<span class="keyword">new</span> AkeraStrategy({
 <li><code>invalidCredentials</code>: <code>InvalidCredentialsError</code> (default: error returned by akera-api connect)</li>
 </ul>
 <h2 id="express-example">Express example</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">'express'</span>),
-    passport     = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-    bodyParser   = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
-    AkeraStrategy = <span class="built_in">require</span>(<span class="string">'passport-akera'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>),
+    passport     = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+    bodyParser   = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>),
+    <span class="title class_">AkeraStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-akera&#x27;</span>).<span class="property">Strategy</span>;
 
-<span class="keyword">var</span> OPTS = {
+<span class="keyword">var</span> <span class="variable constant_">OPTS</span> = {
   <span class="attr">server</span>: {
-    <span class="attr">host</span>: <span class="string">'localhost'</span>,
-    <span class="attr">port</span>: <span class="string">'8383'</span>,
+    <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,
+    <span class="attr">port</span>: <span class="string">&#x27;8383&#x27;</span>,
     <span class="attr">useSSL</span>: <span class="literal">true</span>
   }
 };
 
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
-passport.use(<span class="keyword">new</span> AkeraStrategy(OPTS));
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AkeraStrategy</span>(<span class="variable constant_">OPTS</span>));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}));
-app.use(passport.initialize());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({<span class="attr">extended</span>: <span class="literal">false</span>}));
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
 
-app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'akeraAuth'</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-  res.send({<span class="attr">status</span>: <span class="string">'ok'</span>});
+app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;akeraAuth&#x27;</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="keyword">function</span>(<span class="params">req, res</span>) {
+  res.<span class="title function_">send</span>({<span class="attr">status</span>: <span class="string">&#x27;ok&#x27;</span>});
 });
 
-app.listen(<span class="number">8080</span>);
+app.<span class="title function_">listen</span>(<span class="number">8080</span>);
 </code></pre>
 <h2 id="license">License</h2>
 <p>MIT</p>
@@ -171,14 +171,14 @@ app.listen(<span class="number">8080</span>);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-akera</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:13:14Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:13:14Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/akera-io/passport-akera">https://github.com/akera-io/passport-akera#readme</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

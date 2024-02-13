@@ -97,86 +97,86 @@
 <p>passport oauth2 strategy for weixin
 Support multiple appids and appsecrets based on different requests</p>
 <h3 id="install">Install</h3>
-<pre><code class="lang-bash">npm install passport-weixin-plus
+<pre><code class="bash">npm install passport-weixin-plus
 </code></pre>
 <h3 id="usage">Usage</h3>
-<pre><code class="lang-js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-  , WeixinStrategy = <span class="built_in">require</span>(<span class="string">'passport-weixin-plus'</span>)
+<pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+  , <span class="title class_">WeixinStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-weixin-plus&#x27;</span>)
   ;
 
-passport.use(<span class="keyword">new</span> WeixinStrategy({
-  <span class="attr">clientID</span>: <span class="string">'CLIENTID'</span>
-  , <span class="attr">clientSecret</span>: <span class="string">'CLIENT SECRET'</span>
-  , <span class="attr">callbackURL</span>: <span class="string">'CALLBACK URL'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WeixinStrategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;CLIENTID&#x27;</span>
+  , <span class="attr">clientSecret</span>: <span class="string">&#x27;CLIENT SECRET&#x27;</span>
+  , <span class="attr">callbackURL</span>: <span class="string">&#x27;CALLBACK URL&#x27;</span>
   , <span class="attr">requireState</span>: <span class="literal">false</span>
-  , <span class="attr">scope</span>: <span class="string">'snsapi_login'</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
-  done(<span class="literal">null</span>, profile);
+  , <span class="attr">scope</span>: <span class="string">&#x27;snsapi_login&#x27;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>){
+  <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 
 or
 
-passport.use(<span class="keyword">new</span> WeixinStrategy({
-  <span class="attr">clientID</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WeixinStrategy</span>({
+  <span class="attr">clientID</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
     <span class="comment">//return different appid for different req</span>
   },
-  <span class="attr">clientSecret</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
+  <span class="attr">clientSecret</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
     <span class="comment">//return different secret for different req</span>
   },
-  <span class="attr">callbackURL</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
+  <span class="attr">callbackURL</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
     <span class="comment">//return different callbackURL for different req</span>
   },
   <span class="attr">requireState</span>: <span class="literal">false</span>,
-  <span class="attr">scope</span>: <span class="string">'snsapi_login'</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
-  done(<span class="literal">null</span>, profile);
+  <span class="attr">scope</span>: <span class="string">&#x27;snsapi_login&#x27;</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>){
+  <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 </code></pre>
 <h3 id="example">Example</h3>
-<pre><code class="lang-js"><span class="keyword">var</span> config = {
+<pre><code class="js"><span class="keyword">var</span> config = {
   <span class="attr">weixinAuth</span>: {
     <span class="attr">host2appKeyMap</span>: {
-      <span class="string">'demo.mydomain.cn'</span>: {
-        <span class="attr">appkey</span>: <span class="string">'1xxxxxxxxxxxxxxxxx'</span>,
-        <span class="attr">secret</span>: <span class="string">'1yyyyyyyyyyyyyyyyyyyyyyyy'</span>
+      <span class="string">&#x27;demo.mydomain.cn&#x27;</span>: {
+        <span class="attr">appkey</span>: <span class="string">&#x27;1xxxxxxxxxxxxxxxxx&#x27;</span>,
+        <span class="attr">secret</span>: <span class="string">&#x27;1yyyyyyyyyyyyyyyyyyyyyyyy&#x27;</span>
       },
-      <span class="string">'xxx.mydomain.cn'</span>: {
-        <span class="attr">appkey</span>: <span class="string">'2xxxxxxxxxxxxxxxxx'</span>,
-        <span class="attr">secret</span>: <span class="string">'2yyyyyyyyyyyyyyyyyyyyyyyy'</span>
+      <span class="string">&#x27;xxx.mydomain.cn&#x27;</span>: {
+        <span class="attr">appkey</span>: <span class="string">&#x27;2xxxxxxxxxxxxxxxxx&#x27;</span>,
+        <span class="attr">secret</span>: <span class="string">&#x27;2yyyyyyyyyyyyyyyyyyyyyyyy&#x27;</span>
       },
-      <span class="string">'www.mydomain.cn'</span>: {
-        <span class="attr">appkey</span>: <span class="string">'3xxxxxxxxxxxxxxxxx'</span>,
-        <span class="attr">secret</span>: <span class="string">'3yyyyyyyyyyyyyyyyyyyyyyyy'</span>
+      <span class="string">&#x27;www.mydomain.cn&#x27;</span>: {
+        <span class="attr">appkey</span>: <span class="string">&#x27;3xxxxxxxxxxxxxxxxx&#x27;</span>,
+        <span class="attr">secret</span>: <span class="string">&#x27;3yyyyyyyyyyyyyyyyyyyyyyyy&#x27;</span>
       }
     },
-    <span class="attr">callbackURL</span>: <span class="string">'/auth/weixin/callback'</span>
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;/auth/weixin/callback&#x27;</span>
   },
 };
 
-passport.use(<span class="keyword">new</span> WeixinStrategy({
-  <span class="attr">clientID</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
-    <span class="keyword">return</span> config.weixinAuth.host2appKeyMap[req.headers.host].appkey;
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WeixinStrategy</span>({
+  <span class="attr">clientID</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
+    <span class="keyword">return</span> config.<span class="property">weixinAuth</span>.<span class="property">host2appKeyMap</span>[req.<span class="property">headers</span>.<span class="property">host</span>].<span class="property">appkey</span>;
   },
-  <span class="attr">clientSecret</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
-    <span class="keyword">return</span> config.weixinAuth.host2appKeyMap[req.headers.host].secret;
+  <span class="attr">clientSecret</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
+    <span class="keyword">return</span> config.<span class="property">weixinAuth</span>.<span class="property">host2appKeyMap</span>[req.<span class="property">headers</span>.<span class="property">host</span>].<span class="property">secret</span>;
   },
-  <span class="attr">callbackURL</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req</span>) </span>{
-    <span class="keyword">return</span> <span class="string">"http://"</span> + req.headers.host + config.weixinAuth.callbackURL;
+  <span class="attr">callbackURL</span>: <span class="keyword">function</span>(<span class="params">req</span>) {
+    <span class="keyword">return</span> <span class="string">&quot;http://&quot;</span> + req.<span class="property">headers</span>.<span class="property">host</span> + config.<span class="property">weixinAuth</span>.<span class="property">callbackURL</span>;
   },
   <span class="attr">requireState</span>: <span class="literal">false</span>,
-  <span class="attr">scope</span>: <span class="string">'snsapi_login'</span>,
+  <span class="attr">scope</span>: <span class="string">&#x27;snsapi_login&#x27;</span>,
   <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">req, token, refreshToken, profile, done</span>) </span>{
-  done(<span class="literal">null</span>, profile);
+}, <span class="keyword">function</span>(<span class="params">req, token, refreshToken, profile, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
 
-router.get(<span class="string">'/auth/weixin/callback'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-  passport.authenticate(<span class="string">'weixin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user, info</span>) </span>{
-    <span class="keyword">if</span> (err) <span class="keyword">return</span> next(err)
+router.<span class="title function_">get</span>(<span class="string">&#x27;/auth/weixin/callback&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;weixin&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, user, info</span>) {
+    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">next</span>(err)
 
     <span class="comment">//do anything as you like</span>
 
-    res.send(user);
+    res.<span class="title function_">send</span>(user);
   })(req, res, next);
 });
 </code></pre>
@@ -186,14 +186,14 @@ router.get(<span class="string">'/auth/weixin/callback'</span>, <span class="fun
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-weixin-plus</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T13:47:58Z">a month ago</abbr></li>
+              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T13:47:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/lutaoact/passport-weixin-plus">https://github.com/lutaoact/passport-weixin-plus</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

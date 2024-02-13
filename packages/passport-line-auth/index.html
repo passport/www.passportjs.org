@@ -104,7 +104,7 @@
 <h3 id="npm">npm</h3>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-line-auth <span class="comment">--save</span>
 </code></pre><h3 id="yarn">Yarn</h3>
-<pre><code>yarn <span class="keyword">add</span><span class="bash"> passport-line-auth</span>
+<pre><code><span class="title">yarn</span> add pass<span class="keyword">port</span>-line-auth
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-service">Create an Service</h3>
 <p>Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at <a href="https://developers.line.biz/console/register/line-login/provider/">LINE Developers</a>. Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.</p>
@@ -112,34 +112,34 @@
 <p>The LINE authentication strategy authenticates users using a LINE account and OAuth 2.0 tokens. The channel ID and secret obtained when creating an service are supplied as options when creating the strategy. The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s LINE profile. The <code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
 <ul>
 <li><p>[Part 1] Sample Code</p>
-<pre><code>passport.use(<span class="keyword">new</span> LineStrategy({
-  channelID: LINE_CHANNEL_ID,
-  channelSecret: LINE_CHANNEL_SECRET,
-  callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
-  scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>],
-  botPrompt: <span class="string">'normal'</span>,
-  uiLocales: <span class="string">'en-US'</span>,
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
+  <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
+  <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
+  <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
+  <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>],
+  <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
+  <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
 },
-<span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, cb)</span> </span>{
-  User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-    <span class="keyword">return</span> cb(err, user);
+<span class="built_in">function</span>(accessToken, refreshToken, profile, cb) {
+  User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
+    return <span class="built_in">cb</span>(err, user);
   });
 }
 ));
 </code></pre></li>
 <li><p>[Part 2] Sample Code</p>
-<pre><code>passport.use(<span class="keyword">new</span> LineStrategy({
-  channelID: LINE_CHANNEL_ID,
-  channelSecret: LINE_CHANNEL_SECRET,
-  callbackURL: <span class="string">"http://localhost:3000/auth/line/callback"</span>,
-  scope: [<span class="string">'profile'</span>, <span class="string">'openid'</span>, <span class="string">'email'</span>],
-  botPrompt: <span class="string">'normal'</span>,
-  uiLocales: <span class="string">'en-US'</span>,
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
+  <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
+  <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
+  <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
+  <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;email&#x27;</span>],
+  <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
+  <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
 },
-<span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, params, profile, cb)</span> </span>{
-  <span class="keyword">var</span> email = jwt.decode(params.id_token)
-  User.findOrCreate({ lineId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-    <span class="keyword">return</span> cb(err, user);
+<span class="built_in">function</span>(accessToken, refreshToken, params, profile, cb) {
+  var email = jwt.<span class="built_in">decode</span>(params.id_token)
+  User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
+    return <span class="built_in">cb</span>(err, user);
   });
 }
 ));
@@ -243,14 +243,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-auth</span></code></div>
             <ul>
-              <li><span class="version">0.2.9</span> published <abbr class="updated" title="2022-06-23T12:56:21Z">a month ago</abbr></li>
+              <li><span class="version">0.2.9</span> published <abbr class="updated" title="2022-06-23T12:56:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/IvanWei/passport-line-auth">https://github.com/IvanWei/passport-line-auth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>96</b> downloads in the last day</li>
-              <li><b>478</b> downloads in the last week</li>
-              <li><b>1,914</b> downloads in the last month</li>
+              <li><b>125</b> downloads in the last day</li>
+              <li><b>553</b> downloads in the last week</li>
+              <li><b>2,094</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

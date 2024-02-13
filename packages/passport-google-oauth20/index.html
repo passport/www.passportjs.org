@@ -111,7 +111,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="https://codeclimate.com/github/jaredhanson/passport-google-oauth2"><img src="https://img.shields.io/codeclimate/github/jaredhanson/passport-google-oauth2.svg?label=quality" alt="Quality"></a>
 <a href="https://david-dm.org/jaredhanson/passport-google-oauth2"><img src="https://img.shields.io/david/jaredhanson/passport-google-oauth2.svg" alt="Dependencies"></a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-google-oauth20
+<pre><code class="bash">$ npm install passport-google-oauth20
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
@@ -129,16 +129,16 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 Google profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> GoogleStrategy = <span class="built_in">require</span>(<span class="string">'passport-google-oauth20'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">GoogleStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-google-oauth20&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> GoogleStrategy({
-    <span class="attr">clientID</span>: GOOGLE_CLIENT_ID,
-    <span class="attr">clientSecret</span>: GOOGLE_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://www.example.com/auth/google/callback"</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">GoogleStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">GOOGLE_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">GOOGLE_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://www.example.com/auth/google/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">googleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">googleId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -148,14 +148,14 @@ passport.use(<span class="keyword">new</span> GoogleStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/google'</span>,
-  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">scope</span>: [<span class="string">'profile'</span>] }));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/google&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;profile&#x27;</span>] }));
 
-app.get(<span class="string">'/auth/google/callback'</span>, 
-  passport.authenticate(<span class="string">'google'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/google/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -177,14 +177,14 @@ please visit Jared Hanson&#39;s page on <a href="https://www.patreon.com/jaredha
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-oauth20</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:41:57Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2023-04-26T06:21:58Z">2 months ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-google-oauth2">https://github.com/jaredhanson/passport-google-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>35,005</b> downloads in the last day</li>
-              <li><b>180,634</b> downloads in the last week</li>
-              <li><b>833,876</b> downloads in the last month</li>
+              <li><b>53,748</b> downloads in the last day</li>
+              <li><b>244,219</b> downloads in the last week</li>
+              <li><b>1,178,034</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

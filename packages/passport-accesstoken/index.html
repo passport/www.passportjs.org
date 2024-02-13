@@ -99,24 +99,24 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-accesstoken
 </code></pre><h2 id="usage">Usage</h2>
 <p>The token authentication strategy authenticates users using a username and token. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.</p>
-<pre><code><span class="keyword">var</span> TokenStrategy = <span class="built_in">require</span>(<span class="string">'passport-accesstoken'</span>).Strategy;
+<pre><code>var TokenStrategy <span class="operator">=</span> require(<span class="symbol">&#x27;passport</span><span class="operator">-</span>accesstoken&#x27;).Strategy;
 
-passport.use(<span class="keyword">new</span> TokenStrategy(
-    <span class="function"><span class="keyword">function</span> (<span class="params">token, done</span>) </span>{
-        User.findOne({<span class="attr">token</span>: token}, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> TokenStrategy(
+    <span class="keyword">function</span> (token, <span class="keyword">done</span>) {
+        User.findOne({token<span class="operator">:</span> token}, <span class="keyword">function</span> (err, user) {
             <span class="keyword">if</span> (err) {
-                <span class="keyword">return</span> done(err);
+                <span class="keyword">return</span> <span class="keyword">done</span>(err);
             }
 
-            <span class="keyword">if</span> (!user) {
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+            <span class="keyword">if</span> (<span class="operator">!</span>user) {
+                <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
             }
 
-            <span class="keyword">if</span> (!user.verifyToken(token)) {
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+            <span class="keyword">if</span> (<span class="operator">!</span>user.verifyToken(token)) {
+                <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
             }
 
-            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+            <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
         });
     }
 ));
@@ -127,53 +127,53 @@ passport.use(<span class="keyword">new</span> TokenStrategy(
 <pre><code><span class="attribute">token</span>
 </code></pre><h3 id="configure">Configure</h3>
 <p>These credential locations can be configured when defining the strategy as follows:</p>
-<pre><code><span class="keyword">var</span> TokenStrategy   = <span class="built_in">require</span>(<span class="string">'passport-accesstoken'</span>).Strategy;
+<pre><code><span class="keyword">var</span> TokenStrategy   = <span class="keyword">require</span>(<span class="string">&#x27;passport-accesstoken&#x27;</span>).Strategy;
 <span class="keyword">var</span> strategyOptions = {
-    <span class="attr">tokenHeader</span>:    <span class="string">'x-custom-token'</span>,        
-    <span class="attr">tokenField</span>:     <span class="string">'custom-token'</span>
+    tokenHeader:    <span class="string">&#x27;x-custom-token&#x27;</span>,        
+    tokenField:     <span class="string">&#x27;custom-token&#x27;</span>
 };
 
-passport.use(<span class="keyword">new</span> TokenStrategy(strategyOptions,
-    <span class="function"><span class="keyword">function</span> (<span class="params">token, done</span>) </span>{
-        User.findOne({<span class="attr">token</span>: token}, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> TokenStrategy(strategyOptions,
+    <span class="function"><span class="keyword">function</span> <span class="params">(token, done)</span> </span>{
+        User.findOne({token: token}, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
             <span class="keyword">if</span> (err) {
                 <span class="keyword">return</span> done(err);
             }
 
             <span class="keyword">if</span> (!user) {
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+                <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
             }
 
             <span class="keyword">if</span> (!user.verifyToken(token)) {
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+                <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
             }
 
-            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+            <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
         });
     }
 </code></pre><h2 id="authenticate">Authenticate</h2>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>token</code> strategy to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code>app.put(<span class="string">'/animals/dogs'</span>, passport.authenticate(<span class="string">'token'</span>), <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
+<pre><code>app.put(<span class="string">&#x27;/animals/dogs&#x27;</span>, passport.authenticate(<span class="string">&#x27;token&#x27;</span>), <span class="keyword">function</span> <span class="params">(req, res)</span> {
     <span class="comment">// User authenticated and can be found in req.user</span>
 });
 </code></pre><p>If authentication fails in the above example then a 401 response will be given. However there may be times you wish a bit more control and delegate the failure to your application:</p>
-<pre><code>app.put(<span class="string">'/animals/dogs'</span>, authenticate, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span></span> {
-       // User authenticated <span class="keyword">and</span> can be found <span class="keyword">in</span> req.user
+<pre><code>app.put(<span class="string">&#x27;/animals/dogs&#x27;</span>, authenticate, <span class="keyword">function</span> (req, res) {
+       // <span class="keyword">User</span> authenticated <span class="keyword">and</span> can be <span class="built_in">found</span> <span class="keyword">in</span> req.<span class="keyword">user</span>
 });
 
-<span class="function"><span class="keyword">function</span> <span class="title">authenticate</span><span class="params">(req, res, next)</span></span> {
-    passport.authenticate(<span class="string">'token'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, user, info)</span></span> {
+<span class="keyword">function</span> authenticate(req, res, next) {
+    passport.authenticate(<span class="string">&#x27;token&#x27;</span>, <span class="keyword">function</span> (err, <span class="keyword">user</span>, <span class="keyword">info</span>) {
         <span class="keyword">if</span> (err) {
-            <span class="keyword">return</span> <span class="built_in">next</span>(err);
+            <span class="keyword">return next</span>(err);
         }
 
-        <span class="keyword">if</span> (!user) {
-            res.<span class="built_in">status</span>(<span class="number">401</span>).json({message: <span class="string">"Incorrect token credentials"</span>});
+        <span class="keyword">if</span> (!<span class="keyword">user</span>) {
+            res.status(<span class="number">401</span>).json({message: &quot;Incorrect token credentials&quot;});
         }
 
-        req.user = user;
-        <span class="built_in">next</span>();
+        req.<span class="keyword">user</span> = <span class="keyword">user</span>;
+        next();
     });
 }      
 </code></pre><h2 id="credits">Credits</h2>
@@ -190,13 +190,13 @@ Copyright (c) 2011 Jared Hanson</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-accesstoken</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:12:26Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:12:26Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nanogiants/passport-accesstoken"></a></li>
             </ul>
             <ul>
-              <li><b>547</b> downloads in the last day</li>
-              <li><b>2,165</b> downloads in the last week</li>
-              <li><b>8,763</b> downloads in the last month</li>
+              <li><b>253</b> downloads in the last day</li>
+              <li><b>1,102</b> downloads in the last week</li>
+              <li><b>5,669</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

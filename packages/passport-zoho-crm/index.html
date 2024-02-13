@@ -106,7 +106,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-zoho-crm
+<pre><code class="bash">$ npm install passport-zoho-crm
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
@@ -126,17 +126,17 @@ also requires a <code>verify</code> callback, which receives the access token an
 refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s
 Zoho CRM profile.  The <code>verify</code> callback must call <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> ZohoCRMStrategy = <span class="built_in">require</span>(<span class="string">'passport-zoho-crm'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">ZohoCRMStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-zoho-crm&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> ZohoCRMStrategy({
-    <span class="attr">clientID</span>: ZOHOCRM_CLIENT_ID,
-    <span class="attr">clientSecret</span>: ZOHOCRM_CLIENT_SECRET,
-    <span class="attr">redirect_URL</span>: <span class="string">"http://127.0.0.1:3000/auth/zohocrm/callback"</span>
-    <span class="attr">scope</span>: <span class="string">'ZohoCRM.modules.READ'</span>,
-    <span class="attr">response_type</span>: <span class="string">'code'</span>,
-    <span class="attr">access_type</span>: <span class="string">'offline'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ZohoCRMStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">ZOHOCRM_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">ZOHOCRM_CLIENT_SECRET</span>,
+    <span class="attr">redirect_URL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/zohocrm/callback&quot;</span>
+    <span class="attr">scope</span>: <span class="string">&#x27;ZohoCRM.modules.READ&#x27;</span>,
+    <span class="attr">response_type</span>: <span class="string">&#x27;code&#x27;</span>,
+    <span class="attr">access_type</span>: <span class="string">&#x27;offline&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
     <span class="comment">// ...</span>
     });
   }
@@ -147,14 +147,14 @@ passport.use(<span class="keyword">new</span> ZohoCRMStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/zohocrm'</span>,
-  passport.authenticate(<span class="string">'zoho-crm'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zohocrm&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zoho-crm&#x27;</span>));
 
-app.get(<span class="string">'/auth/zohocrm/callback'</span>, 
-  passport.authenticate(<span class="string">'zoho-crm'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zohocrm/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zoho-crm&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -164,13 +164,13 @@ app.get(<span class="string">'/auth/zohocrm/callback'</span>,
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ npm install --dev
+<pre><code class="bash">$ npm install --dev
 $ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>The test suite covers 100% of the code base.  All new feature development is
 expected to maintain that level.  Coverage reports can be viewed by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <p>+<a href="http://travis-ci.org/idris/passport-zoho-crm"><img src="https://secure.travis-ci.org/idris/passport-zoho-crm.png" alt="Build Status"></a></p>
@@ -185,14 +185,14 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zoho-crm</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:53:52Z">a month ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:53:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/sidrmsh/passport-zoho-crm">https://github.com/siddarthramesh/passport-zoho-crm#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>16</b> downloads in the last week</li>
-              <li><b>92</b> downloads in the last month</li>
+              <li><b>9</b> downloads in the last day</li>
+              <li><b>35</b> downloads in the last week</li>
+              <li><b>195</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

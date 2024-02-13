@@ -110,18 +110,18 @@ contains the authenticated user&#39;s Topcoder profile.   The <code>verify</code
 call <code>done</code> providing a user to complete authentication.</p>
 <p>In order to identify your application to TopCoder, specify the client id,
 client secret, and callback URL within <code>options</code>.</p>
-<pre><code>passport.use(<span class="keyword">new</span> TopcoderStrategy({
-        clientID: MY_CLIENT_ID,
-        clientSecret: MY_CLIENT_SECRET,
-        callbackURL: MY_CALLBACK_URL
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">TopcoderStrategy</span>({
+        <span class="attribute">clientID</span>: MY_CLIENT_ID,
+        <span class="attribute">clientSecret</span>: MY_CLIENT_SECRET,
+        <span class="attribute">callbackURL</span>: MY_CALLBACK_URL
     },
-    <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, params, profile, done)</span> </span>{
-        <span class="keyword">var</span> tokenDTO = {
-            accessToken: accessToken,
-            expirationTime : params.expires_in,
-            scope : params.scope.split(<span class="string">" "</span>)
+    <span class="built_in">function</span>(accessToken, refreshToken, params, profile, done) {
+        var tokenDTO = {
+            <span class="attribute">accessToken</span>: accessToken,
+            <span class="attribute">expirationTime </span>: params.expires_in,
+            <span class="attribute">scope </span>: params.scope.<span class="built_in">split</span>(<span class="string">&quot; &quot;</span>)
         };
-    <span class="keyword">return</span> done(<span class="literal">null</span>, tokenDTO);
+    return <span class="built_in">done</span>(null, tokenDTO);
     }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -129,16 +129,16 @@ client secret, and callback URL within <code>options</code>.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/topcoder'</span>, passport.authenticate(<span class="string">'Topcoder'</span>, {scope: [<span class="string">"FORUMS_REST"</span>, <span class="string">"CONTEST_REST"</span>]}));
+<pre><code><span class="keyword">app</span>.<span class="built_in">get</span>(&#x27;/auth/topcoder&#x27;, passport.authenticate(&#x27;Topcoder&#x27;, {scope: [<span class="string">&quot;FORUMS_REST&quot;</span>, <span class="string">&quot;CONTEST_REST&quot;</span>]}));
 
-app.get(<span class="string">'/auth/topcoder/callback'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span></span> {
-  passport.authenticate(<span class="string">'Topcoder'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, token)</span></span> {
-      <span class="keyword">if</span> (req.query.<span class="built_in">error</span>) {
-          res.render(<span class="string">"login"</span>, {<span class="built_in">error</span>: req.query.<span class="built_in">error</span>});
+<span class="keyword">app</span>.<span class="built_in">get</span>(&#x27;/auth/topcoder/callback&#x27;, function (req, res, next) {
+  passport.authenticate(&#x27;Topcoder&#x27;, function (<span class="keyword">err</span>, <span class="keyword">token</span>) {
+      <span class="keyword">if</span> (req.<span class="keyword">query</span>.<span class="keyword">error</span>) {
+          res.render(<span class="string">&quot;login&quot;</span>, {<span class="keyword">error</span>: req.<span class="keyword">query</span>.<span class="keyword">error</span>});
       } <span class="keyword">else</span> {
-          res.render(<span class="string">"login"</span>, {token: token});
+          res.render(<span class="string">&quot;login&quot;</span>, {<span class="keyword">token</span>: <span class="keyword">token</span>});
       }
-  })(req, res, <span class="built_in">next</span>);
+  })(req, res, next);
 </code></pre><p>  });</p>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/cloudspokes/passport-topcoder/tree/master/examples/">signin example</a>.</p>
@@ -150,13 +150,13 @@ app.get(<span class="string">'/auth/topcoder/callback'</span>, <span class="func
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-topcoder</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:37:52Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:37:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/appirio-tech/passport-topcoder"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

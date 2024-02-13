@@ -118,17 +118,17 @@ providing a <code>key</code> and <code>counter</code> used to verify the HOTP va
 fails if the value is not verified.</p>
 <p>After successful authentication, the <code>resync</code> callback is invoked to synchronize
 the counter values on the server and on the token.</p>
-<pre><code>passport.use(new HotpStrategy(
-  <span class="keyword">function</span>(user, done) {
-    HotpKey.findOne({ userId: user<span class="built_in">.id</span> }, <span class="keyword">function</span> (err,<span class="built_in"> key</span>) {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(null,<span class="built_in"> key</span><span class="built_in">.key</span>,<span class="built_in"> key</span>.counter);
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> HotpStrategy(
+  <span class="keyword">function</span>(user, <span class="keyword">done</span>) {
+    HotpKey.findOne({ userId<span class="operator">:</span> user.<span class="built_in">id</span> }, <span class="keyword">function</span> (err, key) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, key.key, key.counter);
     });
   },
-  <span class="keyword">function</span>(user,<span class="built_in"> key</span>, counter, delta, done) {
-    HotpKey.<span class="keyword">update</span>(user<span class="built_in">.id</span>, {<span class="built_in"> key</span>:<span class="built_in"> key</span>, counter: counter }, <span class="keyword">function</span> (err,<span class="built_in"> key</span>) {
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done();
+  <span class="keyword">function</span>(user, key, counter, delta, <span class="keyword">done</span>) {
+    HotpKey.update(user.<span class="built_in">id</span>, { key<span class="operator">:</span> key, counter<span class="operator">:</span> counter }, <span class="keyword">function</span> (err, key) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">return</span> <span class="keyword">done</span>();
     });
   }
 ));
@@ -137,17 +137,17 @@ the counter values on the server and on the token.</p>
 requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/verify-otp'</span>, 
-  passport.authenticate(<span class="string">'hotp'</span>, { failureRedirect: <span class="string">'/verify-otp'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    req.session.authFactors = [ <span class="string">'hotp'</span> ];
-    res.redirect(<span class="string">'/'</span>);
+<pre><code>app.post(<span class="string">&#x27;/verify-otp&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;hotp&#x27;</span>, { failureRedirect: <span class="string">&#x27;/verify-otp&#x27;</span> }),
+  <span class="keyword">function</span><span class="params">(req, res)</span> {
+    req.session.authFactors = [ <span class="string">&#x27;hotp&#x27;</span> ];
+    res.redirect(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-hotp/tree/master/examples/two-factor">two-factor example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-hotp"><img src="https://secure.travis-ci.org/jaredhanson/passport-hotp.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -160,13 +160,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hotp</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:45:27Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:45:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-hotp"></a></li>
             </ul>
             <ul>
               <li><b>1</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>32</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

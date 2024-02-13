@@ -99,14 +99,14 @@ using the OAuth 2.0 API.</p>
 <h2 id="install">Install</h2>
 <pre><code>$ npm install pass<span class="keyword">port</span>-mail
 </code></pre><h2 id="usage">Usage</h2>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> MailruStrategy({
-    <span class="attr">clientID</span>: MAIL_APP_ID,
-    <span class="attr">clientSecret</span>: MAIL_APP_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/mail/callback"</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">MailruStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">MAIL_APP_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">MAIL_APP_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/mail/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">mailId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">mailId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -115,14 +115,14 @@ using the OAuth 2.0 API.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-mail</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:00:09Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:00:09Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/stan-ros/passport-mailru">https://github.com/sklyukin/passport-mailru#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>19</b> downloads in the last day</li>
-              <li><b>58</b> downloads in the last week</li>
-              <li><b>233</b> downloads in the last month</li>
+              <li><b>74</b> downloads in the last day</li>
+              <li><b>578</b> downloads in the last week</li>
+              <li><b>1,926</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

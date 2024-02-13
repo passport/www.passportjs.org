@@ -100,17 +100,17 @@
 <p><code>$ npm install passport-honeywell</code></p>
 <h2 id="usage">Usage</h2>
 <p>Assuming an <a href="http://expressjs.com/">express</a> app:</p>
-<pre><code>var HoneywellStrategy = require(<span class="string">'passport-honeywell'</span>).Strategy;
+<pre><code>var HoneywellStrategy = require(<span class="string">&#x27;passport-honeywell&#x27;</span>).Strategy;
 
 passport.use(<span class="built_in">new</span> HoneywellStrategy({
-  clientID: <span class="string">'Consumer Key'</span>,
-  clientSecret: <span class="string">'Consumer Secret'</span>,
-  callbackURL: <span class="string">'https://example.com/auth/honeywell/callback'</span>
+  clientID: <span class="string">&#x27;Consumer Key&#x27;</span>,
+  clientSecret: <span class="string">&#x27;Consumer Secret&#x27;</span>,
+  callbackURL: <span class="string">&#x27;https://example.com/auth/honeywell/callback&#x27;</span>
 }));
 
-app.<span class="keyword">get</span>(<span class="string">'/auth/honeywell'</span>, passport.authenticate(<span class="string">'honeywell'</span>));
-app.<span class="keyword">get</span>(<span class="string">'/auth/honeywell/callback'</span>,
-    passport.authenticate(<span class="string">'honeywell'</span>, { }),
+app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/honeywell&#x27;</span>, passport.authenticate(<span class="string">&#x27;honeywell&#x27;</span>));
+app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/honeywell/callback&#x27;</span>,
+    passport.authenticate(<span class="string">&#x27;honeywell&#x27;</span>, { }),
     <span class="keyword">function</span>(req, res) {
       // <span class="keyword">access</span> token <span class="keyword">is</span> <span class="keyword">in</span> req.<span class="keyword">user</span>.accessToken
       // <span class="keyword">refresh</span> token <span class="keyword">is</span> <span class="keyword">in</span> req.<span class="keyword">user</span>.refreshToken
@@ -131,13 +131,13 @@ limitations under the License.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-honeywell</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:45:21Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:45:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Nibbler999/passport-honeywell">https://github.com/Nibbler999/passport-honeywell#readme</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>30</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

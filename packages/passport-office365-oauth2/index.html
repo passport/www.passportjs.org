@@ -111,40 +111,40 @@ using the OAuth 2.0 protocol.</p>
 <li><code>tenant</code>: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).</li>
 <li><code>useCommonEndpoint</code>: [optional] use &quot;<a href="https://login.microsoftonline.com/common&quot;">https://login.microsoftonline.com/common&quot;</a> instead of default endpoint (<a href="https://login.microsoftonline.com/{tenant})">https://login.microsoftonline.com/{tenant})</a>. This is typically enabled if you&#39;re using this for a Multi-tenant application in Azure AD (Default: <code>false</code>).</li>
 </ul>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> AzureAdOAuth2Strategy({
-  <span class="attr">clientID</span>: <span class="string">'{YOUR_CLIENT_ID}'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'{YOUR_CLIENT_SECRET}'</span>,
-  <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/azureadoauth2/callback'</span>,
-  <span class="attr">resource</span>: <span class="string">'00000002-0000-0000-c000-000000000000'</span>,
-  <span class="attr">tenant</span>: <span class="string">'contoso.onmicrosoft.com'</span>
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AzureAdOAuth2Strategy</span>({
+  <span class="attr">clientID</span>: <span class="string">&#x27;{YOUR_CLIENT_ID}&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;{YOUR_CLIENT_SECRET}&#x27;</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/azureadoauth2/callback&#x27;</span>,
+  <span class="attr">resource</span>: <span class="string">&#x27;00000002-0000-0000-c000-000000000000&#x27;</span>,
+  <span class="attr">tenant</span>: <span class="string">&#x27;contoso.onmicrosoft.com&#x27;</span>
 },
-<span class="function"><span class="keyword">function</span> (<span class="params">accessToken, refresh_token, params, profile, done</span>) </span>{
-  <span class="comment">// currently we can't find a way to exchange access token by user info (see userProfile implementation), so</span>
+<span class="keyword">function</span> (<span class="params">accessToken, refresh_token, params, profile, done</span>) {
+  <span class="comment">// currently we can&#x27;t find a way to exchange access token by user info (see userProfile implementation), so</span>
   <span class="comment">// you will need a jwt-package like https://github.com/auth0/node-jsonwebtoken to decode id_token and get waad profile</span>
-  <span class="keyword">var</span> waadProfile = profile || jwt.decode(params.id_token);
+  <span class="keyword">var</span> waadProfile = profile || jwt.<span class="title function_">decode</span>(params.<span class="property">id_token</span>);
 
   <span class="comment">// this is just an example: here you would provide a model *User* with the function *findOrCreate*</span>
-  User.findOrCreate({ <span class="attr">id</span>: waadProfile.upn }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-    done(err, user);
+  <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">id</span>: waadProfile.<span class="property">upn</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+    <span class="title function_">done</span>(err, user);
   });
 }));
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;azure_ad_oauth2&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/azureadoauth2'</span>,
-  passport.authenticate(<span class="string">'azure_ad_oauth2'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/azureadoauth2&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;azure_ad_oauth2&#x27;</span>));
 
-app.get(<span class="string">'/auth/azureadoauth2/callback'</span>, 
-  passport.authenticate(<span class="string">'azure_ad_oauth2'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/azureadoauth2/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;azure_ad_oauth2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span> (<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="issue-reporting">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
 <h2 id="credits">Credits</h2>
@@ -162,14 +162,14 @@ app.get(<span class="string">'/auth/azureadoauth2/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-office365-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:11:40Z">a month ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:11:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Burke9077/passport-office365-oauth2">https://github.com/Burke9077/passport-office365-oauth2</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>19</b> downloads in the last week</li>
-              <li><b>77</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>17</b> downloads in the last week</li>
+              <li><b>71</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

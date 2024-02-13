@@ -104,22 +104,22 @@
 <p>This module lets you authenticate using La Poste IDN (Identité Numérique) in your Node.js applications.  By plugging into Passport, IDN authentication can be easily and unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="getting-started">Getting started</h2>
-<pre><code class="lang-bash">$ npm install passport-idn
+<pre><code class="bash">$ npm install passport-idn
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The IDN authentication strategy authenticates users using a IDN account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> IdnStrategy = <span class="built_in">require</span>(<span class="string">'passport-idn'</span>)
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">IdnStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-idn&#x27;</span>)
 
-passport.use(
-  <span class="keyword">new</span> IdnStrategy({
-    <span class="attr">clientID</span>: IDN_CLIENT_ID,
-    <span class="attr">clientSecret</span>: IDN_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">'http://127.0.0.1:3000/auth/idn/callback'</span>
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">IdnStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">IDN_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">IDN_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://127.0.0.1:3000/auth/idn/callback&#x27;</span>
   },
-  (accessToken, refreshToken, profile, done) =&gt; {
-    User.findOrCreate({ <span class="attr">idnId</span>: profile.id }, (err, user) =&gt; {
-      <span class="keyword">return</span> done(err, user)
+  <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">idnId</span>: profile.<span class="property">id</span> }, <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user)
     })
   })
 )
@@ -127,14 +127,14 @@ passport.use(
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;idn&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/idn'</span>, passport.authenticate(<span class="string">'idn'</span>))
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/idn&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;idn&#x27;</span>))
 
-app.get(
-  <span class="string">'/auth/idn/callback'</span>,
-  passport.authenticate(<span class="string">'idn'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  (req, res) =&gt; {
+app.<span class="title function_">get</span>(
+  <span class="string">&#x27;/auth/idn/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;idn&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>)
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>)
   }
 )
 </code></pre>
@@ -152,14 +152,14 @@ app.get(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-idn</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:48:51Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:48:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/tusbar/passport-idn"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>23</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>26</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

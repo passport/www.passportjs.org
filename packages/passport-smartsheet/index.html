@@ -105,16 +105,16 @@ unobtrusively integrated into any application or framework that supports
 <pre><code>$ npm install pass<span class="keyword">port</span>-smartsheet
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code>passport.use(<span class="keyword">new</span> SmartsheetStrategy({
-    clientID : SMARTSHEET_CLIENT_KEY,
-    clientSecret: SMARTSHEET_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/smartsheet/callback"</span>,
-    scope: [<span class="string">"READ_USERS"</span>],
-    tokenURL: <span class="string">"https://api.smartsheet.com/2.0/token"</span> <span class="comment">//this tokenURL defaults to the deprecated 1.1 api, </span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">SmartsheetStrategy</span>({
+    <span class="attribute">clientID </span>: SMARTSHEET_CLIENT_KEY,
+    <span class="attribute">clientSecret</span>: SMARTSHEET_CLIENT_SECRET,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/smartsheet/callback&quot;</span>,
+    <span class="attribute">scope</span>: [<span class="string">&quot;READ_USERS&quot;</span>],
+    <span class="attribute">tokenURL</span>: <span class="string">&quot;https://api.smartsheet.com/2.0/token&quot;</span> <span class="comment">//this tokenURL defaults to the deprecated 1.1 api, </span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ smartsheetId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(token, tokenSecret, profile, done) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">smartsheetId</span>: profile.id }, function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -123,14 +123,14 @@ unobtrusively integrated into any application or framework that supports
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/smartsheet'</span>,
-  passport.authenticate(<span class="string">'smartsheet'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/smartsheet&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;smartsheet&#x27;</span>));
 
-app.get(<span class="string">'/auth/smartsheet/callback'</span>,
-  passport.authenticate(<span class="string">'smartsheet'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/smartsheet/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;smartsheet&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
@@ -139,13 +139,13 @@ app.get(<span class="string">'/auth/smartsheet/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-smartsheet</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:30:28Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:30:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/octoblu/passport-smartsheet">https://github.com/octoblu/passport-smartsheet#readme</a></li>
             </ul>
             <ul>
-              <li><b>10</b> downloads in the last day</li>
-              <li><b>131</b> downloads in the last week</li>
-              <li><b>526</b> downloads in the last month</li>
+              <li><b>12</b> downloads in the last day</li>
+              <li><b>45</b> downloads in the last week</li>
+              <li><b>170</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

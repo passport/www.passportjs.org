@@ -111,16 +111,16 @@ credentials and calls <code>done</code> providing a user.  This strategy can als
 A valid application will have to be configured in Atlassian Crowd to be allowed to make requests.</p>
 <p>Pass an optional <code>retrieveGroupMemberships:true</code> flag to populate a <code>groups</code> array on the userprofile
 with all the groups the user is a member of in Crowd.</p>
-<pre><code>passport.use(<span class="keyword">new</span> AtlassianCrowdStrategy({
-        crowdServer:<span class="string">"http://localhost:2990/jira"</span>,
-        crowdApplication:<span class="string">"nodejs"</span>,
-        crowdApplicationPassword:<span class="string">"password"</span>,
-        retrieveGroupMemberships:<span class="literal">false</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AtlassianCrowdStrategy({
+        crowdServer<span class="operator">:</span><span class="string">&quot;http://localhost:2990/jira&quot;</span>,
+        crowdApplication<span class="operator">:</span><span class="string">&quot;nodejs&quot;</span>,
+        crowdApplicationPassword<span class="operator">:</span><span class="string">&quot;password&quot;</span>,
+        retrieveGroupMemberships<span class="operator">:</span><span class="literal">false</span>
     },
-    <span class="function"><span class="keyword">function</span> <span class="params">(userprofile, done)</span> </span>{
-        Users.findOrCreate(userprofile, <span class="function"><span class="keyword">function</span><span class="params">(err,user)</span> </span>{
-            <span class="keyword">if</span>(err) <span class="keyword">return</span> done(err);
-            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+    <span class="keyword">function</span> (userprofile, <span class="keyword">done</span>) {
+        Users.findOrCreate(userprofile, <span class="keyword">function</span>(err,user) {
+            <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="keyword">done</span>(err);
+            <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
         });
     }
 ));
@@ -129,10 +129,10 @@ with all the groups the user is a member of in Crowd.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'atlassian-crowd'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;atlassian-crowd&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://bitbucket.org/knecht_andreas/passport-atlassian-crowd/src/master/examples/login">login example</a>.</p>
@@ -164,13 +164,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-atlassian-crowd</span></code></div>
             <ul>
-              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2022-06-23T12:16:45Z">a month ago</abbr></li>
+              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2022-06-23T12:16:45Z">a year ago</abbr></li>
               <li><a class="url" href="git+https://bitbucket.org/knecht_andreas/passport-atlassian-crowd.git">https://bitbucket.org/knecht_andreas/passport-atlassian-crowd#readme</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>27</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>24</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

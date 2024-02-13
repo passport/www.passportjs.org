@@ -98,31 +98,31 @@
 <p>A <a href="http://passportjs.org/">Passport</a> strategy for custom authentication via JSON from the request body.</p>
 <p>This module lets you authenticate using any custom set of JSON-based credentials in your Node.js applications.  By plugging into Passport, JSON authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-based middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm install passport-json-custom</span>
+<pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-json-custom</span>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>Before you can use this strategy, you <em>MUST</em> ensure that your request (<code>req</code>) object always has a <code>body</code> property that is populated appropriately with parsed JSON.</p>
 <p>For example, if you are using Passport and this strategy within Express <code>4.x</code> or above, you would want to set up the <a href="https://www.npmjs.com/package/body-parser"><code>&#39;body-parser&#39;</code> middleware</a> to parse the request body&#39;s JSON before setting up the Passport middleware:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
-<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+<pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>);
 
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
-app.use(bodyParser.json());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
 </code></pre>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The JSON Custom authentication strategy authenticates users using any custom set of JSON-based credentials.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> JsonCustomStrategy = <span class="built_in">require</span>(<span class="string">'passport-json-custom'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">JsonCustomStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-json-custom&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> JsonCustomStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">credentials, done</span>) </span>{
-    Users.findOne({ <span class="attr">username</span>: credentials.username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">if</span> (!user.verifyPassword(credentials.password)) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">if</span> (!user.verifyMfaCode(credentials.mfaCode)) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonCustomStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">credentials, done</span>) {
+    <span class="title class_">Users</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: credentials.<span class="property">username</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (!user.<span class="title function_">verifyPassword</span>(credentials.<span class="property">password</span>)) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (!user.<span class="title function_">verifyMfaCode</span>(credentials.<span class="property">mfaCode</span>)) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -136,11 +136,11 @@ passport.use(<span class="keyword">new</span> JsonCustomStrategy(
 <h5 id="using-those-options">Using Those Options</h5>
 <h6 id="passreqtocallback"><code>passReqToCallback</code></h6>
 <p>The <code>verify</code> callback can be supplied with the <code>request</code> object <em>as the first argument</em> by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing the expected callback parameters accordingly. This may be useful if you also need access to the request&#39;s HTTP headers. For example:</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> JsonCustomStrategy(
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonCustomStrategy</span>(
   {
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, credentials, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, credentials, done</span>) {
     <span class="comment">// request object is now first argument</span>
     <span class="comment">// ...</span>
   }
@@ -149,18 +149,18 @@ passport.use(<span class="keyword">new</span> JsonCustomStrategy(
 <h3 id="authenticating-requests">Authenticating Requests</h3>
 <p>Use <code>passport.authenticate(&#39;json-custom&#39;)</code> to specify that you want to employ the configured <code>&#39;json-custom&#39;</code> strategy to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-js">app.post(
-  <span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'json-custom'</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.status(<span class="number">200</span>).json({
-      <span class="attr">authenticated</span>: req.isAuthenticated()
+<pre><code class="js">app.<span class="title function_">post</span>(
+  <span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;json-custom&#x27;</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">status</span>(<span class="number">200</span>).<span class="title function_">json</span>({
+      <span class="attr">authenticated</span>: req.<span class="title function_">isAuthenticated</span>()
     });
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>{
-    res.status(<span class="number">400</span>).json({
-      <span class="attr">authenticated</span>: req.isAuthenticated(),
-      <span class="attr">err</span>: err.message
+  <span class="keyword">function</span>(<span class="params">err, req, res, next</span>) {
+    res.<span class="title function_">status</span>(<span class="number">400</span>).<span class="title function_">json</span>({
+      <span class="attr">authenticated</span>: req.<span class="title function_">isAuthenticated</span>(),
+      <span class="attr">err</span>: err.<span class="property">message</span>
     });
   }
 );
@@ -172,14 +172,14 @@ passport.use(<span class="keyword">new</span> JsonCustomStrategy(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-json-custom</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:51:57Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:51:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/JamesMGreene/passport-json-custom">https://github.com/JamesMGreene/passport-json-custom#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>6</b> downloads in the last day</li>
-              <li><b>60</b> downloads in the last week</li>
-              <li><b>291</b> downloads in the last month</li>
+              <li><b>33</b> downloads in the last day</li>
+              <li><b>132</b> downloads in the last week</li>
+              <li><b>614</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

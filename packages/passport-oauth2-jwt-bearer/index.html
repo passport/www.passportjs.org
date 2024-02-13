@@ -106,14 +106,14 @@ the token endpoint and used as an alternative to HTTP Basic authentication.  Thi
 <p>The JSON Web Token (JWT) Bearer Token Profiles for OAuth 2.0 client authentication strategy authenticates clients
 using a JWT.  The strategy requires a <code>verify</code> callback,
 which accepts those credentials and calls <code>done</code> providing a client.</p>
-<pre><code><span class="keyword">var</span> ClientJWTBearerStrategy = <span class="built_in">require</span>(<span class="string">'passport-oauth2-jwt-bearer'</span>).Strategy;
+<pre><code><span class="keyword">var</span> ClientJWTBearerStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-oauth2-jwt-bearer&#x27;</span>).Strategy;
 
-passport.use(<span class="keyword">new</span> ClientJWTBearerStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">claimSetIss, done</span>) </span>{
-    Clients.findOne({ <span class="attr">clientId</span>: claimSetIss }, <span class="function"><span class="keyword">function</span> (<span class="params">err, client</span>) </span>{
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> ClientJWTBearerStrategy(
+  <span class="function"><span class="keyword">function</span><span class="params">(claimSetIss, done)</span> </span>{
+    Clients.findOne({ clientId: claimSetIss }, <span class="function"><span class="keyword">function</span> <span class="params">(err, client)</span> </span>{
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, client);
+      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>); }
+      <span class="keyword">return</span> done(<span class="keyword">null</span>, client);
     });
   }
 ));
@@ -123,12 +123,12 @@ strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
 middleware to implement the token endpoint:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>,
-  passport.authenticate([<span class="string">'oauth2-jwt-bearer'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
-  oauth2orize.token());
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/profile&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>([<span class="string">&#x27;oauth2-jwt-bearer&#x27;</span>], { <span class="attribute">session</span>: false }),
+  oauth2orize.<span class="built_in">token</span>());
 </code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/bendiy">bendiy</a></li>
@@ -140,13 +140,13 @@ middleware to implement the token endpoint:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-jwt-bearer</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:09:46Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T13:09:46Z">a year ago</abbr></li>
               <li><a class="url" href="git://github.com/xtuple/passport-oauth2-jwt-bearer.git">https://github.com/xtuple/passport-oauth2-jwt-bearer#readme</a></li>
             </ul>
             <ul>
-              <li><b>43</b> downloads in the last day</li>
-              <li><b>95</b> downloads in the last week</li>
-              <li><b>395</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>23</b> downloads in the last week</li>
+              <li><b>156</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

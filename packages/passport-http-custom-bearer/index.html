@@ -117,17 +117,17 @@ typically including associated scope, which will be set by Passport at
 control.</p>
 <p>For example, to authenticate using a custom header <code>X-APIAuth</code> (the recommended <code>X-</code> prefix is automatically added), 
 or a custom body field <code>api_token</code>, or a custom query parameter <code>api_token</code>:</p>
-<pre><code><span class="keyword">var</span> CustomBearerStrategy = <span class="built_in">require</span>(<span class="string">'passport-http-custom-bearer'</span>);
-passport.use(<span class="string">'api-bearer'</span>, <span class="keyword">new</span> CustomBearerStrategy(
-  { <span class="attr">headerName</span>: <span class="string">'APIAuth'</span>,
-    <span class="attr">bodyName</span>: <span class="string">'api_token'</span>,
-    <span class="attr">queryName</span>: <span class="string">'api_token'</span>
+<pre><code><span class="keyword">var</span> CustomBearerStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-http-custom-bearer&#x27;</span>);
+passport.<span class="keyword">use</span>(<span class="string">&#x27;api-bearer&#x27;</span>, <span class="keyword">new</span> <span class="title class_">CustomBearerStrategy</span>(
+  { headerName: <span class="string">&#x27;APIAuth&#x27;</span>,
+    bodyName: <span class="string">&#x27;api_token&#x27;</span>,
+    queryName: <span class="string">&#x27;api_token&#x27;</span>
   },
   <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
-    User.findOne({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">'all'</span> });
+    User.<span class="title function_ invoke__">findOne</span>({ <span class="attr">token</span>: token }, function (err, user) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">&#x27;all&#x27;</span> });
     });
   }
 ));
@@ -137,22 +137,22 @@ authenticate requests.  Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application for the above example strategy:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'api-bearer'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;api-bearer&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
     <span class="keyword">function</span>(req, res) {
       res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><p>As a <a href="http://sailsjs.org/documentation/concepts/policies">policy</a> in <a href="http://sailsjs.org/">Sails</a>, 
 using the above example strategy:</p>
-<pre><code>var passport = require(<span class="string">'passport'</span>);
+<pre><code>var passport = require(<span class="string">&#x27;passport&#x27;</span>);
 
 module.exports = <span class="keyword">function</span>(req, res, next) {
 
   passport.authenticate(
-    <span class="string">'api-bearer'</span>,
+    <span class="string">&#x27;api-bearer&#x27;</span>,
     <span class="keyword">function</span>(err, <span class="keyword">user</span>, <span class="keyword">info</span>)
     {
-      console.log("Authentication via API Bearer", <span class="keyword">info</span>);
+      console.log(&quot;Authentication via API Bearer&quot;, <span class="keyword">info</span>);
       <span class="keyword">if</span> ((err) || (!<span class="keyword">user</span>)) {
         res.send(<span class="number">401</span>);
         <span class="keyword">return</span>;
@@ -175,8 +175,8 @@ issued, this module can be used to authenticate tokens as described above.</p>
 <li><a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a> — OAuth 2.0 authorization server toolkit</li>
 </ul>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
@@ -189,13 +189,13 @@ issued, this module can be used to authenticate tokens as described above.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-custom-bearer</span></code></div>
             <ul>
-              <li><span class="version">1.0.15</span> published <abbr class="updated" title="2022-06-23T12:46:21Z">a month ago</abbr></li>
+              <li><span class="version">1.0.15</span> published <abbr class="updated" title="2022-06-23T12:46:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/wwwslinger/passport-http-custom-bearer">https://github.com/wwwslinger/passport-http-custom-bearer#readme</a></li>
             </ul>
             <ul>
               <li><b>74</b> downloads in the last day</li>
-              <li><b>427</b> downloads in the last week</li>
-              <li><b>1,840</b> downloads in the last month</li>
+              <li><b>297</b> downloads in the last week</li>
+              <li><b>1,903</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -110,20 +110,20 @@
 
 <hr>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-dapp-web3
+<pre><code class="bash">$ npm install passport-dapp-web3
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The web3 authentication strategy authenticates users using an address, message, and signed message. 
 The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> Web3Strategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">address, message, signed, done</span>) </span>{
-    User.findOne({ <span class="attr">address</span>: address }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">Web3Strategy</span>(
+  <span class="keyword">function</span>(<span class="params">address, message, signed, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">address</span>: address }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
 
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -143,13 +143,13 @@ named address, message, and signed. If your site prefers to name these fields
 differently, options are available to change the defaults. I don&#39;t even
 know why I am supporting this but I suppose if you&#39;re too lazy or unable to 
 change the existing form that you have, then lucky you.</p>
-<pre><code>passport.use(<span class="keyword">new</span> Web3Strategy({
-    addressField: <span class="string">'email'</span>,
-    messageField: <span class="string">'passwd'</span>,
-    signedField: <span class="string">'pineapples'</span>,
-    session: <span class="literal">false</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">Web3Strategy</span>({
+    <span class="attribute">addressField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attribute">messageField</span>: <span class="string">&#x27;passwd&#x27;</span>,
+    <span class="attribute">signedField</span>: <span class="string">&#x27;pineapples&#x27;</span>,
+    <span class="attribute">session</span>: false
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(address, message, signed, done)</span> </span>{
+  <span class="built_in">function</span>(address, message, signed, done) {
     <span class="comment">// ...</span>
   }
 ));
@@ -158,15 +158,15 @@ setting the <code>session</code> option to false.</p>
 <p>The verify callback can be supplied with the <code>request</code> object by setting
 the <code>passReqToCallback</code> option to true, and changing callback arguments
 accordingly.</p>
-<pre><code>passport.use(<span class="keyword">new</span> Web3Strategy({
-    addressField: <span class="string">'email'</span>,
-    messageField: <span class="string">'passwd'</span>,
-    passReqToCallback: <span class="literal">true</span>,
-    <span class="keyword">session</span>: <span class="literal">false</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">Web3Strategy</span>({
+    <span class="attribute">addressField</span>: <span class="string">&#x27;email&#x27;</span>,
+    <span class="attribute">messageField</span>: <span class="string">&#x27;passwd&#x27;</span>,
+    <span class="attribute">passReqToCallback</span>: true,
+    <span class="attribute">session</span>: false
   },
-  <span class="keyword">function</span>(req, address, message, signed, done) {
-    // request <span class="keyword">object</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">first</span> argument
-    // ...
+  <span class="built_in">function</span>(req, address, message, signed, done) {
+    <span class="comment">// request object is now first argument</span>
+    <span class="comment">// ...</span>
   }
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
@@ -174,10 +174,10 @@ accordingly.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'web3'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;web3&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -193,14 +193,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dapp-web3</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-05-12T15:35:48Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-05-12T15:35:48Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/psychobunny/passport-dapp-web3">https://github.com/psychobunny/passport-dapp-web3#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>8</b> downloads in the last week</li>
-              <li><b>75</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

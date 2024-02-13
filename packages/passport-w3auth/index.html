@@ -99,37 +99,37 @@
 <p>   npm install passport-w3auth --save</p>
 <h2 id="enabling-group-authentication-in-express-4">Enabling Group Authentication in Express 4</h2>
 <p>   app.js</p>
-<pre><code class="lang-javascript">   <span class="comment">// import BlueAuth</span>
-   <span class="keyword">var</span> BlueAuth = <span class="built_in">require</span>(<span class="string">'passport-w3auth'</span>);
-   <span class="keyword">var</span> myAuth = BlueAuth.buildAuth({
-       <span class="attr">api</span>: <span class="string">'group_api_url'</span>
-       <span class="attr">admin</span>: <span class="string">'admin_group_name'</span>
-       <span class="attr">superuser</span>: <span class="string">'superuser_group_name'</span>
+<pre><code class="javascript">   <span class="comment">// import BlueAuth</span>
+   <span class="keyword">var</span> <span class="title class_">BlueAuth</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-w3auth&#x27;</span>);
+   <span class="keyword">var</span> myAuth = <span class="title class_">BlueAuth</span>.<span class="title function_">buildAuth</span>({
+       <span class="attr">api</span>: <span class="string">&#x27;group_api_url&#x27;</span>
+       <span class="attr">admin</span>: <span class="string">&#x27;admin_group_name&#x27;</span>
+       <span class="attr">superuser</span>: <span class="string">&#x27;superuser_group_name&#x27;</span>
    });
 
    <span class="comment">// add to express router</span>
-   <span class="keyword">var</span> router = express.Router();
-   router.use(myAuth);
+   <span class="keyword">var</span> router = express.<span class="title class_">Router</span>();
+   router.<span class="title function_">use</span>(myAuth);
 </code></pre>
 <h2 id="using-passport">Using Passport</h2>
 <p>   app.js</p>
-<pre><code class="lang-javascript">   <span class="comment">// Include in your dependencies list</span>
-   <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-     , W3AuthStrategy = <span class="built_in">require</span>(<span class="string">'passport-w3auth'</span>).W3AuthStrategy;
+<pre><code class="javascript">   <span class="comment">// Include in your dependencies list</span>
+   <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+     , W3AuthStrategy = <span class="built_in">require</span>(<span class="string">&#x27;passport-w3auth&#x27;</span>).<span class="property">W3AuthStrategy</span>;
 
 
-   <span class="keyword">var</span> config = <span class="built_in">require</span>(__dirname + <span class="string">'/conf/config'</span>)
-   <span class="keyword">var</span> api = config.w3auth.url
-   passport.use(<span class="keyword">new</span> W3AuthStrategy());
+   <span class="keyword">var</span> config = <span class="built_in">require</span>(__dirname + <span class="string">&#x27;/conf/config&#x27;</span>)
+   <span class="keyword">var</span> api = config.<span class="property">w3auth</span>.<span class="property">url</span>
+   passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">W3AuthStrategy</span>());
 </code></pre>
 <p>   config/config.js</p>
-<pre><code class="lang-javascript">   <span class="keyword">var</span> config = {
+<pre><code class="javascript">   <span class="keyword">var</span> config = {
        <span class="attr">w3auth</span>: {
                   <span class="attr">url</span>: ${url}
        }
    }
 
-   <span class="built_in">module</span>.exports = {
+   <span class="variable language_">module</span>.<span class="property">exports</span> = {
        <span class="attr">config</span>: config
    };
 </code></pre>
@@ -139,14 +139,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-w3auth</span></code></div>
             <ul>
-              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2022-06-23T13:44:40Z">a month ago</abbr></li>
+              <li><span class="version">0.0.8</span> published <abbr class="updated" title="2022-06-23T13:44:40Z">a year ago</abbr></li>
               <li><a class="url" href="git@github.rtp.raleigh.ibm.com:kmdeland-us/passport-w3auth.git"></a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>8</b> downloads in the last day</li>
-              <li><b>10</b> downloads in the last week</li>
-              <li><b>19</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

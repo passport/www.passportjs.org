@@ -115,15 +115,15 @@
 </ul>
 <h3 id="example">Example</h3>
 <p>For more detailed example see the example folder.</p>
-<pre><code class="lang-javascript"> passport.use(
-    <span class="keyword">new</span> TelegramStrategy({
-        <span class="attr">clientID</span>: <span class="string">'123-456-789'</span>,
-        <span class="attr">clientSecret</span>: <span class="string">'shhh-its-a-secret'</span>
-        <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/telegram/callback'</span>
+<pre><code class="javascript"> passport.<span class="title function_">use</span>(
+    <span class="keyword">new</span> <span class="title class_">TelegramStrategy</span>({
+        <span class="attr">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span>,
+        <span class="attr">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span>
+        <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/telegram/callback&#x27;</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-        User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-            done(err, user);
+    <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+        <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span> (<span class="params">err, user</span>) {
+            <span class="title function_">done</span>(err, user);
         });
     }
  ));
@@ -133,26 +133,26 @@
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/telegram'</span>, 
-    passport.authenticate(<span class="string">'telegram'</span>),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/telegram&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;telegram&#x27;</span>),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
         <span class="comment">// The request will be redirected to telepass.me for authentication,</span>
         <span class="comment">// so this function will not be called.</span>
     }
 );
 
-app.get(<span class="string">'/auth/telegram/callback'</span>, 
-    passport.authenticate(<span class="string">'telegram'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/telegram/callback&#x27;</span>, 
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;telegram&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
         <span class="comment">// Successful authentication, redirect home.</span>
-        res.redirect(<span class="string">'/'</span>);
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/TelegramPassport/passport-js/tree/master/example">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-bash">$ npm install --dev
+<pre><code class="bash">$ npm install --dev
 $ make <span class="built_in">test</span>
 </code></pre>
 <h2 id="license">License</h2>
@@ -176,13 +176,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-telegram</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:58Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:35:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/TelegramPassport/passport-js">https://github.com/TelegramPassport/passport-js#readme</a></li>
             </ul>
             <ul>
-              <li><b>5</b> downloads in the last day</li>
-              <li><b>64</b> downloads in the last week</li>
-              <li><b>191</b> downloads in the last month</li>
+              <li><b>16</b> downloads in the last day</li>
+              <li><b>56</b> downloads in the last week</li>
+              <li><b>235</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

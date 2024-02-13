@@ -105,30 +105,30 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-wechat
 </code></pre><h2 id="-">使用</h2>
 <h4 id="configure-strategy">Configure  Strategy</h4>
-<pre><code class="lang-js">
- passport.use(<span class="keyword">new</span> WechatStrategy({
-        <span class="attr">appID</span>: {APPID},
+<pre><code class="js">
+ passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WechatStrategy</span>({
+        <span class="attr">appID</span>: {<span class="variable constant_">APPID</span>},
         <span class="attr">name</span>:{默认为wechat,可以设置组件的名字}
-        <span class="attr">appSecret</span>: {APPSECRET},
+        <span class="attr">appSecret</span>: {<span class="variable constant_">APPSECRET</span>},
         <span class="attr">client</span>:{wechat|web},
-        <span class="attr">callbackURL</span>: {CALLBACKURL},
+        <span class="attr">callbackURL</span>: {<span class="variable constant_">CALLBACKURL</span>},
         <span class="attr">scope</span>: {snsapi_userinfo|snsapi_base},
-        <span class="attr">state</span>:{STATE},
+        <span class="attr">state</span>:{<span class="variable constant_">STATE</span>},
         <span class="attr">getToken</span>: {getToken},
         <span class="attr">saveToken</span>: {saveToken}
       },
-      <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-        <span class="keyword">return</span> done(err,profile);
+      <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(err,profile);
       }
 ));
 
-The <span class="string">`callbackURL`</span>, <span class="string">`scope`</span> and <span class="string">`state`</span> can be overwritten <span class="keyword">in</span> <span class="string">`passport.authenticate`</span> middleware.
+<span class="title class_">The</span> <span class="string">`callbackURL`</span>, <span class="string">`scope`</span> and <span class="string">`state`</span> can be overwritten <span class="keyword">in</span> <span class="string">`passport.authenticate`</span> middleware.
 
-The <span class="string">`getToken`</span> and <span class="string">`saveToken`</span> can be provided to initialize Wechat OAuth instance.
+<span class="title class_">The</span> <span class="string">`getToken`</span> and <span class="string">`saveToken`</span> can be provided to initialize <span class="title class_">Wechat</span> <span class="title class_">OAuth</span> instance.
 
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
-<pre><code class="lang-js">  router.get(<span class="string">'/auth/wechat'</span>, passport.authenticate(<span class="string">'wechat'</span>, options));
+<pre><code class="js">  router.<span class="title function_">get</span>(<span class="string">&#x27;/auth/wechat&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wechat&#x27;</span>, options));
 </code></pre>
 <p><code>options</code> - Optional. Can include the following:</p>
 <ul>
@@ -138,9 +138,9 @@ The <span class="string">`getToken`</span> and <span class="string">`saveToken`<
 </ul>
 <p>If no callbackURL is specified, the same request url will be used.</p>
 <h4 id="authentication-callback">Authentication Callback</h4>
-<pre><code class="lang-js">  router.get(<span class="string">'/auth/wechat/callback'</span>, passport.authenticate(<span class="string">'wechat'</span>, {
-    <span class="attr">failureRedirect</span>: <span class="string">'/auth/fail'</span>,
-    <span class="attr">successReturnToOrRedirect</span>: <span class="string">'/'</span>
+<pre><code class="js">  router.<span class="title function_">get</span>(<span class="string">&#x27;/auth/wechat/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wechat&#x27;</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;/auth/fail&#x27;</span>,
+    <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>
   }));
 </code></pre>
 <h2 id="license">License</h2>
@@ -149,14 +149,14 @@ The <span class="string">`getToken`</span> and <span class="string">`saveToken`<
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wechat</span></code></div>
             <ul>
-              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2022-06-23T13:45:41Z">a month ago</abbr></li>
+              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2022-06-23T13:45:41Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/liangyali/passport-wechat">http://www.liangyali.com</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>66</b> downloads in the last day</li>
-              <li><b>311</b> downloads in the last week</li>
-              <li><b>1,294</b> downloads in the last month</li>
+              <li><b>95</b> downloads in the last day</li>
+              <li><b>454</b> downloads in the last week</li>
+              <li><b>1,843</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

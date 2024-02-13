@@ -116,14 +116,14 @@ unobtrusively integrated into any application or framework that supports
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> BamboohrStrategy({
-    apiKey: <span class="string">"&lt;applicationKey&gt;"</span>
+    apiKey<span class="operator">:</span> <span class="string">&quot;&lt;applicationKey&gt;&quot;</span>
   },
   <span class="keyword">function</span>(username, <span class="keyword">done</span>) {
-    User.findOne({ username: username }, <span class="keyword">function</span> (err, user) {
+    User.findOne({ username<span class="operator">:</span> username }, <span class="keyword">function</span> (err, user) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">if</span> (!user.verifyPassword(password)) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, user);
+      <span class="keyword">if</span> (<span class="operator">!</span>user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (<span class="operator">!</span>user.verifyPassword(password)) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -132,10 +132,10 @@ credentials and calls <code>done</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/login'</span>, 
-  passport.authenticate(<span class="string">'bamboohr'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/login&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;bamboohr&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><!--
 ## Examples
@@ -158,13 +158,13 @@ For complete, working examples, refer to the multiple [examples](https://github.
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-bamboohr</span></code></div>
             <ul>
-              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T12:19:28Z">a month ago</abbr></li>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T12:19:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/thinkerous/passport-bamboohr">https://github.com/thinkerous/passport-bamboohr</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

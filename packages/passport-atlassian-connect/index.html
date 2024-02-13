@@ -95,51 +95,51 @@
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-atlassian-connect">passport-atlassian-connect</h1>
 <p>Passport.js strategy for Atlassian products add-ons</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> strategy = <span class="keyword">new</span> AtlassianConnectStrategy({
-  <span class="attr">baseUrl</span>: <span class="string">'https://your-addon-url.com'</span>,
-  <span class="attr">product</span>: <span class="string">'jira'</span>,
+<pre><code class="javascript"><span class="keyword">const</span> strategy = <span class="keyword">new</span> <span class="title class_">AtlassianConnectStrategy</span>({
+  <span class="attr">baseUrl</span>: <span class="string">&#x27;https://your-addon-url.com&#x27;</span>,
+  <span class="attr">product</span>: <span class="string">&#x27;jira&#x27;</span>,
 })
 
-<span class="keyword">const</span> handleInstall = passport.authenticate(<span class="string">'atlassian-connect'</span>, {
+<span class="keyword">const</span> handleInstall = passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;atlassian-connect&#x27;</span>, {
   <span class="attr">loadCredentials</span>: <span class="function"><span class="params">clientKey</span> =&gt;</span> {
-    <span class="keyword">return</span> model.Credentials.findOne({ clientKey })
+    <span class="keyword">return</span> model.<span class="property">Credentials</span>.<span class="title function_">findOne</span>({ clientKey })
   },
   <span class="attr">saveCredentials</span>: <span class="function">(<span class="params">clientKey, newCredentials, storedCredentials</span>) =&gt;</span> {
     <span class="keyword">if</span> (storedCredentials) {
-      <span class="keyword">return</span> storedCredentials.update(newCredentials)
+      <span class="keyword">return</span> storedCredentials.<span class="title function_">update</span>(newCredentials)
     }
 
-    <span class="keyword">return</span> model.Credentials.create(newCredentials)
+    <span class="keyword">return</span> model.<span class="property">Credentials</span>.<span class="title function_">create</span>(newCredentials)
   }
 })
 
-<span class="keyword">const</span> handleAuth = passport.authenticate(<span class="string">'atlassian-connect'</span>, {
+<span class="keyword">const</span> handleAuth = passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;atlassian-connect&#x27;</span>, {
   <span class="attr">loadCredentials</span>: <span class="function"><span class="params">clientKey</span> =&gt;</span> {
-    <span class="keyword">return</span> model.Credentials.findOne({ clientKey })
+    <span class="keyword">return</span> model.<span class="property">Credentials</span>.<span class="title function_">findOne</span>({ clientKey })
   },
   <span class="attr">onAuthenticated</span>: <span class="function">(<span class="params">jwtPayload, storedCredentials, req</span>) =&gt;</span> {
-    req.credentials = storedCredentials
+    req.<span class="property">credentials</span> = storedCredentials
   }
 })
 
-<span class="keyword">const</span> app = express()
-  .post(<span class="string">'/api/hooks/jira/installed'</span>, handleInstall)
-  .post(<span class="string">'/api/hooks/jira/uninstalled'</span>, handleAuth, handleUninstall)
-  .post(<span class="string">'/api/hooks/jira/project/created'</span>, handleAuth, handleProjectCreated)
+<span class="keyword">const</span> app = <span class="title function_">express</span>()
+  .<span class="title function_">post</span>(<span class="string">&#x27;/api/hooks/jira/installed&#x27;</span>, handleInstall)
+  .<span class="title function_">post</span>(<span class="string">&#x27;/api/hooks/jira/uninstalled&#x27;</span>, handleAuth, handleUninstall)
+  .<span class="title function_">post</span>(<span class="string">&#x27;/api/hooks/jira/project/created&#x27;</span>, handleAuth, handleProjectCreated)
 
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-atlassian-connect</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:31:39Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:31:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/DanielHreben/passport-atlassian-connect">https://github.com/DanielHreben/passport-atlassian-connect#readme</a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>4</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

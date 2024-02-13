@@ -107,26 +107,26 @@
 <li>Copy <code>クライアントID</code>(client id) and <code>クライアントシークレット</code>(client secret)</li>
 </ol>
 <h3 id="register-strategy">Register strategy</h3>
-<pre><code class="lang-js"><span class="keyword">const</span> NextengineStrategy = <span class="built_in">require</span>(<span class="string">'passport-nextengine'</span>).Strategy
-passport.use(<span class="keyword">new</span> NextengineStrategy({
-  <span class="attr">clientId</span>: <span class="string">'YOUR_CLIENT_ID'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'YOUR_CLIENT_SECRET'</span>,
-  <span class="comment">// redirectUri: 'YOUR_REDIRECT_URI'</span>
-}, (user, done) =&gt; {
-  done(<span class="literal">null</span>, user)
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">NextengineStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-nextengine&#x27;</span>).<span class="property">Strategy</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">NextengineStrategy</span>({
+  <span class="attr">clientId</span>: <span class="string">&#x27;YOUR_CLIENT_ID&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;YOUR_CLIENT_SECRET&#x27;</span>,
+  <span class="comment">// redirectUri: &#x27;YOUR_REDIRECT_URI&#x27;</span>
+}, <span class="function">(<span class="params">user, done</span>) =&gt;</span> {
+  <span class="title function_">done</span>(<span class="literal">null</span>, user)
 }))
 </code></pre>
 <h3 id="authenticate">Authenticate</h3>
-<pre><code class="lang-js">app
+<pre><code class="js">app
   <span class="comment">// POST /auth/nextengine</span>
-  .use(route.post(<span class="string">'/auth/nextengine'</span>,
-    passport.authenticate(<span class="string">'nextengine'</span>)
+  .<span class="title function_">use</span>(route.<span class="title function_">post</span>(<span class="string">&#x27;/auth/nextengine&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;nextengine&#x27;</span>)
   ))
   <span class="comment">// GET /auth/nextengine/callback</span>
-  .use(route.get(<span class="string">'/auth/nextengine/callback'</span>,
-    passport.authenticate(<span class="string">'nextengine'</span>, {
-      <span class="attr">failureRedirect</span>: <span class="string">'/'</span>,
-      <span class="attr">successRedirect</span>: <span class="string">'/dashboard'</span>
+  .<span class="title function_">use</span>(route.<span class="title function_">get</span>(<span class="string">&#x27;/auth/nextengine/callback&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;nextengine&#x27;</span>, {
+      <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+      <span class="attr">successRedirect</span>: <span class="string">&#x27;/dashboard&#x27;</span>
     })
   ))
 </code></pre>
@@ -137,14 +137,14 @@ passport.use(<span class="keyword">new</span> NextengineStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-nextengine</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:06:22Z">a month ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-06-23T13:06:22Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Leko/passport-nextengine">https://github.com/Leko/passport-nextengine#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

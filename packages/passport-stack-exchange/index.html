@@ -97,23 +97,23 @@
 <p><a href="https://github.com/jaredhanson/passport">Passport</a> strategy for authenticating with <a href="https://stackexchange.com/">Stack Exchange</a> using the OAuth 2.0 API.</p>
 <p>This module lets you authenticate using Stack Exchange in your Node.js applications. By plugging into Passport, Stackexchange authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">npm install passport-stack-exchange
+<pre><code class="bash">npm install passport-stack-exchange
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Stack Exchange authentication strategy authenticates users using a Stack Exchange account (Stack Overflow) and OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a consumer key, consumer secret, callback URL, and API key for <a href="https://stackapps.com">Stackapps</a>. Register the application on the <a href="https://stackapps.com/apps/oauth/register">service page</a>.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> StackExchangeStrategy = <span class="built_in">require</span>(<span class="string">'passport-stack-exchange'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">StackExchangeStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-stack-exchange&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> StackExchangeStrategy({
-    <span class="attr">clientID</span>: STACKEXCHANGE_CLIENT_ID,
-    <span class="attr">clientSecret</span>: STACKEXCHANGE_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">'http://127.0.0.1:3000/auth/stack-exchange/callback'</span>,
-    <span class="attr">stackAppsKey</span>: STACKEXCHANGE_APPS_KEY,
-    <span class="attr">site</span>: <span class="string">'stackoverflow'</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">StackExchangeStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">STACKEXCHANGE_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">STACKEXCHANGE_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://127.0.0.1:3000/auth/stack-exchange/callback&#x27;</span>,
+    <span class="attr">stackAppsKey</span>: <span class="variable constant_">STACKEXCHANGE_APPS_KEY</span>,
+    <span class="attr">site</span>: <span class="string">&#x27;stackoverflow&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">stackexchangeId</span>: profile.username }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">stackexchangeId</span>: profile.<span class="property">username</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -121,14 +121,14 @@ passport.use(<span class="keyword">new</span> StackExchangeStrategy({
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;stack-exchange&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/stack-exchange'</span>,
-  passport.authenticate(<span class="string">'stack-exchange'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/stack-exchange&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;stack-exchange&#x27;</span>));
 
-app.get(<span class="string">'/auth/stack-exchange/callback'</span>,
-  passport.authenticate(<span class="string">'stack-exchange'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/stack-exchange/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;stack-exchange&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -145,14 +145,14 @@ app.get(<span class="string">'/auth/stack-exchange/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stack-exchange</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:58:55Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:58:55Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/acruxray/passport-stack-exchange">https://github.com/acruxray/passport-stack-exchange#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>20</b> downloads in the last week</li>
-              <li><b>83</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>19</b> downloads in the last week</li>
+              <li><b>34</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

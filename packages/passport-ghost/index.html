@@ -98,30 +98,30 @@
 <h2 id="install">install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-ghost
 </code></pre><h2 id="usage">usage</h2>
-<pre><code>var GhostStrategy = require(<span class="string">'passport-ghost'</span>).Strategy;
+<pre><code>var <span class="symbol">GhostStrategy</span> = require(<span class="string">&#x27;passport-ghost&#x27;</span>).<span class="symbol">Strategy</span>;
 
-var ghostStrategy = new GhostStrategy({
-  redirectUri: <span class="string">'your-redirect-url'</span>,          [required]
-  blogUri: <span class="string">'your-blog-url'</span>,                  [required]
-  url: <span class="string">'your-own-auth-server-url'</span>,           [required]
-  passReqToCallback: <span class="literal">true</span>                    [optional]
-  retries                                    [optional]<span class="built_in"> default </span>10
-  retryTimeout                               [optional]<span class="built_in"> default </span>5000ms
-  retryHook: function                        [optional] <span class="keyword">If</span> an <span class="builtin-name">error</span> occurs <span class="keyword">while</span> retrying, you can define a hook <span class="keyword">to</span> <span class="builtin-name">get</span> notified
+var ghostStrategy = new <span class="symbol">GhostStrategy</span>({
+  redirectUri: <span class="string">&#x27;your-redirect-url&#x27;</span>,          [required]
+  blogUri: <span class="string">&#x27;your-blog-url&#x27;</span>,                  [required]
+  url: <span class="string">&#x27;your-own-auth-server-url&#x27;</span>,           [required]
+  passReqToCallback: true                    [optional]
+  retries                                    [optional] default <span class="number">10</span>
+  retryTimeout                               [optional] default <span class="number">5000</span>ms
+  retryHook: function                        [optional] <span class="symbol">If</span> an error occurs while retrying, you can define a hook to get notified
 }, callback);
 
 ghostStrategy.registerClient({
-  name: <span class="string">'your-client-name'</span>,                  [required]
-  description: <span class="string">'your blog description'</span>       [optional]
+  name: <span class="string">&#x27;your-client-name&#x27;</span>,                  [required]
+  description: <span class="string">&#x27;your blog description&#x27;</span>       [optional]
 });
 
 ghostStrategy.updateClient({
-  clientId: <span class="string">'your-client-id'</span>,                [required]
-  clientSecret: <span class="string">'your-client-secret'</span>,        [required]
-  name: <span class="string">'your-client-name'</span>,                  [optional]
-  description: <span class="string">'your blog description'</span>,      [optional]
-  redirectUri: <span class="string">'your-redirect-url'</span>,          [optional]
-  blogUri: <span class="string">'your-blog-url'</span>                   [optional]
+  clientId: <span class="string">&#x27;your-client-id&#x27;</span>,                [required]
+  clientSecret: <span class="string">&#x27;your-client-secret&#x27;</span>,        [required]
+  name: <span class="string">&#x27;your-client-name&#x27;</span>,                  [optional]
+  description: <span class="string">&#x27;your blog description&#x27;</span>,      [optional]
+  redirectUri: <span class="string">&#x27;your-redirect-url&#x27;</span>,          [optional]
+  blogUri: <span class="string">&#x27;your-blog-url&#x27;</span>                   [optional]
 });
 </code></pre><h1 id="copyright-license">Copyright &amp; License</h1>
 <p>Copyright (c) 2016-2017 Ghost Foundation - Released under the <a href="LICENSE">MIT license</a>.</p>
@@ -129,14 +129,14 @@ ghostStrategy.updateClient({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ghost</span></code></div>
             <ul>
-              <li><span class="version">2.3.1</span> published <abbr class="updated" title="2022-07-18T11:18:58Z">3 days ago</abbr></li>
+              <li><span class="version">2.3.1</span> published <abbr class="updated" title="2023-06-26T11:44:21Z">10 days ago</abbr></li>
               <li><a class="url" href="https://github.com/TryGhost/passport-ghost">https://ghost.org</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>25</b> downloads in the last week</li>
-              <li><b>60</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>170</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

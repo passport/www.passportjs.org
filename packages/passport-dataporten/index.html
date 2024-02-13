@@ -99,30 +99,30 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-dataporten <span class="comment">--save</span>
 </code></pre><h2 id="usage">Usage</h2>
 <p>Use the helper Setup class for simple and flexible passportjs setup:</p>
-<pre><code><span class="keyword">var</span> Dataporten = <span class="keyword">require</span>(<span class="string">'passport-dataporten'</span>);
-<span class="keyword">var</span> app = express();
+<pre><code><span class="keyword">var</span> Dataporten = require(&#x27;passport-dataporten&#x27;);
+<span class="keyword">var</span> <span class="keyword">app</span> = express();
 
 <span class="keyword">var</span> config = {
-    <span class="string">"clientID"</span>: <span class="string">"10ad9f43-1ba3-4cb2-a459-1f9b3af25ac1"</span>,
-    <span class="string">"clientSecret"</span>: <span class="string">"4175677a-06f8-4cc3-8224-2f858d18b610"</span>,
-  <span class="string">"sessionkey"</span>: <span class="string">"d6096809-4d65-4931-b7d3-97637fc70e88"</span>,
-    <span class="string">"callbackURL"</span>: <span class="string">"http://localhost:8080/auth/dataporten/callback"</span>,
+    <span class="string">&quot;clientID&quot;</span>: <span class="string">&quot;10ad9f43-1ba3-4cb2-a459-1f9b3af25ac1&quot;</span>,
+    <span class="string">&quot;clientSecret&quot;</span>: <span class="string">&quot;4175677a-06f8-4cc3-8224-2f858d18b610&quot;</span>,
+  <span class="string">&quot;sessionkey&quot;</span>: <span class="string">&quot;d6096809-4d65-4931-b7d3-97637fc70e88&quot;</span>,
+    <span class="string">&quot;callbackURL&quot;</span>: <span class="string">&quot;http://localhost:8080/auth/dataporten/callback&quot;</span>,
 };
-<span class="keyword">var</span> dataportenSetup = <span class="keyword">new</span> Dataporten.Setup(config);
+<span class="keyword">var</span> dataportenSetup = new Dataporten.Setup(config);
 
-app.<span class="keyword">use</span>(<span class="title">dpsetup</span>.<span class="title">passport</span>.<span class="title">initialize</span>());
-app.<span class="keyword">use</span>(<span class="title">dpsetup</span>.<span class="title">passport</span>.<span class="title">session</span>());
+<span class="keyword">app</span>.<span class="keyword">use</span>(dpsetup.passport.initialize());
+<span class="keyword">app</span>.<span class="keyword">use</span>(dpsetup.passport.session());
 
-dpsetup.setupAuthenticate(app, <span class="string">'/login'</span>);
-dpsetup.setupLogout(app, <span class="string">'/logout'</span>);
-dpsetup.setupCallback(app);
+dpsetup.setupAuthenticate(<span class="keyword">app</span>, &#x27;/login&#x27;);
+dpsetup.setupLogout(<span class="keyword">app</span>, &#x27;/logout&#x27;);
+dpsetup.setupCallback(<span class="keyword">app</span>);
 </code></pre><p>Use <code>Dataporten.Authz</code> for authorization:</p>
-<pre><code><span class="built_in">var</span> authzConfig = {<span class="string">"redirectOnNoAccess"</span>: <span class="string">"/login"</span>};
+<pre><code><span class="built_in">var</span> authzConfig = {<span class="string">&quot;redirectOnNoAccess&quot;</span>: <span class="string">&quot;/login&quot;</span>};
 <span class="built_in">var</span> dataportenAuthorizationMiddleware = (<span class="built_in">new</span> Dataporten.Authz(authzConfig))
-    .allowUsers(['eeb5bad8-c466-<span class="number">4393</span>-91cc-6fb61807e4dd'])
-    .allowGroups(['fc:adhoc:892fe78e-14cd-<span class="number">43b1</span>-abf8-b453a2c7758d'])
+    .allowUsers([&#x27;eeb5bad8-c466-<span class="number">4393</span>-91cc-6fb61807e4dd&#x27;])
+    .allowGroups([&#x27;fc:adhoc:892fe78e-14cd-<span class="number">43b1</span>-abf8-b453a2c7758d&#x27;])
     .middleware();
-app.use('/', dataportenAuthorizationMiddleware);
+app.use(&#x27;/&#x27;, dataportenAuthorizationMiddleware);
 </code></pre><h2 id="thanks">Thanks</h2>
 <ul>
 <li><a href="http://github.com/jornane">Jørn Åne</a></li>
@@ -136,14 +136,14 @@ app.use('/', dataportenAuthorizationMiddleware);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dataporten</span></code></div>
             <ul>
-              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2022-06-23T12:27:21Z">a month ago</abbr></li>
+              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2022-06-23T12:27:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Uninett/passport-dataporten">https://docs.dataporten.no</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>1</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>28</b> downloads in the last month</li>
+              <li><b>10</b> downloads in the last week</li>
+              <li><b>34</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

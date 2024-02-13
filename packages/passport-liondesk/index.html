@@ -119,16 +119,16 @@ also requires a <code>function</code>, which receives the <code>access token</co
 <code>refresh token</code>, as well as <code>profile</code> which contains the authenticated user&#39;s
 LionDesk profile and a <code>done</code> callback which must be called <code>cb</code> providing a user to
 complete authentication.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> LionDeskStrategy = <span class="built_in">require</span>(<span class="string">'passport-liondesk'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">LionDeskStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-liondesk&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> LionDeskStrategy({
-    <span class="attr">clientID</span>: LIONDESK_CLIENT_ID,
-    <span class="attr">clientSecret</span>: LIONDESK_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/liondesk/callback"</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LionDeskStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">LIONDESK_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">LIONDESK_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/liondesk/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">liondeskId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">liondeskId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -140,14 +140,14 @@ passport.use(<span class="keyword">new</span> LionDeskStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-liondesk</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:46:44Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:46:44Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/chrux/passport-liondesk">https://github.com/chrux/passport-liondesk#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>3</b> downloads in the last month</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

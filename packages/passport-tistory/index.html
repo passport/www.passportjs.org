@@ -110,18 +110,18 @@ Tistory 인증 API는 OAuth 2.0 기반의 인증 방식을 사용하고 있다. 
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-tistory
 </code></pre><h1 id="-">사용방법</h1>
 <p>passport-tistory 사용 방법은 <code>passport</code> 모듈과 <code>passport-tistory</code> 모듈을 로드해서 다음과 같이 인증이 필요한 부분에 <code>passport.use()</code> 사용한다.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-    TistoryStrategy= <span class="built_in">require</span>(<span class="string">'passport-tistory'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+    <span class="title class_">TistoryStrategy</span>= <span class="built_in">require</span>(<span class="string">&#x27;passport-tistory&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="keyword">new</span> TistoryStrategy({
-    <span class="attr">clientID</span> : clientID,
-    <span class="attr">callbackURL</span> : callbackURL
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">TistoryStrategy</span>({
+    clientID : clientID,
+    callbackURL : callbackURL
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>)</span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>){
     <span class="comment">// 사용자의 정보는 profile에 들어있다.</span>
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      done(<span class="literal">null</span>, user);
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
@@ -183,99 +183,99 @@ passport.use(<span class="keyword">new</span> TistoryStrategy({
 </table>
 <h1 id="express-js-">Express.js와 연동하기</h1>
 <p>웹 서비스를 만들기 위해서 Express.js 를 사용하고 있다면 다음과 같인 <code>passport-tistory</code>를 연동해서 사용할 수 있다.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
-    , passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)
-    , util = <span class="built_in">require</span>(<span class="string">'util'</span>)
-    , TistoryStrategy = <span class="built_in">require</span>(<span class="string">'passport-tistory'</span>).Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)
+    , passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
+    , util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>)
+    , <span class="title class_">TistoryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-tistory&#x27;</span>).<span class="property">Strategy</span>;
 
-<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
-<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
-<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
-<span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
-<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>);
+<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);
+<span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
 
-<span class="keyword">var</span> TISTORY_CLIENT_ID = <span class="string">""</span>        <span class="comment">// 티스토리 API를 사용하기 위해서 등록한 Client의 Client ID</span>
-<span class="keyword">var</span> TISTORY_CLIENT_SECRET = <span class="string">""</span>;   <span class="comment">// 티스토리 API를 사용하기 이해서 등록한 Client의 Clietn Secret</span>
+<span class="keyword">var</span> <span class="variable constant_">TISTORY_CLIENT_ID</span> = <span class="string">&quot;&quot;</span>        <span class="comment">// 티스토리 API를 사용하기 위해서 등록한 Client의 Client ID</span>
+<span class="keyword">var</span> <span class="variable constant_">TISTORY_CLIENT_SECRET</span> = <span class="string">&quot;&quot;</span>;   <span class="comment">// 티스토리 API를 사용하기 이해서 등록한 Client의 Clietn Secret</span>
 
-passport.serializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
-  done(<span class="literal">null</span>, user);
+passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, user);
 });
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">obj, done</span>) </span>{
-  done(<span class="literal">null</span>, obj);
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">obj, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, obj);
 });
 
 
-passport.use(<span class="keyword">new</span> TistoryStrategy({
-      <span class="attr">clientID</span>: TISTORY_CLIENT_ID,
-      <span class="attr">clientSecret</span>: TISTORY_CLIENT_SECRET,
-      <span class="attr">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/tistory/callback"</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">TistoryStrategy</span>({
+      <span class="attr">clientID</span>: <span class="variable constant_">TISTORY_CLIENT_ID</span>,
+      <span class="attr">clientSecret</span>: <span class="variable constant_">TISTORY_CLIENT_SECRET</span>,
+      <span class="attr">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/tistory/callback&quot;</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+    <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
       <span class="comment">// asynchronous verification, for effect...</span>
-      <span class="built_in">console</span>.log(<span class="string">"accessToken: "</span> + accessToken);
-      <span class="built_in">console</span>.log(<span class="string">"refreshToken: "</span> +refreshToken);
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;accessToken: &quot;</span> + accessToken);
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;refreshToken: &quot;</span> +refreshToken);
 
-      process.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
-        <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+      process.<span class="title function_">nextTick</span>(<span class="keyword">function</span> (<span class="params"></span>) {
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
       });
     }
 ));
 
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
-app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));
-app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);
-app.use(logger(<span class="string">'dev'</span>));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
-app.use(session({ <span class="attr">secret</span>: <span class="string">'keyboard cat'</span> }))
-app.use(passport.initialize());
-app.use(passport.session())
+app.<span class="title function_">set</span>(<span class="string">&#x27;views&#x27;</span>, path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;views&#x27;</span>));
+app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;jade&#x27;</span>);
+app.<span class="title function_">use</span>(<span class="title function_">logger</span>(<span class="string">&#x27;dev&#x27;</span>));
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>());
+app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>());
+app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
+app.<span class="title function_">use</span>(<span class="title function_">session</span>({ <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span> }))
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
+app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>())
 
 <span class="comment">// GET /</span>
-app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  res.render(<span class="string">'index'</span>, { <span class="attr">user</span>: req.user });
+app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
+  res.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>, { <span class="attr">user</span>: req.<span class="property">user</span> });
 });
 
 <span class="comment">// GET /account</span>
-app.get(<span class="string">'/account'</span>, ensureAuthenticated, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  res.render(<span class="string">'account'</span>, { <span class="attr">user</span>: req.user });
+app.<span class="title function_">get</span>(<span class="string">&#x27;/account&#x27;</span>, ensureAuthenticated, <span class="keyword">function</span>(<span class="params">req, res</span>){
+  res.<span class="title function_">render</span>(<span class="string">&#x27;account&#x27;</span>, { <span class="attr">user</span>: req.<span class="property">user</span> });
 });
 
 <span class="comment">// GET /login</span>
-app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  res.render(<span class="string">'login'</span>, { <span class="attr">user</span>: req.user });
+app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
+  res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>, { <span class="attr">user</span>: req.<span class="property">user</span> });
 });
 
 <span class="comment">// GET /auth/tistory</span>
-app.get(<span class="string">'/auth/tistory'</span>,
-    passport.authenticate(<span class="string">'tistory'</span>),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-      <span class="built_in">console</span>.log(req);
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/tistory&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;tistory&#x27;</span>),
+    <span class="keyword">function</span>(<span class="params">req, res</span>){
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(req);
     });
 
 <span class="comment">// GET /auth/tistory/callback</span>
-app.get(<span class="string">'/auth/tistory/callback'</span>,
-    passport.authenticate(<span class="string">'tistory'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-      <span class="built_in">console</span>.log(req);
-      res.redirect(<span class="string">'/'</span>);
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/tistory/callback&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;tistory&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(req);
+      res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
 <span class="comment">// GET /logout</span>
-app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
-  req.logout();
-  res.redirect(<span class="string">'/'</span>);
+app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
+  req.<span class="title function_">logout</span>();
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 
-app.listen(<span class="number">3000</span>);
+app.<span class="title function_">listen</span>(<span class="number">3000</span>);
 
-<span class="function"><span class="keyword">function</span> <span class="title">ensureAuthenticated</span>(<span class="params">req, res, next</span>) </span>{
-  <span class="keyword">if</span> (req.isAuthenticated()) { <span class="keyword">return</span> next(); }
-  res.redirect(<span class="string">'/login'</span>)
+<span class="keyword">function</span> <span class="title function_">ensureAuthenticated</span>(<span class="params">req, res, next</span>) {
+  <span class="keyword">if</span> (req.<span class="title function_">isAuthenticated</span>()) { <span class="keyword">return</span> <span class="title function_">next</span>(); }
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/login&#x27;</span>)
 }
 
 </code></pre>
@@ -344,13 +344,13 @@ SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tistory</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:37:04Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:37:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/saltfactory/passport-tistory">https://github.com/saltfactory/passport-tistory</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

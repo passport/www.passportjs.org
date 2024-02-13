@@ -94,12 +94,12 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-oauth2">passport-oauth2</h1>
-<p>General-purpose OAuth 2.0 authentication strategy for <a href="http://passportjs.org/">Passport</a>.</p>
+<p>General-purpose OAuth 2.0 authentication strategy for <a href="https://www.passportjs.org/">Passport</a>.</p>
 <p>This module lets you authenticate using OAuth 2.0 in your Node.js applications.
-By plugging into Passport, OAuth 2.0 authentication can be easily and
+By plugging into Passport, OAuth 2.0-based sign in can be easily and
 unobtrusively integrated into any application or framework that supports
-<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
-<a href="http://expressjs.com/">Express</a>.</p>
+<a href="https://github.com/senchalabs/connect#readme">Connect</a>-style middleware, including
+<a href="https://expressjs.com/">Express</a>.</p>
 <p>Note that this strategy provides generic OAuth 2.0 support.  In many cases, a
 provider-specific strategy can be used instead, which cuts down on unnecessary
 configuration, and accommodates any provider-specific quirks.  See the
@@ -109,6 +109,13 @@ providers.</p>
 that is not already supported are encouraged to sub-class this strategy.  If you
 choose to open source the new provider-specific strategy, please add it to the
 list so other people can find it.</p>
+<div align="center">
+
+:brain: <a href="https://www.passportjs.org/concepts/oauth2/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=passport-oauth2&amp;utm_content=nav-concept">Understanding OAuth 2.0</a> •
+:heart: <a href="https://www.passportjs.org/sponsors/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=passport-oauth2&amp;utm_content=nav-sponsors">Sponsors</a>
+
+</div>
+
 <hr>
 <p align="center">
   <sup>Advertisement</sup>
@@ -130,16 +137,16 @@ account and OAuth 2.0 tokens.  The provider&#39;s OAuth 2.0 endpoints, as well a
 the client identifer and secret, are specified as options.  The strategy
 requires a <code>verify</code> callback, which receives an access token and profile,
 and calls <code>cb</code> providing a user.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OAuth2Strategy({
-    <span class="attr">authorizationURL</span>: <span class="string">'https://www.example.com/oauth2/authorize'</span>,
-    <span class="attr">tokenURL</span>: <span class="string">'https://www.example.com/oauth2/token'</span>,
-    <span class="attr">clientID</span>: EXAMPLE_CLIENT_ID,
-    <span class="attr">clientSecret</span>: EXAMPLE_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://localhost:3000/auth/example/callback"</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OAuth2Strategy</span>({
+    <span class="attr">authorizationURL</span>: <span class="string">&#x27;https://www.example.com/oauth2/authorize&#x27;</span>,
+    <span class="attr">tokenURL</span>: <span class="string">&#x27;https://www.example.com/oauth2/token&#x27;</span>,
+    <span class="attr">clientID</span>: <span class="variable constant_">EXAMPLE_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">EXAMPLE_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/example/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) </span>{
-    User.findOrCreate({ <span class="attr">exampleId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, cb</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">exampleId</span>: profile.<span class="property">id</span> }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
   }
 ));
@@ -149,14 +156,14 @@ and calls <code>cb</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/example'</span>,
-  passport.authenticate(<span class="string">'oauth2'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/example&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth2&#x27;</span>));
 
-app.get(<span class="string">'/auth/example/callback'</span>,
-  passport.authenticate(<span class="string">'oauth2'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/example/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="related-modules">Related Modules</h2>
@@ -170,13 +177,13 @@ app.get(<span class="string">'/auth/example/callback'</span>,
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="license">License</h2>
@@ -186,14 +193,14 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.6.1</span> published <abbr class="updated" title="2022-06-23T13:08:46Z">a month ago</abbr></li>
+              <li><span class="version">1.7.0</span> published <abbr class="updated" title="2023-03-02T22:39:45Z">4 months ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-oauth2">https://github.com/jaredhanson/passport-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>85,454</b> downloads in the last day</li>
-              <li><b>443,333</b> downloads in the last week</li>
-              <li><b>1,930,906</b> downloads in the last month</li>
+              <li><b>114,494</b> downloads in the last day</li>
+              <li><b>524,928</b> downloads in the last week</li>
+              <li><b>2,549,953</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

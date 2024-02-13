@@ -96,7 +96,7 @@
           <div class="description"><h1 id="passport-abakus">passport-abakus</h1>
 <p><a href="https://travis-ci.org/webkom/passport-abakus"><img src="https://travis-ci.org/webkom/passport-abakus.svg" alt="Build Status"></a>
 <a href="https://coveralls.io/r/webkom/passport-abakus"><img src="https://coveralls.io/repos/webkom/passport-abakus/badge.png" alt="Coverage Status"></a></p>
-<pre><code class="lang-bash">npm install passport-abakus
+<pre><code class="bash">npm install passport-abakus
 </code></pre>
 <p>passport-abakus is a passport strategy that can be used to to authenticate users
 against the API of abakus.no. If you would like to use it you need a API token.
@@ -104,12 +104,12 @@ Contact <a href="mailto:webkom@abakus.no">webkom@abakus.no</a> to request one.</
 <h2 id="usage">Usage</h2>
 <p>This module is based on passport-local. The setup should be
 fairly the same except it is not necessary to write the strategy.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">"passport"</span>);
-<span class="keyword">var</span> abakusStrategy = <span class="built_in">require</span>(<span class="string">"passport-abakus"</span>);
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&quot;passport&quot;</span>);
+<span class="keyword">var</span> abakusStrategy = <span class="built_in">require</span>(<span class="string">&quot;passport-abakus&quot;</span>);
 
-passport.use(abakusStrategy());
+passport.<span class="title function_">use</span>(<span class="title function_">abakusStrategy</span>());
 
-app.use(passport.initialize());
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
 </code></pre>
 <p>In addition to add the strategy in your app. You must make sure that the
 API token is stored in a environment variable called <code>ABAKUS_TOKEN</code></p>
@@ -129,14 +129,14 @@ Make sure to check those that are already open, to avoid duplicates.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-abakus</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:12:15Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:12:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/webkom/passport-abakus">https://github.com/webkom/passport-abakus</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

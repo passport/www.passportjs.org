@@ -94,14 +94,14 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-jwt">passport-jwt</h1>
-<p><a href="https://travis-ci.org/themikenicholson/passport-jwt"><img src="https://travis-ci.org/themikenicholson/passport-jwt.svg?branch=master" alt="Build Status"></a>
-<a href="https://codeclimate.com/github/themikenicholson/passport-jwt"><img src="https://codeclimate.com/github/themikenicholson/passport-jwt/badges/gpa.svg" alt="Code Climate"></a></p>
+<p><a href="https://travis-ci.org/mikenicholson/passport-jwt"><img src="https://travis-ci.org/mikenicholson/passport-jwt.svg?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/mikenicholson/passport-jwt"><img src="https://codeclimate.com/github/mikenicholson/passport-jwt/badges/gpa.svg" alt="Code Climate"></a></p>
 <p>A <a href="http://passportjs.org/">Passport</a> strategy for authenticating with a
 <a href="http://jwt.io">JSON Web Token</a>.</p>
 <p>This module lets you authenticate endpoints using a JSON web token. It is
 intended to be used to secure RESTful endpoints without sessions.</p>
 <h2 id="supported-by">Supported By</h2>
-<p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/overview?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=passport-jwt&amp;utm_content=auth">auth0.com/overview</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
+<p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/developers?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=passport-jwt&amp;utm_content=auth">auth0.com/developers</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
 <h2 id="install">Install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt
 </code></pre><h2 id="usage">Usage</h2>
@@ -141,22 +141,22 @@ done(error, user, info)</li>
 </ul>
 <p>An example configuration which reads the JWT from the http
 Authorization header with the scheme &#39;bearer&#39;:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> JwtStrategy = <span class="built_in">require</span>(<span class="string">'passport-jwt'</span>).Strategy,
-    ExtractJwt = <span class="built_in">require</span>(<span class="string">'passport-jwt'</span>).ExtractJwt;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">JwtStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-jwt&#x27;</span>).<span class="property">Strategy</span>,
+    <span class="title class_">ExtractJwt</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-jwt&#x27;</span>).<span class="property">ExtractJwt</span>;
 <span class="keyword">var</span> opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = <span class="string">'secret'</span>;
-opts.issuer = <span class="string">'accounts.examplesoft.com'</span>;
-opts.audience = <span class="string">'yoursite.net'</span>;
-passport.use(<span class="keyword">new</span> JwtStrategy(opts, <span class="function"><span class="keyword">function</span>(<span class="params">jwt_payload, done</span>) </span>{
-    User.findOne({<span class="attr">id</span>: jwt_payload.sub}, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
+opts.<span class="property">jwtFromRequest</span> = <span class="title class_">ExtractJwt</span>.<span class="title function_">fromAuthHeaderAsBearerToken</span>();
+opts.<span class="property">secretOrKey</span> = <span class="string">&#x27;secret&#x27;</span>;
+opts.<span class="property">issuer</span> = <span class="string">&#x27;accounts.examplesoft.com&#x27;</span>;
+opts.<span class="property">audience</span> = <span class="string">&#x27;yoursite.net&#x27;</span>;
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JwtStrategy</span>(opts, <span class="keyword">function</span>(<span class="params">jwt_payload, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({<span class="attr">id</span>: jwt_payload.<span class="property">sub</span>}, <span class="keyword">function</span>(<span class="params">err, user</span>) {
         <span class="keyword">if</span> (err) {
-            <span class="keyword">return</span> done(err, <span class="literal">false</span>);
+            <span class="keyword">return</span> <span class="title function_">done</span>(err, <span class="literal">false</span>);
         }
         <span class="keyword">if</span> (user) {
-            <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+            <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
         } <span class="keyword">else</span> {
-            <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+            <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
             <span class="comment">// or you could create a new account</span>
         }
     });
@@ -188,44 +188,40 @@ extractors provided. Each extractor is attempted in order until one returns a to
 <p>If the supplied extractors don&#39;t meet your needs you can easily provide your own callback. For
 example, if you are using the cookie-parser middleware and want to extract the JWT in a cookie
 you could use the following function as the argument to the jwtFromRequest option:</p>
-<pre><code><span class="keyword">var</span> cookieExtractor = <span class="function"><span class="keyword">function</span><span class="params">(req)</span> </span>{
+<pre><code class="js"><span class="keyword">var</span> cookieExtractor = <span class="keyword">function</span>(<span class="params">req</span>) {
     <span class="keyword">var</span> token = <span class="literal">null</span>;
-    <span class="keyword">if</span> (req &amp;&amp; req.cookies)
-    {
-        token = req.cookies[<span class="string">'jwt'</span>];
+    <span class="keyword">if</span> (req &amp;&amp; req.<span class="property">cookies</span>) {
+        token = req.<span class="property">cookies</span>[<span class="string">&#x27;jwt&#x27;</span>];
     }
     <span class="keyword">return</span> token;
 };
-</code></pre><h3 id="authenticate-requests">Authenticate requests</h3>
+<span class="comment">// ...</span>
+opts.<span class="property">jwtFromRequest</span> = cookieExtractor;
+</code></pre>
+<h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code> specifying <code>&#39;JWT&#39;</code> as the strategy.</p>
-<pre><code class="lang-js">app.post(<span class="string">'/profile'</span>, passport.authenticate(<span class="string">'jwt'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-    <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-        res.send(req.user.profile);
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/profile&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;jwt&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+    <span class="keyword">function</span>(<span class="params">req, res</span>) {
+        res.<span class="title function_">send</span>(req.<span class="property">user</span>.<span class="property">profile</span>);
     }
 );
 </code></pre>
 <h3 id="include-the-jwt-in-requests">Include the JWT in requests</h3>
-<p>The strategy will first check the request for the standard <em>Authorization</em>
-header. If this header is present and the scheme matches <code>options.authScheme</code>
-or &#39;JWT&#39; if no auth scheme was specified then the token will be retrieved from
-it. e.g.</p>
-<pre><code>Authorization: JWT JSON_WEB_TOKEN_STRING<span class="built_in">..</span><span class="built_in">..</span>.
-</code></pre><p>If the authorization header with the expected scheme is not found, the request
-body will be checked for a field matching either <code>options.tokenBodyField</code> or
-<code>auth_token</code> if the option was not specified.</p>
-<p>Finally, the URL query parameters will be checked for a field matching either
-<code>options.tokenQueryParameterName</code> or <code>auth_token</code> if the option was not
-specified.</p>
-<h2 id="migrating">Migrating</h2>
-<p>The the <a href="docs/migrating.md">Migration Guide</a> for help upgrading to the latest
-major version of passport-jwt</p>
+<p>The method of including a JWT in a request depends entirely on the extractor
+function you choose. For example, if you use the <code>fromAuthHeaderAsBearerToken</code>
+extractor, you would include an <code>Authorization</code> header in your request with the
+scheme set to <code>bearer</code>. e.g.</p>
+<pre><code><span class="symbol">Authorization:</span> bearer JSON_WEB_TOKEN_STRING.....
+</code></pre><h2 id="migrating">Migrating</h2>
+<p>Read the <a href="docs/migrating.md">Migration Guide</a> for help upgrading to the latest
+major version of passport-jwt.</p>
 <h2 id="tests">Tests</h2>
 <pre><code>npm <span class="keyword">install</span>
 npm <span class="keyword">test</span>
 </code></pre><p>To generate test-coverage reports:</p>
-<pre><code><span class="attr">npm</span> <span class="string">install -g istanbul</span>
-<span class="attr">npm</span> <span class="string">run-script testcov</span>
-<span class="attr">istanbul</span> <span class="string">report</span>
+<pre><code>npm install -g istanbul
+npm <span class="built_in">run</span>-<span class="keyword">script</span> testcov
+istanbul report
 </code></pre><h2 id="license">License</h2>
 <p>The <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
 <p>Copyright (c) 2015 Mike Nicholson</p>
@@ -233,14 +229,14 @@ npm <span class="keyword">test</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-jwt</span></code></div>
             <ul>
-              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2022-06-23T12:52:21Z">a month ago</abbr></li>
-              <li><a class="url" href="https://github.com/mikenicholson/passport-jwt">https://github.com/themikenicholson/passport-jwt</a></li>
+              <li><span class="version">4.0.1</span> published <abbr class="updated" title="2023-05-20T13:42:10Z">2 months ago</abbr></li>
+              <li><a class="url" href="https://github.com/mikenicholson/passport-jwt">https://github.com/mikenicholson/passport-jwt</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>119,967</b> downloads in the last day</li>
-              <li><b>620,295</b> downloads in the last week</li>
-              <li><b>2,644,334</b> downloads in the last month</li>
+              <li><b>162,023</b> downloads in the last day</li>
+              <li><b>782,576</b> downloads in the last week</li>
+              <li><b>3,720,751</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -102,7 +102,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install passport-privakey
+<pre><code class="bash">$ npm install passport-privakey
 </code></pre>
 <h2 id="about-privakey">About Privakey</h2>
 <p>Logging in with Privakey is simple and secure.  Like a social login (e.g. Sign in with Google), one can use their Privakey Login anywhere that accepts Privakey.  Unlike a social login, Privakey is:</p>
@@ -115,41 +115,41 @@ unobtrusively integrated into any application or framework that supports
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Privakey authentication strategy leverages the passport-openidconnect strategy to authenticates users, minimizing the amount of configuration required to enable it.  To enable Privakey you must instantiate an instance of the passport-privakey strategy with variables configured in the <a href="https://portal.privakey.com">Privakey Relying Party Administration Portal</a>.  For more information see <a href="#prerequisites">Prerequisites</a>.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-  PrivakeyStrategy = <span class="built_in">require</span>(<span class="string">'passport-privakey'</span>).Strategy,
+<pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+  <span class="title class_">PrivakeyStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-privakey&#x27;</span>).<span class="property">Strategy</span>,
   <span class="comment">// Example of creating a user variable (from meanjs.org stack)</span>
   <span class="comment">// Must adjust to conform to your applications user controller/model</span>
-  users = <span class="built_in">require</span>(<span class="string">'../../controllers/users.server.controller'</span>);
+  users = <span class="built_in">require</span>(<span class="string">&#x27;../../controllers/users.server.controller&#x27;</span>);
 
-<span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>{
+<span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span> (<span class="params">config</span>) {
 
-  passport.use(<span class="keyword">new</span> PrivakeyStrategy({
-    <span class="attr">clientID</span>: config.privakey.clientID,
-    <span class="attr">clientSecret</span>: config.privakey.clientSecret,
-    <span class="attr">callbackURL</span>: config.privakey.callbackURL,
-    <span class="attr">scope</span>: <span class="string">'openid profile email'</span>,
+  passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">PrivakeyStrategy</span>({
+    <span class="attr">clientID</span>: config.<span class="property">privakey</span>.<span class="property">clientID</span>,
+    <span class="attr">clientSecret</span>: config.<span class="property">privakey</span>.<span class="property">clientSecret</span>,
+    <span class="attr">callbackURL</span>: config.<span class="property">privakey</span>.<span class="property">callbackURL</span>,
+    <span class="attr">scope</span>: <span class="string">&#x27;openid profile email&#x27;</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span> (<span class="params">req, accessToken, refreshToken, profile, done</span>) </span>{
+  <span class="keyword">function</span> (<span class="params">req, accessToken, refreshToken, profile, done</span>) {
     <span class="comment">//  Set the provider data and include tokens</span>
-    <span class="keyword">var</span> providerData = profile._json;
-    providerData.accessToken = accessToken;
-    providerData.refreshToken = refreshToken;
+    <span class="keyword">var</span> providerData = profile.<span class="property">_json</span>;
+    providerData.<span class="property">accessToken</span> = accessToken;
+    providerData.<span class="property">refreshToken</span> = refreshToken;
 
     <span class="comment">//  Example: normalize returned Privakey data to be consumed in user model</span>
     <span class="keyword">var</span> providerUserProfile = {
-      <span class="attr">firstName</span>: profile.name.givenName,
-      <span class="attr">lastName</span>: profile.name.familyName,
-      <span class="attr">displayName</span>: profile.displayName,
-      <span class="attr">email</span>: profile._json.email,
-      <span class="attr">username</span>: profile.username,
-      <span class="attr">provider</span>: <span class="string">'privakey'</span>,
-      <span class="attr">providerIdentifierField</span>: <span class="string">'sub'</span>,
+      <span class="attr">firstName</span>: profile.<span class="property">name</span>.<span class="property">givenName</span>,
+      <span class="attr">lastName</span>: profile.<span class="property">name</span>.<span class="property">familyName</span>,
+      <span class="attr">displayName</span>: profile.<span class="property">displayName</span>,
+      <span class="attr">email</span>: profile.<span class="property">_json</span>.<span class="property">email</span>,
+      <span class="attr">username</span>: profile.<span class="property">username</span>,
+      <span class="attr">provider</span>: <span class="string">&#x27;privakey&#x27;</span>,
+      <span class="attr">providerIdentifierField</span>: <span class="string">&#x27;sub&#x27;</span>,
       <span class="attr">providerData</span>: providerData
     };
 
     <span class="comment">// Save the normalize Privakey profile information</span>
-    users.saveOAuthUserProfile(req, providerUserProfile, done);
+    users.<span class="title function_">saveOAuthUserProfile</span>(req, providerUserProfile, done);
   }));
 };
 </code></pre>
@@ -159,14 +159,14 @@ authenticate requests.  </p>
 <p><strong><em>NOTE</em></strong>: passport-privakey requires a state in order to complete the authenticate process.  Be sure to set a <code>state</code> in your <code>req.session</code> if you want to use and manage your own state.  If you don&#39;t provide a state <strong>before</strong> calling passport.authenticate(), a state will be generated for you and stored in the session.  The state is an &quot;opaque value used to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.&quot; (<a href="http://openid.net/specs/openid-connect-core-1_0.html">openIDConnect spec</a>)</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/privakey'</span>,
-  passport.authenticate(<span class="string">'privakey'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/privakey&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;privakey&#x27;</span>));
 
-app.get(<span class="string">'/auth/privakey/callback'</span>,
-  passport.authenticate(<span class="string">'privakey'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/privakey/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;privakey&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="example">Example</h2>
@@ -205,14 +205,14 @@ app.get(<span class="string">'/auth/privakey/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-privakey</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:20:16Z">a month ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:20:16Z">a year ago</abbr></li>
               <li><a class="url" href="git+https://github.com/privakey/passport-privakey.git">https://github.com/privakey/passport-privakey#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

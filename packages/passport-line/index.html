@@ -109,14 +109,14 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a channelID, channelSecret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> LineStrategy({
-    <span class="attribute">channelID</span>: YOUR LINE CHANNEL ID,
-    <span class="attribute">channelSecret</span>: YOUR LINE CHANNEL SECRET,
-    <span class="attribute">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/line/callback"</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LineStrategy({
+    channelID<span class="operator">:</span> YOUR LINE CHANNEL ID,
+    channelSecret<span class="operator">:</span> YOUR LINE CHANNEL SECRET,
+    callbackURL<span class="operator">:</span> <span class="string">&quot;http://127.0.0.1:3000/auth/line/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attribute">id:</span><span class="string"> profile.id</span> }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, <span class="keyword">done</span>) {
+    User.findOrCreate({ <span class="built_in">id</span><span class="operator">:</span> profile.<span class="built_in">id</span> }, <span class="keyword">function</span> (err, user) {
+      <span class="keyword">return</span> <span class="keyword">done</span>(err, user);
     });
   }
 ));
@@ -125,16 +125,16 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/line'</span>,
-  passport.authenticate(<span class="string">'line'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/line&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;line&#x27;</span>));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/line/callback'</span>, 
-  passport.authenticate(<span class="string">'line'</span>, { <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>, <span class="attribute">successRedirect </span>: <span class="string">'/'</span> }));
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/line/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;line&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attribute">successRedirect </span>: <span class="string">&#x27;/&#x27;</span> }));
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-line/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/nitzo/passport-line"><img src="https://secure.travis-ci.org/nitzo/passport-line.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -149,13 +149,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line</span></code></div>
             <ul>
-              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T12:56:15Z">a month ago</abbr></li>
+              <li><span class="version">0.0.4</span> published <abbr class="updated" title="2022-06-23T12:56:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nitzo/passport-line">https://github.com/nitzo/passport-line</a></li>
             </ul>
             <ul>
-              <li><b>718</b> downloads in the last day</li>
-              <li><b>4,327</b> downloads in the last week</li>
-              <li><b>30,857</b> downloads in the last month</li>
+              <li><b>3,790</b> downloads in the last day</li>
+              <li><b>13,360</b> downloads in the last week</li>
+              <li><b>45,513</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

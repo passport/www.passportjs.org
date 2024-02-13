@@ -103,31 +103,31 @@ of either party.</p>
 <p>Also, OAuth3 may use JavaScript to perform many client-side functions,
 including issuing tokens.</p>
 <h1 id="example">Example</h1>
-<pre><code class="lang-javascript"><span class="meta">'use strict'</span>;
+<pre><code class="javascript"><span class="meta">&#x27;use strict&#x27;</span>;
 
-<span class="keyword">var</span> Passport = <span class="built_in">require</span>(<span class="string">'passport'</span>).Passport;
-<span class="keyword">var</span> passport = <span class="keyword">new</span> Passport();
-<span class="keyword">var</span> PromiseA = <span class="built_in">require</span>(<span class="string">'bluebird'</span>).Promise;
+<span class="keyword">var</span> <span class="title class_">Passport</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>).<span class="property">Passport</span>;
+<span class="keyword">var</span> passport = <span class="keyword">new</span> <span class="title class_">Passport</span>();
+<span class="keyword">var</span> <span class="title class_">PromiseA</span> = <span class="built_in">require</span>(<span class="string">&#x27;bluebird&#x27;</span>).<span class="property">Promise</span>;
 
-<span class="keyword">var</span> OAuth3Strategy = <span class="built_in">require</span>(<span class="string">'passport-oauth3'</span>).Strategy;
+<span class="keyword">var</span> <span class="title class_">OAuth3Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-oauth3&#x27;</span>).<span class="property">Strategy</span>;
 <span class="comment">// These strings are arbitrary</span>
-<span class="keyword">var</span> authorizationRedirect = <span class="string">"/api/oauth3/authorization_redirect"</span>;
-<span class="keyword">var</span> authorizationCodeCallback = <span class="string">"/api/oauth3/authorization_code_callback"</span>;
-<span class="keyword">var</span> accessTokenCallback = <span class="string">"/api/oauth3/access_token_callback"</span>;
+<span class="keyword">var</span> authorizationRedirect = <span class="string">&quot;/api/oauth3/authorization_redirect&quot;</span>;
+<span class="keyword">var</span> authorizationCodeCallback = <span class="string">&quot;/api/oauth3/authorization_code_callback&quot;</span>;
+<span class="keyword">var</span> accessTokenCallback = <span class="string">&quot;/api/oauth3/access_token_callback&quot;</span>;
 
-<span class="comment">// Note that "App", "Client", and "Consumer" are different names for the same thing</span>
-<span class="comment">// One site's docs will say "App ID" another will say "Consumer Public Key", etc - but they're the same.</span>
+<span class="comment">// Note that &quot;App&quot;, &quot;Client&quot;, and &quot;Consumer&quot; are different names for the same thing</span>
+<span class="comment">// One site&#x27;s docs will say &quot;App ID&quot; another will say &quot;Consumer Public Key&quot;, etc - but they&#x27;re the same.</span>
 <span class="comment">//</span>
-<span class="comment">// For sites that don't support OAuth3 automatic registration</span>
+<span class="comment">// For sites that don&#x27;t support OAuth3 automatic registration</span>
 <span class="comment">// you can provide the pre-registered OAuth2 client id and secret here</span>
 <span class="keyword">var</span> providerConfig = {
-  <span class="string">'example.org'</span>: {
-    <span class="attr">id</span>: <span class="string">'my-app-id'</span>
-  , <span class="attr">secret</span>: <span class="string">'my-app-secret'</span>
+  <span class="string">&#x27;example.org&#x27;</span>: {
+    <span class="attr">id</span>: <span class="string">&#x27;my-app-id&#x27;</span>
+  , <span class="attr">secret</span>: <span class="string">&#x27;my-app-secret&#x27;</span>
   }
-, <span class="string">'facebook.com'</span>: {
-    <span class="attr">id</span>: <span class="string">'other-app-id'</span>
-  , <span class="attr">secret</span>: <span class="string">'other-app-secret'</span>
+, <span class="string">&#x27;facebook.com&#x27;</span>: {
+    <span class="attr">id</span>: <span class="string">&#x27;other-app-id&#x27;</span>
+  , <span class="attr">secret</span>: <span class="string">&#x27;other-app-secret&#x27;</span>
   }
 };
 
@@ -135,8 +135,8 @@ including issuing tokens.</p>
 <span class="comment">// Example for getting and setting registration information</span>
 <span class="comment">// (OAuth3 can automatically register app id / app secret)</span>
 <span class="comment">//</span>
-<span class="function"><span class="keyword">function</span> <span class="title">stripLeadingProtocolAndTrailingSlash</span>(<span class="params">uri</span>) </span>{
-  <span class="keyword">return</span> uri.replace(<span class="regexp">/^(https?:\/\/)?(www\.)?/</span>, <span class="string">''</span>).replace(<span class="regexp">/\/$/</span>, <span class="string">''</span>);
+<span class="keyword">function</span> <span class="title function_">stripLeadingProtocolAndTrailingSlash</span>(<span class="params">uri</span>) {
+  <span class="keyword">return</span> uri.<span class="title function_">replace</span>(<span class="regexp">/^(https?:\/\/)?(www\.)?/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/\/$/</span>, <span class="string">&#x27;&#x27;</span>);
 }
 
 <span class="comment">//</span>
@@ -145,107 +145,107 @@ including issuing tokens.</p>
 <span class="comment">// For services that support automatic registration, </span>
 <span class="comment">// tell the service your security policy.</span>
 <span class="comment">//</span>
-<span class="comment">// DRAFT (this is not yet spec'd)</span>
-<span class="function"><span class="keyword">function</span> <span class="title">getRegistrationOptions</span>(<span class="params">providerUri</span>) </span>{
+<span class="comment">// DRAFT (this is not yet spec&#x27;d)</span>
+<span class="keyword">function</span> <span class="title function_">getRegistrationOptions</span>(<span class="params">providerUri</span>) {
   <span class="keyword">return</span> {
-    <span class="attr">allowed_domains</span>: [ <span class="string">"https://awesome.com"</span>, <span class="string">"https://partner-site.com"</span> ]
-  , <span class="attr">allowed_ips</span>: [ <span class="string">"10.0.0.0/24"</span>, <span class="string">"10.100.100.100"</span> ]
-  , <span class="attr">allowed_redirects</span>: [ <span class="string">"https://awesome.com/oauth3.html"</span>, <span class="string">"https://api.awesome.com/oauth3/"</span> ]
+    <span class="attr">allowed_domains</span>: [ <span class="string">&quot;https://awesome.com&quot;</span>, <span class="string">&quot;https://partner-site.com&quot;</span> ]
+  , <span class="attr">allowed_ips</span>: [ <span class="string">&quot;10.0.0.0/24&quot;</span>, <span class="string">&quot;10.100.100.100&quot;</span> ]
+  , <span class="attr">allowed_redirects</span>: [ <span class="string">&quot;https://awesome.com/oauth3.html&quot;</span>, <span class="string">&quot;https://api.awesome.com/oauth3/&quot;</span> ]
   };
 }
 
-<span class="function"><span class="keyword">function</span> <span class="title">getRegistrationValues</span>(<span class="params">providerUri</span>) </span>{
-  <span class="keyword">var</span> key = stripLeadingProtocolAndTrailingSlash(providerUri);
+<span class="keyword">function</span> <span class="title function_">getRegistrationValues</span>(<span class="params">providerUri</span>) {
+  <span class="keyword">var</span> key = <span class="title function_">stripLeadingProtocolAndTrailingSlash</span>(providerUri);
 
-  <span class="keyword">return</span> PromiseA.resolve(providerConfig[key]);
+  <span class="keyword">return</span> <span class="title class_">PromiseA</span>.<span class="title function_">resolve</span>(providerConfig[key]);
 }
 
-<span class="function"><span class="keyword">function</span> <span class="title">setRegistrationValues</span>(<span class="params">providerUri, registration</span>) </span>{
+<span class="keyword">function</span> <span class="title function_">setRegistrationValues</span>(<span class="params">providerUri, registration</span>) {
   <span class="comment">// registration is not yet implemented</span>
-  <span class="keyword">var</span> key = stripLeadingProtocolAndTrailingSlash(providerUri);
+  <span class="keyword">var</span> key = <span class="title function_">stripLeadingProtocolAndTrailingSlash</span>(providerUri);
 
   providerConfig[key] = registration;
 
-  <span class="keyword">return</span> PromiseA.resolve();
+  <span class="keyword">return</span> <span class="title class_">PromiseA</span>.<span class="title function_">resolve</span>();
 }
 
 <span class="comment">//</span>
 <span class="comment">// This will be used by passport to set `req.user`</span>
 <span class="comment">//</span>
-<span class="function"><span class="keyword">function</span> <span class="title">getUserFromToken</span>(<span class="params">req, providerUri, info, params</span>) </span>{
+<span class="keyword">function</span> <span class="title function_">getUserFromToken</span>(<span class="params">req, providerUri, info, params</span>) {
   <span class="comment">// info = { accessToken, refreshToken, appScopedId, grantedScopes, profile }</span>
-  <span class="keyword">return</span> PromiseA.resolve({ <span class="attr">user</span>: info.profile, <span class="attr">info</span>: info });
+  <span class="keyword">return</span> <span class="title class_">PromiseA</span>.<span class="title function_">resolve</span>({ <span class="attr">user</span>: info.<span class="property">profile</span>, <span class="attr">info</span>: info });
 }
 
-<span class="comment">// Note that you don't need to provide any urls or client ids</span>
-<span class="comment">// You don't need separate routes for different providers either</span>
-passport.use(<span class="string">'oauth3-strategy-1'</span>, <span class="keyword">new</span> OAuth3Strategy({
+<span class="comment">// Note that you don&#x27;t need to provide any urls or client ids</span>
+<span class="comment">// You don&#x27;t need separate routes for different providers either</span>
+passport.<span class="title function_">use</span>(<span class="string">&#x27;oauth3-strategy-1&#x27;</span>, <span class="keyword">new</span> <span class="title class_">OAuth3Strategy</span>({
   <span class="attr">providerCallback</span>: getRegistrationValues 
 , <span class="attr">registrationCallback</span>: setRegistrationValues
-, <span class="attr">authorizationCodeCallbackUrl</span>: <span class="string">"https://my-awesome-consumer.com"</span> + authorizationCodeCallback 
-, <span class="attr">accessTokenCallbackUrl</span>: <span class="string">"https://my-awesome-consumer.com"</span> + authorizationCodeCallback 
+, <span class="attr">authorizationCodeCallbackUrl</span>: <span class="string">&quot;https://my-awesome-consumer.com&quot;</span> + authorizationCodeCallback 
+, <span class="attr">accessTokenCallbackUrl</span>: <span class="string">&quot;https://my-awesome-consumer.com&quot;</span> + authorizationCodeCallback 
 }
 , getUserFromToken
 ));
 
-app.get(authorizationRedirect, passport.authenticate(<span class="string">'oauth3-strategy-1'</span>));
+app.<span class="title function_">get</span>(authorizationRedirect, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth3-strategy-1&#x27;</span>));
 
-app.get(authorizationCodeCallback, passport.authenticate(<span class="string">'oauth3-strategy-1'</span>));
+app.<span class="title function_">get</span>(authorizationCodeCallback, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth3-strategy-1&#x27;</span>));
 
-<span class="comment">// This looks a little convoluted only because passport doesn't have a method</span>
-<span class="comment">// for passing some of the necessary parameters back to the caller and there's</span>
+<span class="comment">// This looks a little convoluted only because passport doesn&#x27;t have a method</span>
+<span class="comment">// for passing some of the necessary parameters back to the caller and there&#x27;s</span>
 <span class="comment">// no way to wrap it inside of OAuth3Strategy#authenticate</span>
-<span class="function"><span class="keyword">function</span> <span class="title">handleOauth3Response</span>(<span class="params">req, res, next, err, user, info, status</span>) </span>{
+<span class="keyword">function</span> <span class="title function_">handleOauth3Response</span>(<span class="params">req, res, next, err, user, info, status</span>) {
   <span class="comment">// info = { accessToken, refreshToken, grantedScopes, appScopedId, profile }</span>
   <span class="comment">// req.query = { provider_uri, code, state }</span>
   <span class="comment">// user = { ... } // profile</span>
 
-  <span class="keyword">var</span> params = { <span class="string">'provider_uri'</span>: req.query.provider_uri };
+  <span class="keyword">var</span> params = { <span class="string">&#x27;provider_uri&#x27;</span>: req.<span class="property">query</span>.<span class="property">provider_uri</span> };
   <span class="keyword">var</span> challenge;
 
   <span class="keyword">if</span> (err) {
-    params.error = err.message;
-    params.error_description = err.message;
+    params.<span class="property">error</span> = err.<span class="property">message</span>;
+    params.<span class="property">error_description</span> = err.<span class="property">message</span>;
   }
 
   <span class="keyword">if</span> (!user) {
     challenge = info; <span class="comment">// info is overloaded as challenge on error</span>
-    <span class="keyword">return</span> PromiseA.reject(params);
+    <span class="keyword">return</span> <span class="title class_">PromiseA</span>.<span class="title function_">reject</span>(params);
   }
 
-  <span class="keyword">return</span> <span class="keyword">new</span> PromiseA(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{
-    req.login({ <span class="attr">profile</span>: user, <span class="attr">info</span>: info }, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PromiseA</span>(<span class="keyword">function</span> (<span class="params">resolve, reject</span>) {
+    req.<span class="title function_">login</span>({ <span class="attr">profile</span>: user, <span class="attr">info</span>: info }, <span class="keyword">function</span> (<span class="params">err</span>) {
       <span class="keyword">if</span> (err) {
-        params.error = err.message;
-        params.error_description = err.message;
-        reject(params);
+        params.<span class="property">error</span> = err.<span class="property">message</span>;
+        params.<span class="property">error_description</span> = err.<span class="property">message</span>;
+        <span class="title function_">reject</span>(params);
         <span class="keyword">return</span>;
       }
 
       <span class="comment">// <span class="doctag">NOTE:</span> refreshToken does *not* go to the browser</span>
-      params.access_token = info.accessToken;
-      params.expires_at = info.expiresAt;
-      params.app_scoped_id = info.appScopedId;
-      params.granted_scopes = info.grantedScopes;
+      params.<span class="property">access_token</span> = info.<span class="property">accessToken</span>;
+      params.<span class="property">expires_at</span> = info.<span class="property">expiresAt</span>;
+      params.<span class="property">app_scoped_id</span> = info.<span class="property">appScopedId</span>;
+      params.<span class="property">granted_scopes</span> = info.<span class="property">grantedScopes</span>;
 
-      resolve(params);
+      <span class="title function_">resolve</span>(params);
     });
   });
 }
 
-app.get(accessTokenCallback, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>{
-  passport.authenticate(<span class="string">'oauth3-strategy-1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, user, info, status</span>) </span>{
-    <span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);
+app.<span class="title function_">get</span>(accessTokenCallback, <span class="keyword">function</span> (<span class="params">req, res, next</span>) {
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth3-strategy-1&#x27;</span>, <span class="keyword">function</span> (<span class="params">err, user, info, status</span>) {
+    <span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);
 
-    handleOauth3Response(req, res, next, err, user, info, status).then(<span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>{
-      res.redirect(<span class="string">'/oauth-close.html?'</span> + querystring.stringify(params));
-    }, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+    <span class="title function_">handleOauth3Response</span>(req, res, next, err, user, info, status).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">params</span>) {
+      res.<span class="title function_">redirect</span>(<span class="string">&#x27;/oauth-close.html?&#x27;</span> + querystring.<span class="title function_">stringify</span>(params));
+    }, <span class="keyword">function</span> (<span class="params">err</span>) {
       <span class="keyword">var</span> params;
-      <span class="keyword">if</span> (err.error_description) {
+      <span class="keyword">if</span> (err.<span class="property">error_description</span>) {
         params = err;
-        res.redirect(<span class="string">'/oauth-close.html?'</span> + querystring.stringify(params));
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/oauth-close.html?&#x27;</span> + querystring.<span class="title function_">stringify</span>(params));
       } <span class="keyword">else</span> {
-        res.end(<span class="string">"Error: "</span> + err.message);
+        res.<span class="title function_">end</span>(<span class="string">&quot;Error: &quot;</span> + err.<span class="property">message</span>);
       }
     });
   })(req, res, next);
@@ -263,44 +263,44 @@ app.get(accessTokenCallback, <span class="function"><span class="keyword">functi
 but since you&#39;re setting up a session on the server there&#39;s some session state
 stuff that happens to... can&#39;t remember, gotta look back at the code... later...</p>
 <h3 id="server-redirect-to-dialog">Server Redirect to Dialog</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> url = <span class="string">'https://consumer-api.com/api/oauth3/authorization_redirect'</span>
-  + <span class="string">'?provider_uri='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://provider-api.com'</span>)
-  + <span class="string">'&amp;scope='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'login email phone'</span>)
+<pre><code class="javascript"><span class="keyword">var</span> url = <span class="string">&#x27;https://consumer-api.com/api/oauth3/authorization_redirect&#x27;</span>
+  + <span class="string">&#x27;?provider_uri=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;https://provider-api.com&#x27;</span>)
+  + <span class="string">&#x27;&amp;scope=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;login email phone&#x27;</span>)
   ;
 </code></pre>
 <p>&#39;provider_uri&#39; is used as part of the state as well as where it will find <code>oauth.json</code>.</p>
 <h3 id="browser-open-dialog">Browser Open Dialog</h3>
-<pre><code><span class="keyword">var</span> myAppId = <span class="string">'some-app-id'</span>;
-<span class="keyword">var</span> requestedScope = <span class="string">'login email phone'</span>;
-<span class="keyword">var</span> <span class="built_in">url</span> = <span class="string">'https://provider-api.com/api/oauth3/authorization_dialog'</span>
-  + <span class="string">'?response_type=token'</span>
-  + <span class="string">'&amp;client_id='</span> + myAppId
-  + <span class="string">'&amp;redirect_uri='</span>
-    + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://consumer-fronted.com/oauth-close.html'</span>
-        + <span class="string">'?provider_uri='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'https://provider-api.com'</span>)
+<pre><code><span class="keyword">var</span> myAppId = <span class="string">&#x27;some-app-id&#x27;</span>;
+<span class="keyword">var</span> requestedScope = <span class="string">&#x27;login email phone&#x27;</span>;
+<span class="keyword">var</span> <span class="built_in">url</span> = <span class="string">&#x27;https://provider-api.com/api/oauth3/authorization_dialog&#x27;</span>
+  + <span class="string">&#x27;?response_type=token&#x27;</span>
+  + <span class="string">&#x27;&amp;client_id=&#x27;</span> + myAppId
+  + <span class="string">&#x27;&amp;redirect_uri=&#x27;</span>
+    + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;https://consumer-fronted.com/oauth-close.html&#x27;</span>
+        + <span class="string">&#x27;?provider_uri=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;https://provider-api.com&#x27;</span>)
       )
-  + <span class="string">'&amp;scope='</span> + <span class="built_in">encodeURIComponent</span>(requestedScope)
-  + <span class="string">'&amp;state='</span> + <span class="built_in">Math</span>.random().toString().replace(<span class="regexp">/^0./</span>, <span class="string">''</span>)
+  + <span class="string">&#x27;&amp;scope=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(requestedScope)
+  + <span class="string">&#x27;&amp;state=&#x27;</span> + <span class="built_in">Math</span>.random().toString().replace(<span class="regexp">/^0./</span>, <span class="string">&#x27;&#x27;</span>)
   ;
 </code></pre><h2 id="oauth3-urls">OAuth3 URLs</h2>
 <p>The provder&#39;s frontend <em>must</em> have a file <code>/oauth3.json</code>, which should be static.</p>
 <p>It should be CORS enabled such that any web client can access it as well.</p>
 <p>It should have a long <code>Expires</code> header and cached in the app manifest.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> <span class="string">'https://provider-fronteend.com/oauth3.json'</span>
+<pre><code class="javascript"><span class="keyword">var</span> <span class="string">&#x27;https://provider-fronteend.com/oauth3.json&#x27;</span>
 </code></pre>
-<pre><code class="lang-javascript">{ <span class="string">"authorization_dialog"</span>: {
-    <span class="string">"method"</span>: <span class="string">"GET"</span>
-  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/authorization_dialog"</span>
+<pre><code class="javascript">{ <span class="string">&quot;authorization_dialog&quot;</span>: {
+    <span class="string">&quot;method&quot;</span>: <span class="string">&quot;GET&quot;</span>
+  , <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://provider-api.com/api/oauth3/authorization_dialog&quot;</span>
   }
-, <span class="string">"access_token"</span>: {
-    <span class="string">"method"</span>: <span class="string">"POST"</span>
-  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/access_token"</span>
+, <span class="string">&quot;access_token&quot;</span>: {
+    <span class="string">&quot;method&quot;</span>: <span class="string">&quot;POST&quot;</span>
+  , <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://provider-api.com/api/oauth3/access_token&quot;</span>
   }
-, <span class="string">"profile"</span>: {
-    <span class="string">"method"</span>: <span class="string">"GET"</span>
-  , <span class="string">"url"</span>: <span class="string">"https://provider-api.com/api/oauth3/me"</span>
+, <span class="string">&quot;profile&quot;</span>: {
+    <span class="string">&quot;method&quot;</span>: <span class="string">&quot;GET&quot;</span>
+  , <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://provider-api.com/api/oauth3/me&quot;</span>
   }
-, <span class="string">"authn_scope"</span>: <span class="string">"me"</span>
+, <span class="string">&quot;authn_scope&quot;</span>: <span class="string">&quot;me&quot;</span>
 }
 </code></pre>
 <p>&#39;authn_scope&#39; defines the least possible scope required to authenticate
@@ -309,14 +309,14 @@ and get &#39;app_scoped_id&#39;. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth3</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:11:10Z">a month ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:11:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/OAuth3/node-passport-oauth3">https://github.com/OAuth3/passport-oauth3</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

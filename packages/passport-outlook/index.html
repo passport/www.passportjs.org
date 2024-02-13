@@ -107,7 +107,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 Outlook.com (Office 365) v2 endpoints as can be tested in their
 <a href="https://oauthplay.azurewebsites.net/">Outlook Dev Center OAuth Sandbox</a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">$ npm install --save passport-outlook
+<pre><code class="bash">$ npm install --save passport-outlook
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="v3">v3</h4>
@@ -131,26 +131,26 @@ matches the route in your application.</p>
 Outlook.com account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code>
 callback, which accepts these credentials and calls <code>done</code> providing a user,
 as well as <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OutlookStrategy({
-    <span class="attr">clientID</span>: OUTLOOK_CLIENT_ID,
-    <span class="attr">clientSecret</span>: OUTLOOK_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/auth/outlook/callback'</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OutlookStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">OUTLOOK_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">OUTLOOK_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://www.example.com/auth/outlook/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
     <span class="keyword">var</span> user = {
-      <span class="attr">outlookId</span>: profile.id,
-      <span class="attr">name</span>: profile.DisplayName,
-      <span class="attr">email</span>: profile.EmailAddress,
+      <span class="attr">outlookId</span>: profile.<span class="property">id</span>,
+      <span class="attr">name</span>: profile.<span class="property">DisplayName</span>,
+      <span class="attr">email</span>: profile.<span class="property">EmailAddress</span>,
       <span class="attr">accessToken</span>:  accessToken
     };
     <span class="keyword">if</span> (refreshToken)
-      user.refreshToken = refreshToken;
-    <span class="keyword">if</span> (profile.MailboxGuid)
-      user.mailboxGuid = profile.MailboxGuid;
-    <span class="keyword">if</span> (profile.Alias)
-      user.alias = profile.Alias;
-    User.findOrCreate(user, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+      user.<span class="property">refreshToken</span> = refreshToken;
+    <span class="keyword">if</span> (profile.<span class="property">MailboxGuid</span>)
+      user.<span class="property">mailboxGuid</span> = profile.<span class="property">MailboxGuid</span>;
+    <span class="keyword">if</span> (profile.<span class="property">Alias</span>)
+      user.<span class="property">alias</span> = profile.<span class="property">Alias</span>;
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(user, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -161,27 +161,27 @@ as well as <code>options</code> specifying a client ID, client secret, and callb
 <p><em>Note:</em>
 If you want to use the express request, you must use the option
 <code>passReqToCallback: true</code>, then Passport will send the request as the first parameter.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OutlookStrategy({
-    <span class="attr">clientID</span>: OUTLOOK_CLIENT_ID,
-    <span class="attr">clientSecret</span>: OUTLOOK_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/auth/outlook/callback'</span>,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OutlookStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">OUTLOOK_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">OUTLOOK_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://www.example.com/auth/outlook/callback&#x27;</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) {
     <span class="keyword">var</span> user = {
-      <span class="attr">outlookId</span>: profile.id,
-      <span class="attr">name</span>: profile.DisplayName,
-      <span class="attr">email</span>: profile.EmailAddress,
+      <span class="attr">outlookId</span>: profile.<span class="property">id</span>,
+      <span class="attr">name</span>: profile.<span class="property">DisplayName</span>,
+      <span class="attr">email</span>: profile.<span class="property">EmailAddress</span>,
       <span class="attr">accessToken</span>:  accessToken
     };
     <span class="keyword">if</span> (refreshToken)
-      user.refreshToken = refreshToken;
-    <span class="keyword">if</span> (profile.MailboxGuid)
-      user.mailboxGuid = profile.MailboxGuid;
-    <span class="keyword">if</span> (profile.Alias)
-      user.alias = profile.Alias;
-    User.findOrCreate(user, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+      user.<span class="property">refreshToken</span> = refreshToken;
+    <span class="keyword">if</span> (profile.<span class="property">MailboxGuid</span>)
+      user.<span class="property">mailboxGuid</span> = profile.<span class="property">MailboxGuid</span>;
+    <span class="keyword">if</span> (profile.<span class="property">Alias</span>)
+      user.<span class="property">alias</span> = profile.<span class="property">Alias</span>;
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(user, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -191,22 +191,22 @@ If you want to use the express request, you must use the option
 strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/outlook'</span>,
-  passport.authenticate(<span class="string">'windowslive'</span>, {
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/outlook&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;windowslive&#x27;</span>, {
     <span class="attr">scope</span>: [
-      <span class="string">'openid'</span>,
-      <span class="string">'profile'</span>,
-      <span class="string">'offline_access'</span>,
-      <span class="string">'https://outlook.office.com/Mail.Read'</span>
+      <span class="string">&#x27;openid&#x27;</span>,
+      <span class="string">&#x27;profile&#x27;</span>,
+      <span class="string">&#x27;offline_access&#x27;</span>,
+      <span class="string">&#x27;https://outlook.office.com/Mail.Read&#x27;</span>
     ]
   })
 );
 
-app.get(<span class="string">'/auth/outlook/callback'</span>, 
-  passport.authenticate(<span class="string">'windowslive'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/outlook/callback&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;windowslive&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <p><em>Note:</em>
@@ -220,14 +220,14 @@ This is very important, otherwise you will receive <code>401</code> responses.</
 connecting to the <a href="https://developer.microsoft.com/en-us/graph">Microsoft Graph</a>
 API instead of Office365 REST) this is possible by modifying the
 <code>options</code> passed to the strategy:</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> OutlookStrategy({
-    <span class="attr">clientID</span>: OUTLOOK_CLIENT_ID,
-    <span class="attr">clientSecret</span>: OUTLOOK_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">'http://www.example.com/auth/graph/callback'</span>,
-    <span class="attr">userProfileURL</span>: <span class="string">'https://graph.microsoft.com/v1.0/me?$select=userPrincipalName'</span>,
-    <span class="attr">name</span>: <span class="string">'msgraph'</span>
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OutlookStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">OUTLOOK_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">OUTLOOK_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;http://www.example.com/auth/graph/callback&#x27;</span>,
+    <span class="attr">userProfileURL</span>: <span class="string">&#x27;https://graph.microsoft.com/v1.0/me?$select=userPrincipalName&#x27;</span>,
+    <span class="attr">name</span>: <span class="string">&#x27;msgraph&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
      <span class="comment">// Callback logic as per examples</span>
   }
 ));
@@ -240,7 +240,7 @@ for the API.</p>
 <p>For a complete, working example, refer to the <a href="https://github.com/clocked0ne/passport-outlook/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
 <p>Any system can run the test suite in development from the terminal.</p>
-<pre><code class="lang-bash">$ npm install
+<pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
 </code></pre>
 <h2 id="contributing">Contributing</h2>
@@ -248,13 +248,13 @@ $ npm <span class="built_in">test</span>
 <p>The test suite is located in the <code>test/</code> directory. All new features are
 expected to have corresponding test cases. Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new features are expected to have test coverage. Patches that
 increase test coverage are happily accepted. Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -277,13 +277,13 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-outlook</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:15:04Z">a month ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:15:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/clocked0ne/passport-outlook">https://github.com/clocked0ne/passport-outlook#readme</a></li>
             </ul>
             <ul>
-              <li><b>169</b> downloads in the last day</li>
-              <li><b>878</b> downloads in the last week</li>
-              <li><b>4,022</b> downloads in the last month</li>
+              <li><b>102</b> downloads in the last day</li>
+              <li><b>464</b> downloads in the last week</li>
+              <li><b>2,697</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -118,12 +118,12 @@ Applications wishing to verify assertions locally should use
 email address ownership, obtained via the <a href="https://developer.mozilla.org/en-US/docs/Web/API/navigator.id">navigator.id</a>
 JavaScript API.  The strategy requires a <code>verify</code> callback, which accepts an
 email address and calls <code>cb</code> providing a user.</p>
-<pre><code>passport.use(<span class="keyword">new</span> PersonaStrategy({
-    audience: <span class="string">'http://www.example.com'</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> PersonaStrategy({
+    audience: <span class="symbol">&#x27;http</span>://www.example.com&#x27;
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(email, cb)</span> </span>{
-    User.findByEmail({ email: email }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> cb(err, user);
+  <span class="keyword">function</span>(email, cb) {
+    User.findByEmail({ email: email }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">cb(err,</span> user);
     });
   }
 ));
@@ -132,11 +132,11 @@ email address and calls <code>cb</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/auth/browserid'</span>, 
-  passport.authenticate(<span class="string">'persona'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/auth/browserid&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;persona&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-persona/tree/master/examples/signin">signin example</a>.</p>
@@ -145,13 +145,13 @@ application:</p>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="support">Support</h2>
@@ -175,14 +175,14 @@ and <a href="http://jaredhanson.net/pay">other</a> methods.  Any amount is appre
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-persona</span></code></div>
             <ul>
-              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2022-06-23T13:17:04Z">a month ago</abbr></li>
+              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2022-06-23T13:17:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-persona">https://github.com/jaredhanson/passport-persona#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>36</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

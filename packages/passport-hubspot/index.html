@@ -101,29 +101,29 @@ using the OAuth 2.0 API.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HubSpot authentication strategy authenticates users using a HubSpot account and OAuth 2.0 tokens.</p>
 <p><strong>NOTE:</strong> Unlike normal OAuth 2.0 flows, HubSpot immediately returns an access token instead of an authorization code. Therefore, unlike other passport strategies, this strategy does not actually call the <code>verify</code> callback.</p>
-<pre><code>passport.use(<span class="keyword">new</span> HubSpotStrategy({
-    clientID: HUBSPOT_APP_ID,
-    clientSecret: HUBSPOT_APP_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/hubspot/callback"</span>
-  }, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">HubSpotStrategy</span>({
+    <span class="attribute">clientID</span>: HUBSPOT_APP_ID,
+    <span class="attribute">clientSecret</span>: HUBSPOT_APP_SECRET,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/hubspot/callback&quot;</span>
+  }, <span class="built_in">function</span>() {
     <span class="comment">// Useless verify callback.</span>
   };
 ));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;hubspot&#39;</code> strategy, to authenticate requests. You&#39;ll also need to provide a <code>portalId</code> and any scopes you&#39;ll need access to.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/hubspot'</span>, passport.authenticate(<span class="string">'hubspot'</span>, {
-    <span class="attribute">portalId</span>: <span class="number">62515</span>,
-    <span class="attribute">scope</span>: [<span class="string">'offline'</span>, <span class="string">'contacts-ro'</span>, <span class="string">'contacts-rw'</span>]
+<pre><code>app.get(<span class="string">&#x27;/auth/hubspot&#x27;</span>, passport.authenticate(<span class="string">&#x27;hubspot&#x27;</span>, {
+    <span class="attr">portalId</span>: <span class="number">62515</span>,
+    <span class="attr">scope</span>: [<span class="string">&#x27;offline&#x27;</span>, <span class="string">&#x27;contacts-ro&#x27;</span>, <span class="string">&#x27;contacts-rw&#x27;</span>]
   })
 );
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/hubspot/callback'</span>, function(req, res) {
+app.get(<span class="string">&#x27;/auth/hubspot/callback&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Access tokens are returned immediately as params, which you can then store somehow.</span>
-    <span class="selector-tag">console</span><span class="selector-class">.log</span>(req.params);
+    <span class="built_in">console</span>.<span class="built_in">log</span>(req.params);
 
     <span class="comment">// Redirect to home.</span>
-    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'/'</span>);
+    res.redirect(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><h2 id="credits">Credits</h2>
 <p>Based on the great work of <a href="http://github.com/brainflake">Brian Falk (@brainflake)</a></p>
@@ -134,14 +134,14 @@ using the OAuth 2.0 API.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hubspot</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:47:21Z">a month ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:47:21Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/brainflake/passport-hubspot"></a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>6</b> downloads in the last day</li>
-              <li><b>41</b> downloads in the last week</li>
-              <li><b>230</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>47</b> downloads in the last week</li>
+              <li><b>115</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -108,21 +108,21 @@ unobtrusively integrated into any application or framework that supports
 <p>The ethereum authentication strategy authenticates users using a address and
 signature. The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.<span class="keyword">use</span>(new EthereumStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(address, signature, done)</span></span> {
-    web3.personal.<span class="built_in">sign</span>(
-      web3.fromUtf8(`<span class="built_in">Sign</span> <span class="keyword">in</span> <span class="keyword">use</span> ${address} with some nonce string`),
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> EthereumStrategy(
+  <span class="keyword">function</span>(address, signature, <span class="keyword">done</span>) {
+    web3.personal.sign(
+      web3.fromUtf8(`Sign <span class="keyword">in</span> <span class="keyword">use</span> <span class="operator">$</span>{address} <span class="keyword">with</span> some nonce string`),
         web3.eth.coinbase,
-        (error, <span class="keyword">data</span>) =&gt; {
+        (error, data) <span class="operator">=&gt;</span> {
           <span class="keyword">if</span> (error) {
-            <span class="keyword">return</span> done(error);
+            <span class="keyword">return</span> <span class="keyword">done</span>(error);
           } <span class="keyword">else</span> {
-            <span class="keyword">if</span> (<span class="keyword">data</span> == signature) {
-              User.findOneOrCreate({ address: address }, <span class="function"><span class="keyword">function</span></span> (err, user) {
+            <span class="keyword">if</span> (data <span class="operator">==</span> signature) {
+              User.findOneOrCreate({ address<span class="operator">:</span> address }, <span class="keyword">function</span> (err, user) {
                 <span class="keyword">if</span> (err) {
-                  <span class="keyword">return</span> done(err);
+                  <span class="keyword">return</span> <span class="keyword">done</span>(err);
                 } <span class="keyword">else</span> {
-                  <span class="keyword">return</span> done(null, user);
+                  <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
                 }
               });
             }
@@ -136,16 +136,16 @@ credentials and calls <code>done</code> providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/signature'</span>,
-  passport.authenticate(<span class="string">'ethereum'</span>, { failureRedirect: <span class="string">'/signature'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/signature&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;ethereum&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/signature&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For complete, working examples, refer to the multiple <a href="https://github.com/rushairer/passport-ethereum/tree/master/examples">examples</a> included.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/rushairer">Aben</a></li>
@@ -157,13 +157,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ethereum</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:37:59Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T15:37:59Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/io84team/passport-ethereum">https://github.com/io84team/passport-ethereum#readme</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>26</b> downloads in the last week</li>
-              <li><b>118</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last day</li>
+              <li><b>58</b> downloads in the last week</li>
+              <li><b>307</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

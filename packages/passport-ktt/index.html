@@ -111,8 +111,8 @@ which is also an OpenID 2.0 identifier.  The strategy requires a <code>validate<
 callback, which accepts this identifier and calls <code>done</code> providing a user.
 Additionally, options can be supplied to specify a return URL and realm.</p>
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> KtTStrategy({
-    returnURL: <span class="symbol">'http</span>://localhost:<span class="number">3000</span>/auth/ktt/<span class="keyword">return</span>',
-    realm: <span class="symbol">'http</span>://localhost:<span class="number">3000</span>/'
+    returnURL: <span class="symbol">&#x27;http</span>://localhost:<span class="number">3000</span>/auth/ktt/<span class="keyword">return</span>&#x27;,
+    realm: <span class="symbol">&#x27;http</span>://localhost:<span class="number">3000</span>/&#x27;
   },
   <span class="keyword">function</span>(identifier, done) {
     User.findByOpenID({ openId: identifier }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
@@ -125,18 +125,18 @@ Additionally, options can be supplied to specify a return URL and realm.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/ktt'</span>,
-  passport.authenticate(<span class="string">'ktt'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ktt&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;ktt&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to KtT for authentication, so</span>
     <span class="comment">// this function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/ktt/callback'</span>, 
-  passport.authenticate(<span class="string">'ktt'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/ktt/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;ktt&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/ktt-ol/passport-ktt/tree/master/examples/signon">signon example</a>.</p>
@@ -169,13 +169,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ktt</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:53:57Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:53:57Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ktt-ol/passport-ktt"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

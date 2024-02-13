@@ -103,11 +103,11 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-ldapauth
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure strategy</h3>
-<pre><code class="lang-javascript"><span class="keyword">var</span> LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">LdapStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-ldapauth&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> LdapStrategy({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LdapStrategy</span>({
     <span class="attr">server</span>: {
-      <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
+      <span class="attr">url</span>: <span class="string">&#x27;ldap://localhost:389&#x27;</span>,
       ...
     }
   }));
@@ -160,50 +160,50 @@ passport.use(<span class="keyword">new</span> LdapStrategy({
 <li><code>accountLockedOut</code>: locked out account (default: &#39;User account locked&#39;)</li>
 </ul>
 <h2 id="express-example">Express example</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">'express'</span>),
-    passport     = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-    bodyParser   = <span class="built_in">require</span>(<span class="string">'body-parser'</span>),
-    LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>),
+    passport     = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+    bodyParser   = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>),
+    <span class="title class_">LdapStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-ldapauth&#x27;</span>);
 
-<span class="keyword">var</span> OPTS = {
+<span class="keyword">var</span> <span class="variable constant_">OPTS</span> = {
   <span class="attr">server</span>: {
-    <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
-    <span class="attr">bindDN</span>: <span class="string">'cn=root'</span>,
-    <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
-    <span class="attr">searchBase</span>: <span class="string">'ou=passport-ldapauth'</span>,
-    <span class="attr">searchFilter</span>: <span class="string">'(uid={{username}})'</span>
+    <span class="attr">url</span>: <span class="string">&#x27;ldap://localhost:389&#x27;</span>,
+    <span class="attr">bindDN</span>: <span class="string">&#x27;cn=root&#x27;</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">&#x27;secret&#x27;</span>,
+    <span class="attr">searchBase</span>: <span class="string">&#x27;ou=passport-ldapauth&#x27;</span>,
+    <span class="attr">searchFilter</span>: <span class="string">&#x27;(uid={{username}})&#x27;</span>
   }
 };
 
-<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
-passport.use(<span class="keyword">new</span> LdapStrategy(OPTS));
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LdapStrategy</span>(<span class="variable constant_">OPTS</span>));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({<span class="attr">extended</span>: <span class="literal">false</span>}));
-app.use(passport.initialize());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({<span class="attr">extended</span>: <span class="literal">false</span>}));
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
 
-app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'ldapauth'</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-  res.send({<span class="attr">status</span>: <span class="string">'ok'</span>});
+app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ldapauth&#x27;</span>, {<span class="attr">session</span>: <span class="literal">false</span>}), <span class="keyword">function</span>(<span class="params">req, res</span>) {
+  res.<span class="title function_">send</span>({<span class="attr">status</span>: <span class="string">&#x27;ok&#x27;</span>});
 });
 
-app.listen(<span class="number">8080</span>);
+app.<span class="title function_">listen</span>(<span class="number">8080</span>);
 </code></pre>
 <h3 id="active-directory-over-ssl-example">Active Directory over SSL example</h3>
 <p>Simple example config for connecting over <code>ldaps://</code> to a server requiring some internal CA certificate (often the case in corporations using Windows AD).</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);
 
 <span class="keyword">var</span> opts = {
   <span class="attr">server</span>: {
-    <span class="attr">url</span>: <span class="string">'ldaps://ad.corporate.com:636'</span>,
-    <span class="attr">bindDN</span>: <span class="string">'cn=non-person,ou=system,dc=corp,dc=corporate,dc=com'</span>,
-    <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
-    <span class="attr">searchBase</span>: <span class="string">'dc=corp,dc=corporate,dc=com'</span>,
-    <span class="attr">searchFilter</span>: <span class="string">'(&amp;(objectcategory=person)(objectclass=user)(|(samaccountname={{username}})(mail={{username}})))'</span>,
-    <span class="attr">searchAttributes</span>: [<span class="string">'displayName'</span>, <span class="string">'mail'</span>],
+    <span class="attr">url</span>: <span class="string">&#x27;ldaps://ad.corporate.com:636&#x27;</span>,
+    <span class="attr">bindDN</span>: <span class="string">&#x27;cn=non-person,ou=system,dc=corp,dc=corporate,dc=com&#x27;</span>,
+    <span class="attr">bindCredentials</span>: <span class="string">&#x27;secret&#x27;</span>,
+    <span class="attr">searchBase</span>: <span class="string">&#x27;dc=corp,dc=corporate,dc=com&#x27;</span>,
+    <span class="attr">searchFilter</span>: <span class="string">&#x27;(&amp;(objectcategory=person)(objectclass=user)(|(samaccountname={{username}})(mail={{username}})))&#x27;</span>,
+    <span class="attr">searchAttributes</span>: [<span class="string">&#x27;displayName&#x27;</span>, <span class="string">&#x27;mail&#x27;</span>],
     <span class="attr">tlsOptions</span>: {
       <span class="attr">ca</span>: [
-        fs.readFileSync(<span class="string">'/path/to/root_ca_cert.crt'</span>)
+        fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;/path/to/root_ca_cert.crt&#x27;</span>)
       ]
     }
   }
@@ -212,7 +212,7 @@ app.listen(<span class="number">8080</span>);
 </code></pre>
 <h2 id="credentialslookup"><code>credentialsLookup</code></h2>
 <p>A synchronous function that receives the <code>req</code> object and returns an objec with keys <code>username</code> and <code>password</code> (or <code>name</code> and <code>pass</code>) can be provided. Note, that when this is provided the default lookup is not performed. This can be used to eg. enable basic auth header support:</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> basicAuth = <span class="built_in">require</span>(<span class="string">'basic-auth'</span>);
+<pre><code class="javascript"><span class="keyword">var</span> basicAuth = <span class="built_in">require</span>(<span class="string">&#x27;basic-auth&#x27;</span>);
 <span class="keyword">var</span> ldapOpts = {
   <span class="attr">server</span>: { ... },
   <span class="attr">credentialsLookup</span>: basicAuth
@@ -220,41 +220,41 @@ app.listen(<span class="number">8080</span>);
 </code></pre>
 <h2 id="asynchronous-configuration-retrieval">Asynchronous configuration retrieval</h2>
 <p>Instead of providing a static configuration object, you can pass a function as <code>options</code> that will take care of fetching the configuration. It will be called with the <code>req</code> object and a callback function having the standard <code>(err, result)</code> signature. Notice that the provided function will be called on every authenticate request.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> getLDAPConfiguration = <span class="function"><span class="keyword">function</span>(<span class="params">req, callback</span>) </span>{
+<pre><code class="javascript"><span class="keyword">var</span> getLDAPConfiguration = <span class="keyword">function</span>(<span class="params">req, callback</span>) {
   <span class="comment">// Fetching things from database or whatever</span>
-  process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
     <span class="keyword">var</span> opts = {
       <span class="attr">server</span>: {
-        <span class="attr">url</span>: <span class="string">'ldap://localhost:389'</span>,
-        <span class="attr">bindDN</span>: <span class="string">'cn=root'</span>,
-        <span class="attr">bindCredentials</span>: <span class="string">'secret'</span>,
-        <span class="attr">searchBase</span>: <span class="string">'ou=passport-ldapauth'</span>,
-        <span class="attr">searchFilter</span>: <span class="string">'(uid={{username}})'</span>
+        <span class="attr">url</span>: <span class="string">&#x27;ldap://localhost:389&#x27;</span>,
+        <span class="attr">bindDN</span>: <span class="string">&#x27;cn=root&#x27;</span>,
+        <span class="attr">bindCredentials</span>: <span class="string">&#x27;secret&#x27;</span>,
+        <span class="attr">searchBase</span>: <span class="string">&#x27;ou=passport-ldapauth&#x27;</span>,
+        <span class="attr">searchFilter</span>: <span class="string">&#x27;(uid={{username}})&#x27;</span>
       }
     };
 
-    callback(<span class="literal">null</span>, opts);
+    <span class="title function_">callback</span>(<span class="literal">null</span>, opts);
   });
 };
 
-<span class="keyword">var</span> LdapStrategy = <span class="built_in">require</span>(<span class="string">'passport-ldapauth'</span>);
+<span class="keyword">var</span> <span class="title class_">LdapStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-ldapauth&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> LdapStrategy(getLDAPConfiguration,
-  <span class="function"><span class="keyword">function</span>(<span class="params">user, done</span>) </span>{
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LdapStrategy</span>(getLDAPConfiguration,
+  <span class="keyword">function</span>(<span class="params">user, done</span>) {
     ...
-    return done(<span class="literal">null</span>, user);
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   }
 ));
 </code></pre>
 <h2 id="ldapsearch"><code>ldapsearch</code></h2>
 <p><a href="http://linux.die.net/man/1/ldapsearch">ldapsearch</a> is a great command line tool for testing your config. The user search query performed in the Express example above when user logging in has uid <code>john</code> is the same as the following <code>ldapsearch</code> call:</p>
-<pre><code class="lang-bash">ldapsearch \
+<pre><code class="bash">ldapsearch \
   -H ldap://localhost:389 \
   -x \
   -D cn=root \
   -w secret \
   -b ou=passport-ldapauth \
-  <span class="string">"(uid=john)"</span>
+  <span class="string">&quot;(uid=john)&quot;</span>
 </code></pre>
 <p>If the query does not return expected user the configuration is likely incorrect.</p>
 <h2 id="license">License</h2>
@@ -264,14 +264,14 @@ passport.use(<span class="keyword">new</span> LdapStrategy(getLDAPConfiguration,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ldapauth</span></code></div>
             <ul>
-              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:39Z">a month ago</abbr></li>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/vesse/passport-ldapauth">https://github.com/vesse/passport-ldapauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3,593</b> downloads in the last day</li>
-              <li><b>19,650</b> downloads in the last week</li>
-              <li><b>89,581</b> downloads in the last month</li>
+              <li><b>3,284</b> downloads in the last day</li>
+              <li><b>16,205</b> downloads in the last week</li>
+              <li><b>88,829</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

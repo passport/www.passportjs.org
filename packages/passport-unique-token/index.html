@@ -105,31 +105,31 @@
 <a href="https://snyk.io//test/github/lughino/passport-unique-token?targetFile=package.json"><img src="https://snyk.io//test/github/lughino/passport-unique-token/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a></p>
 <p>Unique token authentication strategy for Passport.</p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install passport-unique-token
+<pre><code class="sh">npm install passport-unique-token
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>The unique token authentication strategy authenticates users with a unique token.
 The strategy requires a <em>verify</em> callback,
 which accepts these credentials and calls done providing a user.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> { UniqueTokenStrategy } = <span class="built_in">require</span>(<span class="string">'passport-unique-token'</span>);
+<pre><code class="javascript"><span class="keyword">const</span> { <span class="title class_">UniqueTokenStrategy</span> } = <span class="built_in">require</span>(<span class="string">&#x27;passport-unique-token&#x27;</span>);
 
-passport.use(
-  <span class="keyword">new</span> UniqueTokenStrategy(<span class="function">(<span class="params">token, done</span>) =&gt;</span> {
-    User.findOne(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> <span class="title class_">UniqueTokenStrategy</span>(<span class="function">(<span class="params">token, done</span>) =&gt;</span> {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>(
       {
         <span class="attr">uniqueToken</span>: token,
-        <span class="attr">expireToken</span>: { <span class="attr">$gt</span>: <span class="built_in">Date</span>.now() },
+        <span class="attr">expireToken</span>: { <span class="attr">$gt</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>() },
       },
-      (err, user) =&gt; {
+      <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
         <span class="keyword">if</span> (err) {
-          <span class="keyword">return</span> done(err);
+          <span class="keyword">return</span> <span class="title function_">done</span>(err);
         }
 
         <span class="keyword">if</span> (!user) {
-          <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+          <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
         }
 
-        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
       },
     );
   }),
@@ -165,30 +165,30 @@ in either the params url or request body in these locations:</p>
 </table>
 <h3 id="configure">Configure</h3>
 <p>These credential locations can be configured when defining the strategy as follows:</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> { UniqueTokenStrategy } = <span class="built_in">require</span>(<span class="string">'passport-unique-token'</span>);
+<pre><code class="javascript"><span class="keyword">const</span> { <span class="title class_">UniqueTokenStrategy</span> } = <span class="built_in">require</span>(<span class="string">&#x27;passport-unique-token&#x27;</span>);
 <span class="keyword">const</span> strategyOptions = {
-  <span class="attr">tokenQuery</span>: <span class="string">'custom-token'</span>,
-  <span class="attr">tokenParams</span>: <span class="string">'custom-token'</span>,
-  <span class="attr">tokenField</span>: <span class="string">'custom-token'</span>,
-  <span class="attr">tokenHeader</span>: <span class="string">'custom-token'</span>,
+  <span class="attr">tokenQuery</span>: <span class="string">&#x27;custom-token&#x27;</span>,
+  <span class="attr">tokenParams</span>: <span class="string">&#x27;custom-token&#x27;</span>,
+  <span class="attr">tokenField</span>: <span class="string">&#x27;custom-token&#x27;</span>,
+  <span class="attr">tokenHeader</span>: <span class="string">&#x27;custom-token&#x27;</span>,
   <span class="attr">failOnMissing</span>: <span class="literal">false</span>
 };
 
-passport.use(<span class="keyword">new</span> UniqueTokenStrategy(strategyOptions,
-  (token, done) =&gt; {
-    User.findOne({
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">UniqueTokenStrategy</span>(strategyOptions,
+  <span class="function">(<span class="params">token, done</span>) =&gt;</span> {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({
       <span class="attr">uniqueToken</span>: token,
-      <span class="attr">expireToken</span>: { <span class="attr">$gt</span>: <span class="built_in">Date</span>.now() }
-    }, (err, user) =&gt; {
+      <span class="attr">expireToken</span>: { <span class="attr">$gt</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>() }
+    }, <span class="function">(<span class="params">err, user</span>) =&gt;</span> {
       <span class="keyword">if</span> (err) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
 
       <span class="keyword">if</span> (!user) {
-        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>);
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
       }
 
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 </code></pre>
@@ -198,29 +198,29 @@ it lets move on to the next strategy on failure.</p>
 <h2 id="how-to-authenticate">How to Authenticate</h2>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>token</code> strategy to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
-<pre><code class="lang-javascript">app.put(<span class="string">'/animals/dogs'</span>, passport.authenticate(<span class="string">'token'</span>), (req, res) =&gt; {
+<pre><code class="javascript">app.<span class="title function_">put</span>(<span class="string">&#x27;/animals/dogs&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>), <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
   <span class="comment">// User authenticated and can be found in req.user</span>
 });
 </code></pre>
 <p>If authentication fails in the above example then a <code>401</code> response will be given.
 However there may be times you wish a bit more control and delegate
 the failure to your application:</p>
-<pre><code class="lang-javascript">app.put(<span class="string">'/animals/dogs'</span>, authenticate, (req, res) =&gt; {
+<pre><code class="javascript">app.<span class="title function_">put</span>(<span class="string">&#x27;/animals/dogs&#x27;</span>, authenticate, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
   <span class="comment">// User authenticated and can be found in req.user</span>
 });
 
-<span class="function"><span class="keyword">function</span> <span class="title">authenticate</span>(<span class="params">req, res, next</span>) </span>{
-  passport.authenticate(<span class="string">'token'</span>, (err, user, info) =&gt; {
+<span class="keyword">function</span> <span class="title function_">authenticate</span>(<span class="params">req, res, next</span>) {
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>, <span class="function">(<span class="params">err, user, info</span>) =&gt;</span> {
     <span class="keyword">if</span> (err) {
-      <span class="keyword">return</span> next(err);
+      <span class="keyword">return</span> <span class="title function_">next</span>(err);
     }
 
     <span class="keyword">if</span> (!user) {
-      res.status(<span class="number">401</span>).json({ <span class="attr">message</span>: <span class="string">'Incorrect token credentials'</span> });
+      res.<span class="title function_">status</span>(<span class="number">401</span>).<span class="title function_">json</span>({ <span class="attr">message</span>: <span class="string">&#x27;Incorrect token credentials&#x27;</span> });
     }
 
-    req.user = user;
-    next();
+    req.<span class="property">user</span> = user;
+    <span class="title function_">next</span>();
   })(req, res, next);
 }
 </code></pre>
@@ -232,44 +232,44 @@ the failure to your application:</p>
 <h3 id="uniquetokenstrategy-"><code>UniqueTokenStrategy()</code></h3>
 <p>The token authentication strategy authenticates requests based on the credentials
 submitted through standard request headers, body, querystring or params.</p>
-<pre><code class="lang-typescript"><span class="keyword">new</span> UniqueTokenStrategy(
+<pre><code class="typescript"><span class="keyword">new</span> <span class="title class_">UniqueTokenStrategy</span>(
   options?: {
     <span class="comment">// the token field name in the body request</span>
-    tokenField?: <span class="built_in">string</span> = <span class="string">'token'</span>,
+    tokenField?: <span class="built_in">string</span> = <span class="string">&#x27;token&#x27;</span>,
     <span class="comment">// the token field name in the query string request</span>
-    tokenQuery?: <span class="built_in">string</span> = <span class="string">'token'</span>,
+    tokenQuery?: <span class="built_in">string</span> = <span class="string">&#x27;token&#x27;</span>,
     <span class="comment">// the token field name in the param request</span>
-    tokenParams?: <span class="built_in">string</span> = <span class="string">'token'</span>,
+    tokenParams?: <span class="built_in">string</span> = <span class="string">&#x27;token&#x27;</span>,
     <span class="comment">// the token field name in the header request</span>
-    tokenHeader?: <span class="built_in">string</span> = <span class="string">'token'</span>,
+    tokenHeader?: <span class="built_in">string</span> = <span class="string">&#x27;token&#x27;</span>,
     <span class="comment">// if `true` the express.Request is the first parameter of the verify callback</span>
     passReqToCallback?: <span class="literal">false</span>,
-    <span class="comment">// if `true` the token key is case sensitive (e.g. res.body['uniqueToken'])</span>
+    <span class="comment">// if `true` the token key is case sensitive (e.g. res.body[&#x27;uniqueToken&#x27;])</span>
     caseSensitive?: <span class="literal">false</span>,
     <span class="comment">// allows you to queue multiple strategy, customizing the behavior.</span>
     failOnMissing?: <span class="literal">true</span>
   },
-  verify: (
+  <span class="attr">verify</span>: <span class="function">(<span class="params">
     req?: express.Request,
     token: <span class="built_in">string</span>,
-    done: <span class="function">(<span class="params">err: <span class="built_in">Error</span> | <span class="literal">null</span>, user?: <span class="built_in">any</span>, info?: <span class="built_in">any</span></span>) =&gt;</span> <span class="built_in">void</span>
-  ) =&gt; <span class="built_in">void</span>
+    done: (err: <span class="built_in">Error</span> | <span class="literal">null</span>, user?: <span class="built_in">any</span>, info?: <span class="built_in">any</span>) =&gt; <span class="built_in">void</span>
+  </span>) =&gt;</span> <span class="built_in">void</span>
 )
 </code></pre>
 <h3 id="authenticate-"><code>authenticate()</code></h3>
 <p>You can optionally pass options to the <code>authenticate()</code> method.
 Please refer to the <a href="http://www.passportjs.org/docs/authenticate/">passport documentation</a>
 for the different signature.</p>
-<pre><code class="lang-typescript">authenticate(
-  strategyName: <span class="built_in">string</span>,
-  options?: { badRequestMessage: <span class="built_in">string</span> },
-  callback?: { err: <span class="built_in">Error</span>, user: <span class="built_in">any</span>, info: <span class="built_in">any</span> }
+<pre><code class="typescript"><span class="title function_">authenticate</span>(
+  <span class="attr">strategyName</span>: <span class="built_in">string</span>,
+  options?: { <span class="attr">badRequestMessage</span>: <span class="built_in">string</span> },
+  callback?: { <span class="attr">err</span>: <span class="title class_">Error</span>, <span class="attr">user</span>: <span class="built_in">any</span>, <span class="attr">info</span>: <span class="built_in">any</span> }
 );
 
 <span class="comment">// Example:</span>
 
-app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'token'</span>, {
-  badRequestMessage: <span class="string">'custom error message'</span>
+app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>, {
+  <span class="attr">badRequestMessage</span>: <span class="string">&#x27;custom error message&#x27;</span>
 }));
 </code></pre>
 <h2 id="credits">Credits</h2>
@@ -278,14 +278,14 @@ app.post(<span class="string">'/login'</span>, passport.authenticate(<span class
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-unique-token</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:58Z">a month ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/lughino/passport-unique-token">https://github.com/lughino/passport-unique-token</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>891</b> downloads in the last day</li>
-              <li><b>4,249</b> downloads in the last week</li>
-              <li><b>18,986</b> downloads in the last month</li>
+              <li><b>1,725</b> downloads in the last day</li>
+              <li><b>7,636</b> downloads in the last week</li>
+              <li><b>36,264</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

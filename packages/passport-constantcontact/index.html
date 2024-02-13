@@ -107,13 +107,13 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> ConstantContactStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ConstantContactStrategy({
     clientID: CONSTANT_CONTACT_CLIENT_ID,
     clientSecret: CONSTANT_CONTACT_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://localhost:3000/auth/constantcontact/callback"</span>
-  }, <span class="function"><span class="keyword">function</span> <span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ constantContactUsername: profile.user_name }, <span class="function"><span class="keyword">function</span><span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+    callbackURL: <span class="string">&quot;http://localhost:3000/auth/constantcontact/callback&quot;</span>
+  }, <span class="keyword">function</span> <span class="title"></span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ constantContactUsername: profile.user_name }, <span class="keyword">function</span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -122,13 +122,13 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/constantcontact'</span>, passport.authenticate(<span class="string">'constantcontact'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/constantcontact&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;constantcontact&#x27;</span>));
 
-app.get(<span class="string">'/auth/constantcontact/callback'</span>,
-  passport.authenticate(<span class="string">'constantcontact'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/constantcontact/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;constantcontact&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successul authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <p>Created by <a href="http://github.com/brainflake">Brian Falk</a></p>
@@ -139,13 +139,13 @@ app.get(<span class="string">'/auth/constantcontact/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-constantcontact</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:25:51Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:25:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/brainflake/passport-constantcontact"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>50</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>9</b> downloads in the last week</li>
+              <li><b>46</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

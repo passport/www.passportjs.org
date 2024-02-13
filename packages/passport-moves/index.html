@@ -108,14 +108,14 @@ unobtrusively integrated into <a href="http://expressjs.com/">Express</a>.</p>
 app and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a clientID, a clientSecret, and a callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> MovesStrategy({
-    clientID: <span class="string">'YOUR_CLIENT_ID'</span>,
-    clientSecret: <span class="string">'YOUR_CLIENT_SECRET'</span>,
-    callbackURL: <span class="string">'http://your.site/auth/callback'</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">MovesStrategy</span>({
+    <span class="attribute">clientID</span>: <span class="string">&#x27;YOUR_CLIENT_ID&#x27;</span>,
+    <span class="attribute">clientSecret</span>: <span class="string">&#x27;YOUR_CLIENT_SECRET&#x27;</span>,
+    <span class="attribute">callbackURL</span>: <span class="string">&#x27;http://your.site/auth/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    process.nextTick(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-      <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+    process.<span class="built_in">nextTick</span>(<span class="built_in">function</span>() {
+      return <span class="built_in">done</span>(null, profile);
     });
   }
 ));
@@ -124,16 +124,16 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/moves/auth'</span>, 
-  passport.authenticate(<span class="string">'moves'</span>, {<span class="attribute">scope</span>: [<span class="string">'default'</span>, <span class="string">'activity'</span>, <span class="string">'location'</span>]}));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/moves/auth&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;moves&#x27;</span>, {<span class="attribute">scope</span>: [<span class="string">&#x27;default&#x27;</span>, <span class="string">&#x27;activity&#x27;</span>, <span class="string">&#x27;location&#x27;</span>]}));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/moves/auth/callback'</span>, 
-  passport.authenticate(<span class="string">'moves'</span>, { <span class="attribute">successRedirect</span>: <span class="string">'/success'</span>, <span class="attribute">failureRedirect</span>: <span class="string">'/failure'</span> }));
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/moves/auth/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;moves&#x27;</span>, { <span class="attribute">successRedirect</span>: <span class="string">&#x27;/success&#x27;</span>, <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/failure&#x27;</span> }));
 </code></pre><h4 id="profile-fields">Profile Fields</h4>
 <p>The Moves profile is very sparse and only the <code>profile.id</code> field is populated.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <h2 id="acknowledgements">Acknowledgements</h2>
@@ -142,13 +142,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-moves</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:04:27Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:04:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/billglover/passport-moves">https://github.com/billglover/passport-moves</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>27</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

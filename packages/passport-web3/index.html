@@ -98,68 +98,68 @@
 signed with the user&#39;s ETH address, and checking if it matches the address
 that they are trying to authenticate.</p>
 <h3 id="setup">Setup</h3>
-<pre><code class="lang-js"><span class="keyword">const</span> Web3Strategy = <span class="built_in">require</span>(<span class="string">'passport-web3'</span>);
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">Web3Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-web3&#x27;</span>);
 
 <span class="comment">/**
  * Called when authorization succeeds. Perform any additional verification here,
- * and either return the user's data (if valid), or deny authorization by
+ * and either return the user&#x27;s data (if valid), or deny authorization by
  * passing an error to the `done` callback.
  */</span>
-<span class="keyword">const</span> onAuth = <span class="function">(<span class="params">address, done</span>) =&gt;</span> {
+<span class="keyword">const</span> <span class="title function_">onAuth</span> = (<span class="params">address, done</span>) =&gt; {
   <span class="comment">// optional additional validation. To deny auth:</span>
-  <span class="comment">// done(new Error('User is not authorized.'));</span>
-  User.findOne({ address }, (err, user) =&gt; done(err, user));
+  <span class="comment">// done(new Error(&#x27;User is not authorized.&#x27;));</span>
+  <span class="title class_">User</span>.<span class="title function_">findOne</span>({ address }, <span class="function">(<span class="params">err, user</span>) =&gt;</span> <span class="title function_">done</span>(err, user));
 };
-<span class="keyword">const</span> web3Strategy = <span class="keyword">new</span> Web3Strategy(onAuth);
+<span class="keyword">const</span> web3Strategy = <span class="keyword">new</span> <span class="title class_">Web3Strategy</span>(onAuth);
 
-passport.use(web3Strategy);
+passport.<span class="title function_">use</span>(web3Strategy);
 
 <span class="comment">// endpoint</span>
-app.post(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'web3'</span>));
+app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;web3&#x27;</span>));
 </code></pre>
 <h3 id="usage-client-side-">Usage (client-side)</h3>
-<pre><code class="lang-js"><span class="keyword">const</span> ethUtil = <span class="built_in">require</span>(<span class="string">'ethereumjs-util'</span>);
+<pre><code class="js"><span class="keyword">const</span> ethUtil = <span class="built_in">require</span>(<span class="string">&#x27;ethereumjs-util&#x27;</span>);
 
 <span class="comment">// The contents of the message can be anything</span>
-<span class="keyword">const</span> rawMessage = <span class="string">'Some message'</span>;
-<span class="keyword">const</span> msg = ethUtil.bufferToHex(<span class="keyword">new</span> Buffer(rawMessage, <span class="string">'utf8'</span>));
-<span class="keyword">const</span> address = web3.eth.accounts[<span class="number">0</span>];
-<span class="keyword">const</span> handleSignature = <span class="function">(<span class="params">err, signed</span>) =&gt;</span> {
+<span class="keyword">const</span> rawMessage = <span class="string">&#x27;Some message&#x27;</span>;
+<span class="keyword">const</span> msg = ethUtil.<span class="title function_">bufferToHex</span>(<span class="keyword">new</span> <span class="title class_">Buffer</span>(rawMessage, <span class="string">&#x27;utf8&#x27;</span>));
+<span class="keyword">const</span> address = web3.<span class="property">eth</span>.<span class="property">accounts</span>[<span class="number">0</span>];
+<span class="keyword">const</span> <span class="title function_">handleSignature</span> = (<span class="params">err, signed</span>) =&gt; {
   <span class="keyword">if</span> (!err) {
     <span class="keyword">const</span> fetchOpts = {
-      <span class="attr">method</span>: <span class="string">'POST'</span>,
-      <span class="attr">headers</span>: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> }.
-      body: <span class="built_in">JSON</span>.stringify({ address, msg, signed })
+      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,
+      <span class="attr">headers</span>: { <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> }.
+      <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>({ address, msg, signed })
     };
 
-    fetch(<span class="string">'/login'</span>, fetchOpts).then(<span class="function"><span class="params">res</span> =&gt;</span> {
-      <span class="keyword">if</span> (res.status &gt;= <span class="number">200</span> &amp;&amp; res.status &lt;= <span class="number">300</span>) {
-        <span class="keyword">return</span> res.json();
+    <span class="title function_">fetch</span>(<span class="string">&#x27;/login&#x27;</span>, fetchOpts).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> {
+      <span class="keyword">if</span> (res.<span class="property">status</span> &gt;= <span class="number">200</span> &amp;&amp; res.<span class="property">status</span> &lt;= <span class="number">300</span>) {
+        <span class="keyword">return</span> res.<span class="title function_">json</span>();
       } <span class="keyword">else</span> {
-        <span class="keyword">throw</span> <span class="built_in">Error</span>(res.statusText);
+        <span class="keyword">throw</span> <span class="title class_">Error</span>(res.<span class="property">statusText</span>);
       }
-    }).then(<span class="function"><span class="params">json</span> =&gt;</span> {
+    }).<span class="title function_">then</span>(<span class="function"><span class="params">json</span> =&gt;</span> {
       <span class="comment">// Auth succeeded</span>
-    }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {
+    }).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> {
       <span class="comment">// Auth failed</span>
     })
   }
 };
 
-web3.personal.sign(msg, address, handleSign);
+web3.<span class="property">personal</span>.<span class="title function_">sign</span>(msg, address, handleSign);
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-web3</span></code></div>
             <ul>
-              <li><span class="version">0.1.7</span> published <abbr class="updated" title="2022-05-12T16:03:34Z">2 months ago</abbr></li>
+              <li><span class="version">0.1.7</span> published <abbr class="updated" title="2022-05-12T16:03:34Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/coopermaruyama/passport-web3">https://github.com/coopermaruyama/passport-web3#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>27</b> downloads in the last day</li>
-              <li><b>80</b> downloads in the last week</li>
-              <li><b>343</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last day</li>
+              <li><b>92</b> downloads in the last week</li>
+              <li><b>418</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

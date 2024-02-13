@@ -105,51 +105,51 @@ npm <span class="keyword">install</span> express
 example relies on the express-session npm package, but other session managers could be used in its place.</p>
 <h2 id="configuration">Configuration</h2>
 <p>Take your credentials from the <a href="https://dowjones.com/page-to-be-defined">Dow Jones Client Settings</a> section described above and initialize the strategy as follows:</p>
-<pre><code class="lang-js"><span class="keyword">var</span> DowJonesStrategy = <span class="built_in">require</span>(<span class="string">'passport-dowjones'</span>),
-    passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">DowJonesStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-dowjones&#x27;</span>),
+    passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> DowJonesStrategy({
-   <span class="attr">clientID</span>:     <span class="string">'your-client-id'</span>,
-   <span class="attr">clientSecret</span>: <span class="string">'your-client-secret'</span>,
-   <span class="attr">callbackURL</span>:  <span class="string">'/callback'</span>
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">DowJonesStrategy</span>({
+   <span class="attr">clientID</span>:     <span class="string">&#x27;your-client-id&#x27;</span>,
+   <span class="attr">clientSecret</span>: <span class="string">&#x27;your-client-secret&#x27;</span>,
+   <span class="attr">callbackURL</span>:  <span class="string">&#x27;/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, extraParams, profile, done</span>) {
     <span class="comment">// accessToken is the token to call oAuth API (not needed in the most cases)</span>
     <span class="comment">// extraParams.id_token has the JSON Web Token</span>
     <span class="comment">// profile has all the information from the user</span>
 
-    <span class="comment">// next we'll grab the api token and store it as part of the session</span>
-    <span class="keyword">var</span> apiToken = <span class="keyword">this</span>.getDelegationToken(extraParams, <span class="string">'pib'</span>) {
+    <span class="comment">// next we&#x27;ll grab the api token and store it as part of the session</span>
+    <span class="keyword">var</span> apiToken = <span class="variable language_">this</span>.<span class="title function_">getDelegationToken</span>(<span class="params">extraParams, <span class="string">&#x27;pib&#x27;</span></span>) {
       <span class="keyword">if</span>(err !== <span class="literal">undefined</span>) {
-        <span class="keyword">return</span> done(err);
+        <span class="keyword">return</span> <span class="title function_">done</span>(err);
       }
       <span class="comment">// store the apiToken in session</span>
-      session.apiToken = apiToken;
+      session.<span class="property">apiToken</span> = apiToken;
 
-      <span class="keyword">return</span> done(<span class="literal">null</span>, profile);
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
     });
   }
 );
 
-passport.use(strategy);
+passport.<span class="title function_">use</span>(strategy);
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>For this application, we support login and the callback interface.  Passport supports other mechanisms to for remaining endpoints,
 but we will focus on login here.</p>
 <p>First, create the login endpoint that</p>
-<pre><code class="lang-js">app.get(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'dowjones'</span>, {<span class="attr">connection</span>: <span class="string">'dj-piboauthv2'</span>}));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;dowjones&#x27;</span>, {<span class="attr">connection</span>: <span class="string">&#x27;dj-piboauthv2&#x27;</span>}));
 </code></pre>
 <p>Next, we&#39;ll create the callback interface that gets invoked after login completes.  Note that we get an
 API token by calling delegate passing the references</p>
-<pre><code class="lang-js">app.get(<span class="string">'/callback'</span>,
-  passport.authenticate(<span class="string">'dowjones'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="keyword">if</span> (!req.user) {
-      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'user null'</span>);
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;dowjones&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    <span class="keyword">if</span> (!req.<span class="property">user</span>) {
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;user null&#x27;</span>);
     }
 
-    res.redirect(<span class="string">"/"</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
 </code></pre>
@@ -170,14 +170,14 @@ call sequence for authentication is as follows:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dowjones</span></code></div>
             <ul>
-              <li><span class="version">0.2.2</span> published <abbr class="updated" title="2022-06-23T12:30:33Z">a month ago</abbr></li>
+              <li><span class="version">0.2.2</span> published <abbr class="updated" title="2022-06-23T12:30:33Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/dowjones/passport-dowjones">https://github.com/DowJones/passport-dowjones#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

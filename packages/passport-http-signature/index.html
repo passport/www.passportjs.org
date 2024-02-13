@@ -101,7 +101,7 @@
 <a href="https://circleci.com/gh/interledger/passport-http-signature"><img src="https://img.shields.io/circleci/project/interledger/passport-http-signature.svg" alt="Linux Build"></a>
 <a href="https://coveralls.io/r/interledger/passport-http-signature?branch=master"><img src="https://img.shields.io/coveralls/interledger/passport-http-signature/master.svg" alt="Test Coverage"></a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">npm install --save passport-http-signature
+<pre><code class="bash">npm install --save passport-http-signature
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
@@ -109,13 +109,13 @@
   <span class="keyword">function</span> (username, <span class="keyword">done</span>) {
     User.findById(username, <span class="keyword">function</span>(err, user) {
       <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="keyword">done</span>(err)
-      <span class="keyword">if</span> (!user) <span class="keyword">return</span> <span class="keyword">done</span>()
-      <span class="keyword">done</span>(<span class="keyword">null</span>, user, user.public_key)
+      <span class="keyword">if</span> (<span class="operator">!</span>user) <span class="keyword">return</span> <span class="keyword">done</span>()
+      <span class="keyword">done</span>(<span class="literal">null</span>, user, user.public_key)
     })
   }))
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/private'</span>,
-  passport.authenticate(<span class="string">'http-signature'</span>),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/private&#x27;</span>,
+  passport.authenticate(<span class="string">&#x27;http-signature&#x27;</span>),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>)
   })
@@ -125,14 +125,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-signature</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:03Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/interledger-deprecated/passport-http-signature">https://github.com/interledger/passport-http-signature#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>14</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>13</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -100,7 +100,7 @@ request body, as <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-27#sect
 by the OAuth 2.0 specification.  These credentials are typically used protect
 the token endpoint and used as an alternative to HTTP Basic authentication.</p>
 <h2 id="install">Install</h2>
-<pre><code>$ npm <span class="keyword">install</span> passport-oauth2-<span class="keyword">client</span>-<span class="keyword">password</span>
+<pre><code>$ npm install pass<span class="keyword">port</span>-oauth2-client-password
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The OAuth 2.0 client password authentication strategy authenticates clients
@@ -108,11 +108,11 @@ using a client ID and client secret.  The strategy requires a <code>verify</code
 which accepts those credentials and calls <code>done</code> providing a client.</p>
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> ClientPasswordStrategy(
   <span class="keyword">function</span>(clientId, clientSecret, <span class="keyword">done</span>) {
-    Clients.findOne({ clientId: clientId }, <span class="keyword">function</span> (err, client) {
+    Clients.findOne({ clientId<span class="operator">:</span> clientId }, <span class="keyword">function</span> (err, client) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!client) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">if</span> (client.clientSecret != clientSecret) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, <span class="keyword">false</span>); }
-      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="keyword">null</span>, client);
+      <span class="keyword">if</span> (<span class="operator">!</span>client) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">if</span> (client.clientSecret <span class="operator">!=</span> clientSecret) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, client);
     });
   }
 ));
@@ -124,9 +124,9 @@ allowing clients to include credentials in the request body.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application, using <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
 middleware to implement the token endpoint:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
-  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'oauth2-client-password'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
-  oauth2orize.token());
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>([<span class="string">&#x27;basic&#x27;</span>, <span class="string">&#x27;oauth2-client-password&#x27;</span>], { <span class="attribute">session</span>: false }),
+  oauth2orize.<span class="built_in">token</span>());
 </code></pre><h2 id="examples">Examples</h2>
 <p>The <a href="https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2">example</a>
 included with <a href="https://github.com/jaredhanson/oauth2orize">OAuth2orize</a>
@@ -134,8 +134,8 @@ demonstrates how to implement a complete OAuth 2.0 authorization server.
 <code>ClientPasswordStrategy</code> is used to authenticate clients as they request access
 tokens from the token endpoint.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-oauth2-client-password"><img src="https://secure.travis-ci.org/jaredhanson/passport-oauth2-client-password.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -148,13 +148,13 @@ tokens from the token endpoint.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-client-password</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:09:03Z">a month ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:09:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-oauth2-client-password">https://github.com/jaredhanson/passport-oauth2-client-password</a></li>
             </ul>
             <ul>
-              <li><b>9,919</b> downloads in the last day</li>
-              <li><b>56,692</b> downloads in the last week</li>
-              <li><b>229,036</b> downloads in the last month</li>
+              <li><b>8,613</b> downloads in the last day</li>
+              <li><b>43,371</b> downloads in the last week</li>
+              <li><b>216,852</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

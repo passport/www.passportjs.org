@@ -112,15 +112,15 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 <p>The client ID and secret are obtained by registering an application at the
 <a href="https://www.strava.com/developers">Login to Strava</a>.</p>
 <pre><code>passport.use(<span class="keyword">new</span> StravaStrategy({
-    clientID: STRAVA_CLIENT_ID,
-    clientSecret: STRAVA_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/strava/callback"</span>
+    <span class="attr">clientID</span>: STRAVA_CLIENT_ID,
+    <span class="attr">clientSecret</span>: STRAVA_CLIENT_SECRET,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/strava/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
     <span class="comment">// asynchronous verification, for effect...</span>
-    process.nextTick(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    process.nextTick(<span class="keyword">function</span> (<span class="params"></span>) {
 
-      <span class="comment">// To keep the example simple, the user's Strava profile is returned to</span>
+      <span class="comment">// To keep the example simple, the user&#x27;s Strava profile is returned to</span>
       <span class="comment">// represent the logged-in user.  In a typical application, you would want</span>
       <span class="comment">// to associate the Strava account with a user record in your database,</span>
       <span class="comment">// and return that user instead.</span>
@@ -133,14 +133,14 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/strava'</span>,
-  passport.authenticate(<span class="string">'strava'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/strava&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;strava&#x27;</span>));
 
-app.get(<span class="string">'/auth/strava/callback'</span>, 
-  passport.authenticate(<span class="string">'strava'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/strava/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;strava&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/millsy/passport-strava/tree/master/examples/login">login example</a>.</p>
@@ -156,13 +156,13 @@ app.get(<span class="string">'/auth/strava/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-strava-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:33:46Z">a month ago</abbr></li>
+              <li><span class="version">0.1.3</span> published <abbr class="updated" title="2022-06-23T13:33:46Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/millsy/passport-strava">https://github.com/millsy/passport-strava</a></li>
             </ul>
             <ul>
-              <li><b>24</b> downloads in the last day</li>
-              <li><b>178</b> downloads in the last week</li>
-              <li><b>706</b> downloads in the last month</li>
+              <li><b>17</b> downloads in the last day</li>
+              <li><b>88</b> downloads in the last week</li>
+              <li><b>742</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

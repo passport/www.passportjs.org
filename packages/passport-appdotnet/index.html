@@ -104,14 +104,14 @@ with <a href="https://alpha.app.net">App.net</a> using the OAuth 2.0 API.</p>
 OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a
 consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> AppDotNetStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> AppDotNetStrategy({
     consumerKey: APPDOTNET_CONSUMER_KEY,
     consumerSecret: APPDOTNET_CONSUMER_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/appdotnet/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/appdotnet/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ appdotnetId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, done) {
+    User.findOrCreate({ appdotnetId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -120,18 +120,18 @@ consumer key, consumer secret, and callback URL.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/appdotnet'</span>,
-  passport.authenticate(<span class="string">'appdotnet'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/appdotnet&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;appdotnet&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to App.net for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/appdotnet/callback'</span>, 
-  passport.authenticate(<span class="string">'appdotnet'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/appdotnet/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;appdotnet&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -153,13 +153,13 @@ app.get(<span class="string">'/auth/appdotnet/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-appdotnet</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:15:27Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:15:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mko/passport-appdotnet"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -106,11 +106,11 @@ unobtrusively integrated into any application or framework that supports
 <pre><code>$ npm install pass<span class="keyword">port</span>-smartthings
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code><span class="keyword">var</span> SmartThingsStrategy = <span class="keyword">require</span>(<span class="string">'passport-smartthings'</span>).Strategy
+<pre><code><span class="keyword">var</span> SmartThingsStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-smartthings&#x27;</span>).Strategy
 
-passport.<span class="keyword">use</span>(<span class="title">new</span> <span class="title">SmartThingsStrategy</span>({
-    <span class="title">clientID</span>: <span class="title">SMARTTHINGS_CLIENT_ID</span>,
-    <span class="title">clientSecret</span>: <span class="title">SMARTTHINGS_CLIENT_SECRET</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span class="title class_">SmartThingsStrategy</span>({
+    clientID: SMARTTHINGS_CLIENT_ID,
+    clientSecret: SMARTTHINGS_CLIENT_SECRET
 }));
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;smartthings&#39;</code> strategy, to
@@ -118,15 +118,15 @@ authenticate requests.  </p>
 <p>Note Smart Things requires the presence of a scope permission such as &quot;app&quot;.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.<span class="keyword">get</span>(
-    <span class="string">'/auth/smartthings'</span>, 
-    passport.authenticate(<span class="string">'smartthings'</span>, { scope: <span class="type"></span>[<span class="string">'app'</span>] })
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(
+    <span class="string">&#x27;/auth/smartthings&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;smartthings&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;app&#x27;</span>] })
 );
 
-app.<span class="keyword">get</span>(<span class="string">'/auth/smartthings/callback'</span>,
-    passport.authenticate(<span class="string">'smartthings'</span>, { scope: <span class="type"></span>[<span class="string">'app'</span>] }),
-    <span class="function"><span class="keyword">function</span></span>(req, res) { 
-        res.redirect(<span class="string">'/'</span>); 
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/smartthings/callback&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;smartthings&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;app&#x27;</span>] }),
+    <span class="built_in">function</span>(req, res) { 
+        <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>); 
     }
 );
 </code></pre><h4 id="extended-permissions">Extended Permissions</h4>
@@ -134,8 +134,8 @@ app.<span class="keyword">get</span>(<span class="string">'/auth/smartthings/cal
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests permission to the app tied to the clientID:</p>
 <pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(
-    <span class="string">'/auth/smartthings'</span>, 
-    passport.authenticate(<span class="string">'smartthings'</span>, { <span class="attribute">scope</span>: [<span class="string">'app'</span>] })
+    <span class="string">&#x27;/auth/smartthings&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;smartthings&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;app&#x27;</span>] })
 );
 </code></pre><h4 id="profile">Profile</h4>
 <p>The above configuration will populate the passport profile in session with the Smart Things access token and applicable api endpoints available to the logged in user for further api requests.  The endpoints are as described in Step 8 of the Web Services Smart App documentation found here <a href="http://docs.smartthings.com/en/latest/smartapp-web-services-developers-guide/implementation.html">SmartApp Web Services Developers Guide</a>.  For example usage checkout examples/app.js dashboard express route.</p>
@@ -143,14 +143,14 @@ via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-smartthings</span></code></div>
             <ul>
-              <li><span class="version">0.3.7</span> published <abbr class="updated" title="2022-06-23T13:30:34Z">a month ago</abbr></li>
+              <li><span class="version">0.3.7</span> published <abbr class="updated" title="2022-06-23T13:30:34Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jeff-blaisdell/passport-smartthings">https://github.com/jeff-blaisdell/passport-smartthings</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>147</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last day</li>
+              <li><b>29</b> downloads in the last week</li>
+              <li><b>87</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -109,15 +109,15 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> StashStrategy({
-    consumerKey: STASH_CONSUMER_KEY,
-    consumerSecret: STASH_CONSUMER_SECRET,
-    apiURL: <span class="string">"http://api.example.com"</span>,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/stash/callback"</span>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">StashStrategy</span>({
+    <span class="attribute">consumerKey</span>: STASH_CONSUMER_KEY,
+    <span class="attribute">consumerSecret</span>: STASH_CONSUMER_SECRET,
+    <span class="attribute">apiURL</span>: <span class="string">&quot;http://api.example.com&quot;</span>,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/stash/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ stashId: profile.username }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="built_in">function</span>(token, tokenSecret, profile, done) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">stashId</span>: profile.username }, function (err, user) {
+      return <span class="built_in">done</span>(err, user);
     });
   }
 ));
@@ -126,20 +126,20 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/stash'</span>,
-  passport.authenticate(<span class="string">'stash'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/stash&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;stash&#x27;</span>));
 
-app.get(<span class="string">'/auth/stash/callback'</span>,
-  passport.authenticate(<span class="string">'stash'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/stash/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;stash&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/reinbach/passport-stash/tree/master/examples/login">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/reinbach">Greg Reinbach</a></li>
@@ -152,13 +152,13 @@ app.get(<span class="string">'/auth/stash/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stash</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:22Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:22Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/reinbach/passport-stash">https://github.com/reinbach/passport-stash</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

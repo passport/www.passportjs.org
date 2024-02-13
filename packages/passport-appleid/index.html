@@ -106,24 +106,24 @@
 <p>More detail about configuration can be found in <a href="https://medium.com/@artyomefremov/add-sign-in-with-apple-button-to-your-website-today-part-1-12ed1444623a?postPublishedType=initial">blog post</a> and <a href="https://help.apple.com/developer-account/#/dev1c0e25352">Apple docs</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>Install the module using <a href="http://npmjs.com">npm</a>:</p>
-<pre><code class="lang-bash">npm install --save passport-appleid
+<pre><code class="bash">npm install --save passport-appleid
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Apple authentication strategy authenticates users using Apple ID and OAuth 2.0 tokens. The Apple Service ID, Apple Team ID, and private key can be obtained in Apple Developer Account. The strategy also requires a verify callback, which receives the access token and optional refresh token, as well as profile which contains the authenticated user&#39;s Apple profile. The verify callback must call done providing a user to complete authentication.</p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> AppleStrategy = <span class="built_in">require</span>(<span class="string">"passport-appleid"</span>);
+<pre><code class="javascript"><span class="keyword">const</span> <span class="title class_">AppleStrategy</span> = <span class="built_in">require</span>(<span class="string">&quot;passport-appleid&quot;</span>);
 
-passport.use(<span class="keyword">new</span> AppleStrategy({
-    <span class="attr">clientID</span>: APPLE_SERVICE_ID,
-    <span class="attr">callbackURL</span>: <span class="string">'https://www.example.net/auth/apple/callback'</span>,
-    <span class="attr">teamId</span>: APPLE_TEAM_ID,
-    <span class="attr">keyIdentifier</span>: <span class="string">'RB1233456'</span>,
-    <span class="attr">privateKeyPath</span>: path.join(__dirname, <span class="string">"./AuthKey_RB1233456.p8"</span>)
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AppleStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">APPLE_SERVICE_ID</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;https://www.example.net/auth/apple/callback&#x27;</span>,
+    <span class="attr">teamId</span>: <span class="variable constant_">APPLE_TEAM_ID</span>,
+    <span class="attr">keyIdentifier</span>: <span class="string">&#x27;RB1233456&#x27;</span>,
+    <span class="attr">privateKeyPath</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./AuthKey_RB1233456.p8&quot;</span>)
   }, 
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    <span class="keyword">const</span> id = profile.id;
-    User.findOrCreate(..., <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-        done(err, user);
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) {
+    <span class="keyword">const</span> id = profile.<span class="property">id</span>;
+    <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span> (<span class="params">err, user</span>) {
+        <span class="title function_">done</span>(err, user);
     });
   }
 }));
@@ -131,14 +131,14 @@ passport.use(<span class="keyword">new</span> AppleStrategy({
 <h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the &#39;apple&#39; strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com">Express</a> application:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/auth/apple'</span>,
-  passport.authenticate(<span class="string">'apple'</span>));
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/apple&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>));
 
-app.get(<span class="string">'/auth/apple/callback'</span>,
-  passport.authenticate(<span class="string">'apple'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/apple/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre>
 <h2 id="examples">Examples</h2>
@@ -155,14 +155,14 @@ app.get(<span class="string">'/auth/apple/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-appleid</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-05-12T15:31:18Z">2 months ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-05-12T15:31:18Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/Techofficer/passport-apple">https://github.com/Techofficer/passport-apple#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>283</b> downloads in the last day</li>
-              <li><b>1,880</b> downloads in the last week</li>
-              <li><b>8,141</b> downloads in the last month</li>
+              <li><b>393</b> downloads in the last day</li>
+              <li><b>2,027</b> downloads in the last week</li>
+              <li><b>8,883</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

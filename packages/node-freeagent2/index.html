@@ -98,31 +98,31 @@
 <p>Includes a passport strategy for plugging into the node-passport authentication library.  </p>
 <p><strong>Note: This library provides a foundation for interacting with the REST API but is not complete.</strong></p>
 <p>##Install</p>
-<pre><code class="lang-bash">npm install node-freeagent2
+<pre><code class="bash">npm install node-freeagent2
 </code></pre>
 <p>##Usage </p>
 <p>The two components of this library - the API and the Authentication Strategy, can be used independently. First require the module.</p>
-<pre><code class="lang-coffeescript">FreeAgent = <span class="built_in">require</span> <span class="string">'node-freeagent2'</span>
+<pre><code class="coffeescript">FreeAgent = <span class="built_in">require</span> <span class="string">&#x27;node-freeagent2&#x27;</span>
 </code></pre>
 <p>###API</p>
-<pre><code class="lang-coffeescript">freeAgent = <span class="keyword">new</span> FreeAgent.Api <span class="string">'auth_token'</span>
+<pre><code class="coffeescript">freeAgent = <span class="keyword">new</span> FreeAgent.Api <span class="string">&#x27;auth_token&#x27;</span>
 
 freeAgent.getProjects (error, projects) -&gt;
   <span class="keyword">unless</span> error
-    <span class="built_in">console</span>.log projects
+    console.log projects
   <span class="keyword">else</span>
-    <span class="built_in">console</span>.log error
+    console.log error
 </code></pre>
 <p>Each REST resource has a corresponding method for GET. Requests using other HTTP verbs have not yet been implemented.
 Each method of the type <code>GET</code> has a consistent signature of:</p>
-<pre><code class="lang-coffeescript">getProjects : <span class="function"><span class="params">(optionsOrCallback, callback)</span> -&gt;</span>
+<pre><code class="coffeescript">getProjects : <span class="function"><span class="params">(optionsOrCallback, callback)</span> -&gt;</span>
 </code></pre>
 <p>Except where the method is a convenience function for getById or something similar, in which case it takes the form:</p>
-<pre><code class="lang-coffeescript">getProjectById : <span class="function"><span class="params">(id, optionsOrCallback, callback)</span> -&gt;</span>
+<pre><code class="coffeescript">getProjectById : <span class="function"><span class="params">(id, optionsOrCallback, callback)</span> -&gt;</span>
 </code></pre>
 <p>###Passport Strategy</p>
-<pre><code class="lang-coffeescript">FreeAgentStrategy = FreeAgent.AuthenticationStragegy
-passport.use <span class="string">'freeagent'</span>, <span class="keyword">new</span> FreeagentStrategy(options, ...)
+<pre><code class="coffeescript">FreeAgentStrategy = FreeAgent.AuthenticationStragegy
+passport.use <span class="string">&#x27;freeagent&#x27;</span>, <span class="keyword">new</span> FreeagentStrategy(options, ...)
 </code></pre>
 <p>##Contributing </p>
 <p>Please help make this a better library, Pull requests and Issues are very welcome.  </p>
@@ -155,14 +155,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">node-freeagent2</span></code></div>
             <ul>
-              <li><span class="version">0.0.11</span> published <abbr class="updated" title="2022-06-21T14:51:43Z">a month ago</abbr></li>
+              <li><span class="version">0.0.11</span> published <abbr class="updated" title="2022-06-21T14:51:43Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/JoeStanton/node-freeagent2">https://github.com/JoeStanton/node-freeagent2</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>11</b> downloads in the last day</li>
-              <li><b>13</b> downloads in the last week</li>
-              <li><b>36</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>7</b> downloads in the last week</li>
+              <li><b>20</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

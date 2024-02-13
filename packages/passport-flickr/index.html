@@ -104,14 +104,14 @@ with Flickr using the OAuth 1.0a API.</p>
 OAuth tokens.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a
 consumer key, consumer secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> FlickrStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> FlickrStrategy({
     consumerKey: FLICKR_CONSUMER_KEY,
     consumerSecret: FLICKR_CONSUMER_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/flickr/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/flickr/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(token, tokenSecret, profile, done)</span> </span>{
-    User.findOrCreate({ flickrId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(token, tokenSecret, profile, done) {
+    User.findOrCreate({ flickrId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -120,18 +120,18 @@ consumer key, consumer secret, and callback URL.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/flickr'</span>,
-  passport.authenticate(<span class="string">'flickr'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/flickr&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;flickr&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to Flickr for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/flickr/callback'</span>, 
-  passport.authenticate(<span class="string">'flickr'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/flickr/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;flickr&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
@@ -141,13 +141,13 @@ app.get(<span class="string">'/auth/flickr/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-flickr</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:37:45Z">a month ago</abbr></li>
+              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-06-23T12:37:45Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/johnnyhalife/passport-flickr"></a></li>
             </ul>
             <ul>
-              <li><b>17</b> downloads in the last day</li>
-              <li><b>104</b> downloads in the last week</li>
-              <li><b>562</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>32</b> downloads in the last week</li>
+              <li><b>206</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

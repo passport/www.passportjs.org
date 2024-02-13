@@ -111,7 +111,7 @@ control.</p>
     <span class="module-access"><span class="module"><span class="identifier">User</span>.</span></span>find<span class="constructor">One({ <span class="params">apikey</span>: <span class="params">apikey</span> }, <span class="params">function</span> (<span class="params">err</span>, <span class="params">user</span>)</span> {
       <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err); }
       <span class="keyword">if</span> (!user) { return <span class="keyword">done</span>(null, <span class="literal">false</span>); }
-      return <span class="keyword">done</span>(null, user, { scope: 'all' });
+      return <span class="keyword">done</span>(null, user, { scope: &#x27;all&#x27; });
     });
 });
 
@@ -122,14 +122,14 @@ authenticate requests.  Requests containing apikey tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'apikey'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;apikey&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>);
   });
 </code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/p0wdrdotcom">Geoff McIver</a></li>
@@ -141,14 +141,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-httpapikey</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:15Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/p0wdrdotcom/passport-httpapikey">https://github.com/p0wdrdotcom/passport-httpapikey#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>26</b> downloads in the last day</li>
-              <li><b>178</b> downloads in the last week</li>
-              <li><b>910</b> downloads in the last month</li>
+              <li><b>47</b> downloads in the last day</li>
+              <li><b>174</b> downloads in the last week</li>
+              <li><b>1,212</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

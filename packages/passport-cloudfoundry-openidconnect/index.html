@@ -132,13 +132,13 @@ It&#39;s OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it ju
 <li><p>Then, we must take the <del>token_id</del> <code>access_token</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a>. </p>
 </li>
 </ol>
-<pre><code>access_token (<span class="keyword">Before</span>):
+<pre><code>access_token (Before):
 abc<span class="number">.123</span><span class="number">.456</span>
 
-Decode: Take everything <span class="keyword">after</span> first "." (= "123.456") <span class="keyword">and</span> <span class="keyword">do</span> Base64-decode.
+<span class="built_in">Decode</span>: Take everything after <span class="built_in">first</span> <span class="string">&quot;.&quot;</span> (= <span class="string">&quot;123.456&quot;</span>) and <span class="keyword">do</span> Base64-<span class="built_in">decode</span>.
 
-acess_token (<span class="keyword">After</span>)
-{"exp":<span class="number">1357672585</span>,"user_name":"bla@yahoo.com","scope":["openid"],"email":"bla@yahoo.com","aud":["openid"],"jti":"123-c545-4775-ad27-123","user_id":"123-2c45-111-8f37-123","client_id":"YOUR_APP_ID"}
+acess_token (After)
+{<span class="string">&quot;exp&quot;</span>:<span class="number">1357672585</span>,<span class="string">&quot;user_name&quot;</span>:<span class="string">&quot;bla@yahoo.com&quot;</span>,<span class="string">&quot;scope&quot;</span>:[<span class="string">&quot;openid&quot;</span>],<span class="string">&quot;email&quot;</span>:<span class="string">&quot;bla@yahoo.com&quot;</span>,<span class="string">&quot;aud&quot;</span>:[<span class="string">&quot;openid&quot;</span>],<span class="string">&quot;jti&quot;</span>:<span class="string">&quot;123-c545-4775-ad27-123&quot;</span>,<span class="string">&quot;user_id&quot;</span>:<span class="string">&quot;123-2c45-111-8f37-123&quot;</span>,<span class="string">&quot;client_id&quot;</span>:<span class="string">&quot;YOUR_APP_ID&quot;</span>}
 </code></pre><p>Validate client_id is actually your app&#39;s id. Expiration (exp) is at a later date. <del>Issuer(iss) is UAA (not supported yet).</del></p>
 <p>4.After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;uaa-server&gt;/userinfo</code> end point. </p>
 <p>#####Notes: </p>
@@ -179,84 +179,84 @@ acess_token (<span class="keyword">After</span>)
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-javascript">var CloudFoundryStrategy = require('passport-cloudfoundry-openidconnect').Strategy;
+<pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">CloudFoundryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-cloudfoundry-openidconnect&#x27;</span>).<span class="property">Strategy</span>;
 
 
-var cfStrategy = new CloudFoundryStrategy({
-    clientID: CF_CLIENT_ID,
-    clientSecret: CF_CLIENT_SECRET,
-    callbackURL: CF_CALLBACK_URL
-}, function(accessToken, refreshToken, profile, done) { //verify callback
-    // asynchronous verification, for effect...
-    process.nextTick(function() {
+<span class="keyword">var</span> cfStrategy = <span class="keyword">new</span> <span class="title class_">CloudFoundryStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CF_CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CF_CLIENT_SECRET</span>,
+    <span class="attr">callbackURL</span>: <span class="variable constant_">CF_CALLBACK_URL</span>
+}, <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) { <span class="comment">//verify callback</span>
+    <span class="comment">// asynchronous verification, for effect...</span>
+    process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
 
-        // To keep the example simple, the user's CloudFoundry profile is returned to
-        // represent the logged-in user.  In a typical application, you would want
-        // to associate the CloudFoundry account with a user record in your database,
-        // and return that user instead.
-        return done(null, profile);
+        <span class="comment">// To keep the example simple, the user&#x27;s CloudFoundry profile is returned to</span>
+        <span class="comment">// represent the logged-in user.  In a typical application, you would want</span>
+        <span class="comment">// to associate the CloudFoundry account with a user record in your database,</span>
+        <span class="comment">// and return that user instead.</span>
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
     });
 });
 
-//****************************************
-// Examples 2 (w/ 'state' parameter):
-//****************************************
+<span class="comment">//****************************************</span>
+<span class="comment">// Examples 2 (w/ &#x27;state&#x27; parameter):</span>
+<span class="comment">//****************************************</span>
 
-var CloudFoundryStrategy = require('passport-cloudfoundry-openidconnect').Strategy;
-var cfStrategy = new CloudFoundryStrategy({
-    clientID: '123-456-789',
-    clientSecret: 'shhh-its-a-secret'
-    callbackURL: 'https://myapp.cloudfoundry.com/auth/cloudfoundry/callback',
-    passReqToCallback: true //&lt;---- Pass this to get req (as 1st param)from CF.com to callback
+<span class="keyword">var</span> <span class="title class_">CloudFoundryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-cloudfoundry-openidconnect&#x27;</span>).<span class="property">Strategy</span>;
+<span class="keyword">var</span> cfStrategy = <span class="keyword">new</span> <span class="title class_">CloudFoundryStrategy</span>({
+    <span class="attr">clientID</span>: <span class="string">&#x27;123-456-789&#x27;</span>,
+    <span class="attr">clientSecret</span>: <span class="string">&#x27;shhh-its-a-secret&#x27;</span>
+    <span class="attr">callbackURL</span>: <span class="string">&#x27;https://myapp.cloudfoundry.com/auth/cloudfoundry/callback&#x27;</span>,
+    <span class="attr">passReqToCallback</span>: <span class="literal">true</span> <span class="comment">//&lt;---- Pass this to get req (as 1st param)from CF.com to callback</span>
   },
-  function(req, accessToken, refreshToken, profile, done) {
+  <span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, profile, done</span>) {
 
-    //Verify things like 'state' in req.query (be sure to set: passReqToCallback=true)
-    if(req.query.state === 'stateValueIpreviouslySent') {
-        User.findOrCreate(..., function (err, user) {
-           done(err, user);
+    <span class="comment">//Verify things like &#x27;state&#x27; in req.query (be sure to set: passReqToCallback=true)</span>
+    <span class="keyword">if</span>(req.<span class="property">query</span>.<span class="property">state</span> === <span class="string">&#x27;stateValueIpreviouslySent&#x27;</span>) {
+        <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>(..., <span class="keyword">function</span> (<span class="params">err, user</span>) {
+           <span class="title function_">done</span>(err, user);
        });
-    } else {
-       done({error: 'state value didnt match.. possible CSRF?'});
+    } <span class="keyword">else</span> {
+       <span class="title function_">done</span>({<span class="attr">error</span>: <span class="string">&#x27;state value didnt match.. possible CSRF?&#x27;</span>});
     }
   });
 
 
- // Set a callback to generate 'state' value.
- cfStrategy.setStateParamCallBack(generateState);
+ <span class="comment">// Set a callback to generate &#x27;state&#x27; value.</span>
+ cfStrategy.<span class="title function_">setStateParamCallBack</span>(generateState);
 
- Where.. 'generateState' generates new state and stores is somwhere
+ <span class="title class_">Where</span>.. <span class="string">&#x27;generateState&#x27;</span> generates <span class="keyword">new</span> state and stores is somwhere
  and returns that random value back.
 
- // Temporarily store `state` ids
- var states = {};
+ <span class="comment">// Temporarily store `state` ids</span>
+ <span class="keyword">var</span> states = {};
 
- // Generates a random value to be used as 'state' param during authorization
-  function generateStateParam() {
-    var state = uuid.v4();
-    states[state] = true;
-    return state;
+ <span class="comment">// Generates a random value to be used as &#x27;state&#x27; param during authorization</span>
+  <span class="keyword">function</span> <span class="title function_">generateStateParam</span>(<span class="params"></span>) {
+    <span class="keyword">var</span> state = uuid.<span class="title function_">v4</span>();
+    states[state] = <span class="literal">true</span>;
+    <span class="keyword">return</span> state;
   }
 
- // Finally, in your 'finalCallback',check if that state exists
- if(req.query.state &amp;&amp; states[req.query.state]) {
-   done(null, user);
-   //delete it from memory
-   delete states[req.query.state];
- } else {
-   done({"error": 'state value didn't match. possible CSRF?'})
+ <span class="comment">// Finally, in your &#x27;finalCallback&#x27;,check if that state exists</span>
+ <span class="keyword">if</span>(req.<span class="property">query</span>.<span class="property">state</span> &amp;&amp; states[req.<span class="property">query</span>.<span class="property">state</span>]) {
+   <span class="title function_">done</span>(<span class="literal">null</span>, user);
+   <span class="comment">//delete it from memory</span>
+   <span class="keyword">delete</span> states[req.<span class="property">query</span>.<span class="property">state</span>];
+ } <span class="keyword">else</span> {
+   <span class="title function_">done</span>({<span class="string">&quot;error&quot;</span>: <span class="string">&#x27;state value didn&#x27;</span>t match. possible <span class="variable constant_">CSRF</span>?<span class="string">&#x27;})
  }
 
  // Pass the strategy
  passport.use(cfStrategy);
-
+</span>
 </code></pre>
 <h4 id="express-middlewares">Express middlewares</h4>
 <p>In Express apps, you need to add the below middlewares. Also make sure to add them after Express&#39; session middleware</p>
-<pre><code class="lang-javascript"><span class="comment">// Initialize Passport!  Also use passport.session() middleware, to support</span>
+<pre><code class="javascript"><span class="comment">// Initialize Passport!  Also use passport.session() middleware, to support</span>
 <span class="comment">// persistent login sessions (recommended).</span>
-    app.use(passport.initialize());
-    app.use(passport.session());
+    app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
+    app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>());
 </code></pre>
 <h4 id="express-routes">Express routes</h4>
 <p>For passport to work, you need to add two routes.</p>
@@ -269,41 +269,41 @@ var cfStrategy = new CloudFoundryStrategy({
 </ol>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">
-    app.get(<span class="string">'/auth/cloudfoundry'</span>,
-      passport.authenticate(<span class="string">'cloudfoundry'</span>, {<span class="attr">scope</span>: <span class="string">'openid'</span>}),
-      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+<pre><code class="javascript">
+    app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/cloudfoundry&#x27;</span>,
+      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;cloudfoundry&#x27;</span>, {<span class="attr">scope</span>: <span class="string">&#x27;openid&#x27;</span>}),
+      <span class="keyword">function</span>(<span class="params">req, res</span>){
         <span class="comment">// The request will be redirected to CloudFoundry for authentication, so</span>
         <span class="comment">// this function will not be called.</span>
       });
 
-    app.get(<span class="string">'/auth/cloudfoundry/callback'</span>,
-      passport.authenticate(<span class="string">'cloudfoundry'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+    app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/cloudfoundry/callback&#x27;</span>,
+      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;cloudfoundry&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+      <span class="keyword">function</span>(<span class="params">req, res</span>) {
         <span class="comment">// Successful authentication, redirect home.</span>
-        res.redirect(<span class="string">'/'</span>);
+        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
       });
 
-      w/ <span class="string">'state'</span> parameter (&amp; verify/match it <span class="keyword">in</span> the main callback to ensure no CSRF)
-      app.get(<span class="string">'/auth/cloudfoundry'</span>,
-      passport.authenticate(<span class="string">'cloudfoundry'</span>, {<span class="attr">state</span>: <span class="string">'generateSomeRandomStateString'</span>}),
-      <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+      w/ <span class="string">&#x27;state&#x27;</span> parameter (&amp; verify/match it <span class="keyword">in</span> the main callback to ensure no <span class="variable constant_">CSRF</span>)
+      app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/cloudfoundry&#x27;</span>,
+      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;cloudfoundry&#x27;</span>, {<span class="attr">state</span>: <span class="string">&#x27;generateSomeRandomStateString&#x27;</span>}),
+      <span class="keyword">function</span>(<span class="params">req, res</span>){
         <span class="comment">// The request will be redirected to CloudFoundry for authentication, so</span>
         <span class="comment">// this function will not be called.</span>
       });
 </code></pre>
 <h4 id="logging-out">Logging out</h4>
 <p>To logout, call <code>req.logout()</code> AND <code>cfStrategy.reset()</code> like below:</p>
-<pre><code class="lang-javascript">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    <span class="keyword">if</span>(!req.user) {
-        req.session.destroy();
-        req.logout();
-        cfStrategy.reset(); <span class="comment">//required!</span>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    <span class="keyword">if</span>(!req.<span class="property">user</span>) {
+        req.<span class="property">session</span>.<span class="title function_">destroy</span>();
+        req.<span class="title function_">logout</span>();
+        cfStrategy.<span class="title function_">reset</span>(); <span class="comment">//required!</span>
 
-        <span class="keyword">return</span> res.redirect(<span class="string">'/login'</span>);
+        <span class="keyword">return</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/login&#x27;</span>);
     }
-    res.render(<span class="string">'index'</span>, {
-        <span class="attr">user</span>: req.user
+    res.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>, {
+        <span class="attr">user</span>: req.<span class="property">user</span>
     });
 });
 </code></pre>
@@ -321,17 +321,17 @@ application:</p>
 </li>
 </ul>
 <pre><code>
-<span class="comment">//Set Cloud Foundry app's clientID</span>
-<span class="keyword">var</span> CF_CLIENT_ID = <span class="string">'--insert-cloudfoundry-client-id-here--'</span>;
+<span class="comment">//Set Cloud Foundry app&#x27;s clientID</span>
+<span class="keyword">var</span> CF_CLIENT_ID = <span class="string">&#x27;--insert-cloudfoundry-client-id-here--&#x27;</span>;
 
-<span class="comment">//Set Cloud Foundry app's clientSecret</span>
-<span class="keyword">var</span> CF_CLIENT_SECRET = <span class="string">'--insert-cloudfoundry-client-secret-here--'</span>;
+<span class="comment">//Set Cloud Foundry app&#x27;s clientSecret</span>
+<span class="keyword">var</span> CF_CLIENT_SECRET = <span class="string">&#x27;--insert-cloudfoundry-client-secret-here--&#x27;</span>;
 
 <span class="comment">// <span class="doctag">Note:</span> You should have a app.get(..) for this callback to receive callback from Cloud Foundry</span>
 <span class="comment">// For example: If your callback url is: https://myKoolapp.cloudfoundry.com/auth/cloudfoundry/callback</span>
-<span class="comment">// then, you should have a HTTP GET endpoint like: app.get('/auth/cloudfoundry/callback', callback))</span>
+<span class="comment">// then, you should have a HTTP GET endpoint like: app.get(&#x27;/auth/cloudfoundry/callback&#x27;, callback))</span>
 <span class="comment">//</span>
-<span class="keyword">var</span> CF_CALLBACK_URL = <span class="string">'--insert-cloudfoundry--url--/auth/cloudfoundry/callback'</span>;
+<span class="keyword">var</span> CF_CALLBACK_URL = <span class="string">&#x27;--insert-cloudfoundry--url--/auth/cloudfoundry/callback&#x27;</span>;
 </code></pre><ul>
 <li><code>node app.js</code> to run app on <code>localhost:3000</code><ul>
 <li>PS: You should run this app at a pre-registered location that you provided during registering your app.</li>
@@ -368,8 +368,8 @@ application:</p>
 
 <hr>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/rajaraodv">Raja Rao DV</a></li>
@@ -384,13 +384,13 @@ VMware</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-cloudfoundry-openidconnect</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:24:15Z">a month ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:24:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

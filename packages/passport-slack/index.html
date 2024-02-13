@@ -101,69 +101,69 @@ with <a href="https://slack.com">Slack</a> using the OAuth 2.0 API.</p>
 <h2 id="notice">Notice</h2>
 <p>This repository is not getting the love it deserves. If you&#39;re interested in taking over maintenance or ownership of this repo and npm, please reach me (Mike Pearson) at <a href="mailto:github@x0rz.com">github@x0rz.com</a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm install passport-slack</span>
+<pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-slack</span>
 </code></pre>
 <h2 id="express-example">Express Example</h2>
-<pre><code class="lang-js"><span class="keyword">const</span> {CLIENT_ID, CLIENT_SECRET, PORT} = process.env,
-      SlackStrategy = <span class="built_in">require</span>(<span class="string">'passport-slack'</span>).Strategy,
-      passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-      express = <span class="built_in">require</span>(<span class="string">'express'</span>),
-      app = express();
+<pre><code class="js"><span class="keyword">const</span> {<span class="variable constant_">CLIENT_ID</span>, <span class="variable constant_">CLIENT_SECRET</span>, <span class="variable constant_">PORT</span>} = process.<span class="property">env</span>,
+      <span class="title class_">SlackStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-slack&#x27;</span>).<span class="property">Strategy</span>,
+      passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+      express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>),
+      app = <span class="title function_">express</span>();
 
 <span class="comment">// setup the strategy using defaults </span>
-passport.use(<span class="keyword">new</span> SlackStrategy({
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET
-  }, (accessToken, refreshToken, profile, done) =&gt; {
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>
+  }, <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
     <span class="comment">// optionally persist profile data</span>
-    done(<span class="literal">null</span>, profile);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   }
 ));
 
-app.use(passport.initialize());
-app.use(<span class="built_in">require</span>(<span class="string">'body-parser'</span>).urlencoded({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
+app.<span class="title function_">use</span>(<span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>).<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
 
 <span class="comment">// path to start the OAuth flow</span>
-app.get(<span class="string">'/auth/slack'</span>, passport.authorize(<span class="string">'slack'</span>));
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/slack&#x27;</span>, passport.<span class="title function_">authorize</span>(<span class="string">&#x27;slack&#x27;</span>));
 
 <span class="comment">// OAuth callback url</span>
-app.get(<span class="string">'/auth/slack/callback'</span>, 
-  passport.authorize(<span class="string">'slack'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  (req, res) =&gt; res.redirect(<span class="string">'/'</span>)
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/slack/callback&#x27;</span>, 
+  passport.<span class="title function_">authorize</span>(<span class="string">&#x27;slack&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>)
 );
 
-app.listen(PORT);
+app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>);
 </code></pre>
 <h2 id="sample-profile">Sample Profile</h2>
-<pre><code class="lang-json">{
-    <span class="attr">"provider"</span>: <span class="string">"Slack"</span>,
-    <span class="attr">"id"</span>: <span class="string">"U123XXXXX"</span>,
-    <span class="attr">"displayName"</span>: <span class="string">"John Agan"</span>,
-    <span class="attr">"user"</span>: {
-        <span class="attr">"name"</span>: <span class="string">"John Agan"</span>,
-        <span class="attr">"id"</span>: <span class="string">"U123XXXXX"</span>,
-        <span class="attr">"email"</span>: <span class="string">"johnagan@testing.com"</span>,
-        <span class="attr">"image_24"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=24&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-24.png"</span>,
-        <span class="attr">"image_32"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=32&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-32.png"</span>,
-        <span class="attr">"image_48"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=48&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-48.png"</span>,
-        <span class="attr">"image_72"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=72&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-72.png"</span>,
-        <span class="attr">"image_192"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=192&amp;d=https%3A%2F%2Fa.slack-edge.com%2F7fa9%2Fimg%2Favatars%2Fava_0000-192.png"</span>,
-        <span class="attr">"image_512"</span>: <span class="string">"https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=512&amp;d=https%3A%2F%2Fa.slack-edge.com%2F7fa9%2Fimg%2Favatars%2Fava_0000-512.png"</span>
-    },
-    <span class="attr">"team"</span>: {
-        <span class="attr">"id"</span>: <span class="string">"T123XXXX"</span>,
-        <span class="attr">"name"</span>: <span class="string">"My Awesome Team"</span>,
-        <span class="attr">"domain"</span>: <span class="string">"my-awesome-team"</span>,
-        <span class="attr">"image_34"</span>: <span class="string">"https://a.slack-edge.com/0000/img/avatars-teams/ava_0000-00.png"</span>,
-        <span class="attr">"image_44"</span>: <span class="string">"https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png"</span>,
-        <span class="attr">"image_68"</span>: <span class="string">"https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png"</span>,
-        <span class="attr">"image_88"</span>: <span class="string">"https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png"</span>,
-        <span class="attr">"image_102"</span>: <span class="string">"https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-000.png"</span>,
-        <span class="attr">"image_132"</span>: <span class="string">"https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-000.png"</span>,
-        <span class="attr">"image_230"</span>: <span class="string">"https://a.slack-edge.com/0a0a0/img/avatars-teams/ava_0000-000.png"</span>,
-        <span class="attr">"image_default"</span>: <span class="literal">true</span>
-    }
-}
+<pre><code class="json"><span class="punctuation">{</span>
+    <span class="attr">&quot;provider&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Slack&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;U123XXXXX&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Agan&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;user&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Agan&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;U123XXXXX&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;johnagan@testing.com&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_24&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=24&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-24.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_32&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=32&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-32.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_48&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=48&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-48.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_72&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=72&amp;d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0000-72.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_192&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=192&amp;d=https%3A%2F%2Fa.slack-edge.com%2F7fa9%2Fimg%2Favatars%2Fava_0000-192.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_512&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://secure.gravatar.com/avatar/123abcd123bc12b3c.jpg?s=512&amp;d=https%3A%2F%2Fa.slack-edge.com%2F7fa9%2Fimg%2Favatars%2Fava_0000-512.png&quot;</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    <span class="attr">&quot;team&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;T123XXXX&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;My Awesome Team&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;domain&quot;</span><span class="punctuation">:</span> <span class="string">&quot;my-awesome-team&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_34&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/0000/img/avatars-teams/ava_0000-00.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_44&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_68&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_88&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-00.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_102&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-000.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_132&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/00a0/img/avatars-teams/ava_0000-000.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_230&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://a.slack-edge.com/0a0a0/img/avatars-teams/ava_0000-000.png&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;image_default&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
 
 </code></pre>
 <h2 id="usage">Usage</h2>
@@ -172,15 +172,15 @@ app.listen(PORT);
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a client ID, client secret, and callback URL.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> SlackStrategy({
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET,
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
     <span class="attr">skipUserProfile</span>: <span class="literal">false</span>, <span class="comment">// default</span>
-    <span class="attr">scope</span>: [<span class="string">'identity.basic'</span>, <span class="string">'identity.email'</span>, <span class="string">'identity.avatar'</span>, <span class="string">'identity.team'</span>] <span class="comment">// default</span>
+    <span class="attr">scope</span>: [<span class="string">&#x27;identity.basic&#x27;</span>, <span class="string">&#x27;identity.email&#x27;</span>, <span class="string">&#x27;identity.avatar&#x27;</span>, <span class="string">&#x27;identity.team&#x27;</span>] <span class="comment">// default</span>
   },
-  (accessToken, refreshToken, profile, done) =&gt; {
+  <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
     <span class="comment">// optionally persist user data into a database</span>
-    done(<span class="literal">null</span>, profile);
+    <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   }
 ));
 </code></pre>
@@ -189,29 +189,29 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/slack'</span>, passport.authorize(<span class="string">'slack'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/slack&#x27;</span>, passport.<span class="title function_">authorize</span>(<span class="string">&#x27;slack&#x27;</span>));
 
-app.get(<span class="string">'/auth/slack/callback'</span>,
-  passport.authorize(<span class="string">'slack'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  (req, res) =&gt; res.redirect(<span class="string">'/'</span>) <span class="comment">// Successful authentication, redirect home.</span>
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/slack/callback&#x27;</span>,
+  passport.<span class="title function_">authorize</span>(<span class="string">&#x27;slack&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>) <span class="comment">// Successful authentication, redirect home.</span>
 );
 </code></pre>
 <h3 id="custom-scopes">Custom Scopes</h3>
 <p>By default passport-slack strategy will try to retrieve <a href="https://api.slack.com/methods/users.identity">all user identity</a> from Slack using the default scopes of <code>identity.basic</code>, <code>identity.email</code>, <code>identity.avatar</code>, and <code>identity.team</code>. To override these, set the <code>scope</code> parameter to an array of scopes.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> SlackStrategy({
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET,
-    <span class="attr">scope</span>: [<span class="string">'identity.basic'</span>, <span class="string">'channels:read'</span>, <span class="string">'chat:write:user'</span>]
-}, () =&gt; { });
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
+    <span class="attr">scope</span>: [<span class="string">&#x27;identity.basic&#x27;</span>, <span class="string">&#x27;channels:read&#x27;</span>, <span class="string">&#x27;chat:write:user&#x27;</span>]
+}, <span class="function">() =&gt;</span> { });
 </code></pre>
 <h3 id="ignore-profile-info">Ignore Profile Info</h3>
 <p>If you just need an access token and not user profile data, you can avoid getting profile info by setting <code>skipUserProfile</code> to true.</p>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> SlackStrategy({
-    <span class="attr">clientID</span>: CLIENT_ID,
-    <span class="attr">clientSecret</span>: CLIENT_SECRET,
-    <span class="attr">scope</span>: [<span class="string">'incoming-webhook'</span>],
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
+    <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
+    <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
+    <span class="attr">scope</span>: [<span class="string">&#x27;incoming-webhook&#x27;</span>],
     <span class="attr">skipUserProfile</span>: <span class="literal">true</span>
-}, () =&gt; { });
+}, <span class="function">() =&gt;</span> { });
 </code></pre>
 <h2 id="thanks">Thanks</h2>
 <ul>
@@ -224,13 +224,13 @@ app.get(<span class="string">'/auth/slack/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-slack</span></code></div>
             <ul>
-              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T13:29:40Z">a month ago</abbr></li>
+              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T13:29:40Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mjpearson/passport-slack">https://github.com/mjpearson/passport-slack#readme</a></li>
             </ul>
             <ul>
-              <li><b>1,192</b> downloads in the last day</li>
-              <li><b>6,788</b> downloads in the last week</li>
-              <li><b>31,716</b> downloads in the last month</li>
+              <li><b>2,051</b> downloads in the last day</li>
+              <li><b>9,888</b> downloads in the last week</li>
+              <li><b>57,182</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

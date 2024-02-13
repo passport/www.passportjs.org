@@ -105,12 +105,12 @@
 <li><code>passReqToCallback</code> if eturn</li>
 </ul>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code class="lang-js">passport.use(<span class="keyword">new</span> headerStrategy({<span class="attr">header</span>: <span class="string">'X-APP-TOKEN'</span>, <span class="attr">param</span>: <span class="string">'app_token'</span>, <span class="attr">passReqToCallback</span>: <span class="literal">true</span>},
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, token, done</span>) </span>{
-    User.findOne({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">'all'</span> });
+<pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">headerStrategy</span>({<span class="attr">header</span>: <span class="string">&#x27;X-APP-TOKEN&#x27;</span>, <span class="attr">param</span>: <span class="string">&#x27;app_token&#x27;</span>, <span class="attr">passReqToCallback</span>: <span class="literal">true</span>},
+  <span class="keyword">function</span>(<span class="params">req, token, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: token }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user, { <span class="attr">scope</span>: <span class="string">&#x27;all&#x27;</span> });
     });
   }
 ));
@@ -121,8 +121,8 @@ authenticate requests.  Requests containing bearer tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.<span class="keyword">get</span>(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'header'</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;header&#x27;</span>, { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     res.json(req.<span class="keyword">user</span>);
   });
@@ -139,13 +139,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-header-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T12:46:33Z">a month ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T12:46:33Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/FengYuHe/passport-http-header-strategy">https://github.com/FengYuHe/passport-http-header-strategy#readme</a></li>
             </ul>
             <ul>
-              <li><b>558</b> downloads in the last day</li>
-              <li><b>2,687</b> downloads in the last week</li>
-              <li><b>10,319</b> downloads in the last month</li>
+              <li><b>935</b> downloads in the last day</li>
+              <li><b>5,286</b> downloads in the last week</li>
+              <li><b>28,152</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -102,15 +102,15 @@
 <pre><code>$ npm install pass<span class="keyword">port</span>-feedly
 </code></pre><h1 id="usage">Usage</h1>
 <p>The Feedly authentication strategy authenticates users using a Facebook account and OAuth 2.0 tokens. The strategy requires a verify callback, which accepts these credentials and calls done providing a user, as well as options specifying an app ID, app secret, callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> FacebookStrategy({
-    <span class="attribute">clientID</span>: APP_ID,
-    <span class="attribute">clientSecret</span>: APP_SECRET,
-    <span class="attribute">callbackURL</span>: <span class="string">"http://localhost:8080/auth/feedly/callback"</span>,
-    <span class="attribute">enableProof</span>: <span class="literal">false</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> FacebookStrategy({
+    clientID<span class="operator">:</span> APP_ID,
+    clientSecret<span class="operator">:</span> APP_SECRET,
+    callbackURL<span class="operator">:</span> <span class="string">&quot;http://localhost:8080/auth/feedly/callback&quot;</span>,
+    enableProof<span class="operator">:</span> <span class="literal">false</span>
     },
-    <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-        User.findOrCreate({ <span class="attribute">id:</span><span class="string"> profile.id</span> }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-            <span class="keyword">return</span> done(err, user);
+    <span class="keyword">function</span>(accessToken, refreshToken, profile, <span class="keyword">done</span>) {
+        User.findOrCreate({ <span class="built_in">id</span><span class="operator">:</span> profile.<span class="built_in">id</span> }, <span class="keyword">function</span> (err, user) {
+            <span class="keyword">return</span> <span class="keyword">done</span>(err, user);
         });
     }
 ));
@@ -122,25 +122,25 @@
 <p>Use passport.authenticate(), specifying the &#39;feedly&#39; strategy, to authenticate requests.</p>
 </blockquote>
 <p>For example, as route middleware in an Express application:</p>
-<pre><code>app.get(<span class="string">'/auth/feedly'</span>,
-    passport.authenticate(<span class="string">'feedly'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/feedly&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;feedly&#x27;</span>));
 
-app.get(<span class="string">'/auth/feedly/callback'</span>,
-    passport.authenticate(<span class="string">'feedly'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/feedly/callback&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;feedly&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre><blockquote>
 <p>Extended Permissions</p>
 </blockquote>
 <p>If you need extended permissions from the user, the permissions can be requested via the scope option to</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.authenticate</span>()
+<pre><code>passport<span class="selector-class">.authenticate</span>()
 </code></pre><blockquote>
 <p>For example, this authorization requests permission to get user subscriptions</p>
 </blockquote>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/feedly'</span>,
-    passport.authenticate(<span class="string">'feedly'</span>, { <span class="attribute">scope </span>: <span class="string">'https://cloud.feedly.com/subscriptions'</span> }));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/feedly&#x27;</span>,
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;feedly&#x27;</span>, { <span class="attribute">scope </span>: <span class="string">&#x27;https://cloud.feedly.com/subscriptions&#x27;</span> }));
 </code></pre><h2 id="version">Version</h2>
 <p>0.1.2</p>
 <h2 id="license">License</h2>
@@ -152,13 +152,13 @@ app.get(<span class="string">'/auth/feedly/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-feedly</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:36:39Z">a month ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:36:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/may215/passport-feedly">https://github.com/may215/passport-feedly</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

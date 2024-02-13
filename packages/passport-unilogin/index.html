@@ -99,7 +99,7 @@
 <a href="https://www.bithound.io/github/DBCDK/passport-unilogin/master/dependencies/npm"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/dependencies.svg" alt="bitHound Dependencies"></a>
 <a href="https://www.bithound.io/github/DBCDK/passport-unilogin/master/dependencies/npm"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/devDependencies.svg" alt="bitHound Dev Dependencies"></a></p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">  $ npm install passport-unilogin --save
+<pre><code class="bash">  $ npm install passport-unilogin --save
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
@@ -126,26 +126,26 @@ The <code>verify</code> callback must call <code>done</code> providing a user to
 <li>done callback<br>Callback to passport to inform passport whether the authentification is valid or not.</li>
 </ol>
 <h5 id="ticket-structure">Ticket structure</h5>
-<pre><code class="lang-js">  {
-    <span class="attr">auth</span>: <span class="string">'some hash token'</span>,
-    <span class="attr">timestamp</span>: <span class="string">'YYYYMMDDHHmmss'</span>,
-    <span class="attr">user</span>: <span class="string">'UNI-Login username'</span>
+<pre><code class="js">  {
+    <span class="attr">auth</span>: <span class="string">&#x27;some hash token&#x27;</span>,
+    <span class="attr">timestamp</span>: <span class="string">&#x27;YYYYMMDDHHmmss&#x27;</span>,
+    <span class="attr">user</span>: <span class="string">&#x27;UNI-Login username&#x27;</span>
   }
 </code></pre>
 <h4 id="implementation">Implementation</h4>
-<pre><code class="lang-js">    passport.use(<span class="string">'unilogin'</span>, <span class="keyword">new</span> UniloginStrategy({
-        <span class="attr">id</span>: UNILOGIN_APPLICATION_ID,
-        <span class="attr">secret</span>: UNILOGIN_APPLICATION_SECRET,
-        <span class="attr">uniloginBasePath</span>: <span class="string">"https://sso.emu.dk/unilogin/login.cgi"</span>,
+<pre><code class="js">    passport.<span class="title function_">use</span>(<span class="string">&#x27;unilogin&#x27;</span>, <span class="keyword">new</span> <span class="title class_">UniloginStrategy</span>({
+        <span class="attr">id</span>: <span class="variable constant_">UNILOGIN_APPLICATION_ID</span>,
+        <span class="attr">secret</span>: <span class="variable constant_">UNILOGIN_APPLICATION_SECRET</span>,
+        <span class="attr">uniloginBasePath</span>: <span class="string">&quot;https://sso.emu.dk/unilogin/login.cgi&quot;</span>,
         <span class="attr">maxTicketAge</span>: <span class="number">60</span>
       },
-      (error, req, ticket, done) =&gt; {
+      <span class="function">(<span class="params">error, req, ticket, done</span>) =&gt;</span> {
 
         <span class="keyword">if</span>(error) { 
-          <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, <span class="string">'Some error message'</span>);
+          <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, <span class="string">&#x27;Some error message&#x27;</span>);
         }
 
-        <span class="keyword">return</span> done(<span class="literal">null</span>, {<span class="attr">unilogin</span>: ticket.user});
+        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, {<span class="attr">unilogin</span>: ticket.<span class="property">user</span>});
       }
     ));
 </code></pre>
@@ -154,9 +154,9 @@ The <code>verify</code> callback must call <code>done</code> providing a user to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">  app.get(<span class="string">'/login'</span>, passport.authenticate(<span class="string">'unilogin'</span>),
-    (req, res) =&gt; {
-      res.redirect(<span class="string">'/'</span>);
+<pre><code class="js">  app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;unilogin&#x27;</span>),
+    <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
+      res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
      }
   );
 </code></pre>
@@ -169,20 +169,20 @@ See the <code>scripts</code> clause in <code>package.json</code> for more handy 
 <p>The test suite is located in the <code>src/__tests__/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">  $ npm run <span class="built_in">test</span>
+<pre><code class="bash">  $ npm run <span class="built_in">test</span>
 </code></pre>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-unilogin</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:52Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/DBCDK/passport-unilogin">https://github.com/DBCDK/passport-unilogin#readme</a></li>
               <li><a rel="licence" href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GNU General Public License v3.0 only</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

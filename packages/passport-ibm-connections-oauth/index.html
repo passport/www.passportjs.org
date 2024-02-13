@@ -99,40 +99,40 @@
 <p>Passport oAuth 2.0 Strategy for IBM Connections Cloud</p>
 </blockquote>
 <h2 id="install">Install</h2>
-<pre><code class="lang-sh">$ npm install --save passport-ibm-connections-cloud
+<pre><code class="sh">$ npm install --save passport-ibm-connections-cloud
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),
-  passport = <span class="built_in">require</span>(<span class="string">'passport'</span>),
-  IBMConnectionsCloudStrategy = <span class="built_in">require</span>(<span class="string">'passport-ibm-connections-cloud'</span>).Strategy;
-<span class="keyword">var</span> app = express();
+<pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>),
+  passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
+  <span class="title class_">IBMConnectionsCloudStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-ibm-connections-cloud&#x27;</span>).<span class="property">Strategy</span>;
+<span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 <span class="comment">// setup passport to use this strategy</span>
-passport.use(<span class="keyword">new</span> IBMConnectionsCloudStrategy({
-  <span class="attr">hostname</span>: <span class="string">'apps.na.collabserv.com'</span>,
-  <span class="attr">clientID</span>: <span class="string">'your client id'</span>,
-  <span class="attr">clientSecret</span>: <span class="string">'your client secret'</span>,
-  <span class="attr">callbackURL</span>: <span class="string">'https://your-host.com/auth/ibm-connections-cloud/callback'</span> <span class="comment">//https is important here. Connections Cloud doesn't accept http callback urls</span>
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">IBMConnectionsCloudStrategy</span>({
+  <span class="attr">hostname</span>: <span class="string">&#x27;apps.na.collabserv.com&#x27;</span>,
+  <span class="attr">clientID</span>: <span class="string">&#x27;your client id&#x27;</span>,
+  <span class="attr">clientSecret</span>: <span class="string">&#x27;your client secret&#x27;</span>,
+  <span class="attr">callbackURL</span>: <span class="string">&#x27;https://your-host.com/auth/ibm-connections-cloud/callback&#x27;</span> <span class="comment">//https is important here. Connections Cloud doesn&#x27;t accept http callback urls</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">accessToken, refreshToken, params, profile, done</span>) {
     <span class="comment">// do your magic to load or create a local user here</span>
-    done();
+    <span class="title function_">done</span>();
   }
 ));
 
-<span class="keyword">var</span> router = express.Router();
+<span class="keyword">var</span> router = express.<span class="title class_">Router</span>();
 router
-  .get(<span class="string">'/'</span>, passport.authenticate(<span class="string">'ibm-connections-cloud'</span>, {
+  .<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ibm-connections-cloud&#x27;</span>, {
     <span class="attr">session</span>: <span class="literal">false</span>
   }))
-  .get(<span class="string">'/callback'</span>, passport.authenticate(<span class="string">'ibm-connections-cloud'</span>, {
-    <span class="attr">failureRedirect</span>: <span class="string">'/account/login'</span>,
+  .<span class="title function_">get</span>(<span class="string">&#x27;/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ibm-connections-cloud&#x27;</span>, {
+    <span class="attr">failureRedirect</span>: <span class="string">&#x27;/account/login&#x27;</span>,
     <span class="attr">session</span>: <span class="literal">false</span>
-  }), <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>{
+  }), <span class="keyword">function</span>(<span class="params">req, res, next</span>){
     <span class="comment">// e.g. create a jwt for your application and return to client</span>
   });
 
-app.use(<span class="string">'/auth/ibm-connections-cloud'</span>, router);
+app.<span class="title function_">use</span>(<span class="string">&#x27;/auth/ibm-connections-cloud&#x27;</span>, router);
 
 </code></pre>
 <h2 id="license">License</h2>
@@ -141,14 +141,14 @@ app.use(<span class="string">'/auth/ibm-connections-cloud'</span>, router);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ibm-connections-oauth</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:48:03Z">a month ago</abbr></li>
+              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:48:03Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/benkroeger/passport-ibm-connections-oauth">https://github.com/benkroeger/passport-ibm-connections-oauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

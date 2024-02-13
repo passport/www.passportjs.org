@@ -98,8 +98,8 @@
 with TxSSC SSO using the OAuth 2.0 API.</p>
 <h2 id="installation">Installation</h2>
 <p>Add the git repo to your project&#39;s <code>package.json</code></p>
-<pre><code><span class="string">"dependencies"</span>: {
-    <span class="string">"private"</span>: <span class="string">"git+ssh://git@github.com:txssc/passport-txssc.git"</span>
+<pre><code><span class="string">&quot;dependencies&quot;</span>: {
+    <span class="string">&quot;private&quot;</span>: <span class="string">&quot;git+ssh://git@github.com:txssc/passport-txssc.git&quot;</span>
 }
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -107,14 +107,14 @@ with TxSSC SSO using the OAuth 2.0 API.</p>
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID, app secret, and callback URL.</p>
-<pre><code>passport.use(<span class="keyword">new</span> txsscStrategy({
-    <span class="attribute">clientID</span>: TXSSC_APP_ID,
-    <span class="attribute">clientSecret</span>: TXSSC_APP_SECRET,
-    <span class="attribute">callbackURL</span>: <span class="string">"http://localhost:3000/auth/txssc/callback"</span>
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> txsscStrategy({
+    clientID<span class="operator">:</span> TXSSC_APP_ID,
+    clientSecret<span class="operator">:</span> TXSSC_APP_SECRET,
+    callbackURL<span class="operator">:</span> <span class="string">&quot;http://localhost:3000/auth/txssc/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attribute">id:</span><span class="string"> profile.id</span> }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, <span class="keyword">done</span>) {
+    User.findOrCreate({ <span class="built_in">id</span><span class="operator">:</span> profile.<span class="built_in">id</span> }, <span class="keyword">function</span> (err, user) {
+      <span class="keyword">return</span> <span class="keyword">done</span>(err, user);
     });
   }
 ));
@@ -123,26 +123,26 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/txssc'</span>,
-  passport.authenticate(<span class="string">'txssc'</span>),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/txssc&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;txssc&#x27;</span>),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to TxSSC SSO for authentication, so</span>
     <span class="comment">// this function will not be called.</span>
   });
 
-app.get(<span class="string">'/auth/txssc/callback'</span>, 
-  passport.authenticate(<span class="string">'txssc'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/txssc/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;txssc&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h4 id="extended-permissions">Extended Permissions</h4>
 <p>If you need extended permissions from the user, the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example, this authorization requests write permissions for an app:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/txssc'</span>,
-  passport.authenticate(<span class="string">'txssc'</span>, { <span class="attribute">scope</span>: [<span class="string">'read'</span>, <span class="string">'write'</span>] }),
-  function(req, res){
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/txssc&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;txssc&#x27;</span>, { <span class="attribute">scope</span>: [<span class="string">&#x27;read&#x27;</span>, <span class="string">&#x27;write&#x27;</span>] }),
+  <span class="built_in">function</span>(req, res){
     <span class="comment">// The request will be redirected to TxSSC SSO for authentication, with</span>
     <span class="comment">// extended permissions.</span>
   });
@@ -171,13 +171,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-txssc</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:40:34Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T13:40:34Z">a year ago</abbr></li>
               <li><a class="url" href="http://github.com/txssc/passport-txssc.git"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -125,16 +125,16 @@ provided to you along with your <code>Callback URL</code> within <code>options</
 <code>verify</code> callback is documented the EVE Developer&#39;s website under the
 <a href="https://developers.testeveonline.com/resource/single-sign-on">Single Sign-On (SSO) section</a>.
 Here&#39;s an example of how to construct and configure the strategy:</p>
-<pre><code>passport.use(<span class="keyword">new</span> EveOnlineStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> EveOnlineStrategy({
     clientID: EVEONLINE_CLIENT_ID,
     secretKey: EVEONLINE_SECRET_KEY,
-    callbackURL: <span class="string">"http://mysite.com/auth/eveonline/callback"</span>
+    callbackURL: <span class="string">&quot;http://mysite.com/auth/eveonline/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(characterInformation, done)</span> </span>{
+  <span class="keyword">function</span>(characterInformation, done) {
     User.findOrCreate(
       { characterID: characterInformation.characterID },
-      <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-        <span class="keyword">return</span> done(err, user);
+      <span class="keyword">function</span> <span class="title"></span>(err, user) {
+        <span class="keyword">return</span> <span class="type">done(err,</span> user);
       }
     );
   }
@@ -148,9 +148,9 @@ calls other than authentication.  Refreshing tokens is also not possible.</li>
 providing them in the options:</p>
 <pre><code>passport.use(new EveOnlineStrategy({
     ...
-    <span class="attribute">authorizationURL</span>:   'https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/auth',
-    tokenURL:           'https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/token',
-    verifyURL:          'https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/verify'
+    <span class="attribute">authorizationURL</span>:   &#x27;https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/auth&#x27;,
+    tokenURL:           &#x27;https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/token&#x27;,
+    verifyURL:          &#x27;https://some<span class="variable">.other</span><span class="variable">.url</span><span class="variable">.com</span>/verify&#x27;
     ...
     }))
 ...
@@ -159,18 +159,18 @@ providing them in the options:</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/eveonline'</span>,
-  passport.authenticate(<span class="string">'eveonline'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/eveonline&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;eveonline&#x27;</span>));
 
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">'/auth/eveonline/callback'</span>,
-  passport.authenticate(<span class="string">'eveonline'</span>, {
-    <span class="attribute">successRedirect</span>: <span class="string">'/'</span>,
-    <span class="attribute">failureRedirect</span>: <span class="string">'/login'</span>
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/eveonline/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;eveonline&#x27;</span>, {
+    <span class="attribute">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+    <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
   })
 );
 </code></pre><h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/mbrennan">Mike Brennan</a></li>
@@ -182,14 +182,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-eveonline</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:34:15Z">a month ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:34:15Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mbrennan/passport-eveonline">https://github.com/mbrennan/passport-eveonline</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>12</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

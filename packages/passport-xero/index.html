@@ -108,7 +108,7 @@ unobtrusively integrated into any application or framework that supports
 <pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> XeroStrategy({
     consumerKey : <span class="type">XERO_CLIENT_KEY</span>,
     consumerSecret: XERO_CLIENT_SECRET,
-    callbackURL: <span class="string">"http://127.0.0.1:3000/auth/xero/callback"</span>
+    callbackURL: <span class="string">&quot;http://127.0.0.1:3000/auth/xero/callback&quot;</span>
   },
   <span class="keyword">function</span>(token, tokenSecret, profile, done) {
     User.findOrCreate({ xeroId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
@@ -121,14 +121,14 @@ unobtrusively integrated into any application or framework that supports
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/xero'</span>,
-  passport.authenticate(<span class="string">'xero'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/xero&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;xero&#x27;</span>));
 
-app.get(<span class="string">'/auth/xero/callback'</span>,
-  passport.authenticate(<span class="string">'xero'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/xero/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;xero&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
@@ -136,13 +136,13 @@ app.get(<span class="string">'/auth/xero/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-xero</span></code></div>
             <ul>
-              <li><span class="version">1.0.0-a</span> published <abbr class="updated" title="2022-06-23T13:50:28Z">a month ago</abbr></li>
+              <li><span class="version">1.0.0-a</span> published <abbr class="updated" title="2022-06-23T13:50:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/octoblu/passport-xero">https://github.com/octoblu/passport-xero</a></li>
             </ul>
             <ul>
-              <li><b>38</b> downloads in the last day</li>
-              <li><b>133</b> downloads in the last week</li>
-              <li><b>1,016</b> downloads in the last month</li>
+              <li><b>94</b> downloads in the last day</li>
+              <li><b>217</b> downloads in the last week</li>
+              <li><b>1,096</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -115,23 +115,23 @@ The strategy requires a <code>verify</code> callback, which is where the custom 
 <code>done</code> providing a user. Note that, req is always passed as the first parameter to the 
 <code>verify</code> callback.</p>
 <p>Here is the pseudo code:</p>
-<pre><code class="lang-javascript"><span class="keyword">import</span> passportCustom <span class="keyword">from</span> <span class="string">'passport-custom'</span>;
-<span class="keyword">const</span> CustomStrategy = passportCustom.Strategy;
+<pre><code class="javascript"><span class="keyword">import</span> passportCustom <span class="keyword">from</span> <span class="string">&#x27;passport-custom&#x27;</span>;
+<span class="keyword">const</span> <span class="title class_">CustomStrategy</span> = passportCustom.<span class="property">Strategy</span>;
 
-passport.use(<span class="string">'strategy-name'</span>, <span class="keyword">new</span> CustomStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, callback</span>) </span>{
+passport.<span class="title function_">use</span>(<span class="string">&#x27;strategy-name&#x27;</span>, <span class="keyword">new</span> <span class="title class_">CustomStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">req, callback</span>) {
     <span class="comment">// Do your custom user finding logic here, or set to false based on req object</span>
-    callback(<span class="literal">null</span>, user);
+    <span class="title function_">callback</span>(<span class="literal">null</span>, user);
   }
 ));
 </code></pre>
 <p>And a basic example:</p>
-<pre><code class="lang-javascript">passport.use(<span class="keyword">new</span> CustomStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, done</span>) </span>{
-    User.findOne({
-      <span class="attr">username</span>: req.body.username
-    }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      done(err, user);
+<pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">CustomStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">req, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({
+      <span class="attr">username</span>: req.<span class="property">body</span>.<span class="property">username</span>
+    }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user);
     });
   }
 ));
@@ -141,16 +141,16 @@ passport.use(<span class="string">'strategy-name'</span>, <span class="keyword">
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-javascript">app.post(<span class="string">'/login'</span>,
-  passport.authenticate(<span class="string">'custom'</span>, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.redirect(<span class="string">'/'</span>);
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;custom&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/mbell8903">Mike Bell</a></li>
@@ -162,14 +162,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-custom</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T12:26:51Z">a month ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T12:26:51Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mbell8903/passport-custom">https://github.com/mbell8903/passport-custom</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>16,925</b> downloads in the last day</li>
-              <li><b>86,092</b> downloads in the last week</li>
-              <li><b>368,844</b> downloads in the last month</li>
+              <li><b>20,880</b> downloads in the last day</li>
+              <li><b>99,007</b> downloads in the last week</li>
+              <li><b>497,748</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

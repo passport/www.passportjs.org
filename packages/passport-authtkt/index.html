@@ -103,21 +103,21 @@
 <p>The AuthTkt authentication strategy authenticates requests based on the
 presence and validity of an auth_tkt cookie. To use it, you should configure
 the <code>cookieParser</code> middleware as well as Passport:</p>
-<pre><code>app.configure(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code><span class="keyword">app</span>.configure(function() {
     ...
-    app.<span class="keyword">use</span>(<span class="title">express</span>.<span class="title">cookieParser</span>());
-    app.<span class="keyword">use</span>(<span class="title">passport</span>.<span class="title">initialize</span>());
+    <span class="keyword">app</span>.<span class="keyword">use</span>(express.cookieParser());
+    <span class="keyword">app</span>.<span class="keyword">use</span>(passport.initialize());
     ...
 });
 </code></pre><p>To use the strategy:</p>
-<pre><code>authtkt = <span class="keyword">require</span>(<span class="string">'passport-authtkt'</span>);
+<pre><code>authtkt = <span class="keyword">require</span>(<span class="string">&#x27;passport-authtkt&#x27;</span>);
 
-<span class="params">...</span>
+...
 
-passport.use(<span class="literal">new</span> authtkt.Strategy(<span class="string">'mysecret'</span>, {
-    timeout: <span class="number">60</span>*<span class="number">60</span>, <span class="comment">// 1 hour timeout; omit to not have a timeout</span>
-    encodeUserData: <span class="literal">true</span>,
-    jsonUserData: <span class="literal">true</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> authtkt.<span class="title function_ invoke__">Strategy</span>(<span class="string">&#x27;mysecret&#x27;</span>, {
+    <span class="attr">timeout</span>: <span class="number">60</span>*<span class="number">60</span>, // <span class="number">1</span> hour timeout; omit to not have a timeout
+    <span class="attr">encodeUserData</span>: <span class="literal">true</span>,
+    <span class="attr">jsonUserData</span>: <span class="literal">true</span>
 }));
 </code></pre><p>The first argument is the authentication secret that is used to sign cookies.
 This should be a secret string, and should ideally be <em>different</em> from any
@@ -138,18 +138,18 @@ tickets.</li>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/foo'</span>, 
-    passport.authenticate(<span class="string">'authtkt'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/foo&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;authtkt&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="built_in">function</span>(req, res) {
         ...
     }
 );
 </code></pre><p>Note that the authenticator does not need to store anything in the session.
 If you do not configure any session middleware, you should pass
 <code>session: false</code> in the options to the authentication hook:</p>
-<pre><code>app.post(<span class="string">'/foo'</span>, 
-    passport.authenticate(<span class="string">'authtkt'</span>, { session: <span class="literal">false</span>, failureRedirect: <span class="string">'/login'</span> }),
-    <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="string">&#x27;/foo&#x27;</span>, 
+    passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;authtkt&#x27;</span>, { <span class="attribute">session</span>: false, <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+    <span class="built_in">function</span>(req, res) {
         ...
     }
 );
@@ -176,7 +176,7 @@ is set later by other middleware or routes.</p>
 <p>To create a cookie, use the helper functions <code>createTicket()</code> and
 <code>encodeCookieValue()</code> on an <code>AuthTkt</code> instance. For example, a login route
 may do the following:</p>
-<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy('<span class="params">authtkt</span>')</span>;
+<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy(&#x27;<span class="params">authtkt</span>&#x27;)</span>;
 var ticket = strategy.authtkt.create<span class="constructor">Ticket(<span class="params">user</span>.<span class="params">id</span>, {<span class="params">userData</span>: <span class="params">user</span>})</span>;
 return res.cookie(strategy.key, strategy.authtkt.base64<span class="constructor">Encode(<span class="params">ticket</span>)</span>);
 </code></pre><p>In this example, <code>user</code> is an object or string representing a user that has
@@ -184,7 +184,7 @@ been validated (e.g. looked up in a database and authenticated). If <code>user</
 an object, <code>jsonUserData: true</code> should be set in the strategy options (see
 above). <code>user.id</code> is the user&#39;s id.</p>
 <p>The example may be shortned further using the <code>getCookieValue()</code> helper:</p>
-<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy('<span class="params">authtkt</span>')</span>;
+<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy(&#x27;<span class="params">authtkt</span>&#x27;)</span>;
 res.cookie(strategy.key, strategy.authtkt.get<span class="constructor">CookieValue(<span class="params">user</span>.<span class="params">id</span>, {<span class="params">userData</span>: <span class="params">user</span>})</span>);
 </code></pre><p>To log the user out, simply clear the cookie:</p>
 <pre><code>res.clear<span class="constructor">Cookie(<span class="params">strategy</span>.<span class="params">key</span>)</span>;
@@ -203,14 +203,14 @@ that defines an object with functions <code>splitTicket()</code>, <code>base64En
 module, or a JavaScript source file (which will define a global <code>authtktUtils</code>
 with the above functions).</p>
 <p>A typical usage pattern may be:</p>
-<pre><code><span class="keyword">var</span> cookieValue = $.cookie(<span class="string">'auth_tkt'</span>); <span class="comment">// Using the jQuery.cookie plugin</span>
+<pre><code><span class="keyword">var</span> cookieValue = $.cookie(<span class="string">&#x27;auth_tkt&#x27;</span>); <span class="comment">// Using the jQuery.cookie plugin</span>
 <span class="keyword">var</span> ticket = authtktUtils.base64Decode(cookieValue);
 <span class="keyword">var</span> ticketData = authtktUtils.splitCookie(cookieValue, {<span class="attr">jsonUserData</span>: <span class="literal">true</span>});
 <span class="keyword">var</span> userData = ticketData.userData;
 </code></pre><p>See <code>authtktutils.js</code> for more details.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install --dev</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install --dev</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/optilude/passport-authtkt"><img src="https://secure.travis-ci.org/optilude/passport-authtkt.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -227,13 +227,13 @@ algorithm used as the basis for the JavaScript port in <code>authtkt.js</code>.<
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-authtkt</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:17:52Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:17:52Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/optilude/passport-authtkt"></a></li>
             </ul>
             <ul>
-              <li><b>13</b> downloads in the last day</li>
-              <li><b>133</b> downloads in the last week</li>
-              <li><b>448</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>58</b> downloads in the last week</li>
+              <li><b>290</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

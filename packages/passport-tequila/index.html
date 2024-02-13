@@ -111,10 +111,10 @@ app</a>
 for a working example (requires a Tequila server in your domain, which
 means it is most likely to work from inside EPFL).</p>
 <h3 id="configuring-the-strategy">Configuring the Strategy</h3>
-<pre><code><span class="keyword">var</span> tequila = <span class="keyword">require</span>(<span class="string">'passport-tequila'</span>);
+<pre><code><span class="keyword">var</span> tequila = <span class="keyword">require</span>(<span class="string">&#x27;passport-tequila&#x27;</span>);
 <span class="keyword">var</span> myStrategy = <span class="keyword">new</span> tequila.Strategy({
-    service: <span class="string">"The name of my app"</span>,  <span class="comment">// Appears on Tequila login screen</span>
-    request: [<span class="string">"displayname"</span>, <span class="string">"firstname"</span>],  <span class="comment">// Personal info to fetch</span>
+    service: <span class="string">&quot;The name of my app&quot;</span>,  <span class="comment">// Appears on Tequila login screen</span>
+    request: [<span class="string">&quot;displayname&quot;</span>, <span class="string">&quot;firstname&quot;</span>],  <span class="comment">// Personal info to fetch</span>
   },
   <span class="function"><span class="keyword">function</span><span class="params">(userKey, profile, done)</span> </span>{
     User.findOrCreate(profile, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
@@ -122,7 +122,7 @@ means it is most likely to work from inside EPFL).</p>
     });
   }
 );
-passport.<span class="keyword">use</span>(<span class="title">myStrategy</span>);
+passport.<span class="keyword">use</span>(myStrategy);
 </code></pre><h3 id="protecting-routes">Protecting Routes</h3>
 <p>Tequila is designed so that Web apps redirect unauthenticated users to
 the Tequila server, which redirects back to the protected page or
@@ -137,8 +137,8 @@ resource the user started from.</p>
 are on uses the tequila.ensureAuthenticated middleware mentioned
 above), <code>&#39;req.user&#39;</code> holds the user&#39;s identity as fetched from the
 Tequila server:</p>
-<pre><code> req<span class="selector-class">.user</span><span class="selector-class">.displayName</span>  <span class="comment">// Conforms to http://passportjs.org/guide/profile/</span>
- req<span class="selector-class">.user</span><span class="selector-class">.tequila</span><span class="selector-class">.key</span>  <span class="comment">// Tequila-specific additions</span>
+<pre><code> req.user.displayName  <span class="regexp">//</span> Conforms to http:<span class="regexp">//</span>passportjs.org<span class="regexp">/guide/</span>profile/
+ req.user.tequila.key  <span class="regexp">//</span> Tequila-specific additions
 </code></pre><p>Note that e.g. <code>&#39;req.user.displayName&#39;</code> only appears if it was explicitly
 requested from Tequila (see above, Configuring the Strategy).</p>
 <h3 id="logging-out">Logging Out</h3>
@@ -170,14 +170,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tequila</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:36:10Z">a month ago</abbr></li>
-              <li><a class="url" href="git+ssh://git@gitlab.com/epfl-idevfsd/passport-tequila.git">https://gitlab.com/epfl-idevfsd/passport-tequila#readme</a></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2023-01-16T14:12:03Z">6 months ago</abbr></li>
+              <li><a class="url" href="git+ssh://git@gitlab.com/epfl-isasfsd/passport-tequila.git">https://gitlab.com/epfl-isasfsd/passport-tequila#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>120</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>19</b> downloads in the last week</li>
+              <li><b>127</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

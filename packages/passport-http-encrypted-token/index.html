@@ -107,20 +107,20 @@ integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a> and <a href="https://github.com/rkusa/koa-passport">Koa</a>.</p>
 <p>This work is based on <a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> npm install passport-http-encrypted-token</span>
+<pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-http-encrypted-token</span>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Encrypted token authentication strategy authenticates users using a encrypted_token.<br>The strategy requires a <code>verify</code> callback, which accepts that
 credential and calls <code>done</code> providing a user.</p>
-<pre><code class="lang-js"><span class="keyword">const</span> EncryptedTokenStrategy = <span class="built_in">require</span>(<span class="string">'passport-http-encrypted-token'</span>).Strategy
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">EncryptedTokenStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-http-encrypted-token&#x27;</span>).<span class="property">Strategy</span>
 
-passport.use(<span class="keyword">new</span> EncryptedTokenStrategy(
-  <span class="function"><span class="keyword">function</span>(<span class="params">token, done</span>) </span>{
-    User.findOne({ <span class="attr">token</span>: token }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err) }
-      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>) }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, user)
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">EncryptedTokenStrategy</span>(
+  <span class="keyword">function</span>(<span class="params">token, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: token }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err) }
+      <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>) }
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user)
     })
   }
 ))
@@ -131,21 +131,21 @@ authenticate requests.  Requests containing encrypted tokens do not require sess
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code class="lang-js">app.get(<span class="string">'/profile'</span>, 
-  passport.authenticate(<span class="string">'Encrypted_token'</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
-    res.json(req.user)
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;Encrypted_token&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) {
+    res.<span class="title function_">json</span>(req.<span class="property">user</span>)
   }
 )
 <span class="string">`</span>
 </code></pre>
 <h2 id="tests">Tests</h2>
-<pre><code class="lang-console"><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre>
 <h2 id="example">Example</h2>
 <p>Use <code>curl</code> to send an authenticated request.</p>
-<pre><code class="lang-bash">$ curl -H <span class="string">"Authorization: Encrypted_token 123456789"</span> http://127.0.0.1:3000/
+<pre><code class="bash">$ curl -H <span class="string">&quot;Authorization: Encrypted_token 123456789&quot;</span> http://127.0.0.1:3000/
 </code></pre>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -158,14 +158,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-encrypted-token</span></code></div>
             <ul>
-              <li><span class="version">1.2.1</span> published <abbr class="updated" title="2022-06-23T12:46:27Z">a month ago</abbr></li>
+              <li><span class="version">1.2.1</span> published <abbr class="updated" title="2022-06-23T12:46:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/dowjones/passport-http-encrypted-token">https://github.com/dowjones/passport-http-encrypted-token#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>26</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>9</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

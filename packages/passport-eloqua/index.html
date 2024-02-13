@@ -100,16 +100,16 @@ with <a href="http://eloqua.com/">Eloqua</a> using the OAuth 2.0 API.</p>
 <pre><code>$ npm install pass<span class="keyword">port</span>-eloqua
 </code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
-<pre><code>EloquaStrategy = <span class="built_in">require</span>(<span class="string">'passport-eloqua'</span>).EloquaStrategy;
+<pre><code>EloquaStrategy = require(<span class="symbol">&#x27;passport</span>-eloqua&#x27;).EloquaStrategy;
 
-passport.use(<span class="keyword">new</span> EloquaStrategy({
-    <span class="attr">clientID</span>: ELOQUA_CLIENT_ID,
-    <span class="attr">clientSecret</span>: ELOQUA_CLIENT_SECRET,
-    <span class="attr">callbackURL</span>: <span class="string">"http://example.com/auth/eloqua/callback"</span>
+passport.<span class="keyword">use</span>(<span class="keyword">new</span> EloquaStrategy({
+    clientID: ELOQUA_CLIENT_ID,
+    clientSecret: ELOQUA_CLIENT_SECRET,
+    callbackURL: <span class="string">&quot;http://example.com/auth/eloqua/callback&quot;</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">accessToken, refreshToken, profile, done</span>) </span>{
-    User.findOrCreate({ <span class="attr">eloquaId</span>: profile.id }, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ eloquaId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -118,14 +118,14 @@ passport.use(<span class="keyword">new</span> EloquaStrategy({
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/eloqua'</span>,
-  passport.authenticate(<span class="string">'eloqua'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/eloqua&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;eloqua&#x27;</span>));
 
-app.get(<span class="string">'/auth/eloqua/callback'</span>,
-  passport.authenticate(<span class="string">'eloqua'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/eloqua/callback&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;eloqua&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="thanks">Thanks</h2>
 <ul>
@@ -139,13 +139,13 @@ app.get(<span class="string">'/auth/eloqua/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-eloqua</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:32:39Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T12:32:39Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/watsoncj/passport-eloqua">https://github.com/watsoncj/passport-eloqua</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

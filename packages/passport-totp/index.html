@@ -116,11 +116,11 @@ strategy requires a <code>setup</code> callback.</p>
 <p>The <code>setup</code> callback accepts a previously authenticated <code>user</code> and calls <code>done</code>
 providing a <code>key</code> and <code>period</code> used to verify the HOTP value.  Authentication
 fails if the value is not verified.</p>
-<pre><code>passport.use(<span class="keyword">new</span> TotpStrategy(
-  <span class="function"><span class="keyword">function</span><span class="params">(user, done)</span> </span>{
-    TotpKey.findOne({ userId: user.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, key)</span> </span>{
-      <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
-      <span class="keyword">return</span> done(<span class="literal">null</span>, key.key, key.period);
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> TotpStrategy(
+  <span class="keyword">function</span>(user, <span class="keyword">done</span>) {
+    TotpKey.findOne({ userId<span class="operator">:</span> user.<span class="built_in">id</span> }, <span class="keyword">function</span> (err, key) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, key.key, key.period);
     });
   }
 ));
@@ -129,17 +129,17 @@ fails if the value is not verified.</p>
 requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/verify-otp'</span>, 
-  passport.authenticate(<span class="string">'totp'</span>, { failureRedirect: <span class="string">'/verify-otp'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
-    req.session.authFactors = [ <span class="string">'totp'</span> ];
-    res.redirect(<span class="string">'/'</span>);
+<pre><code>app.post(<span class="string">&#x27;/verify-otp&#x27;</span>, 
+  passport.authenticate(<span class="string">&#x27;totp&#x27;</span>, { failureRedirect: <span class="string">&#x27;/verify-otp&#x27;</span> }),
+  <span class="keyword">function</span><span class="params">(req, res)</span> {
+    req.session.authFactors = [ <span class="string">&#x27;totp&#x27;</span> ];
+    res.redirect(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jaredhanson/passport-totp/tree/master/examples/two-factor">two-factor example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> make <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span>
 </code></pre><p><a href="http://travis-ci.org/jaredhanson/passport-totp"><img src="https://secure.travis-ci.org/jaredhanson/passport-totp.png" alt="Build Status"></a></p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -152,13 +152,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-totp</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:38:10Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:38:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-totp">https://github.com/jaredhanson/passport-totp</a></li>
             </ul>
             <ul>
-              <li><b>1,652</b> downloads in the last day</li>
-              <li><b>10,240</b> downloads in the last week</li>
-              <li><b>38,526</b> downloads in the last month</li>
+              <li><b>4,536</b> downloads in the last day</li>
+              <li><b>20,867</b> downloads in the last week</li>
+              <li><b>89,242</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

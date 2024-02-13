@@ -116,8 +116,8 @@ that verifies credentials, as a fallback for routes that prefer authentication
 but can also respond to unauthenticated requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.post(<span class="string">'/hello'</span>, 
-  passport.authenticate([<span class="string">'basic'</span>, <span class="string">'anonymId'</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
+<pre><code>app.post(<span class="string">&#x27;/hello&#x27;</span>, 
+  passport.authenticate([<span class="string">&#x27;basic&#x27;</span>, <span class="string">&#x27;anonymId&#x27;</span>], { <span class="keyword">session</span>: <span class="keyword">false</span> }),
   <span class="keyword">function</span>(req, res) {
     <span class="keyword">if</span> (!req.<span class="keyword">user</span>.uuid) {
       res.json({ <span class="type">name</span>: req.<span class="keyword">user</span>.username });
@@ -128,8 +128,8 @@ application:</p>
 </code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/nash403/passport-anonym-uuid/tree/master/examples/basic">login example</a>.</p>
 <h2 id="tests">Tests</h2>
-<pre><code><span class="meta">$</span><span class="bash"> npm install</span>
-<span class="meta">$</span><span class="bash"> npm <span class="built_in">test</span></span>
+<pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
+<span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
 <p>This package is almost a copy of <a href="https://github.com/jaredhanson/passport-anonymous">passport-anonymous</a> made by <a href="http://github.com/jaredhanson">Jared Hanson</a>.</p>
 <ul>
@@ -143,13 +143,13 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-anonym-uuid</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T12:14:33Z">a month ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T12:14:33Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/nash403/passport-anonym-uuid">https://github.com/nash403/passport-anonym-uuid#readme</a></li>
             </ul>
             <ul>
-              <li><b>86</b> downloads in the last day</li>
-              <li><b>360</b> downloads in the last week</li>
-              <li><b>1,348</b> downloads in the last month</li>
+              <li><b>40</b> downloads in the last day</li>
+              <li><b>252</b> downloads in the last week</li>
+              <li><b>2,083</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

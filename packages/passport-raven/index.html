@@ -104,19 +104,19 @@
 <p>See <code>test/server.js</code></p>
 <h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
-<pre><code class="lang-js"><span class="keyword">var</span> RavenStrategy = <span class="built_in">require</span>(<span class="string">'passport-raven'</span>);
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">RavenStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-raven&#x27;</span>);
 
-passport.use(<span class="keyword">new</span> RavenStrategy({
-  <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
-  <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">RavenStrategy</span>({
+  <span class="attr">desc</span>: <span class="string">&#x27;My Raven Application&#x27;</span>,
+  <span class="attr">msg</span>: <span class="string">&#x27;we need to check you are a current student&#x27;</span>,
   <span class="comment">// use demonstration raven server in development</span>
-  <span class="attr">debug</span>: process.env.NODE_ENV !== <span class="string">'production'</span>
-}, <span class="function"><span class="keyword">function</span> (<span class="params">crsid, params, callback</span>) </span>{
+  <span class="attr">debug</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span>
+}, <span class="keyword">function</span> (<span class="params">crsid, params, callback</span>) {
   <span class="comment">// You can skip this check if you want to support ex students and staff as well</span>
-  <span class="keyword">if</span> (params.isCurrent) {
-    callback(<span class="literal">null</span>, {<span class="attr">id</span>: crsid});
+  <span class="keyword">if</span> (params.<span class="property">isCurrent</span>) {
+    <span class="title function_">callback</span>(<span class="literal">null</span>, {<span class="attr">id</span>: crsid});
   } <span class="keyword">else</span> {
-    callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'My Raven application is only for current students and staff'</span>));
+    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;My Raven application is only for current students and staff&#x27;</span>));
   }
 }));
 </code></pre>
@@ -128,14 +128,14 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
 <li><code>audience</code> (String) - a fully qualified domain name of the authentication requesting website.</li>
 <li><code>passReqToCallback</code> (Boolean) - If set the request object is provided as the first argument to the verify function. The verify callback can therefore use the state of the request to tailer further handling.</li>
 </ul>
-<pre><code class="lang-js">
-passport.use(<span class="keyword">new</span> RavenStrategy({
-  <span class="attr">desc</span>: <span class="string">'My Raven Application'</span>,
-  <span class="attr">msg</span>: <span class="string">'we need to check you are a current student'</span>,
+<pre><code class="js">
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">RavenStrategy</span>({
+  <span class="attr">desc</span>: <span class="string">&#x27;My Raven Application&#x27;</span>,
+  <span class="attr">msg</span>: <span class="string">&#x27;we need to check you are a current student&#x27;</span>,
   <span class="comment">// use demonstration raven server in development</span>
-  <span class="attr">debug</span>: process.env.NODE_ENV !== <span class="string">'production'</span>,
-  <span class="attr">passReqToCallback</span> : <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span> (<span class="params">req, crsid, params, callback</span>) </span>{
+  <span class="attr">debug</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span>,
+  passReqToCallback : <span class="literal">true</span>
+}, <span class="keyword">function</span> (<span class="params">req, crsid, params, callback</span>) {
   <span class="comment">// this function could be defined elsewhere eg in a Sails app services protocol</span>
      ....
   }
@@ -146,41 +146,41 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
 <p><strong>Params:</strong></p>
 <p>Params include all the info returned from the server, here are two examples:</p>
 <p>Current Students/Staff:</p>
-<pre><code>{ <span class="attribute">ver</span>: <span class="string">'3'</span>,
-  <span class="attribute">status</span>: <span class="string">'200'</span>,
-  <span class="attribute">msg</span>: <span class="string">''</span>,
-  <span class="attribute">issue</span>: <span class="string">'20141007T144208Z'</span>,
-  <span class="attribute">id</span>: <span class="string">'1412692928-14998-17'</span>,
-  <span class="attribute">url</span>: <span class="string">'http://localhost:3000/login'</span>,
-  <span class="attribute">principal</span>: <span class="string">'test0001'</span>,
-  <span class="attribute">ptags</span>: <span class="string">'current'</span>,
-  <span class="attribute">auth</span>: <span class="string">'pwd'</span>,
-  <span class="attribute">sso</span>: <span class="string">''</span>,
-  <span class="attribute">life</span>: <span class="string">'36000'</span>,
-  <span class="attribute">params</span>: <span class="string">''</span>,
-  <span class="attribute">kid</span>: <span class="string">'901'</span>,
-  <span class="attribute">sig</span>: <span class="string">'qEK1GusOfnfh6D8BkmTi2iIsEXLmrfOd2TMEXStedOgaDXF7BQnN1nQvD8mudXhLO-rDLhp3JetrAded1XNeNaJPwdU5ZNIf5bJrvln2iqwbY280B4nGusvcOQjDoD1UJQ-J3hEpTDe7miDzGwSB-7zvdkpzt56qPgmUIIYHWs4_'</span>,
-  <span class="attribute">isCurrent</span>: true }
+<pre><code>{ ver: &#x27;3&#x27;,
+  status: &#x27;200&#x27;,
+  msg: &#x27;&#x27;,
+  issue: &#x27;<span class="number">20141007</span>T<span class="number">144208</span>Z&#x27;,
+  id: &#x27;<span class="number">1412692928-1499</span>8-17&#x27;,
+  url: &#x27;http://localhost:<span class="number">3000</span>/login&#x27;,
+  principal: &#x27;test<span class="number">0001</span>&#x27;,
+  ptags: &#x27;current&#x27;,
+  auth: &#x27;pwd&#x27;,
+  sso: &#x27;&#x27;,
+  life: &#x27;<span class="number">3600</span>0&#x27;,
+  params: &#x27;&#x27;,
+  kid: &#x27;901&#x27;,
+  sig: &#x27;qEK1GusOfnfh6D8BkmTi2iIsEXLmrfOd2TMEXStedOgaDXF7BQnN1nQvD8mudXhLO-rDLhp3JetrAded1XNeNaJPwdU5ZNIf5bJrvln2iqwbY280B4nGusvcOQjDoD1UJQ-J3hEpTDe7miDzGwSB-7zvdkpzt56qPgmUIIYHWs4_&#x27;,
+  isCurrent: true }
 </code></pre><p>Past Students/Staff:</p>
-<pre><code>{ <span class="attribute">ver</span>: <span class="string">'3'</span>,
-  <span class="attribute">status</span>: <span class="string">'200'</span>,
-  <span class="attribute">msg</span>: <span class="string">''</span>,
-  <span class="attribute">issue</span>: <span class="string">'20141007T144128Z'</span>,
-  <span class="attribute">id</span>: <span class="string">'1412692886-14816-35'</span>,
-  <span class="attribute">url</span>: <span class="string">'http://localhost:3000/login'</span>,
-  <span class="attribute">principal</span>: <span class="string">'test0450'</span>,
-  <span class="attribute">ptags</span>: <span class="string">''</span>,
-  <span class="attribute">auth</span>: <span class="string">''</span>,
-  <span class="attribute">sso</span>: <span class="string">'pwd'</span>,
-  <span class="attribute">life</span>: <span class="string">'35960'</span>,
-  <span class="attribute">params</span>: <span class="string">''</span>,
-  <span class="attribute">kid</span>: <span class="string">'901'</span>,
-  <span class="attribute">sig</span>: <span class="string">'otTWl-KZbXbRUMLjwpkoiT.nu8J7GnoHu6V8JzXjAu.XPGBBxRAJXEzCEQfc05jcoFmGWdHWPLjmJgNgom2vnltCu-CZOlAd9105v-k.9.dZQJAc65ugIlHDvPPT2icXiT1zo9.wzkCA.5vwLeUrhA8oKAa-6cuxbbzkwH-.Cc8_'</span>,
-  <span class="attribute">isCurrent</span>: false }
+<pre><code>{ ver: &#x27;3&#x27;,
+  status: &#x27;200&#x27;,
+  msg: &#x27;&#x27;,
+  issue: &#x27;<span class="number">20141007</span>T<span class="number">144128</span>Z&#x27;,
+  id: &#x27;<span class="number">1412692886-1481</span>6-35&#x27;,
+  url: &#x27;http://localhost:<span class="number">3000</span>/login&#x27;,
+  principal: &#x27;test<span class="number">0450</span>&#x27;,
+  ptags: &#x27;&#x27;,
+  auth: &#x27;&#x27;,
+  sso: &#x27;pwd&#x27;,
+  life: &#x27;<span class="number">3596</span>0&#x27;,
+  params: &#x27;&#x27;,
+  kid: &#x27;901&#x27;,
+  sig: &#x27;otTWl-KZbXbRUMLjwpkoiT.nu8J7GnoHu6V8JzXjAu.XPGBBxRAJXEzCEQfc05jcoFmGWdHWPLjmJgNgom2vnltCu-CZOlAd<span class="number">9105</span>v-k.9.dZQJAc65ugIlHDvPPT2icXiT1zo9.wzkCA.5vwLeUrhA8oKAa-6cuxbbzkwH-.Cc8_&#x27;,
+  isCurrent: false }
 </code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/raven'</span>, passport.authenticate(<span class="string">'raven'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>{
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/raven&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;raven&#x27;</span>), <span class="keyword">function</span>(<span class="params">req, res</span>) {
   <span class="comment">// Successful authentication, redirect home.</span>
-  res.redirect(<span class="string">'/'</span>);
+  res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
 </code></pre>
 <h2 id="license">License</h2>
@@ -189,14 +189,14 @@ passport.use(<span class="keyword">new</span> RavenStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-raven</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:22:04Z">a month ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:22:04Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ForbesLindesay/passport-raven">https://github.com/ForbesLindesay/passport-raven#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>15</b> downloads in the last week</li>
-              <li><b>71</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>17</b> downloads in the last week</li>
+              <li><b>143</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

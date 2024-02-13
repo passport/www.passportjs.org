@@ -100,40 +100,40 @@
 <h2 id="installation">Installation</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-uwshib
 </code></pre><p>or if using a <a href="https://www.npmjs.org/doc/package.json.html">package.json file</a>, add this line to your dependencies hash:</p>
-<pre><code><span class="string">"passport-uwshib"</span>: <span class="string">"*"</span>
+<pre><code><span class="attr">&quot;passport-uwshib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span>
 </code></pre><p>and do an <code>npm install</code> or <code>npm update</code> to get the most current version.</p>
 <h2 id="usage">Usage</h2>
 <p>There is a fully-working example server script in <a href="https://github.com/drstearns/passport-uwshib/blob/master/example/server.js">/example/server.js</a>, and an associated <a href="ttps://github.com/drstearns/passport-uwshib/blob/master/example/package.json">package.json</a>, which you can use to install all the necessary packages to make the example script run (express, express middleware, passport, etc.). Refer to that as I explain what it is doing.</p>
 <p>This module provides a Strategy for the <a href="http://passportjs.org/">Passport</a> framework, which is typically used with <a href="http://expressjs.com/">Express</a>. Thus, there are several modules you need to require in your server script in addition to this module.</p>
-<pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);                     <span class="comment">//http server</span>
-<span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">'https'</span>);                   <span class="comment">//https server</span>
-<span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);                         <span class="comment">//file system</span>
-<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);               <span class="comment">//express middleware</span>
-<span class="keyword">var</span> morgan = <span class="built_in">require</span>(<span class="string">'morgan'</span>);                 <span class="comment">//logger for express</span>
-<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);        <span class="comment">//body parsing middleware</span>
-<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);    <span class="comment">//cookie parsing middleware</span>
-<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);       <span class="comment">//express session management</span>
-<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>);             <span class="comment">//authentication middleware</span>
-<span class="keyword">var</span> uwshib = <span class="built_in">require</span>(<span class="string">'passport-uwshib'</span>);        <span class="comment">//UW Shibboleth auth strategy</span>
+<pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);                     <span class="comment">//http server</span>
+<span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>);                   <span class="comment">//https server</span>
+<span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);                         <span class="comment">//file system</span>
+<span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);               <span class="comment">//express middleware</span>
+<span class="keyword">var</span> morgan = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);                 <span class="comment">//logger for express</span>
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>);        <span class="comment">//body parsing middleware</span>
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>);    <span class="comment">//cookie parsing middleware</span>
+<span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);       <span class="comment">//express session management</span>
+<span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);             <span class="comment">//authentication middleware</span>
+<span class="keyword">var</span> uwshib = <span class="built_in">require</span>(<span class="string">&#x27;passport-uwshib&#x27;</span>);        <span class="comment">//UW Shibboleth auth strategy</span>
 </code></pre><p>The example script then gets the server&#39;s domain name from an environment variable. This allows you to run the example script without modification. Simply export a value for <code>DOMAIN</code> and run the script.</p>
-<pre><code>export <span class="attr">DOMAIN=</span>mydomain.uw.edu
-<span class="keyword">node</span> <span class="title">server</span>.js
+<pre><code><span class="built_in">export</span> <span class="attribute">DOMAIN</span>=mydomain.uw.edu
+node server.js
 </code></pre><p>You can also override the default HTTP and HTTPS ports if you wish by specifying <code>HTTPPORT</code> and <code>HTTPSPORT</code> environment variables.</p>
 <p>The example script then loads a public certificate and associated private key from two files in a <code>/security</code> subdirectory.</p>
-<pre><code>var publicCert = fs.read<span class="constructor">FileSync('.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">cert</span>.<span class="params">pem</span>', '<span class="params">utf</span>-8')</span>;
-var privateKey = fs.read<span class="constructor">FileSync('.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">pvk</span>.<span class="params">pem</span>', '<span class="params">utf</span>-8')</span>;
+<pre><code>var publicCert = fs.read<span class="constructor">FileSync(&#x27;.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">cert</span>.<span class="params">pem</span>&#x27;, &#x27;<span class="params">utf</span>-8&#x27;)</span>;
+var privateKey = fs.read<span class="constructor">FileSync(&#x27;.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">pvk</span>.<span class="params">pem</span>&#x27;, &#x27;<span class="params">utf</span>-8&#x27;)</span>;
 </code></pre><p>These are used not only for the HTTPS server, but also to sign requests sent to the UW IdP. You can use <a href="http://www.sslshopper.com/article-most-common-openssl-commands.html">openssl</a> to generate keys and certificate signing requests. The UW IdP seems to require that your server responds to HTTPS requests, so you should get a signed certificate for your server before trying to register it.</p>
 <p>The script continues by creating a typical Express application and registering the typical middleware. For more information on this, see the <a href="http://passportjs.org/">Passport.js site</a>.</p>
 <p>Then the script creates the UW Shibboleth Strategy, and tells Passport to use it.</p>
-<pre><code>//<span class="keyword">create</span> the UW Shibboleth Strategy <span class="keyword">and</span> tell Passport <span class="keyword">to</span> <span class="keyword">use</span> it
-<span class="keyword">var</span> strategy = <span class="keyword">new</span> uwshib.Strategy({
-    entityId: <span class="keyword">domain</span>,
-    privateKey: privateKey,
-    callbackUrl: loginCallbackUrl,
-    <span class="keyword">domain</span>: <span class="keyword">domain</span>
+<pre><code><span class="comment">//create the UW Shibboleth Strategy and tell Passport to use it</span>
+<span class="keyword">var</span> strategy = <span class="keyword">new</span> uwshib.<span class="title function_ invoke__">Strategy</span>({
+    <span class="attr">entityId</span>: domain,
+    <span class="attr">privateKey</span>: privateKey,
+    <span class="attr">callbackUrl</span>: loginCallbackUrl,
+    <span class="attr">domain</span>: domain
 });
 
-passport.use(strategy);
+passport.<span class="keyword">use</span>(strategy);
 </code></pre><p>In addition to the properties shown above, you may also pass any <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">configuration properties accepted by the passport-saml library</a>.</p>
 <p><strong>Note:</strong> When the UW IdP sends back Shibboleth assertions, they contain timestamps that declare when and for how long those assertions are valid. The passport-saml library will compare these timestamps against your server&#39;s clock, and will not allow any time skewing by default. If your server&#39;s clock is not synchronized with the UW IdP server, you may want to add the <code>acceptedClockSkewMs</code> property to the object you pass to the <code>uwshib.Strategy()</code> constructor. This property is defined and interpreted by the passport-saml library, and may be set to a number of milliseconds that the clocks are allowed to be off from one another. If you don&#39;t want any timestamp checking at all, you may set this property to <code>-1</code>. See the <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">passport-saml configuration properties</a> for more details.</p>
 <p>The name of the strategy is <code>&#39;uwsaml&#39;</code>, but you can use the <code>.name</code> property of the Strategy to refer to that.</p>
@@ -146,16 +146,16 @@ passport.deserialize<span class="constructor">User(<span class="params">function
     <span class="keyword">done</span>(null, user);
 });
 </code></pre><p>Next, the script registers a few routes to handle login, the login callback, and the standard metadata. This module provides implementations for the metadata route, and you use passport.authenticate for the login and login callback routes. The login route will redirect the user to the UW single sign-on page, and the UW IdP will then redirect the user back to the login callback route.</p>
-<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="selector-tag">loginUrl</span>, <span class="selector-tag">passport</span><span class="selector-class">.authenticate</span>(<span class="selector-tag">strategy</span><span class="selector-class">.name</span>), <span class="selector-tag">uwshib</span><span class="selector-class">.backToUrl</span>());
-<span class="selector-tag">app</span><span class="selector-class">.post</span>(<span class="selector-tag">loginCallbackUrl</span>, <span class="selector-tag">passport</span><span class="selector-class">.authenticate</span>(<span class="selector-tag">strategy</span><span class="selector-class">.name</span>), <span class="selector-tag">uwshib</span><span class="selector-class">.backToUrl</span>());
-<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="selector-tag">uwshib</span><span class="selector-class">.urls</span><span class="selector-class">.metadata</span>, <span class="selector-tag">uwshib</span><span class="selector-class">.metadataRoute</span>(<span class="selector-tag">strategy</span>, <span class="selector-tag">publicCert</span>));
+<pre><code><span class="keyword">app</span>.<span class="built_in">get</span>(loginUrl, passport.authenticate(strategy.name), uwshib.backToUrl());
+<span class="keyword">app</span>.<span class="keyword">post</span>(loginCallbackUrl, passport.authenticate(strategy.name), uwshib.backToUrl());
+<span class="keyword">app</span>.<span class="built_in">get</span>(uwshib.urls.metadata, uwshib.metadataRoute(strategy, publicCert));
 </code></pre><p>The <code>uwshib.backToUrl()</code> is a convenience middleware that will redirect the browser back to the URL that was originally requested before authentication.</p>
 <p>Lastly, the script tells Express to use the <code>ensureAuth()</code> middleware provided by this module to secure all routes declared after this.</p>
 <pre><code><span class="comment">//secure all routes following this</span>
-app.<span class="keyword">use</span>(<span class="title">uwshib</span>.<span class="title">ensureAuth</span>(<span class="title">loginUrl</span>));
+app.use(uwshib.ensure<span class="constructor">Auth(<span class="params">loginUrl</span>)</span>);
 </code></pre><p>Any route requested after this middleware will require authentication. When requested, those routes will automatically redirect to the <code>loginUrl</code> if the user has not already authenticated. After successful authentication, the browser will be redirected back to the original URL, and the user information will be available via the <code>.user</code> property on the request object.</p>
 <p>Note that <code>ensureAuth</code> can also be used to selectively secure routes. For example:</p>
-<pre><code>app.get('protected/resource', ensureAuth(loginUrl), function(req, res) {
+<pre><code>app.get(&#x27;protected/resource&#x27;, ensureAuth(loginUrl), function(req, res) {
     //<span class="keyword">user</span> <span class="title">has</span> authenticated, do normal route processing
     //<span class="keyword">user</span> <span class="title">is</span> available via req.<span class="keyword">user</span>
 <span class="title">});</span>
@@ -163,14 +163,14 @@ app.<span class="keyword">use</span>(<span class="title">uwshib</span>.<span cla
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-uwshib</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:58Z">a month ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:58Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/drstearns/passport-uwshib">https://github.com/drstearns/passport-uwshib</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>12</b> downloads in the last week</li>
-              <li><b>35</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>18</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

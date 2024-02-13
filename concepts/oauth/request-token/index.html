@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Understanding OAuth 1.0: Request Token</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth/request-token/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Understanding OAuth 1.0: Request Token"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth/request-token/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Understanding OAuth 1.0: Request Token"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/concepts/oauth/">Introduction</a></li>
+                  <li><a href="/concepts/oauth/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth/authorization/">Authorization</a></li>
+                  <li><a class="active" href="/concepts/oauth/request-token/">Request Token</a></li>
+                  <li><a href="/concepts/oauth/access-token/">Access Token</a></li>
+                  <li><a href="/concepts/oauth/profile/">Profile</a></li>
+                  <li><a href="/concepts/oauth/authentication/">Authentication</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="obtain-request-token">Obtain Request Token</h1>
+<p>Before the application can request authorization from the user, it must first
+obtain a <em>request token</em>.  The request token identifies the authorization
+request.  If the user grants access, the application can exchange this request
+token for an access token.  To obtain a request token, the application makes a
+request to the service providers&#39;s <em>request token URL</em> (<code>/oauth/request_token</code>,
+in the case of Twitter):</p>
+<pre><code class="http"><span class="keyword">POST</span> <span class="string">/oauth/request_token</span> <span class="meta">HTTP/1.1</span>
+<span class="attribute">Host</span><span class="punctuation">: </span>api.twitter.com
+<span class="attribute">Authorization</span><span class="punctuation">: </span>OAuth oauth_callback=&quot;https%3A%2F%2Fwww.example.com%2Foauth%2Fcallback%2Ftwitter&quot;,
+  oauth_consumer_key=&quot;cChZNFj6T5R0TigYB9yd1w&quot;,
+  oauth_nonce=&quot;ea9ec8429b68d6b77cd5600adbbb0456&quot;,
+  oauth_signature_method=&quot;HMAC-SHA1&quot;,
+  oauth_timestamp=&quot;1318467427&quot;,
+  oauth_version=&quot;1.0&quot;,
+  oauth_signature=&quot;qCMIWvfCvmP0ZsfWGTPnuaPXsQE%3D&quot;
+</code></pre>
+<p>The parameters for this request are conveyed in the <code>Authorization</code> header.
+Let&#39;s examine them.</p>
+<ul>
+<li><p><code>oauth_callback</code>: URL to which the service provider will redirect the user
+  after completing interaction with the user.</p>
+</li>
+<li><p><code>oauth_consumer_key</code>: Identifies the application to the service provider.
+  This is assigned when registering the application with Twitter.</p>
+</li>
+<li><p><code>oauth_nonce</code>: A random string uniquely generated by Passport for each
+  request, used to help prevent replay attacks.</p>
+</li>
+<li><p><code>oauth_signature_method</code>: The signature method used to sign the request.</p>
+</li>
+<li><p><code>oauth_timestamp</code>: The number of seconds since January 1, 1970 00:00:00 GMT.</p>
+</li>
+<li><p><code>oauth_version</code>: The version of OAuth used to authorize the request, set to
+  &quot;1.0&quot;.</p>
+</li>
+<li><p><code>oauth_signature</code>: A cryptographic signature used to authenticate the
+  request.  Passport computes this automatically using the application&#39;s
+  consumer secret.</p>
+</li>
+</ul>
+<p>When Twitter receives this request, it authenticates the application by
+verifying that the signature was produced by the corresponding consumer key and
+secret.  If successful, Twitter generates a request token and secret:</p>
+<pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
+<span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded
+
+<span class="language-ini"><span class="attr">oauth_token</span>=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;
+<span class="attr">oauth_token_secret</span>=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&amp;
+<span class="attr">oauth_callback_confirmed</span>=<span class="literal">true</span></span>
+</code></pre>
+<p>Let&#39;s examine the parameters in this response.</p>
+<ul>
+<li><p><code>oauth_token</code>: A <em>unauthorized</em> request token.  The user will be requested
+  to authorize this token.  If granted, the request token can be exchanged
+  for an access token.</p>
+</li>
+<li><p><code>oauth_token_secret</code>: A shared secret used to cryptographically demonstrate
+  ownership of the request token when exchanging it for an access token.</p>
+</li>
+<li><p><code>oauth_callback_confirmed</code>: A flag set to <code>true</code> to indicate that the
+  service provider received the application&#39;s callback URL in the
+  <code>oauth_callback</code> parameter.  This indicates that the service provider
+  supports <a href="https://oauth.net/core/1.0a/">OAuth 1.0a</a>, which addresses a
+  <a href="https://oauth.net/advisories/2009-1/">session fixation vulnerability</a> in
+  <a href="https://oauth.net/core/1.0/">OAuth 1.0</a>.</p>
+</li>
+</ul>
+<p>Now that the application has obtained a request token, it is ready to request
+authorization from the user.   First, Passport stores the token secret so that
+it can be later loaded when obtaining an access token.  Then, the user&#39;s web
+browser is redirected to Twitter:</p>
+<pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found
+<span class="attribute">Location</span><span class="punctuation">: </span>https://api.twitter.com/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+</code></pre>
+<p>The web browser follows this redirect and makes a request to Twitter:</p>
+<pre><code class="http"><span class="keyword">GET</span> <span class="string">/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0</span> <span class="meta">HTTP/1.1</span>
+<span class="attribute">Host</span><span class="punctuation">: </span>api.twitter.com
+</code></pre>
+<p>This request is sent to the service providers&#39;s <em>user authorization URL</em>
+(<code>/oauth/authenticate</code>, in the case of Twitter).  Let&#39;s examine the parameters
+in this request.</p>
+<ul>
+<li><code>oauth_token</code>: The unauthorized request token obtained in the previous step,
+  which the user is being requested to authorize.</li>
+</ul>
+<p>At this point, Twitter will interact with the user.  This interaction will
+typically involve logging the user in (if they are not already logged in) and
+obtaining their consent (if it has not been previously obtained).  Once that
+has been completed, Twitter redirects the user back to the application:</p>
+<pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found
+<span class="attribute">Location</span><span class="punctuation">: </span>https://www.example.com/oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY
+</code></pre>
+<p>The web browser follows this redirect and makes a request to the application:</p>
+<pre><code class="http"><span class="keyword">GET</span> <span class="string">/oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY</span> <span class="meta">HTTP/1.1</span>
+<span class="attribute">Host</span><span class="punctuation">: </span>www.example.com
+</code></pre>
+<p>This request is sent to the application&#39;s <em>callback URL</em> (<code>/oauth/callback/twitter</code>,
+in this case), which corresponds to the value of the <code>oauth_callback</code> parameter in
+the earlier request.  Let&#39;s examine the parameters in this request.</p>
+<ul>
+<li><p><code>oauth_token</code>: The request token, which the user has now either authorized
+  or denied.</p>
+</li>
+<li><p><code>oauth_verifier</code>: The verification code required to exchange the request
+  token for an access token.</p>
+</li>
+</ul>
+<p>This request is handled by a route in the application:</p>
+<pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth/callback/twitter&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>, {
+  <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
+}));
+</code></pre>
+<p>This route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth1/"><code>passport-oauth1</code></a>
+strategy.  The strategy first loads the previously stored secret associated with
+the request token.  It then <a href="../access-token/">exchanges the request token for an access token</a>.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

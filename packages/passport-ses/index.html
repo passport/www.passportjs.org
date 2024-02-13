@@ -96,47 +96,47 @@
           <div class="description"><h1 id="passport-ses">passport-ses</h1>
 <p>Password-less authentication strategy using AWS SES.</p>
 <h2 id="install">Install</h2>
-<pre><code class="lang-shell"><span class="meta">$</span><span class="bash"> npm install passport-ses</span>
+<pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-ses</span>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The SES strategy authenticates users by sending them an email containing
 a temporary token.</p>
-<pre><code class="lang-js"><span class="keyword">var</span> SESStrategy = <span class="built_in">require</span>(<span class="string">'passport-ses'</span>).Strategy;
+<pre><code class="js"><span class="keyword">var</span> <span class="title class_">SESStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-ses&#x27;</span>).<span class="property">Strategy</span>;
 
-passport.use(<span class="string">'ses'</span>, <span class="keyword">new</span> SESStrategy({
-    <span class="attr">accessKeyId</span>: process.env.AWS_ACCESS_KEY,
-    <span class="attr">secretAccessKey</span>: process.env.AWS_SECRET_ACCESS_KEY,
-    <span class="attr">region</span>: process.env.AWS_REGION,
-    <span class="attr">source</span>: process.env.FROM_EMAIL,
-    <span class="attr">hostname</span>: process.env.HOSTNAME || <span class="string">'localhost:3750'</span>
-  }, <span class="function"><span class="keyword">function</span>(<span class="params">email, done</span>) </span>{
-    User.findOne({ email }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{
-      done(err, user)
+passport.<span class="title function_">use</span>(<span class="string">&#x27;ses&#x27;</span>, <span class="keyword">new</span> <span class="title class_">SESStrategy</span>({
+    <span class="attr">accessKeyId</span>: process.<span class="property">env</span>.<span class="property">AWS_ACCESS_KEY</span>,
+    <span class="attr">secretAccessKey</span>: process.<span class="property">env</span>.<span class="property">AWS_SECRET_ACCESS_KEY</span>,
+    <span class="attr">region</span>: process.<span class="property">env</span>.<span class="property">AWS_REGION</span>,
+    <span class="attr">source</span>: process.<span class="property">env</span>.<span class="property">FROM_EMAIL</span>,
+    <span class="attr">hostname</span>: process.<span class="property">env</span>.<span class="property">HOSTNAME</span> || <span class="string">&#x27;localhost:3750&#x27;</span>
+  }, <span class="keyword">function</span>(<span class="params">email, done</span>) {
+    <span class="title class_">User</span>.<span class="title function_">findOne</span>({ email }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
+      <span class="title function_">done</span>(err, user)
     })
   }
 ))
 </code></pre>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
-<pre><code class="lang-js">app.get(<span class="string">'/auth/ses'</span>, passport.authenticate(<span class="string">'ses'</span>, {
-  <span class="attr">failureRedirect</span>: <span class="string">'/login'</span>,
-  <span class="attr">successRedirect</span>: <span class="string">'/'</span>,
-  <span class="attr">emailSentRedirect</span>: <span class="string">'/check-email'</span>,
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/ses&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ses&#x27;</span>, {
+  <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>,
+  <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
+  <span class="attr">emailSentRedirect</span>: <span class="string">&#x27;/check-email&#x27;</span>,
 }))
 </code></pre>
 <h2 id="token-store-api">Token Store API</h2>
 <p>The strategy expects a token store that has the following API model:</p>
-<pre><code class="lang-js">Token {
-  <span class="attr">value</span>: <span class="built_in">String</span>
-  <span class="attr">email</span>: <span class="built_in">String</span>
-  <span class="attr">timestamp</span>: <span class="built_in">Date</span>
-  <span class="attr">isValid</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) <span class="title">Boolean</span> </span>{}
-  <span class="attr">destroy</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}
+<pre><code class="js"><span class="title class_">Token</span> {
+  <span class="attr">value</span>: <span class="title class_">String</span>
+  <span class="attr">email</span>: <span class="title class_">String</span>
+  <span class="attr">timestamp</span>: <span class="title class_">Date</span>
+  <span class="attr">isValid</span>: <span class="keyword">function</span>(<span class="params"></span>) <span class="title class_">Boolean</span> {}
+  <span class="attr">destroy</span>: <span class="keyword">function</span>(<span class="params"></span>) {}
 }
 
-TokenStore {
-  <span class="attr">set</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value: String, email: String, callback: function(err, Token</span>) </span>{}) {}
-  <span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value: String, callback: function(err, Token</span>) </span>{}) {}
+<span class="title class_">TokenStore</span> {
+  <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">value: <span class="built_in">String</span>, email: <span class="built_in">String</span>, callback: <span class="keyword">function</span>(err, Token) {}</span>) {}
+  <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params">value: <span class="built_in">String</span>, callback: <span class="keyword">function</span>(err, Token) {}</span>) {}
 }
 </code></pre>
 <p>The default token storage method is an in-memory object,
@@ -145,14 +145,14 @@ so restarting the server will delete any saved tokens.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ses</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:27:46Z">a month ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:27:46Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mtso/passport-ses">https://github.com/mtso/passport-ses#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

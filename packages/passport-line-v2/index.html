@@ -104,12 +104,12 @@
 </ul>
 <h1 id="how-to-run-example-code">How to run example code</h1>
 <p>clone project</p>
-<pre><code class="lang-sh">git <span class="built_in">clone</span> https://github.com/piggyman007/passport-line-v2.git
+<pre><code class="sh">git <span class="built_in">clone</span> https://github.com/piggyman007/passport-line-v2.git
 </code></pre>
 <p>modify some parameters at <code>/example/index.js</code></p>
-<pre><code class="lang-javascript"><span class="keyword">const</span> LINE_CHANNEL_ID = <span class="string">'put your line channel id here'</span>
-<span class="keyword">const</span> LINE_CHANNEL_SECRET = <span class="string">'put your line channel secret here'</span>
-<span class="keyword">const</span> CALLBACK_URL = <span class="string">'your call back url'</span> <span class="comment">// e.g., https:www.somedomain.com or https://1.2.3.4</span>
+<pre><code class="javascript"><span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_ID</span> = <span class="string">&#x27;put your line channel id here&#x27;</span>
+<span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_SECRET</span> = <span class="string">&#x27;put your line channel secret here&#x27;</span>
+<span class="keyword">const</span> <span class="variable constant_">CALLBACK_URL</span> = <span class="string">&#x27;your call back url&#x27;</span> <span class="comment">// e.g., https:www.somedomain.com or https://1.2.3.4</span>
 </code></pre>
 <blockquote>
 <ul>
@@ -119,43 +119,43 @@
 </ul>
 </blockquote>
 <p>the example code is located at <code>/example</code> folder, goto it</p>
-<pre><code class="lang-sh"><span class="built_in">cd</span> example
+<pre><code class="sh"><span class="built_in">cd</span> example
 </code></pre>
 <p>install dependency modules</p>
-<pre><code class="lang-sh">npm i
+<pre><code class="sh">npm i
 </code></pre>
 <p>start app</p>
-<pre><code class="lang-sh">npm start
+<pre><code class="sh">npm start
 </code></pre>
 <p>the application will start on port <code>5000</code></p>
 <h1 id="sample-usage-code">Sample usage code</h1>
 <p>sample usage code below is from <code>/example/index.js</code></p>
-<pre><code class="lang-javascript"><span class="comment">/** decaration part */</span>
+<pre><code class="javascript"><span class="comment">/** decaration part */</span>
 
 <span class="comment">// specify some parameters here</span>
-<span class="keyword">const</span> LINE_CHANNEL_ID = <span class="string">'put your line channel id here'</span>
-<span class="keyword">const</span> LINE_CHANNEL_SECRET = <span class="string">'put your line channel secret here'</span>
-<span class="keyword">const</span> CALLBACK_URL = <span class="string">'your call back url'</span> <span class="comment">// e.g., https:www.somedomain.com or https://1.2.3.4</span>
+<span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_ID</span> = <span class="string">&#x27;put your line channel id here&#x27;</span>
+<span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_SECRET</span> = <span class="string">&#x27;put your line channel secret here&#x27;</span>
+<span class="keyword">const</span> <span class="variable constant_">CALLBACK_URL</span> = <span class="string">&#x27;your call back url&#x27;</span> <span class="comment">// e.g., https:www.somedomain.com or https://1.2.3.4</span>
 
 <span class="comment">// serialize and deserialize user</span>
-passport.serializeUser(<span class="function">(<span class="params">user, done</span>) =&gt;</span> {
-  done(<span class="literal">null</span>, user)
+passport.<span class="title function_">serializeUser</span>(<span class="function">(<span class="params">user, done</span>) =&gt;</span> {
+  <span class="title function_">done</span>(<span class="literal">null</span>, user)
 })
 
-passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">obj, done</span>) </span>{
-  done(<span class="literal">null</span>, obj)
+passport.<span class="title function_">deserializeUser</span>(<span class="keyword">function</span>(<span class="params">obj, done</span>) {
+  <span class="title function_">done</span>(<span class="literal">null</span>, obj)
 })
 
 <span class="comment">// set up passport using LineStrategy</span>
-passport.use(
-  <span class="keyword">new</span> passportLine.Strategy(
+passport.<span class="title function_">use</span>(
+  <span class="keyword">new</span> passportLine.<span class="title class_">Strategy</span>(
     {
-      <span class="attr">channelID</span>: LINE_CHANNEL_ID,
-      <span class="attr">channelSecret</span>: LINE_CHANNEL_SECRET,
-      <span class="attr">callbackURL</span>: CALLBACK_URL,
+      <span class="attr">channelID</span>: <span class="variable constant_">LINE_CHANNEL_ID</span>,
+      <span class="attr">channelSecret</span>: <span class="variable constant_">LINE_CHANNEL_SECRET</span>,
+      <span class="attr">callbackURL</span>: <span class="variable constant_">CALLBACK_URL</span>,
     },
-    (accessToken, refreshToken, profile, done) =&gt; {
-      <span class="keyword">return</span> done(<span class="literal">null</span>, profile)
+    <span class="function">(<span class="params">accessToken, refreshToken, profile, done</span>) =&gt;</span> {
+      <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile)
     }
   )
 )
@@ -163,23 +163,23 @@ passport.use(
 <span class="comment">/** set up express part */</span>
 
 <span class="comment">// init passport</span>
-app.use(passport.initialize())
-app.use(passport.session())
+app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>())
+app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>())
 
 <span class="comment">/** routes part */</span>
 
 <span class="comment">// authenticate with line service</span>
-app.get(<span class="string">'/auth/line'</span>, passport.authenticate(passportLine.NAME))
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/line&#x27;</span>, passport.<span class="title function_">authenticate</span>(passportLine.<span class="property">NAME</span>))
 
 <span class="comment">/**
  * line service will redirect to this callback api
  * if failed, goto /login
  * if pass, redirect to /
 */</span>
-app.get(<span class="string">'/auth/line/callback'</span>,
-  passport.authenticate(passportLine.NAME, { <span class="attr">failureRedirect</span>: <span class="string">'/login'</span> }),
-  (req, res) =&gt; {
-    res.redirect(<span class="string">'/'</span>)
+app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/line/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(passportLine.<span class="property">NAME</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
+    res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>)
   }
 )
 </code></pre>
@@ -189,14 +189,14 @@ app.get(<span class="string">'/auth/line/callback'</span>,
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-v2</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:27Z">a month ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:27Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/piggyman007/passport-line-v2">https://github.com/piggyman007/passport-line#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>17</b> downloads in the last day</li>
-              <li><b>89</b> downloads in the last week</li>
-              <li><b>648</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -94,12 +94,12 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-oauth1">passport-oauth1</h1>
-<p>General-purpose OAuth 1.0 authentication strategy for <a href="http://passportjs.org/">Passport</a>.</p>
+<p>General-purpose OAuth 1.0 authentication strategy for <a href="https://www.passportjs.org/">Passport</a>.</p>
 <p>This module lets you authenticate using OAuth in your Node.js applications.
-By plugging into Passport, OAuth authentication can be easily and unobtrusively
+By plugging into Passport, OAuth-based sign in can be easily and unobtrusively
 integrated into any application or framework that supports
-<a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including
-<a href="http://expressjs.com/">Express</a>.</p>
+<a href="https://github.com/senchalabs/connect#readme">Connect</a>-style middleware,
+including <a href="https://expressjs.com/">Express</a>.</p>
 <p>Note that this strategy provides generic OAuth support.  In many cases, a
 provider-specific strategy can be used instead, which cuts down on unnecessary
 configuration, and accommodates any provider-specific quirks.  See the
@@ -109,6 +109,12 @@ providers.</p>
 is not already supported are encouraged to sub-class this strategy.  If you
 choose to open source the new provider-specific strategy, please add it to the
 list so other people can find it.</p>
+<div align="center">
+
+:heart: <a href="https://www.passportjs.org/sponsors/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=passport-oauth1&amp;utm_content=nav-sponsors">Sponsors</a>
+
+</div>
+
 <hr>
 <p align="center">
   <sup>Advertisement</sup>
@@ -130,18 +136,18 @@ account and OAuth tokens.  The provider&#39;s OAuth endpoints, as well as the
 consumer key and secret, are specified as options.  The strategy requires a
 <code>verify</code> callback, which receives a token and profile, and calls <code>cb</code>
 providing a user.</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new OAuth1Strategy({
-    <span class="attribute">requestTokenURL</span>: <span class="string">'https://www.example.com/oauth/request_token'</span>,
-    <span class="attribute">accessTokenURL</span>: <span class="string">'https://www.example.com/oauth/access_token'</span>,
-    <span class="attribute">userAuthorizationURL</span>: <span class="string">'https://www.example.com/oauth/authorize'</span>,
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">OAuth1Strategy</span>({
+    <span class="attribute">requestTokenURL</span>: <span class="string">&#x27;https://www.example.com/oauth/request_token&#x27;</span>,
+    <span class="attribute">accessTokenURL</span>: <span class="string">&#x27;https://www.example.com/oauth/access_token&#x27;</span>,
+    <span class="attribute">userAuthorizationURL</span>: <span class="string">&#x27;https://www.example.com/oauth/authorize&#x27;</span>,
     <span class="attribute">consumerKey</span>: EXAMPLE_CONSUMER_KEY,
     <span class="attribute">consumerSecret</span>: EXAMPLE_CONSUMER_SECRET,
-    <span class="attribute">callbackURL</span>: <span class="string">"http://127.0.0.1:3000/auth/example/callback"</span>,
-    <span class="attribute">signatureMethod</span>: <span class="string">"RSA-SHA1"</span>
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://127.0.0.1:3000/auth/example/callback&quot;</span>,
+    <span class="attribute">signatureMethod</span>: <span class="string">&quot;RSA-SHA1&quot;</span>
   },
-  function(token, tokenSecret, profile, cb) {
-    User.findOrCreate({ <span class="attribute">exampleId</span>: profile.id }, function (err, user) {
-      return cb(err, user);
+  <span class="built_in">function</span>(token, tokenSecret, profile, cb) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">exampleId</span>: profile.id }, function (err, user) {
+      return <span class="built_in">cb</span>(err, user);
     });
   }
 ));
@@ -150,14 +156,14 @@ providing a user.</p>
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
-<pre><code>app.get(<span class="string">'/auth/example'</span>,
-  passport.authenticate(<span class="string">'oauth'</span>));
+<pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/example&#x27;</span>,
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;oauth&#x27;</span>));
 
-app.get(<span class="string">'/auth/example/callback'</span>, 
-  passport.authenticate(<span class="string">'oauth'</span>, { failureRedirect: <span class="string">'/login'</span> }),
-  <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{
+<span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/auth/example/callback&#x27;</span>, 
+  passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;oauth&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
+  <span class="built_in">function</span>(req, res) {
     <span class="comment">// Successful authentication, redirect home.</span>
-    res.redirect(<span class="string">'/'</span>);
+    <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 </code></pre><h2 id="related-modules">Related Modules</h2>
 <ul>
@@ -170,13 +176,13 @@ app.get(<span class="string">'/auth/example/callback'</span>,
 <p>The test suite is located in the <code>test/</code> directory.  All new features are
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>
+<pre><code class="bash">$ make <span class="built_in">test</span>
 </code></pre>
 <h4 id="coverage">Coverage</h4>
 <p>All new feature development is expected to have test coverage.  Patches that
 increse test coverage are happily accepted.  Coverage reports can be viewed by
 executing:</p>
-<pre><code class="lang-bash">$ make <span class="built_in">test</span>-cov
+<pre><code class="bash">$ make test-cov
 $ make view-cov
 </code></pre>
 <h2 id="license">License</h2>
@@ -186,14 +192,14 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth1</span></code></div>
             <ul>
-              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2022-06-23T13:08:27Z">a month ago</abbr></li>
+              <li><span class="version">1.3.0</span> published <abbr class="updated" title="2023-03-01T19:39:38Z">4 months ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-oauth1">https://github.com/jaredhanson/passport-oauth1#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>34,838</b> downloads in the last day</li>
-              <li><b>186,187</b> downloads in the last week</li>
-              <li><b>807,211</b> downloads in the last month</li>
+              <li><b>38,358</b> downloads in the last day</li>
+              <li><b>172,556</b> downloads in the last week</li>
+              <li><b>869,337</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -98,43 +98,43 @@
 <p>Based on Jared Hanson&#39;s passport-windowslive strategy, with a mofification to retrieve the outlook profile instead of the windows live profile. </p>
 <p>Following this example: <a href="https://oauthplay.azurewebsites.net/">https://oauthplay.azurewebsites.net/</a></p>
 <p>Example Usage</p>
-<pre><code class="lang-js">
-passport.use(<span class="keyword">new</span> WindowsLiveStrategy({
-    <span class="attr">clientID</span>: configAuth.windowsliveAuth.appId,
-    <span class="attr">clientSecret</span>: configAuth.windowsliveAuth.password,
-    <span class="attr">callbackURL</span>: configAuth.windowsliveAuth.callbackURL,
-    <span class="attr">passReqToCallback</span> : <span class="literal">true</span>
+<pre><code class="js">
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WindowsLiveStrategy</span>({
+    <span class="attr">clientID</span>: configAuth.<span class="property">windowsliveAuth</span>.<span class="property">appId</span>,
+    <span class="attr">clientSecret</span>: configAuth.<span class="property">windowsliveAuth</span>.<span class="property">password</span>,
+    <span class="attr">callbackURL</span>: configAuth.<span class="property">windowsliveAuth</span>.<span class="property">callbackURL</span>,
+    passReqToCallback : <span class="literal">true</span>
   },
-  <span class="function"><span class="keyword">function</span>(<span class="params">req, token, refreshToken, profile, done</span>) </span>{
-    <span class="keyword">var</span> userid = req.user;
-    User.findById(userid, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>{
+  <span class="keyword">function</span>(<span class="params">req, token, refreshToken, profile, done</span>) {
+    <span class="keyword">var</span> userid = req.<span class="property">user</span>;
+    <span class="title class_">User</span>.<span class="title function_">findById</span>(userid, <span class="keyword">function</span> (<span class="params">err, user</span>) {
         <span class="keyword">if</span> (err || !user){
-            <span class="built_in">console</span>.log(<span class="string">"db err"</span>)
-            <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, req.flash(<span class="string">'message'</span>, <span class="string">'DB error'</span>));
+            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;db err&quot;</span>)
+            <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, req.<span class="title function_">flash</span>(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;DB error&#x27;</span>));
         } <span class="keyword">else</span> {
-            <span class="keyword">if</span> (profile.EmailAddress){
-                user.outlook.email = profile.EmailAddress;
-                user.outlook.token=token;
-                user.outlook.refreshToken=refreshToken;
-                <span class="keyword">if</span> (profile.MailboxGuid){
-                    user.outlook.mailboxGuid = profile.MailboxGuid;
+            <span class="keyword">if</span> (profile.<span class="property">EmailAddress</span>){
+                user.<span class="property">outlook</span>.<span class="property">email</span> = profile.<span class="property">EmailAddress</span>;
+                user.<span class="property">outlook</span>.<span class="property">token</span>=token;
+                user.<span class="property">outlook</span>.<span class="property">refreshToken</span>=refreshToken;
+                <span class="keyword">if</span> (profile.<span class="property">MailboxGuid</span>){
+                    user.<span class="property">outlook</span>.<span class="property">mailboxGuid</span> = profile.<span class="property">MailboxGuid</span>;
                 }
-                <span class="keyword">if</span> (profile.Alias){
-                    user.outlook.alias = profile.Alias;
+                <span class="keyword">if</span> (profile.<span class="property">Alias</span>){
+                    user.<span class="property">outlook</span>.<span class="property">alias</span> = profile.<span class="property">Alias</span>;
                 }
-                <span class="keyword">if</span> (profile.Id){
-                user.outlook.id = profile.Id
+                <span class="keyword">if</span> (profile.<span class="property">Id</span>){
+                user.<span class="property">outlook</span>.<span class="property">id</span> = profile.<span class="property">Id</span>
 
                 }
-                user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>{
+                user.<span class="title function_">save</span>(<span class="keyword">function</span>(<span class="params">err</span>){
                     <span class="keyword">if</span> (err){
-                        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, req.flash(<span class="string">'message'</span>, <span class="string">'DB error'</span>));
+                        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, req.<span class="title function_">flash</span>(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;DB error&#x27;</span>));
                     } <span class="keyword">else</span> {
-                        <span class="keyword">return</span> done(<span class="literal">null</span>, user);
+                        <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
                     }
                 });
             } <span class="keyword">else</span> {
-                <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, req.flash(<span class="string">'message'</span>, <span class="string">'No email account detected with this account.'</span>));
+                <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, req.<span class="title function_">flash</span>(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;No email account detected with this account.&#x27;</span>));
             }
         }
     });
@@ -147,14 +147,14 @@ passport.use(<span class="keyword">new</span> WindowsLiveStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-outlook2</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:15:10Z">a month ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:15:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/meirbank/passport-outlook">https://github.com/globlee/passport-outlook#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>8</b> downloads in the last day</li>
-              <li><b>37</b> downloads in the last week</li>
-              <li><b>170</b> downloads in the last month</li>
+              <li><b>13</b> downloads in the last day</li>
+              <li><b>66</b> downloads in the last week</li>
+              <li><b>229</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

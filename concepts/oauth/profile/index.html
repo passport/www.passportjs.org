@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <title>Understanding OAuth 1.0: Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://www.passportjs.org/concepts/oauth/profile/">
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#35DF79"/>
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico"/>
+    <link rel="icon" sizes="16x16" type="image/png" href="/images/favicon/favicon-16x16.png"/>
+    <link rel="icon" sizes="32x32" type="image/png" href="/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" sizes="36x36" type="image/png" href="/images/favicon/android-icon-36x36.png"/>
+    <link rel="icon" sizes="48x48" type="image/png" href="/images/favicon/android-icon-48x48.png"/>
+    <link rel="icon" sizes="70x70" type="image/png" href="/images/favicon/ms-icon-70x70.png"/>
+    <link rel="icon" sizes="72x72" type="image/png" href="/images/favicon/android-icon-72x72.png"/>
+    <link rel="icon" sizes="96x96" type="image/png" href="/images/favicon/android-icon-96x96.png"/>
+    <link rel="icon" sizes="144x144" type="image/png" href="/images/favicon/ms-icon-144x144.png"/>
+    <link rel="icon" sizes="150x150" type="image/png" href="/images/favicon/ms-icon-150x150.png"/>
+    <link rel="icon" sizes="192x192" type="image/png" href="/images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" sizes="310x310" type="image/png" href="/images/favicon/ms-icon-310x310.png"/>
+    <link rel="apple-touch-icon" href="/images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="msapplication-TileColor" content="#35DF79"/>
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Understanding OAuth 1.0: Profile"/>
+    <meta property="og:url" content="https://www.passportjs.org/concepts/oauth/profile/"/>
+    <meta property="og:image" content="https://www.passportjs.org/images/facebook-card.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Passport.js"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@passportjs"/>
+    <meta name="twitter:title" content="Understanding OAuth 1.0: Profile"/>
+    <meta name="twitter:image" content="https://www.passportjs.org/images/twitter-card.png"/>
+    <meta name="flattr:id" content="d5znvd"/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-73332146-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--+google-tag-manager('GTM-M5S3PH')-->
+    <!--link(type='text/css', rel='stylesheet', href='http://fast.fonts.net/cssapi/7527d73a-ebfe-45db-a201-ff2812df4b18.css')-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/styles/all.css">
+    <script data-main="/script/main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  </head>
+  <body>
+    <div id="container"><span id="top"></span>
+      <div id="toolbar">
+        <div class="toolbar-search">
+          <form action="/search">
+            <button type="submit"></button>
+            <input type="text" name="q" placeholder="Search for Strategies">
+          </form>
+        </div>
+        <div class="toolbar-social">
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/passportjs" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/passportjs" target="_blank"></a></li>
+            <li class="github"><a href="https://github.com/jaredhanson/passport" target="_blank"><span class="count">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav id="menu"><a class="menu-logo" href="/" title="Passport.js"></a>
+        <div class="menu-trigger"><span></span></div>
+        <div class="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/packages/">Strategies</a></li>
+            <li><a href="/sponsors/">Sponsors</a></li>
+          </ul><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=passportjsorg" id="_carbonads_js"></script>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="book" id="book">
+          <div class="toc">
+            <nav data-accordion-group="">
+              <div class="accordion" data-accordion="">
+                <h5 data-control=""><i class="icon-budicon-461"></i><a href="/concepts/oauth/"></a></h5>
+                <ul data-content="">
+                  <li><a href="/concepts/oauth/">Introduction</a></li>
+                  <li><a href="/concepts/oauth/terminology/">Terminology</a></li>
+                  <li><a href="/concepts/oauth/authorization/">Authorization</a></li>
+                  <li><a href="/concepts/oauth/request-token/">Request Token</a></li>
+                  <li><a href="/concepts/oauth/access-token/">Access Token</a></li>
+                  <li><a class="active" href="/concepts/oauth/profile/">Profile</a></li>
+                  <li><a href="/concepts/oauth/authentication/">Authentication</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
+          <div class="contents">
+            <section class="chapter"><h1 id="accessing-user-profile">Accessing User Profile</h1>
+<p>Now that the application has been issued an access token, it can use that token
+to make authenticated API requests.  We&#39;ll explore how that is accomplished in
+this chapter.</p>
+<p>Passport now makes a request to the Twitter API, in particular the
+<a href="https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials"><code>/account/verify-credentials.json</code></a>
+endpoint, which returns data about the user&#39;s account:</p>
+<pre><code class="http"><span class="keyword">GET</span> <span class="string">/1.1/account/verify_credentials.json</span> <span class="meta">HTTP/1.1</span>
+<span class="attribute">Host</span><span class="punctuation">: </span>api.twitter.com
+<span class="attribute">Authorization</span><span class="punctuation">: </span>OAuth oauth_consumer_key=&quot;cChZNFj6T5R0TigYB9yd1w&quot;,
+  oauth_nonce=&quot;MCMqk9QRZcPG1CrfJbPtD9HuMvm8vSXb&quot;,
+  oauth_signature_method=&quot;HMAC-SHA1&quot;,
+  oauth_timestamp=&quot;1682559265&quot;,
+  oauth_token=&quot;7588892-kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&quot;,
+  oauth_version=&quot;1.0&quot;,
+  oauth_signature=&quot;XXXXXXXX&quot;
+</code></pre>
+<p>The parameters for this request are conveyed in the <code>Authorization</code> header.
+Let&#39;s examine them.</p>
+<ul>
+<li><p><code>oauth_consumer_key</code>: Identifies the application to the service provider.
+  This is assigned when registering the application with Twitter.</p>
+</li>
+<li><p><code>oauth_nonce</code>: A random string uniquely generated by Passport for each
+  request, used to help prevent replay attacks.</p>
+</li>
+<li><p><code>oauth_signature_method</code>: The signature method used to sign the request.</p>
+</li>
+<li><p><code>oauth_timestamp</code>: The number of seconds since January 1, 1970 00:00:00 GMT.</p>
+</li>
+<li><p><code>oauth_token</code>: The access token.</p>
+</li>
+<li><p><code>oauth_version</code>: The version of OAuth used to authorize the request, set to
+  &quot;1.0&quot;.</p>
+</li>
+<li><p><code>oauth_signature</code>: A cryptographic signature used to authenticate the
+  request.  Passport computes this automatically using the application&#39;s
+  consumer secret and the access token secret.</p>
+</li>
+</ul>
+<p>Note that the access token that was just issued is being used as a credential in
+the <code>Authorization</code> header along with a signature.  The signature is computed
+using the corresponding access token secret (as well as the application&#39;s
+consumer secret).  Tokens that require a corresponding cryptographic signature
+are referred to as proof-of-possession tokens, where knowledge of the secret
+demonstrates proof that the application is the owner of the access token.</p>
+<p>When Twitter receives this request, it verifies that the access token and
+signature are valid and that the authorization granted permits access to the
+resource.  If so, Twitter responds with information about the user.</p>
+<pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
+<span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json
+
+<span class="language-json"><span class="punctuation">{</span>
+  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">38895958</span><span class="punctuation">,</span>
+  <span class="attr">&quot;id_str&quot;</span><span class="punctuation">:</span> <span class="string">&quot;38895958&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;screen_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;theSeanCook&quot;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sean Cook&quot;</span>
+<span class="punctuation">}</span></span>
+</code></pre>
+<p>Now that Passport has obtained the user profile, it can <a href="../authentication/">authenticate the user</a>.</p>
+</section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-con">
+      <div class="head"><span class="close-ico"></span>
+        <div class="hold">
+          <h2>SEARCH FOR STRATEGIES</h2>
+          <form action="/">
+            <input value="" type="text" name="strategy" placeholder="Start typing" autocomplete="off">
+          </form>
+          <p class="info-line"><span>0</span>STRATEGIES</p>
+        </div>
+      </div>
+      <div class="results">
+        <section></section>
+      </div>
+    </div>
+    <!--+google-tag-manager-noscript('GTM-M5S3PH')-->
+  </body>
+</html>

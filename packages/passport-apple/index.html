@@ -101,7 +101,7 @@
 </a>
 </p></p>
 <p>Passport strategy for the new Sign in with Apple feature, now with fetching profile information ✅!</p>
-<p>⚠️ Important note: Apple will only provide you with the name and email ONCE which is when the user taps &quot;Sign in with Apple&quot; on your app the first time. Keep in mind that you have to store this in your database at this time! For every login after that, Apple will provide you with a unique ID that you can use to lookup the username in your database.</p>
+<p>⚠️ Important note: Apple will only provide you with the name ONCE which is when the user taps &quot;Sign in with Apple&quot; on your app the first time. Keep in mind that you have to store this in your database at this time! For every login after that, Apple will provide you with a unique ID and the email that you can use to lookup the username in your database.</p>
 <h2 id="example">Example</h2>
 <p><strong>Live on <a href="https://passport-apple.ananay.dev">https://passport-apple.ananay.dev</a></strong></p>
 <p><strong>Example repo: <a href="https://github.com/ananay/passport-apple-example">https://github.com/ananay/passport-apple-example</a></strong></p>
@@ -110,50 +110,60 @@
 <code>npm install --save passport-apple</code></p>
 <p>You will also need to install &amp; configure <code>body-parser</code> if using Express:
 <code>npm install --save body-parser</code></p>
-<pre><code class="lang-js"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);
-app.use(bodyParser.urlencoded({ <span class="attr">extended</span>: <span class="literal">true</span> }));
+<pre><code class="js"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&quot;body-parser&quot;</span>);
+app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
 </code></pre>
 <p>Next, you need to configure your Apple Developer Account with Sign in with Apple.</p>
 <p>Steps for that are given here:
 <a href="https://github.com/ananay/apple-auth/blob/master/SETUP.md">https://github.com/ananay/apple-auth/blob/master/SETUP.md</a></p>
 <h2 id="usage">Usage</h2>
 <p>Initialize the strategy as follows:</p>
-<pre><code class="lang-js"><span class="keyword">const</span> AppleStrategy = <span class="built_in">require</span>(<span class="string">'passport-apple'</span>);
-passport.use(<span class="keyword">new</span> AppleStrategy({
-    <span class="attr">clientID</span>: <span class="string">""</span>,
-    <span class="attr">teamID</span>: <span class="string">""</span>,
-    <span class="attr">callbackURL</span>: <span class="string">""</span>,
-    <span class="attr">keyID</span>: <span class="string">""</span>,
-    <span class="attr">privateKeyLocation</span>: <span class="string">""</span>,
+<pre><code class="js"><span class="keyword">const</span> <span class="title class_">AppleStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-apple&#x27;</span>);
+passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AppleStrategy</span>({
+    <span class="attr">clientID</span>: <span class="string">&quot;&quot;</span>,
+    <span class="attr">teamID</span>: <span class="string">&quot;&quot;</span>,
+    <span class="attr">callbackURL</span>: <span class="string">&quot;&quot;</span>,
+    <span class="attr">keyID</span>: <span class="string">&quot;&quot;</span>,
+    <span class="attr">privateKeyLocation</span>: <span class="string">&quot;&quot;</span>,
     <span class="attr">passReqToCallback</span>: <span class="literal">true</span>
-}, <span class="function"><span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, idToken, profile, cb</span>) </span>{
+}, <span class="keyword">function</span>(<span class="params">req, accessToken, refreshToken, idToken, profile, cb</span>) {
     <span class="comment">// The idToken returned is encoded. You can use the jsonwebtoken library via jwt.decode(idToken)</span>
-    <span class="comment">// to access the properties of the decoded idToken properties which contains the user's</span>
+    <span class="comment">// to access the properties of the decoded idToken properties which contains the user&#x27;s</span>
     <span class="comment">// identity information.</span>
     <span class="comment">// Here, check if the idToken.sub exists in your database!</span>
     <span class="comment">// idToken should contains email too if user authorized it but will not contain the name</span>
     <span class="comment">// `profile` parameter is REQUIRED for the sake of passport implementation</span>
-    <span class="comment">// it should be profile in the future but apple hasn't implemented passing data</span>
+    <span class="comment">// it should be profile in the future but apple hasn&#x27;t implemented passing data</span>
     <span class="comment">// in access token yet https://developer.apple.com/documentation/sign_in_with_apple/tokenresponse</span>
-    cb(<span class="literal">null</span>, idToken);
+    <span class="title function_">cb</span>(<span class="literal">null</span>, idToken);
 }));
 </code></pre>
 <p>Add the login route:</p>
-<pre><code class="lang-js">app.get(<span class="string">"/login"</span>, passport.authenticate(<span class="string">'apple'</span>));
+<pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>));
 </code></pre>
 <p>Finally, add the callback route and handle the response:</p>
-<pre><code class="lang-js">app.post(<span class="string">"/auth"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
-    passport.authenticate(<span class="string">'apple'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user, info</span>) </span>{
+<pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&quot;/auth&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, user, info</span>) {
         <span class="keyword">if</span> (err) {
-            <span class="keyword">if</span> (err == <span class="string">"AuthorizationError"</span>) {
-                res.send(<span class="string">"Oops! Looks like you didn't allow the app to proceed. Please sign in again! &lt;br /&gt; \
-                &lt;a href=\"/login\"&gt;Sign in with Apple&lt;/a&gt;"</span>);
-            } <span class="keyword">else</span> <span class="keyword">if</span> (err == <span class="string">"TokenError"</span>) {
-                res.send(<span class="string">"Oops! Couldn't get a valid token from Apple's servers! &lt;br /&gt; \
-                &lt;a href=\"/login\"&gt;Sign in with Apple&lt;/a&gt;"</span>);
+            <span class="keyword">if</span> (err == <span class="string">&quot;AuthorizationError&quot;</span>) {
+                res.<span class="title function_">send</span>(<span class="string">&quot;Oops! Looks like you didn&#x27;t allow the app to proceed. Please sign in again! &lt;br /&gt; \
+                &lt;a href=\&quot;/login\&quot;&gt;Sign in with Apple&lt;/a&gt;&quot;</span>);
+            } <span class="keyword">else</span> <span class="keyword">if</span> (err == <span class="string">&quot;TokenError&quot;</span>) {
+                res.<span class="title function_">send</span>(<span class="string">&quot;Oops! Couldn&#x27;t get a valid token from Apple&#x27;s servers! &lt;br /&gt; \
+                &lt;a href=\&quot;/login\&quot;&gt;Sign in with Apple&lt;/a&gt;&quot;</span>);
+            } <span class="keyword">else</span> {
+                res.<span class="title function_">send</span>(err);
             }
         } <span class="keyword">else</span> {
-            res.json(user);
+            <span class="keyword">if</span> (req.<span class="property">body</span>.<span class="property">user</span>) {
+                <span class="comment">// Get the profile info (name and email) if the person is registering</span>
+                res.<span class="title function_">json</span>({
+                    <span class="attr">user</span>: req.<span class="property">body</span>.<span class="property">user</span>,
+                    <span class="attr">idToken</span>: user
+                });
+            } <span class="keyword">else</span> {
+                res.<span class="title function_">json</span>(user);
+            }            
         }
     })(req, res, next);
 });
@@ -177,14 +187,14 @@ passport.use(<span class="keyword">new</span> AppleStrategy({
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-apple</span></code></div>
             <ul>
-              <li><span class="version">2.0.1</span> published <abbr class="updated" title="2022-05-12T15:31:05Z">2 months ago</abbr></li>
+              <li><span class="version">2.0.2</span> published <abbr class="updated" title="2023-01-26T03:43:28Z">5 months ago</abbr></li>
               <li><a class="url" href="https://github.com/ananay/passport-apple">https://github.com/ananay/passport-apple#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1,763</b> downloads in the last day</li>
-              <li><b>9,364</b> downloads in the last week</li>
-              <li><b>43,394</b> downloads in the last month</li>
+              <li><b>5,645</b> downloads in the last day</li>
+              <li><b>33,297</b> downloads in the last week</li>
+              <li><b>158,361</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

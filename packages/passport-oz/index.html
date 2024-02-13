@@ -108,13 +108,13 @@ unobtrusively integrated into any application or framework that supports
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
 accepts these credentials and calls <code>done</code> providing a user, as well as
 <code>options</code> specifying a app ID and app secret.</p>
-<pre><code>passport.use(<span class="keyword">new</span> OZStrategy({
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> OZStrategy({
     clientID: OZ_APP_TOKEN,
     clientSecret: OZ_APP_SECRET
   },
-  <span class="function"><span class="keyword">function</span><span class="params">(accessToken, refreshToken, profile, done)</span> </span>{
-    User.findOrCreate({ ozId: profile.id }, <span class="function"><span class="keyword">function</span> <span class="params">(err, user)</span> </span>{
-      <span class="keyword">return</span> done(err, user);
+  <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ ozId: profile.id }, <span class="keyword">function</span> <span class="title"></span>(err, user) {
+      <span class="keyword">return</span> <span class="type">done(err,</span> user);
     });
   }
 ));
@@ -139,13 +139,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oz</span></code></div>
             <ul>
-              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T13:15:16Z">a month ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-06-23T13:15:16Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/oz/passport-oz"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

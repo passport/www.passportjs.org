@@ -96,61 +96,61 @@
           <div class="description"><h1 id="passport-okta-oauth">passport-okta-oauth</h1>
 <p><a href="http://passportjs.org/">Passport</a> strategies for authenticating with <a href="https://www.okta.com/">Okta</a> using OAuth 2.0.</p>
 <h2 id="basic-setup">Basic Setup</h2>
-<pre><code>passport.use(<span class="keyword">new</span> OktaStrategy({
-  audience: process.env.OKTA_AUDIENCE,   
-    // audience <span class="keyword">is</span> the Okta <span class="keyword">Domain</span>, 
-    // e.g. https://example.okta.com, https://example.oktapreview.com
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">OktaStrategy</span>({
+  <span class="attribute">audience</span>: process.env.OKTA_AUDIENCE,   
+    <span class="comment">// audience is the Okta Domain, </span>
+    <span class="comment">// e.g. https://example.okta.com, https://example.oktapreview.com</span>
 
-  clientID: process.env.OKTA_CLIENTID,
-    // clientID <span class="keyword">is</span> the <span class="keyword">public</span> Okta Application <span class="keyword">Client</span> Credentials, 
-    // its a <span class="number">20</span> <span class="built_in">character</span> alphanumeric <span class="keyword">string</span>
-    // e.g. U7VYvsaiuqlDOHjIVTIA  (<span class="keyword">generated</span> example)
+  <span class="attribute">clientID</span>: process.env.OKTA_CLIENTID,
+    <span class="comment">// clientID is the public Okta Application Client Credentials, </span>
+    <span class="comment">// its a 20 character alphanumeric string</span>
+    <span class="comment">// e.g. U7VYvsaiuqlDOHjIVTIA  (generated example)</span>
 
-  clientSecret: process.env.OKTA_CLIENTSECRET,
-    // clientSecret <span class="keyword">is</span> the <span class="keyword">private</span> Okta Application <span class="keyword">Client</span> Credentials, 
-    // its a <span class="number">40</span> <span class="built_in">character</span> alphanumeric <span class="keyword">string</span> <span class="keyword">with</span> a hypen(s).
-    // e.g. Vwb-R4fQnSH7uJkokDhPI-WR4qEiuWFokYANM5C  (<span class="keyword">generated</span> example)
+  <span class="attribute">clientSecret</span>: process.env.OKTA_CLIENTSECRET,
+    <span class="comment">// clientSecret is the private Okta Application Client Credentials, </span>
+    <span class="comment">// its a 40 character alphanumeric string with a hypen(s).</span>
+    <span class="comment">// e.g. Vwb-R4fQnSH7uJkokDhPI-WR4qEiuWFokYANM5C  (generated example)</span>
 
-  idp: process.env.OKTA_IDP,
-    // idp <span class="keyword">is</span> the <span class="keyword">Identity</span> Provider (<span class="keyword">id</span>). This <span class="keyword">is</span> an optional <span class="keyword">field</span>
-    // its a <span class="number">20</span> <span class="built_in">character</span> alphanumeric <span class="keyword">string</span>
-    // e.g. qOp8aaJmCEhvep5Il6ZJ  (<span class="keyword">generated</span> example)
+  <span class="attribute">idp</span>: process.env.OKTA_IDP,
+    <span class="comment">// idp is the Identity Provider (id). This is an optional field</span>
+    <span class="comment">// its a 20 character alphanumeric string</span>
+    <span class="comment">// e.g. qOp8aaJmCEhvep5Il6ZJ  (generated example)</span>
 
-  <span class="keyword">scope</span>: [<span class="string">'openid'</span>, <span class="string">'email'</span>, <span class="string">'profile'</span>],
-  response_type: <span class="string">'code'</span>,
-  callbackURL: baseURL + <span class="string">"/auth/okta/callback"</span>
-    // callbackURL <span class="keyword">is</span> the redirect <span class="keyword">URL</span> Okta should <span class="keyword">return</span> the <span class="keyword">user</span> <span class="keyword">to</span>
-    // This <span class="keyword">is</span> a <span class="keyword">URL</span> <span class="keyword">on</span> your <span class="keyword">server</span>
+  <span class="attribute">scope</span>: [<span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;profile&#x27;</span>],
+  <span class="attribute">response_type</span>: <span class="string">&#x27;code&#x27;</span>,
+  <span class="attribute">callbackURL</span>: baseURL + <span class="string">&quot;/auth/okta/callback&quot;</span>
+    <span class="comment">// callbackURL is the redirect URL Okta should return the user to</span>
+    <span class="comment">// This is a URL on your server</span>
 
-}, <span class="keyword">function</span>(accessToken, refreshToken, profile, done) {
-  // Example Callback <span class="keyword">to</span> Handle the Profile <span class="keyword">Object</span>
+}, <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
+  <span class="comment">// Example Callback to Handle the Profile Object</span>
 
-  <span class="keyword">return</span> profile
+  return profile
 }));
 </code></pre><h2 id="profile-object">Profile Object</h2>
-<pre><code> <span class="built_in"> profile </span>= {
-    provider: <span class="string">'okta-social'</span>,
+<pre><code>  profile = {
+    provider: &#x27;okta-social&#x27;,
     name: {
-      fullName:   <span class="string">'John Smith'</span>,
-      familyName: <span class="string">'Smith'</span>,
-      givenName:  <span class="string">'John'</span>
+      fullName:   &#x27;<span class="type">John</span> <span class="type">Smith</span>&#x27;,
+      familyName: &#x27;<span class="type">Smith</span>&#x27;,
+      givenName:  &#x27;<span class="type">John</span>&#x27;
     },
-    emails: [{value: <span class="string">'john.smith@example.com'</span>}],
-    _raw: <span class="string">"\{...\}"</span>
-    _json: {<span class="built_in">..</span>.}
+    emails: [{value: &#x27;john.smith@example.com&#x27;}],
+    _raw: <span class="string">&quot;\{...\}&quot;</span>
+    _json: <span class="meta">{...}</span>
   }
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-okta-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:12:22Z">a month ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:12:22Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/fischerdan/passport-okta-oauth">https://github.com/fischerdan/passport-okta-oauth</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4,611</b> downloads in the last day</li>
-              <li><b>22,931</b> downloads in the last week</li>
-              <li><b>97,922</b> downloads in the last month</li>
+              <li><b>3,746</b> downloads in the last day</li>
+              <li><b>18,785</b> downloads in the last week</li>
+              <li><b>117,955</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
