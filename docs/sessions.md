@@ -40,7 +40,10 @@ app.use(session({
 To maintain a login session, Passport serializes and deserializes user
 information to and from the session.  The information that is stored is
 determined by the application, which supplies a `serializeUser` and a
-`deserializeUser` function.
+`deserializeUser` function. Note that in the `deserializeUser` callback,
+we need to make sure to never send `undefined`, as that would cause an
+error to be thrown. Instead, pass `null` or `false`.
+
 
 ```javascript
 passport.serializeUser(function(user, cb) {
@@ -123,7 +126,7 @@ passport.serializeUser(function(user, cb) {
 passport.deserializeUser(function(id, cb) {
   db.get('SELECT * FROM users WHERE id = ?', [ id ], function(err, user) {
     if (err) { return cb(err); }
-    return cb(null, user);
+    return cb(null, user || null); // If `user` is undefined, we have to provide null instead
   });
 });
 ```
