@@ -76,7 +76,7 @@ site.use(kerouac.content('content'));
 site.use('/', require('kerouac-manifest')());
 site.page('/sitemap.xml', require('kerouac-sitemap')());
 site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
-site.page('/robots.txt', require('kerouac-robotstxt')());
+site.use(require('kerouac-robotstxt')());
 site.use(kerouac.assets('assets'));
 // TODO: .well-known/security.txt
 
