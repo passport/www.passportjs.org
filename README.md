@@ -1,8 +1,7 @@
 # www.passportjs.org
 
-## Usage
-
-Visit [www.passportjs.org](http://www.passportjs.org)
+This repository contains the official website of [Passport.js](https://github.com/jaredhanson/passport),
+authentication middleware for [Express](https://expressjs.com/) for [Node.js](https://nodejs.org/).
 
 ## Contributing
 
