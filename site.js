@@ -11,7 +11,7 @@ var moment = require('moment');
 
 
 var site = kerouac();
-site.engine('pug', require('pug'));
+site.engine('pug', require('pug').renderFile);
 
 site.set('base url', 'https://www.passportjs.org');
 site.set('layout engine', 'pug');
