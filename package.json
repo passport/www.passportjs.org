@@ -21,10 +21,10 @@
     "heroku-postbuild": "git clone -b gh-pages --depth 1 https://github.com/passport/www.passportjs.org.git www && rm -rf www/.git"
   },
   "dependencies": {
-    "bixby": "^0.2.5",
-    "bixby-common": "^0.2.1",
-    "bixby-http": "^0.2.2",
-    "bixby-express": "^0.2.2",
+    "bixby": "0.2.5",
+    "bixby-common": "0.2.1",
+    "bixby-express": "0.2.2",
+    "bixby-http": "0.2.2",
     "debug": "~2.1.1",
     "dotenv": "^4.0.0",
     "express": "~4.12.2",
@@ -43,9 +43,14 @@
     "supermarked": "^2.0.0"
   },
   "devDependencies": {
+    "@modulate/developer": "github:modulate/nodex-developer",
     "kerouac": "github:jaredhanson/kerouac",
+    "kerouac-book": "0.0.2",
     "kerouac-npm-packages": "github:jaredhanson/kerouac-npm-packages",
-    "kerouac-book": "github:jaredhanson/kerouac-book",
+    "kerouac-manifest": "^0.0.1",
+    "kerouac-robotstxt": "^0.6.0",
+    "kerouac-sitemap": "^0.5.0",
+    "kerouac-blog": "^0.0.2",
     "moment": "^2.20.1",
     "pug": "^2.0.0-rc.4"
   },

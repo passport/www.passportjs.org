@@ -15,6 +15,7 @@ site.engine('pug', require('pug'));
 
 site.set('base url', 'https://www.passportjs.org');
 site.set('layout engine', 'pug');
+site.set('output', 'www');
 site.locals.pretty = true;
 
 /*
@@ -60,7 +61,7 @@ site.use('/concepts/oauth2', book('books/concepts/oauth2'));
 site.use('/concepts/twitter', book('books/concepts/twitter'));
 site.use('/howtos/password', book('books/howtos/password'));
 site.use('/howtos/session', book('books/howtos/session'));
-site.use('/howtos/google', book('books/howtos/google'));
+//site.use('/howtos/google', book('books/howtos/google'));
 site.use('/reference/normalized-profile', book('books/reference/normalized-profile'));
 site.use('/tutorials/password', book('books/tutorials/password'));
 site.use('/tutorials/google', book('books/tutorials/google'))
@@ -75,7 +76,7 @@ site.use(kerouac.content('content'));
 site.use('/', require('kerouac-manifest')());
 site.page('/sitemap.xml', require('kerouac-sitemap')());
 site.page('/sitemap-index.xml', require('kerouac-sitemap').index());
-site.page('/robots.txt', require('kerouac-robotstxt')());
+site.use(require('kerouac-robotstxt')());
 site.use(kerouac.assets('assets'));
 // TODO: .well-known/security.txt
 
@@ -101,7 +102,7 @@ site.generate({
   '/concepts/twitter': book.createMapper('books/concepts/twitter'),
   '/howtos/password': book.createMapper('books/howtos/password'),
   '/howtos/session': book.createMapper('books/howtos/session'),
-  '/howtos/google': book.createMapper('books/howtos/google'),
+  //'/howtos/google': book.createMapper('books/howtos/google'),
   '/reference/normalized-profile': book.createMapper('books/reference/normalized-profile'),
   '/tutorials/password': book.createMapper('books/tutorials/password'),
   '/tutorials/google': book.createMapper('books/tutorials/google'),
