@@ -41,8 +41,13 @@ frameworks and dependencies.
 
 #### CSS
 
-Stylesheets are authored in [Stylus](https://stylus-lang.com/) and compiled to
-CSS during the build step.  Source files are located in the [`web/styles`](https://github.com/passport/www.passportjs.org/tree/master/web/styles)
-directory.
+CSS is structured using the techniques described in [Scalable and Modular
+Architecture for CSS](http://smacss.com/) (SMACSS).
 
+Stylesheets are authored in [Stylus](https://stylus-lang.com/).  Source files
+are located in the [`web/styles`](https://github.com/passport/www.passportjs.org/tree/master/web/styles)
+directory.  Rules are split across multiple files named in accordance with
+SMACCS [categorization](http://smacss.com/book/categorizing/).  `app.style`
+is the "main" stylesheet which imports all others.  The source files are
+compiled to a single CSS stylesheet during the build step.
 
