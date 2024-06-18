@@ -35,6 +35,14 @@ $ git push origin gh-pages  # deploy site
 ### Architecture
 
 The architecture of this site is simple: it is a static site consisting of HTML,
-CSS, and (minimal) JavaScript.  Toolchain choices tend to favor staying as close
-to web standards and Node.js conventions as possible, minimizing the need for
+CSS, and JavaScript.  Toolchain choices tend to favor staying as close to web
+standards and Node.js conventions as possible, minimizing the need for
 frameworks and dependencies.
+
+#### CSS
+
+Stylesheets are authored in [Stylus](https://stylus-lang.com/) and compiled to
+CSS during the build step.  Source files are located in the [web/styles](https://github.com/passport/www.passportjs.org/tree/master/web/styles)
+directory.
+
+
