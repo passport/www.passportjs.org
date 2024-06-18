@@ -42,7 +42,7 @@ frameworks and dependencies.
 #### CSS
 
 Stylesheets are authored in [Stylus](https://stylus-lang.com/) and compiled to
-CSS during the build step.  Source files are located in the [web/styles](https://github.com/passport/www.passportjs.org/tree/master/web/styles)
+CSS during the build step.  Source files are located in the [`web/styles`](https://github.com/passport/www.passportjs.org/tree/master/web/styles)
 directory.
 
 
