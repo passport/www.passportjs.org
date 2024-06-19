@@ -159,8 +159,7 @@ necessary configuration, and accommodates any provider-specific quirks. See
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-oauth
-</code></pre>
-<h3 id="oauth-1-0">OAuth 1.0</h3>
+</code></pre><h3 id="oauth-10">OAuth 1.0</h3>
 <p>OAuth 1.0 is a delegated authentication strategy that involves multiple steps.
 First, a request token must be obtained.  Next, the user is redirected to the
 service provider to authorize access.  Finally, after authorization has been
@@ -187,8 +186,7 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;pro
     });
   }
 ));
-</code></pre>
-<p>The verify callback for OAuth-based strategies accepts <code>token</code>, <code>tokenSecret</code>,
+</code></pre><p>The verify callback for OAuth-based strategies accepts <code>token</code>, <code>tokenSecret</code>,
 and <code>profile</code> arguments.  <code>token</code> is the access token and <code>tokenSecret</code> is its
 corresponding secret.  <code>profile</code> will contain user profile information provided
 by the service provider; refer to <a href="/guide/profile/">User Profile</a> for
@@ -210,13 +208,11 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                       <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="link">Link</h2>
+</code></pre><h2 id="link">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
 <pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<h3 id="oauth-2-0">OAuth 2.0</h3>
+</code></pre><h3 id="oauth-20">OAuth 2.0</h3>
 <p>OAuth 2.0 is the successor to OAuth 1.0, and is designed to overcome perceived
 shortcomings in the earlier version.  The authentication flow is essentially the
 same.  The user is first redirected to the service provider to authorize access.
@@ -224,7 +220,7 @@ After authorization has been granted, the user is redirected back to the
 application with a code that can be exchanged for an access token.  The
 application requesting access, known as a <em>client</em>, is identified by an ID and
 secret.</p>
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration-1">Configuration</h2>
 <p>When using the generic OAuth 2.0 strategy, the client ID, client secret, and
 endpoints are specified as options.</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
@@ -243,13 +239,12 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;pro
     });
   }
 ));
-</code></pre>
-<p>The verify callback for OAuth 2.0-based strategies accepts <code>accessToken</code>,
+</code></pre><p>The verify callback for OAuth 2.0-based strategies accepts <code>accessToken</code>,
 <code>refreshToken</code>, and <code>profile</code> arguments.  <code>refreshToken</code> can be used to obtain
 new access tokens, and may be <code>undefined</code> if the provider does not issue refresh
 tokens.  <code>profile</code> will contain user profile information provided by the service
 provider; refer to <a href="/guide/profile/">User Profile</a> for additional information.</p>
-<h2 id="routes">Routes</h2>
+<h2 id="routes-1">Routes</h2>
 <p>Two routes are required for OAuth 2.0 authentication.  The first route redirects
 the user to the service provider.  The second route is the URL to which the user
 will be redirected after authenticating with the provider.</p>
@@ -265,27 +260,23 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                       <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="scope">Scope</h2>
+</code></pre><h2 id="scope">Scope</h2>
 <p>When requesting access using OAuth 2.0, the scope of access is controlled by the
 scope option.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: <span class="string">&#x27;email&#x27;</span> })
 );
-</code></pre>
-<p>Multiple scopes can be specified as an array.</p>
+</code></pre><p>Multiple scopes can be specified as an array.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;sms&#x27;</span>] })
 );
-</code></pre>
-<p>Values for the <code>scope</code> option are provider-specific.  Consult the provider&#39;s
+</code></pre><p>Values for the <code>scope</code> option are provider-specific.  Consult the provider&#39;s
 documentation for details regarding supported scopes.</p>
-<h2 id="link">Link</h2>
+<h2 id="link-1">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
 <pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth 2.0 Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-</section>
+</code></pre></section>
           </div>
         </div>
       </div>

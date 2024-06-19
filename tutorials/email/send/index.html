@@ -122,16 +122,14 @@ strategy configured, the next step is to send the user an email when they click
 }), <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
   res.<span class="title function_">redirect</span>(<span class="string">&#x27;/login/email/check&#x27;</span>);
 });
-</code></pre>
-<p>This route will process the form on the login page and send an email to the
+</code></pre><p>This route will process the form on the login page and send an email to the
 user.</p>
 <p>Continuing within <code>&#39;routes/auth.js&#39;</code>, add this route at line 63, below the newly
 added <code>&#39;/login/email&#39;</code> route:</p>
 <pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/login/email/check&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
   res.<span class="title function_">render</span>(<span class="string">&#x27;login/email/check&#x27;</span>);
 });
-</code></pre>
-<p>This route will render a page instructing the user to check their email and
+</code></pre><p>This route will render a page instructing the user to check their email and
 click the link.</p>
 <p>Next, we will <a href="../verify/">verify the email</a> when the user clicks that link.</p>
 </section>

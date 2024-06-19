@@ -112,8 +112,7 @@ web framework.</p>
 <h1 id="middleware">Middleware</h1>
 <p>Add session support by installing <a href="https://github.com/expressjs/session"><code>express-session</code></a>:</p>
 <pre><code class="sh">$ npm install express-session
-</code></pre>
-<p>Use it as application-level middleware.</p>
+</code></pre><p>Use it as application-level middleware.</p>
 <pre><code class="js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
 app.<span class="title function_">use</span>(<span class="title function_">session</span>({
@@ -122,8 +121,7 @@ app.<span class="title function_">use</span>(<span class="title function_">sessi
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
 }));
-</code></pre>
-<h1 id="configure">Configure</h1>
+</code></pre><h1 id="configure">Configure</h1>
 <p>Register functions that serialize and deserialize user information to and from
 the session.</p>
 <pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
@@ -143,13 +141,11 @@ passport.<span class="title function_">deserializeUser</span>(<span class="keywo
     <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
-</code></pre>
-<h1 id="routes">Routes</h1>
+</code></pre><h1 id="routes">Routes</h1>
 <p>Authenticate <em>all</em> routes by using <code>passport.authenticate()</code> as
 application-level middleware.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
-</code></pre>
-<p>Note that this middleware must be <code>use()</code>&#39;d <em>after</em> <code>session()</code> middleware added
+</code></pre><p>Note that this middleware must be <code>use()</code>&#39;d <em>after</em> <code>session()</code> middleware added
 in the previous step.</p>
 <p>Alternatively, authenticate specific routes by using <code>passport.authenticate()</code>
 on routes mounted at a path.</p>
@@ -158,8 +154,7 @@ on routes mounted at a path.</p>
   <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
     <span class="comment">/* ... */</span>
   });
-</code></pre>
-</section>
+</code></pre></section>
           </div>
         </div>
       </div>

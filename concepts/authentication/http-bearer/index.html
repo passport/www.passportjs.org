@@ -134,7 +134,7 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="oauth-2-0">OAuth 2.0</h1>
+            <section class="chapter"><h1 id="oauth-20">OAuth 2.0</h1>
 <p>OAuth 2.0 (formally specified by <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>)
 provides an authorization framework which allows users to authorize access to
 third-party applications.  When authorized, the application is issued a token to
@@ -180,8 +180,7 @@ type of token issued.</p>
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http-bearer
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BearerStrategy</span>(
   <span class="keyword">function</span>(<span class="params">token, done</span>) {
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: token }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
@@ -191,8 +190,7 @@ module.</p>
     });
   }
 ));
-</code></pre>
-<p>The verify callback for bearer tokens accepts the <code>token</code> as an argument.
+</code></pre><p>The verify callback for bearer tokens accepts the <code>token</code> as an argument.
 When invoking <code>done</code>, optional <code>info</code> can be passed, which will be set by
 Passport at <code>req.authInfo</code>.  This is typically used to convey the scope of the
 token, and can be used when making access control checks.</p>
@@ -202,8 +200,7 @@ token, and can be used when making access control checks.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 </section>
           </div>

@@ -141,8 +141,7 @@ can be used to establish a login session.</p>
   <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">next</span>(err); }
   <span class="keyword">return</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/users/&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
 });
-</code></pre>
-<p>When the login operation completes, <code>user</code> will be assigned to <code>req.user</code>.</p>
+</code></pre><p>When the login operation completes, <code>user</code> will be assigned to <code>req.user</code>.</p>
 <p>Note: <code>passport.authenticate()</code> middleware invokes <code>req.login()</code> automatically.
 This function is primarily used when users sign up, during which <code>req.login()</code>
 can be invoked to automatically log in the newly registered user.</p>

@@ -124,8 +124,7 @@ whose access token is used to authenticate the API request:</p>
 <pre><code class="http"><span class="keyword">GET</span> <span class="string">/v3.2/me</span> <span class="meta">HTTP/1.1</span>
 <span class="attribute">Host</span><span class="punctuation">: </span>graph.facebook.com
 <span class="attribute">Authorization</span><span class="punctuation">: </span>Bearer IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0
-</code></pre>
-<p>Note that the access token that was just issued is being used as a credential in
+</code></pre><p>Note that the access token that was just issued is being used as a credential in
 the <code>Authorization</code> header.  Because the token is a bearer token, it is utilized
 by simply including the access token string in the request according to the
 <code>Bearer</code> scheme, as specified by <a href="https://datatracker.ietf.org/doc/html/rfc6750">RFC 6750</a>.</p>
@@ -138,20 +137,18 @@ and that the authorization granted permits access to the resource.  If so,
 Facebook responds with information about the user.</p>
 <pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
 <span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json
-
-<span class="language-json"><span class="punctuation">{</span>
-  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice Smith&quot;</span><span class="punctuation">,</span>
-  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;14818013739641407&quot;</span>
-<span class="punctuation">}</span></span>
-</code></pre>
-<p>Keep in mind that at this point Passport is still processing the authorization
+     
+{
+  &quot;name&quot;: &quot;Alice Smith&quot;,
+  &quot;id&quot;: &quot;14818013739641407&quot;
+}
+</code></pre><p>Keep in mind that at this point Passport is still processing the authorization
 response using a route:</p>
 <pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, {
   <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>The user request is interleaved in the middle of processing the authorization
+</code></pre><p>The user request is interleaved in the middle of processing the authorization
 response, after the prior token request.  A visualization of of the requests and
 responses that have occured up to this point looks as follows:</p>
 <pre><code class="sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
@@ -164,8 +161,7 @@ responses that have occured up to this point looks as follows:</p>
 |     |                               +-----+  |         |
 |     |   ...additional processing...          |         |
 +-----+                                        +---------+
-</code></pre>
-<p>Now that Passport has obtained the user profile, it can <a href="../authentication/">authenticate the user</a>.</p>
+</code></pre><p>Now that Passport has obtained the user profile, it can <a href="../authentication/">authenticate the user</a>.</p>
 </section>
           </div>
         </div>

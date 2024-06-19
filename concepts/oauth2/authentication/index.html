@@ -144,8 +144,7 @@ this occurs while Passport is processing the authorization response:</p>
   <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>The complete visualization of the requests, responses, and function calls that
+</code></pre><p>The complete visualization of the requests, responses, and function calls that
 occur looks as follows:</p>
 <pre><code class="sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
 |     |                                        |         |
@@ -159,8 +158,7 @@ occur looks as follows:</p>
 |     |.login();                               |         |
 |     |                                        |         |
 +-----+ ---- HTTP/1.1 302 [ Location: / ] ---&gt; +---------+
-</code></pre>
-<p>Everything in between the request to the redirection endpoint
+</code></pre><p>Everything in between the request to the redirection endpoint
 (<code>/oauth2/redirect/facebook</code>) and the redirect to the application (<code>/</code>) is
 handled by Passport.</p>
 </section>

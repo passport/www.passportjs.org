@@ -123,8 +123,7 @@ endpoint, which returns data about the user&#39;s account:</p>
   oauth_token=&quot;7588892-kagSNqWge8gB1WwE3plnFsJHAZVfxWD7Vb57p0b4&quot;,
   oauth_version=&quot;1.0&quot;,
   oauth_signature=&quot;XXXXXXXX&quot;
-</code></pre>
-<p>The parameters for this request are conveyed in the <code>Authorization</code> header.
+</code></pre><p>The parameters for this request are conveyed in the <code>Authorization</code> header.
 Let&#39;s examine them.</p>
 <ul>
 <li><p><code>oauth_consumer_key</code>: Identifies the application to the service provider.
@@ -158,15 +157,14 @@ signature are valid and that the authorization granted permits access to the
 resource.  If so, Twitter responds with information about the user.</p>
 <pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
 <span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json
-
-<span class="language-json"><span class="punctuation">{</span>
-  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">38895958</span><span class="punctuation">,</span>
-  <span class="attr">&quot;id_str&quot;</span><span class="punctuation">:</span> <span class="string">&quot;38895958&quot;</span><span class="punctuation">,</span>
-  <span class="attr">&quot;screen_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;theSeanCook&quot;</span><span class="punctuation">,</span>
-  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sean Cook&quot;</span>
-<span class="punctuation">}</span></span>
-</code></pre>
-<p>Now that Passport has obtained the user profile, it can <a href="../authentication/">authenticate the user</a>.</p>
+     
+{
+  &quot;id&quot;: 38895958,
+  &quot;id_str&quot;: &quot;38895958&quot;,
+  &quot;screen_name&quot;: &quot;theSeanCook&quot;,
+  &quot;name&quot;: &quot;Sean Cook&quot;
+}
+</code></pre><p>Now that Passport has obtained the user profile, it can <a href="../authentication/">authenticate the user</a>.</p>
 </section>
           </div>
         </div>

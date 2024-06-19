@@ -118,16 +118,14 @@
 <pre><code class="sh">$ npm install passport
 $ npm install passport-magic-link
 $ npm install @sendgrid/mail
-</code></pre>
-<p>Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the newly installed packages at line 2,
+</code></pre><p>Open <code>&#39;routes/auth.js&#39;</code> and <code>require</code> the newly installed packages at line 2,
 below where <code>express</code> is <code>require</code>&#39;d:</p>
 <pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">MagicLinkStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-magic-link&#x27;</span>).<span class="property">Strategy</span>;
 <span class="keyword">var</span> sendgrid = <span class="built_in">require</span>(<span class="string">&#x27;@sendgrid/mail&#x27;</span>);
 <span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">&#x27;../db&#x27;</span>);
-</code></pre>
-<p>The app&#39;s database is also <code>require</code>&#39;d.</p>
+</code></pre><p>The app&#39;s database is also <code>require</code>&#39;d.</p>
 <p>Add the following code at line 7 to configure the <code>MagicLinkStrategy</code>.</p>
 <pre><code>sendgrid.setApiKey(process.env[<span class="string">&#x27;SENDGRID_API_KEY&#x27;</span>]);
 

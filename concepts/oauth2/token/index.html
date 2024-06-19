@@ -121,8 +121,7 @@ request</em> to the authorization server&#39;s <em>token endpoint</em>
 &amp;<span class="attribute">redirect_uri</span>=https%3A%2F%2Fwww.example.com%2Foauth2%2Fredirect%2Ffacebook
 &amp;<span class="attribute">client_id</span>=3087198538966924
 &amp;<span class="attribute">client_secret</span>=q0ajuzz0dvjrylrej0lklqgrz4yhbij3</span>
-</code></pre>
-<p>Let&#39;s examine the parameters in this request.</p>
+</code></pre><p>Let&#39;s examine the parameters in this request.</p>
 <ul>
 <li><p><code>grant_type</code>: Indicates the type of grant being exchanged for an access
   token.  The value <code>authorization_code</code> indicates that an authorization
@@ -172,14 +171,14 @@ that the value of <code>redirect_uri</code> is identical to that included in the
 authorization request.</p>
 <p>If the authorization request is valid and authorized, Facebook issues an access
 token:</p>
-<pre><code><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK
-<span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json
-
-<span class="language-json"><span class="punctuation">{</span>
-  <span class="attr">&quot;access_token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0&quot;</span><span class="punctuation">,</span>
-  <span class="attr">&quot;token_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bearer&quot;</span><span class="punctuation">,</span>
-  <span class="attr">&quot;expires_in&quot;</span><span class="punctuation">:</span> <span class="number">5169265</span>
-<span class="punctuation">}</span></span>
+<pre><code>HTTP/<span class="number">1.1</span> <span class="number">200</span> OK
+<span class="attribute">Content</span>-Type: application/json
+     
+{
+  &quot;access_token&quot;: <span class="string">&quot;IAxLF5woqmfjTCHRD6gnp9X9RNVK3TG0&quot;</span>,
+  <span class="string">&quot;token_type&quot;</span>: <span class="string">&quot;bearer&quot;</span>,
+  <span class="string">&quot;expires_in&quot;</span>: <span class="number">5169265</span>
+}
 </code></pre><p>Let&#39;s examine the parameters in this response.</p>
 <ul>
 <li><p><code>access_token</code>: The access token issued by the authorization server.  This
@@ -208,8 +207,7 @@ completed, Passport is still processing the authorization response using a route
   <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>The token request is interleaved in the middle of processing the authorization
+</code></pre><p>The token request is interleaved in the middle of processing the authorization
 response.  A visualization of of the requests and responses that have occured
 up to this point looks as follows:</p>
 <pre><code class="sh">+-----+ &lt;-- POST /oauth2/redirect/facebook --- +---------+
@@ -219,8 +217,7 @@ up to this point looks as follows:</p>
 |     |                               +-----+  |         |
 |     |   ...additional processing...          |         |
 +-----+                                        +---------+
-</code></pre>
-<p>Now that the application has obtained an access token, it can <a href="../profile/">access the user
+</code></pre><p>Now that the application has obtained an access token, it can <a href="../profile/">access the user
 profile</a>.</p>
 </section>
           </div>

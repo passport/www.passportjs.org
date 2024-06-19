@@ -122,23 +122,19 @@ this tutorial.</p>
 <p>Install <code>passport</code> and the <code>passport-facebook</code> strategy as dependencies.</p>
 <pre><code class="sh">$ npm install passport
 $ npm install passport-facebook
-</code></pre>
-<p>Open <code>routes/auth.js</code> and <code>require()</code> the newly installed packages, as well as
+</code></pre><p>Open <code>routes/auth.js</code> and <code>require()</code> the newly installed packages, as well as
 the app&#39;s database, at line 2, below <code>require(&#39;express&#39;)</code>.</p>
 <pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">FacebookStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-facebook&#x27;</span>);
 <span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">&#x27;../db&#x27;</span>);
-</code></pre>
-<p>Next, add a route that will redirect the user when they click &quot;Sign in with
+</code></pre><p>Next, add a route that will redirect the user when they click &quot;Sign in with
 Facebook&quot;.  Continuing within <code>routes/auth.js</code>, add the following code at line 12,
 below the <code>/login</code> route.</p>
 <pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/login/federated/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>));
-</code></pre>
-<p>Try signing in by starting the server.</p>
+</code></pre><p>Try signing in by starting the server.</p>
 <pre><code class="sh">$ npm start
-</code></pre>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
+</code></pre><p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
 click &quot;Sign in with Facebook.&quot;</p>
 <p>Uh oh... the app fails with an error indicating that the Facebook authentication
 strategy is unknown.  That will be fixed by <a href="../configure/">configuring the strategy</a>.

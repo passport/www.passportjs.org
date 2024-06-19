@@ -119,13 +119,11 @@ registration.</p>
 <p>First, create a <code>.env</code> file to store the client ID and secret that were obtained
 from Facebook.</p>
 <pre><code class="sh">$ <span class="built_in">touch</span> .<span class="built_in">env</span>
-</code></pre>
-<p>Then, add the client ID and secret.  The contents of <code>.env</code> should look as
+</code></pre><p>Then, add the client ID and secret.  The contents of <code>.env</code> should look as
 follows.</p>
 <pre><code class="sh">FACEBOOK_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
 FACEBOOK_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
-</code></pre>
-<p>The client ID and secret obtained from Facebook should be inserted where noted.</p>
+</code></pre><p>The client ID and secret obtained from Facebook should be inserted where noted.</p>
 <p>Open <code>routes/auth.js</code> and add the following code at line 6 to configure the
 <code>FacebookStrategy</code>.</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">FacebookStrategy</span>({
@@ -144,7 +142,7 @@ FACEBOOK_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
         profile.<span class="property">displayName</span>
       ], <span class="keyword">function</span>(<span class="params">err</span>) {
         <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
-
+        
         <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
         db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
           id,
@@ -168,8 +166,7 @@ FACEBOOK_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
     }
   });
 }));
-</code></pre>
-<p>This configures the <code>FacebookStrategy</code> to fetch the user record associated with
+</code></pre><p>This configures the <code>FacebookStrategy</code> to fetch the user record associated with
 the Facebook account.  If a user record does not exist, one is created the first
 time someone signs in.  In either case, the user is authenticated.</p>
 <p>The strategy is now configured.  Next you will add session support to the app in

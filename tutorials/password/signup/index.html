@@ -118,8 +118,7 @@ this section, you&#39;ll add a signup page that allows users to create an accoun
 <pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/signup&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
   res.<span class="title function_">render</span>(<span class="string">&#x27;signup&#x27;</span>);
 });
-</code></pre>
-<p>This route will render the signup page.  Add an HTML form to that page which
+</code></pre><p>This route will render the signup page.  Add an HTML form to that page which
 will prompt the user to create a new account with their preferred username and
 password.</p>
 <p>Open <code>views/signup.ejs</code> and add the form at line 15, below the &quot;Sign up&quot;
@@ -136,8 +135,7 @@ heading.</p>
     <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
     <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign up<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<p>Finally, add a route that will handle the form submission when the user clicks
+</code></pre><p>Finally, add a route that will handle the form submission when the user clicks
 &quot;Sign up.&quot;  Back within <code>routes/auth.js</code>, add the following route at line 56,
 below the <code>/signup</code> route.</p>
 <pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/signup&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
@@ -161,8 +159,7 @@ below the <code>/signup</code> route.</p>
     });
   });
 });
-</code></pre>
-<p>This route creates a new user record in the app&#39;s database, storing the username
+</code></pre><p>This route creates a new user record in the app&#39;s database, storing the username
 and hashed password.  Once the record is created, the user is logged in.</p>
 <p>Return to the app and create a new account.</p>
 <p>You have built an app that allows users to sign up, sign in, and sign out!</p>

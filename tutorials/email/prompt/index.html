@@ -116,8 +116,7 @@
 prompts the user to enter their address.  Let&#39;s add that now.</p>
 <p>Let&#39;s create a file that will contain authentication-related routes:</p>
 <pre><code class="sh">$ <span class="built_in">touch</span> routes/auth.js
-</code></pre>
-<p>Add the following code to that file, which creates a login route that will
+</code></pre><p>Add the following code to that file, which creates a login route that will
 render the login page.</p>
 <pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 
@@ -128,23 +127,19 @@ router.<span class="title function_">get</span>(<span class="string">&#x27;/logi
 });
 
 <span class="variable language_">module</span>.<span class="property">exports</span> = router;
-</code></pre>
-<p>Next, we need to add this route to the app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
+</code></pre><p>Next, we need to add this route to the app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
 newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
 <code>require</code>&#39;d:</p>
 <pre><code class="js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/auth&#x27;</span>);
-</code></pre>
-<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
+</code></pre><p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
 below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter);
 app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, authRouter);
-</code></pre>
-<p>The login page has been added to our app!  Let&#39;s see how it looks.</p>
+</code></pre><p>The login page has been added to our app!  Let&#39;s see how it looks.</p>
 <p>Start the server:</p>
 <pre><code class="sh">$ npm start
-</code></pre>
-<p>And open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;  We
+</code></pre><p>And open <a href="http://localhost:3000">http://localhost:3000</a> and click &quot;Sign in.&quot;  We
 are prompted to sign in, but there&#39;s no place to enter an email address.</p>
 <p>For that we need an HTML form.  Let&#39;s add that now.</p>
 <p>Open <code>&#39;views/login.ejs&#39;</code> and add the form at line 15, below the &quot;Sign in&quot;
@@ -157,8 +152,7 @@ heading:</p>
     <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
     <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in with Email<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<p>Refresh the page.  We&#39;ve now got a login page that prompts the user to sign in
+</code></pre><p>Refresh the page.  We&#39;ve now got a login page that prompts the user to sign in
 with email.  Next, we will <a href="../setup/">set up SendGrid</a>, in preparation for
 sending the user a magic link.</p>
 </section>

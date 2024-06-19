@@ -151,12 +151,10 @@ installed using a package manager.</p>
 a package which provides a strategy for authenticating with a username and
 password:</p>
 <pre><code class="bash">$ npm install passport-local
-</code></pre>
-<p>And the following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
+</code></pre><p>And the following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
 a package which implements support for <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>:</p>
 <pre><code class="bash">$ npm install passport-openidconnect
-</code></pre>
-<p>Developers only need to install the packages which provide authentication
+</code></pre><p>Developers only need to install the packages which provide authentication
 mechanisms required by the application.  These packages are then plugged into
 Passport.  This reduces overall application size by avoiding unnecessary
 dependencies.</p>
@@ -172,7 +170,7 @@ that are encountered across many strategies.</p>
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -182,8 +180,7 @@ that are encountered across many strategies.</p>
     });
   });
 });
-</code></pre>
-<h4 id="verify-function">Verify Function</h4>
+</code></pre><h4 id="verify-function">Verify Function</h4>
 <p>The <code>LocalStrategy</code> constructor takes a function as an argument.  This function
 is known as a <code>verify</code> function, and is a common pattern in many strategies.
 When authenticating a request, a strategy parses the credential contained in the
@@ -211,16 +208,13 @@ an error.</p>
 <p>If the <code>verify</code> function finds a user to which the credential belongs, and that
 credential is valid, it calls the callback with the authenticating user:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
-</code></pre>
-<p>If the credential does not belong to a known user, or is not valid, the <code>verify</code>
+</code></pre><p>If the credential does not belong to a known user, or is not valid, the <code>verify</code>
 function calls the callback with <code>false</code> to indicate an authentication failure:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>);
-</code></pre>
-<p>If an error occurs, such as the database not being available, the callback is
+</code></pre><p>If an error occurs, such as the database not being available, the callback is
 called with an error, in idiomatic Node.js style:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(err);
-</code></pre>
-<p>It is important to distinguish between the two failure cases that can occur.
+</code></pre><p>It is important to distinguish between the two failure cases that can occur.
 Authentication failures are expected conditions, in which the server is
 operating normally, even though invalid credentials are being received from the
 user (or a malicious adversary attempting to authenticate as the user).  Only
@@ -231,8 +225,7 @@ internal error.</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
 passport.<span class="title function_">use</span>(strategy);
-</code></pre>
-<p>All strategies have a name which, by convention, corresponds to the package
+</code></pre><p>All strategies have a name which, by convention, corresponds to the package
 name according to the pattern <code>passport-{name}</code>.  For instance, the
 <code>LocalStrategy</code> configured above is named <code>local</code> as it is distributed in the
 <code>passport-local</code> package.</p>
@@ -244,22 +237,19 @@ middleware:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>In cases where there is a naming conflict, or the default name is not
+</code></pre><p>In cases where there is a naming conflict, or the default name is not
 sufficiently descriptive, the name can be overridden when registering the
 strategy by passing a name as the first argument to <code>.use()</code>:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
 passport.<span class="title function_">use</span>(<span class="string">&#x27;password&#x27;</span>, strategy);
-</code></pre>
-<p>That name is then specified to <code>passport.authenticate()</code> middleware:</p>
+</code></pre><p>That name is then specified to <code>passport.authenticate()</code> middleware:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;password&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>For brevity, strategies are often configured and registered in a single
+</code></pre><p>For brevity, strategies are often configured and registered in a single
 statement:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">LocalStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-local&#x27;</span>);
@@ -267,8 +257,7 @@ statement:</p>
 passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>(<span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">username, password, cb</span>) {
   <span class="comment">// ...</span>
 });
-</code></pre>
-</section>
+</code></pre></section>
           </div>
         </div>
       </div>

@@ -116,22 +116,20 @@ password is correct.</p>
 <p>Install <code>passport</code> and the <code>passport-local</code> strategy as dependencies.</p>
 <pre><code class="sh">$ npm install passport
 $ npm install passport-local
-</code></pre>
-<p>Next, configure Passport.  Open <code>routes/auth.js</code> and <code>require()</code> the newly
+</code></pre><p>Next, configure Passport.  Open <code>routes/auth.js</code> and <code>require()</code> the newly
 installed packages at line 2, below <code>require(&#39;express&#39;)</code>.</p>
 <pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">LocalStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-local&#x27;</span>);
 <span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>);
 <span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">&#x27;../db&#x27;</span>);
-</code></pre>
-<p>The built-in crypto module and the app&#39;s database are also <code>require()</code>&#39;d.</p>
+</code></pre><p>The built-in crypto module and the app&#39;s database are also <code>require()</code>&#39;d.</p>
 <p>Add the following code at line 7 to configure the <code>LocalStrategy</code>.</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>(<span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">username, password, cb</span>) {
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, row</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!row) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, row.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(row.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -141,8 +139,7 @@ installed packages at line 2, below <code>require(&#39;express&#39;)</code>.</p>
     });
   });
 }));
-</code></pre>
-<p>This configures the <code>LocalStrategy</code> to fetch the user record from the app&#39;s
+</code></pre><p>This configures the <code>LocalStrategy</code> to fetch the user record from the app&#39;s
 database and verify the hashed password against the password submitted by the
 user.  If that succeeds, the password is valid and the user is authenticated.</p>
 <p>Next, add a route that will authenticate the user when they submit the form by
@@ -152,11 +149,9 @@ at line 28, below the <code>/login</code> route.</p>
   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>Try signing in by starting the server.</p>
+</code></pre><p>Try signing in by starting the server.</p>
 <pre><code class="sh">$ npm start
-</code></pre>
-<p>Open <a href="http://localhost:3000/">http://localhost:3000</a>, click &quot;Sign in,&quot; and enter
+</code></pre><p>Open <a href="http://localhost:3000/">http://localhost:3000</a>, click &quot;Sign in,&quot; and enter
 the following credentials:</p>
 <pre><code><span class="symbol">Username:</span> alice
 <span class="symbol">Password:</span> letmein

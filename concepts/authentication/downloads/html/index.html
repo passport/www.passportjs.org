@@ -157,8 +157,7 @@ issued via <a href="https://oauth.net/">OAuth</a>.</p>
 of any of these authentication mechanisms.  Passport reduces the complexity of
 authenticating a request to a simple statement:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>));
-</code></pre>
-<p>Hidden behind that simple statement are three fundamental concepts:</p>
+</code></pre><p>Hidden behind that simple statement are three fundamental concepts:</p>
 <ol>
 <li>Middleware</li>
 <li>Strategies</li>
@@ -181,8 +180,7 @@ username and password:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>
+</code></pre><p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>
 which will authenticate the request.  By default, when authentication succeeds,
 the <code>req.user</code> property is set to the authenticated user, a login session is
 established, and the next function in the stack is called.  This next function
@@ -222,12 +220,10 @@ installed using a package manager.</p>
 a package which provides a strategy for authenticating with a username and
 password:</p>
 <pre><code class="bash">$ npm install passport-local
-</code></pre>
-<p>And the following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
+</code></pre><p>And the following command will install <a href="https://www.passportjs.org/packages/passport-openidconnect/"><code>passport-openidconnect</code></a>,
 a package which implements support for <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>:</p>
 <pre><code class="bash">$ npm install passport-openidconnect
-</code></pre>
-<p>Developers only need to install the packages which provide authentication
+</code></pre><p>Developers only need to install the packages which provide authentication
 mechanisms required by the application.  These packages are then plugged into
 Passport.  This reduces overall application size by avoiding unnecessary
 dependencies.</p>
@@ -243,7 +239,7 @@ that are encountered across many strategies.</p>
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -253,8 +249,7 @@ that are encountered across many strategies.</p>
     });
   });
 });
-</code></pre>
-<h4 id="verify-function">Verify Function</h4>
+</code></pre><h4 id="verify-function">Verify Function</h4>
 <p>The <code>LocalStrategy</code> constructor takes a function as an argument.  This function
 is known as a <code>verify</code> function, and is a common pattern in many strategies.
 When authenticating a request, a strategy parses the credential contained in the
@@ -282,16 +277,13 @@ an error.</p>
 <p>If the <code>verify</code> function finds a user to which the credential belongs, and that
 credential is valid, it calls the callback with the authenticating user:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
-</code></pre>
-<p>If the credential does not belong to a known user, or is not valid, the <code>verify</code>
+</code></pre><p>If the credential does not belong to a known user, or is not valid, the <code>verify</code>
 function calls the callback with <code>false</code> to indicate an authentication failure:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>);
-</code></pre>
-<p>If an error occurs, such as the database not being available, the callback is
+</code></pre><p>If an error occurs, such as the database not being available, the callback is
 called with an error, in idiomatic Node.js style:</p>
 <pre><code class="javascript"><span class="keyword">return</span> <span class="title function_">cb</span>(err);
-</code></pre>
-<p>It is important to distinguish between the two failure cases that can occur.
+</code></pre><p>It is important to distinguish between the two failure cases that can occur.
 Authentication failures are expected conditions, in which the server is
 operating normally, even though invalid credentials are being received from the
 user (or a malicious adversary attempting to authenticate as the user).  Only
@@ -302,8 +294,7 @@ internal error.</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
 passport.<span class="title function_">use</span>(strategy);
-</code></pre>
-<p>All strategies have a name which, by convention, corresponds to the package
+</code></pre><p>All strategies have a name which, by convention, corresponds to the package
 name according to the pattern <code>passport-{name}</code>.  For instance, the
 <code>LocalStrategy</code> configured above is named <code>local</code> as it is distributed in the
 <code>passport-local</code> package.</p>
@@ -315,22 +306,19 @@ middleware:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>In cases where there is a naming conflict, or the default name is not
+</code></pre><p>In cases where there is a naming conflict, or the default name is not
 sufficiently descriptive, the name can be overridden when registering the
 strategy by passing a name as the first argument to <code>.use()</code>:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 
 passport.<span class="title function_">use</span>(<span class="string">&#x27;password&#x27;</span>, strategy);
-</code></pre>
-<p>That name is then specified to <code>passport.authenticate()</code> middleware:</p>
+</code></pre><p>That name is then specified to <code>passport.authenticate()</code> middleware:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;password&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>For brevity, strategies are often configured and registered in a single
+</code></pre><p>For brevity, strategies are often configured and registered in a single
 statement:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">LocalStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-local&#x27;</span>);
@@ -338,8 +326,7 @@ statement:</p>
 passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>(<span class="keyword">function</span> <span class="title function_">verify</span>(<span class="params">username, password, cb</span>) {
   <span class="comment">// ...</span>
 });
-</code></pre>
-</section><section class="chapter" id="sessions"><h1 id="sessions">Sessions</h1>
+</code></pre></section><section class="chapter" id="sessions"><h1 id="sessions">Sessions</h1>
 <p>A web application needs the ability to identify users as they browse from page
 to page.  This series of requests and responses, each associated with the same
 user, is known as a session.</p>
@@ -369,8 +356,7 @@ app.<span class="title function_">use</span>(<span class="title function_">sessi
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">cookie</span>: { <span class="attr">secure</span>: <span class="literal">true</span> }
 }));
-</code></pre>
-<p>To maintain a login session, Passport serializes and deserializes user
+</code></pre><p>To maintain a login session, Passport serializes and deserializes user
 information to and from the session.  The information that is stored is
 determined by the application, which supplies a <code>serializeUser</code> and a
 <code>deserializeUser</code> function.</p>
@@ -389,8 +375,7 @@ passport.<span class="title function_">deserializeUser</span>(<span class="keywo
     <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
-</code></pre>
-<p>A login session is established upon a user successfully authenticating using a
+</code></pre><p>A login session is established upon a user successfully authenticating using a
 credential.  The following route will authenticate a user using a username and
 password.  If successfully verified, Passport will call the <code>serializeUser</code>
 function, which in the above example is storing the user&#39;s ID, username, and
@@ -401,21 +386,18 @@ not stored.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>As the user navigates from page to page, the session itself can be authenticated
+</code></pre><p>As the user navigates from page to page, the session itself can be authenticated
 using the built-in <code>session</code> strategy.  Because an authenticated session is
 typically needed for the majority of routes in an application, it is common to
 use this as <a href="https://expressjs.com/en/guide/using-middleware.html#middleware.application">application-level middleware</a>,
 after <code>session</code> middleware.</p>
 <pre><code class="javascript">app.<span class="title function_">use</span>(<span class="title function_">session</span>(<span class="comment">/* ... */</span>);
 app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
-</code></pre>
-<p>This can also be accomplished, more succinctly, using the <code>passport.session()</code>
+</code></pre><p>This can also be accomplished, more succinctly, using the <code>passport.session()</code>
 alias.</p>
 <pre><code class="javascript">app.<span class="title function_">use</span>(<span class="title function_">session</span>(<span class="comment">/* ... */</span>);
 app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>());
-</code></pre>
-<p>When the session is authenticated, Passport will call the <code>deserializeUser</code>
+</code></pre><p>When the session is authenticated, Passport will call the <code>deserializeUser</code>
 function, which in the above example is yielding the previously stored user ID,
 username, and picture.  The <code>req.user</code> property is then set to the yielded
 information.</p>
@@ -443,15 +425,14 @@ passport.<span class="title function_">deserializeUser</span>(<span class="keywo
     <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
-</code></pre>
-<p>To balance this tradeoff, it is recommended that any user information needed on
+</code></pre><p>To balance this tradeoff, it is recommended that any user information needed on
 <em>every</em> request to the application be stored in the session.  For example, if
 the application displays a user element containing the user&#39;s name, email
 address, and photo on every page, that information should be stored in the
 session to eliminate what would otherwise be frequent database queries.
 Specific routes, such as a checkout page, that need additional information such
 as a shipping address, can query the database for that data.</p>
-</section><section class="chapter" id="password"><h1 id="username-password">Username &amp; Password</h1>
+</section><section class="chapter" id="password"><h1 id="username--password">Username &amp; Password</h1>
 <p>A username and password is the traditional, and still most widely used, way for
 users to authenticate to a website.  Support for this mechanism is provided by
 the <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
@@ -459,8 +440,7 @@ package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-local</code>, execute the following command:</p>
 <pre><code class="bash">$ npm install passport-local
-</code></pre>
-<h2 id="configure">Configure</h2>
+</code></pre><h2 id="configure">Configure</h2>
 <p>The following code is an example that configures and registers the
 <code>LocalStrategy</code>:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
@@ -471,7 +451,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -481,8 +461,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   });
 });
-</code></pre>
-<p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
+</code></pre><p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
 accepts <code>username</code> and <code>password</code> as arguments.  When authenticating a request,
 the strategy parses a username and password, which are submitted via an HTML
 form to the web application.  The strategy then calls the <code>verify</code> function with
@@ -507,8 +486,7 @@ form.  This is accomplished by defining a route:</p>
   <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
     res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>);
   });
-</code></pre>
-<p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
+</code></pre><p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/password&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
         <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
@@ -522,8 +500,7 @@ form.  This is accomplished by defining a route:</p>
         <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
+</code></pre><h2 id="authenticate">Authenticate</h2>
 <p>When the user submits the form, it is processed by a route that authenticates
 the user using the username and password they entered.</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
@@ -531,8 +508,7 @@ the user using the username and password they entered.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
+</code></pre><p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
 function in the stack.  In this example, the function is redirecting the
 authenticated user to their profile page.</p>
 <p>When authentication fails, the user is re-prompted to sign in and informed that
@@ -548,8 +524,7 @@ package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-facebook</code>, execute the following command:</p>
 <pre><code class="bash">$ npm install passport-facebook
-</code></pre>
-<h2 id="configure">Configure</h2>
+</code></pre><h2 id="configure">Configure</h2>
 <p>Before your application can make use of Facebook Login, you must register your
 app with Facebook.  This can be done in the <a href="https://developers.facebook.com/apps">App dashboard</a>
 at <a href="https://developers.facebook.com/">Facebook for Developers</a>.  Once
@@ -578,7 +553,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           profile.<span class="property">displayName</span>
         ], <span class="keyword">function</span>(<span class="params">err</span>) {
           <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
-
+      
           <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
           db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
             id,
@@ -605,8 +580,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     };
   }
 ));
-</code></pre>
-<p>The options to the <code>FacebookStrategy</code> constructor must include a <code>clientID</code> and
+</code></pre><p>The options to the <code>FacebookStrategy</code> constructor must include a <code>clientID</code> and
 <code>clientSecret</code>, the values of which are set to the app ID and secret that were
 obtained when registering your application.  A <code>callbackURL</code> must also be
 included.  Facebook will redirect users to this location after they have
@@ -638,18 +612,15 @@ and functionality provided by the base <a href="/docs/oauth/">OAuth 2.0 strategy
 <p>Place a button on the application&#39;s login page, prompting the user to sign in
 with Facebook.</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login/facebook&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span>Log In With Facebook<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<p>Define a route that, when the button is clicked, will redirect the user to
+</code></pre><p>Define a route that, when the button is clicked, will redirect the user to
 Facebook, where they will authenticate.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>));
-</code></pre>
-<p>If your application needs additional permissions from the user, they can be
+</code></pre><p>If your application needs additional permissions from the user, they can be
 requested with the <code>scope</code> option:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/facebook&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, {
   <span class="attr">scope</span>: [ <span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;user_location&#x27;</span> ]
 }));
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
+</code></pre><h2 id="authenticate">Authenticate</h2>
 <p>After the user has authenticated with Facebook, they will be redirected back
 to your application.  Define a route which will handle this redirect.</p>
 <pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/oauth2/redirect/facebook&#x27;</span>,
@@ -677,8 +648,7 @@ package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-google-oidc</code>, execute the following command:</p>
 <pre><code class="bash">$ npm install passport-google-oidc
-</code></pre>
-<h2 id="configure">Configure</h2>
+</code></pre><h2 id="configure">Configure</h2>
 <p>Before your application can make use of Sign In With Google, you must register
 your app with Google.  This can be done in the <a href="https://console.cloud.google.com/apis">APIs &amp; Services</a>
 page of the <a href="https://console.cloud.google.com/">Google Cloud Platform console</a>.
@@ -707,7 +677,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           profile.<span class="property">displayName</span>
         ], <span class="keyword">function</span>(<span class="params">err</span>) {
           <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
-
+      
           <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
           db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
             id,
@@ -734,8 +704,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     };
   }
 ));
-</code></pre>
-<p>The options to the <code>GoogleStrategy</code> constructor must include a <code>clientID</code> and
+</code></pre><p>The options to the <code>GoogleStrategy</code> constructor must include a <code>clientID</code> and
 <code>clientSecret</code>, the values of which are set to the client ID and secret that
 were obtained when registering your application.  A <code>callbackURL</code> must also be
 included.  Google will redirect users to this location after they have
@@ -766,18 +735,15 @@ and functionality provided by the base OpenID Connect strategy.</p>
 <p>Place a button on the application&#39;s login page, prompting the user to sign in
 with Google.</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login/google&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span>Sign in with Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<p>Define a route that, when the button is clicked, will redirect the user to
+</code></pre><p>Define a route that, when the button is clicked, will redirect the user to
 Google, where they will authenticate.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/google&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>));
-</code></pre>
-<p>If your application needs additional information about the user, that can be
+</code></pre><p>If your application needs additional information about the user, that can be
 requested with the <code>scope</code> option:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/google&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, {
   <span class="attr">scope</span>: [ <span class="string">&#x27;email&#x27;</span> ]
 }));
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
+</code></pre><h2 id="authenticate">Authenticate</h2>
 <p>After the user has authenticated with Google, they will be redirected back
 to your application.  Define a route which will handle this redirect.</p>
 <pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/oauth2/redirect/google&#x27;</span>,
@@ -805,8 +771,7 @@ package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-twitter</code>, execute the following command:</p>
 <pre><code class="bash">$ npm install passport-twitter
-</code></pre>
-<h2 id="configure">Configure</h2>
+</code></pre><h2 id="configure">Configure</h2>
 <p>Before your application can make use of Log in with Twitter, you must register
 your app with Twitter.  This can be done in the <a href="https://developer.twitter.com/en/apps">Apps dashboard</a>
 at <a href="https://developer.twitter.com/">Twitter Developer Platform</a>.  Once
@@ -835,7 +800,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           profile.<span class="property">displayName</span>
         ], <span class="keyword">function</span>(<span class="params">err</span>) {
           <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
-
+      
           <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
           db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
             id,
@@ -862,8 +827,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     };
   }
 ));
-</code></pre>
-<p>The options to the <code>TwitterStrategy</code> constructor must include a <code>consumerKey</code>
+</code></pre><p>The options to the <code>TwitterStrategy</code> constructor must include a <code>consumerKey</code>
 and <code>consumerSecret</code>, the values of which are set to the API key and secret that
 were obtained when registering your application.  A <code>callbackURL</code> must also be
 included.  Twitter will redirect users to this location after they have
@@ -894,12 +858,10 @@ and functionality provided by the base <a href="/docs/oauth/">OAuth strategy</a>
 <p>Place a button on the application&#39;s login page, prompting the user to sign in
 with Twitter.</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login/twitter&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span>Sign in with Twitter<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<p>Define a route that, when the button is clicked, will redirect the user to
+</code></pre><p>Define a route that, when the button is clicked, will redirect the user to
 Twitter, where they will authenticate.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/twitter&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>));
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
+</code></pre><h2 id="authenticate">Authenticate</h2>
 <p>After the user has authenticated with Twitter, they will be redirected back to
 your application.  Define a route which will handle this redirect.</p>
 <pre><code><span class="selector-tag">app</span><span class="selector-class">.get</span>(<span class="string">&#x27;/oauth/callback/twitter&#x27;</span>,
@@ -944,8 +906,7 @@ necessary configuration, and accommodates any provider-specific quirks. See
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-oauth
-</code></pre>
-<h3 id="oauth-1-0">OAuth 1.0</h3>
+</code></pre><h3 id="oauth-10">OAuth 1.0</h3>
 <p>OAuth 1.0 is a delegated authentication strategy that involves multiple steps.
 First, a request token must be obtained.  Next, the user is redirected to the
 service provider to authorize access.  Finally, after authorization has been
@@ -972,8 +933,7 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;pro
     });
   }
 ));
-</code></pre>
-<p>The verify callback for OAuth-based strategies accepts <code>token</code>, <code>tokenSecret</code>,
+</code></pre><p>The verify callback for OAuth-based strategies accepts <code>token</code>, <code>tokenSecret</code>,
 and <code>profile</code> arguments.  <code>token</code> is the access token and <code>tokenSecret</code> is its
 corresponding secret.  <code>profile</code> will contain user profile information provided
 by the service provider; refer to <a href="/guide/profile/">User Profile</a> for
@@ -995,13 +955,11 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                       <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="link">Link</h2>
+</code></pre><h2 id="link">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
 <pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<h3 id="oauth-2-0">OAuth 2.0</h3>
+</code></pre><h3 id="oauth-20">OAuth 2.0</h3>
 <p>OAuth 2.0 is the successor to OAuth 1.0, and is designed to overcome perceived
 shortcomings in the earlier version.  The authentication flow is essentially the
 same.  The user is first redirected to the service provider to authorize access.
@@ -1009,7 +967,7 @@ After authorization has been granted, the user is redirected back to the
 application with a code that can be exchanged for an access token.  The
 application requesting access, known as a <em>client</em>, is identified by an ID and
 secret.</p>
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration-1">Configuration</h2>
 <p>When using the generic OAuth 2.0 strategy, the client ID, client secret, and
 endpoints are specified as options.</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
@@ -1028,13 +986,12 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;pro
     });
   }
 ));
-</code></pre>
-<p>The verify callback for OAuth 2.0-based strategies accepts <code>accessToken</code>,
+</code></pre><p>The verify callback for OAuth 2.0-based strategies accepts <code>accessToken</code>,
 <code>refreshToken</code>, and <code>profile</code> arguments.  <code>refreshToken</code> can be used to obtain
 new access tokens, and may be <code>undefined</code> if the provider does not issue refresh
 tokens.  <code>profile</code> will contain user profile information provided by the service
 provider; refer to <a href="/guide/profile/">User Profile</a> for additional information.</p>
-<h2 id="routes">Routes</h2>
+<h2 id="routes-1">Routes</h2>
 <p>Two routes are required for OAuth 2.0 authentication.  The first route redirects
 the user to the service provider.  The second route is the URL to which the user
 will be redirected after authenticating with the provider.</p>
@@ -1050,27 +1007,23 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                       <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="scope">Scope</h2>
+</code></pre><h2 id="scope">Scope</h2>
 <p>When requesting access using OAuth 2.0, the scope of access is controlled by the
 scope option.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: <span class="string">&#x27;email&#x27;</span> })
 );
-</code></pre>
-<p>Multiple scopes can be specified as an array.</p>
+</code></pre><p>Multiple scopes can be specified as an array.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;sms&#x27;</span>] })
 );
-</code></pre>
-<p>Values for the <code>scope</code> option are provider-specific.  Consult the provider&#39;s
+</code></pre><p>Values for the <code>scope</code> option are provider-specific.  Consult the provider&#39;s
 documentation for details regarding supported scopes.</p>
-<h2 id="link">Link</h2>
+<h2 id="link-1">Link</h2>
 <p>A link or button can be placed on a web page, which will start the
 authentication process when clicked.</p>
 <pre><code class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider&quot;</span>&gt;</span>Log In with OAuth 2.0 Provider<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-</section><section class="chapter" id="openid"><h1 id="openid">OpenID</h1>
+</code></pre></section><section class="chapter" id="openid"><h1 id="openid">OpenID</h1>
 <p><a href="http://openid.net/">OpenID</a> is an open standard for federated authentication.
 When visiting a website, users present their OpenID to sign in.  The user then
 authenticates with their chosen OpenID provider, which issues an assertion to
@@ -1080,8 +1033,7 @@ sign the user in.</p>
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-openid
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <p>When using OpenID, a return URL and realm must be specified.  The <code>returnURL</code> is
 the URL to which the user will be redirected after authenticating with their
 OpenID provider.  <code>realm</code> indicates the part of URL-space for which
@@ -1099,8 +1051,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<p>The verify callback for OpenID authentication accepts an <code>identifier</code> argument
+</code></pre><p>The verify callback for OpenID authentication accepts an <code>identifier</code> argument
 containing the user&#39;s claimed identifier.</p>
 <h2 id="form">Form</h2>
 <p>A form is placed on a web page, allowing the user to enter their OpenID and
@@ -1114,8 +1065,7 @@ sign in.</p>
         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Sign In&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<h2 id="routes">Routes</h2>
+</code></pre><h2 id="routes">Routes</h2>
 <p>Two routes are required for OpenID authentication.  The first route accepts the
 form submission containing an OpenID identifier.  During authentication, the
 user will be redirected to their OpenID provider.  The second route is the URL
@@ -1133,8 +1083,7 @@ app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/o
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/openid/return&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;openid&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                     <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="profile-exchange">Profile Exchange</h2>
+</code></pre><h2 id="profile-exchange">Profile Exchange</h2>
 <p>OpenID can optionally be configured to retrieve profile information about the
 user being authenticated.  Profile exchange is enabled by setting the <code>profile</code>
 option to <code>true</code>.</p>
@@ -1147,8 +1096,7 @@ option to <code>true</code>.</p>
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<p>When profile exchange is enabled, the function signature of the verify callback
+</code></pre><p>When profile exchange is enabled, the function signature of the verify callback
 accepts an additional <code>profile</code> argument containing user profile information
 provided by the OpenID provider; refer to <a href="/guide/profile/">User Profile</a> for
 further information.</p>
@@ -1159,8 +1107,7 @@ can be used to establish a login session.</p>
   <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">next</span>(err); }
   <span class="keyword">return</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/users/&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
 });
-</code></pre>
-<p>When the login operation completes, <code>user</code> will be assigned to <code>req.user</code>.</p>
+</code></pre><p>When the login operation completes, <code>user</code> will be assigned to <code>req.user</code>.</p>
 <p>Note: <code>passport.authenticate()</code> middleware invokes <code>req.login()</code> automatically.
 This function is primarily used when users sign up, during which <code>req.login()</code>
 can be invoked to automatically log in the newly registered user.</p>
@@ -1177,8 +1124,7 @@ logout endpoints, in order to prevent accidental or malicious logouts.</p>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
 });
-</code></pre>
-</section><section class="chapter" id="http-bearer"><h1 id="oauth-2-0">OAuth 2.0</h1>
+</code></pre></section><section class="chapter" id="http-bearer"><h1 id="oauth-20">OAuth 2.0</h1>
 <p>OAuth 2.0 (formally specified by <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>)
 provides an authorization framework which allows users to authorize access to
 third-party applications.  When authorized, the application is issued a token to
@@ -1224,8 +1170,7 @@ type of token issued.</p>
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http-bearer
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BearerStrategy</span>(
   <span class="keyword">function</span>(<span class="params">token, done</span>) {
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">token</span>: token }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
@@ -1235,8 +1180,7 @@ module.</p>
     });
   }
 ));
-</code></pre>
-<p>The verify callback for bearer tokens accepts the <code>token</code> as an argument.
+</code></pre><p>The verify callback for bearer tokens accepts the <code>token</code> as an argument.
 When invoking <code>done</code>, optional <code>info</code> can be passed, which will be set by
 Passport at <code>req.authInfo</code>.  This is typically used to convey the scope of the
 token, and can be used when making access control checks.</p>
@@ -1246,8 +1190,7 @@ token, and can be used when making access control checks.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>bearer</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 </section><section class="chapter" id="http-oauth"><h1 id="oauth">OAuth</h1>
 <p><a href="http://oauth.net/">OAuth</a> (formally specified by <a href="http://tools.ietf.org/html/rfc5849">RFC 5849</a>)
@@ -1286,8 +1229,7 @@ considerations involved.</p>
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http-oauth
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;token&#x27;</span>, <span class="keyword">new</span> <span class="title class_">TokenStrategy</span>(
   <span class="keyword">function</span>(<span class="params">consumerKey, done</span>) {
     <span class="title class_">Consumer</span>.<span class="title function_">findOne</span>({ <span class="attr">key</span>: consumerKey }, <span class="keyword">function</span> (<span class="params">err, consumer</span>) {
@@ -1314,8 +1256,7 @@ module.</p>
     <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
-</code></pre>
-<p>In contrast to other strategies, there are two callbacks required by OAuth.  In
+</code></pre><p>In contrast to other strategies, there are two callbacks required by OAuth.  In
 OAuth, both an identifier for the requesting application and the user-specific
 token are encoded as credentials.</p>
 <p>The first callback is known as the &quot;consumer callback&quot;, and is used to find the
@@ -1332,10 +1273,9 @@ attacks by checking the timestamp and nonce used in the request.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
-</section><section class="chapter" id="http-basic"><h1 id="basic-digest">Basic &amp; Digest</h1>
+</section><section class="chapter" id="http-basic"><h1 id="basic--digest">Basic &amp; Digest</h1>
 <p>Along with defining HTTP&#39;s authentication framework, <a href="http://tools.ietf.org/html/rfc2617">RFC 2617</a>
 also defined the Basic and Digest authentications schemes.  These two schemes
 both use usernames and passwords as credentials to authenticate users, and are
@@ -1348,8 +1288,7 @@ recommended to use an authorization framework such as <a href="/guide/oauth2-api
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http
-</code></pre>
-<h3 id="basic">Basic</h3>
+</code></pre><h3 id="basic">Basic</h3>
 <p>The Basic scheme uses a username and password to authenticate a user.  These
 credentials are transported in plain text, so it is advised to use HTTPS when
 implementing this scheme.</p>
@@ -1364,8 +1303,7 @@ implementing this scheme.</p>
     });
   }
 ));
-</code></pre>
-<p>The verify callback for Basic authentication accepts <code>username</code> and <code>password</code>
+</code></pre><p>The verify callback for Basic authentication accepts <code>username</code> and <code>password</code>
 arguments.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
@@ -1373,14 +1311,13 @@ arguments.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>basic</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>basic</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 <h3 id="digest">Digest</h3>
 <p>The Digest scheme uses a username and password to authenticate a user.  Its
 primary benefit over Basic is that it uses a challenge-response paradigm to
 avoid sending the password in the clear.</p>
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration-1">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DigestStrategy</span>({ <span class="attr">qop</span>: <span class="string">&#x27;auth&#x27;</span> },
   <span class="keyword">function</span>(<span class="params">username, done</span>) {
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: username }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
@@ -1394,22 +1331,20 @@ avoid sending the password in the clear.</p>
     <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
-</code></pre>
-<p>The Digest strategy utilizes two callbacks, the second of which is optional.</p>
+</code></pre><p>The Digest strategy utilizes two callbacks, the second of which is optional.</p>
 <p>The first callback, known as the &quot;secret callback&quot; accepts the username and
 calls <code>done</code> supplying a user and the corresponding secret password.  The
 password is used to compute a hash, and authentication fails if it does not
 match that contained in the request.</p>
 <p>The second &quot;validate callback&quot; accepts nonce related params, which can be
 checked to avoid replay attacks.</p>
-<h2 id="protect-endpoints">Protect Endpoints</h2>
+<h2 id="protect-endpoints-1">Protect Endpoints</h2>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;digest&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 </section></div>
         </div>

@@ -134,7 +134,7 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="username-password">Username &amp; Password</h1>
+            <section class="chapter"><h1 id="username--password">Username &amp; Password</h1>
 <p>A username and password is the traditional, and still most widely used, way for
 users to authenticate to a website.  Support for this mechanism is provided by
 the <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
@@ -142,8 +142,7 @@ package.</p>
 <h2 id="install">Install</h2>
 <p>To install <code>passport-local</code>, execute the following command:</p>
 <pre><code class="bash">$ npm install passport-local
-</code></pre>
-<h2 id="configure">Configure</h2>
+</code></pre><h2 id="configure">Configure</h2>
 <p>The following code is an example that configures and registers the
 <code>LocalStrategy</code>:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
@@ -154,7 +153,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -164,8 +163,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   });
 });
-</code></pre>
-<p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
+</code></pre><p>The <code>LocalStrategy</code> constructor takes a <code>verify</code> function as an argument, which
 accepts <code>username</code> and <code>password</code> as arguments.  When authenticating a request,
 the strategy parses a username and password, which are submitted via an HTML
 form to the web application.  The strategy then calls the <code>verify</code> function with
@@ -190,8 +188,7 @@ form.  This is accomplished by defining a route:</p>
   <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
     res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>);
   });
-</code></pre>
-<p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
+</code></pre><p>The following form is an example which uses <a href="https://web.dev/sign-in-form-best-practices/">best practices</a>:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/password&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">div</span>&gt;</span>
         <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
@@ -205,8 +202,7 @@ form.  This is accomplished by defining a route:</p>
         <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<h2 id="authenticate">Authenticate</h2>
+</code></pre><h2 id="authenticate">Authenticate</h2>
 <p>When the user submits the form, it is processed by a route that authenticates
 the user using the username and password they entered.</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>,
@@ -214,8 +210,7 @@ the user using the username and password they entered.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
+</code></pre><p>If authentication succeeds, <code>passport.authenticate()</code> middleware calls the next
 function in the stack.  In this example, the function is redirecting the
 authenticated user to their profile page.</p>
 <p>When authentication fails, the user is re-prompted to sign in and informed that

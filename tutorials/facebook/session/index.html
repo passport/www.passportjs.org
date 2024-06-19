@@ -124,8 +124,7 @@ login session.</p>
 <code>require(&#39;express-session&#39;)</code>.</p>
 <pre><code class="js"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
-</code></pre>
-<p>Add the following code at line 35, after <code>session()</code> middleware, which will
+</code></pre><p>Add the following code at line 35, after <code>session()</code> middleware, which will
 authenticate the session.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(<span class="title function_">session</span>({
   <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>,
@@ -134,8 +133,7 @@ authenticate the session.</p>
   <span class="attr">store</span>: <span class="keyword">new</span> <span class="title class_">SQLiteStore</span>({ <span class="attr">db</span>: <span class="string">&#x27;sessions.db&#x27;</span>, <span class="attr">dir</span>: <span class="string">&#x27;./var/db&#x27;</span> })
 }));
 app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
-</code></pre>
-<p>Finally, configure Passport to persist user information in the login session.
+</code></pre><p>Finally, configure Passport to persist user information in the login session.
 Open <code>routes/auth.js</code> and add the following code at line 47.</p>
 <pre><code class="js">passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
   process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
@@ -148,8 +146,7 @@ passport.<span class="title function_">deserializeUser</span>(<span class="keywo
     <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
-</code></pre>
-<p>Now try signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>, click
+</code></pre><p>Now try signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>, click
 &quot;Sign in&quot; and then click &quot;Sign in with Facebook.&quot;</p>
 <p>You are signed in!  Go ahead and enter some tasks you&#39;ve been needing to get
 done.</p>

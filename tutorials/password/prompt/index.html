@@ -115,8 +115,7 @@ prompts the user to enter their credentials.  In this section, you&#39;ll add a
 signin page.</p>
 <p>Create a file that will contain authentication-related routes.</p>
 <pre><code class="sh">$ <span class="built_in">touch</span> routes/auth.js
-</code></pre>
-<p>Add the following code to that file, which creates a route that will render the
+</code></pre><p>Add the following code to that file, which creates a route that will render the
 signin page.</p>
 <pre><code class="js"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
 
@@ -127,22 +126,18 @@ router.<span class="title function_">get</span>(<span class="string">&#x27;/logi
 });
 
 <span class="variable language_">module</span>.<span class="property">exports</span> = router;
-</code></pre>
-<p>Next, add these routes to the app.  Open <code>app.js</code> and <code>require()</code> the newly
+</code></pre><p>Next, add these routes to the app.  Open <code>app.js</code> and <code>require()</code> the newly
 created auth routes at line 10, below <code>require(&#39;./routes/index&#39;)</code>.</p>
 <pre><code class="js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/auth&#x27;</span>);
-</code></pre>
-<p>Continuing within <code>app.js</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at line
+</code></pre><p>Continuing within <code>app.js</code>, <code>use()</code> the newly <code>require()</code>&#39;d <code>authRouter</code> at line
 27, below <code>app.use(&#39;/&#39;, indexRouter)</code>.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter);
 app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, authRouter);
-</code></pre>
-<p>The signin page has been added to the app!  See how it looks by starting the
+</code></pre><p>The signin page has been added to the app!  See how it looks by starting the
 server.</p>
 <pre><code class="sh">$ npm start
-</code></pre>
-<p>Open <a href="http://localhost:3000/">http://localhost:3000</a> and click &quot;Sign in.&quot;  You
+</code></pre><p>Open <a href="http://localhost:3000/">http://localhost:3000</a> and click &quot;Sign in.&quot;  You
 are prompted to sign in, but there&#39;s no place to enter a username and password.</p>
 <p>Add an HTML form which will allow the user to input their credentials.  Open
 <code>views/login.ejs</code> and add a form at line 15, below the &quot;Sign in&quot; heading.</p>
@@ -158,8 +153,7 @@ are prompted to sign in, but there&#39;s no place to enter a username and passwo
     <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
     <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<p>Refresh the page.  The app now has a signin page that prompts the user for their
+</code></pre><p>Refresh the page.  The app now has a signin page that prompts the user for their
 username and password.  Next, you will <a href="../verify/">verify the username and password</a>.</p>
 </section>
           </div>

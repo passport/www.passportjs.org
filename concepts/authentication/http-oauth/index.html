@@ -171,8 +171,7 @@ considerations involved.</p>
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http-oauth
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;token&#x27;</span>, <span class="keyword">new</span> <span class="title class_">TokenStrategy</span>(
   <span class="keyword">function</span>(<span class="params">consumerKey, done</span>) {
     <span class="title class_">Consumer</span>.<span class="title function_">findOne</span>({ <span class="attr">key</span>: consumerKey }, <span class="keyword">function</span> (<span class="params">err, consumer</span>) {
@@ -199,8 +198,7 @@ module.</p>
     <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
-</code></pre>
-<p>In contrast to other strategies, there are two callbacks required by OAuth.  In
+</code></pre><p>In contrast to other strategies, there are two callbacks required by OAuth.  In
 OAuth, both an identifier for the requesting application and the user-specific
 token are encoded as credentials.</p>
 <p>The first callback is known as the &quot;consumer callback&quot;, and is used to find the
@@ -217,8 +215,7 @@ attacks by checking the timestamp and nonce used in the request.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>token</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 </section>
           </div>

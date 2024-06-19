@@ -146,8 +146,7 @@ username and password:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/~&#x27;</span> + req.<span class="property">user</span>.<span class="property">username</span>);
   });
-</code></pre>
-<p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>
+</code></pre><p>In this route, <code>passport.authenticate()</code> is <a href="https://expressjs.com/en/guide/using-middleware.html">middleware</a>
 which will authenticate the request.  By default, when authentication succeeds,
 the <code>req.user</code> property is set to the authenticated user, a login session is
 established, and the next function in the stack is called.  This next function

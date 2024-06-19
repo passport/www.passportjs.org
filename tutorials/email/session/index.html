@@ -118,16 +118,14 @@ remember the fact that the user has authenticated as they navigate the app.</p>
 dependencies:</p>
 <pre><code class="sh">$ npm install express-session
 $ npm install connect-sqlite3
-</code></pre>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
+</code></pre><p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
 where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 <pre><code class="js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
 <span class="keyword">var</span> <span class="title class_">SQLiteStore</span> = <span class="built_in">require</span>(<span class="string">&#x27;connect-sqlite3&#x27;</span>)(session);
-</code></pre>
-<p>Add the following code at line 29, after <code>express.static</code> middleware, to
+</code></pre><p>Add the following code at line 29, after <code>express.static</code> middleware, to
 maintain and authenticate the session.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
 app.<span class="title function_">use</span>(<span class="title function_">session</span>({
@@ -137,8 +135,7 @@ app.<span class="title function_">use</span>(<span class="title function_">sessi
   <span class="attr">store</span>: <span class="keyword">new</span> <span class="title class_">SQLiteStore</span>({ <span class="attr">db</span>: <span class="string">&#x27;sessions.db&#x27;</span>, <span class="attr">dir</span>: <span class="string">&#x27;./var/db&#x27;</span> })
 }));
 app.<span class="title function_">use</span>(passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;session&#x27;</span>));
-</code></pre>
-<p>Finally, we need to configure Passport to manage the login session.  Open
+</code></pre><p>Finally, we need to configure Passport to manage the login session.  Open
 <code>&#39;routes/auth.js&#39;</code> and add the following code at line 50:</p>
 <pre><code class="js">passport.<span class="title function_">serializeUser</span>(<span class="keyword">function</span>(<span class="params">user, cb</span>) {
   process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) {
@@ -151,8 +148,7 @@ passport.<span class="title function_">deserializeUser</span>(<span class="keywo
     <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
   });
 });
-</code></pre>
-<p>Now, let&#39;s retry signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>,
+</code></pre><p>Now, let&#39;s retry signing in.  Open <a href="http://localhost:3000">http://localhost:3000</a>,
 click &quot;Sign in&quot;, enter your email address and click &quot;Sign in with Email&quot;.</p>
 <p>Now, check your email and click the link.</p>
 <p>We are logged in!  Go ahead and enter some tasks you&#39;ve been needing to get

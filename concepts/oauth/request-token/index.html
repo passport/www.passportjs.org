@@ -123,8 +123,7 @@ in the case of Twitter):</p>
   oauth_timestamp=&quot;1318467427&quot;,
   oauth_version=&quot;1.0&quot;,
   oauth_signature=&quot;qCMIWvfCvmP0ZsfWGTPnuaPXsQE%3D&quot;
-</code></pre>
-<p>The parameters for this request are conveyed in the <code>Authorization</code> header.
+</code></pre><p>The parameters for this request are conveyed in the <code>Authorization</code> header.
 Let&#39;s examine them.</p>
 <ul>
 <li><p><code>oauth_callback</code>: URL to which the service provider will redirect the user
@@ -157,8 +156,7 @@ secret.  If successful, Twitter generates a request token and secret:</p>
 <span class="language-ini"><span class="attr">oauth_token</span>=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;
 <span class="attr">oauth_token_secret</span>=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&amp;
 <span class="attr">oauth_callback_confirmed</span>=<span class="literal">true</span></span>
-</code></pre>
-<p>Let&#39;s examine the parameters in this response.</p>
+</code></pre><p>Let&#39;s examine the parameters in this response.</p>
 <ul>
 <li><p><code>oauth_token</code>: A <em>unauthorized</em> request token.  The user will be requested
   to authorize this token.  If granted, the request token can be exchanged
@@ -181,12 +179,10 @@ it can be later loaded when obtaining an access token.  Then, the user&#39;s web
 browser is redirected to Twitter:</p>
 <pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found
 <span class="attribute">Location</span><span class="punctuation">: </span>https://api.twitter.com/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
-</code></pre>
-<p>The web browser follows this redirect and makes a request to Twitter:</p>
+</code></pre><p>The web browser follows this redirect and makes a request to Twitter:</p>
 <pre><code class="http"><span class="keyword">GET</span> <span class="string">/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0</span> <span class="meta">HTTP/1.1</span>
 <span class="attribute">Host</span><span class="punctuation">: </span>api.twitter.com
-</code></pre>
-<p>This request is sent to the service providers&#39;s <em>user authorization URL</em>
+</code></pre><p>This request is sent to the service providers&#39;s <em>user authorization URL</em>
 (<code>/oauth/authenticate</code>, in the case of Twitter).  Let&#39;s examine the parameters
 in this request.</p>
 <ul>
@@ -199,12 +195,10 @@ obtaining their consent (if it has not been previously obtained).  Once that
 has been completed, Twitter redirects the user back to the application:</p>
 <pre><code class="http"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found
 <span class="attribute">Location</span><span class="punctuation">: </span>https://www.example.com/oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY
-</code></pre>
-<p>The web browser follows this redirect and makes a request to the application:</p>
+</code></pre><p>The web browser follows this redirect and makes a request to the application:</p>
 <pre><code class="http"><span class="keyword">GET</span> <span class="string">/oauth/callback/twitter?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&amp;oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY</span> <span class="meta">HTTP/1.1</span>
 <span class="attribute">Host</span><span class="punctuation">: </span>www.example.com
-</code></pre>
-<p>This request is sent to the application&#39;s <em>callback URL</em> (<code>/oauth/callback/twitter</code>,
+</code></pre><p>This request is sent to the application&#39;s <em>callback URL</em> (<code>/oauth/callback/twitter</code>,
 in this case), which corresponds to the value of the <code>oauth_callback</code> parameter in
 the earlier request.  Let&#39;s examine the parameters in this request.</p>
 <ul>
@@ -220,8 +214,7 @@ the earlier request.  Let&#39;s examine the parameters in this request.</p>
   <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>This route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth1/"><code>passport-oauth1</code></a>
+</code></pre><p>This route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth1/"><code>passport-oauth1</code></a>
 strategy.  The strategy first loads the previously stored secret associated with
 the request token.  It then <a href="../access-token/">exchanges the request token for an access token</a>.</p>
 </section>

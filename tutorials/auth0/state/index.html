@@ -120,15 +120,13 @@ Let&#39;s add that now.</p>
 <p>Begin by installing the necessary dependencies:</p>
 <pre><code class="sh">$ npm install express-session
 $ npm install connect-sqlite3
-</code></pre>
-<p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
+</code></pre><p>Open <code>&#39;app.js&#39;</code> and <code>require</code> the additional dependencies at line 8, below
 where <code>&#39;morgan&#39;</code> is <code>require</code>&#39;d:</p>
 <pre><code class="js"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);
 <span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>);
 
 <span class="keyword">var</span> <span class="title class_">SQLiteStore</span> = <span class="built_in">require</span>(<span class="string">&#x27;connect-sqlite3&#x27;</span>)(session);
-</code></pre>
-<p>Add the following code at line 28, after <code>express.static</code> middleware, to
+</code></pre><p>Add the following code at line 28, after <code>express.static</code> middleware, to
 add sessions to the application.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));
 app.<span class="title function_">use</span>(<span class="title function_">session</span>({
@@ -137,8 +135,7 @@ app.<span class="title function_">use</span>(<span class="title function_">sessi
   <span class="attr">saveUninitialized</span>: <span class="literal">false</span>,
   <span class="attr">store</span>: <span class="keyword">new</span> <span class="title class_">SQLiteStore</span>({ <span class="attr">db</span>: <span class="string">&#x27;sessions.db&#x27;</span>, <span class="attr">dir</span>: <span class="string">&#x27;./var/db&#x27;</span> })
 }));
-</code></pre>
-<p>Now that the app can maintain state, the final step is <a href="../session/">establishing a login
+</code></pre><p>Now that the app can maintain state, the final step is <a href="../session/">establishing a login
 session</a>.</p>
 </section>
           </div>

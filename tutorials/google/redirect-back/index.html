@@ -122,13 +122,11 @@ a route that authenticates the user when Google redirects them back to the app.<
   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>The app now has routes that handle the complete cycle of redirecting to Google
+</code></pre><p>The app now has routes that handle the complete cycle of redirecting to Google
 and from Google back to the app, with state maintained in between.  Try signing
 in by starting the server.</p>
 <pre><code class="sh">$ npm start
-</code></pre>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
+</code></pre><p>Open <a href="http://localhost:3000">http://localhost:3000</a>, click &quot;Sign in&quot; and then
 click &quot;Sign in with Google.&quot;</p>
 <p>Uh oh... the app fails with an error related to sessions.  Next, you will fix
 that error by configuring Passport to <a href="../session/">establish a session</a>.</p>

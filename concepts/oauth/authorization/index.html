@@ -114,15 +114,12 @@ taking an action.  In the case of Twitter, such an action would be the user
 clicking the &quot;Sign in with Twitter&quot; button.</p>
 <p>For example, when the user clicks the following button:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/login/federated/twitter&quot;</span>&gt;</span>Sign in with Twitter<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<p>The user&#39;s web browser makes a request to the application:</p>
+</code></pre><p>The user&#39;s web browser makes a request to the application:</p>
 <pre><code class="http"><span class="keyword">GET</span> <span class="string">/login/federated/twitter</span> <span class="meta">HTTP/1.1</span>
 <span class="attribute">Host</span><span class="punctuation">: </span>www.example.com
-</code></pre>
-<p>This request is handled by a route in the application:</p>
+</code></pre><p>This request is handled by a route in the application:</p>
 <pre><code class="js">router.<span class="title function_">get</span>(<span class="string">&#x27;/login/federated/twitter&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;twitter&#x27;</span>));
-</code></pre>
-<p>The route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth1/"><code>passport-oauth1</code></a>
+</code></pre><p>The route invokes Passport, and in particular the <a href="https://www.passportjs.org/packages/passport-oauth1/"><code>passport-oauth1</code></a>
 strategy.  The strategy will redirect the user&#39;s web browser to Twitter, but
 first it must <a href="../request-token/">obtain a request token</a>.</p>
 </section>

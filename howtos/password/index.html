@@ -118,8 +118,7 @@ This guide assumes familiarity with Passport.  If you are learning, the
 <p>Install <a href="https://www.passportjs.org/packages/passport-local/"><code>passport-local</code></a>
 using <a href="https://www.npmjs.com/">npm</a>.</p>
 <pre><code class="sh">$ npm install passport-local
-</code></pre>
-<h1 id="configure">Configure</h1>
+</code></pre><h1 id="configure">Configure</h1>
 <p>Create a new instance of <code>LocalStrategy</code> and pass a <code>verify</code> function as the
 first argument.  For example:</p>
 <pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
@@ -129,7 +128,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
   db.<span class="title function_">get</span>(<span class="string">&#x27;SELECT * FROM users WHERE username = ?&#x27;</span>, [ username ], <span class="keyword">function</span>(<span class="params">err, user</span>) {
     <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
     <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>, { <span class="attr">message</span>: <span class="string">&#x27;Incorrect username or password.&#x27;</span> }); }
-
+    
     crypto.<span class="title function_">pbkdf2</span>(password, user.<span class="property">salt</span>, <span class="number">310000</span>, <span class="number">32</span>, <span class="string">&#x27;sha256&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, hashedPassword</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
       <span class="keyword">if</span> (!crypto.<span class="title function_">timingSafeEqual</span>(user.<span class="property">hashed_password</span>, hashedPassword)) {
@@ -139,8 +138,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   });
 }));
-</code></pre>
-<p>The <code>verify</code> function must verify the user&#39;s password.  In the example shown,
+</code></pre><p>The <code>verify</code> function must verify the user&#39;s password.  In the example shown,
 the <code>verify</code> function is executing a <a href="https://github.com/TryGhost/node-sqlite3">SQLite</a>
 query to fetch a user record from the database.  It then compares the hashed
 password with the password submitted by the user.</p>
@@ -149,21 +147,17 @@ database, schema, and password-hashing function.</p>
 <p>The <code>verify</code> function must yield back to the strategy by calling the callback
 with a user object if the password is correct:</p>
 <pre><code class="js"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, user);
-</code></pre>
-<p>It must yield back with <code>false</code> if the password is incorrect:</p>
+</code></pre><p>It must yield back with <code>false</code> if the password is incorrect:</p>
 <pre><code class="js"><span class="keyword">return</span> <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="literal">false</span>);
-</code></pre>
-<p>And it must yield back with an error if an exception occurred:</p>
+</code></pre><p>And it must yield back with an error if an exception occurred:</p>
 <pre><code class="js"><span class="keyword">return</span> <span class="title function_">cb</span>(err);
-</code></pre>
-<h1 id="routes">Routes</h1>
+</code></pre><h1 id="routes">Routes</h1>
 <p>Add a route that will prompt the user to sign in with a username and password by
 rendering a login view:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
   res.<span class="title function_">render</span>(<span class="string">&#x27;login&#x27;</span>);
 });
-</code></pre>
-<p>Add an HTML form to the <code>login</code> view:</p>
+</code></pre><p>Add an HTML form to the <code>login</code> view:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
 <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/password&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
     <span class="tag">&lt;<span class="name">section</span>&gt;</span>
@@ -176,15 +170,13 @@ rendering a login view:</p>
     <span class="tag">&lt;/<span class="name">section</span>&gt;</span>
     <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<p>Add a route that will authenticate the username and password when the user
+</code></pre><p>Add a route that will authenticate the username and password when the user
 submits the form:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/password&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;local&#x27;</span>, {
   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<div class="alert alert-warning">
+</code></pre><div class="alert alert-warning">
 A session will be established after authentication.  When using this strategy,
 ensure that you have <a href="/howtos/session/">added support for sessions</a>.
 </div>

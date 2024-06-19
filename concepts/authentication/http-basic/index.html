@@ -134,7 +134,7 @@
             </nav>
           </div><a id="go-top" href="#top"><i class="icon-budicon-462"></i></a>
           <div class="contents">
-            <section class="chapter"><h1 id="basic-digest">Basic &amp; Digest</h1>
+            <section class="chapter"><h1 id="basic--digest">Basic &amp; Digest</h1>
 <p>Along with defining HTTP&#39;s authentication framework, <a href="http://tools.ietf.org/html/rfc2617">RFC 2617</a>
 also defined the Basic and Digest authentications schemes.  These two schemes
 both use usernames and passwords as credentials to authenticate users, and are
@@ -147,8 +147,7 @@ recommended to use an authorization framework such as <a href="/guide/oauth2-api
 module.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-http
-</code></pre>
-<h3 id="basic">Basic</h3>
+</code></pre><h3 id="basic">Basic</h3>
 <p>The Basic scheme uses a username and password to authenticate a user.  These
 credentials are transported in plain text, so it is advised to use HTTPS when
 implementing this scheme.</p>
@@ -163,8 +162,7 @@ implementing this scheme.</p>
     });
   }
 ));
-</code></pre>
-<p>The verify callback for Basic authentication accepts <code>username</code> and <code>password</code>
+</code></pre><p>The verify callback for Basic authentication accepts <code>username</code> and <code>password</code>
 arguments.</p>
 <h2 id="protect-endpoints">Protect Endpoints</h2>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
@@ -172,14 +170,13 @@ arguments.</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>basic</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>basic</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 <h3 id="digest">Digest</h3>
 <p>The Digest scheme uses a username and password to authenticate a user.  Its
 primary benefit over Basic is that it uses a challenge-response paradigm to
 avoid sending the password in the clear.</p>
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration-1">Configuration</h2>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DigestStrategy</span>({ <span class="attr">qop</span>: <span class="string">&#x27;auth&#x27;</span> },
   <span class="keyword">function</span>(<span class="params">username, done</span>) {
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">username</span>: username }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
@@ -193,22 +190,20 @@ avoid sending the password in the clear.</p>
     <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">true</span>)
   }
 ));
-</code></pre>
-<p>The Digest strategy utilizes two callbacks, the second of which is optional.</p>
+</code></pre><p>The Digest strategy utilizes two callbacks, the second of which is optional.</p>
 <p>The first callback, known as the &quot;secret callback&quot; accepts the username and
 calls <code>done</code> supplying a user and the corresponding secret password.  The
 password is used to compute a hash, and authentication fails if it does not
 match that contained in the request.</p>
 <p>The second &quot;validate callback&quot; accepts nonce related params, which can be
 checked to avoid replay attacks.</p>
-<h2 id="protect-endpoints">Protect Endpoints</h2>
+<h2 id="protect-endpoints-1">Protect Endpoints</h2>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/me&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;digest&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API
+</code></pre><p>Specify <code>passport.authenticate()</code> with the <code>digest</code> strategy to protect API
 endpoints.  Sessions are not typically needed by APIs, so they can be disabled.</p>
 </section>
           </div>

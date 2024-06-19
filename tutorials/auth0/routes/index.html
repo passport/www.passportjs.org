@@ -129,19 +129,16 @@ router.<span class="title function_">get</span>(<span class="string">&#x27;/oaut
 }));
 
 <span class="variable language_">module</span>.<span class="property">exports</span> = router;
-</code></pre>
-<p>Next, we need to add these routes to our app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
+</code></pre><p>Next, we need to add these routes to our app.  Open <code>&#39;app.js&#39;</code> and <code>require</code> the
 newly created auth routes at line 10, below where <code>&#39;routes/index&#39;</code> is
 <code>require</code>&#39;d:</p>
 <pre><code class="js"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);
 <span class="keyword">var</span> authRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/auth&#x27;</span>);
-</code></pre>
-<p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
+</code></pre><p>Continuing within <code>&#39;app.js&#39;</code>, use the newly <code>require</code>&#39;d <code>authRouter</code> at line 27,
 below where <code>indexRouter</code> is <code>use</code>&#39;d.</p>
 <pre><code class="js">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter);
 app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, authRouter);
-</code></pre>
-<p>The routes have been added to the app.  Next we need to <a href="../state/">maintain state</a>
+</code></pre><p>The routes have been added to the app.  Next we need to <a href="../state/">maintain state</a>
 when redirecting to Auth0.</p>
 </section>
           </div>
