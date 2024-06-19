@@ -13,6 +13,7 @@ var moment = require('moment');
 var site = kerouac();
 site.engine('pug', require('pug').renderFile);
 
+site.set('output', 'www');
 site.set('base url', 'https://www.passportjs.org');
 site.set('layout engine', 'pug');
 site.set('output', 'www');
@@ -30,6 +31,7 @@ site.page('/packages/sitemap.xml', require('kerouac-sitemap')());
 
 
 var packagesApp = kerouac();
+packagesApp.set('output', 'www'); // FIXME: why is this needed?
 packagesApp.locals.pretty = true;
 
 packagesApp.locals.timeAgo = function(time) {
@@ -37,6 +39,7 @@ packagesApp.locals.timeAgo = function(time) {
 }
 
 packagesApp.set('layout engine', 'pug');
+packagesApp.use('/', require('kerouac-manifest')()); // FIXME: why is this needed
 packagesApp.use('/-/v1', require('kerouac-npm-packages').api.esc.v1());
 packagesApp.use('/-', require('kerouac-npm-packages').api.esc());
 packagesApp.use('/', require('kerouac-npm-packages')());
