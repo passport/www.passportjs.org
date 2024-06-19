@@ -98,8 +98,7 @@
 with <a href="http://steamcommunity.com/">Steam</a> using OpenID 2.0.</p>
 <h2 id="installation">Installation</h2>
 <pre><code class="bash">$ npm install --save passport-steam
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Steam authentication strategy authenticates users using a steam account,
 which is also an OpenID 2.0 identifier.  The strategy requires a <code>validate</code>
@@ -116,8 +115,7 @@ Additionally, options can be supplied to specify a return URL and realm.</p>
     });
   }
 ));
-</code></pre>
-<p>A Steam API key can be obtained at <a href="http://steamcommunity.com/dev/apikey">http://steamcommunity.com/dev/apikey</a>. However if you wish not to use an API key, you can include <code>profile: false</code> into the SteamStrategy object, which will disable the fetching of user data.</p>
+</code></pre><p>A Steam API key can be obtained at <a href="http://steamcommunity.com/dev/apikey">http://steamcommunity.com/dev/apikey</a>. However if you wish not to use an API key, you can include <code>profile: false</code> into the SteamStrategy object, which will disable the fetching of user data.</p>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;steam&#39;</code> strategy, to
 authenticate requests.</p>
@@ -136,8 +134,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/st
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <h3 id="basic-example-using-express">Basic example using Express</h3>
 <p>For a complete, working example, refer to the <a href="https://github.com/liamcurry/passport-steam/tree/master/examples/signon">signon example</a> or follow the steps below. Do not forget to add your API key.</p>
 <p>To run the example, you can perform the following from the command line:</p>
@@ -154,14 +151,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/st
 <li><p>Edit <code>examples/signon/app.js</code> with your favorite text editor</p>
 </li>
 <li><p>Update the <code>localhost</code> parameter and add your API key in this block within <code>examples/signon/app.js</code></p>
-<pre><code> returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
-     realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
-     apiKey: &#x27;Your API key here&#x27;
+<pre><code>returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
+    realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
+    apiKey: &#x27;Your API key here&#x27;
 </code></pre></li>
 <li><p>Save your changes to <code>examples/signon/app.js</code></p>
 </li>
 <li><p>Start the example</p>
-<pre><code> npm <span class="built_in">run</span> example
+<pre><code>npm <span class="built_in">run</span> example
 </code></pre></li>
 <li><p>Go to the address you put in <code>realm</code> in your browser.</p>
 </li>
@@ -182,14 +179,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/st
 <li><p>Edit <code>examples/signon/app-router.js</code> with your favorite text editor</p>
 </li>
 <li><p>Update the <code>localhost</code> parameter and add your API key in this block within <code>examples/signon/app-router.js</code></p>
-<pre><code> returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
-     realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
-     apiKey: &#x27;Your API key here&#x27;
+<pre><code>returnURL: &#x27;http://localhost:<span class="number">3000</span>/auth/steam/return&#x27;,
+    realm: &#x27;http://localhost:<span class="number">3000</span>/&#x27;,
+    apiKey: &#x27;Your API key here&#x27;
 </code></pre></li>
 <li><p>Save your changes to <code>examples/signon/app-router.js</code></p>
 </li>
 <li><p>Start the example</p>
-<pre><code> npm <span class="built_in">run</span> example-router
+<pre><code>npm <span class="built_in">run</span> example-router
 </code></pre></li>
 <li><p>Go to the address you put in <code>realm</code> in your browser.</p>
 </li>
@@ -198,8 +195,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/st
 <p>If you would like to contribute, please provide accompanying tests with <a href="https://github.com/sindresorhus/ava">AVA</a></p>
 <pre><code class="bash">$ npm install -g ava
 $ ava
-</code></pre>
-<p><a href="http://travis-ci.org/liamcurry/passport-steam"><img src="https://secure.travis-ci.org/liamcurry/passport-steam.png" alt="Build Status"></a></p>
+</code></pre><p><a href="http://travis-ci.org/liamcurry/passport-steam"><img src="https://secure.travis-ci.org/liamcurry/passport-steam.png" alt="Build Status"></a></p>
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
@@ -230,13 +226,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-steam</span></code></div>
             <ul>
-              <li><span class="version">1.0.18</span> published <abbr class="updated" title="2023-06-18T15:16:33Z">18 days ago</abbr></li>
+              <li><span class="version">1.0.18</span> published <abbr class="updated" title="2023-06-18T15:16:33Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/liamcurry/passport-steam">https://github.com/liamcurry/passport-steam#readme</a></li>
             </ul>
             <ul>
-              <li><b>2,160</b> downloads in the last day</li>
-              <li><b>8,695</b> downloads in the last week</li>
-              <li><b>34,253</b> downloads in the last month</li>
+              <li><b>864</b> downloads in the last day</li>
+              <li><b>4,507</b> downloads in the last week</li>
+              <li><b>22,054</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

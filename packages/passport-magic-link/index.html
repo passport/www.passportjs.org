@@ -117,66 +117,61 @@
 <li><code>verifyUser</code>: A function that receives the request and returns a promise containing the user object. It may be used to insert and/or find the user in the database. It may be executed before the token creation or after the token confirmation.</li>
 </ul>
 <h4 id="example">Example</h4>
-<pre><code class="javascript">    <span class="keyword">const</span> <span class="title class_">MagicLinkStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-magic-link&#x27;</span>).<span class="property">Strategy</span>
-
-    passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">MagicLinkStrategy</span>({
-       <span class="attr">secret</span>: <span class="string">&#x27;my-secret&#x27;</span>,
-       <span class="attr">userFields</span>: [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;email&#x27;</span>],
-       <span class="attr">tokenField</span>: <span class="string">&#x27;token&#x27;</span>
-    }, <span class="function">(<span class="params">user, token</span>) =&gt;</span> {
-       <span class="keyword">return</span> <span class="title class_">MailService</span>.<span class="title function_">sendMail</span>({
-        <span class="attr">to</span>: user.<span class="property">email</span>,
-        token
-       })
-    }, <span class="function">(<span class="params">user</span>) =&gt;</span> {
-      <span class="keyword">return</span> <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({<span class="attr">email</span>: user.<span class="property">email</span>, <span class="attr">name</span>: user.<span class="property">name</span>})
-    }))
-</code></pre>
-<h3 id="authenticate-requests">Authenticate Requests</h3>
+<pre><code class="javascript"> <span class="keyword">const</span> <span class="title class_">MagicLinkStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-magic-link&#x27;</span>).<span class="property">Strategy</span>
+ 
+ passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">MagicLinkStrategy</span>({
+    <span class="attr">secret</span>: <span class="string">&#x27;my-secret&#x27;</span>,
+    <span class="attr">userFields</span>: [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;email&#x27;</span>],
+    <span class="attr">tokenField</span>: <span class="string">&#x27;token&#x27;</span>
+ }, <span class="function">(<span class="params">user, token</span>) =&gt;</span> {
+    <span class="keyword">return</span> <span class="title class_">MailService</span>.<span class="title function_">sendMail</span>({
+     <span class="attr">to</span>: user.<span class="property">email</span>,
+     token
+    })
+ }, <span class="function">(<span class="params">user</span>) =&gt;</span> {
+   <span class="keyword">return</span> <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({<span class="attr">email</span>: user.<span class="property">email</span>, <span class="attr">name</span>: user.<span class="property">name</span>})
+ }))
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>  Use <code>passport.authenticate()</code>, specifying the <code>&#39;magiclink&#39;</code> strategy for two actions:</p>
 <h4 id="request-token">request token</h4>
 <p>  In this situation the passport authenticate middleware will send a token produced by the user information, which is returned by the <code>verifyUser</code> function. The delivery system is not provided by default and must be placed in the <code>sendToken</code> function.</p>
-<pre><code class="javascript">  app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/magiclink&#x27;</span>,
-      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }),
-      <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
-  )
-</code></pre>
-<h4 id="accept-token">accept token</h4>
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/magiclink&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }),
+    <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
+)
+</code></pre><h4 id="accept-token">accept token</h4>
 <p>  In this situation (the default) the passport authenticate middleware will check for a token. The token value is returned by the <code>verifyToken</code> function.</p>
-<pre><code class="javascript">  app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/magiclink/callback&#x27;</span>,
-    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, { action : <span class="string">&#x27;acceptToken&#x27;</span> }),
-    <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
-  )
-</code></pre>
-<p>  The options field can also receive some optional properties:</p>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/magiclink/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, { action : <span class="string">&#x27;acceptToken&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
+)
+</code></pre><p>  The options field can also receive some optional properties:</p>
 <ul>
 <li><code>allowReuse</code>: A boolean indicating whether a token can be used more than once. Defaults to <code>false</code>.</li>
 <li><code>userPrimaryKey</code>: A string containing the primary key of the user object. This is only used if the token cannot be reused. Defaults to <code>email</code>.</li>
-<li><p><code>tokenAlreadyUsedMessage</code>: A string containing the error message if the token has already been used. Defaults to <code>Token was already used</code>.</p>
-<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/magiclink/callback&#x27;</span>,
-passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, {
-  action : <span class="string">&#x27;acceptToken&#x27;</span>,
-  <span class="attr">userPrimaryKey</span>: <span class="string">&#x27;id&#x27;</span>
- }),
-<span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
-)
-</code></pre>
-</li>
+<li><code>tokenAlreadyUsedMessage</code>: A string containing the error message if the token has already been used. Defaults to <code>Token was already used</code>.</li>
 </ul>
-<h2 id="acknowledgements">Acknowledgements</h2>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/magiclink/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;magiclink&#x27;</span>, {
+    action : <span class="string">&#x27;acceptToken&#x27;</span>,
+    <span class="attr">userPrimaryKey</span>: <span class="string">&#x27;id&#x27;</span>
+   }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
+)
+</code></pre><h2 id="acknowledgements">Acknowledgements</h2>
 <p>  This module is forked and modified from <a href="https://github.com/nickbalestra/zero">Nick Balestra&#39;s Passport Zero</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-magic-link</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-05-12T15:47:50Z">a year ago</abbr></li>
+              <li><span class="version">2.1.1</span> published <abbr class="updated" title="2024-06-04T19:20:41Z">15 days ago</abbr></li>
               <li><a class="url" href="https://github.com/vinialbano/passport-magic-link">https://github.com/vinialbano/passport-magic-link#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>111</b> downloads in the last day</li>
-              <li><b>878</b> downloads in the last week</li>
-              <li><b>2,752</b> downloads in the last month</li>
+              <li><b>160</b> downloads in the last day</li>
+              <li><b>809</b> downloads in the last week</li>
+              <li><b>3,892</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

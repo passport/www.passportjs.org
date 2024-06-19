@@ -104,7 +104,7 @@ stateless cookie for web requests from a browser.</p>
 the user comes from the token. You just use <code>req.user</code> in your actions.</p>
 <h2 id="install">Install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt-cookiecombo
-</code></pre><h2 id="tl-dr">TL;DR</h2>
+</code></pre><h2 id="tldr">TL;DR</h2>
 <pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Configure Strategy</span>
 <span class="comment">// =============================================================================</span>
@@ -115,8 +115,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 }, <span class="function">(<span class="params">payload, done</span>) =&gt;</span> {
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, payload.<span class="property">user</span>);
 }));
-</code></pre>
-<pre><code class="javascript"><span class="comment">// =============================================================================</span>
+</code></pre><pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Sign Token</span>
 <span class="comment">// =============================================================================</span>
 <span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>);
@@ -132,15 +131,14 @@ router.<span class="title function_">post</span>(<span class="string">&#x27;/log
             <span class="attr">signed</span>: <span class="literal">true</span>,
             <span class="attr">secure</span>: <span class="literal">true</span>
         });
-
+        
         <span class="comment">// Return json web token</span>
         <span class="keyword">return</span> res.<span class="title function_">json</span>({
             <span class="attr">jwt</span>: token
         });
     });
 });
-</code></pre>
-<pre><code class="javascript"><span class="comment">// =============================================================================</span>
+</code></pre><pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Authenticate Requests</span>
 <span class="comment">// =============================================================================</span>
 <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
@@ -150,8 +148,7 @@ app.<span class="title function_">use</span>(<span class="string">&#x27;/api/v1&
 }), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
     <span class="keyword">return</span> <span class="title function_">next</span>();
 });
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="sample-login-with-set-cookie">Sample Login with Set-Cookie</h3>
 <pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Dependencies</span>
@@ -160,16 +157,14 @@ app.<span class="title function_">use</span>(<span class="string">&#x27;/api/v1&
 <span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>);
 <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);
-</code></pre>
-<pre><code class="javascript"><span class="comment">// =============================================================================</span>
+</code></pre><pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Express App inits cookie with a secret</span>
 <span class="comment">// =============================================================================</span>
 <span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 <span class="comment">// Pass a secret to sign the secured http cookie</span>
 app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>(config.<span class="property">jwt</span>.<span class="property">secret</span>));
-</code></pre>
-<pre><code class="javascript"><span class="comment">// =============================================================================</span>
+</code></pre><pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Login route with any Passport authentication strategy</span>
 <span class="comment">// =============================================================================</span>
 <span class="comment">// Passport provides us the authenticated user in the request</span>
@@ -191,8 +186,7 @@ router.<span class="title function_">post</span>(<span class="string">&#x27;/log
         });
     });
 });
-</code></pre>
-<pre><code class="javascript"><span class="comment">// =============================================================================</span>
+</code></pre><pre><code class="javascript"><span class="comment">// =============================================================================</span>
 <span class="comment">// Sample Passport Authentication where the user is set for the jwt payload</span>
 <span class="comment">// =============================================================================</span>
 passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">LocalStrategy</span>({
@@ -206,7 +200,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// Explicitly select the password when the model hides it</span>
     .<span class="title function_">select</span>(<span class="string">&#x27;password role&#x27;</span>).<span class="title function_">exec</span>(<span class="function">(<span class="params">err, user</span>) =&gt;</span> {
         <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">done</span>(err);
-
+        
         <span class="comment">// Copy the user w/o the password into a new object</span>
         <span class="keyword">if</span> (user &amp;&amp; user.<span class="title function_">verifyPassword</span>(password)) <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, {
             <span class="attr">id</span>: user.<span class="property">_id</span>,
@@ -216,8 +210,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
         <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
     });
 }));
-</code></pre>
-<h3 id="jwt-cookie-combo-passport-strategy">JWT Cookie Combo Passport Strategy</h3>
+</code></pre><h3 id="jwt-cookie-combo-passport-strategy">JWT Cookie Combo Passport Strategy</h3>
 <pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">JwtCookieComboStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-jwt-cookiecombo&#x27;</span>);
 
 <span class="comment">// Authenticate API calls with the Cookie Combo Strategy</span>
@@ -228,8 +221,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 }, <span class="function">(<span class="params">payload, done</span>) =&gt;</span> {
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, payload.<span class="property">user</span>, {});
 }));
-</code></pre>
-<p>The following possible options for a JsonWebToken will be directly passed on to <a href="https://github.com/auth0/node-jsonwebtoken/blob/master/README.md#jwtverifytoken-secretorpublickey-options-callback">jsonwebtoken.verify</a>.</p>
+</code></pre><p>The following possible options for a JsonWebToken will be directly passed on to <a href="https://github.com/auth0/node-jsonwebtoken/blob/master/README.md#jwtverifytoken-secretorpublickey-options-callback">jsonwebtoken.verify</a>.</p>
 <p><code>secretOrPublicKey:</code> is a string or buffer containing either the secret for HMAC algorithms, or the PEM
 encoded public key for RSA and ECDSA.</p>
 <p><code>jwtVerifyOptions: {</code></p>
@@ -249,8 +241,7 @@ encoded public key for RSA and ECDSA.</p>
 }), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
     <span class="keyword">return</span> <span class="title function_">next</span>();
 });
-</code></pre>
-<h3 id="sample-config">Sample Config</h3>
+</code></pre><h3 id="sample-config">Sample Config</h3>
 <pre><code class="javascript"><span class="variable language_">module</span>.<span class="property">exports</span> = {
     <span class="attr">jwt</span>: {
         <span class="attr">secret</span>: process.<span class="property">env</span>.<span class="property">JWT_SECRET</span> || <span class="string">&#x27;SetStrongSecretInDotEnv&#x27;</span>,
@@ -267,8 +258,7 @@ encoded public key for RSA and ECDSA.</p>
         }
     }
 };
-</code></pre>
-<h3 id="sample-auth-header">Sample Auth-Header</h3>
+</code></pre><h3 id="sample-auth-header">Sample Auth-Header</h3>
 <table>
 <thead>
 <tr>
@@ -276,21 +266,18 @@ encoded public key for RSA and ECDSA.</p>
 <th>Token</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Authorization</td>
 <td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNTc5ZWVkZGRlMDEzNz...</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="sample-token">Sample Token</h3>
-<h5 id="header-algorithm-token-type">HEADER: ALGORITHM &amp; TOKEN TYPE</h5>
+<h5 id="header-algorithm--token-type">HEADER: ALGORITHM &amp; TOKEN TYPE</h5>
 <pre><code class="javascript">{
     <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,
     <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>
 }
-</code></pre>
-<h5 id="payload-data">PAYLOAD: DATA</h5>
+</code></pre><h5 id="payload-data">PAYLOAD: DATA</h5>
 <pre><code class="javascript">{
     <span class="string">&quot;user&quot;</span>: {
         <span class="string">&quot;id&quot;</span>: <span class="string">&quot;577839eeddde013794ae2332&quot;</span>,
@@ -301,15 +288,13 @@ encoded public key for RSA and ECDSA.</p>
     <span class="string">&quot;aud&quot;</span>: <span class="string">&quot;https://example.io&quot;</span>,
     <span class="string">&quot;iss&quot;</span>: <span class="string">&quot;example.io&quot;</span>
 }
-</code></pre>
-<h5 id="verify-signature">VERIFY SIGNATURE</h5>
+</code></pre><h5 id="verify-signature">VERIFY SIGNATURE</h5>
 <pre><code class="javascript"><span class="title class_">HMACSHA256</span> (
   <span class="title function_">base64UrlEncode</span>(header) + <span class="string">&quot;.&quot;</span> +
   <span class="title function_">base64UrlEncode</span>(payload),
   secret
 )
-</code></pre>
-<h2 id="tonic-notebook">Tonic Notebook</h2>
+</code></pre><h2 id="tonic-notebook">Tonic Notebook</h2>
 <p>Try it out on tonic.dev <a href="https://tonicdev.com/codebarista/passport-jwt-cookiecombo">tonic + npm: passport-jwt-cookiecombo</a></p>
 <h2 id="license">License</h2>
 <p><a href="https://git.io/vKR49">ISC</a></p>
@@ -317,14 +302,14 @@ encoded public key for RSA and ECDSA.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-jwt-cookiecombo</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T12:52:27Z">a year ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T12:52:27Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/codebarista/passport-jwt-cookiecombo">https://github.com/codebarista/passport-jwt-cookiecombo#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>279</b> downloads in the last day</li>
-              <li><b>962</b> downloads in the last week</li>
-              <li><b>6,226</b> downloads in the last month</li>
+              <li><b>204</b> downloads in the last day</li>
+              <li><b>1,145</b> downloads in the last week</li>
+              <li><b>5,677</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

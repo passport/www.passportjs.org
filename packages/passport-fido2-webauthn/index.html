@@ -103,8 +103,7 @@ unobtrusively integrated into any application or framework that supports
 including <a href="https://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="sh">$ npm install passport-fido2-webauthn
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>The WebAuthn authentication strategy authenticates users using a public
 key-based credential.  The authenticator which stores this credential is
 typically a biometric sensor built into the user&#39;s device or an external
@@ -172,8 +171,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="define-routes">Define Routes</h4>
+</code></pre><h4 id="define-routes">Define Routes</h4>
 <p>Two routes are needed in order to allow users to log in with their biometrics or
 security keys.</p>
 <p>The first route generates a randomized challenge, saves it in the
@@ -186,8 +184,7 @@ against replay attacks.</p>
     res.<span class="title function_">json</span>({ <span class="attr">challenge</span>: base64url.<span class="title function_">encode</span>(challenge) });
   });
 });
-</code></pre>
-<p>The second route authenticates the authenticator assertion and logs the user in.</p>
+</code></pre><p>The second route authenticates the authenticator assertion and logs the user in.</p>
 <pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/login/public-key&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;webauthn&#x27;</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
   <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
@@ -196,8 +193,7 @@ against replay attacks.</p>
   <span class="keyword">function</span>(<span class="params">err, req, res, next</span>) {
     res.<span class="title function_">json</span>({ <span class="attr">ok</span>: <span class="literal">false</span> });
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <ul>
 <li><p><a href="https://github.com/passport/todos-express-webauthn">todos-express-webauthn</a></p>
 <p>Illustrates how to use the WebAuthn strategy within an Express application.</p>
@@ -210,14 +206,14 @@ against replay attacks.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-fido2-webauthn</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-06T18:49:50Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-06T18:49:50Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-webauthn">https://github.com/jaredhanson/passport-webauthn#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>42</b> downloads in the last day</li>
-              <li><b>236</b> downloads in the last week</li>
-              <li><b>896</b> downloads in the last month</li>
+              <li><b>781</b> downloads in the last day</li>
+              <li><b>2,816</b> downloads in the last week</li>
+              <li><b>17,060</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

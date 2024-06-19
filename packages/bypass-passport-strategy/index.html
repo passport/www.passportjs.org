@@ -94,7 +94,7 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="bypass-passport-strategy">bypass-passport-strategy</h1>
-<p><a href="https://circleci.com/gh/bypasslane/bypass-passport-strategy"><img src="https://circleci.com/gh/bypasslane/bypass-passport-strategy.svg?style=svg&amp;circle-token=def6ddf5670339f606d411b0d5095ca16fa8d57c" alt="CircleCI"></a></p>
+<p><a href="https://circleci.com/gh/bypasslane/bypass-passport-strategy"><img src="https://circleci.com/gh/bypasslane/bypass-passport-strategy.svg?style=svg&circle-token=def6ddf5670339f606d411b0d5095ca16fa8d57c" alt="CircleCI"></a></p>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with Bypass session tokens</p>
 <p>This module lets you authenticate using a the Bypass session token in Node.js
 applications.</p>
@@ -105,8 +105,7 @@ applications.</p>
     <span class="attr">&quot;bypass-passport-strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;git@github.com:bypasslane/bypass-passport-strategy.git&quot;</span>
   <span class="punctuation">}</span>
 <span class="punctuation">}</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The local authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
@@ -114,8 +113,7 @@ credentials and calls <code>done</code> providing a user.</p>
 <pre><code class="js"><span class="keyword">var</span> <span class="title class_">BypassStrategy</span> = <span class="built_in">require</span>(<span class="string">&quot;bypass-passport-strategy&quot;</span>).<span class="property">Strategy</span>;
 
 passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">BypassStrategy</span>({<span class="attr">server</span>: <span class="string">&#x27;http://where-my-auth-is&#x27;</span>}));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;bypasstoken&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -125,23 +123,21 @@ application:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
-</code></pre>
-</div>
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">bypass-passport-strategy</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-04-12T04:51:23Z">a year ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-04-12T04:51:23Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/bypasslane/bypass-passport-strategy">https://github.com/bypasslane/bypass-passport-strategy#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>16</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>23</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

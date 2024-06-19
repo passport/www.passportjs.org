@@ -115,24 +115,21 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   });
 }));
-</code></pre>
-<p>and then authenticate as:</p>
+</code></pre><p>and then authenticate as:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/workwell&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;workwell&#x27;</span>, { <span class="attr">state</span>: <span class="string">&#x27;SOME STATE&#x27;</span>  }),
   <span class="keyword">function</span>(<span class="params">req, res</span>){
     <span class="comment">// The request will be redirected to Workwell for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
-</code></pre>
-<p>the login callback:</p>
+</code></pre><p>the login callback:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/workwell/callback&#x27;</span>, 
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;workwell&#x27;</span>, {
         <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
         <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
     })
 );
-</code></pre>
-<p>Copy the workwell.js file of your /node_modules/passport-workwell/node_modules/workwell/dist/js/ folder into the javascript folder of your project (used by the web client application)</p>
+</code></pre><p>Copy the workwell.js file of your /node_modules/passport-workwell/node_modules/workwell/dist/js/ folder into the javascript folder of your project (used by the web client application)</p>
 <p>You need to create a page to get the Workwell profile using the Workwell mobile bridge. Report the URL of this page in the <em>getProfilePage</em> option
 This page will be called with servicetoken get parameter : mypagetogetprofile.html?servicetoken=12345678910. You need to assign the service token parameter to the serviceToken javascript variable.
 Depending on the web framework you use, you will find many scripts to parse the URL to get this parameter.</p>
@@ -161,8 +158,7 @@ Depending on the web framework you use, you will find many scripts to parse the 
     </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">html</span>&gt;</span>
-</code></pre>
-<p>See <a href="https://workwell.api-docs.io">this</a> for details on Workwell API.</p>
+</code></pre><p>See <a href="https://workwell.api-docs.io">this</a> for details on Workwell API.</p>
 <h2 id="author">Author</h2>
 <p>Kimind (<a href="http://www.kimind.com">http://www.kimind.com</a>)</p>
 <h2 id="license">License</h2>
@@ -171,14 +167,14 @@ Depending on the web framework you use, you will find many scripts to parse the 
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-workwell</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:49:28Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T13:49:28Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/emathieu13/passport-workwell">https://github.com/emathieu13/passport-workwell</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>38</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>11</b> downloads in the last week</li>
+              <li><b>44</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

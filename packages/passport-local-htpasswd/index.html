@@ -111,7 +111,7 @@ create a password file, use a command like this:</p>
 <p>The local authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
-<pre><code>passport.use(<span class="keyword">new</span> <span class="constructor">LocalHtpasswdStrategy({<span class="params">file</span>: <span class="params">filename</span>})</span>;
+<pre><code>passport.<span class="keyword">use</span>(<span class="keyword">new</span> LocalHtpasswdStrategy({file: filename});
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;local-htpasswd&#39;</code> strategy, to
 authenticate requests.</p>
@@ -129,13 +129,13 @@ object with a single property <code>username</code> with the given username. </p
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-local-htpasswd</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:58:09Z">a year ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:58:09Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/morungos/passport-local-htpasswd">https://github.com/morungos/passport-local-htpasswd#readme</a></li>
             </ul>
             <ul>
-              <li><b>3</b> downloads in the last day</li>
-              <li><b>27</b> downloads in the last week</li>
-              <li><b>138</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>21</b> downloads in the last week</li>
+              <li><b>78</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

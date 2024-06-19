@@ -144,8 +144,7 @@
       <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerText</span> = json.<span class="property">code</span>
     }
   })
-</code></pre>
-<h3 id="backend-setup">Backend setup</h3>
+</code></pre><h3 id="backend-setup">Backend setup</h3>
 <p>To make this work so easily, you first need to setup passport-magic-login:</p>
 <pre><code class="JS"><span class="keyword">import</span> <span class="title class_">MagicLoginStrategy</span> <span class="keyword">from</span> <span class="string">&quot;passport-magic-login&quot;</span>
 
@@ -184,8 +183,8 @@
         <span class="title function_">callback</span>(err)
       })
   }
-
-
+  
+  
   <span class="comment">// Optional: options passed to the jwt.sign call (https://github.com/auth0/node-jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback)</span>
   <span class="attr">jwtOptions</span>: {
     <span class="attr">expiresIn</span>: <span class="string">&quot;2 days&quot;</span>,
@@ -194,28 +193,26 @@
 
 <span class="comment">// Add the passport-magic-login strategy to Passport</span>
 passport.<span class="title function_">use</span>(magicLogin)
-</code></pre>
-<p>Once you&#39;ve got that, you&#39;ll then need to add a couple of routes to your Express server:</p>
+</code></pre><p>Once you&#39;ve got that, you&#39;ll then need to add a couple of routes to your Express server:</p>
 <pre><code class="JS"><span class="comment">// This is where we POST to from the frontend</span>
 app.<span class="title function_">post</span>(<span class="string">&quot;/auth/magiclogin&quot;</span>, magicLogin.<span class="property">send</span>);
 
 <span class="comment">// The standard passport callback setup</span>
 app.<span class="title function_">get</span>(magicLogin.<span class="property">callbackUrl</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;magiclogin&quot;</span>));
-</code></pre>
-<p>That&#39;s it, you&#39;re ready to authenticate! 🎉</p>
+</code></pre><p>That&#39;s it, you&#39;re ready to authenticate! 🎉</p>
 <h2 id="license">License</h2>
 <p>Licensed under the MIT license. See <a href="./LICENSE">LICENSE</a> for more information!</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-magic-login</span></code></div>
             <ul>
-              <li><span class="version">1.2.2</span> published <abbr class="updated" title="2023-01-11T14:20:37Z">6 months ago</abbr></li>
+              <li><span class="version">1.2.2</span> published <abbr class="updated" title="2023-01-11T14:20:37Z">a year ago</abbr></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>648</b> downloads in the last day</li>
-              <li><b>3,859</b> downloads in the last week</li>
-              <li><b>18,815</b> downloads in the last month</li>
+              <li><b>884</b> downloads in the last day</li>
+              <li><b>4,825</b> downloads in the last week</li>
+              <li><b>21,506</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

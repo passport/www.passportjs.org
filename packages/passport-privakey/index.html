@@ -103,8 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-privakey
-</code></pre>
-<h2 id="about-privakey">About Privakey</h2>
+</code></pre><h2 id="about-privakey">About Privakey</h2>
 <p>Logging in with Privakey is simple and secure.  Like a social login (e.g. Sign in with Google), one can use their Privakey Login anywhere that accepts Privakey.  Unlike a social login, Privakey is:</p>
 <ul>
 <li><em>Secure</em> - By having users use a registered Privakey application (available for Android, iOS and Google Chrome) and a PIN, Privakey enables simple, multi-factor login.</li>
@@ -152,11 +151,10 @@ unobtrusively integrated into any application or framework that supports
     users.<span class="title function_">saveOAuthUserProfile</span>(req, providerUserProfile, done);
   }));
 };
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;privakey&#39;</code> strategy, to
 authenticate requests.  </p>
-<p><strong><em>NOTE</em></strong>: passport-privakey requires a state in order to complete the authenticate process.  Be sure to set a <code>state</code> in your <code>req.session</code> if you want to use and manage your own state.  If you don&#39;t provide a state <strong>before</strong> calling passport.authenticate(), a state will be generated for you and stored in the session.  The state is an &quot;opaque value used to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.&quot; (<a href="http://openid.net/specs/openid-connect-core-1_0.html">openIDConnect spec</a>)</p>
+<p><em><strong>NOTE</strong></em>: passport-privakey requires a state in order to complete the authenticate process.  Be sure to set a <code>state</code> in your <code>req.session</code> if you want to use and manage your own state.  If you don&#39;t provide a state <strong>before</strong> calling passport.authenticate(), a state will be generated for you and stored in the session.  The state is an &quot;opaque value used to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.&quot; (<a href="http://openid.net/specs/openid-connect-core-1_0.html">openIDConnect spec</a>)</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/privakey&#x27;</span>,
@@ -168,8 +166,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="example">Example</h2>
+</code></pre><h2 id="example">Example</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/privakey/meanjs-example">Privakey MeanJS Example Application</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Before you can enable Privakey for your application, you will need to get the Privakey Application and sign up to be a Privakey Relying Party.</p>
@@ -179,14 +176,13 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 <li><p>Register as a Relying Party</p>
 <ul>
 <li>Log into <a href="https://portal.privakey.com">Privakey&#39;s User Portal</a> and sign up to be a Relying Party.</li>
-<li><p>You will need to create a Relying Party.  Information you&#39;ll need to provide, includes:</p>
-<p><strong>Friendly Name</strong>: This is how the applications name will present on the end-user’s pending authentication page and Privakey Apps.</p>
-<p><strong>Logo</strong>: Optionally, one can upload a logo that will appear on the pending authentication page presented to users during authentications.</p>
-<p><strong>Call Back URI</strong>: URI’s to which a user returns with references to their Token.  After a successful Authentication on Privakey (See Usage for more details). For a standard Passport implementation this will be:  &quot;https://[base_uri]/auth/privakey/callback&quot;.  Any callback URI defined in your application, must be configured in the Privakey Relying Party administration screens. A Service may have more than one callback URI.</p>
-<p><strong>Require PIN?</strong>: Privakey Authentications can be configured to require or not require the use of a PIN during authentications. For secure Authentications, the use of a PIN is recommended. However, there may be certain instances where a service may want a more convenient method of user authentication. This is configured for each Callback URI, so a service can leverage both method (for example: requiring a PIN to log in to the account but not requiring a PIN to process a transaction once logged in).</p>
-<p><strong>Implicit Flow</strong>: Privakey supports two OpenID Connect Protocols; Should be left at the default. More information about these different protocols can be found on OpenID.org. The passport-privakey module assumes Code Flow, as it is a more secure protocol.</p>
-</li>
+<li>You will need to create a Relying Party.  Information you&#39;ll need to provide, includes:</li>
 </ul>
+<p> <strong>Friendly Name</strong>: This is how the applications name will present on the end-user’s pending authentication page and Privakey Apps.</p>
+<p> <strong>Logo</strong>: Optionally, one can upload a logo that will appear on the pending authentication page presented to users during authentications.</p>
+<p> <strong>Call Back URI</strong>: URI’s to which a user returns with references to their Token.  After a successful Authentication on Privakey (See Usage for more details). For a standard Passport implementation this will be:  &quot;https://[base_uri]/auth/privakey/callback&quot;.  Any callback URI defined in your application, must be configured in the Privakey Relying Party administration screens. A Service may have more than one callback URI.</p>
+<p> <strong>Require PIN?</strong>: Privakey Authentications can be configured to require or not require the use of a PIN during authentications. For secure Authentications, the use of a PIN is recommended. However, there may be certain instances where a service may want a more convenient method of user authentication. This is configured for each Callback URI, so a service can leverage both method (for example: requiring a PIN to log in to the account but not requiring a PIN to process a transaction once logged in).</p>
+<p> <strong>Implicit Flow</strong>: Privakey supports two OpenID Connect Protocols; Should be left at the default. More information about these different protocols can be found on OpenID.org. The passport-privakey module assumes Code Flow, as it is a more secure protocol.</p>
 </li>
 </ol>
 <p>For more detailed documentation on Privakey&#39;s service, visit <a href="http://docs.privakey.com">Privakey Documentation</a>.</p>
@@ -205,14 +201,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-privakey</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:20:16Z">a year ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:20:16Z">2 years ago</abbr></li>
               <li><a class="url" href="git+https://github.com/privakey/passport-privakey.git">https://github.com/privakey/passport-privakey#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>17</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -103,8 +103,8 @@ with <a href="http://cloudfoundry.com/">Cloud Foundry open PaaS</a> using OpenID
 
 
 <p>##OpenID-Connect 
-(From: <a href="http://openid.net/connect/">http://openid.net/connect/</a>)</p>
-<p>####What is OpenID Connect ?
+(From: <a href="http://openid.net/connect/">http://openid.net/connect/</a>)
+####What is OpenID Connect ?
 OpenID Connect is a suite of lightweight specifications that provide a framework for identity interactions via REST like APIs. The simplest deployment of OpenID Connect allows for clients of all types including browser-based, mobile, and javascript clients, to request and receive information about identities and currently authenticated sessions. The specification suite is extensible, allowing participants to optionally also support encryption of identity data, discovery of the OpenID Provider, and advanced session management, including logout. </p>
 <p>####How is OpenID Connect different than OpenID 2.0?
 OpenID Connect performs many of the same tasks as OpenID 2.0, but does so in a way that is API-friendly. OpenID Connect can also be extended to include more robust mechanisms for signing and encryption. Integration of OAuth 1.0a and OpenID 2.0 required an extension (called the OpenID/OAuth hybrid); in OpenID Connect, OAuth 2.0 capability is built into the protocol itself.</p>
@@ -116,7 +116,7 @@ It&#39;s OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it ju
 </li>
 <li><p>Then, we must take the <code>token_id</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a></p>
 </li>
-<li><p>After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;openid-server&gt;/userinfo</code> end point. </p>
+<li><p>After the validation, we make a call to an endpoint to get user&#39;s profile <code>like: &lt;openid-server&gt;/userinfo</code> end point.</p>
 </li>
 </ol>
 <p>BTW, the access_token you get won&#39;t be able to do anything other than get user&#39;s profile (open id aspect).</p>
@@ -126,10 +126,11 @@ It&#39;s OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it ju
 <p>In essence, Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-variation of OpenID-Connect and is easily extensible for other kinds of auth mechanisms.</p>
 <p>####High-level steps for UAA OpenID:</p>
 <ol start="0">
-<li>Register your app to only have scope <code>openid</code> or during OAuth 2.0 dance, send <code>{scope: &#39;oauth.2.0&#39;}</code>.</li>
+<li><p>Register your app to only have scope <code>openid</code> or during OAuth 2.0 dance, send <code>{scope: &#39;oauth.2.0&#39;}</code>.</p>
+</li>
 <li><p>Perform OAuth 2.0 as usual. And after authentication dance, your app will get an <code>access_token</code>, a <code>refresh_token</code> just like in OAuth 2.0 <del>but in addition an extra token called <code>token_id</code></del>.  <code>access_token</code> itself acts similar to <code>token_id</code>.</p>
 </li>
-<li><p>Then, we must take the <del>token_id</del> <code>access_token</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a>. </p>
+<li><p>Then, we must take the <del>token_id</del> <code>access_token</code> and decode it &amp; validate couple of things mentioned here <a href="http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation">OpenID draft-spec draft 22 id.token.validation</a>.</p>
 </li>
 </ol>
 <pre><code>access_token (Before):
@@ -144,7 +145,7 @@ acess_token (After)
 <p>#####Notes: </p>
 <ul>
 <li>The access_token you get won&#39;t be able to do anything other than get user&#39;s profile (open id aspect).</li>
-<li><strong><em>This passport-cloudfoundry-openidconnect</em></strong> already does all these things for you.</li>
+<li><em><strong>This passport-cloudfoundry-openidconnect</strong></em> already does all these things for you.</li>
 <li>Accurate as of Jan 8th 2012.</li>
 </ul>
 <p>####CloudFoundry.com &#39;s default endpoints####</p>
@@ -154,23 +155,25 @@ acess_token (After)
 <li>User Info: <a href="https://uaa.cloudfoundry.com/userinfo">https://uaa.cloudfoundry.com/userinfo</a></li>
 </ul>
 <p>####For more, please refer:####</p>
-<p><strong><em>UAA related blogs</em></strong></p>
+<p><em><strong>UAA related blogs</strong></em></p>
 <ul>
 <li><a href="http://blog.cloudfoundry.org/2012/07/23/uaa-intro/">Introducing the UAA and Security for Cloud Foundry</a></li>
 <li><a href="http://blog.cloudfoundry.org/2012/07/24/high-level-features-of-the-uaa/">High Level Features of the UAA</a></li>
 <li><a href="http://blog.cloudfoundry.org/2012/11/05/how-to-integrate-an-application-with-cloud-foundry-using-oauth2/">How to Integrate an Application with Cloud Foundry using OAuth2</a></li>
 </ul>
-<p><strong><em>UAA API details &amp; Github</em></strong></p>
+<p><em><strong>UAA API details &amp; Github</strong></em></p>
 <ul>
 <li><a href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst">User Account and Authentication Service APIs doc</a></li>
 <li><a href="https://github.com/cloudfoundry/uaa">UAA Github</a></li>
 </ul>
-<p><strong><em>OpenID Connect</em></strong></p>
+<p><em><strong>OpenID Connect</strong></em></p>
 <ul>
 <li><a href="http://openid.net">OpenID.net website</a></li>
 <li><a href="http://openid.net/specs/openid-connect-basic-1_0.html">OpenID Basic-Connect spec</a></li>
 </ul>
-<h2 id="-br-"><br></h2>
+<br>
+-----
+
 <h1 id="passport-cloudfoundry-openidconnect-installation">passport-cloudfoundry-openidconnect Installation</h1>
 <pre><code>$ npm install pass<span class="keyword">port</span>-cloudfoundry-openidconnect
 </code></pre><h2 id="usage">Usage</h2>
@@ -250,22 +253,18 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
  // Pass the strategy
  passport.use(cfStrategy);
 </span>
-</code></pre>
-<h4 id="express-middlewares">Express middlewares</h4>
+</code></pre><h4 id="express-middlewares">Express middlewares</h4>
 <p>In Express apps, you need to add the below middlewares. Also make sure to add them after Express&#39; session middleware</p>
 <pre><code class="javascript"><span class="comment">// Initialize Passport!  Also use passport.session() middleware, to support</span>
 <span class="comment">// persistent login sessions (recommended).</span>
     app.<span class="title function_">use</span>(passport.<span class="title function_">initialize</span>());
     app.<span class="title function_">use</span>(passport.<span class="title function_">session</span>());
-</code></pre>
-<h4 id="express-routes">Express routes</h4>
+</code></pre><h4 id="express-routes">Express routes</h4>
 <p>For passport to work, you need to add two routes.</p>
 <ol>
-<li><code>app.get(&#39;/auth/cloudfoundry&#39;…</code> to start OAuth</li>
-<li><code>app.get(&#39;/auth/cloudfoundry/callback&#39;…</code> to receive OAuth callback back from Cloud Foundry.<ul>
-<li>NOTE: This must match your callback url&#39;s path that you used to register the app.</li>
-</ul>
-</li>
+<li><code>app.get(&#39;/auth/cloudfoundry&#39;… </code> to start OAuth</li>
+<li><code> app.get(&#39;/auth/cloudfoundry/callback&#39;…</code> to receive OAuth callback back from Cloud Foundry.
+* NOTE: This must match your callback url&#39;s path that you used to register the app.</li>
 </ol>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
@@ -291,8 +290,7 @@ application:</p>
         <span class="comment">// The request will be redirected to CloudFoundry for authentication, so</span>
         <span class="comment">// this function will not be called.</span>
       });
-</code></pre>
-<h4 id="logging-out">Logging out</h4>
+</code></pre><h4 id="logging-out">Logging out</h4>
 <p>To logout, call <code>req.logout()</code> AND <code>cfStrategy.reset()</code> like below:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) {
     <span class="keyword">if</span>(!req.<span class="property">user</span>) {
@@ -306,8 +304,7 @@ application:</p>
         <span class="attr">user</span>: req.<span class="property">user</span>
     });
 });
-</code></pre>
-<hr>
+</code></pre><hr>
 <h2 id="an-example-oauth2-app">An Example OAuth2 App</h2>
 <p>The example app is located in the <a href="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/tree/master/examples/login">/examples</a> folder. But here are the details.</p>
 <h3 id="running-the-example-app">Running the example app</h3>
@@ -343,25 +340,27 @@ application:</p>
 <OL>
     <li>Register your app at Cloud Foundry at: <a href="http://support.cloudfoundry.com/">http://support.cloudfoundry.com/</a></li>
     <li>Provide your app name. e.g. MyCoolApp</li>
-    <li>Provide a app&#39;s server domain for callback. e.g. mycoolapp.cloudfoundry.com</li>
+    <li>Provide a app's server domain for callback. e.g. mycoolapp.cloudfoundry.com</li>
 </OL>
 
 <h3 id="app-workflow">App Workflow</h3>
 <p> Once the app is up and running, here is how it works:</p>
-<h4 id="1-you-will-see-login-page-like-below-click-on-login-with-cloud-foundry-link-">1. You will see login page like below (Click on &#39;Login with Cloud Foundry&#39; link):</h4>
+<h4 id="1-you-will-see-login-page-like-below-click-on-login-with-cloud-foundry-link">1. You will see login page like below (Click on &#39;Login with Cloud Foundry&#39; link):</h4>
  <p align='center'>
 <img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page1.png" height="400px" width="550px" />
 </p>
 
 <p>####2. Your browser will be redirected to <a href="https://uaa.cloudfoundry.com/login">https://uaa.cloudfoundry.com/login</a> (default auth url): ####
  <p align='center'>
-<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page2.png" height="400px" width="550px" />
-</p></p>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page2.png" height="400px" width="550px" /></p>
+</p>
+
 <p>####3. If you Sign-in using your cloudfoundry.com account, you will see ####
  <p align='center'>
-<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page3.png" height="400px" width="550px" />
-</p></p>
-<h4 id="4-if-you-approve-browser-will-redirect-you-to-your-app-w-access_token-user-info-and-you-will-see-">4. If you Approve, browser will redirect you to your app w/ access_token &amp; user info. And you will see:</h4>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page3.png" height="400px" width="550px" /></p>
+</p>
+
+<h4 id="4-if-you-approve-browser-will-redirect-you-to-your-app-w-access_token--user-info-and-you-will-see">4. If you Approve, browser will redirect you to your app w/ access_token &amp; user info. And you will see:</h4>
  <p align='center'>
 <img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page4.png" height="400px" width="550px" />
 </p>
@@ -384,13 +383,13 @@ VMware</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-cloudfoundry-openidconnect</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:24:15Z">a year ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T12:24:15Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

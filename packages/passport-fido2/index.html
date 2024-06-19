@@ -120,14 +120,10 @@
 
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/line/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;fido2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span> }));
-
-</code></pre>
-<h3 id="generate-challenge">Generate challenge</h3>
+</code></pre><h3 id="generate-challenge">Generate challenge</h3>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/fido2/challenge&#x27;</span>,
   <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">send</span>(<span class="title class_">Fido2Strategy</span>.<span class="title function_">challenge</span>(<span class="string">&#x27;hmac-secret&#x27;</span>)));
-
-</code></pre>
-<h2 id="options">Options</h2>
+</code></pre><h2 id="options">Options</h2>
 <ul>
 <li>passReqToCallback (optional): Pass req object to callback</li>
 <li>readProfile (required): function(id, callback(err, pubKey, profile)). you need load public key from your storage.</li>
@@ -151,13 +147,13 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/li
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-fido2</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:36:57Z">a year ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:36:57Z">2 years ago</abbr></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

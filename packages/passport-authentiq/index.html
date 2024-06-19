@@ -98,8 +98,7 @@
 <p>This module lets you authenticate without passwords using Authentiq ID in your Node.js applications. By plugging into Passport, Authentiq  authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-style middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">npm install passport passport-authentiq
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
 <p>Before using <code>passport-authentiq</code>, you must register an application with Authentiq. If you have not already done so, a new application can be created at the <a href="https://dashboard.authentiq.com/">Authentiq Dashboard</a>.</p>
 <p>Your application will be issued a Client ID and Client Secret, that need to be provided to the strategy. You will also need to configure a callback URL which matches the route in your application.</p>
@@ -119,8 +118,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// Persist or update user locally.</span>
     <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
 }));
-</code></pre>
-<p>The strategy will call the provided <code>verify</code> callback identity information received form the authorization server.</p>
+</code></pre><p>The strategy will call the provided <code>verify</code> callback identity information received form the authorization server.</p>
 <p>In the above example, the callback accepts <code>iss</code>, <code>sub</code> and the profile of the user, but there are several other callback signatures available:</p>
 <pre><code class="javascript">    <span class="keyword">function</span> (<span class="params">iss, sub, profile, jwtClaims, accessToken, refreshToken, params, done</span>)
 
@@ -131,8 +129,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">function</span>(<span class="params">iss, sub, profile, done</span>)
 
     <span class="keyword">function</span>(<span class="params">iss, sub, done</span>)
-</code></pre>
-<p>The callback must call <code>done</code> to complete the authentication.</p>
+</code></pre><p>The callback must call <code>done</code> to complete the authentication.</p>
 <h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>authentiq</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
@@ -144,33 +141,30 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/au
         <span class="attr">failureRedirect</span>: <span class="string">&#x27;/error&#x27;</span>
     })
 );
-</code></pre>
-<p>See <a href="http://expressjs.com/en/starter/hello-world.html">here</a> for a boilerplate Express application. You will need the following dependencies</p>
+</code></pre><p>See <a href="http://expressjs.com/en/starter/hello-world.html">here</a> for a boilerplate Express application. You will need the following dependencies</p>
 <pre><code>npm install <span class="built_in">express</span> <span class="built_in">express</span>-session
 </code></pre><h2 id="contributing">Contributing</h2>
 <h4 id="tests">Tests</h4>
 <p>The test suite is located in the <code>test/</code> directory.  All new features are expected to have corresponding test cases.  Ensure that the complete test suite passes by executing:</p>
 <pre><code class="bash">make <span class="built_in">test</span>
-</code></pre>
-<h4 id="coverage">Coverage</h4>
+</code></pre><h4 id="coverage">Coverage</h4>
 <pre><code class="bash">make test-cov
 make view-cov
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <p>© 2017 <a href="https://www.authentiq.com/">Authentiq</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-authentiq</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:17:41Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:17:41Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/AuthentiqID/passport-authentiq">https://github.com/AuthentiqID/passport-authentiq#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>7</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

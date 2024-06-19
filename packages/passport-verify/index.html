@@ -103,8 +103,7 @@
 <h2 id="usage">Usage</h2>
 <h3 id="step-1-install-passport-verify">Step 1. Install <code>passport-verify</code></h3>
 <pre><code class="bash">npm install --save passport-verify
-</code></pre>
-<h3 id="step-2-configure-the-passport-verify-strategy">Step 2. Configure the <code>passport-verify</code> strategy</h3>
+</code></pre><h3 id="step-2-configure-the-passport-verify-strategy">Step 2. Configure the <code>passport-verify</code> strategy</h3>
 <p>Use the <code>createIdentityStrategy</code> method to create a strategy when configuring passport.js. For more information about the method, see the <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createidentitystrategy">API documentation for <code>createIdentityStrategy</code></a>.</p>
 <p>The code block shows an example of how to <a href="http://passportjs.org/docs/configure#strategies">configure the <code>passport-verify</code> strategy</a>.</p>
 <pre><code class="javascript"><span class="keyword">const</span> passportVerify = <span class="built_in">require</span>(<span class="string">&#x27;passport-verify&#x27;</span>)
@@ -195,8 +194,7 @@ passport.<span class="title function_">use</span>(passportVerify.<span class="ti
 <span class="comment">// LEVEL_1 or LEVEL2 depending on your service&#x27;s requirements. Defaults to LEVEL_2.</span>
 <span class="string">&#x27;LEVEL_2&#x27;</span>
 ))
-</code></pre>
-<p>If your service uses Matching Service Adapter, you should use the <code>createStrategy</code> method to create a strategy when configuring passport.js. See the <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createstrategy">API documentation for the createStrategy method</a> for more details.</p>
+</code></pre><p>If your service uses Matching Service Adapter, you should use the <code>createStrategy</code> method to create a strategy when configuring passport.js. See the <a href="https://alphagov.github.io/passport-verify/modules/_passport_verify_strategy_.html#createstrategy">API documentation for the createStrategy method</a> for more details.</p>
 <h3 id="step-3-configure-routes-for-the-authentication-flow">Step 3. Configure routes for the authentication flow</h3>
 <p>Use the <code>createIdentityResponseHandler</code> method to configure the routes for the authentication flow.</p>
 <p>See the API documentation for more details about the <a href="https://alphagov.github.io/passport-verify/modules/_create_identity_response_handler_.html#createidentityresponsehandler"><code>createIdentityResponseHandler</code> method</a>
@@ -228,8 +226,7 @@ app.<span class="title function_">post</span>(<span class="string">&#x27;/verify
 
   })
   <span class="title function_">authMiddleware</span>(req, res, next)
-</code></pre>
-<p>If your service uses a Matching Service Adapter, you should use the <code>createResponseHandler</code> method to configure routes for the authentication flow. See the API documentation for more details about the <a href="https://alphagov.github.io/passport-verify/modules/_create_response_handler_.html#createresponsehandler"><code>createResponseHandler</code> method</a>
+</code></pre><p>If your service uses a Matching Service Adapter, you should use the <code>createResponseHandler</code> method to configure routes for the authentication flow. See the API documentation for more details about the <a href="https://alphagov.github.io/passport-verify/modules/_create_response_handler_.html#createresponsehandler"><code>createResponseHandler</code> method</a>
 and its <a href="https://alphagov.github.io/passport-verify/interfaces/_create_response_handler_.responsescenarios.html#onauthnfailed">callbacks</a>.</p>
 <p>For a more detailed example with session support, see <a href="https://github.com/alphagov/passport-verify-stub-relying-party/blob/master/src/app.ts">the example implementation</a>.</p>
 <h2 id="logging">Logging</h2>
@@ -267,14 +264,14 @@ To enable logs, set this variable;</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-verify</span></code></div>
             <ul>
-              <li><span class="version">2.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:10Z">a year ago</abbr></li>
+              <li><span class="version">2.0.1</span> published <abbr class="updated" title="2022-06-23T13:43:10Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/alphagov/passport-verify">https://github.com/alphagov/passport-verify#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3</b> downloads in the last day</li>
-              <li><b>15</b> downloads in the last week</li>
-              <li><b>64</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>4</b> downloads in the last week</li>
+              <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

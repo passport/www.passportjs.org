@@ -115,22 +115,19 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   });
 }));
-</code></pre>
-<p>and then authenticate as:</p>
+</code></pre><p>and then authenticate as:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/linkedin&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>, { <span class="attr">state</span>: <span class="string">&#x27;SOME STATE&#x27;</span>  }),
   <span class="keyword">function</span>(<span class="params">req, res</span>){
     <span class="comment">// The request will be redirected to LinkedIn for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
-</code></pre>
-<p>the login callback:</p>
+</code></pre><p>the login callback:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/linkedin/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>, {
   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>
 }));
-</code></pre>
-<p>See <a href="https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin?context=linkedin/consumer/context?trk=eml_mktg_gco_dev_api_comms">this</a> for details on LinkedIn API.</p>
+</code></pre><p>See <a href="https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin?context=linkedin/consumer/context?trk=eml_mktg_gco_dev_api_comms">this</a> for details on LinkedIn API.</p>
 <h2 id="auto-handle-state-param">Auto-handle <code>state</code> param</h2>
 <p>The <code>state</code> param is used to prevent CSRF attacks, and is <a href="https://developer.linkedin.com/documents/authentication">required by the LinkedIn API</a>. You can ask Passport to handle the sending and validating of the <code>state</code> parameter by passing <code>state: true</code> as an option to the strategy:</p>
 <pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">LinkedInStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-linkedin-oauth2&#x27;</span>).<span class="property">Strategy</span>;
@@ -151,16 +148,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   });
 }));
-</code></pre>
-<p>and then authenticate as:</p>
+</code></pre><p>and then authenticate as:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/linkedin&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;linkedin&#x27;</span>),
   <span class="keyword">function</span>(<span class="params">req, res</span>){
     <span class="comment">// The request will be redirected to LinkedIn for authentication, so this</span>
     <span class="comment">// function will not be called.</span>
   });
-</code></pre>
-<h2 id="issue-reporting">Issue Reporting</h2>
+</code></pre><h2 id="issue-reporting">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
 <h2 id="author">Author</h2>
 <p><a href="auth0.com">Auth0</a></p>
@@ -170,14 +165,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-linkedin-oauth2</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:57Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:57Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-linkedin-oauth2">https://github.com/auth0/passport-linkedin-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2,739</b> downloads in the last day</li>
-              <li><b>14,468</b> downloads in the last week</li>
-              <li><b>65,306</b> downloads in the last month</li>
+              <li><b>2,797</b> downloads in the last day</li>
+              <li><b>15,844</b> downloads in the last week</li>
+              <li><b>70,975</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

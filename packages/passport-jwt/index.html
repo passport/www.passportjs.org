@@ -101,13 +101,13 @@
 <p>This module lets you authenticate endpoints using a JSON web token. It is
 intended to be used to secure RESTful endpoints without sessions.</p>
 <h2 id="supported-by">Supported By</h2>
-<p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/developers?utm_source=GHsponsor&amp;utm_medium=GHsponsor&amp;utm_campaign=passport-jwt&amp;utm_content=auth">auth0.com/developers</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
+<p>If you want to quickly add secure token-based authentication to Node.js apps, feel free to check out Auth0&#39;s Node.js SDK and free plan at <a href="https://auth0.com/developers?utm_source=GHsponsor&utm_medium=GHsponsor&utm_campaign=passport-jwt&utm_content=auth">auth0.com/developers</a> <img alt='Auth0 Logo' src='https://s3.amazonaws.com/passport-jwt-img/Auth0+logo.svg'/></p>
 <h2 id="install">Install</h2>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-jwt
 </code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The JWT authentication strategy is constructed as follows:</p>
-<pre><code><span class="keyword">new</span> <span class="constructor">JwtStrategy(<span class="params">options</span>, <span class="params">verify</span>)</span>
+<pre><code><span class="keyword">new</span> JwtStrategy(<span class="keyword">options</span>, verify)
 </code></pre><p><code>options</code> is an object literal containing options to control how the token is
 extracted from the request or verified.</p>
 <ul>
@@ -161,8 +161,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
         }
     });
 }));
-</code></pre>
-<h3 id="extracting-the-jwt-from-the-request">Extracting the JWT from the request</h3>
+</code></pre><h3 id="extracting-the-jwt-from-the-request">Extracting the JWT from the request</h3>
 <p>There are a number of ways the JWT may be included in a request.  In order to remain as flexible as
 possible the JWT is parsed from the request by a user-supplied callback passed in as the
 <code>jwtFromRequest</code> parameter.  This callback, from now on referred to as an extractor,
@@ -197,16 +196,14 @@ you could use the following function as the argument to the jwtFromRequest optio
 };
 <span class="comment">// ...</span>
 opts.<span class="property">jwtFromRequest</span> = cookieExtractor;
-</code></pre>
-<h3 id="authenticate-requests">Authenticate requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code> specifying <code>&#39;JWT&#39;</code> as the strategy.</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/profile&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;jwt&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
     <span class="keyword">function</span>(<span class="params">req, res</span>) {
         res.<span class="title function_">send</span>(req.<span class="property">user</span>.<span class="property">profile</span>);
     }
 );
-</code></pre>
-<h3 id="include-the-jwt-in-requests">Include the JWT in requests</h3>
+</code></pre><h3 id="include-the-jwt-in-requests">Include the JWT in requests</h3>
 <p>The method of including a JWT in a request depends entirely on the extractor
 function you choose. For example, if you use the <code>fromAuthHeaderAsBearerToken</code>
 extractor, you would include an <code>Authorization</code> header in your request with the
@@ -229,14 +226,14 @@ istanbul report
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-jwt</span></code></div>
             <ul>
-              <li><span class="version">4.0.1</span> published <abbr class="updated" title="2023-05-20T13:42:10Z">2 months ago</abbr></li>
+              <li><span class="version">4.0.1</span> published <abbr class="updated" title="2023-05-20T13:42:10Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/mikenicholson/passport-jwt">https://github.com/mikenicholson/passport-jwt</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>162,023</b> downloads in the last day</li>
-              <li><b>782,576</b> downloads in the last week</li>
-              <li><b>3,720,751</b> downloads in the last month</li>
+              <li><b>210,237</b> downloads in the last day</li>
+              <li><b>1,082,177</b> downloads in the last week</li>
+              <li><b>4,776,464</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

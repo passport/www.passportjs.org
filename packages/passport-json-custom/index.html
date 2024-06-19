@@ -94,13 +94,12 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-json-custom">passport-json-custom</h1>
-<p><a href="https://github.com/JamesMGreene/passport-json-custom"><img src="https://badge.fury.io/gh/JamesMGreene%2Fpassport-json-custom.svg" alt="GitHub Latest Release"></a> <a href="https://travis-ci.org/JamesMGreene/passport-json-custom"><img src="https://secure.travis-ci.org/JamesMGreene/passport-json-custom.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/JamesMGreene/passport-json?branch=master"><img src="https://coveralls.io/repos/JamesMGreene/passport-json/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json-custom"><img src="https://david-dm.org/JamesMGreene/passport-json-custom.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json-custom#info=devDependencies"><img src="https://david-dm.org/JamesMGreene/passport-json-custom/dev-status.svg?theme=shields.io" alt="Dev Dependency Status"></a></p>
+<p><a href="https://github.com/JamesMGreene/passport-json-custom"><img src="https://badge.fury.io/gh/JamesMGreene%2Fpassport-json-custom.svg" alt="GitHub Latest Release"></a> <a href="https://travis-ci.org/JamesMGreene/passport-json-custom"><img src="https://secure.travis-ci.org/JamesMGreene/passport-json-custom.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/JamesMGreene/passport-json?branch=master"><img src="https://coveralls.io/repos/JamesMGreene/passport-json/badge.svg?branch=master&service=github" alt="Coverage Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json-custom"><img src="https://david-dm.org/JamesMGreene/passport-json-custom.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json-custom#info=devDependencies"><img src="https://david-dm.org/JamesMGreene/passport-json-custom/dev-status.svg?theme=shields.io" alt="Dev Dependency Status"></a></p>
 <p>A <a href="http://passportjs.org/">Passport</a> strategy for custom authentication via JSON from the request body.</p>
 <p>This module lets you authenticate using any custom set of JSON-based credentials in your Node.js applications.  By plugging into Passport, JSON authentication can be easily and unobtrusively integrated into any application or framework that supports <a href="http://www.senchalabs.org/connect/">Connect</a>-based middleware, including <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-json-custom</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>Before you can use this strategy, you <em>MUST</em> ensure that your request (<code>req</code>) object always has a <code>body</code> property that is populated appropriately with parsed JSON.</p>
 <p>For example, if you are using Passport and this strategy within Express <code>4.x</code> or above, you would want to set up the <a href="https://www.npmjs.com/package/body-parser"><code>&#39;body-parser&#39;</code> middleware</a> to parse the request body&#39;s JSON before setting up the Passport middleware:</p>
@@ -110,8 +109,7 @@
 <span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
-</code></pre>
-<h3 id="configure-strategy">Configure Strategy</h3>
+</code></pre><h3 id="configure-strategy">Configure Strategy</h3>
 <p>The JSON Custom authentication strategy authenticates users using any custom set of JSON-based credentials.  The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user.</p>
 <pre><code class="js"><span class="keyword">var</span> <span class="title class_">JsonCustomStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-json-custom&#x27;</span>).<span class="property">Strategy</span>;
 
@@ -126,8 +124,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="available-options">Available Options</h4>
+</code></pre><h4 id="available-options">Available Options</h4>
 <p>This strategy takes an optional options hash before the <code>verify</code> function, e.g. <code>new JsonCustomStrategy(/* { options }, */ callback)</code>.</p>
 <p>The available options include:</p>
 <ul>
@@ -145,8 +142,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<h3 id="authenticating-requests">Authenticating Requests</h3>
+</code></pre><h3 id="authenticating-requests">Authenticating Requests</h3>
 <p>Use <code>passport.authenticate(&#39;json-custom&#39;)</code> to specify that you want to employ the configured <code>&#39;json-custom&#39;</code> strategy to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(
@@ -164,22 +160,22 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 );
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>Copyright (c) 2015, James M. Greene (MIT License)</p>
 <!--- RESOURCE LINKS -->
+
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-json-custom</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:51:57Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:51:57Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/JamesMGreene/passport-json-custom">https://github.com/JamesMGreene/passport-json-custom#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>33</b> downloads in the last day</li>
-              <li><b>132</b> downloads in the last week</li>
-              <li><b>614</b> downloads in the last month</li>
+              <li><b>68</b> downloads in the last day</li>
+              <li><b>182</b> downloads in the last week</li>
+              <li><b>884</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

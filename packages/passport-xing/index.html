@@ -137,16 +137,17 @@ application:</p>
     <span class="comment">// Successful authentication, redirect home.</span>
     <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
+  
 </code></pre><h4 id="profile-fields">Profile Fields</h4>
 <p>The Xing profile is very rich, and may contain a lot of information.  The
 strategy can be configured with a <code>profileFields</code> parameter which specifies a
 list of fields your application needs.  For example, to fetch the user&#39;s ID, name and
 email address, configure strategy like this.</p>
-<pre><code>passport.use(new XingStrategy({
-    <span class="regexp">//</span> clientID, clientSecret and callbackURL
-    profileFields: [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;first_name&#x27;</span>, <span class="string">&#x27;last_name&#x27;</span>, <span class="string">&#x27;active_email&#x27;</span>]
+<pre><code>passport.use(<span class="keyword">new</span> <span class="type">XingStrategy</span>({
+    <span class="comment">// clientID, clientSecret and callbackURL</span>
+    profileFields: <span class="type"></span>[<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;first_name&#x27;</span>, <span class="string">&#x27;last_name&#x27;</span>, <span class="string">&#x27;active_email&#x27;</span>]
   },
-  <span class="regexp">//</span> verify callback
+  <span class="comment">// verify callback</span>
 ));
 </code></pre><p>by default the following fields will be fetched form Xing: <code>id,first_name,last_name,display_name,active_email,page_name,permalink,gender,photo_urls,birth_date</code></p>
 <h2 id="examples">Examples</h2>
@@ -182,13 +183,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-xing</span></code></div>
             <ul>
-              <li><span class="version">0.1.5</span> published <abbr class="updated" title="2022-06-23T13:50:41Z">a year ago</abbr></li>
+              <li><span class="version">0.1.5</span> published <abbr class="updated" title="2022-06-23T13:50:41Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/bachp/passport-xing"></a></li>
             </ul>
             <ul>
-              <li><b>34</b> downloads in the last day</li>
-              <li><b>151</b> downloads in the last week</li>
-              <li><b>439</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>75</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

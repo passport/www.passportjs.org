@@ -133,24 +133,25 @@ application:</p>
     <span class="comment">// Successful authentication, redirect home.</span>
     <span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
+  
 </code></pre><h4 id="saving-associations">Saving Associations</h4>
 <p>Associations between a relying party and an OpenID provider are used to verify
 subsequent protocol messages and reduce round trips.  In order to take advantage
 of this, an application must store these associations.  This can be done by
 registering functions with <code>saveAssociation</code> and <code>loadAssociation</code>.</p>
-<pre><code>strategy.save<span class="constructor">Association(<span class="params">function</span>(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">done</span>)</span> {
+<pre><code><span class="variable">strategy</span>.<span class="property">saveAssociation</span>(<span class="title function_">function</span>(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">done</span>) {
   <span class="comment">// custom storage implementation</span>
-  save<span class="constructor">Assoc(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">function</span>(<span class="params">err</span>)</span> {
-    <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err) }
-    return <span class="keyword">done</span><span class="literal">()</span>;
+  <span class="title function_">saveAssoc</span>(<span class="params">handle</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>, <span class="params">expiresIn</span>, <span class="params">function</span>(<span class="params">err</span>) {
+    <span class="keyword">if</span> (<span class="variable">err</span>) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="variable">err</span>) }
+    <span class="keyword">return</span> <span class="title function_">done</span>();
   });
 });
 
-strategy.load<span class="constructor">Association(<span class="params">function</span>(<span class="params">handle</span>, <span class="params">done</span>)</span> {
+<span class="variable">strategy</span>.<span class="property">loadAssociation</span>(<span class="title function_">function</span>(<span class="params">handle</span>, <span class="params">done</span>) {
   <span class="comment">// custom retrieval implementation</span>
-  load<span class="constructor">Assoc(<span class="params">handle</span>, <span class="params">function</span>(<span class="params">err</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>)</span> {
-    <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err) }
-    return <span class="keyword">done</span>(null, provider, algorithm, secret)
+  <span class="title function_">loadAssoc</span>(<span class="params">handle</span>, <span class="params">function</span>(<span class="params">err</span>, <span class="params">provider</span>, <span class="params">algorithm</span>, <span class="params">secret</span>) {
+    <span class="keyword">if</span> (<span class="variable">err</span>) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="variable">err</span>) }
+    <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="variable">provider</span>, <span class="variable">algorithm</span>, <span class="variable">secret</span>)
   });
 });
 </code></pre><h2 id="examples">Examples</h2>
@@ -183,13 +184,13 @@ strategy.load<span class="constructor">Association(<span class="params">function
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-openid</span></code></div>
             <ul>
-              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2022-06-23T13:13:46Z">a year ago</abbr></li>
+              <li><span class="version">0.4.0</span> published <abbr class="updated" title="2022-06-23T13:13:46Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-openid">https://github.com/jaredhanson/passport-openid</a></li>
             </ul>
             <ul>
-              <li><b>1,476</b> downloads in the last day</li>
-              <li><b>6,154</b> downloads in the last week</li>
-              <li><b>37,375</b> downloads in the last month</li>
+              <li><b>1,380</b> downloads in the last day</li>
+              <li><b>6,494</b> downloads in the last week</li>
+              <li><b>33,863</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

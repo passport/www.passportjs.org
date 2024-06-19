@@ -118,8 +118,7 @@
     });
   })
 ));
-</code></pre>
-<h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
+</code></pre><h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;saml&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
@@ -127,8 +126,7 @@
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h3 id="authenticate-requests">Authenticate requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying <code>saml</code> as the strategy:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;saml&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
@@ -136,16 +134,13 @@
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h2 id="security-and-signatures">Security and signatures</h2>
+</code></pre><h2 id="security-and-signatures">Security and signatures</h2>
 <p>Passport-SAML uses the HTTP Redirect Binding for its <code>AuthnRequest</code>s, and expects to receive the messages back via the HTTP POST binding.</p>
 <p>Authentication requests sent by Passport-SAML can be signed using RSA-SHA1. To sign them you need to provide a private key in the PEM format via the <code>privateCert</code> configuration key. For example:</p>
 <pre><code class="javascript">    <span class="attr">privateCert</span>: fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./cert.pem&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)
-</code></pre>
-<p>It is a good idea to validate the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s certificate using the <code>cert</code> confguration key:</p>
+</code></pre><p>It is a good idea to validate the incoming SAML Responses. For this, you can provide the Identity Provider&#39;s certificate using the <code>cert</code> confguration key:</p>
 <pre><code class="javascript">    <span class="attr">cert</span>: <span class="string">&#x27;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&#x27;</span>
-</code></pre>
-<h2 id="usage-with-active-directory-federation-services">Usage with Active Directory Federation Services</h2>
+</code></pre><h2 id="usage-with-active-directory-federation-services">Usage with Active Directory Federation Services</h2>
 <p>Here is a configuration that has been proven to work with ADFS:</p>
 <pre><code class="javascript">  {
     <span class="attr">entryPoint</span>: <span class="string">&#x27;https://ad.example.net/adfs/ls/&#x27;</span>,
@@ -154,18 +149,17 @@
     <span class="attr">cert</span>: <span class="string">&#x27;MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh ... W==&#x27;</span>,
     <span class="attr">identifierFormat</span>: <span class="literal">null</span>
   }
-</code></pre>
-<p>Please note that ADFS needs to have a trust established to your service in order for this to work.</p>
+</code></pre><p>Please note that ADFS needs to have a trust established to your service in order for this to work.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-saml-too</span></code></div>
             <ul>
-              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T13:26:22Z">a year ago</abbr></li>
+              <li><span class="version">0.0.6</span> published <abbr class="updated" title="2022-06-23T13:26:22Z">2 years ago</abbr></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>8</b> downloads in the last week</li>
-              <li><b>42</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last day</li>
+              <li><b>7</b> downloads in the last week</li>
+              <li><b>30</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

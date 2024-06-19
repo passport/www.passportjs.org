@@ -93,18 +93,16 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="node-freeagent2-build-status">Node-FreeAgent2 <a href="https://travis-ci.org/JoeStanton/Node-FreeAgent2"><img src="https://travis-ci.org/JoeStanton/Node-FreeAgent2.png" alt="Build Status"></a></h1>
+          <div class="description"><h1 id="node-freeagent2-build-statushttpstravis-ciorgjoestantonnode-freeagent2png">Node-FreeAgent2 <a href="https://travis-ci.org/JoeStanton/Node-FreeAgent2"><img src="https://travis-ci.org/JoeStanton/Node-FreeAgent2.png" alt="Build Status"></a></h1>
 <p>Node.js OAuth2 REST Library for use with the FreeAgent v2 API. It provides a very thin wrapper around the API to deal with all of the boring stuff without sacrificing on flexibility.  </p>
 <p>Includes a passport strategy for plugging into the node-passport authentication library.  </p>
 <p><strong>Note: This library provides a foundation for interacting with the REST API but is not complete.</strong></p>
 <p>##Install</p>
 <pre><code class="bash">npm install node-freeagent2
-</code></pre>
-<p>##Usage </p>
+</code></pre><p>##Usage </p>
 <p>The two components of this library - the API and the Authentication Strategy, can be used independently. First require the module.</p>
 <pre><code class="coffeescript">FreeAgent = <span class="built_in">require</span> <span class="string">&#x27;node-freeagent2&#x27;</span>
-</code></pre>
-<p>###API</p>
+</code></pre><p>###API</p>
 <pre><code class="coffeescript">freeAgent = <span class="keyword">new</span> FreeAgent.Api <span class="string">&#x27;auth_token&#x27;</span>
 
 freeAgent.getProjects (error, projects) -&gt;
@@ -112,25 +110,21 @@ freeAgent.getProjects (error, projects) -&gt;
     console.log projects
   <span class="keyword">else</span>
     console.log error
-</code></pre>
-<p>Each REST resource has a corresponding method for GET. Requests using other HTTP verbs have not yet been implemented.
+</code></pre><p>Each REST resource has a corresponding method for GET. Requests using other HTTP verbs have not yet been implemented.
 Each method of the type <code>GET</code> has a consistent signature of:</p>
 <pre><code class="coffeescript">getProjects : <span class="function"><span class="params">(optionsOrCallback, callback)</span> -&gt;</span>
-</code></pre>
-<p>Except where the method is a convenience function for getById or something similar, in which case it takes the form:</p>
+</code></pre><p>Except where the method is a convenience function for getById or something similar, in which case it takes the form:</p>
 <pre><code class="coffeescript">getProjectById : <span class="function"><span class="params">(id, optionsOrCallback, callback)</span> -&gt;</span>
-</code></pre>
-<p>###Passport Strategy</p>
+</code></pre><p>###Passport Strategy</p>
 <pre><code class="coffeescript">FreeAgentStrategy = FreeAgent.AuthenticationStragegy
 passport.use <span class="string">&#x27;freeagent&#x27;</span>, <span class="keyword">new</span> FreeagentStrategy(options, ...)
-</code></pre>
-<p>##Contributing </p>
+</code></pre><p>##Contributing </p>
 <p>Please help make this a better library, Pull requests and Issues are very welcome.  </p>
 <p>The project is written in CoffeeScript and built into JS, both sources are currently committed but I may change this.<br>The CoffeeScript and JS should be kept in sync at all times.  </p>
 <ul>
 <li>Use <code>cake watch</code> during development. </li>
 <li>Place tests in <code>/tests</code>, execute with mocha using <code>cake test</code> </li>
-<li>Try to conform to coffeelint, check by regularly running <code>cake lint</code> </li>
+<li>Try to conform to coffeelint, check by regularly running <code>cake lint</code></li>
 </ul>
 <h2 id="license">License</h2>
 <p>(The MIT License)</p>
@@ -155,14 +149,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">node-freeagent2</span></code></div>
             <ul>
-              <li><span class="version">0.0.11</span> published <abbr class="updated" title="2022-06-21T14:51:43Z">a year ago</abbr></li>
+              <li><span class="version">0.0.11</span> published <abbr class="updated" title="2022-06-21T14:51:43Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/JoeStanton/node-freeagent2">https://github.com/JoeStanton/node-freeagent2</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>7</b> downloads in the last week</li>
-              <li><b>20</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

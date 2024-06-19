@@ -108,17 +108,14 @@ integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-42
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="create-an-application">Create an Application</h3>
-<p>Before using <code>passport-42</code>, you must register an application with</p>
-<ol start="42">
-<li>If you have not already done so, a new application can be created at
+<p>Before using <code>passport-42</code>, you must register an application with
+42.  If you have not already done so, a new application can be created at
 <a href="https://profile.intra.42.fr/oauth/applications">42 Applications</a>.  Your
 application will be issued an app UID and app SECRET, which need to be provided
 to the strategy.  You will also need to configure a redirect URI which matches
-the route in your application.</li>
-</ol>
+the route in your application.</p>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The 42 authentication strategy authenticates users using a 42 account and OAuth
 2.0 tokens.  The app UID and SECRET obtained when creating an application are
@@ -139,8 +136,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h3 id="authenticate-requests">Authenticate Requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;42&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -154,8 +150,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/42
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
 refer to an <a href="https://github.com/pandark/passport-42-example">example</a>
 as a starting point for their own web applications.</p>
@@ -179,8 +174,7 @@ by an application can be indicated by setting the <code>profileFields</code> opt
     <span class="string">&#x27;photos.0.value&#x27;</span>: <span class="string">&#x27;image_url&#x27;</span>
   }
 }), ...)
-</code></pre>
-<p>Refer to the <a href="https://api.intra.42.fr/apidoc/2.0/users/show.html">User</a> 42 API
+</code></pre><p>Refer to the <a href="https://api.intra.42.fr/apidoc/2.0/users/show.html">User</a> 42 API
 Reference for the complete set of available fields.</p>
 <h3 id="user-agent">User agent</h3>
 <p>Although 42 API doesn&#39;t require a user agent in the requests header,
@@ -192,14 +186,12 @@ using the <code>userAgent</code> option.</p>
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
 <pre><code class="bash">$ make <span class="built_in">test</span>
-</code></pre>
-<h3 id="coverage">Coverage</h3>
+</code></pre><h3 id="coverage">Coverage</h3>
 <p>The test suite covers 100% of the code base.  All new feature development is
 expected to maintain that level.  Coverage reports can be viewed by executing:</p>
 <pre><code class="bash">$ make test-cov
 $ make view-cov
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <p>Copyright (c) 2016 Adrien &quot;Pandark&quot; Pachkoff
 &lt;<a href="https://lifeleaks.com/">https://lifeleaks.com/</a>&gt;</p>
@@ -207,14 +199,14 @@ $ make view-cov
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-42</span></code></div>
             <ul>
-              <li><span class="version">1.2.6</span> published <abbr class="updated" title="2022-06-23T12:12:03Z">a year ago</abbr></li>
+              <li><span class="version">1.2.6</span> published <abbr class="updated" title="2022-06-23T12:12:03Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/pandark/passport-42">https://github.com/pandark/passport-42#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>188</b> downloads in the last day</li>
-              <li><b>998</b> downloads in the last week</li>
-              <li><b>4,583</b> downloads in the last month</li>
+              <li><b>30</b> downloads in the last day</li>
+              <li><b>415</b> downloads in the last week</li>
+              <li><b>1,527</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -124,8 +124,7 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;str
     <span class="title function_">callback</span>(<span class="literal">null</span>, user);
   }
 ));
-</code></pre>
-<p>And a basic example:</p>
+</code></pre><p>And a basic example:</p>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">CustomStrategy</span>(
   <span class="keyword">function</span>(<span class="params">req, done</span>) {
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({
@@ -135,8 +134,7 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;str
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;custom&#39;</code> strategy (or whatever you named the strategy upon registration), to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -147,8 +145,7 @@ application:</p>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
 <span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="credits">Credits</h2>
@@ -162,14 +159,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-custom</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T12:26:51Z">a year ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T12:26:51Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/mbell8903/passport-custom">https://github.com/mbell8903/passport-custom</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>20,880</b> downloads in the last day</li>
-              <li><b>99,007</b> downloads in the last week</li>
-              <li><b>497,748</b> downloads in the last month</li>
+              <li><b>35,187</b> downloads in the last day</li>
+              <li><b>194,532</b> downloads in the last week</li>
+              <li><b>888,286</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

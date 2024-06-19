@@ -98,7 +98,7 @@
 Due to the unclear license situation and issues in the code, this library was
 rewritten based on Passport-Facebook and published under the MIT license.</p>
 <p><a href="http://badge.fury.io/js/passport-gitlab2"><img src="https://badge.fury.io/js/passport-gitlab2.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/fh1ch/passport-gitlab2"><img src="https://travis-ci.org/fh1ch/passport-gitlab2.svg?branch=master&amp;style=flat" alt="Build Status"></a>
+<a href="https://travis-ci.org/fh1ch/passport-gitlab2"><img src="https://travis-ci.org/fh1ch/passport-gitlab2.svg?branch=master&style=flat" alt="Build Status"></a>
 <a href="https://coveralls.io/r/fh1ch/passport-gitlab2?branch=master"><img src="https://coveralls.io/repos/fh1ch/passport-gitlab2/badge.svg?branch=master" alt="Coverage Status"></a>
 <a href="https://codeclimate.com/github/fh1ch/passport-gitlab2"><img src="https://codeclimate.com/github/fh1ch/passport-gitlab2/badges/gpa.svg" alt="Code Climate"></a>
 <a href="https://david-dm.org/fh1ch/passport-gitlab2"><img src="https://david-dm.org/fh1ch/passport-gitlab2.svg?theme=shields.io" alt="Dependency Status"></a></p>
@@ -111,8 +111,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-gitlab2
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>Passport-GitLab requires GitLab 9.0.0 or higher to work. Before using the OAuth2
 authentication provider service, you have register a new application in your
 <a href="https://gitlab.com/profile/applications">user profile</a> or in the administrator
@@ -138,8 +137,7 @@ complete authentication.</p>
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;gitlab&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -154,9 +152,8 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/gi
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="faq">FAQ</h2>
-<h5 id="how-do-i-use-my-own-gitlab-instance-rather-than-gitlab-com-">How do I use my own GitLab instance rather than gitlab.com?</h5>
+</code></pre><h2 id="faq">FAQ</h2>
+<h5 id="how-do-i-use-my-own-gitlab-instance-rather-than-gitlabcom">How do I use my own GitLab instance rather than gitlab.com?</h5>
 <p>Passport-GitLab automatically uses <a href="http://gitlab.com/">GitLab.com</a> as
 authentication endpoint when not configured otherwise. You can use the <code>baseURL</code>
 parameter to point to any other GitLab instance as following:</p>
@@ -166,11 +163,10 @@ parameter to point to any other GitLab instance as following:</p>
   <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/gitlab/callback&quot;</span>,
   <span class="attr">baseURL</span>: <span class="string">&quot;https://gitlab.example.com/&quot;</span>
 }), ...)
-</code></pre>
-<p>All URLs (e.g. token-url, authorization-url, profile-url) are automatically
+</code></pre><p>All URLs (e.g. token-url, authorization-url, profile-url) are automatically
 adapted to utilize the configured instance. You can of course overwrite all
 URLs manually if needed.</p>
-<h5 id="how-do-i-change-permissions-scope-when-obtaining-a-user-profile-">How do I change permissions / scope when obtaining a user profile?</h5>
+<h5 id="how-do-i-change-permissions--scope-when-obtaining-a-user-profile">How do I change permissions / scope when obtaining a user profile?</h5>
 <p>GitLab supports multiple scopes at the moment like <code>read_user</code> and <code>api</code>.
 By default, the <code>read_user</code> scope is used. Changing the OAuth2 scope to
 <code>api</code> works as following:</p>
@@ -178,8 +174,7 @@ By default, the <code>read_user</code> scope is used. Changing the OAuth2 scope 
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;gitlab&#x27;</span>, {
     <span class="attr">scope</span>: [<span class="string">&#x27;api&#x27;</span>]
   }));
-</code></pre>
-<p>More information can be found in the <a href="https://docs.gitlab.com/ce/integration/oauth_provider.html#authorized-applications">official GitLab documentation</a>.</p>
+</code></pre><p>More information can be found in the <a href="https://docs.gitlab.com/ce/integration/oauth_provider.html#authorized-applications">official GitLab documentation</a>.</p>
 <h2 id="contributing">Contributing</h2>
 <p>We appreciate contributions in several forms, e.g. documentation, testing,
 coding, issues, etc. Please follow the best practice contribution guide as
@@ -191,34 +186,31 @@ and enforces it using <a href="http://jscs.info/">JSCS</a> as additional linter 
 quality and easy maintainability of it. You can test if your changes comply
 with the code style by executing:</p>
 <pre><code class="bash">$ make lint
-</code></pre>
-<h4 id="tests">Tests</h4>
+</code></pre><h4 id="tests">Tests</h4>
 <p>The test suite is located in the <code>test/</code> directory. All new features are
 expected to have corresponding test cases. Ensure that the complete test suite
 passes by executing:</p>
 <pre><code class="bash">$ make <span class="built_in">test</span>
-</code></pre>
-<h4 id="coverage">Coverage</h4>
+</code></pre><h4 id="coverage">Coverage</h4>
 <p>The test suite covers 100% of the code base. All new feature development is
 expected to maintain that level. Coverage reports can be viewed by executing:</p>
 <pre><code class="bash">$ make coverage-view
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
-<p>Copyright (c) 2016-2019 Fabio Huser <a href="mailto:&#102;&#x61;&#x62;&#105;&#x6f;&#64;&#102;&#x68;&#49;&#46;&#99;&#x68;">&#102;&#x61;&#x62;&#105;&#x6f;&#64;&#102;&#x68;&#49;&#46;&#99;&#x68;</a></p>
+<p>Copyright (c) 2016-2019 Fabio Huser <a href="mailto:fabio@fh1.ch">fabio@fh1.ch</a></p>
 <p>Copyright (c) 2011-2016 Jared Hanson &lt;<a href="http://jaredhanson.net/">http://jaredhanson.net/</a>&gt;</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-gitlab2</span></code></div>
             <ul>
-              <li><span class="version">5.0.0</span> published <abbr class="updated" title="2022-06-23T12:39:45Z">a year ago</abbr></li>
+              <li><span class="version">5.0.0</span> published <abbr class="updated" title="2022-06-23T12:39:45Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/fh1ch/passport-gitlab2">https://github.com/fh1ch/passport-gitlab2#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>7,543</b> downloads in the last day</li>
-              <li><b>32,389</b> downloads in the last week</li>
-              <li><b>156,356</b> downloads in the last month</li>
+              <li><b>8,776</b> downloads in the last day</li>
+              <li><b>42,130</b> downloads in the last week</li>
+              <li><b>194,416</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

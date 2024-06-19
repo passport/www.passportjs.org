@@ -106,21 +106,21 @@
 </ol>
 <p>The <a href="https://github.com/erikma/passport-sqrl/tree/master/src/testSite">demo site code</a> in the passport-sqrl Git repo, especially TestSiteHandler.ts and login.ejs, demonstrates the integration steps above. See the section below on using the test site for browser testing.</p>
 <h1 id="release-history-and-release-notes">Release History and Release Notes</h1>
-<h2 id="0-2-3-16-mar-2019">0.2.3 16 Mar 2019</h2>
+<h2 id="023-16-mar-2019">0.2.3 16 Mar 2019</h2>
 <ul>
 <li>Update to newer ed25519 <a href="https://github.com/gaoxiangxyz/ed25519">fork</a> that does not need OpenSSL to be installed locally to build. Python 2.7 still needed however.</li>
 <li>You may have to force-update your &quot;nan&quot; package to 2.13.1 or higher by running <code>npm install nan@2.13.1</code> to get this to work. The package.json in that fork needs updating.</li>
 </ul>
-<h2 id="0-2-2-8-dec-2018">0.2.2 8 Dec 2018</h2>
+<h2 id="022-8-dec-2018">0.2.2 8 Dec 2018</h2>
 <ul>
 <li>Update to ed25519 fork that supports NodeJS 10 and library layouts in OpenSSL 1.1.0+. Open PR for merging to ed25519 master <a href="https://github.com/dazoe/ed25519/pull/20">here</a>.</li>
 <li>npm update to head of dependencies.</li>
 </ul>
-<h2 id="0-2-1-25-nov-2017">0.2.1 25 Nov 2017</h2>
+<h2 id="021-25-nov-2017">0.2.1 25 Nov 2017</h2>
 <ul>
 <li>Doc update for test site HTTP port (5859).</li>
 </ul>
-<h2 id="0-2-0-25-nov-2017">0.2.0 25 Nov 2017</h2>
+<h2 id="020-25-nov-2017">0.2.0 25 Nov 2017</h2>
 <ul>
 <li>Breaking change in ISQRLIdentityStorage - function names updated for consistent Async suffix, e.g. query -&gt; queryAsync</li>
 <li>Removed AuthCallback from module exports (obsolete).</li>
@@ -128,7 +128,7 @@
 <li>Test site security updates: CSP header and IFRAME embed protection. Refactored inline scripts to /Scripts directory to match CSP needs.</li>
 <li>Updated min Node version to new LTR 8.9.1</li>
 </ul>
-<h2 id="0-1-0-15-nov-2017">0.1.0 15 Nov 2017</h2>
+<h2 id="010-15-nov-2017">0.1.0 15 Nov 2017</h2>
 <ul>
 <li>Initial release with &#39;query&#39; and &#39;ident&#39; API calls supported</li>
 <li>Successful login using mid-November desktop SQRL client. No successful logins with Android phone app yet. iOS app not tried.</li>
@@ -143,13 +143,13 @@
 <li>Install Git from <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (for Windows), or <a href="https://git-scm.com/download">https://git-scm.com/download</a> for other operating systems. Be sure you&#39;re using at least version 2.14.1 to get an important security patch.</li>
 <li>Install Node.js from <a href="https://nodejs.org">https://nodejs.org</a>. You need at least version 10.14.1.</li>
 <li>(Windows) Install Python version 2.7 from <a href="https://www.python.org/">https://www.python.org/</a> . You can install just for your local user account or for all users. Version 2.7 is required for building the Ed25519 native code package. Set the path to python.exe in the PYTHON environment variable.</li>
-<li><p>(Windows) Install Visual Studio 2017 Build Tools from <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15</a> - also needed for building native code. Select the Visual C++ Build Tools suite from the Workloads tab.</p>
-</li>
-<li><p>We recommend Visual Studio Code from <a href="https://www.visualstudio.com/products/code-vs">https://www.visualstudio.com/products/code-vs</a> - run <code>code .</code> in the repo root folder. You should install the &quot;TSLint&quot; extension which runs the lint tool as you type.</p>
-</li>
+<li>(Windows) Install Visual Studio 2017 Build Tools from <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15">https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15</a> - also needed for building native code. Select the Visual C++ Build Tools suite from the Workloads tab.</li>
+</ol>
+<ul>
+<li>We recommend Visual Studio Code from <a href="https://www.visualstudio.com/products/code-vs">https://www.visualstudio.com/products/code-vs</a> - run <code>code .</code> in the repo root folder. You should install the &quot;TSLint&quot; extension which runs the lint tool as you type.</li>
 <li>(Windows) The <code>Setup.cmd</code> command should be run after any pull from GitHub to install latest packages.</li>
 <li>(Windows) The <code>Init.cmd</code> command, which is run by Setup.cmd or can be run separately, sets up some useful command shortcuts.</li>
-</ol>
+</ul>
 <h2 id="building-code">Building code</h2>
 <p>We use <a href="https://gulpjs.org/">Gulp</a> as a build system. We have integrated Gulp into Visual Studio Code to make life easier. To run a build, press <code>Ctrl+Shift+B</code> and ensure you have no errors showing in VSCode.</p>
 <p>Building the code places package contents and test code into the out/ folder.</p>
@@ -190,14 +190,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-sqrl</span></code></div>
             <ul>
-              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-05-12T15:58:43Z">a year ago</abbr></li>
+              <li><span class="version">0.3.0</span> published <abbr class="updated" title="2022-05-12T15:58:43Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/erikmav/passport-sqrl">https://github.com/erikma/passport-sqrl</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

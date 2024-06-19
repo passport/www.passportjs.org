@@ -98,7 +98,7 @@
 <h2 id="installation">Installation</h2>
 <pre><code>  $ npm install pass<span class="keyword">port</span>-dedicated-bluemix
 </code></pre><h2 id="usage">Usage</h2>
-<h4 id="register-application-with-bluemix-s-user-account-and-authentication-service">Register Application with Bluemix&#39;s User Account and Authentication Service</h4>
+<h4 id="register-application-with-bluemixs-user-account-and-authentication-service">Register Application with Bluemix&#39;s User Account and Authentication Service</h4>
 <p>Before using <code>passport-dedicated-bluemix</code>, you must register the application with your Dedicated Bluemix User Account and Authentication Service (UAA).  If you have not already done so, client application registration can be found in <a href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst#register-client-post-oauth-clients">here</a>. As a side note, you will have to have some elevated permissions in your Bluemix instance to be able to register a client application with it&#39;s UAA server. Remember the <code>client_id</code> and <code>client_secret</code> to use with the passport strategy. In addition, the <code>redirect_uri</code> will have to match the route in your application.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Dedicated Bluemix authentication strategy authenticates users using a CloudFoundry UAA user account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a a user info URL, authorization URL, token URL, client ID, client secret, and callback URL.</p>
@@ -114,46 +114,42 @@
     <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">userId</span>: profile.<span class="property">id</span> }, <span class="function">(<span class="params">err, user</span>) =&gt;</span>
       <span class="title function_">done</span>(err, user));
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;dedicated-bluemix&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
 application:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bluemix&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bluemix-dedicated&#x27;</span>));
 
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bluemix/callback&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bluemix-dedicated&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/home&#x27;</span>, <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
 refer to an <a href="https://github.com/colbyy/passport-dedicated-bluemix/blob/master/examples/server.js">example</a>
 as a starting point for their own applications.</p>
 <h2 id="faq">FAQ</h2>
-<h5 id="how-do-i-request-additional-permissions-">How do I request additional permissions?</h5>
+<h5 id="how-do-i-request-additional-permissions">How do I request additional permissions?</h5>
 <p>If you need additional permissions from the user, the permissions can be
 requested via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bluemix&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bluemix-dedicated&#x27;</span>, {
   <span class="attr">scope</span>: <span class="string">&#x27;cloud_controller.read+openid+cloud_controller_service_permissions.read&#x27;</span>
 }));
-</code></pre>
-<h5 id="how-can-i-retain-some-sort-of-data-throughout-the-oauth-flow-">How can I retain some sort of data throughout the OAuth flow?</h5>
+</code></pre><h5 id="how-can-i-retain-some-sort-of-data-throughout-the-oauth-flow">How can I retain some sort of data throughout the OAuth flow?</h5>
 <p>CloudFoundry&#39;s UAA server utilizes a state parameter that will be passed back to the <code>/callback</code> route of your application. If you need to use this, the permissions can be
 requested via the <code>state</code> option to <code>passport.authenticate()</code>. </p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/bluemix&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;bluemix-dedicated&#x27;</span>, {
   <span class="attr">state</span>: <span class="string">&#x27;my-state-string&#x27;</span>,
 }));
-</code></pre>
-</div>
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dedicated-bluemix</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:27:51Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:27:51Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/colbycolby/passport-dedicated-bluemix">https://github.com/colbyy/passport-dedicated-bluemix#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -93,39 +93,26 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-auth0">passport-auth0</h1>
+          <div class="description"><p><img src="https://cdn.auth0.com/website/sdks/banners/passport-auth0-banner.png" alt="Auth0 authentication strategy for Passport.js"></p>
+<p>The <a href="https://auth0.com/">Auth0</a> authentication strategy for <a href="http://passportjs.org/">Passport.js</a>, an authentication middleware for Node.js that can be unobtrusively dropped into any Express-based web application.</p>
+<p><a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/v/passport-auth0" alt="Release"></a>
+<a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/dm/passport-auth0" alt="npm"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/:license-MIT-blue.svg?style=flat" alt="License"></a>
+<a href="https://circleci.com/gh/auth0/passport-auth0"><img src="https://img.shields.io/circleci/build/github/auth0/passport-auth0" alt="CircleCI"></a></p>
+<p>:books: <a href="#documentation">Documentation</a> - :rocket: <a href="#getting-started">Getting Started</a> - :speech_balloon: <a href="#feedback">Feedback</a></p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.auth0.com/docs">Docs site</a> - explore our docs site and learn more about Auth0.</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
 <blockquote>
 <p>:information_source:  <strong>Maintenance Advisory:</strong>  With the release of <a href="https://github.com/auth0/express-openid-connect">https://github.com/auth0/express-openid-connect</a>, we will no longer be adding new features to this library, however we will continue to maintain this library and fix issues.  You can read more about the release of our new library at <a href="https://auth0.com/blog/auth0-s-express-openid-connect-sdk/">https://auth0.com/blog/auth0-s-express-openid-connect-sdk/</a></p>
 </blockquote>
-<p>This is the <a href="https://auth0.com/">Auth0</a> authentication strategy for <a href="http://passportjs.org/">Passport.js</a>. Passport is authentication middleware for Node.js that can be unobtrusively dropped into any Express-based web application.</p>
-<p>For Management API endpoints, please see the <a href="https://github.com/auth0/node-auth0">Node Auth0 SDK</a>.</p>
-<p><a href="https://circleci.com/gh/auth0/passport-auth0/tree/master"><img src="https://circleci.com/gh/auth0/passport-auth0/tree/master.svg?style=svg" alt="Build Status"></a>
-<a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/v/passport-auth0" alt="npm"></a>
-<a href="https://npmjs.org/package/passport-auth0"><img src="https://img.shields.io/npm/dm/passport-auth0" alt="npm"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="http://img.shields.io/:license-mit-blue.svg?style=flat" alt="License"></a>
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0.svg?type=shield" alt="FOSSA Status"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#documentation">Documentation</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#customization">Customization</a></li>
-<li><a href="#support--feedback">Support + Feedback</a></li>
-<li><a href="#vulnerability-reporting">Vulnerability Reporting</a></li>
-<li><a href="#what-is-auth0">What is Auth0</a></li>
-<li><a href="#license">License</a></li>
-</ul>
-<h2 id="documentation">Documentation</h2>
-<p>Full documentation with examples can be found in the <a href="https://auth0.com/docs/quickstart/webapp/nodejs">Node.js Quickstart</a>. </p>
-<p>You can also see fully working demos using this library in our <a href="https://auth0.com/blog/">Auth0 blog</a>:</p>
-<ul>
-<li><a href="https://auth0.com/blog/building-and-authenticating-nodejs-apps/#nodejs-directory-structure">Build and Authenticate a Node.js App with JSON Web Tokens</a></li>
-<li><a href="https://auth0.com/blog/developing-a-real-time-collaborative-editor-with-pusher/">Developing a Real-Time, Collaborative Editor with Pusher</a></li>
-</ul>
-<h2 id="installation">Installation</h2>
+<h3 id="installation">Installation</h3>
 <p>The Auth0 Passport strategy is installed with npm. </p>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-auth0
-</code></pre><h2 id="customization">Customization</h2>
-<h3 id="state-parameter">State parameter</h3>
+</code></pre><h3 id="customization">Customization</h3>
+<h4 id="state-parameter">State parameter</h4>
 <p>The Auth0 Passport strategy enforces the use of the <code>state</code> parameter in OAuth 2.0 <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">authorization requests</a> and requires session support in Express to be enabled.</p>
 <p>If you require the <code>state</code> parameter to be omitted (which is not recommended), you can suppress it when calling the Auth0 Passport strategy constructor:</p>
 <pre><code class="js"><span class="keyword">const</span> <span class="title class_">Auth0Strategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-auth0&#x27;</span>);
@@ -137,9 +124,8 @@
     <span class="comment">// ...</span>
   }
 );
-</code></pre>
-<p><a href="https://github.com/auth0/passport-auth0/issues/40#issuecomment-511592801">More on state handling here</a>.</p>
-<h3 id="scopes">Scopes</h3>
+</code></pre><p><a href="https://github.com/auth0/passport-auth0/issues/40#issuecomment-511592801">More on state handling here</a>.</p>
+<h4 id="scopes">Scopes</h4>
 <p>If you want to change the scope of the ID token provided, add a <code>scope</code> property to the authenticate configuration passed when defining the route. These must be <a href="https://auth0.com/docs/scopes/current/oidc-scopes">OIDC standard scopes</a>. If you need data outside of the standard scopes, you can add <a href="https://auth0.com/docs/scopes/current/custom-claims">custom claims</a> to the token.</p>
 <pre><code class="js">app.<span class="title function_">get</span>(
     <span class="string">&#x27;/login&#x27;</span>,
@@ -148,8 +134,7 @@
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<h3 id="force-a-specific-idp">Force a Specific IdP</h3>
+</code></pre><h4 id="force-a-specific-idp">Force a Specific IdP</h4>
 <p>If you want to force a specific identity provider you can use:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(
     <span class="string">&#x27;/login/google&#x27;</span>,
@@ -158,8 +143,7 @@
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<p>If you force an identity provider you can also request custom scope from that identity provider:</p>
+</code></pre><p>If you force an identity provider you can also request custom scope from that identity provider:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(
     <span class="string">&#x27;/login/google&#x27;</span>, 
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;auth0&#x27;</span>, {
@@ -170,8 +154,7 @@
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<h3 id="getting-access-tokens">Getting Access Tokens</h3>
+</code></pre><h4 id="getting-access-tokens">Getting Access Tokens</h4>
 <p>If you want to specify an audience for the returned <code>access_token</code> you can:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(
     <span class="string">&#x27;/login&#x27;</span>,
@@ -180,8 +163,7 @@
       res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<h3 id="silent-authentication">Silent Authentication</h3>
+</code></pre><h4 id="silent-authentication">Silent Authentication</h4>
 <p>If you want to check authentication without showing a prompt:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(
     <span class="string">&#x27;/login&#x27;</span>,
@@ -190,40 +172,41 @@
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<h2 id="support-feedback">Support + Feedback</h2>
+</code></pre><h2 id="feedback">Feedback</h2>
+<h3 id="contributing">Contributing</h3>
+<p>We appreciate feedback and contribution to this repo! Before you get started, please see the following:</p>
 <ul>
-<li>Use <a href="https://github.com/auth0/passport-auth0/issues">Issues</a> for code-level support</li>
-<li>Use our <a href="https://community.auth0.com/">Community</a> for usage, questions, specific cases</li>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">Auth0&#39;s general contribution guidelines</a></li>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md">Auth0&#39;s code of conduct guidelines</a></li>
 </ul>
-<h2 id="vulnerability-reporting">Vulnerability Reporting</h2>
-<p>Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
-<h2 id="what-is-auth0-">What is Auth0?</h2>
-<p>Auth0 helps you to easily:</p>
-<ul>
-<li>implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)</li>
-<li>log in users with username/password databases, passwordless, or multi-factor authentication</li>
-<li>link multiple user accounts together</li>
-<li>generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely</li>
-<li>access demographics and analytics detailing how, when, and where users are logging in</li>
-<li>enrich user profiles from other data sources using customizable JavaScript rules</li>
-</ul>
-<p><a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
-<h2 id="license">License</h2>
-<p>This project is licensed under the MIT license. See the <a href="LICENSE">LICENSE</a> file for more info.</p>
-<p><a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0?ref=badge_large"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2Fpassport-auth0.svg?type=large" alt="FOSSA Status"></a></p>
+<h3 id="raise-an-issue">Raise an issue</h3>
+<p>To provide feedback or report a bug, please <a href="https://github.com/auth0/passport-auth0/issues">raise an issue on our issue tracker</a>.</p>
+<h3 id="vulnerability-reporting">Vulnerability Reporting</h3>
+<p>Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/responsible-disclosure-policy">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
+<hr>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png"   width="150">
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_dark_mode.png" width="150">
+    <img alt="Auth0 Logo" src="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png" width="150">
+  </picture>
+</p>
+<p align="center">Auth0 is an easy to implement, adaptable authentication and authorization platform. To learn more checkout <a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
+<p align="center">
+This project is licensed under the MIT license. See the <a href="./LICENSE"> LICENSE</a> file for more info.</p>
+
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-auth0</span></code></div>
             <ul>
-              <li><span class="version">1.4.3</span> published <abbr class="updated" title="2023-06-02T23:13:59Z">a month ago</abbr></li>
+              <li><span class="version">1.4.4</span> published <abbr class="updated" title="2024-06-13T17:37:29Z">6 days ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-auth0">https://github.com/auth0/passport-auth0#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>11,330</b> downloads in the last day</li>
-              <li><b>50,388</b> downloads in the last week</li>
-              <li><b>236,938</b> downloads in the last month</li>
+              <li><b>12,923</b> downloads in the last day</li>
+              <li><b>66,176</b> downloads in the last week</li>
+              <li><b>314,924</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -97,8 +97,7 @@
 <p>Password-less authentication strategy using AWS SES.</p>
 <h2 id="install">Install</h2>
 <pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-ses</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The SES strategy authenticates users by sending them an email containing
 a temporary token.</p>
@@ -116,15 +115,13 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;ses
     })
   }
 ))
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/ses&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ses&#x27;</span>, {
   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>,
   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
   <span class="attr">emailSentRedirect</span>: <span class="string">&#x27;/check-email&#x27;</span>,
 }))
-</code></pre>
-<h2 id="token-store-api">Token Store API</h2>
+</code></pre><h2 id="token-store-api">Token Store API</h2>
 <p>The strategy expects a token store that has the following API model:</p>
 <pre><code class="js"><span class="title class_">Token</span> {
   <span class="attr">value</span>: <span class="title class_">String</span>
@@ -138,21 +135,20 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;ses
   <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">value: <span class="built_in">String</span>, email: <span class="built_in">String</span>, callback: <span class="keyword">function</span>(err, Token) {}</span>) {}
   <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params">value: <span class="built_in">String</span>, callback: <span class="keyword">function</span>(err, Token) {}</span>) {}
 }
-</code></pre>
-<p>The default token storage method is an in-memory object,
+</code></pre><p>The default token storage method is an in-memory object,
 so restarting the server will delete any saved tokens.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ses</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:27:46Z">a year ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:27:46Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/mtso/passport-ses">https://github.com/mtso/passport-ses#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>7</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

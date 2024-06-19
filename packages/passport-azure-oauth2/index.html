@@ -106,12 +106,12 @@
 <span class="comment">/*jshint camelcase: false */</span>
 
 <span class="keyword">var</span> <span class="title class_">AzureOAuth2Strategy</span>  = <span class="built_in">require</span>(<span class="string">&quot;passport-azure-oauth2&quot;</span>);
-<span class="keyword">var</span> jwt                   = <span class="built_in">require</span>(<span class="string">&quot;jwt-simple&quot;</span>);
-<span class="keyword">var</span> config                   = <span class="built_in">require</span>(<span class="string">&quot;../config&quot;</span>);
+<span class="keyword">var</span> jwt 				  = <span class="built_in">require</span>(<span class="string">&quot;jwt-simple&quot;</span>);
+<span class="keyword">var</span> config 				  = <span class="built_in">require</span>(<span class="string">&quot;../config&quot;</span>);
 
 <span class="keyword">function</span> <span class="title function_">AzureOAuthStrategy</span>(<span class="params"></span>) {
     <span class="variable language_">this</span>.<span class="property">passport</span> = <span class="built_in">require</span>(<span class="string">&quot;passport&quot;</span>);
-
+    
     <span class="variable language_">this</span>.<span class="property">passport</span>.<span class="title function_">use</span>(<span class="string">&quot;provider&quot;</span>, <span class="keyword">new</span> <span class="title class_">AzureOAuth2Strategy</span>({
       <span class="attr">clientID</span>: config.<span class="property">clientID</span>,
       <span class="attr">clientSecret</span>: config.<span class="property">clientSecret</span>,
@@ -140,7 +140,7 @@
 <span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">new</span> <span class="title class_">AzureOAuthStrategy</span>();
 </code></pre><p>Now plug this in like so:</p>
 <pre><code>
-<span class="keyword">var</span> auth      = require(<span class="string">&quot;./auth&quot;</span>),
+<span class="keyword">var</span> auth  	= require(<span class="string">&quot;./auth&quot;</span>),
 <span class="keyword">var</span> express = require(<span class="string">&quot;express&quot;</span>)
 <span class="keyword">var</span> <span class="keyword">app</span>     = express();
 
@@ -154,7 +154,6 @@
     successRedirect: <span class="string">&quot;/&quot;</span>, 
     failureRedirect: <span class="string">&quot;/login&quot;</span> }), function (req, res) { res.redirect(<span class="string">&quot;/&quot;</span>); });
 
-
 </code></pre><p>###state</p>
 <p>Simply plugin <code>express-session</code> to enable session support, and set <code>state: true</code> when creating your <code>AzureOAuthStrategy</code></p>
 <p>[Recommended] A randomly generated non-reused value that is sent in the request and returned in the response. This parameter is used as a mitigation against cross-site request forgery (CSRF) attacks. For more information, see Best Practices for OAuth 2.0 in Azure AD.</p>
@@ -165,7 +164,6 @@ app.<span class="keyword">use</span>( <span class="title function_ invoke__">ses
     <span class="attr">resave</span>: <span class="literal">true</span>, 
     saveUninitialized : <span class="literal">true</span> 
 }));
-
 </code></pre><p>###prompt</p>
 <p>Simply set <code>prompt: &#39;login&#39;</code> when creating your <code>AzureOAuthStrategy</code></p>
 <p>[Optional] Indicate the type of user interaction that is required.
@@ -183,13 +181,13 @@ Valid values are:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:19:09Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:19:09Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/AndrewKeig/passport-azure-oauth2">https://github.com/andrewkeig/passport-azure-oauth2</a></li>
             </ul>
             <ul>
-              <li><b>132</b> downloads in the last day</li>
-              <li><b>498</b> downloads in the last week</li>
-              <li><b>2,971</b> downloads in the last month</li>
+              <li><b>104</b> downloads in the last day</li>
+              <li><b>512</b> downloads in the last week</li>
+              <li><b>2,851</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

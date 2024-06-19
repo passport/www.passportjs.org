@@ -103,8 +103,7 @@ or framework that supports <a href="https://github.com/senchalabs/connect#readme
 middleware including <a href="https://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="sh">$ npm install passport-ethereum-siwe
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>The Ethereum authentication strategy authenticates users using an Ethereum
 wallet.</p>
 <p>The strategy takes a <code>verify</code> function as an argument, which accepts <code>address</code>
@@ -159,8 +158,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="define-routes">Define Routes</h4>
+</code></pre><h4 id="define-routes">Define Routes</h4>
 <p>Two routes are needed in order to allow users to log in with their Ethereum
 wallet.</p>
 <p>The first route generates a randomized nonce, saves it in the <code>NonceStore</code>, and
@@ -172,8 +170,7 @@ message.  This is necessary in order to protect against replay attacks.</p>
     res.<span class="title function_">json</span>({ <span class="attr">nonce</span>: nonce });
   });
 });
-</code></pre>
-<p>The second route authenticates the signed message and logs the user in.</p>
+</code></pre><p>The second route authenticates the signed message and logs the user in.</p>
 <pre><code class="js">router.<span class="title function_">post</span>(<span class="string">&#x27;/login/ethereum&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ethereum&#x27;</span>, { <span class="attr">failWithError</span>: <span class="literal">true</span> }),
   <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
@@ -182,8 +179,7 @@ message.  This is necessary in order to protect against replay attacks.</p>
   <span class="keyword">function</span>(<span class="params">err, req, res, next</span>) {
     res.<span class="title function_">json</span>({ <span class="attr">ok</span>: <span class="literal">false</span> });
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <ul>
 <li><p><a href="https://github.com/passport/todos-express-ethereum">todos-express-ethereum</a></p>
 <p>Illustrates how to use the Ethereum strategy within an Express application.</p>
@@ -196,14 +192,14 @@ message.  This is necessary in order to protect against replay attacks.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ethereum-siwe</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-07T23:47:24Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-07T23:47:24Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-ethereum">https://github.com/jaredhanson/passport-ethereum#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>18</b> downloads in the last day</li>
-              <li><b>98</b> downloads in the last week</li>
-              <li><b>458</b> downloads in the last month</li>
+              <li><b>50</b> downloads in the last day</li>
+              <li><b>127</b> downloads in the last week</li>
+              <li><b>637</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

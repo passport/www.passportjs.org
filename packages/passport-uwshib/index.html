@@ -120,8 +120,8 @@
 node server.js
 </code></pre><p>You can also override the default HTTP and HTTPS ports if you wish by specifying <code>HTTPPORT</code> and <code>HTTPSPORT</code> environment variables.</p>
 <p>The example script then loads a public certificate and associated private key from two files in a <code>/security</code> subdirectory.</p>
-<pre><code>var publicCert = fs.read<span class="constructor">FileSync(&#x27;.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">cert</span>.<span class="params">pem</span>&#x27;, &#x27;<span class="params">utf</span>-8&#x27;)</span>;
-var privateKey = fs.read<span class="constructor">FileSync(&#x27;.<span class="operator">/</span><span class="params">security</span><span class="operator">/</span><span class="params">server</span>-<span class="params">pvk</span>.<span class="params">pem</span>&#x27;, &#x27;<span class="params">utf</span>-8&#x27;)</span>;
+<pre><code><span class="keyword">var</span> publicCert = fs.readFileSync(<span class="string">&#x27;./security/server-cert.pem&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);
+<span class="keyword">var</span> privateKey = fs.readFileSync(<span class="string">&#x27;./security/server-pvk.pem&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);
 </code></pre><p>These are used not only for the HTTPS server, but also to sign requests sent to the UW IdP. You can use <a href="http://www.sslshopper.com/article-most-common-openssl-commands.html">openssl</a> to generate keys and certificate signing requests. The UW IdP seems to require that your server responds to HTTPS requests, so you should get a signed certificate for your server before trying to register it.</p>
 <p>The script continues by creating a typical Express application and registering the typical middleware. For more information on this, see the <a href="http://passportjs.org/">Passport.js site</a>.</p>
 <p>Then the script creates the UW Shibboleth Strategy, and tells Passport to use it.</p>
@@ -138,12 +138,12 @@ passport.<span class="keyword">use</span>(strategy);
 <p><strong>Note:</strong> When the UW IdP sends back Shibboleth assertions, they contain timestamps that declare when and for how long those assertions are valid. The passport-saml library will compare these timestamps against your server&#39;s clock, and will not allow any time skewing by default. If your server&#39;s clock is not synchronized with the UW IdP server, you may want to add the <code>acceptedClockSkewMs</code> property to the object you pass to the <code>uwshib.Strategy()</code> constructor. This property is defined and interpreted by the passport-saml library, and may be set to a number of milliseconds that the clocks are allowed to be off from one another. If you don&#39;t want any timestamp checking at all, you may set this property to <code>-1</code>. See the <a href="https://github.com/bergie/passport-saml/blob/master/README.md#configure-strategy">passport-saml configuration properties</a> for more details.</p>
 <p>The name of the strategy is <code>&#39;uwsaml&#39;</code>, but you can use the <code>.name</code> property of the Strategy to refer to that.</p>
 <p>You will typically want to use sessions to allow users to authenticate only once per-sesion. The next functions are called by Passport to serialize and deserialize the user to the session. As noted in the comments, you would typically want to serialize only the unique ID (<code>.netID</code>) and reconstitute the user from your database during deserialzie. But to keep things simple, the script serializes the entire user and deserializes it again.</p>
-<pre><code>passport.serialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span>{
-    <span class="keyword">done</span>(null, user);
+<pre><code>passport.serializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>){
+    <span class="keyword">done</span>(<span class="literal">null</span>, user);
 });
 
-passport.deserialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span>{
-    <span class="keyword">done</span>(null, user);
+passport.deserializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>){
+    <span class="keyword">done</span>(<span class="literal">null</span>, user);
 });
 </code></pre><p>Next, the script registers a few routes to handle login, the login callback, and the standard metadata. This module provides implementations for the metadata route, and you use passport.authenticate for the login and login callback routes. The login route will redirect the user to the UW single sign-on page, and the UW IdP will then redirect the user back to the login callback route.</p>
 <pre><code><span class="keyword">app</span>.<span class="built_in">get</span>(loginUrl, passport.authenticate(strategy.name), uwshib.backToUrl());
@@ -152,7 +152,7 @@ passport.deserialize<span class="constructor">User(<span class="params">function
 </code></pre><p>The <code>uwshib.backToUrl()</code> is a convenience middleware that will redirect the browser back to the URL that was originally requested before authentication.</p>
 <p>Lastly, the script tells Express to use the <code>ensureAuth()</code> middleware provided by this module to secure all routes declared after this.</p>
 <pre><code><span class="comment">//secure all routes following this</span>
-app.use(uwshib.ensure<span class="constructor">Auth(<span class="params">loginUrl</span>)</span>);
+<span class="keyword">app</span>.<span class="keyword">use</span>(uwshib.ensureAuth(loginUrl));
 </code></pre><p>Any route requested after this middleware will require authentication. When requested, those routes will automatically redirect to the <code>loginUrl</code> if the user has not already authenticated. After successful authentication, the browser will be redirected back to the original URL, and the user information will be available via the <code>.user</code> property on the request object.</p>
 <p>Note that <code>ensureAuth</code> can also be used to selectively secure routes. For example:</p>
 <pre><code>app.get(&#x27;protected/resource&#x27;, ensureAuth(loginUrl), function(req, res) {
@@ -163,14 +163,14 @@ app.use(uwshib.ensure<span class="constructor">Auth(<span class="params">loginUr
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-uwshib</span></code></div>
             <ul>
-              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:58Z">a year ago</abbr></li>
+              <li><span class="version">0.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:58Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/drstearns/passport-uwshib">https://github.com/drstearns/passport-uwshib</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>5</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

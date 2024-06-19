@@ -160,6 +160,11 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
         <span class="comment">// The URI schema prefix used before the encoded LNURL.</span>
         <span class="comment">// e.g. &quot;lightning:&quot; or &quot;LIGHTNING:&quot; or &quot;&quot; (empty-string)</span>
         <span class="attr">uriSchemaPrefix</span>: <span class="string">&#x27;LIGHTNING:&#x27;</span>,
+        <span class="comment">// Use your own custom session store abstraction to get/save sessions with corresponding k1.</span>
+        <span class="comment">// This is useful in the case of &quot;serverless&quot; environments.</span>
+        <span class="comment">// See lib/stores/memory.js for implementation details.</span>
+        <span class="comment">// If NULL, the default MemoryStore will be used.</span>
+        <span class="attr">store</span>: <span class="literal">null</span>,
         <span class="comment">// Options object passed to QRCode.toDataURL(data, options) - for further details:</span>
         <span class="comment">// https://github.com/soldair/node-qrcode/#qr-code-options</span>
         <span class="attr">qrcode</span>: {
@@ -169,8 +174,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
         },
     })
 );
-</code></pre>
-<p>For a complete, working example see the <a href="https://github.com/chill117/passport-lnurl-auth/blob/master/examples/simple.js">simple server</a> included with this project.</p>
+</code></pre><p>For a complete, working example see the <a href="https://github.com/chill117/passport-lnurl-auth/blob/master/examples/simple.js">simple server</a> included with this project.</p>
 <p>To test the end-to-end login flow with lnurl-auth, see <a href="#remote-tunneling">Remote Tunneling</a>.</p>
 <h3 id="debugging">Debugging</h3>
 <p>This module uses the <a href="https://github.com/visionmedia/debug">debug module</a>. To output all debug messages to the console, run your node app with the <code>DEBUG</code> environment variable:</p>
@@ -188,14 +192,11 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
     AllowTcpForwarding yes
     ClientAliveInterval 60
     EOL</span>
-</code></pre>
-<p>Restart the SSH service:</p>
+</code></pre><p>Restart the SSH service:</p>
 <pre><code class="bash">service ssh restart
-</code></pre>
-<p>On your local machine, run the following command to open a reverse-proxy tunnel:</p>
+</code></pre><p>On your local machine, run the following command to open a reverse-proxy tunnel:</p>
 <pre><code class="bash">ssh -v -N -T -R 3000:localhost:3000 VPS_HOST_OR_IP_ADDRESS
-</code></pre>
-<p>This will forward all traffic to port 3000 to the VPS thru the SSH tunnel to port 3000 on your local machine.</p>
+</code></pre><p>This will forward all traffic to port 3000 to the VPS thru the SSH tunnel to port 3000 on your local machine.</p>
 <p>Provide the VPS IP address + endpoint path as the <code>callbackUrl</code> option. For example:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
     <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
@@ -208,14 +209,12 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
         <span class="attr">callbackUrl</span>: <span class="string">&#x27;http://VPS_IP_ADDRESS:3000/login&#x27;</span>
     })
 );
-</code></pre>
-<p>Be sure to replace <code>VPS_IP_ADDRESS</code> with the actual IP address of your server.</p>
+</code></pre><p>Be sure to replace <code>VPS_IP_ADDRESS</code> with the actual IP address of your server.</p>
 <h4 id="using-ngrok">Using ngrok</h4>
 <p>If you don&#39;t have access to your own VPS, <a href="https://ngrok.com/">ngrok</a> is another possible solution. Follow the installation instructions on the project&#39;s website before continuing here. Once you have ngrok installed, you can continue with the instructions here.</p>
 <p>To create an HTTP tunnel:</p>
-<pre><code class="bash">ngrok http -region eu 3000
-</code></pre>
-<p>You should see something like the following:</p>
+<pre><code class="bash">ngrok http --region eu 3000
+</code></pre><p>You should see something like the following:</p>
 <p><img src="https://github.com/chill117/passport-lnurl-auth/blob/master/images/ngrok-screen-https-tunnel.png" alt=""></p>
 <p>Provide the HTTPS tunnel URL + endpoint path as the <code>callbackUrl</code> option. For example:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
@@ -229,8 +228,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
         <span class="attr">callbackUrl</span>: <span class="string">&#x27;https://a9453568.eu.ngrok.io/login&#x27;</span>
     })
 );
-</code></pre>
-<p>Note that each time you open a tunnel with ngrok, your tunnel URL changes. </p>
+</code></pre><p>Note that each time you open a tunnel with ngrok, your tunnel URL changes. </p>
 <h2 id="changelog">Changelog</h2>
 <p>See <a href="https://github.com/chill117/passport-lnurl-auth/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
 <h2 id="license">License</h2>
@@ -244,14 +242,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lnurl-auth</span></code></div>
             <ul>
-              <li><span class="version">1.5.1</span> published <abbr class="updated" title="2022-08-19T19:07:37Z">a year ago</abbr></li>
+              <li><span class="version">1.6.0</span> published <abbr class="updated" title="2024-04-19T15:40:28Z">2 months ago</abbr></li>
               <li><a class="url" href="https://github.com/chill117/passport-lnurl-auth">https://github.com/chill117/passport-lnurl-auth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>15</b> downloads in the last week</li>
-              <li><b>59</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>26</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

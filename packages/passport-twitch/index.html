@@ -105,8 +105,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-twitch
-</code></pre>
-<h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
+</code></pre><h2 id="usage-of-oauth-20">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Twitch OAuth 2.0 authentication strategy authenticates users using a Twitch
 account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which
@@ -127,8 +126,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&quot;twitch&quot;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -138,12 +136,10 @@ app.<span class="title function_">get</span>(<span class="string">&quot;/auth/tw
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
 });
-</code></pre>
-<p>Optionally, the <code>forceVerify</code> option can be set to <code>true</code> to indicate
+</code></pre><p>Optionally, the <code>forceVerify</code> option can be set to <code>true</code> to indicate
 that the user should be re-prompted for authorization:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&quot;/auth/twitch&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;twitch&quot;</span>, {<span class="attr">forceVerify</span>: <span class="literal">true</span>}));
-</code></pre>
-<h2 id="example">Example</h2>
+</code></pre><h2 id="example">Example</h2>
 <pre><code class="javascript"><span class="keyword">var</span> express        = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);
 <span class="keyword">var</span> bodyParser     = <span class="built_in">require</span>(<span class="string">&quot;body-parser&quot;</span>);
 <span class="keyword">var</span> cookieParser   = <span class="built_in">require</span>(<span class="string">&quot;cookie-parser&quot;</span>);
@@ -196,8 +192,7 @@ app.<span class="title function_">get</span>(<span class="string">&quot;/auth/tw
 });
 
 app.<span class="title function_">listen</span>(<span class="number">3000</span>);
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>The MIT License (MIT)</p>
 <p>Copyright (c) 2015 Schmoopiie</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -219,13 +214,13 @@ THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-twitch</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:39:28Z">a year ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-06-23T13:39:28Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Schmoopiie/passport-twitch">https://github.com/Schmoopiie/passport-twitch</a></li>
             </ul>
             <ul>
-              <li><b>107</b> downloads in the last day</li>
-              <li><b>344</b> downloads in the last week</li>
-              <li><b>1,743</b> downloads in the last month</li>
+              <li><b>56</b> downloads in the last day</li>
+              <li><b>372</b> downloads in the last week</li>
+              <li><b>1,539</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

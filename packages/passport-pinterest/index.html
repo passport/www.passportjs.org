@@ -103,8 +103,7 @@
 <p><a href="https://npmjs.org/package/passport-pinterest"><img src="https://nodei.co/npm/passport-pinterest.png?downloads=true" alt="NPM Stats"></a></p>
 <p>This is a module for node.js and is installed via npm:</p>
 <pre><code class="bash">npm install passport-pinterest --save
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Pinterest authentication strategy authenticates users using a Pinterest account and OAuth 2.0 tokens. The strategy requires a <code>verify</code> callback, which accepts these credentials and calls <code>done</code> providing a user, as well as <code>options</code> specifying a client ID, client secret, scope, and callback URL.</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">PinterestStrategy</span>({
@@ -120,8 +119,7 @@
         });
     }
 ));
-</code></pre>
-<p>Set the scope parameter according to the <a href="https://developers.pinterest.com/docs/api/overview/#scopes">list of available scopes</a>.</p>
+</code></pre><p>Set the scope parameter according to the <a href="https://developers.pinterest.com/docs/api/overview/#scopes">list of available scopes</a>.</p>
 <p><strong>Pinterest only allows https callback urls.</strong> <a href="http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/">This blog article</a> explains the quickest way to enable https for your Express server.</p>
 <h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;pinterest&#39;</code> strategy, to authenticate requests.</p>
@@ -137,8 +135,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pi
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     }
 );
-</code></pre>
-<h2 id="contributing">Contributing</h2>
+</code></pre><h2 id="contributing">Contributing</h2>
 <p>To set up your development environment for Passport-Pinterest:</p>
 <ol>
 <li>Clone this repo to your desktop,</li>
@@ -182,21 +179,21 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pi
 </ul>
 </li>
 </ul>
-<h2 id="license-isc-">License (ISC)</h2>
+<h2 id="license-isc">License (ISC)</h2>
 <p>In case you never heard about the <a href="http://en.wikipedia.org/wiki/ISC_license">ISC license</a> it is functionally equivalent to the MIT license.</p>
 <p>See the <a href="LICENSE">LICENSE file</a> for details.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-pinterest</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:16Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:16Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/analog-nico/passport-pinterest">https://github.com/analog-nico/passport-pinterest</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>79</b> downloads in the last day</li>
-              <li><b>733</b> downloads in the last week</li>
-              <li><b>2,242</b> downloads in the last month</li>
+              <li><b>103</b> downloads in the last day</li>
+              <li><b>292</b> downloads in the last week</li>
+              <li><b>1,265</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

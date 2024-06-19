@@ -102,8 +102,7 @@ can be easily and unobtrusively integrated into any application or framework tha
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">    $ npm install @nimblr/passport-drchrono
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
 <p>Before using <code>passport-drchrono</code>, you must register an application with drchrono.
 Your application will be issued a client ID and a client secret.
@@ -118,7 +117,7 @@ in the drchrono portal.</p>
 a profile with the authenticated user information, and a callback.
 The <code>verify</code> callback must call the passed callback with the user information to complete the authentication process.</p>
 <pre><code class="js">    <span class="keyword">var</span> <span class="title class_">DrchronoStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;@nimblr/passport-drchrono&#x27;</span>).<span class="property">Strategy</span>
-
+    
     passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DrchronoStrategy</span>({
             <span class="attr">clientID</span>: <span class="string">&#x27;abcdefgxs023934&#x27;</span>,
             <span class="attr">clientSecret</span>: <span class="string">&#x27;assdfco09sdXDAdg9cxaaSASDF90asdgf0asdvc&#x27;</span>,
@@ -130,8 +129,7 @@ The <code>verify</code> callback must call the passed callback with the user inf
             });
         }
     ));
-</code></pre>
-<p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to true, and
+</code></pre><p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to true, and
 changing the callback arguments accordingly.</p>
 <pre><code class="js">    passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">DrchronoStrategy</span>({
             <span class="attr">clientID</span>: <span class="string">&#x27;abcdefgxs023934&#x27;</span>,
@@ -143,8 +141,7 @@ changing the callback arguments accordingly.</p>
             <span class="comment">// ...</span>
         }
     ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;drchrono&#39;</code> strategy, to
 pass authentication of a request.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -154,26 +151,23 @@ application:</p>
         <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>, 
         <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>, 
         <span class="attr">callbackURL</span>: <span class="variable constant_">REDIRECT_URI</span> }));
-
+    
     app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/drchrono/callback&#x27;</span>, 
       passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;drchrono&#x27;</span>, { <span class="comment">/* credentials */</span> }),
       <span class="keyword">function</span>(<span class="params">req, res</span>) {
         <span class="comment">// Successful authentication, redirect home.</span>
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
       });
-</code></pre>
-<h2 id="contributing">Contributing</h2>
+</code></pre><h2 id="contributing">Contributing</h2>
 <h4 id="tests">Tests</h4>
 <p>The test suite is located in the <code>test/</code> directory. </p>
 <pre><code class="bash">    $ npm <span class="built_in">test</span>
-</code></pre>
-<h4 id="coverage">Coverage</h4>
+</code></pre><h4 id="coverage">Coverage</h4>
 <p>All new feature or patch is expected to have test coverage. Patches that increase test coverage are
 happily accepted. Coverage reports can be viewed by executing:</p>
 <pre><code class="bash">    $ npm run test-cov
     $ npm run view-cov
-</code></pre>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="https://github.com/DJphilomath">David Jiménez</a></li>
 </ul>
@@ -184,14 +178,14 @@ happily accepted. Coverage reports can be viewed by executing:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-drchrono</span></code></div>
             <ul>
-              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-05-12T15:36:59Z">a year ago</abbr></li>
+              <li><span class="version">1.0.2</span> published <abbr class="updated" title="2022-05-12T15:36:59Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Nimblr/passport-drchrono">https://github.com/Nimblr/passport-drchrono#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>20</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last day</li>
+              <li><b>12</b> downloads in the last week</li>
+              <li><b>29</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -93,7 +93,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-wechat-v2-0">passport-wechat v2.0</h1>
+          <div class="description"><h1 id="passport-wechat-v20">passport-wechat v2.0</h1>
 <p><a href="https://david-dm.org/liangyali/passport-wechat"><img src="https://david-dm.org/liangyali/passport-wechat.svg" alt="Dependencies"></a></p>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating with <a href="http://weixin.qq.com/">Wechat</a></p>
 <p>##支持功能</p>
@@ -101,10 +101,10 @@
 <li>微信公众账号</li>
 <li>微信网站登陆</li>
 </ul>
-<h2 id="-">安装</h2>
+<h2 id="安装">安装</h2>
 <pre><code>$ npm install pass<span class="keyword">port</span>-wechat
-</code></pre><h2 id="-">使用</h2>
-<h4 id="configure-strategy">Configure  Strategy</h4>
+</code></pre><h2 id="使用">使用</h2>
+<h4 id="configure--strategy">Configure  Strategy</h4>
 <pre><code class="js">
  passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">WechatStrategy</span>({
         <span class="attr">appID</span>: {<span class="variable constant_">APPID</span>},
@@ -125,12 +125,9 @@
 <span class="title class_">The</span> <span class="string">`callbackURL`</span>, <span class="string">`scope`</span> and <span class="string">`state`</span> can be overwritten <span class="keyword">in</span> <span class="string">`passport.authenticate`</span> middleware.
 
 <span class="title class_">The</span> <span class="string">`getToken`</span> and <span class="string">`saveToken`</span> can be provided to initialize <span class="title class_">Wechat</span> <span class="title class_">OAuth</span> instance.
-
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <pre><code class="js">  router.<span class="title function_">get</span>(<span class="string">&#x27;/auth/wechat&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wechat&#x27;</span>, options));
-</code></pre>
-<p><code>options</code> - Optional. Can include the following:</p>
+</code></pre><p><code>options</code> - Optional. Can include the following:</p>
 <ul>
 <li><code>state</code> - Override state for this specific API call</li>
 <li><code>callbackURL</code> - Override callbackURL for this specific API call</li>
@@ -142,21 +139,20 @@
     <span class="attr">failureRedirect</span>: <span class="string">&#x27;/auth/fail&#x27;</span>,
     <span class="attr">successReturnToOrRedirect</span>: <span class="string">&#x27;/&#x27;</span>
   }));
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>Copyright (c) 2014 liangyali<br>Licensed under the MIT license.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wechat</span></code></div>
             <ul>
-              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2022-06-23T13:45:41Z">a year ago</abbr></li>
+              <li><span class="version">2.0.4</span> published <abbr class="updated" title="2022-06-23T13:45:41Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/liangyali/passport-wechat">http://www.liangyali.com</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>95</b> downloads in the last day</li>
+              <li><b>99</b> downloads in the last day</li>
               <li><b>454</b> downloads in the last week</li>
-              <li><b>1,843</b> downloads in the last month</li>
+              <li><b>1,746</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

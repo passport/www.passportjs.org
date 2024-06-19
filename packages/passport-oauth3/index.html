@@ -250,8 +250,7 @@ app.<span class="title function_">get</span>(accessTokenCallback, <span class="k
     });
   })(req, res, next);
 });
-</code></pre>
-<h2 id="authorization-dialog">Authorization Dialog</h2>
+</code></pre><h2 id="authorization-dialog">Authorization Dialog</h2>
 <p>Imagine you&#39;re on the site &quot;Wally&#39;s Widgets&quot; and there&#39;s a button &quot;Login with Foo&quot;.</p>
 <p>When you click that button, one of two things should happen:</p>
 <ol>
@@ -267,8 +266,7 @@ stuff that happens to... can&#39;t remember, gotta look back at the code... late
   + <span class="string">&#x27;?provider_uri=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;https://provider-api.com&#x27;</span>)
   + <span class="string">&#x27;&amp;scope=&#x27;</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;login email phone&#x27;</span>)
   ;
-</code></pre>
-<p>&#39;provider_uri&#39; is used as part of the state as well as where it will find <code>oauth.json</code>.</p>
+</code></pre><p>&#39;provider_uri&#39; is used as part of the state as well as where it will find <code>oauth.json</code>.</p>
 <h3 id="browser-open-dialog">Browser Open Dialog</h3>
 <pre><code><span class="keyword">var</span> myAppId = <span class="string">&#x27;some-app-id&#x27;</span>;
 <span class="keyword">var</span> requestedScope = <span class="string">&#x27;login email phone&#x27;</span>;
@@ -287,8 +285,7 @@ stuff that happens to... can&#39;t remember, gotta look back at the code... late
 <p>It should be CORS enabled such that any web client can access it as well.</p>
 <p>It should have a long <code>Expires</code> header and cached in the app manifest.</p>
 <pre><code class="javascript"><span class="keyword">var</span> <span class="string">&#x27;https://provider-fronteend.com/oauth3.json&#x27;</span>
-</code></pre>
-<pre><code class="javascript">{ <span class="string">&quot;authorization_dialog&quot;</span>: {
+</code></pre><pre><code class="javascript">{ <span class="string">&quot;authorization_dialog&quot;</span>: {
     <span class="string">&quot;method&quot;</span>: <span class="string">&quot;GET&quot;</span>
   , <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://provider-api.com/api/oauth3/authorization_dialog&quot;</span>
   }
@@ -302,21 +299,20 @@ stuff that happens to... can&#39;t remember, gotta look back at the code... late
   }
 , <span class="string">&quot;authn_scope&quot;</span>: <span class="string">&quot;me&quot;</span>
 }
-</code></pre>
-<p>&#39;authn_scope&#39; defines the least possible scope required to authenticate
+</code></pre><p>&#39;authn_scope&#39; defines the least possible scope required to authenticate
 and get &#39;app_scoped_id&#39;. </p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth3</span></code></div>
             <ul>
-              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:11:10Z">a year ago</abbr></li>
+              <li><span class="version">1.0.5</span> published <abbr class="updated" title="2022-06-23T13:11:10Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/OAuth3/node-passport-oauth3">https://github.com/OAuth3/passport-oauth3</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
-              <li><b>13</b> downloads in the last month</li>
+              <li><b>15</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

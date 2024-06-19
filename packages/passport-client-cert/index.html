@@ -110,29 +110,27 @@
 passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>(<span class="keyword">function</span>(<span class="params">clientCert, done</span>) {
   <span class="keyword">var</span> cn = clientCert.<span class="property">subject</span>.<span class="property">cn</span>,
       user = <span class="literal">null</span>;
-
+      
   <span class="comment">// The CN will typically be checked against a database</span>
   <span class="keyword">if</span>(cn === <span class="string">&#x27;test-cn&#x27;</span>) {
     user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
-
+  
   <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
-</code></pre>
-<p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing callback arguments accordingly.</p>
+</code></pre><p>The verify callback can be supplied with the <code>request</code> object by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing callback arguments accordingly.</p>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>({ <span class="attr">passReqToCallback</span>: <span class="literal">true</span> }, <span class="keyword">function</span>(<span class="params">req, clientCert, done</span>) {
   <span class="keyword">var</span> cn = clientCert.<span class="property">subject</span>.<span class="property">cn</span>,
       user = <span class="literal">null</span>;
-
+      
   <span class="comment">// The CN will typically be checked against a database</span>
   <span class="keyword">if</span>(cn === <span class="string">&#x27;test-cn&#x27;</span>) {
     user = { <span class="attr">name</span>: <span class="string">&#x27;Test User&#x27;</span> }
   }
-
+  
   <span class="title function_">done</span>(<span class="literal">null</span>, user);
 }));
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Install and start the example server app:</p>
 <pre><code><span class="variable">$</span> npm install
 <span class="variable">$</span> <span class="built_in">cd</span> example
@@ -151,14 +149,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-client-cert</span></code></div>
             <ul>
-              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:23:57Z">a year ago</abbr></li>
+              <li><span class="version">2.1.0</span> published <abbr class="updated" title="2022-06-23T12:23:57Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/ripjar/passport-client-cert">https://github.com/ripjar/passport-client-cert</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>468</b> downloads in the last day</li>
-              <li><b>1,730</b> downloads in the last week</li>
-              <li><b>11,993</b> downloads in the last month</li>
+              <li><b>752</b> downloads in the last day</li>
+              <li><b>4,169</b> downloads in the last week</li>
+              <li><b>15,161</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

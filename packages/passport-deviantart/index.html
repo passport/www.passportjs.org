@@ -98,8 +98,7 @@
 <p><code>symbol</code> has been deprecated in v0.0.4.</p>
 <h2 id="installation">Installation</h2>
 <pre><code class="javascript">npm install passport-deviantart
-</code></pre>
-<h2 id="configuration">Configuration</h2>
+</code></pre><h2 id="configuration">Configuration</h2>
 <p>Use the following example implementation to get started with deviantART&#39;s passport strategy library:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
   deviantART = <span class="built_in">require</span>(<span class="string">&#x27;passport-deviantart&#x27;</span>).<span class="property">Strategy</span>
@@ -115,8 +114,7 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;dev
     });
   }
 ));
-</code></pre>
-<h2 id="routes">Routes</h2>
+</code></pre><h2 id="routes">Routes</h2>
 <p>Two routes are required for the deviantART passport strategy</p>
 <pre><code class="javascript"><span class="comment">/* 
 * This first route redirects the user to the service provider. 
@@ -131,22 +129,20 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/pr
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/provider/deviantart/callback&#x27;</span>, 
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;provider&#x27;</span>, { <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                       <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }));
-</code></pre>
-<h2 id="links">Links</h2>
+</code></pre><h2 id="links">Links</h2>
 <p>A simple example link to use this provider</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/provider/deviantart&quot;</span>&gt;</span>Log In with deviantART!<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-deviantart</span></code></div>
             <ul>
-              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T12:28:33Z">a year ago</abbr></li>
+              <li><span class="version">0.0.5</span> published <abbr class="updated" title="2022-06-23T12:28:33Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/lablayers/passport-deviantart">https://github.com/lablayers/passport-deviantart</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>11</b> downloads in the last week</li>
-              <li><b>125</b> downloads in the last month</li>
+              <li><b>12</b> downloads in the last day</li>
+              <li><b>42</b> downloads in the last week</li>
+              <li><b>188</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

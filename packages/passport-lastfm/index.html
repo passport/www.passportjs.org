@@ -142,7 +142,6 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> <span
     <span class="keyword">return</span> <span class="title function_ invoke__">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, {<span class="attr">message</span>:<span class="string">&#x27;Must be logged in&#x27;</span>});
   }
 }));
-
 </code></pre><p>In route handlers</p>
 <pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/lastfm&#x27;</span>, passport.authenticate(<span class="string">&#x27;lastfm&#x27;</span>));
 app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/lastfm/callback&#x27;</span>, <span class="keyword">function</span>(req, res, next){
@@ -150,19 +149,18 @@ app.<span class="keyword">get</span>(<span class="string">&#x27;/auth/lastfm/cal
     res.redirect(<span class="string">&#x27;/&#x27;</span>);
   })(req, {} );
 });
-
 </code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-lastfm</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:21Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:21Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/kizzlebot/passport-lastfm">https://github.com/kizzlebot/passport-lastfm#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>52</b> downloads in the last week</li>
-              <li><b>252</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>27</b> downloads in the last week</li>
+              <li><b>159</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

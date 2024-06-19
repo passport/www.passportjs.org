@@ -100,18 +100,16 @@
 <li>need to create line business account <a href="business.line.me">business.line.me</a></li>
 <li>after register to the line business account, you will get <code>line channel id</code> and <code>line secret</code>, we will use both value later</li>
 <li>from <a href="https://developers.line.me">https://developers.line.me</a>, at <code>Technical Configuration</code> tab, we need to add <code>callback url</code></li>
-<li>official documentation is available at <a href="https://developers.line.me/line-login/overview">https://developers.line.me/line-login/overview</a> </li>
+<li>official documentation is available at <a href="https://developers.line.me/line-login/overview">https://developers.line.me/line-login/overview</a></li>
 </ul>
 <h1 id="how-to-run-example-code">How to run example code</h1>
 <p>clone project</p>
 <pre><code class="sh">git <span class="built_in">clone</span> https://github.com/piggyman007/passport-line-v2.git
-</code></pre>
-<p>modify some parameters at <code>/example/index.js</code></p>
+</code></pre><p>modify some parameters at <code>/example/index.js</code></p>
 <pre><code class="javascript"><span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_ID</span> = <span class="string">&#x27;put your line channel id here&#x27;</span>
 <span class="keyword">const</span> <span class="variable constant_">LINE_CHANNEL_SECRET</span> = <span class="string">&#x27;put your line channel secret here&#x27;</span>
 <span class="keyword">const</span> <span class="variable constant_">CALLBACK_URL</span> = <span class="string">&#x27;your call back url&#x27;</span> <span class="comment">// e.g., https:www.somedomain.com or https://1.2.3.4</span>
-</code></pre>
-<blockquote>
+</code></pre><blockquote>
 <ul>
 <li><code>callback url</code> cannot be localhost or 127.0.0.1</li>
 <li><code>callback url</code> must be https protocal</li>
@@ -120,14 +118,11 @@
 </blockquote>
 <p>the example code is located at <code>/example</code> folder, goto it</p>
 <pre><code class="sh"><span class="built_in">cd</span> example
-</code></pre>
-<p>install dependency modules</p>
+</code></pre><p>install dependency modules</p>
 <pre><code class="sh">npm i
-</code></pre>
-<p>start app</p>
+</code></pre><p>start app</p>
 <pre><code class="sh">npm start
-</code></pre>
-<p>the application will start on port <code>5000</code></p>
+</code></pre><p>the application will start on port <code>5000</code></p>
 <h1 id="sample-usage-code">Sample usage code</h1>
 <p>sample usage code below is from <code>/example/index.js</code></p>
 <pre><code class="javascript"><span class="comment">/** decaration part */</span>
@@ -182,21 +177,20 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/li
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>)
   }
 )
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>MIT</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-v2</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:27Z">a year ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T12:56:27Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/piggyman007/passport-line-v2">https://github.com/piggyman007/passport-line#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>3</b> downloads in the last week</li>
-              <li><b>15</b> downloads in the last month</li>
+              <li><b>22</b> downloads in the last day</li>
+              <li><b>112</b> downloads in the last week</li>
+              <li><b>565</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

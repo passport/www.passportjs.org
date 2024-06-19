@@ -105,39 +105,36 @@ passport.<span class="title function_">use</span>(<span class="string">&#x27;my-
   <span class="title class_">Users</span>.<span class="title function_">findById</span>(id, <span class="keyword">function</span> (<span class="params">err, user</span>){
     <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="title function_">done</span>(err);
     <span class="title function_">done</span>(<span class="literal">null</span>, {
-      <span class="attr">key</span>:          user.<span class="property">secret</span>,
+      <span class="attr">key</span>: 		 user.<span class="property">secret</span>,
       <span class="attr">algorithm</span>: <span class="string">&#x27;sha256&#x27;</span>, <span class="comment">// sha1 or sha256</span>
-      <span class="attr">user</span>:         user
+      <span class="attr">user</span>:		 user
     });
   });
 }));
-</code></pre>
-<p>then you can set <code>my-hawk-strategy</code> as a middlware in any route. For instance:</p>
+</code></pre><p>then you can set <code>my-hawk-strategy</code> as a middlware in any route. For instance:</p>
 <pre><code class="javascript">  myExpressApp.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>, 
       passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;my-hawk-strategy&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }));
-</code></pre>
-<h3 id="bewit-support">Bewit support</h3>
+</code></pre><h3 id="bewit-support">Bewit support</h3>
 <p>passport-hawk can be used to validate <a href="https://github.com/hueniverse/hawk#bewit-usage-example">bewit</a>:</p>
 <pre><code class="javascript"><span class="keyword">var</span> <span class="title class_">HawkStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-hawk&#x27;</span>);
 
 passport.<span class="title function_">use</span>(<span class="string">&#x27;my-hawk-strategy&#x27;</span>, <span class="keyword">new</span> <span class="title class_">HawkStrategy</span>({ <span class="attr">bewit</span>: <span class="literal">true</span> }, <span class="keyword">function</span> (<span class="params">id, done</span>) {
   <span class="comment">//..same as previous section</span>
 });
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>MIT</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-hawk</span></code></div>
             <ul>
-              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2022-06-23T12:44:15Z">a year ago</abbr></li>
+              <li><span class="version">4.0.0</span> published <abbr class="updated" title="2022-06-23T12:44:15Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/jfromaniello/passport-hawk">https://github.com/jfromaniello/passport-hawk#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>9</b> downloads in the last week</li>
-              <li><b>36</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

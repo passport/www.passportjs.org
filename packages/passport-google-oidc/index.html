@@ -103,8 +103,7 @@ unobtrusively integrated into any application or framework that supports
 including <a href="https://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="sh">$ npm install passport-google-oidc
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="register-application">Register Application</h4>
 <p>The Google strategy authenticates users using their Google account.  Before your
 application can make use of Google&#39;s authentication system, you must first
@@ -181,7 +180,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           profile.<span class="property">displayName</span>
         ], <span class="keyword">function</span>(<span class="params">err</span>) {
           <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">cb</span>(err); }
-
+          
           <span class="keyword">var</span> id = <span class="variable language_">this</span>.<span class="property">lastID</span>;
           db.<span class="title function_">run</span>(<span class="string">&#x27;INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)&#x27;</span>, [
             id,
@@ -208,22 +207,19 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     }
   })
 ));
-</code></pre>
-<h4 id="define-routes">Define Routes</h4>
+</code></pre><h4 id="define-routes">Define Routes</h4>
 <p>Two routes are needed in order to allow users to log in with their Google
 account.  The first route redirects the user to the Google, where they will
 authenticate:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login/google&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>));
-</code></pre>
-<p>The second route processes the authentication response and logs the user in,
+</code></pre><p>The second route processes the authentication response and logs the user in,
 after Google redirects the user back to the app:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/oauth2/redirect&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;google&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>, <span class="attr">failureMessage</span>: <span class="literal">true</span> }),
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="documentation">Documentation</h2>
+</code></pre><h2 id="documentation">Documentation</h2>
 <p>Refer to <a href="https://developers.google.com/identity/protocols/oauth2/">Using OAuth 2.0 to Access Google APIs</a>
 for more information on integrating your application with Google APIs using
 OAuth 2.0 and OpenID Connect.</p>
@@ -234,14 +230,14 @@ OAuth 2.0 and OpenID Connect.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-google-oidc</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-05-12T15:41:07Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-05-12T15:41:07Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-google-openidconnect">https://github.com/jaredhanson/passport-google-openidconnect#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>667</b> downloads in the last day</li>
-              <li><b>2,984</b> downloads in the last week</li>
-              <li><b>14,657</b> downloads in the last month</li>
+              <li><b>798</b> downloads in the last day</li>
+              <li><b>3,647</b> downloads in the last week</li>
+              <li><b>19,338</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

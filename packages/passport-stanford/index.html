@@ -107,17 +107,17 @@ many ideas from
 IdPs, only <code>itlabv2</code> is currently usable without registration. Each IdP
 can be referenced in the Passport configuration by its SAML <em>entityID</em>
 or a short alias:</p>
-<h3 id="itlab-https-weblogin-itlab-stanford-edu-idp-shibboleth-">itlab (<a href="https://weblogin.itlab.stanford.edu/idp/shibboleth">https://weblogin.itlab.stanford.edu/idp/shibboleth</a>)</h3>
+<h3 id="itlab-httpswebloginitlabstanfordeduidpshibboleth">itlab (<a href="https://weblogin.itlab.stanford.edu/idp/shibboleth">https://weblogin.itlab.stanford.edu/idp/shibboleth</a>)</h3>
 <p><code>weblogin.itlab</code> is a Shibboleth v3.x IdP run by the Emerging
 Technology group, and will eventually replace <code>idp.itlab</code>.</p>
-<h3 id="dev-https-idp-dev-stanford-edu-">dev (<a href="https://idp-dev.stanford.edu/">https://idp-dev.stanford.edu/</a>)</h3>
+<h3 id="dev-httpsidp-devstanfordedu">dev (<a href="https://idp-dev.stanford.edu/">https://idp-dev.stanford.edu/</a>)</h3>
 <p><code>dev</code> is the development IdP run by the Authentication Services team,
 and requires <a href="https://shibboleth.stanford.edu/">registration</a>. <code>dev</code>
 used to be the main system for testing, but is being replaced by <code>uat</code>.</p>
-<h3 id="uat-https-idp-uat-stanford-edu-">uat (<a href="https://idp-uat.stanford.edu/">https://idp-uat.stanford.edu/</a>)</h3>
+<h3 id="uat-httpsidp-uatstanfordedu">uat (<a href="https://idp-uat.stanford.edu/">https://idp-uat.stanford.edu/</a>)</h3>
 <p><code>uat</code> is the test IdP run by the Authentication Services team, and
 requires <a href="https://shibboleth.stanford.edu/">registration</a>.</p>
-<h3 id="prod-https-idp-stanford-edu-">prod (<a href="https://idp.stanford.edu/">https://idp.stanford.edu/</a>)</h3>
+<h3 id="prod-httpsidpstanfordedu">prod (<a href="https://idp.stanford.edu/">https://idp.stanford.edu/</a>)</h3>
 <p><code>prod</code> is the production IdP run by the Authentication Services team,
 and requires <a href="https://shibboleth.stanford.edu/">registration</a>.</p>
 <h1 id="installation">Installation</h1>
@@ -205,7 +205,7 @@ method to enforces SAML authentication:</p>
 <pre><code>app.<span class="keyword">get</span>(<span class="string">&#x27;/profile&#x27;</span>, 
   saml.protect(),
   <span class="keyword">function</span>(req, res) {
-    res.render(<span class="string">&#x27;profile&#x27;</span>, { <span class="keyword">user</span> : req.<span class="keyword">user</span>    });
+    res.render(<span class="string">&#x27;profile&#x27;</span>, { <span class="keyword">user</span> : req.<span class="keyword">user</span>	});
   }
 );
 </code></pre><p>You can also protect a set of routes by calling <code>protect</code> from
@@ -219,8 +219,8 @@ enabled by default.</p>
 <h2 id="encrypted-assertions">Encrypted Assertions</h2>
 <p>To use encrypted assertions you will need a private / public X.509 key
 pair. The test app
-<a href="/scottylogan/passport-stanford/blob/master/test/pac
-kage.json">/test/package.json</a> contains a <code>gencert</code> script to generate a key and
+[/test/package.json](/scottylogan/passport-stanford/blob/master/test/pac
+kage.json) contains a <code>gencert</code> script to generate a key and
 self-signed certificate. To configure encryption, add the paths to your
 key and cert to the config:</p>
 <pre><code>saml = <span class="keyword">new</span> suSAML.<span class="title function_ invoke__">Strategy</span>({
@@ -256,14 +256,14 @@ app.<span class="keyword">get</span>(<span class="string">&#x27;/Shibboleth.sso/
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stanford</span></code></div>
             <ul>
-              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:16Z">a year ago</abbr></li>
+              <li><span class="version">1.1.1</span> published <abbr class="updated" title="2022-06-23T13:32:16Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/scottylogan/passport-stanford">https://github.com/scottylogan/passport-stanford</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
+              <li><b>0</b> downloads in the last day</li>
               <li><b>4</b> downloads in the last week</li>
-              <li><b>27</b> downloads in the last month</li>
+              <li><b>16</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

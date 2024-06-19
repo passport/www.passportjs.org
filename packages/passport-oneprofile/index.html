@@ -95,7 +95,7 @@
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="oneprofile-strategy-for-passport">OneProfile Strategy for Passport</h1>
 <h2 id="installation">Installation</h2>
-<h3 id="1-intstall-passprot-and-oneprofile-strategy-">1. Intstall passprot and OneProfile strategy.</h3>
+<h3 id="1-intstall-passprot-and-oneprofile-strategy">1. Intstall passprot and OneProfile strategy.</h3>
 <pre><code>  &gt; npm install pass<span class="keyword">port</span> passport-oneprofile <span class="comment">--save</span>
 </code></pre><p>More detail please refer to <a href="http://passportjs.org/guide/configure/">Passport configuration</a> page. Some key points are listed below:</p>
 <ol>
@@ -111,17 +111,17 @@
  });
 </code></pre></li>
 <li><p>Serialize and deserialize user instances to and from the session.</p>
-<p>The simplest implementation is as below:</p>
-<pre><code> passport.serialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span> {
-   <span class="keyword">done</span>(null, user);
- });
-
- passport.deserialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span> {
-   <span class="keyword">done</span>(null, user);
- });
-</code></pre></li>
+</li>
 </ol>
-<h3 id="2-add-customized-passport-strategy-">2. Add customized passport strategy.</h3>
+<p>  The simplest implementation is as below:</p>
+<pre><code>    passport.serializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>) {
+      <span class="keyword">done</span>(<span class="literal">null</span>, user);
+    });
+
+    passport.deserializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>) {
+      <span class="keyword">done</span>(<span class="literal">null</span>, user);
+    });
+</code></pre><h3 id="2-add-customized-passport-strategy">2. Add customized passport strategy.</h3>
 <p>  Set one profile as an authentication strategy. Set <code>ONES_KEY</code>, <code>ONES_SECRET</code> and <code>ONES_HOST</code> in system environment variables or hard code to replace them.</p>
 <pre><code>    <span class="keyword">var</span> oneProfileStrategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-oneprofile&#x27;</span>);
 
@@ -138,14 +138,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oneprofile</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:12:52Z">a year ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:12:52Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/StubHubLabs/node-oneprofile.git">https://github.com/StubHubLabs/node-oneprofile</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -116,29 +116,27 @@
 <p>  Use <code>passport.authenticate()</code>, specifying the <code>&#39;approveapi&#39;</code> strategy for two actions:</p>
 <h4 id="requesttoken">requestToken</h4>
 <p>  In this situation the passport authenticate middleware will send a token produced by the user information, which is returned by the <code>verifyUser</code> function.</p>
-<pre><code class="javascript">  app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/approveapi&#x27;</span>,
-      passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;approveapi&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }),
-      <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
-  )
-</code></pre>
-<h4 id="accepttoken">acceptToken</h4>
+<pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/approveapi&#x27;</span>,
+    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;approveapi&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }),
+    <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
+)
+</code></pre><h4 id="accepttoken">acceptToken</h4>
 <p>  In this situation the passport authenticate middleware will check for a valid token.</p>
-<pre><code class="javascript">  app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/approveapi/callback&#x27;</span>,
-    passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;approveapi&#x27;</span>, { action : <span class="string">&#x27;acceptToken&#x27;</span> }),
-    <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
-  )
-</code></pre>
-</div>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/approveapi/callback&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;approveapi&#x27;</span>, { action : <span class="string">&#x27;acceptToken&#x27;</span> }),
+  <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
+)
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-approveapi</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-05-12T15:31:20Z">a year ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-05-12T15:31:20Z">2 years ago</abbr></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>5</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last week</li>
+              <li><b>4</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -116,8 +116,8 @@ and calls <code>done</code> providing a user.</p>
     clientSecret: EXAMPLE_CLIENT_SECRET,
     callbackURL: &quot;http://localhost:3000/auth/oauth2/callback&#x27;</span>
   },
-  <span class="function"><span class="keyword">function</span></span>(accessToken, refreshToken, profile, done) {
-    User.findOne({ <span class="string">&#x27;ping.id&#x27;</span> : <span class="type">profile</span>.id }, <span class="function"><span class="keyword">function</span> </span>(err, user) {
+  <span class="title function_"><span class="keyword">function</span></span>(accessToken, refreshToken, profile, done) {
+    User.findOne({ <span class="string">&#x27;ping.id&#x27;</span> : <span class="type">profile</span>.id }, <span class="title function_"><span class="keyword">function</span> </span>(err, user) {
         <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
         <span class="keyword">if</span> (user) {
             <span class="keyword">return</span> done(<span class="literal">null</span>, user);
@@ -127,7 +127,7 @@ and calls <code>done</code> providing a user.</p>
             <span class="keyword">new</span><span class="type">User</span>.ping.token = accessToken;
             <span class="keyword">new</span><span class="type">User</span>.ping.name  = profile.displayName;
             <span class="keyword">new</span><span class="type">User</span>.ping.email = profile.email;
-            <span class="keyword">new</span><span class="type">User</span>.save(<span class="function"><span class="keyword">function</span></span>(err) {
+            <span class="keyword">new</span><span class="type">User</span>.save(<span class="title function_"><span class="keyword">function</span></span>(err) {
                 <span class="keyword">if</span> (err) { <span class="keyword">throw</span> err; }
                 <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="keyword">new</span><span class="type">User</span>);
             });
@@ -167,14 +167,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ping-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:10Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T13:18:10Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Bayer-Group/passport-ping-oauth2">https://github.com/MonsantoCo/passport-ping-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>100</b> downloads in the last day</li>
-              <li><b>442</b> downloads in the last week</li>
-              <li><b>2,094</b> downloads in the last month</li>
+              <li><b>142</b> downloads in the last day</li>
+              <li><b>794</b> downloads in the last week</li>
+              <li><b>3,993</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

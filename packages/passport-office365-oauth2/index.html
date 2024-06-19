@@ -109,7 +109,7 @@ using the OAuth 2.0 protocol.</p>
 <li><code>callbackURL</code>: URL to which Azure AD will redirect the user after obtaining authorization.</li>
 <li><code>resource</code>: [optional] the App ID URI of the web API (secured resource).</li>
 <li><code>tenant</code>: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).</li>
-<li><code>useCommonEndpoint</code>: [optional] use &quot;<a href="https://login.microsoftonline.com/common&quot;">https://login.microsoftonline.com/common&quot;</a> instead of default endpoint (<a href="https://login.microsoftonline.com/{tenant})">https://login.microsoftonline.com/{tenant})</a>. This is typically enabled if you&#39;re using this for a Multi-tenant application in Azure AD (Default: <code>false</code>).</li>
+<li><code>useCommonEndpoint</code>: [optional] use &quot;<a href="https://login.microsoftonline.com/common">https://login.microsoftonline.com/common</a>&quot; instead of default endpoint (<a href="https://login.microsoftonline.com/%7Btenant%7D">https://login.microsoftonline.com/{tenant}</a>). This is typically enabled if you&#39;re using this for a Multi-tenant application in Azure AD (Default: <code>false</code>).</li>
 </ul>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">AzureAdOAuth2Strategy</span>({
   <span class="attr">clientID</span>: <span class="string">&#x27;{YOUR_CLIENT_ID}&#x27;</span>,
@@ -128,8 +128,7 @@ using the OAuth 2.0 protocol.</p>
     <span class="title function_">done</span>(err, user);
   });
 }));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;azure_ad_oauth2&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/azureadoauth2&#x27;</span>,
@@ -141,8 +140,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/az
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
 <span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
 </code></pre><h2 id="issue-reporting">Issue Reporting</h2>
@@ -152,7 +150,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/az
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
 <li><a href="https://github.com/AzureAD/azure-activedirectory-library-for-nodejs">Azure AD Team</a></li>
 </ul>
-<h2 id="issue-reporting">Issue Reporting</h2>
+<h2 id="issue-reporting-1">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
 <h2 id="author">Author</h2>
 <p><a href="auth0.com">Auth0</a></p>
@@ -162,14 +160,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/az
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-office365-oauth2</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:11:40Z">a year ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T13:11:40Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Burke9077/passport-office365-oauth2">https://github.com/Burke9077/passport-office365-oauth2</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>4</b> downloads in the last day</li>
-              <li><b>17</b> downloads in the last week</li>
-              <li><b>71</b> downloads in the last month</li>
+              <li><b>11</b> downloads in the last day</li>
+              <li><b>61</b> downloads in the last week</li>
+              <li><b>110</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

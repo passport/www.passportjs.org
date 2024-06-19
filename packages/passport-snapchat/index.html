@@ -131,8 +131,7 @@ complete authorization.</p>
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;snapchat&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -146,21 +145,19 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/sn
     <span class="comment">// Successful authorization, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
 refer to an <a href="https://github.com/Snapchat/express-4.x-passport-snapchat-example">example</a>
 as a starting point for their own web applications.</p>
 <h2 id="faq">FAQ</h2>
-<h5 id="how-do-i-ask-a-user-for-additional-permissions-">How do I ask a user for additional permissions?</h5>
+<h5 id="how-do-i-ask-a-user-for-additional-permissions">How do I ask a user for additional permissions?</h5>
 <p>If you need additional permissions from the user, the permissions can be
 requested via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/snapchat&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;snapchat&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;user.display_name&#x27;</span>, <span class="string">&#x27;user.bitmoji.avatar&#x27;</span>] }));
-</code></pre>
-<p>Refer to <a href="https://docs.snapchat.com/docs/login-kit/">permissions with Snapchat Login</a>
+</code></pre><p>Refer to <a href="https://docs.snapchat.com/docs/login-kit/">permissions with Snapchat Login</a>
 for further details.</p>
-<h5 id="how-do-i-obtain-a-user-profile-with-specific-fields-">How do I obtain a user profile with specific fields?</h5>
+<h5 id="how-do-i-obtain-a-user-profile-with-specific-fields">How do I obtain a user profile with specific fields?</h5>
 <p>The Snapchat profile contains information about a user.  By default,
 NO fields in a profile are returned.  The fields needed by an application
 can be indicated by setting the <code>profileFields</code> option.</p>
@@ -170,8 +167,7 @@ can be indicated by setting the <code>profileFields</code> option.</p>
   <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/snapchat/callback&quot;</span>,
   <span class="attr">profileFields</span>: [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;displayName&#x27;</span>, <span class="string">&#x27;bitmoji&#x27;</span>]
 }), ...)
-</code></pre>
-<p>Refer to the <a href="https://docs.snapchat.com/docs/login-kit">Login Kit</a>
+</code></pre><p>Refer to the <a href="https://docs.snapchat.com/docs/login-kit">Login Kit</a>
 section of the docs for the complete set of available fields.</p>
 <h2 id="contributing">Contributing</h2>
 <h4 id="tests">Tests</h4>
@@ -179,22 +175,21 @@ section of the docs for the complete set of available fields.</p>
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
 <pre><code class="bash">$ npm <span class="built_in">test</span>
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <p>Copyright (c) 2018 Snap Inc.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-snapchat</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-10-13T20:03:16Z">9 months ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-10-13T20:03:16Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Snapchat/passport-snapchat">https://github.com/Snapchat/passport-snapchat#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>32</b> downloads in the last day</li>
-              <li><b>202</b> downloads in the last week</li>
-              <li><b>721</b> downloads in the last month</li>
+              <li><b>816</b> downloads in the last day</li>
+              <li><b>3,081</b> downloads in the last week</li>
+              <li><b>11,252</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

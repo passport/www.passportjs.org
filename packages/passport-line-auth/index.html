@@ -111,41 +111,41 @@
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The LINE authentication strategy authenticates users using a LINE account and OAuth 2.0 tokens. The channel ID and secret obtained when creating an service are supplied as options when creating the strategy. The strategy also requires a <code>verify</code> callback, which receives the access token and optional refresh token, as well as <code>profile</code> which contains the authenticated user&#39;s LINE profile. The <code>verify</code> callback must call <code>cb</code> providing a user to complete authentication.</p>
 <ul>
-<li><p>[Part 1] Sample Code</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
-  <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
-  <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
-  <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
-  <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>],
-  <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
-  <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
-},
-<span class="built_in">function</span>(accessToken, refreshToken, profile, cb) {
-  User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
-    return <span class="built_in">cb</span>(err, user);
-  });
-}
-));
-</code></pre></li>
-<li><p>[Part 2] Sample Code</p>
-<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
-  <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
-  <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
-  <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
-  <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;email&#x27;</span>],
-  <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
-  <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
-},
-<span class="built_in">function</span>(accessToken, refreshToken, params, profile, cb) {
-  var email = jwt.<span class="built_in">decode</span>(params.id_token)
-  User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
-    return <span class="built_in">cb</span>(err, user);
-  });
-}
-));
-</code></pre></li>
+<li>[Part 1] Sample Code</li>
 </ul>
-<h3 id="options">Options</h3>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
+    <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
+    <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
+    <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>],
+    <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
+    <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
+  },
+  <span class="built_in">function</span>(accessToken, refreshToken, profile, cb) {
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
+      return <span class="built_in">cb</span>(err, user);
+    });
+  }
+));
+</code></pre><ul>
+<li>[Part 2] Sample Code</li>
+</ul>
+<pre><code><span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">LineStrategy</span>({
+    <span class="attribute">channelID</span>: LINE_CHANNEL_ID,
+    <span class="attribute">channelSecret</span>: LINE_CHANNEL_SECRET,
+    <span class="attribute">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/line/callback&quot;</span>,
+    <span class="attribute">scope</span>: [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;email&#x27;</span>],
+    <span class="attribute">botPrompt</span>: <span class="string">&#x27;normal&#x27;</span>,
+    <span class="attribute">uiLocales</span>: <span class="string">&#x27;en-US&#x27;</span>,
+  },
+  <span class="built_in">function</span>(accessToken, refreshToken, params, profile, cb) {
+    var email = jwt.<span class="built_in">decode</span>(params.id_token)
+    User.<span class="built_in">findOrCreate</span>({ <span class="attribute">lineId</span>: profile.id }, function (err, user) {
+      return <span class="built_in">cb</span>(err, user);
+    });
+  }
+));
+</code></pre><h3 id="options">Options</h3>
 <table>
 <thead>
 <tr>
@@ -156,8 +156,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>channelID</td>
 <td>String</td>
 <td>Required</td>
@@ -199,8 +198,7 @@
 <td>null</td>
 <td>Display language for LINE Login screens. For more information, see <a href="https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#spy-making-an-authorization-request">Linking a bot with your LINE Login channel</a>.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="response">Response</h3>
 <table>
 <thead>
@@ -210,8 +208,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>accessToken</td>
 <td>String</td>
 <td>Access token. Valid for 30 days.</td>
@@ -226,8 +223,7 @@
 <td>String</td>
 <td>JWT that includes information about the user. This field is returned only if <code>openid</code> is specified in the scope. For more information, see <a href="https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#id-tokens">ID tokens</a>.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="exmaple">Exmaple</h3>
 <p>First time, you need set channel id, secret and redirect uri at <a href="https://github.com/IvanWei/passport-line-auth/blob/master/example/app.js">Exmaple</a>, then install packages and <code>npm start</code>.</p>
 <h2 id="reference">Reference</h2>
@@ -243,14 +239,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-line-auth</span></code></div>
             <ul>
-              <li><span class="version">0.2.9</span> published <abbr class="updated" title="2022-06-23T12:56:21Z">a year ago</abbr></li>
+              <li><span class="version">0.2.9</span> published <abbr class="updated" title="2022-06-23T12:56:21Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/IvanWei/passport-line-auth">https://github.com/IvanWei/passport-line-auth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>125</b> downloads in the last day</li>
-              <li><b>553</b> downloads in the last week</li>
-              <li><b>2,094</b> downloads in the last month</li>
+              <li><b>92</b> downloads in the last day</li>
+              <li><b>568</b> downloads in the last week</li>
+              <li><b>2,716</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

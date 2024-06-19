@@ -139,8 +139,7 @@ complete authentication.</p>
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;facebook&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -154,28 +153,25 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/fa
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
 refer to an <a href="https://github.com/passport/express-4.x-facebook-example">example</a>
 as a starting point for their own web applications.</p>
 <h2 id="faq">FAQ</h2>
-<h5 id="how-do-i-ask-a-user-for-additional-permissions-">How do I ask a user for additional permissions?</h5>
+<h5 id="how-do-i-ask-a-user-for-additional-permissions">How do I ask a user for additional permissions?</h5>
 <p>If you need additional permissions from the user, the permissions can be
 requested via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/facebook&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, { <span class="attr">scope</span>: [<span class="string">&#x27;user_friends&#x27;</span>, <span class="string">&#x27;manage_pages&#x27;</span>] }));
-</code></pre>
-<p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/permissions/overview">permissions with Facebook Login</a>
+</code></pre><p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/permissions/overview">permissions with Facebook Login</a>
 for further details.</p>
-<h5 id="how-do-i-re-ask-for-for-declined-permissions-">How do I re-ask for for declined permissions?</h5>
+<h5 id="how-do-i-re-ask-for-for-declined-permissions">How do I re-ask for for declined permissions?</h5>
 <p>Set the <code>authType</code> option to <code>reauthenticate</code> when authenticating.</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/facebook&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;facebook&#x27;</span>, { <span class="attr">authType</span>: <span class="string">&#x27;reauthenticate&#x27;</span>, <span class="attr">scope</span>: [<span class="string">&#x27;user_friends&#x27;</span>, <span class="string">&#x27;manage_pages&#x27;</span>] }));
-</code></pre>
-<p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/web#re-asking-declined-permissions">re-asking for declined permissions</a>
+</code></pre><p>Refer to <a href="https://developers.facebook.com/docs/facebook-login/web#re-asking-declined-permissions">re-asking for declined permissions</a>
 for further details.</p>
-<h5 id="how-do-i-obtain-a-user-profile-with-specific-fields-">How do I obtain a user profile with specific fields?</h5>
+<h5 id="how-do-i-obtain-a-user-profile-with-specific-fields">How do I obtain a user profile with specific fields?</h5>
 <p>The Facebook profile contains a lot of information about a user.  By default,
 not all the fields in a profile are returned.  The fields needed by an application
 can be indicated by setting the <code>profileFields</code> option.</p>
@@ -185,10 +181,9 @@ can be indicated by setting the <code>profileFields</code> option.</p>
   <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/facebook/callback&quot;</span>,
   <span class="attr">profileFields</span>: [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;displayName&#x27;</span>, <span class="string">&#x27;photos&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]
 }), ...)
-</code></pre>
-<p>Refer to the <a href="https://developers.facebook.com/docs/graph-api/reference/v2.5/user">User</a>
+</code></pre><p>Refer to the <a href="https://developers.facebook.com/docs/graph-api/reference/v2.5/user">User</a>
 section of the Graph API Reference for the complete set of available fields.</p>
-<h5 id="how-do-i-include-app-secret-proof-in-api-requests-">How do I include app secret proof in API requests?</h5>
+<h5 id="how-do-i-include-app-secret-proof-in-api-requests">How do I include app secret proof in API requests?</h5>
 <p>Set the <code>enableProof</code> option when creating the strategy.</p>
 <pre><code class="js"><span class="keyword">new</span> <span class="title class_">FacebookStrategy</span>({
   <span class="attr">clientID</span>: <span class="variable constant_">FACEBOOK_APP_ID</span>,
@@ -196,11 +191,10 @@ section of the Graph API Reference for the complete set of available fields.</p>
   <span class="attr">callbackURL</span>: <span class="string">&quot;http://localhost:3000/auth/facebook/callback&quot;</span>,
   <span class="attr">enableProof</span>: <span class="literal">true</span>
 }, ...)
-</code></pre>
-<p>As detailed in <a href="https://developers.facebook.com/docs/graph-api/securing-requests#appsecret_proof">securing graph API requests</a>,
+</code></pre><p>As detailed in <a href="https://developers.facebook.com/docs/graph-api/securing-requests#appsecret_proof">securing graph API requests</a>,
 requiring the app secret for server API requests helps prevent use of tokens
 stolen by malicous software or man in the middle attacks.</p>
-<h5 id="why-is-_-_-appended-to-the-redirect-uri-">Why is #_=_ appended to the redirect URI?</h5>
+<h5 id="why-is-__-appended-to-the-redirect-uri">Why is #_=_ appended to the redirect URI?</h5>
 <p>This behavior is &quot;by design&quot; according to Facebook&#39;s response to a <a href="https://developers.facebook.com/bugs/318390728250352">bug</a>
 filed regarding this issue.</p>
 <p>Fragment identifiers are not supplied in requests made to a server, and as such
@@ -220,14 +214,14 @@ please visit Jared Hanson&#39;s page on <a href="https://www.patreon.com/jaredha
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-facebook</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2023-04-26T06:21:18Z">2 months ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2023-04-26T06:21:18Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/jaredhanson/passport-facebook">https://github.com/jaredhanson/passport-facebook#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>23,596</b> downloads in the last day</li>
-              <li><b>113,373</b> downloads in the last week</li>
-              <li><b>532,137</b> downloads in the last month</li>
+              <li><b>21,986</b> downloads in the last day</li>
+              <li><b>122,562</b> downloads in the last week</li>
+              <li><b>525,044</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

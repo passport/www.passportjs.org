@@ -100,7 +100,7 @@
   <span class="attribute">audience</span>: process.env.OKTA_AUDIENCE,   
     <span class="comment">// audience is the Okta Domain, </span>
     <span class="comment">// e.g. https://example.okta.com, https://example.oktapreview.com</span>
-
+    
   <span class="attribute">clientID</span>: process.env.OKTA_CLIENTID,
     <span class="comment">// clientID is the public Okta Application Client Credentials, </span>
     <span class="comment">// its a 20 character alphanumeric string</span>
@@ -110,18 +110,18 @@
     <span class="comment">// clientSecret is the private Okta Application Client Credentials, </span>
     <span class="comment">// its a 40 character alphanumeric string with a hypen(s).</span>
     <span class="comment">// e.g. Vwb-R4fQnSH7uJkokDhPI-WR4qEiuWFokYANM5C  (generated example)</span>
-
+    
   <span class="attribute">idp</span>: process.env.OKTA_IDP,
     <span class="comment">// idp is the Identity Provider (id). This is an optional field</span>
     <span class="comment">// its a 20 character alphanumeric string</span>
     <span class="comment">// e.g. qOp8aaJmCEhvep5Il6ZJ  (generated example)</span>
-
+    
   <span class="attribute">scope</span>: [<span class="string">&#x27;openid&#x27;</span>, <span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;profile&#x27;</span>],
   <span class="attribute">response_type</span>: <span class="string">&#x27;code&#x27;</span>,
   <span class="attribute">callbackURL</span>: baseURL + <span class="string">&quot;/auth/okta/callback&quot;</span>
     <span class="comment">// callbackURL is the redirect URL Okta should return the user to</span>
     <span class="comment">// This is a URL on your server</span>
-
+    
 }, <span class="built_in">function</span>(accessToken, refreshToken, profile, done) {
   <span class="comment">// Example Callback to Handle the Profile Object</span>
 
@@ -143,14 +143,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-okta-oauth</span></code></div>
             <ul>
-              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:12:22Z">a year ago</abbr></li>
+              <li><span class="version">0.0.1</span> published <abbr class="updated" title="2022-06-23T13:12:22Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/fischerdan/passport-okta-oauth">https://github.com/fischerdan/passport-okta-oauth</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3,746</b> downloads in the last day</li>
-              <li><b>18,785</b> downloads in the last week</li>
-              <li><b>117,955</b> downloads in the last month</li>
+              <li><b>1,183</b> downloads in the last day</li>
+              <li><b>5,882</b> downloads in the last week</li>
+              <li><b>25,893</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

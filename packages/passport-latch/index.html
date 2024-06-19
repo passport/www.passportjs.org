@@ -141,7 +141,7 @@ application:</p>
             <span class="keyword">if</span> (err) { <span class="keyword">return</span> done(err); }
             <span class="keyword">if</span> (!user) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { message: <span class="string">&#x27;Invalid username or password&#x27;</span> }); }
             <span class="keyword">if</span> (user.password != password) { <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, { message: <span class="string">&#x27;Invalid username or password&#x27;</span> }); }
-
+        
             <span class="comment">// Once the authentication has been succesful, we look for his accountId by id</span>
             <span class="keyword">var</span> accountId = findAccountIdForUserId(user.id, function(err, obj) {
                 <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="literal">false</span>; }
@@ -151,7 +151,7 @@ application:</p>
                     <span class="keyword">return</span> <span class="literal">false</span>;
                 }
             });
-
+        
             <span class="keyword">if</span> (accountId) {
                 <span class="keyword">var</span> rv = latch.status(accountId, function(err, <span class="keyword">data</span>) {
                     <span class="keyword">if</span> ((err) || (!<span class="keyword">data</span>)) {
@@ -194,11 +194,11 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-latch</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:54:27Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:54:27Z">2 years ago</abbr></li>
               <li><a class="url" href="git://github.com/elevenpaths/latch-plugin-passportjs.git">https://github.com/elevenpaths/latch-plugin-passportjs</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last day</li>
               <li><b>2</b> downloads in the last week</li>
               <li><b>6</b> downloads in the last month</li>
             </ul>

@@ -176,18 +176,18 @@ is set later by other middleware or routes.</p>
 <p>To create a cookie, use the helper functions <code>createTicket()</code> and
 <code>encodeCookieValue()</code> on an <code>AuthTkt</code> instance. For example, a login route
 may do the following:</p>
-<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy(&#x27;<span class="params">authtkt</span>&#x27;)</span>;
-var ticket = strategy.authtkt.create<span class="constructor">Ticket(<span class="params">user</span>.<span class="params">id</span>, {<span class="params">userData</span>: <span class="params">user</span>})</span>;
-return res.cookie(strategy.key, strategy.authtkt.base64<span class="constructor">Encode(<span class="params">ticket</span>)</span>);
+<pre><code><span class="keyword">var</span> <span class="variable">strategy</span> = req._passport.instance._strategy(<span class="string">&#x27;authtkt&#x27;</span>)<span class="comment">;</span>
+<span class="keyword">var</span> <span class="variable">ticket</span> = strategy.authtkt.createTicket(<span class="literal">user</span>.id, {userData: <span class="literal">user</span>})<span class="comment">;</span>
+<span class="keyword">return</span> res.cookie(strategy.key, strategy.authtkt.base64Encode(ticket))<span class="comment">;</span>
 </code></pre><p>In this example, <code>user</code> is an object or string representing a user that has
 been validated (e.g. looked up in a database and authenticated). If <code>user</code>
 an object, <code>jsonUserData: true</code> should be set in the strategy options (see
 above). <code>user.id</code> is the user&#39;s id.</p>
 <p>The example may be shortned further using the <code>getCookieValue()</code> helper:</p>
-<pre><code>var strategy = req.<span class="module-access"><span class="module"><span class="identifier">_passport</span>.</span></span>instance.<span class="constructor">_strategy(&#x27;<span class="params">authtkt</span>&#x27;)</span>;
-res.cookie(strategy.key, strategy.authtkt.get<span class="constructor">CookieValue(<span class="params">user</span>.<span class="params">id</span>, {<span class="params">userData</span>: <span class="params">user</span>})</span>);
+<pre><code><span class="keyword">var</span> <span class="variable">strategy</span> = req._passport.instance._strategy(<span class="string">&#x27;authtkt&#x27;</span>)<span class="comment">;</span>
+res.cookie(strategy.key, strategy.authtkt.getCookieValue(<span class="literal">user</span>.id, {userData: <span class="literal">user</span>}))<span class="comment">;</span>
 </code></pre><p>To log the user out, simply clear the cookie:</p>
-<pre><code>res.clear<span class="constructor">Cookie(<span class="params">strategy</span>.<span class="params">key</span>)</span>;
+<pre><code>res.clearCookie(strategy.key)<span class="comment">;</span>
 </code></pre><p>See <code>authtkt.js</code> for more details about the methods available on the <code>authtkt</code>
 object, which is an instance of the <code>AuthTkt</code> prototype found in that file.
 This is in fact a generic utiltiy for creating and parsing <code>auth_tkt</code> tickets,
@@ -227,13 +227,13 @@ algorithm used as the basis for the JavaScript port in <code>authtkt.js</code>.<
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-authtkt</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:17:52Z">a year ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T12:17:52Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/optilude/passport-authtkt"></a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>58</b> downloads in the last week</li>
-              <li><b>290</b> downloads in the last month</li>
+              <li><b>13</b> downloads in the last day</li>
+              <li><b>52</b> downloads in the last week</li>
+              <li><b>294</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

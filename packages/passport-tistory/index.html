@@ -94,7 +94,7 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-tistory">passport-tistory</h1>
-<p><strong><em>passport-tistory</em></strong> 는 <a href="http://www.tistory.com">Tistory</a> 블로그의 API를 사용하기 위해서 <code>passport</code>를 사용해 복잡한 인증과정을 간단하게 구현한 인증구현체 모듈이다.
+<p><em><strong>passport-tistory</strong></em> 는 <a href="http://www.tistory.com">Tistory</a> 블로그의 API를 사용하기 위해서 <code>passport</code>를 사용해 복잡한 인증과정을 간단하게 구현한 인증구현체 모듈이다.
 Tistory 인증 API는 OAuth 2.0 기반의 인증 방식을 사용하고 있다. 그래서 <code>passport-oauth2</code>를 상속받아 만들어져 있다.</p>
 <p>Tistory 오픈 API를 사용하기 위해서는 다음과 같은 과정이 필요하다.</p>
 <ol>
@@ -105,10 +105,10 @@ Tistory 인증 API는 OAuth 2.0 기반의 인증 방식을 사용하고 있다. 
 <li>Tistory 인증처리 테스트 후 accessToken 획득</li>
 <li>accessToken으로 Tistory 오픈 API 사용</li>
 </ol>
-<h1 id="-">설치</h1>
+<h1 id="설치">설치</h1>
 <p>passport-tistory 은 npm으로 간단히 설치 할 수 있다.</p>
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-tistory
-</code></pre><h1 id="-">사용방법</h1>
+</code></pre><h1 id="사용방법">사용방법</h1>
 <p>passport-tistory 사용 방법은 <code>passport</code> 모듈과 <code>passport-tistory</code> 모듈을 로드해서 다음과 같이 인증이 필요한 부분에 <code>passport.use()</code> 사용한다.</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
     <span class="title class_">TistoryStrategy</span>= <span class="built_in">require</span>(<span class="string">&#x27;passport-tistory&#x27;</span>).<span class="property">Strategy</span>;
@@ -125,8 +125,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h1 id="tistory-client-">Tistory Client 등록하기</h1>
+</code></pre><h1 id="tistory-client-등록하기">Tistory Client 등록하기</h1>
 <p><code>passport-tistory</code> 는 Tistory API를 사용하기 위해서 인증을 처리하는 모듈로 Tistory API를 사용하기 위해서는 가장먼저 티스토리에서 클라이언트를 등록해야한다.</p>
 <p>Tistory 오픈 API를 사용하기 위해서는 다음 문서를 먼저 확인한다.</p>
 <ul>
@@ -143,8 +142,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <th>비고</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>서비스 명</td>
 <td>Tistory 클리언트 이름을 입력한다</td>
 <td></td>
@@ -179,9 +177,8 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <td>Tistory 인증 후에 보여진 URL을 한다</td>
 <td>개발할 때는 <a href="http://127.0.0.1/auth/tistory/callback">http://127.0.0.1/auth/tistory/callback</a> 으로 지정한다</td>
 </tr>
-</tbody>
-</table>
-<h1 id="express-js-">Express.js와 연동하기</h1>
+</tbody></table>
+<h1 id="expressjs와-연동하기">Express.js와 연동하기</h1>
 <p>웹 서비스를 만들기 위해서 Express.js 를 사용하고 있다면 다음과 같인 <code>passport-tistory</code>를 연동해서 사용할 수 있다.</p>
 <pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)
     , passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
@@ -277,9 +274,7 @@ app.<span class="title function_">listen</span>(<span class="number">3000</span>
   <span class="keyword">if</span> (req.<span class="title function_">isAuthenticated</span>()) { <span class="keyword">return</span> <span class="title function_">next</span>(); }
   res.<span class="title function_">redirect</span>(<span class="string">&#x27;/login&#x27;</span>)
 }
-
-</code></pre>
-<h1 id="profile-">profile 프로퍼티</h1>
+</code></pre><h1 id="profile-프로퍼티">profile 프로퍼티</h1>
 <p>Tistory는 user 고유 정보를 가져오는 API가 존재하지 않는다. 그래서 다른 passport plugins과 달리 profile 정보로 Tistory의 blogInfo를 가져오게 했다.</p>
 <table>
 <thead>
@@ -289,8 +284,7 @@ app.<span class="title function_">listen</span>(<span class="number">3000</span>
 <th>description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>provider</td>
 <td>String</td>
 <td>tistory 고정</td>
@@ -320,8 +314,7 @@ app.<span class="title function_">listen</span>(<span class="number">3000</span>
 <td>Array</td>
 <td>Tistory에 만들어진 블로그의 정보</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="copyright-and-license">Copyright and License</h1>
 <p>The MIT License (MIT)</p>
 <p>Copyright (c) 2014 SungKwang Song</p>
@@ -344,13 +337,13 @@ SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-tistory</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:37:04Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T13:37:04Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/saltfactory/passport-tistory">https://github.com/saltfactory/passport-tistory</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
               <li><b>1</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

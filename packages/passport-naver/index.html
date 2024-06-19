@@ -103,7 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code>$ npm install pass<span class="keyword">port</span>-naver
-</code></pre><h2 id="usage-of-oauth-2-0">Usage of OAuth 2.0</h2>
+</code></pre><h2 id="usage-of-oauth-20">Usage of OAuth 2.0</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The Naver OAuth 2.0 authentication strategy authenticates users using a Naver
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
@@ -181,7 +181,7 @@ $ node app.<span class="property">js</span>
     , passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
     , session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>)
     , <span class="title class_">NaverStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;../lib/index.js&#x27;</span>).<span class="property">Strategy</span>;
-
+    
 <span class="keyword">var</span> client_id = <span class="string">&#x27;************ your app client id ************&#x27;</span>;
 <span class="keyword">var</span> client_secret = <span class="string">&#x27;************ your app client secret ************&#x27;</span>;
 <span class="keyword">var</span> callback_url = <span class="string">&#x27;************ your app callback url ************&#x27;</span>;
@@ -242,7 +242,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#
 <span class="comment">// Setting the naver oauth routes</span>
 app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/naver&#x27;</span>, 
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;naver&#x27;</span>, <span class="literal">null</span>), <span class="keyword">function</span>(<span class="params">req, res</span>) {
-        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;/auth/naver failed, stopped&#x27;</span>);
+    	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;/auth/naver failed, stopped&#x27;</span>);
     });
 
 <span class="comment">// creates an account if no account of the new user</span>
@@ -250,7 +250,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/na
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;naver&#x27;</span>, {
         <span class="attr">failureRedirect</span>: <span class="string">&#x27;#!/auth/login&#x27;</span>
     }), <span class="keyword">function</span>(<span class="params">req, res</span>) {
-        res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>); 
+    	res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>); 
     });
 
 app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>){
@@ -282,13 +282,13 @@ app.<span class="title function_">listen</span>(<span class="number">3000</span>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-naver</span></code></div>
             <ul>
-              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2022-06-23T13:05:33Z">a year ago</abbr></li>
+              <li><span class="version">1.0.6</span> published <abbr class="updated" title="2022-06-23T13:05:33Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/naver/passport-naver">https://github.com/naver/passport-naver</a></li>
             </ul>
             <ul>
-              <li><b>419</b> downloads in the last day</li>
-              <li><b>1,447</b> downloads in the last week</li>
-              <li><b>4,789</b> downloads in the last month</li>
+              <li><b>647</b> downloads in the last day</li>
+              <li><b>4,132</b> downloads in the last week</li>
+              <li><b>24,326</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

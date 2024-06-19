@@ -114,16 +114,14 @@ app.<span class="title function_">use</span>(passport.<span class="title functio
 app.<span class="title function_">get</span>(<span class="string">&#x27;/me&#x27;</span>, requireUser, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {
   res.<span class="title function_">send</span>(req.<span class="property">user</span>)
 })
-</code></pre>
-<h1 id="api">API</h1>
-<h2 id="new-kualistrategy-options-"><code>new KualiStrategy(options)</code></h2>
+</code></pre><h1 id="api">API</h1>
+<h2 id="new-kualistrategyoptions"><code>new KualiStrategy(options)</code></h2>
 <p>Creates a new Kuali Strategy to be used in passport.</p>
 <ul>
 <li><p><code>options.getUserEndpoint</code> - A function that takes in the express request and
 returns a string of the users endpoint. Default is:</p>
 <pre><code class="js">() =&gt; <span class="string">&#x27;/api/v1/users/current&#x27;</span><span class="string">`</span>
-</code></pre>
-</li>
+</code></pre></li>
 <li><p><code>options.getAuthorizationToken</code> - A function that takes in the express request
 and returns the auth token to be passed onto the Kuali auth service.
 Default is:</p>
@@ -131,8 +129,7 @@ Default is:</p>
   <span class="keyword">const</span> authorization = req.<span class="property">headers</span>[<span class="string">&#x27;authorization&#x27;</span>] || <span class="string">&#x27;&#x27;</span>
   <span class="keyword">return</span> authorization.<span class="title function_">replace</span>(<span class="regexp">/^bearer /i</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>()
 }
-</code></pre>
-</li>
+</code></pre></li>
 <li><p><code>options.getHost</code> - A function that takes in the express request and returns
 the host (or rather, origin) of the request. Should return protocol with the
 hostname. Ex: <code>https://monsters.kuali.co</code>.
@@ -143,8 +140,7 @@ Default is:</p>
     <span class="attr">host</span>: req.<span class="title function_">get</span>(<span class="string">&#x27;host&#x27;</span>)
   })
 }
-</code></pre>
-<p>Note that if you are behind a proxy, you&#39;ll need to have your proxy forward
+</code></pre><p>Note that if you are behind a proxy, you&#39;ll need to have your proxy forward
 the protocol and host for the default option to work. They can be forwarded on
 the following headers: <code>X-Forwarded-Proto</code> and <code>X-Forwarded-Host</code>, and you&#39;ll
 need to have your express app trust those proxy headers: <code>app.set(&#39;trust proxy&#39;, true)</code>.</p>
@@ -184,8 +180,7 @@ default function looks like this:</p>
     <span class="attr">id</span>: <span class="string">&#x27;59ef62388eb4e253149451fd&#x27;</span>
   }
 })
-</code></pre>
-</li>
+</code></pre></li>
 <li><p><code>options.name</code> - Change this if you want to have multiple &quot;kuali&quot; strategies
 implemented. Defaults to <code>kuali</code>, and is used when you call
 <code>passport.authenticate(&#39;kuali&#39;)</code>. If you change this option, you should change
@@ -196,14 +191,14 @@ the <code>&#39;kuali&#39;</code> portion of the <code>passport.authenticate()</c
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kuali</span></code></div>
             <ul>
-              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:54:03Z">a year ago</abbr></li>
+              <li><span class="version">0.0.3</span> published <abbr class="updated" title="2022-06-23T12:54:03Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/KualiCo/passport-kuali">https://github.com/KualiCo/passport-kuali#readme</a></li>
               <li><a rel="licence" href="http://www.gnu.org/licenses/agpl.txt">GNU Affero General Public License v3.0</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>10</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

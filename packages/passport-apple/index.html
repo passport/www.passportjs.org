@@ -93,13 +93,14 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="-sign-in-with-apple-for-passport-js"> Sign in with Apple for Passport.js</h1>
+          <div class="description"><h1 id="-sign-in-with-apple-for-passportjs"> Sign in with Apple for Passport.js</h1>
 <p><a href="https://twitter.com/intent/follow?screen_name=ananayarora"><img src="https://img.shields.io/twitter/follow/ananayarora.svg?label=Follow%20@ananayarora" alt="Follow @ananayarora"></img></a>
 <a href="https://npmjs.com/package/passport-apple">
   <img src="https://img.shields.io/npm/dt/passport-apple.svg"></img>
   <img src="https://img.shields.io/npm/v/passport-apple.svg"></img>
-</a>
-</p></p>
+</a></p>
+</p>
+
 <p>Passport strategy for the new Sign in with Apple feature, now with fetching profile information ✅!</p>
 <p>⚠️ Important note: Apple will only provide you with the name ONCE which is when the user taps &quot;Sign in with Apple&quot; on your app the first time. Keep in mind that you have to store this in your database at this time! For every login after that, Apple will provide you with a unique ID and the email that you can use to lookup the username in your database.</p>
 <h2 id="example">Example</h2>
@@ -112,8 +113,7 @@
 <code>npm install --save body-parser</code></p>
 <pre><code class="js"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&quot;body-parser&quot;</span>);
 app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>({ <span class="attr">extended</span>: <span class="literal">true</span> }));
-</code></pre>
-<p>Next, you need to configure your Apple Developer Account with Sign in with Apple.</p>
+</code></pre><p>Next, you need to configure your Apple Developer Account with Sign in with Apple.</p>
 <p>Steps for that are given here:
 <a href="https://github.com/ananay/apple-auth/blob/master/SETUP.md">https://github.com/ananay/apple-auth/blob/master/SETUP.md</a></p>
 <h2 id="usage">Usage</h2>
@@ -137,11 +137,9 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// in access token yet https://developer.apple.com/documentation/sign_in_with_apple/tokenresponse</span>
     <span class="title function_">cb</span>(<span class="literal">null</span>, idToken);
 }));
-</code></pre>
-<p>Add the login route:</p>
+</code></pre><p>Add the login route:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>));
-</code></pre>
-<p>Finally, add the callback route and handle the response:</p>
+</code></pre><p>Finally, add the callback route and handle the response:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&quot;/auth&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) {
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;apple&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, user, info</span>) {
         <span class="keyword">if</span> (err) {
@@ -163,38 +161,37 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
                 });
             } <span class="keyword">else</span> {
                 res.<span class="title function_">json</span>(user);
-            }            
+            }			
         }
     })(req, res, next);
 });
-</code></pre>
-<h2 id="other-sign-in-with-apple-repos">Other Sign in with Apple repos</h2>
+</code></pre><h2 id="other-sign-in-with-apple-repos">Other Sign in with Apple repos</h2>
 <p>Check out my other sign in with Apple Repos here.</p>
 <p><code>apple-auth</code>:</p>
 <p><a href="https://github.com/ananay/apple-auth">https://github.com/ananay/apple-auth</a><br />
 <a href="https://npmjs.com/package/apple-auth">https://npmjs.com/package/apple-auth</a></p>
 <h2 id="faq">FAQ</h2>
-<h4 id="what-s-the-difference-between-apple-auth-and-passport-apple-">What&#39;s the difference between <code>apple-auth</code> and <code>passport-apple</code>?</h4>
+<h4 id="whats-the-difference-between-apple-auth-and-passport-apple">What&#39;s the difference between <code>apple-auth</code> and <code>passport-apple</code>?</h4>
 <p><code>apple-auth</code> is a standalone library for Sign in with Apple. It does not require you to use Passport.js where as passport-apple is used with Passport.js.</p>
-<h4 id="-legal-disclaimer">⚠️ Legal Disclaimer</h4>
+<h4 id="️-legal-disclaimer">⚠️ Legal Disclaimer</h4>
 <p>This repository is NOT developed, endorsed by Apple Inc. or even related at all to Apple Inc. This library was implemented solely by the community&#39;s hardwork, and based on information that is public on Apple Developer&#39;s website. The library merely acts as a helper tool for anyone trying to implement Apple&#39;s Sign in with Apple.</p>
-<h4 id="how-is-this-module-different-from-nicokaiser-passport-apple-">How is this module different from <a href="https://github.com/nicokaiser/passport-apple">nicokaiser/passport-apple</a>?</h4>
+<h4 id="how-is-this-module-different-from-nicokaiserpassport-apple">How is this module different from <a href="https://github.com/nicokaiser/passport-apple">nicokaiser/passport-apple</a>?</h4>
 <p><code>@nicokaiser/passport-apple</code> is a fork of <code>passport-apple</code> that was made when <code>passport-apple</code> couldn&#39;t support fetching profile information. <code>passport-apple</code> now <strong>supports</strong> fetching profile information as well by using a simpler workaround (shoutout to <a href="https://github.com/MotazAbuElnasr">@MotazAbuElnasr</a> for this!) instead of rewriting all of <code>passport-oauth2</code>.</p>
-<h2 id="questions-contributing">Questions / Contributing</h2>
+<h2 id="questions--contributing">Questions / Contributing</h2>
 <p>Feel free to open issues and pull requests. If you would like to be one of the core creators of this library, please reach out to me at <a href="mailto:i@ananayarora.com">i@ananayarora.com</a> or message me on twitter @ananayarora!</p>
 <h4> Created with ❤️ by <a href="https://ananayarora.com">Ananay Arora</a></h4>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-apple</span></code></div>
             <ul>
-              <li><span class="version">2.0.2</span> published <abbr class="updated" title="2023-01-26T03:43:28Z">5 months ago</abbr></li>
+              <li><span class="version">2.0.2</span> published <abbr class="updated" title="2023-01-26T03:43:28Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/ananay/passport-apple">https://github.com/ananay/passport-apple#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>5,645</b> downloads in the last day</li>
-              <li><b>33,297</b> downloads in the last week</li>
-              <li><b>158,361</b> downloads in the last month</li>
+              <li><b>4,136</b> downloads in the last day</li>
+              <li><b>22,939</b> downloads in the last week</li>
+              <li><b>106,798</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

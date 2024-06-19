@@ -121,9 +121,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
         });
       }
     ));
-
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;stripe&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -137,15 +135,13 @@ application:</p>
         <span class="comment">// Successful authentication, redirect home.</span>
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
       });
-</code></pre>
-<h4 id="scope">Scope</h4>
+</code></pre><h4 id="scope">Scope</h4>
 <p>By default, stripe will authenticate with <code>read_only</code> permessions. <code>read_write</code> the permissions can be requested
 via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
 <p>For example:</p>
 <pre><code class="js">    app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/stripe&#x27;</span>,
       passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;stripe&#x27;</span>, { <span class="attr">scope</span>: <span class="string">&#x27;read_write&#x27;</span> }));
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Scotch.io has provided a <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">comprehensive tutorial</a> using passport plugins.</p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -158,14 +154,14 @@ via the <code>scope</code> option to <code>passport.authenticate()</code>.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stripe</span></code></div>
             <ul>
-              <li><span class="version">0.2.3</span> published <abbr class="updated" title="2022-06-23T13:34:16Z">a year ago</abbr></li>
+              <li><span class="version">0.2.3</span> published <abbr class="updated" title="2022-06-23T13:34:16Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/mathisonian/passport-stripe">https://github.com/mathisonian/passport-stripe#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>178</b> downloads in the last day</li>
-              <li><b>545</b> downloads in the last week</li>
-              <li><b>2,934</b> downloads in the last month</li>
+              <li><b>265</b> downloads in the last day</li>
+              <li><b>979</b> downloads in the last week</li>
+              <li><b>4,029</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -109,14 +109,12 @@ object.</p>
 <li>Download this npm module</li>
 </ol>
 <pre><code class="sh">npm install --save passport-forcedotcom
-</code></pre>
-<ol start="2">
+</code></pre><ol start="2">
 <li>Import it into your app</li>
 </ol>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">ForceDotComStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-forcedotcom&#x27;</span>).<span class="property">Strategy</span>;
-</code></pre>
-<ol start="3">
+</code></pre><ol start="3">
 <li>Define the strategy with your application credentials and information</li>
 </ol>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ForceDotComStrategy</span>({
@@ -128,8 +126,7 @@ object.</p>
   <span class="variable language_">console</span>.<span class="title function_">log</span>(profile);
   <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile);
 }));
-</code></pre>
-<ol start="4">
+</code></pre><ol start="4">
 <li>And then setup some routes to hande the flow</li>
 </ol>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/forcedotcom&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;forcedotcom&#x27;</span>), {
@@ -145,9 +142,8 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/fo
     res.<span class="title function_">render</span>(<span class="string">&quot;index&quot;</span>,<span class="title function_">checkSession</span>(req));
   }
 );
-</code></pre>
-<p>And as usual with passport, you can update the user serialization/de-serialization.</p>
-<p>The <code>login_hint</code> parameter may be used by SalesForce to pre-populate the username field on the login form. This don&#39;t seem to be very reliable though. See the <a href="https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm&amp;type=0">SalesForce OAuth documentation</a> for more details.</p>
+</code></pre><p>And as usual with passport, you can update the user serialization/de-serialization.</p>
+<p>The <code>login_hint</code> parameter may be used by SalesForce to pre-populate the username field on the login form. This don&#39;t seem to be very reliable though. See the <a href="https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm&type=0">SalesForce OAuth documentation</a> for more details.</p>
 <p>The <code>state</code> parameter is useful if you need to maintain information about the user between initiating the login with SalesForce and the user being redirected back to your application. This avoids the need to rely on a cookie to maintain any state information. For example, you could use this to track the page that the user was trying to access before they started the login process. If you pass a <code>state</code> string then it should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>.</p>
 <h3 id="creating-a-connected-app">Creating a Connected App</h3>
 <p>In order to use this Strategy, you&#39;ll need to have a <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm">Connected
@@ -200,14 +196,14 @@ information so that things like the <code>instance_url</code> can be readily ava
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-forcedotcom</span></code></div>
             <ul>
-              <li><span class="version">0.2.0</span> published <abbr class="updated" title="2022-08-26T19:00:50Z">10 months ago</abbr></li>
+              <li><span class="version">0.2.1</span> published <abbr class="updated" title="2023-12-19T21:15:26Z">6 months ago</abbr></li>
               <li><a class="url" href="https://github.com/joshbirk/passport-forcedotcom">https://github.com/joshbirk/passport-forcedotcom#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/BSD-3-Clause">BSD 3-clause &quot;New&quot; or &quot;Revised&quot; License</a></li>
             </ul>
             <ul>
-              <li><b>1,999</b> downloads in the last day</li>
-              <li><b>9,809</b> downloads in the last week</li>
-              <li><b>54,699</b> downloads in the last month</li>
+              <li><b>3,472</b> downloads in the last day</li>
+              <li><b>20,112</b> downloads in the last week</li>
+              <li><b>79,620</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

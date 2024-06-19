@@ -105,14 +105,13 @@
   <a href="https://nodebb.org">
     <img src="https://raw.githubusercontent.com/NodeBB/NodeBB/master/public/images/logo.svg" alt="NodeBB" style="max-width:100%;">
   </a><br/>
-  <a href="https://nodebb.org">NodeBB</a> is a node.js-based forum software that&#39;s lightning quick, easily customizable, and of course, open source. And guess what this repository is for! Don&#39;t you want a community platform that you can SSO via your crypto wallet? Of course you do, that&#39;s possibly why you&#39;re here? Go go go fork and have fun! ;D</a>
+  <a href="https://nodebb.org">NodeBB</a> is a node.js-based forum software that's lightning quick, easily customizable, and of course, open source. And guess what this repository is for! Don't you want a community platform that you can SSO via your crypto wallet? Of course you do, that's possibly why you're here? Go go go fork and have fun! ;D</a>
 </p>
 
 <hr>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-dapp-web3
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The web3 authentication strategy authenticates users using an address, message, and signed message. 
 The strategy requires a <code>verify</code> callback, which accepts these
@@ -122,13 +121,12 @@ credentials and calls <code>done</code> providing a user.</p>
     <span class="title class_">User</span>.<span class="title function_">findOne</span>({ <span class="attr">address</span>: address }, <span class="keyword">function</span> (<span class="params">err, user</span>) {
       <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="title function_">done</span>(err); }
       <span class="keyword">if</span> (!user) { <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
-
+      
       <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
 ));
-</code></pre>
-<h5 id="available-options">Available Options</h5>
+</code></pre><h5 id="available-options">Available Options</h5>
 <p>This strategy takes an optional options hash before the function, e.g. <code>new Web3Strategy({/* options */, callback})</code>.</p>
 <p>The available options are:</p>
 <ul>
@@ -179,8 +177,7 @@ application:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>If you use this module, please submit a PR to add your project here, even if it&#39;s closed source I&#39;d love to see who is using it! Also, if it&#39;s on GH/etc, someone else can hopefully look at your code as an example on how to implement it. I hit my head against the wall about 99 times on the way to making this repo and the corresponding NodeBB SSO plugin due to lack of examples in the wild so let&#39;s change that. Thanks!</p>
 <ul>
 <li><a href="https://github.com/psychobunny/nodebb-plugin-sso-web3">NodeBB forum SSO plugin</a></li>
@@ -193,14 +190,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dapp-web3</span></code></div>
             <ul>
-              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-05-12T15:35:48Z">a year ago</abbr></li>
+              <li><span class="version">1.0.4</span> published <abbr class="updated" title="2022-05-12T15:35:48Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/psychobunny/passport-dapp-web3">https://github.com/psychobunny/passport-dapp-web3#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>14</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

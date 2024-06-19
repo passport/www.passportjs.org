@@ -127,8 +127,7 @@ passport.<span class="title function_">use</span>(
     }
   )
 );
-</code></pre>
-<h3 id="authenticate-requests">Authenticate Requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;spotify&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -143,8 +142,7 @@ app.<span class="title function_">get</span>(
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h3 id="using-scopes">Using scopes</h3>
+</code></pre><h3 id="using-scopes">Using scopes</h3>
 <p>Depending on the data you want to fetch, you may want to specify custom scopes. For more information about scopes in the Spotify Web API check <a href="https://developer.spotify.com/web-api/using-scopes/">their developer site</a>.</p>
 <p>By default, no scope is passed. That means that you won&#39;t fetch information such as display name, picture or email. You can get those by using these scopes:</p>
 <ul>
@@ -158,8 +156,7 @@ app.<span class="title function_">get</span>(
     <span class="attr">scope</span>: [<span class="string">&#x27;user-read-email&#x27;</span>, <span class="string">&#x27;user-read-private&#x27;</span>]
   })
 );
-</code></pre>
-<h3 id="forcing-login-dialog">Forcing login dialog</h3>
+</code></pre><h3 id="forcing-login-dialog">Forcing login dialog</h3>
 <p>You can force the login dialog using the <code>showDialog</code> parameter when authenticating:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(
   <span class="string">&#x27;/auth/spotify&#x27;</span>,
@@ -168,8 +165,7 @@ app.<span class="title function_">get</span>(
     <span class="attr">showDialog</span>: <span class="literal">true</span>
   })
 );
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/jmperez/passport-spotify/tree/master/examples/login">login example</a>.</p>
 <p>You can get your keys on <a href="https://developer.spotify.com/my-applications">Spotify - My Applications</a>.</p>
 <h2 id="tests">Tests</h2>
@@ -183,13 +179,13 @@ app.<span class="title function_">get</span>(
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-spotify</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:31:34Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:31:34Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/JMPerez/passport-spotify">https://github.com/jmperez/passport-spotify#readme</a></li>
             </ul>
             <ul>
-              <li><b>197</b> downloads in the last day</li>
-              <li><b>1,363</b> downloads in the last week</li>
-              <li><b>5,832</b> downloads in the last month</li>
+              <li><b>292</b> downloads in the last day</li>
+              <li><b>1,487</b> downloads in the last week</li>
+              <li><b>6,934</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

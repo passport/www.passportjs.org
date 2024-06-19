@@ -104,8 +104,7 @@ integrated into any application or framework that supports <a href="http://www.s
 middleware, including <a href="http://expressjs.com/">Express</a>..</p>
 <h2 id="install">Install</h2>
 <pre><code class="sh">$ npm install passport-cookie
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The cookie authentication strategy authenticates users using a cookie. The
 strategy requires a verify callback, which accepts that credential and calls
@@ -119,8 +118,7 @@ done providing a user.</p>
     });
   }
 ));
-</code></pre>
-<p>You can pass the following options to the <code>CookieStrategy</code>:</p>
+</code></pre><p>You can pass the following options to the <code>CookieStrategy</code>:</p>
 <pre><code>- `cookieName`: Cookie name (defaults <span class="keyword">to</span> <span class="string">&quot;token&quot;</span>)
 - `<span class="built_in">signed</span>`: Are the cookie <span class="built_in">signed</span>? (defaults <span class="keyword">to</span> <span class="literal">false</span>)
 - `passReqToCallback`: <span class="keyword">when</span> `<span class="literal">true</span>`, `req` <span class="keyword">is</span> the first argument <span class="keyword">to</span> the verify callback (<span class="keyword">default</span>: `<span class="literal">false</span>`)
@@ -135,8 +133,7 @@ done providing a user.</p>
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   });
 })
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the &#39;cookie&#39; strategy, to authenticate
 requests. Requests containing cookies do not require session support, so the
 session option can be set to <code>false</code>.</p>
@@ -147,12 +144,10 @@ application:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code class="sh">$ npm install
 $ npm <span class="built_in">test</span>
-</code></pre>
-<h2 id="thanks">Thanks</h2>
+</code></pre><h2 id="thanks">Thanks</h2>
 <p>Thanks to <a href="https://github.com/jaredhanson">Jared Hanson</a> for his great <a href="http://passportjs.org">Passport</a></p>
 <h2 id="contributors">Contributors</h2>
 <ul>
@@ -163,20 +158,20 @@ $ npm <span class="built_in">test</span>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
 <h2 id="donate">Donate</h2>
-<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VL264WAE64MLQ&amp;source=url"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a></p>
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VL264WAE64MLQ&source=url"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a></p>
 <p>Made with ❤ by ROJO 2 (<a href="http://rojo2.com">http://rojo2.com</a>)</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-cookie</span></code></div>
             <ul>
-              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-06-23T12:26:03Z">a year ago</abbr></li>
+              <li><span class="version">1.0.9</span> published <abbr class="updated" title="2022-06-23T12:26:03Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/rojo2/passport-cookie">https://github.com/rojo2/passport-cookie#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3,027</b> downloads in the last day</li>
-              <li><b>12,025</b> downloads in the last week</li>
-              <li><b>57,069</b> downloads in the last month</li>
+              <li><b>3,247</b> downloads in the last day</li>
+              <li><b>15,321</b> downloads in the last week</li>
+              <li><b>75,420</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

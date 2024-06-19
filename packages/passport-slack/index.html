@@ -102,8 +102,7 @@ with <a href="https://slack.com">Slack</a> using the OAuth 2.0 API.</p>
 <p>This repository is not getting the love it deserves. If you&#39;re interested in taking over maintenance or ownership of this repo and npm, please reach me (Mike Pearson) at <a href="mailto:github@x0rz.com">github@x0rz.com</a></p>
 <h2 id="install">Install</h2>
 <pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-slack</span>
-</code></pre>
-<h2 id="express-example">Express Example</h2>
+</code></pre><h2 id="express-example">Express Example</h2>
 <pre><code class="js"><span class="keyword">const</span> {<span class="variable constant_">CLIENT_ID</span>, <span class="variable constant_">CLIENT_SECRET</span>, <span class="variable constant_">PORT</span>} = process.<span class="property">env</span>,
       <span class="title class_">SlackStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-slack&#x27;</span>).<span class="property">Strategy</span>,
       passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>),
@@ -133,8 +132,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/sl
 );
 
 app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>);
-</code></pre>
-<h2 id="sample-profile">Sample Profile</h2>
+</code></pre><h2 id="sample-profile">Sample Profile</h2>
 <pre><code class="json"><span class="punctuation">{</span>
     <span class="attr">&quot;provider&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Slack&quot;</span><span class="punctuation">,</span>
     <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;U123XXXXX&quot;</span><span class="punctuation">,</span>
@@ -164,9 +162,7 @@ app.<span class="title function_">listen</span>(<span class="variable constant_"
         <span class="attr">&quot;image_default&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
-
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="configure-strategy">Configure Strategy</h3>
 <p>The Slack authentication strategy authenticates users using a Slack
 account and OAuth 2.0 tokens.  The strategy requires a <code>verify</code> callback, which
@@ -183,8 +179,7 @@ accepts these credentials and calls <code>done</code> providing a user, as well 
     <span class="title function_">done</span>(<span class="literal">null</span>, profile);
   }
 ));
-</code></pre>
-<h3 id="authenticate-requests">Authenticate Requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authorize()</code> (or <code>passport.authenticate()</code> if you want to authenticate with Slack and affect <code>req.user</code> and user session), specifying the <code>&#39;slack&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -195,16 +190,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/sl
   passport.<span class="title function_">authorize</span>(<span class="string">&#x27;slack&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
   <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>) <span class="comment">// Successful authentication, redirect home.</span>
 );
-</code></pre>
-<h3 id="custom-scopes">Custom Scopes</h3>
+</code></pre><h3 id="custom-scopes">Custom Scopes</h3>
 <p>By default passport-slack strategy will try to retrieve <a href="https://api.slack.com/methods/users.identity">all user identity</a> from Slack using the default scopes of <code>identity.basic</code>, <code>identity.email</code>, <code>identity.avatar</code>, and <code>identity.team</code>. To override these, set the <code>scope</code> parameter to an array of scopes.</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
     <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
     <span class="attr">clientSecret</span>: <span class="variable constant_">CLIENT_SECRET</span>,
     <span class="attr">scope</span>: [<span class="string">&#x27;identity.basic&#x27;</span>, <span class="string">&#x27;channels:read&#x27;</span>, <span class="string">&#x27;chat:write:user&#x27;</span>]
 }, <span class="function">() =&gt;</span> { });
-</code></pre>
-<h3 id="ignore-profile-info">Ignore Profile Info</h3>
+</code></pre><h3 id="ignore-profile-info">Ignore Profile Info</h3>
 <p>If you just need an access token and not user profile data, you can avoid getting profile info by setting <code>skipUserProfile</code> to true.</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">SlackStrategy</span>({
     <span class="attr">clientID</span>: <span class="variable constant_">CLIENT_ID</span>,
@@ -212,8 +205,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/sl
     <span class="attr">scope</span>: [<span class="string">&#x27;incoming-webhook&#x27;</span>],
     <span class="attr">skipUserProfile</span>: <span class="literal">true</span>
 }, <span class="function">() =&gt;</span> { });
-</code></pre>
-<h2 id="thanks">Thanks</h2>
+</code></pre><h2 id="thanks">Thanks</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a></li>
 </ul>
@@ -224,13 +216,13 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/sl
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-slack</span></code></div>
             <ul>
-              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T13:29:40Z">a year ago</abbr></li>
+              <li><span class="version">0.0.7</span> published <abbr class="updated" title="2022-06-23T13:29:40Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/mjpearson/passport-slack">https://github.com/mjpearson/passport-slack#readme</a></li>
             </ul>
             <ul>
-              <li><b>2,051</b> downloads in the last day</li>
-              <li><b>9,888</b> downloads in the last week</li>
-              <li><b>57,182</b> downloads in the last month</li>
+              <li><b>3,709</b> downloads in the last day</li>
+              <li><b>21,827</b> downloads in the last week</li>
+              <li><b>86,272</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -104,10 +104,10 @@
 });
 passport.use(iucas_strategy);
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
-<pre><code><span class="regexp">//</span>access this to login via IU CAS
-app.use(<span class="string">&#x27;/protected&#x27;</span>, passport.authenticate(<span class="string">&#x27;iucas&#x27;</span>, { failureRedirect: <span class="string">&#x27;/iucas/fail&#x27;</span> }), <span class="keyword">function</span>(req, res, <span class="keyword">next</span>) {
-    <span class="regexp">//u</span>ser object can be accessed via req.user
-    <span class="regexp">//</span>render your protected content
+<pre><code><span class="comment">//access this to login via IU CAS</span>
+<span class="selector-tag">app</span><span class="selector-class">.use</span>(<span class="string">&#x27;/protected&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;iucas&#x27;</span>, { <span class="attribute">failureRedirect</span>: <span class="string">&#x27;/iucas/fail&#x27;</span> }), <span class="built_in">function</span>(req, res, next) {
+    <span class="comment">//user object can be accessed via req.user</span>
+    <span class="comment">//render your protected content</span>
 });
 </code></pre><p>Instead of authenticating everytime you access /protected, you can do something like</p>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">ensureAuth</span>(<span class="params">req, res, next</span>) </span>{
@@ -128,14 +128,14 @@ app.<span class="keyword">use</span>(<span class="string">&#x27;/protected&#x27;
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-iucas</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:51:03Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:51:03Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/soichih/passport-iucas">https://github.com/soichih/passport-iucas</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

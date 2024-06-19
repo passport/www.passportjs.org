@@ -114,8 +114,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;zendesk&#39;</code> strategy to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -129,16 +128,13 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/ze
     <span class="comment">// Successful authentication, redirect home.</span>
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h4 id="using-a-global-zendesk-oauth-client">Using a Global Zendesk OAuth Client</h4>
+</code></pre><h4 id="using-a-global-zendesk-oauth-client">Using a Global Zendesk OAuth Client</h4>
 <p>If you&#39;ve set up a global Zendesk OAuth Client and you wish to authenticate with multiple Zendesk subdomains, passport-zendesk will look for a subdomain parameter in the query string and the post body. Using the configuraiton specified above, a login link for example.zendesk.com would look like this:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/auth/zendesk?subdomain=example&quot;</span>&gt;</span>Login with example.zendesk.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
-</code></pre>
-<p>You may also specify the subdomain explicitly in the authenticate() options:</p>
+</code></pre><p>You may also specify the subdomain explicitly in the authenticate() options:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/zendesk&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zendesk&#x27;</span>, { <span class="attr">subdomain</span>: <span class="string">&#x27;example&#x27;</span>}));
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>For a complete, working sample: <a href="https://github.com/radialpoint/passport-zendesk/tree/master/examples/login">login example</a>.</p>
 <h2 id="thanks">Thanks</h2>
 <ul>
@@ -148,14 +144,14 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/ze
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zendesk</span></code></div>
             <ul>
-              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:53:35Z">a year ago</abbr></li>
+              <li><span class="version">0.0.2</span> published <abbr class="updated" title="2022-06-23T13:53:35Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/zendesk/passport-zendesk">http://github.com/radialpoint/passport-zendesk</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>517</b> downloads in the last day</li>
-              <li><b>2,061</b> downloads in the last week</li>
-              <li><b>9,693</b> downloads in the last month</li>
+              <li><b>107</b> downloads in the last day</li>
+              <li><b>766</b> downloads in the last week</li>
+              <li><b>3,404</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

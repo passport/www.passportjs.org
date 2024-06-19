@@ -107,7 +107,7 @@ applications. It works by simply sending one-time password (OTPW) tokens via ema
 <li>More secure for your users avoiding the risks of reused passwords</li>
 </ul>
 <h2 id="getting-you-started">Getting you started</h2>
-<p>The following should provide a quick-start in using zero. If you need more details check out the <a href="https://github.com/nickbalestra/zero/tree/master/example">example app</a>. For anything you feel missing on this readme or on the example don&#39;t hesitate to <a href="(https://github.com/nickbalestra/zero/issues">open issues</a>) with comments and questions.</p>
+<p>The following should provide a quick-start in using zero. If you need more details check out the <a href="https://github.com/nickbalestra/zero/tree/master/example">example app</a>. For anything you feel missing on this readme or on the example don&#39;t hesitate to <a href="(https://github.com/nickbalestra/zero/issues)">open issues</a> with comments and questions.</p>
 <h3 id="install">Install</h3>
 <pre><code>$ npm install pass<span class="keyword">port</span>-zero
 </code></pre><h3 id="usage">Usage</h3>
@@ -122,8 +122,7 @@ passport.<span class="title function_">use</span>(
   },
   verify
 ))
-</code></pre>
-<h5 id="available-options">Available Options</h5>
+</code></pre><h5 id="available-options">Available Options</h5>
 <p>This strategy, aside <code>secret</code> and <code>deliver</code> supports further options:</p>
 <ul>
 <li><code>secret</code> - Mandatory string, used to sign tokens</li>
@@ -141,15 +140,13 @@ passport.<span class="title function_">use</span>(
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zero&#x27;</span>, { action : <span class="string">&#x27;requestToken&#x27;</span> }), 
   <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/check-your-inbox&#x27;</span>)
 );
-</code></pre>
-<h5 id="accept-token">accept token</h5>
+</code></pre><h5 id="accept-token">accept token</h5>
 <p>In this situation (the default) the passport authenticate middleware will check for a token. By default, in the email deliver, it will look for the value &#39;token&#39; in the body and the query (body can disabled by setting the option <code>allowPost</code> to <code>false</code>).</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/auth/zero&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;zero&#x27;</span>), 
   <span class="function">(<span class="params">req, res</span>) =&gt;</span> res.<span class="title function_">redirect</span>(<span class="string">&#x27;/profile&#x27;</span>)
 );
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>Developers using the popular <a href="http://expressjs.com/">Express</a> web framework can
 refer to an <a href="https://github.com/nickbalestra/zero/tree/master/example">example</a>
 as a starting point for their own web applications. For other examples or more advanced passport related feature, check the <a href="http://www.passportjs.org/docs/">passport docs</a>.</p>
@@ -164,11 +161,12 @@ as a starting point for their own web applications. For other examples or more a
   ...options
 })
 ...
-</code></pre>
-<p>Aside from the mandatory smtp configuration it accept some more options:</p>
+</code></pre><p>Aside from the mandatory smtp configuration it accept some more options:</p>
 <ul>
-<li>tokenField - Optional, defaults to <code>token</code>. The paramater used to look for the token during the acceptToken process and the parameter used to send the token via email. ie: <code>hostname/?token=...</code>.</li>
-<li>addressField - Optional, defaults to <code>email</code>. Used to define the parameter for the email during the requestToken process.</li>
+<li><p>tokenField - Optional, defaults to <code>token</code>. The paramater used to look for the token during the acceptToken process and the parameter used to send the token via email. ie: <code>hostname/?token=...</code>.</p>
+</li>
+<li><p>addressField - Optional, defaults to <code>email</code>. Used to define the parameter for the email during the requestToken process.</p>
+</li>
 <li><p>template - Optional function , defaults to an internal template. The function need to have the following signature:  <code>(user, token, tokenField, req) =&gt; ({to, from, subject, text})</code>. </p>
 <ul>
 <li>to - Optional, defaults to user.email if not overriden in template</li>
@@ -185,19 +183,18 @@ as a starting point for their own web applications. For other examples or more a
   tokenField,
   addressField,
 }
-</code></pre>
-</div>
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-zero</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T16:06:19Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-05-12T16:06:19Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/nickbalestra/zero">https://github.com/nickbalestra/zero#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>12</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>11</b> downloads in the last week</li>
+              <li><b>30</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

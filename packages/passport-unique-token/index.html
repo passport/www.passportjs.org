@@ -97,7 +97,7 @@
 <p><a href="https://circleci.com/gh/lughino/passport-unique-token"><img src="https://circleci.com/gh/lughino/passport-unique-token.svg?style=svg" alt="CircleCI"></a>
 <a href="https://codeclimate.com/github/lughino/passport-unique-token/maintainability"><img src="https://api.codeclimate.com/v1/badges/6cbbdc635903006b578e/maintainability" alt="Maintainability"></a>
 <a href="https://codeclimate.com/github/lughino/passport-unique-token/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6cbbdc635903006b578e/test_coverage" alt="Test Coverage"></a>
-<a href="https://www.codacy.com/app/lughino/passport-unique-token?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lughino/passport-unique-token&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/a2ec6c1319b6497494303ee024e45cb5" alt="Codacy Badge"></a>
+<a href="https://www.codacy.com/app/lughino/passport-unique-token?utm_source=github.com&utm_medium=referral&utm_content=lughino/passport-unique-token&utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/a2ec6c1319b6497494303ee024e45cb5" alt="Codacy Badge"></a>
 <img src="https://img.shields.io/npm/dm/passport-unique-token" alt="npm">
 <img src="https://img.shields.io/npm/v/passport-unique-token" alt="npm">
 <img src="https://img.shields.io/github/license/lughino/passport-unique-token" alt="GitHub">
@@ -106,8 +106,7 @@
 <p>Unique token authentication strategy for Passport.</p>
 <h2 id="installation">Installation</h2>
 <pre><code class="sh">npm install passport-unique-token
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>The unique token authentication strategy authenticates users with a unique token.
 The strategy requires a <em>verify</em> callback,
 which accepts these credentials and calls done providing a user.</p>
@@ -134,35 +133,32 @@ passport.<span class="title function_">use</span>(
     );
   }),
 );
-</code></pre>
-<p>By default <code>passport-unique-token</code> checks for <code>token</code> key credentials
+</code></pre><p>By default <code>passport-unique-token</code> checks for <code>token</code> key credentials
 in either the params url or request body in these locations:</p>
 <table>
 <thead>
 <tr>
 <th>Type</th>
-<th style="text-align:center">Default property</th>
+<th align="center">Default property</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Url</td>
-<td style="text-align:center">token</td>
+<td align="center">token</td>
 </tr>
 <tr>
 <td>Body</td>
-<td style="text-align:center">token</td>
+<td align="center">token</td>
 </tr>
 <tr>
 <td>Query</td>
-<td style="text-align:center">token</td>
+<td align="center">token</td>
 </tr>
 <tr>
 <td>Header</td>
-<td style="text-align:center">token</td>
+<td align="center">token</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="configure">Configure</h3>
 <p>These credential locations can be configured when defining the strategy as follows:</p>
 <pre><code class="javascript"><span class="keyword">const</span> { <span class="title class_">UniqueTokenStrategy</span> } = <span class="built_in">require</span>(<span class="string">&#x27;passport-unique-token&#x27;</span>);
@@ -191,8 +187,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
       <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
     });
   }
-</code></pre>
-<p><code>failOnMissing</code> option allows you to queue multiple strategy, customizing the behavior.
+</code></pre><p><code>failOnMissing</code> option allows you to queue multiple strategy, customizing the behavior.
 By default it&#39;s set to <code>true</code>, when it&#39;s set to <code>false</code>
 it lets move on to the next strategy on failure.</p>
 <h2 id="how-to-authenticate">How to Authenticate</h2>
@@ -201,8 +196,7 @@ it lets move on to the next strategy on failure.</p>
 <pre><code class="javascript">app.<span class="title function_">put</span>(<span class="string">&#x27;/animals/dogs&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>), <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
   <span class="comment">// User authenticated and can be found in req.user</span>
 });
-</code></pre>
-<p>If authentication fails in the above example then a <code>401</code> response will be given.
+</code></pre><p>If authentication fails in the above example then a <code>401</code> response will be given.
 However there may be times you wish a bit more control and delegate
 the failure to your application:</p>
 <pre><code class="javascript">app.<span class="title function_">put</span>(<span class="string">&#x27;/animals/dogs&#x27;</span>, authenticate, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {
@@ -223,13 +217,12 @@ the failure to your application:</p>
     <span class="title function_">next</span>();
   })(req, res, next);
 }
-</code></pre>
-<h2 id="api-reference">Api Reference</h2>
+</code></pre><h2 id="api-reference">Api Reference</h2>
 <ul>
 <li><a href="#UniqueTokenStrategy"><code>UniqueTokenStrategy()</code></a></li>
 <li><a href="#authenticate"><code>authenticate()</code></a></li>
 </ul>
-<h3 id="uniquetokenstrategy-"><code>UniqueTokenStrategy()</code></h3>
+<h3 id="uniquetokenstrategy"><code>UniqueTokenStrategy()</code></h3>
 <p>The token authentication strategy authenticates requests based on the credentials
 submitted through standard request headers, body, querystring or params.</p>
 <pre><code class="typescript"><span class="keyword">new</span> <span class="title class_">UniqueTokenStrategy</span>(
@@ -255,8 +248,7 @@ submitted through standard request headers, body, querystring or params.</p>
     done: (err: <span class="built_in">Error</span> | <span class="literal">null</span>, user?: <span class="built_in">any</span>, info?: <span class="built_in">any</span>) =&gt; <span class="built_in">void</span>
   </span>) =&gt;</span> <span class="built_in">void</span>
 )
-</code></pre>
-<h3 id="authenticate-"><code>authenticate()</code></h3>
+</code></pre><h3 id="authenticate"><code>authenticate()</code></h3>
 <p>You can optionally pass options to the <code>authenticate()</code> method.
 Please refer to the <a href="http://www.passportjs.org/docs/authenticate/">passport documentation</a>
 for the different signature.</p>
@@ -271,21 +263,20 @@ for the different signature.</p>
 app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;token&#x27;</span>, {
   <span class="attr">badRequestMessage</span>: <span class="string">&#x27;custom error message&#x27;</span>
 }));
-</code></pre>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <p><a href="http://github.com/lughino">Luca Pau</a></p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-unique-token</span></code></div>
             <ul>
-              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:58Z">a year ago</abbr></li>
+              <li><span class="version">3.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:58Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/lughino/passport-unique-token">https://github.com/lughino/passport-unique-token</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1,725</b> downloads in the last day</li>
-              <li><b>7,636</b> downloads in the last week</li>
-              <li><b>36,264</b> downloads in the last month</li>
+              <li><b>2,074</b> downloads in the last day</li>
+              <li><b>8,439</b> downloads in the last week</li>
+              <li><b>32,801</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

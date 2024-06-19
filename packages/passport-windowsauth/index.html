@@ -98,7 +98,7 @@
 <pre><code><span class="title">npm</span> install pass<span class="keyword">port</span>-windowsauth
 </code></pre><h2 id="introduction">Introduction</h2>
 <p>This module authenticate user with a LDAP directory. It works in two modes <strong>Integrated Authentication</strong> (often refer as NTLM) or <strong>Form Authentication</strong>.</p>
-<h2 id="integrated-authentication-iis-">Integrated Authentication (IIS)</h2>
+<h2 id="integrated-authentication-iis">Integrated Authentication (IIS)</h2>
 <p>In this mode, this strategy reads an special server variable from IIS (more info about this <a href="https://github.com/tjanczuk/iisnode/issues/87">here</a>) and then generate a profile. You can <strong>optionally</strong> pass LDAP credentials to fetch the profile from Active Directory.</p>
 <p><strong>In your IIS application authentication settings, disable Anonymous and enable Windows Authentication.</strong></p>
 <p>Configure iisnode to pass the special variable <code>LOGON_USER</code> from IIS to node</p>
@@ -108,8 +108,7 @@
     <span class="tag">&lt;<span class="name">iisnode</span> <span class="attr">promoteServerVars</span>=<span class="string">&quot;LOGON_USER&quot;</span> /&gt;</span>
   <span class="tag">&lt;/<span class="name">system.webServer</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span>
-</code></pre>
-<p>If you want to use it with LDAP:</p>
+</code></pre><p>If you want to use it with LDAP:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
@@ -125,8 +124,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="title function_">done</span>(err, user);
   });
 }));
-</code></pre>
-<p>If you want to use without LDAP:</p>
+</code></pre><p>If you want to use without LDAP:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
@@ -135,16 +133,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">function
     <span class="title function_">done</span>(err, user);
   });
 });
-</code></pre>
-<p>NOTE: in this case profile only has <code>displayName</code> and <code>id</code>, both containing just the logon name.</p>
+</code></pre><p>NOTE: in this case profile only has <code>displayName</code> and <code>id</code>, both containing just the logon name.</p>
 <p>Then use the strategy in a route as follows:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/express-passport&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;WindowsAuthentication&#x27;</span>),
   <span class="keyword">function</span> (<span class="params">req, res</span>){
     res.<span class="title function_">json</span>(req.<span class="property">user</span>);
   });
-</code></pre>
-<h2 id="integrated-authentication-with-apache-and-mod_auth_kerb">Integrated Authentication with Apache and mod_auth_kerb</h2>
+</code></pre><h2 id="integrated-authentication-with-apache-and-mod_auth_kerb">Integrated Authentication with Apache and mod_auth_kerb</h2>
 <p>You can take advantage of <a href="http://modauthkerb.sourceforge.net/">mod_auth_kerb</a> in linux by using apache as a reverse proxy to your node application. The configuration is not a <em>walk in the park</em> but after you have everything configured it just works.</p>
 <p>####1-Generate a keytab in windows</p>
 <pre><code>ktpass
@@ -223,8 +219,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="title function_">done</span>(err, user);
   });
 }));
-</code></pre>
-<h2 id="non-integrated-authentication">Non-integrated authentication</h2>
+</code></pre><h2 id="non-integrated-authentication">Non-integrated authentication</h2>
 <p>You can use this module to authenticate users against a LDAP server without integrated authentication.
 You will prompt the user for his username and password in a form like this:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span>
@@ -240,16 +235,14 @@ You will prompt the user for his username and password in a form like this:</p>
         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Log In&quot;</span>/&gt;</span>
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-</code></pre>
-<p>and then have a route like this:</p>
+</code></pre><p>and then have a route like this:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;WindowsAuthentication&#x27;</span>, {
                                   <span class="attr">successRedirect</span>: <span class="string">&#x27;/&#x27;</span>,
                                   <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span>,
                                   <span class="attr">failureFlash</span>:    <span class="literal">true</span> })
 );
-</code></pre>
-<p>The same configuration as explained above is required with the <code>integrated</code> option in false:</p>
+</code></pre><p>The same configuration as explained above is required with the <code>integrated</code> option in false:</p>
 <pre><code class="javascript"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>);
 <span class="keyword">var</span> <span class="title class_">WindowsStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-windowsauth&#x27;</span>);
 
@@ -266,8 +259,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="title function_">done</span>(err, user);
   });
 }));
-</code></pre>
-<h2 id="example-profile-from-ldap">Example profile from LDAP</h2>
+</code></pre><h2 id="example-profile-from-ldap">Example profile from LDAP</h2>
 <p>When you use the LDAP integration the profile follows the <a href="http://passportjs.org/guide/profile/">Passport.js user profile convention</a> and you have also a _json property with all the profile.</p>
 <p>Example:</p>
 <pre><code class="json"><span class="punctuation">{</span>
@@ -331,8 +323,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="attr">&quot;mail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jromaniello@wellscordobabank.com&quot;</span>
   <span class="punctuation">}</span>
 <span class="punctuation">}</span>
-</code></pre>
-<h2 id="issue-reporting">Issue Reporting</h2>
+</code></pre><h2 id="issue-reporting">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
 <h2 id="author">Author</h2>
 <p><a href="auth0.com">Auth0</a></p>
@@ -342,14 +333,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-windowsauth</span></code></div>
             <ul>
-              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T13:48:22Z">a year ago</abbr></li>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T13:48:22Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-windowsauth">https://github.com/auth0/passport-windowsauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>97</b> downloads in the last day</li>
-              <li><b>552</b> downloads in the last week</li>
-              <li><b>3,457</b> downloads in the last month</li>
+              <li><b>142</b> downloads in the last day</li>
+              <li><b>757</b> downloads in the last week</li>
+              <li><b>2,992</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

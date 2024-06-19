@@ -107,15 +107,15 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Token
             <span class="keyword">if</span> (err) {
                 <span class="keyword">return</span> <span class="keyword">done</span>(err);
             }
-
+            
             <span class="keyword">if</span> (<span class="operator">!</span>user) {
                 <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
             }
-
+            
             <span class="keyword">if</span> (<span class="operator">!</span>user.verifyToken(token)) {
                 <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>);
             }
-
+            
             <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user);
         });
     }
@@ -139,15 +139,15 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Token
             <span class="keyword">if</span> (err) {
                 <span class="keyword">return</span> done(err);
             }
-
+            
             <span class="keyword">if</span> (!user) {
                 <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
             }
-
+            
             <span class="keyword">if</span> (!user.verifyToken(token)) {
                 <span class="keyword">return</span> done(<span class="keyword">null</span>, <span class="keyword">false</span>);
             }
-
+            
             <span class="keyword">return</span> done(<span class="keyword">null</span>, user);
         });
     }
@@ -167,11 +167,11 @@ passport.<span class="keyword">use</span>(<span class="keyword">new</span> Token
         <span class="keyword">if</span> (err) {
             <span class="keyword">return next</span>(err);
         }
-
+        
         <span class="keyword">if</span> (!<span class="keyword">user</span>) {
             res.status(<span class="number">401</span>).json({message: &quot;Incorrect token credentials&quot;});
         }
-
+       
         req.<span class="keyword">user</span> = <span class="keyword">user</span>;
         next();
     });
@@ -190,13 +190,13 @@ Copyright (c) 2011 Jared Hanson</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-accesstoken</span></code></div>
             <ul>
-              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:12:26Z">a year ago</abbr></li>
+              <li><span class="version">0.1.0</span> published <abbr class="updated" title="2022-06-23T12:12:26Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/nanogiants/passport-accesstoken"></a></li>
             </ul>
             <ul>
-              <li><b>253</b> downloads in the last day</li>
-              <li><b>1,102</b> downloads in the last week</li>
-              <li><b>5,669</b> downloads in the last month</li>
+              <li><b>250</b> downloads in the last day</li>
+              <li><b>1,128</b> downloads in the last week</li>
+              <li><b>5,371</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

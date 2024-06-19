@@ -118,8 +118,7 @@ credentials and calls <code>done</code> providing a user. To be able to use this
             });
         }
     ));
-</code></pre>
-<h4 id="authenticate-requests-using-username-password">Authenticate Requests Using Username/Password</h4>
+</code></pre><h4 id="authenticate-requests-using-usernamepassword">Authenticate Requests Using Username/Password</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;userapp&#39;</code> strategy, to
 authenticate requests using a username and password. The username and password should be sent as POST parameters with the request.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -129,8 +128,7 @@ application:</p>
     <span class="keyword">function</span>(<span class="params">req, res</span>) {
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
-</code></pre>
-<p><strong>Stateless Server Sessions</strong></p>
+</code></pre><p><strong>Stateless Server Sessions</strong></p>
 <p>To make your server stateless (i.e. you could restart your server without logging out your users), just save the UserApp session token in a cookie named <code>ua_session_token</code>:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, 
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
@@ -138,22 +136,19 @@ application:</p>
         res.<span class="title function_">cookie</span>(<span class="string">&#x27;ua_session_token&#x27;</span>, req.<span class="property">user</span>.<span class="property">token</span>);
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
     });
-</code></pre>
-<p>Don&#39;t forget to delete it when logging out:</p>
+</code></pre><p>Don&#39;t forget to delete it when logging out:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&#x27;</span>, <span class="keyword">function</span> (<span class="params">req, res</span>) {
     req.<span class="title function_">logout</span>();
     res.<span class="title function_">clearCookie</span>(<span class="string">&#x27;ua_session_token&#x27;</span>);
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
-</code></pre>
-<p>And to protect your routes, use the <code>passport.authenticate()</code> method, like this:</p>
+</code></pre><p>And to protect your routes, use the <code>passport.authenticate()</code> method, like this:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/account&#x27;</span>, 
     passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;userapp&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }), 
     <span class="keyword">function</span> (<span class="params">req, res</span>) {
         res.<span class="title function_">render</span>(<span class="string">&#x27;account&#x27;</span>, { <span class="attr">user</span>:req.<span class="property">user</span> });
     });
-</code></pre>
-<h4 id="authenticate-requests-using-a-session-token">Authenticate Requests Using a Session Token</h4>
+</code></pre><h4 id="authenticate-requests-using-a-session-token">Authenticate Requests Using a Session Token</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;userapp&#39;</code> strategy, to
 authenticate requests using a session token. The token should be sent as a cookie named <code>ua_session_token</code> (automatically set by the front-end integrations such as the <a href="https://github.com/userapp-io/userapp-angular">AngularJS module</a>).</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -163,8 +158,7 @@ application:</p>
         <span class="comment">// Return some relevant data, for example the logged in user, articles, etc.</span>
         res.<span class="title function_">send</span>({ <span class="attr">user</span>: req.<span class="property">user</span> });
     });
-</code></pre>
-<h4 id="authenticate-requests-using-http-basic-authentication">Authenticate Requests Using HTTP Basic Authentication</h4>
+</code></pre><h4 id="authenticate-requests-using-http-basic-authentication">Authenticate Requests Using HTTP Basic Authentication</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;userapp&#39;</code> strategy, to
 authenticate requests using HTTP Basic Authentication. It can be used in two ways; 1) with a username and password, or 2) by leaving username empty and setting password to a token.</p>
 <h4 id="user-profile">User Profile</h4>
@@ -186,8 +180,7 @@ authenticate requests using HTTP Basic Authentication. It can be used in two way
     <span class="attr">token</span>: <span class="string">&#x27;session token&#x27;</span>,
     <span class="attr">_raw</span>: { <span class="comment">/* raw UserApp User profile */</span> }
 }
-</code></pre>
-<p>Please note that when working with the <a href="https://app.userapp.io/#/docs/">UserApp API</a>, you will need to create a new user object according to the <a href="https://app.userapp.io/#/docs/user/#properties">User entity</a>. For example <code>username</code> =&gt; <code>login</code>.</p>
+</code></pre><p>Please note that when working with the <a href="https://app.userapp.io/#/docs/">UserApp API</a>, you will need to create a new user object according to the <a href="https://app.userapp.io/#/docs/user/#properties">User entity</a>. For example <code>username</code> =&gt; <code>login</code>.</p>
 <h2 id="examples">Examples</h2>
 <p>For a complete, working example, refer to the <a href="https://github.com/userapp-io/passport-userapp/tree/master/examples/login">login example</a> or the <a href="https://github.com/userapp-io/passport-userapp/tree/master/examples/signup-login">signup-login example</a>.</p>
 <p>For an example using AngularJS as front-end, refer to the <a href="https://github.com/userapp-io/passport-userapp/tree/master/examples/angularjs">AngularJS example</a>.</p>
@@ -225,13 +218,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-userapp</span></code></div>
             <ul>
-              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:28Z">a year ago</abbr></li>
+              <li><span class="version">1.1.2</span> published <abbr class="updated" title="2022-06-23T13:42:28Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/userapp-io/passport-userapp">https://github.com/userapp-io/passport-userapp</a></li>
             </ul>
             <ul>
-              <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>27</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last day</li>
+              <li><b>33</b> downloads in the last week</li>
+              <li><b>78</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

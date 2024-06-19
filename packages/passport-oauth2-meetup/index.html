@@ -109,8 +109,8 @@ continue the process even when there are no username or email provided.</p>
 <pre><code><span class="comment">// If neither an email or a username was available in the profile, we don&#x27;t</span>
 <span class="comment">// have a way of identifying the user in the future. Throw an error and let</span>
 <span class="comment">// whoever&#x27;s next in the line take care of it.</span>
-<span class="keyword">if</span> (!user.username<span class="operator"> &amp;&amp; </span>!user.email) {
-  <span class="keyword">if</span>(!req.user<span class="operator"> || </span>provider != &#x27;meetup&#x27;) return next(<span class="keyword">new</span> <span class="constructor">Error(&#x27;Neither <span class="params">a</span> <span class="params">username</span> <span class="params">nor</span> <span class="params">email</span> <span class="params">was</span> <span class="params">available</span>&#x27;)</span>);
+<span class="keyword">if</span> (!user.username &amp;&amp; !user.email) {
+  <span class="keyword">if</span>(!req.user || provider != <span class="string">&#x27;meetup&#x27;</span>) <span class="keyword">return</span> <span class="keyword">next</span>(<span class="keyword">new</span> Error(<span class="string">&#x27;Neither a username nor email was available&#x27;</span>));
 }
 </code></pre><p>If username is auto generated, the process should carry on smoothly.</p>
 <pre><code><span class="keyword">var</span> MeetupOAuth2Strategy = <span class="keyword">require</span>(<span class="string">&#x27;passport-oauth2-meetup&#x27;</span>).Strategy;
@@ -137,14 +137,14 @@ authenticate requests.  </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-oauth2-meetup</span></code></div>
             <ul>
-              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:09:58Z">a year ago</abbr></li>
+              <li><span class="version">1.1.0</span> published <abbr class="updated" title="2022-06-23T13:09:58Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/zenvisuals/passport-oauth2-meetup">https://github.com/zenvisuals/passport-oauth2-meetup</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>11</b> downloads in the last day</li>
-              <li><b>38</b> downloads in the last week</li>
-              <li><b>183</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>5</b> downloads in the last week</li>
+              <li><b>17</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

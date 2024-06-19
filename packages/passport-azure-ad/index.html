@@ -93,7 +93,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="microsoft-azure-active-directory-passport-js-plug-in">Microsoft Azure Active Directory Passport.js Plug-In</h1>
+          <div class="description"><h1 id="microsoft-azure-active-directory-passportjs-plug-in">Microsoft Azure Active Directory Passport.js Plug-In</h1>
 <hr>
 <p><em>passport-azure-ad</em> is a collection of <a href="http://passportjs.org/">Passport</a> Strategies 
 to help you integrate with Azure Active Directory. It includes OpenID Connect, 
@@ -103,7 +103,7 @@ including web single sign-on (WebSSO), Endpoint Protection with OAuth, and JWT t
 issuance and validation.</p>
 <p><em>passport-azure-ad</em> has been tested to work with both <a href="https://azure.microsoft.com/en-us/services/active-directory/">Microsoft Azure Active Directory</a> 
 and with <a href="http://en.wikipedia.org/wiki/Active_Directory_Federation_Services">Microsoft Active Directory Federation Services</a>.</p>
-<h2 id="1-security-vulnerability-in-versions-1-4-6-and-2-0-0">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
+<h2 id="1-security-vulnerability-in-versions--146-and-200">1. Security Vulnerability in Versions &lt; 1.4.6 and 2.0.0</h2>
 <p><em>passport-azure-ad</em> has a known security vulnerability affecting versions &lt;1.4.6 and 2.0.0. Please update to &gt;=1.4.6 or &gt;=2.0.1 immediately. For more details, see the <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/SECURITY-NOTICE.MD">security notice</a>.</p>
 <h2 id="2-versions">2. Versions</h2>
 <p>Current version - 4.0.0<br>Latest version that support&#39;s SAML and WSFED - 2.0.3
@@ -117,9 +117,9 @@ If a user is not logged in, passport sends an authentication request to AAD (Azu
 <p>BearerStrategy uses Bearer Token protocol to protect web resource/api. It works in the following manner:
 User sends a request to the protected web api which contains an access_token in either the authorization header or body. Passport extracts and validates the access_token, and propagates the claims in access_token to the verify callback and let the framework finish the remaining authentication procedure. On successful authentication, passport adds the user information to <code>req.user</code> and passes it to the next middleware, which is usually the business logic of the web resource/api. In case of error, passport sends back an unauthorized response.</p>
 <p>We support AAD v1, v2 and B2C tenants for both strategies. Please check out <a href="#8-samples-and-documentation">section 8</a> for the samples. You can manage v1 tenants and register applications at <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>. For v2 tenants and applications, you should go to <a href="https://aka.ms/appregistrations">https://aka.ms/appregistrations</a>. For B2C tenants, go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> and click &#39;Manage B2C settings&#39; to register applications and policies. </p>
-<h3 id="4-1-oidcstrategy">4.1 OIDCStrategy</h3>
-<h4 id="4-1-1-configure-strategy-and-provide-callback-function">4.1.1 Configure strategy and provide callback function</h4>
-<h5 id="4-1-1-1-sample-using-the-oidcstrategy">4.1.1.1 Sample using the OIDCStrategy</h5>
+<h3 id="41-oidcstrategy">4.1 OIDCStrategy</h3>
+<h4 id="411-configure-strategy-and-provide-callback-function">4.1.1 Configure strategy and provide callback function</h4>
+<h5 id="4111-sample-using-the-oidcstrategy">4.1.1.1 Sample using the OIDCStrategy</h5>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">OIDCStrategy</span>({
     <span class="attr">identityMetadata</span>: config.<span class="property">creds</span>.<span class="property">identityMetadata</span>,
     <span class="attr">clientID</span>: config.<span class="property">creds</span>.<span class="property">clientID</span>,
@@ -163,24 +163,29 @@ User sends a request to the protected web api which contains an access_token in 
     });
   }
 ));
-</code></pre>
-<h5 id="4-1-1-2-options">4.1.1.2 Options</h5>
+</code></pre><h5 id="4112-options">4.1.1.2 Options</h5>
 <ul>
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
 <ul>
-<li>v1 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
-https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
-</code></pre></li>
-<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
-</code></pre></li>
-<li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
-https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
-</code></pre></li>
-<li>v2 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
-</code></pre></li>
+<li>v1 tenant-specific endpoint</li>
 </ul>
-<p>For B2C, you cannot use v2 common endpoint unless you specify the tenant in <code>passport.authenticate</code> using <code>tenantIdOrName</code> option. See section 4.1.3 for more details.</p>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
+  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
+</code></pre><ul>
+<li>v1 common endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
+</code></pre><ul>
+<li>v2 tenant-specific endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
+  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre><ul>
+<li>v2 common endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre><p>For B2C, you cannot use v2 common endpoint unless you specify the tenant in <code>passport.authenticate</code> using <code>tenantIdOrName</code> option. See section 4.1.3 for more details.</p>
 </li>
 <li><p><code>clientID</code> (Required)</p>
 <p>The client ID of your application in AAD (Azure Active Directory)</p>
@@ -232,8 +237,9 @@ true, passport-azure-ad will encrypt the state/nonce and put them into cookie in
 completely session-free, in other words, when you use { session: false } option in passport.authenticate function.
 If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code> for cookie encryption and decryption.</p>
 </li>
-<li><code>cookieSameSite</code> (Conditional)
-  If set to true, Passport will add the Same-Site: None header to cookies set by the lib, specifically to validate state and nonce. </li>
+<li><p><code>cookieSameSite</code> (Conditional)
+  If set to true, Passport will add the Same-Site: None header to cookies set by the lib, specifically to validate state and nonce. </p>
+</li>
 <li><p><code>cookieEncryptionKeys</code>  (Conditional)</p>
 <p>If <code>useCookieInsteadOfSession</code> is set to true, you must provide <code>cookieEncryptionKeys</code>. It is an array of the following format: [ {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, {key: &#39;...&#39;, &#39;iv&#39;: &#39;...&#39; }, ...]. key could be any string of length 32, and iv could be any string of length 12. We always use the first set of key/iv to encrypt cookie, but we try all the key/iv to decrypt cookie.
 This is helpful if you want to do key rollover. The encryption/decryption algorithm we use is aes-256-gcm. You can limit the cookie amount and expiration using <code>nonceLifetime</code> and <code>nonceMaxAmount</code> options. </p>
@@ -257,7 +263,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
 <p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
 </li>
 </ul>
-<h5 id="4-1-1-3-verify-callback">4.1.1.3 Verify callback</h5>
+<h5 id="4113-verify-callback">4.1.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use one of the following signatures for the verify callback</p>
 <pre><code>  <span class="keyword">function</span>(iss, sub, profile, jwtClaims, access_token, refresh_token, params, <span class="keyword">done</span>)
   <span class="keyword">function</span>(iss, sub, profile, access_token, refresh_token, params, <span class="keyword">done</span>)
@@ -272,7 +278,7 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
   <span class="keyword">function</span>(req, iss, sub, profile, <span class="keyword">done</span>)
   <span class="keyword">function</span>(req, iss, sub, <span class="keyword">done</span>)
   <span class="keyword">function</span>(req, profile, <span class="keyword">done</span>)
-</code></pre><h4 id="4-1-1-4-jwe-support">4.1.1.4 JWE support</h4>
+</code></pre><h4 id="4114-jwe-support">4.1.1.4 JWE support</h4>
 <p>  We support encrypted id_token in JWE Compact Serialization format. </p>
 <p>  The key encryption algorithms supported are: </p>
 <p>  <code>RSA1_5</code>, <code>RSA-OAEP</code>, <code>A128KW</code>, <code>A256KW</code>, <code>dir</code>.</p>
@@ -282,76 +288,74 @@ This is helpful if you want to do key rollover. The encryption/decryption algori
   try the key with the corresponding kid. If decryption fails, we will try every possible key in <code>jweKeyStore</code>. 
   The following is an example of <code>jweKeyStore</code>:</p>
 <pre><code class="javascript">
-    <span class="attr">jweKeyStore</span>: [ 
-      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_256&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE=&#x27;</span> }, 
-      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_128&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;GawgguFyGrWKav7AX4VKUg&#x27;</span>}, 
-      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_384&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v&#x27;</span>},
-      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;rsa_key&#x27;</span>, 
-        <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>, 
-        <span class="string">&quot;n&quot;</span>:<span class="string">&quot;6-FrFkt_TByQ_L5d7or-9PVAowpswxUe3dJeYFTY0Lgq7zKI5OQ5RnSrI0\n\
-             T9yrfnRzE9oOdd4zmVj9txVLI-yySvinAu3yQDQou2Ga42ML_-K4Jrd5cl\n\
-             MUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5\n\
-             n6x5r2y1C_8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u_mIdyw\n\
-             yGfgiT3tw0FsWvki_KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyB\n\
-             VuNY-J_elq-HgJ_dZK6g7vMNvXz2_vT-SykIkzwiD9eSI9UWfsjw&quot;</span>,
-        <span class="string">&quot;e&quot;</span>:<span class="string">&quot;AQAB&quot;</span>,
-        <span class="string">&quot;d&quot;</span>:<span class="string">&quot;C6EGZYf9U6RI5Z0BBoSlwy_gKumVqRx-dBMuAfPM6KVbwIUuSJKT3ExeL5\n\
-             P0Ky1b4p-j2S3u7Afnvrrj4HgVLnC1ks6rEOc2ne5DYQq8szST9FMutyul\n\
-             csNUKLOM5cVromALPz3PAqE2OCLChTiQZ5XZ0AiH-KcG-3hKMa-g1MVnGW\n\
-             -SSmm27XQwRtUtFQFfxDuL0E0fyA9O9ZFBV5201ledBaLdDcPBF8cHC53G\n\
-             m5G6FRX3QVpoewm3yGk28Wze_YvNl8U3hvbxei2Koc_b9wMbFxvHseLQrx\n\
-             vFg_2byE2em8FrxJstxgN7qhMsYcAyw1qGJY-cYX-Ab_1bBCpdcQ&quot;</span>,
-        <span class="string">&quot;p&quot;</span>:<span class="string">&quot;_avCCyuo7hHlqu9Ec6R47ub_Ul_zNiS-xvkkuYwW-4lNnI66A5zMm_BOQV\n\
-             MnaCkBua1OmOgx7e63-jHFvG5lyrhyYEmkA2CS3kMCrI-dx0fvNMLEXInP\n\
-             xd4np_7GUd1_XzPZEkPxBhqf09kqryHMj_uf7UtPcrJNvFY-GNrzlJk&quot;</span>,
-        <span class="string">&quot;q&quot;</span>:<span class="string">&quot;7gvYRkpqM-SC883KImmy66eLiUrGE6G6_7Y8BS9oD4HhXcZ4rW6JJKuBzm\n\
-             7FlnsVhVGro9M-QQ_GSLaDoxOPQfHQq62ERt-y_lCzSsMeWHbqOMci_pbt\n\
-             vJknpMv4ifsQXKJ4Lnk_AlGr-5r5JR5rUHgPFzCk9dJt69ff3QhzG2c&quot;</span>,
-        <span class="string">&quot;dp&quot;</span>:<span class="string">&quot;ErP3OpudePAY3uGFSoF16Sde69PnOra62jDEZGnPx_v3nPNpA5sr-tNc8\n\
-              bQP074yQl5kzSFRjRlstyW0TpBVMP0ocbD8RsN4EKsgJ1jvaSIEoP87Ox\n\
-              duGkim49wFA0Qxf_NyrcYUnz6XSidY3lC_pF4JDJXg5bP_x0MUkQCTtQE&quot;</span>,
-        <span class="string">&quot;dq&quot;</span>:<span class="string">&quot;YbBsthPt15Pshb8rN8omyfy9D7-m4AGcKzqPERWuX8bORNyhQ5M8JtdXc\n\
-              u8UmTez0j188cNMJgkiN07nYLIzNT3Wg822nhtJaoKVwZWnS2ipoFlgrB\n\
-              gmQiKcGU43lfB5e3qVVYUebYY0zRGBM1Fzetd6Yertl5Ae2g2CakQAcPs&quot;</span>,
-        <span class="string">&quot;qi&quot;</span>:<span class="string">&quot;lbljWyVY-DD_Zuii2ifAz0jrHTMvN-YS9l_zyYyA_Scnalw23fQf5WIcZ\n\
-              ibxJJll5H0kNTIk8SCxyPzNShKGKjgpyZHsJBKgL3iAgmnwk6k8zrb_lq\n\
-              a0sd1QWSB-Rqiw7AqVqvNUdnIqhm-v3R8tYrxzAqkUsGcFbQYj4M5_F_4&quot;</span>
-      },
-      { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;ras_key_2&#x27;</span>,
-        <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>,
-        <span class="string">&#x27;privatePemKey&#x27;</span>: 
-          <span class="string">&#x27;-----BEGIN RSA PRIVATE KEY-----\n\
-          MIIEowIBAAKCAQEA6+FrFkt/TByQ/L5d7or+9PVAowpswxUe3dJeYFTY0Lgq7zKI\n\
-          5OQ5RnSrI0T9yrfnRzE9oOdd4zmVj9txVLI+yySvinAu3yQDQou2Ga42ML/+K4Jr\n\
-          d5clMUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5n6\n\
-          x5r2y1C/8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u/mIdywyGfgiT3t\n\
-          w0FsWvki/KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyBVuNY+J/elq+HgJ\n\
-          /dZK6g7vMNvXz2/vT+SykIkzwiD9eSI9UWfsjwIDAQABAoIBAAuhBmWH/VOkSOWd\n\
-          AQaEpcMv4CrplakcfnQTLgHzzOilW8CFLkiSk9xMXi+T9CstW+Kfo9kt7uwH5766\n\
-          4+B4FS5wtZLOqxDnNp3uQ2EKvLM0k/RTLrcrpXLDVCizjOXFa6JgCz89zwKhNjgi\n\
-          woU4kGeV2dAIh/inBvt4SjGvoNTFZxlvkkpptu10MEbVLRUBX8Q7i9BNH8gPTvWR\n\
-          QVedtNZXnQWi3Q3DwRfHBwudxpuRuhUV90FaaHsJt8hpNvFs3v2LzZfFN4b28Xot\n\
-          iqHP2/cDGxcbx7Hi0K8bxYP9m8hNnpvBa8SbLcYDe6oTLGHAMsNahiWPnGF/gG/9\n\
-          WwQqXXECgYEA/avCCyuo7hHlqu9Ec6R47ub/Ul/zNiS+xvkkuYwW+4lNnI66A5zM\n\
-          m/BOQVMnaCkBua1OmOgx7e63+jHFvG5lyrhyYEmkA2CS3kMCrI+dx0fvNMLEXInP\n\
-          xd4np/7GUd1/XzPZEkPxBhqf09kqryHMj/uf7UtPcrJNvFY+GNrzlJkCgYEA7gvY\n\
-          RkpqM+SC883KImmy66eLiUrGE6G6/7Y8BS9oD4HhXcZ4rW6JJKuBzm7FlnsVhVGr\n\
-          o9M+QQ/GSLaDoxOPQfHQq62ERt+y/lCzSsMeWHbqOMci/pbtvJknpMv4ifsQXKJ4\n\
-          Lnk/AlGr+5r5JR5rUHgPFzCk9dJt69ff3QhzG2cCgYASs/c6m5148Bje4YVKgXXp\n\
-          J17r0+c6trraMMRkac/H+/ec82kDmyv601zxtA/TvjJCXmTNIVGNGWy3JbROkFUw\n\
-          /ShxsPxGw3gQqyAnWO9pIgSg/zs7F24aSKbj3AUDRDF/83KtxhSfPpdKJ1jeUL+k\n\
-          XgkMleDls//HQxSRAJO1AQKBgGGwbLYT7deT7IW/KzfKJsn8vQ+/puABnCs6jxEV\n\
-          rl/GzkTcoUOTPCbXV3LvFJk3s9I9fPHDTCYJIjdO52CyMzU91oPNtp4bSWqClcGV\n\
-          p0toqaBZYKwYJkIinBlON5XweXt6lVWFHm2GNM0RgTNRc3rXemHq7ZeQHtoNgmpE\n\
-          AHD7AoGBAJW5Y1slWPgw/2bootonwM9I6x0zLzfmEvZf88mMgP0nJ2pcNt30H+Vi\n\
-          HGYm8SSZZeR9JDUyJPEgscj8zUoShio4KcmR7CQSoC94gIJp8JOpPM62/5amtLHd\n\
-          UFkgfkaosOwKlarzVHZyKoZvr90fLWK8cwKpFLBnBW0GI+DOfxf+\n\
-          -----END RSA PRIVATE KEY-----\n&#x27;</span>;
-      }
-  ]
-
-</code></pre>
-<h4 id="4-1-2-use-passport-authenticate-to-protect-routes">4.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
+  <span class="attr">jweKeyStore</span>: [ 
+    { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_256&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;WIVds2iwJPwNhgUgwZXmn/46Ql1EkiL+M+QqDRdQURE=&#x27;</span> }, 
+    { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_128&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;GawgguFyGrWKav7AX4VKUg&#x27;</span>}, 
+    { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;sym_key_384&#x27;</span>, <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;oct&#x27;</span>, <span class="string">&#x27;k&#x27;</span>: <span class="string">&#x27;AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4v&#x27;</span>},
+    { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;rsa_key&#x27;</span>, 
+      <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>, 
+      <span class="string">&quot;n&quot;</span>:<span class="string">&quot;6-FrFkt_TByQ_L5d7or-9PVAowpswxUe3dJeYFTY0Lgq7zKI5OQ5RnSrI0\n\
+           T9yrfnRzE9oOdd4zmVj9txVLI-yySvinAu3yQDQou2Ga42ML_-K4Jrd5cl\n\
+           MUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5\n\
+           n6x5r2y1C_8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u_mIdyw\n\
+           yGfgiT3tw0FsWvki_KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyB\n\
+           VuNY-J_elq-HgJ_dZK6g7vMNvXz2_vT-SykIkzwiD9eSI9UWfsjw&quot;</span>,
+      <span class="string">&quot;e&quot;</span>:<span class="string">&quot;AQAB&quot;</span>,
+      <span class="string">&quot;d&quot;</span>:<span class="string">&quot;C6EGZYf9U6RI5Z0BBoSlwy_gKumVqRx-dBMuAfPM6KVbwIUuSJKT3ExeL5\n\
+           P0Ky1b4p-j2S3u7Afnvrrj4HgVLnC1ks6rEOc2ne5DYQq8szST9FMutyul\n\
+           csNUKLOM5cVromALPz3PAqE2OCLChTiQZ5XZ0AiH-KcG-3hKMa-g1MVnGW\n\
+           -SSmm27XQwRtUtFQFfxDuL0E0fyA9O9ZFBV5201ledBaLdDcPBF8cHC53G\n\
+           m5G6FRX3QVpoewm3yGk28Wze_YvNl8U3hvbxei2Koc_b9wMbFxvHseLQrx\n\
+           vFg_2byE2em8FrxJstxgN7qhMsYcAyw1qGJY-cYX-Ab_1bBCpdcQ&quot;</span>,
+      <span class="string">&quot;p&quot;</span>:<span class="string">&quot;_avCCyuo7hHlqu9Ec6R47ub_Ul_zNiS-xvkkuYwW-4lNnI66A5zMm_BOQV\n\
+           MnaCkBua1OmOgx7e63-jHFvG5lyrhyYEmkA2CS3kMCrI-dx0fvNMLEXInP\n\
+           xd4np_7GUd1_XzPZEkPxBhqf09kqryHMj_uf7UtPcrJNvFY-GNrzlJk&quot;</span>,
+      <span class="string">&quot;q&quot;</span>:<span class="string">&quot;7gvYRkpqM-SC883KImmy66eLiUrGE6G6_7Y8BS9oD4HhXcZ4rW6JJKuBzm\n\
+           7FlnsVhVGro9M-QQ_GSLaDoxOPQfHQq62ERt-y_lCzSsMeWHbqOMci_pbt\n\
+           vJknpMv4ifsQXKJ4Lnk_AlGr-5r5JR5rUHgPFzCk9dJt69ff3QhzG2c&quot;</span>,
+      <span class="string">&quot;dp&quot;</span>:<span class="string">&quot;ErP3OpudePAY3uGFSoF16Sde69PnOra62jDEZGnPx_v3nPNpA5sr-tNc8\n\
+            bQP074yQl5kzSFRjRlstyW0TpBVMP0ocbD8RsN4EKsgJ1jvaSIEoP87Ox\n\
+            duGkim49wFA0Qxf_NyrcYUnz6XSidY3lC_pF4JDJXg5bP_x0MUkQCTtQE&quot;</span>,
+      <span class="string">&quot;dq&quot;</span>:<span class="string">&quot;YbBsthPt15Pshb8rN8omyfy9D7-m4AGcKzqPERWuX8bORNyhQ5M8JtdXc\n\
+            u8UmTez0j188cNMJgkiN07nYLIzNT3Wg822nhtJaoKVwZWnS2ipoFlgrB\n\
+            gmQiKcGU43lfB5e3qVVYUebYY0zRGBM1Fzetd6Yertl5Ae2g2CakQAcPs&quot;</span>,
+      <span class="string">&quot;qi&quot;</span>:<span class="string">&quot;lbljWyVY-DD_Zuii2ifAz0jrHTMvN-YS9l_zyYyA_Scnalw23fQf5WIcZ\n\
+            ibxJJll5H0kNTIk8SCxyPzNShKGKjgpyZHsJBKgL3iAgmnwk6k8zrb_lq\n\
+            a0sd1QWSB-Rqiw7AqVqvNUdnIqhm-v3R8tYrxzAqkUsGcFbQYj4M5_F_4&quot;</span>
+    },
+    { <span class="string">&#x27;kid&#x27;</span>: <span class="string">&#x27;ras_key_2&#x27;</span>,
+      <span class="string">&#x27;kty&#x27;</span>: <span class="string">&#x27;RSA&#x27;</span>,
+      <span class="string">&#x27;privatePemKey&#x27;</span>: 
+        <span class="string">&#x27;-----BEGIN RSA PRIVATE KEY-----\n\
+        MIIEowIBAAKCAQEA6+FrFkt/TByQ/L5d7or+9PVAowpswxUe3dJeYFTY0Lgq7zKI\n\
+        5OQ5RnSrI0T9yrfnRzE9oOdd4zmVj9txVLI+yySvinAu3yQDQou2Ga42ML/+K4Jr\n\
+        d5clMUPRGMbXdV5Rl9zzB0s2JoZJedua5dwoQw0GkS5Z8YAXBEzULrup06fnB5n6\n\
+        x5r2y1C/8Ebp5cyE4Bjs7W68rUlyIlx1lzYvakxSnhUxSsjx7u/mIdywyGfgiT3t\n\
+        w0FsWvki/KYurAPR1BSMXhCzzZTkMWKE8IaLkhauw5MdxojxyBVuNY+J/elq+HgJ\n\
+        /dZK6g7vMNvXz2/vT+SykIkzwiD9eSI9UWfsjwIDAQABAoIBAAuhBmWH/VOkSOWd\n\
+        AQaEpcMv4CrplakcfnQTLgHzzOilW8CFLkiSk9xMXi+T9CstW+Kfo9kt7uwH5766\n\
+        4+B4FS5wtZLOqxDnNp3uQ2EKvLM0k/RTLrcrpXLDVCizjOXFa6JgCz89zwKhNjgi\n\
+        woU4kGeV2dAIh/inBvt4SjGvoNTFZxlvkkpptu10MEbVLRUBX8Q7i9BNH8gPTvWR\n\
+        QVedtNZXnQWi3Q3DwRfHBwudxpuRuhUV90FaaHsJt8hpNvFs3v2LzZfFN4b28Xot\n\
+        iqHP2/cDGxcbx7Hi0K8bxYP9m8hNnpvBa8SbLcYDe6oTLGHAMsNahiWPnGF/gG/9\n\
+        WwQqXXECgYEA/avCCyuo7hHlqu9Ec6R47ub/Ul/zNiS+xvkkuYwW+4lNnI66A5zM\n\
+        m/BOQVMnaCkBua1OmOgx7e63+jHFvG5lyrhyYEmkA2CS3kMCrI+dx0fvNMLEXInP\n\
+        xd4np/7GUd1/XzPZEkPxBhqf09kqryHMj/uf7UtPcrJNvFY+GNrzlJkCgYEA7gvY\n\
+        RkpqM+SC883KImmy66eLiUrGE6G6/7Y8BS9oD4HhXcZ4rW6JJKuBzm7FlnsVhVGr\n\
+        o9M+QQ/GSLaDoxOPQfHQq62ERt+y/lCzSsMeWHbqOMci/pbtvJknpMv4ifsQXKJ4\n\
+        Lnk/AlGr+5r5JR5rUHgPFzCk9dJt69ff3QhzG2cCgYASs/c6m5148Bje4YVKgXXp\n\
+        J17r0+c6trraMMRkac/H+/ec82kDmyv601zxtA/TvjJCXmTNIVGNGWy3JbROkFUw\n\
+        /ShxsPxGw3gQqyAnWO9pIgSg/zs7F24aSKbj3AUDRDF/83KtxhSfPpdKJ1jeUL+k\n\
+        XgkMleDls//HQxSRAJO1AQKBgGGwbLYT7deT7IW/KzfKJsn8vQ+/puABnCs6jxEV\n\
+        rl/GzkTcoUOTPCbXV3LvFJk3s9I9fPHDTCYJIjdO52CyMzU91oPNtp4bSWqClcGV\n\
+        p0toqaBZYKwYJkIinBlON5XweXt6lVWFHm2GNM0RgTNRc3rXemHq7ZeQHtoNgmpE\n\
+        AHD7AoGBAJW5Y1slWPgw/2bootonwM9I6x0zLzfmEvZf88mMgP0nJ2pcNt30H+Vi\n\
+        HGYm8SSZZeR9JDUyJPEgscj8zUoShio4KcmR7CQSoC94gIJp8JOpPM62/5amtLHd\n\
+        UFkgfkaosOwKlarzVHZyKoZvr90fLWK8cwKpFLBnBW0GI+DOfxf+\n\
+        -----END RSA PRIVATE KEY-----\n&#x27;</span>;
+    }
+]
+</code></pre><h4 id="412-use-passportauthenticate-to-protect-routes">4.1.2 Use <code>passport.authenticate</code> to protect routes</h4>
 <p>To complete the sample, provide a route that corresponds to the path 
 configuration parameter that is sent to the strategy:</p>
 <pre><code class="javascript">
@@ -389,9 +393,7 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/logout&
   req.<span class="title function_">logout</span>();
   res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
 });
-
-</code></pre>
-<h4 id="4-1-3-options-available-for-passport-authenticate">4.1.3 Options available for <code>passport.authenticate</code></h4>
+</code></pre><h4 id="413-options-available-for-passportauthenticate">4.1.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>failureRedirect</code>: the url redirected to when the authentication fails</p>
 </li>
@@ -420,9 +422,9 @@ the strategy.</p>
 </ul>
 <p>Example:</p>
 <pre><code>  passport.<span class="title function_ invoke__">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">session</span>: <span class="literal">false</span>, <span class="attr">customState</span>: <span class="string">&#x27;my_state&#x27;</span>, <span class="attr">resourceURL</span>: <span class="string">&#x27;https://graph.microsoft.com/mail.send&#x27;</span>});
-
+  
   passport.<span class="title function_ invoke__">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attr">tenantIdOrName</span>: <span class="string">&#x27;contoso.onmicrosoft.com&#x27;</span> });
-</code></pre><h4 id="4-1-4-session-free-support">4.1.4 Session free support</h4>
+</code></pre><h4 id="414-session-free-support">4.1.4 Session free support</h4>
 <p>Passport framework uses session to keep a persistent login session. As a plug in, we also use session to store state and nonce by default, regardless whether you use { session: false } option in passport.authenticate or not. To be completely session free, you must configure passport-azure-ad to create state/nonce cookie instead of saving them in session. Please follow the following example:</p>
 <pre><code>  <span class="selector-tag">passport</span><span class="selector-class">.use</span>(new <span class="built_in">OIDCStrategy</span>({
     ...
@@ -437,10 +439,9 @@ the strategy.</p>
   });
 
   app.<span class="built_in">get</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="built_in">authenticate</span>(<span class="string">&#x27;azuread-openidconnect&#x27;</span>, { <span class="attribute">session</span>: false }));
-
-</code></pre><h3 id="4-2-bearerstrategy">4.2 BearerStrategy</h3>
-<h4 id="4-2-1-configure-strategy-and-provide-callback-function">4.2.1 Configure strategy and provide callback function</h4>
-<h5 id="4-2-1-1-sample-using-the-bearerstrategy">4.2.1.1 Sample using the BearerStrategy</h5>
+</code></pre><h3 id="42-bearerstrategy">4.2 BearerStrategy</h3>
+<h4 id="421-configure-strategy-and-provide-callback-function">4.2.1 Configure strategy and provide callback function</h4>
+<h5 id="4211-sample-using-the-bearerstrategy">4.2.1.1 Sample using the BearerStrategy</h5>
 <pre><code class="javascript">
 <span class="comment">// We pass these options in to the ODICBearerStrategy.</span>
 
@@ -480,24 +481,29 @@ the strategy.</p>
     });
   }
 );
-</code></pre>
-<h5 id="4-2-1-2-options">4.2.1.2 Options</h5>
+</code></pre><h5 id="4212-options">4.2.1.2 Options</h5>
 <ul>
 <li><p><code>identityMetadata</code> (Required)</p>
 <p>The metadata endpoint provided by the Microsoft Identity Portal that provides the keys and other important information at runtime.    Examples:</p>
 <ul>
-<li>v1 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
-https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
-</code></pre></li>
-<li>v1 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
-</code></pre></li>
-<li>v2 tenant-specific endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
-https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
-</code></pre></li>
-<li>v2 common endpoint<pre><code>https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
-</code></pre></li>
+<li>v1 tenant-specific endpoint</li>
 </ul>
-<p>For B2C, you can only use v2 tenant-specific endpoint.</p>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>.well-known/openid-configuration
+  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>.well-known/openid-configuration
+</code></pre><ul>
+<li>v1 common endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>.well-known/openid-configuration
+</code></pre><ul>
+<li>v2 tenant-specific endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_name.onmicrosoft.com/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration 
+  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/your_tenant_guid/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre><ul>
+<li>v2 common endpoint</li>
+</ul>
+<pre><code>  https:<span class="regexp">//</span>login.microsoftonline.com<span class="regexp">/common/</span>v2.<span class="number">0</span><span class="regexp">/.well-known/</span>openid-configuration
+</code></pre><p>For B2C, you can only use v2 tenant-specific endpoint.</p>
 </li>
 <li><p><code>clientID</code> (Required)</p>
 <p>The client ID of your application in AAD (Azure Active Directory)</p>
@@ -535,22 +541,20 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </li>
 <li><p><code>clockSkew</code>  (Optional)</p>
 <p>This value is the clock skew (in seconds) allowed in token validation. It must be a positive integer. The default value is 300 seconds.</p>
-<ul>
-<li><code>proxy</code> (optional)</li>
-</ul>
-<p>This value is the proxy settings object:  { port: &#39;proxyport&#39;, host: &#39;proxyhost&#39;, protocol: &#39;http&#39; }</p>
+</li>
+<li><p><code>proxy</code> (optional)</p>
 </li>
 </ul>
-<h5 id="4-2-1-3-verify-callback">4.2.1.3 Verify callback</h5>
+<p>  This value is the proxy settings object:  { port: &#39;proxyport&#39;, host: &#39;proxyhost&#39;, protocol: &#39;http&#39; }</p>
+<h5 id="4213-verify-callback">4.2.1.3 Verify callback</h5>
 <p>If you set <code>passReqToCallback</code> option to false, you can use the following verify callback</p>
 <pre><code>  <span class="keyword">function</span><span class="params">(token, done)</span>
 </code></pre><p>If you set <code>passReqToCallback</code> option to true, you can use the following verify callback</p>
 <pre><code>  <span class="keyword">function</span><span class="params">(req, token, done)</span>
-</code></pre><h4 id="4-2-2-use-passport-authenticate-to-protect-resources-or-apis">4.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
+</code></pre><h4 id="422-use-passportauthenticate-to-protect-resources-or-apis">4.2.2 Use <code>passport.authenticate</code> to protect resources or APIs</h4>
 <p>In the following example, we are using passport to protect &#39;/api/tasks&#39;. User sends a GET request to &#39;/api/tasks&#39; with access_token in authorization header or body. Passport validates the access_token, adds the related claims from access_token to <code>req.user</code>, and passes the request to listTasks middleware. The listTasks middleware can then read the user information in <code>req.user</code> and list all the tasks related to this user. Note that we do authentication every time, so we don&#39;t need to keep this user in session, and this can be achieved  by using <code>session: false</code> option.</p>
 <pre><code class="javascript">  server.<span class="title function_">get</span>(<span class="string">&#x27;/api/tasks&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;oauth-bearer&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }), listTasks);
-</code></pre>
-<h4 id="4-2-3-options-available-for-passport-authenticate">4.2.3 Options available for <code>passport.authenticate</code></h4>
+</code></pre><h4 id="423-options-available-for-passportauthenticate">4.2.3 Options available for <code>passport.authenticate</code></h4>
 <ul>
 <li><p><code>session</code>: if you don&#39;t want a persistent login session, you can use <code>session: false</code>. The default value is true.</p>
 </li>
@@ -562,11 +566,11 @@ these accepted scopes. If this value is not provided, we won&#39;t check token s
 </code></pre><h2 id="5-test">5. Test</h2>
 <p>In the library root folder, type the following command to install the dependency packages:</p>
 <pre><code>    $ npm <span class="keyword">install</span>
-</code></pre><h3 id="5-1-run-all-tests-except-the-end-to-end-tests">5.1. Run all tests except the end to end tests</h3>
+</code></pre><h3 id="51-run-all-tests-except-the-end-to-end-tests">5.1. Run all tests except the end to end tests</h3>
 <p>Type the following command to run tests:</p>
 <pre><code>    $ npm <span class="built_in">test</span>
-</code></pre><h3 id="5-2-run-all-tests-including-the-end-to-end-tests">5.2. Run all tests including the end to end tests</h3>
-<h4 id="5-2-1-create-test-applications">5.2.1. Create test applications</h4>
+</code></pre><h3 id="52-run-all-tests-including-the-end-to-end-tests">5.2. Run all tests including the end to end tests</h3>
+<h4 id="521-create-test-applications">5.2.1. Create test applications</h4>
 <p>First you need to register one application in v1 tenant, one in v2 tenant and one in B2C tenant. </p>
 <p>For the v2 application, you should register it at <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a> instead of Azure Portal.</p>
 <p>For the B2C application, create policies named &#39;B2C_1_signin&#39;, &#39;B2C_1_signup&#39;. For each policy, select &#39;Local Account&#39; as the identity provider, and select the
@@ -591,10 +595,10 @@ following:</p>
 access token for the scope, and use BearerStrategy to validate the scope. Note for scope we use the full url in
  <code>b2c_params.scopeForOIDC</code> but only the name in <code>b2c_params.scopeForBearer</code>. For example, 
  <code>b2c_params.scopeForOIDC=[&#39;https://sijun1b2c.onmicrosoft.com/oidc-b2c/read&#39;]</code> and <code>b2c_params.scopeForBearer=[&#39;read&#39;]</code>. </p>
-<h4 id="5-2-2-fill-the-test-parameters">5.2.2. Fill the test parameters</h4>
+<h4 id="522-fill-the-test-parameters">5.2.2. Fill the test parameters</h4>
 <p>Open <code>test/End_to_end_test/script.js</code>, set <code>is_test_parameters_completed</code> parameter to true. For <code>test_parameters</code> variable, fill in the tenant id/client id/client secret of your applications, and the username/password of your application user. </p>
 <p>For <code>thumbprint</code> and <code>privatePEMKey</code> parameters, you need to specify a certificate for your app and register the public key in Azure Active Directory. <code>thumbprint</code> is the base64url format of the thumbprint of the public key, and <code>privatePEMKey</code> is the private pem key string. For a v1 tenant, you can follow <a href="http://www.andrewconnell.com/blog/user-app-app-only-permissions-client-credentials-grant-flow-in-azure-ad-office-365-apis">this post</a> to generate a certificate and register the public key. For a v2 tenant, you can go to your application page in the <a href="https://apps.dev.microsoft.com">v2 portal</a> and click <code>Generate New Key Pair</code>. A certificate will be generated for you to download. The corresponding public key is automatically registered in this case.  </p>
-<h4 id="5-2-3-run-the-tests">5.2.3. Run the tests</h4>
+<h4 id="523-run-the-tests">5.2.3. Run the tests</h4>
 <p>Type the following commands to run the tests:</p>
 <pre><code>    <span class="variable">$</span> <span class="built_in">cd</span> test/End_to_end_test
     <span class="variable">$</span> npm install
@@ -602,7 +606,7 @@ access token for the scope, and use BearerStrategy to validate the scope. Note f
     <span class="variable">$</span> grunt run_tests_with_e2e
 </code></pre><p>Tests will run automatically and in the terminal you can see how many tests are passing/failing. More details can be found <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/contributing.md">here</a>.</p>
 <h2 id="6-logging">6. Logging</h2>
-<h4 id="personal-identifiable-information-pii-organizational-identifiable-information-oii-">Personal Identifiable Information (PII) &amp; Organizational Identifiable Information (OII)</h4>
+<h4 id="personal-identifiable-information-pii--organizational-identifiable-information-oii">Personal Identifiable Information (PII) &amp; Organizational Identifiable Information (OII)</h4>
 <p>By default, passport-azure-ad logging does not capture or log any PII or OII. The library allows app developers to turn this on by configuring <code>loggingNoPII</code> in the config options. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.</p>
 <pre><code class="javascript"><span class="comment">//PII or OII logging disabled. Default Logger does not capture any PII or OII.</span>
 <span class="keyword">var</span> options = {
@@ -617,15 +621,14 @@ access token for the scope, and use BearerStrategy to validate the scope. Note f
   <span class="attr">loggingNoPII</span>: <span class="literal">false</span>,
   ...
 };
-</code></pre>
-<h2 id="7-samples-and-documentation">7. Samples and Documentation</h2>
+</code></pre><h2 id="7-samples-and-documentation">7. Samples and Documentation</h2>
 <p><a href="https://azure.microsoft.com/en-us/documentation/samples/?service=active-directory">We provide a full suite of sample applications and documentation on GitHub</a> 
 to help you get started with learning the Azure Identity system. This includes 
 tutorials for native clients such as Windows, Windows Phone, iOS, OSX, Android, 
 and Linux. We also provide full walkthroughs for authentication flows such as 
 OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <p>Azure Identity samples for this plug-in can be found in the following links:</p>
-<h3 id="7-1-samples-for-openid-connect-strategy">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
+<h3 id="71-samples-for-openid-connect-strategy">7.1 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/oidcstrategy.js">OpenID connect strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -634,7 +637,7 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
 <li><p><a href="https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS">sample using B2C tenant</a></p>
 </li>
 </ul>
-<h3 id="7-2-samples-for-bearer-strategy">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
+<h3 id="72-samples-for-bearer-strategy">7.2 Samples for <a href="https://github.com/AzureAD/passport-azure-ad/blob/master/lib/bearerstrategy.js">Bearer strategy</a></h3>
 <ul>
 <li><p><a href="https://github.com/AzureADQuickStarts/WebAPI-Bearer-NodeJS">sample using v1 endpoint</a></p>
 </li>
@@ -664,14 +667,14 @@ OAuth2, OpenID Connect, Graph API, and other awesome features. </p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-azure-ad</span></code></div>
             <ul>
-              <li><span class="version">4.3.5</span> published <abbr class="updated" title="2023-04-10T22:40:35Z">3 months ago</abbr></li>
+              <li><span class="version">4.3.5</span> published <abbr class="updated" title="2024-06-03T18:25:41Z">16 days ago</abbr></li>
               <li><a class="url" href="https://github.com/AzureAD/microsoft-authentication-library-for-js">https://github.com/AzureAD/microsoft-authentication-library-for-js#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>21,376</b> downloads in the last day</li>
-              <li><b>107,392</b> downloads in the last week</li>
-              <li><b>559,574</b> downloads in the last month</li>
+              <li><b>33,057</b> downloads in the last day</li>
+              <li><b>148,007</b> downloads in the last week</li>
+              <li><b>618,032</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

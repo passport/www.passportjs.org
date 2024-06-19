@@ -93,7 +93,7 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="passport-client-certificate-npm-circle-coveralls">passport-client-certificate <a href="https://npmjs.org/package/passport-client-certificate"><img src="https://img.shields.io/npm/v/passport-client-certificate.svg?style=flat" alt="npm"></a> <a href="https://circleci.com/gh/ripple/passport-client-certificate"><img src="https://circleci.com/gh/ripple/passport-client-certificate.svg?style=shield" alt="circle"></a> <a href="https://coveralls.io/r/ripple/passport-client-certificate?branch=master"><img src="https://coveralls.io/repos/ripple/passport-client-certificate/badge.svg?branch=master" alt="coveralls"></a></h1>
+          <div class="description"><h1 id="passport-client-certificate-npmnpm-image-circlecircle-image-coverallscoveralls-image">passport-client-certificate <a href="https://npmjs.org/package/passport-client-certificate"><img src="https://img.shields.io/npm/v/passport-client-certificate.svg?style=flat" alt="npm"></a> <a href="https://circleci.com/gh/ripple/passport-client-certificate"><img src="https://circleci.com/gh/ripple/passport-client-certificate.svg?style=shield" alt="circle"></a> <a href="https://coveralls.io/r/ripple/passport-client-certificate?branch=master"><img src="https://coveralls.io/repos/ripple/passport-client-certificate/badge.svg?branch=master" alt="coveralls"></a></h1>
 <p><a href="http://passportjs.org/">Passport</a> strategy for authenticating using client
 certificates.</p>
 <p>This module lets you authenticate using client certificates in Node.js
@@ -104,8 +104,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
 <a href="http://koajs.com/">Koa</a></p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install passport-client-certificate
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>  The client cert authentication strategy authenticates requests based on the
   client certificate credentials submitted in the TLS handshake</p>
@@ -113,10 +112,10 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
   certificate. It then calls the <code>done</code> callback supplying a
   <code>user</code>.  User should be set to <code>false</code> if the credentials are not valid.  If
   an exception occured, <code>err</code> should be set.</p>
-<p>  Options:</p>
-<pre><code>- `passReqToCallback`  when `true`, `req` is the first argument to the
-<span class="title">   verify callback (default:</span> `false`)
-</code></pre><p>  Examples:</p>
+<p>  Options:
+    - <code>passReqToCallback</code>  when <code>true</code>, <code>req</code> is the first argument to the
+       verify callback (default: <code>false</code>)</p>
+<p>  Examples:</p>
 <pre><code class="javascript">  passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">ClientCertStrategy</span>(
     <span class="keyword">function</span> (<span class="params">certificate, done</span>) {
       <span class="keyword">if</span> (!config.<span class="property">auth</span>.<span class="property">client_certificates_enabled</span>) {
@@ -132,9 +131,7 @@ middleware, including <a href="http://expressjs.com/">Express</a>. Optionally, u
           <span class="title function_">done</span>(<span class="literal">null</span>, userObj)
         })
     }))
-
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;client-cert&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -144,26 +141,24 @@ application:</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code class="bash">$ npm install
 $ npm <span class="built_in">test</span>
-</code></pre>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <p>Setting up certificates for the test application is based on
 <a href="https://github.com/anders94/https-authorized-clients/">https://github.com/anders94/https-authorized-clients/</a>.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-client-certificate</span></code></div>
             <ul>
-              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:24:03Z">a year ago</abbr></li>
+              <li><span class="version">0.1.1</span> published <abbr class="updated" title="2022-06-23T12:24:03Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/ripple/passport-client-certificate">https://github.com/ripple/passport-client-certificate#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>7</b> downloads in the last day</li>
-              <li><b>37</b> downloads in the last week</li>
-              <li><b>343</b> downloads in the last month</li>
+              <li><b>4</b> downloads in the last day</li>
+              <li><b>23</b> downloads in the last week</li>
+              <li><b>101</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -116,8 +116,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
         <span class="keyword">return</span> <span class="title function_">cb</span>(err, user);
     });
 }));
-</code></pre>
-<h4 id="authentication-requests">Authentication Requests</h4>
+</code></pre><h4 id="authentication-requests">Authentication Requests</h4>
 <p>Use <code>passport.authenticate()</code>, and specify the <code>&#39;discord&#39;</code> strategy to authenticate requests.</p>
 <p>For example, as a route middleware in an Express app:</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/discord&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;discord&#x27;</span>));
@@ -126,12 +125,10 @@ app.<span class="title function_">get</span>(<span class="string">&#x27;/auth/di
 }), <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/secretstuff&#x27;</span>) <span class="comment">// Successful auth</span>
 });
-</code></pre>
-<p>If using the <code>bot</code> scope, the <code>permissions</code> option can be set to indicate
+</code></pre><p>If using the <code>bot</code> scope, the <code>permissions</code> option can be set to indicate
 specific permissions your bot needs on the server (<a href="https://discordapp.com/developers/docs/topics/permissions">permission codes</a>):</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&quot;/auth/discord&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;discord&quot;</span>, { <span class="attr">permissions</span>: <span class="number">66321471</span> }));
-</code></pre>
-<h4 id="refresh-token-usage">Refresh Token Usage</h4>
+</code></pre><h4 id="refresh-token-usage">Refresh Token Usage</h4>
 <p>In some use cases where the profile may be fetched more than once or you want to keep the user authenticated, refresh tokens may wish to be used. A package such as <code>passport-oauth2-refresh</code> can assist in doing this.</p>
 <p>Example:</p>
 <p><code>npm install passport-oauth2-refresh --save</code></p>
@@ -155,16 +152,14 @@ specific permissions your bot needs on the server (<a href="https://discordapp.c
 
 passport.<span class="title function_">use</span>(discordStrat);
 refresh.<span class="title function_">use</span>(discordStrat);
-</code></pre>
-<p>... then if we require refreshing when fetching an update or something ...</p>
+</code></pre><p>... then if we require refreshing when fetching an update or something ...</p>
 <pre><code class="javascript">refresh.<span class="title function_">requestNewAccessToken</span>(<span class="string">&#x27;discord&#x27;</span>, profile.<span class="property">refreshToken</span>, <span class="keyword">function</span>(<span class="params">err, accessToken, refreshToken</span>) {
     <span class="keyword">if</span> (err)
         <span class="keyword">throw</span>; <span class="comment">// boys, we have an error here.</span>
-
+    
     profile.<span class="property">accessToken</span> = accessToken; <span class="comment">// store this new one for our new requests!</span>
 });
-</code></pre>
-<h2 id="examples">Examples</h2>
+</code></pre><h2 id="examples">Examples</h2>
 <p>An Express server example can be found in the <code>/example</code> directory. Be sure to <code>npm install</code> in that directory to get the dependencies.</p>
 <h2 id="credits">Credits</h2>
 <ul>
@@ -176,14 +171,14 @@ refresh.<span class="title function_">use</span>(discordStrat);
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-discord</span></code></div>
             <ul>
-              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2022-06-23T12:29:33Z">a year ago</abbr></li>
+              <li><span class="version">0.1.4</span> published <abbr class="updated" title="2022-06-23T12:29:33Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/nicholastay/passport-discord">https://github.com/nicholastay/passport-discord#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>1,571</b> downloads in the last day</li>
-              <li><b>8,367</b> downloads in the last week</li>
-              <li><b>37,875</b> downloads in the last month</li>
+              <li><b>2,557</b> downloads in the last day</li>
+              <li><b>12,889</b> downloads in the last week</li>
+              <li><b>54,163</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

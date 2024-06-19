@@ -97,8 +97,7 @@
 <p>kakao oauth2 로그인과 passport 모듈 연결체.</p>
 <h2 id="install">install</h2>
 <pre><code class="sh">npm install passport-kakao
-</code></pre>
-<h2 id="how-to-use">how to use</h2>
+</code></pre><h2 id="how-to-use">how to use</h2>
 <ul>
 <li><a href="https://developers.kakao.com/">https://developers.kakao.com/</a> 에서 애플리케이션을 등록한다.</li>
 <li>방금 추가한 애플리케이션의 설정 - 사용자 관리에 들어가서 사용을 ON으로 한 뒤 저장한다.</li>
@@ -125,11 +124,10 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     })
   }
 ))
-</code></pre>
-<blockquote>
+</code></pre><blockquote>
 <p>기본 callbackPath는 <code>/oauth</code> 이고 <a href="https://developers.kakao.com">https://developers.kakao.com</a> 에서 수정할 수 있다. 하지만 callbackURL은 <code>사이트 도메인/oauth</code> 로 설정하는 것을 권장함. (ex : <a href="http://myhomepage.com:3000/oauth">http://myhomepage.com:3000/oauth</a> )</p>
 </blockquote>
-<p>##</p>
+<h2 id=""></h2>
 <h2 id="profile-property">profile property</h2>
 <p>profile에는 아래의 property들이 설정되어 넘겨진다.</p>
 <table>
@@ -140,8 +138,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <th>비고</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>provider</td>
 <td>String</td>
 <td>kakao 고정</td>
@@ -161,10 +158,9 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <td>Object</td>
 <td>사용자 정보 조회로 얻어진 json 원본 데이터</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="simple-sample">simple sample</h2>
-<h3 id="-">설치 &amp; 실행</h3>
+<h3 id="설치--실행">설치 &amp; 실행</h3>
 <ol>
 <li><code>./sample/sample.js</code> 의 <code>appKey</code> 를 <a href="https://developers.kakao.com">https://developers.kakao.com</a> 에서 발급받은 JS appKey 값으로 셋팅.</li>
 <li>command line 에서 아래의 커맨드 실행</li>
@@ -173,7 +169,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <pre><code>cd ./sample
 npm install
 <span class="keyword">node</span> <span class="title">app</span>
-</code></pre><h2 id="mean-io-">mean.io 와 쉽게 연동하기</h2>
+</code></pre><h2 id="meanio-와-쉽게-연동하기">mean.io 와 쉽게 연동하기</h2>
 <p>수정해야하는 파일들은 아래와 같다.</p>
 <table>
 <thead>
@@ -182,8 +178,7 @@ npm install
 <th>설명</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>server/config/env/development.js</td>
 <td>개발환경 설정파일</td>
 </tr>
@@ -207,8 +202,7 @@ npm install
 <td>public/auth/views/index.html</td>
 <td>로그인 화면</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>(1) <strong>mean.io app을 생성</strong> 한다. (ex : mean init kakaoTest)</p>
 <p>(2) 해당 모듈을 연동할 mean.io app에 설치한다.(npm install passport-kakao --save)</p>
 <p>(3) <strong>server/config/env/development.js</strong> 와 <strong>production.js</strong> 에 kakao 관련 설정을 아래와 같이 추가한다.</p>
@@ -225,8 +219,7 @@ npm install
     <span class="attr">callbackURL</span>: <span class="string">&#x27;http://localhost:3000/oauth&#x27;</span>,
   },
 }
-</code></pre>
-<p>(4) <strong>server/config/models/users.js</strong> 의 사용자 스키마 정의에 <strong>kakao: {}</strong> 를 추가한다.</p>
+</code></pre><p>(4) <strong>server/config/models/users.js</strong> 의 사용자 스키마 정의에 <strong>kakao: {}</strong> 를 추가한다.</p>
 <p>(5) <strong>server/config/passport.js</strong> 파일에 아래 구문을 추가한다.</p>
 <pre><code class="javascript"><span class="comment">// 최상단 require되는 구문에 추가</span>
 <span class="keyword">var</span> <span class="title class_">KakaoStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-kakao&#x27;</span>).<span class="property">Strategy</span>
@@ -269,8 +262,7 @@ passport.<span class="title function_">use</span>(
     }
   )
 )
-</code></pre>
-<p>(6) <strong>server/routes/users.js</strong> 에 아래와 같은 구문을 추가한다.</p>
+</code></pre><p>(6) <strong>server/routes/users.js</strong> 에 아래와 같은 구문을 추가한다.</p>
 <pre><code class="javascript">app.<span class="title function_">get</span>(
   <span class="string">&#x27;/auth/kakao&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;kakao&#x27;</span>, {
@@ -286,8 +278,7 @@ app.<span class="title function_">get</span>(
   }),
   users.<span class="property">authCallback</span>
 )
-</code></pre>
-<p>(7) <strong>public/auth/views/index.html</strong> 에 kakao login을 연결한다.</p>
+</code></pre><p>(7) <strong>public/auth/views/index.html</strong> 에 kakao login을 연결한다.</p>
 <pre><code class="html"><span class="comment">&lt;!-- 아래는 예시 --&gt;</span>
 <span class="tag">&lt;<span class="name">div</span>&gt;</span>
   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span>
@@ -311,22 +302,21 @@ app.<span class="title function_">get</span>(
     <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-</code></pre>
-<p>(8) grunt로 mean.io app 실행 후, 실제 로그인 연동 테스트를 해본다.</p>
-<h2 id="-">기타</h2>
+</code></pre><p>(8) grunt로 mean.io app 실행 후, 실제 로그인 연동 테스트를 해본다.</p>
+<h2 id="기타">기타</h2>
 <p>passport-oauth 모듈과 passport-facebook 모듈을 참고함.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-kakao</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:52:52Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-06-23T12:52:52Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/rotoshine/passport-kakao">https://github.com/rotoshine/passport-kakao#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>885</b> downloads in the last day</li>
-              <li><b>3,300</b> downloads in the last week</li>
-              <li><b>12,347</b> downloads in the last month</li>
+              <li><b>1,724</b> downloads in the last day</li>
+              <li><b>9,843</b> downloads in the last week</li>
+              <li><b>45,429</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

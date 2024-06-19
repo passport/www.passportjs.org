@@ -113,27 +113,25 @@
       });
   }
 ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate(&#39;thinkful&#39;)</code> to authenticate requests. JWT authorization tokens negate the need for sessions, so the <code>session</code> option should be set to <code>false</code>.</p>
 <p>An <a href="http://expressjs.com/">Express</a> route middleware example:</p>
-<p><code>`</code>javascript
-app.get(&#39;/users/me&#39;,
-  passport.authenticate(&#39;thinkful&#39;, { session: false }),
-  function(req, res) { res.json(req.user); }
-);</p>
-</div>
+<pre><code class="javascript">app.<span class="title function_">get</span>(<span class="string">&#x27;/users/me&#x27;</span>,
+  passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;thinkful&#x27;</span>, { <span class="attr">session</span>: <span class="literal">false</span> }),
+  <span class="keyword">function</span>(<span class="params">req, res</span>) { res.<span class="title function_">json</span>(req.<span class="property">user</span>); }
+);
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-thinkful</span></code></div>
             <ul>
-              <li><span class="version">0.0.0-beta.3</span> published <abbr class="updated" title="2022-06-23T13:36:40Z">a year ago</abbr></li>
+              <li><span class="version">0.0.0-beta.3</span> published <abbr class="updated" title="2022-06-23T13:36:40Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/Thinkful/passport-thinkful">https://github.com/Thinkful/passport-thinkful</a></li>
               <li><a rel="licence"></a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>8</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

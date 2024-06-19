@@ -131,16 +131,14 @@ the <a href="https://docs.stormpath.com/nodejs/passport/quickstart.html">Quickst
 <p>To get started, you need to install this package via
 <a href="https://www.npmjs.org/package/passport-stormpath">npm</a>:</p>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-stormpath</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>To use this module, you first need to export some environment variables -- these
 will be used by the <code>passport-stormpath</code> library to connect to the Stormpath API
 service:</p>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> STORMPATH_API_KEY_ID=xxx</span>
 <span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> STORMPATH_API_KEY_SECRET=xxx</span>
 <span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> STORMPATH_APP_HREF=xxx</span>
-</code></pre>
-<p><strong>NOTE</strong>: These variables can be found in your
+</code></pre><p><strong>NOTE</strong>: These variables can be found in your
 <a href="https://api.stormpath.com/ui/dashboard">Stormpath Admin Console</a>.</p>
 <p>Once you&#39;ve set the environment variables above, you can then initialize the
 <code>passport-stormpath</code> strategy like so:</p>
@@ -151,8 +149,7 @@ service:</p>
 passport.<span class="title function_">use</span>(strategy);
 passport.<span class="title function_">serializeUser</span>(strategy.<span class="property">serializeUser</span>);
 passport.<span class="title function_">deserializeUser</span>(strategy.<span class="property">deserializeUser</span>);
-</code></pre>
-<h2 id="options">Options</h2>
+</code></pre><h2 id="options">Options</h2>
 <p>There are several options you can define when you are creating the strategy,
 each is listed in this section.</p>
 <h4 id="api-keys">Api Keys</h4>
@@ -163,8 +160,7 @@ settings, you can do so when creating the strategy object:</p>
   <span class="attr">apiKeySecret</span>: <span class="string">&#x27;STORMPATH_API_KEY_SECRET&#x27;</span>,
   <span class="attr">appHref</span>:      <span class="string">&#x27;STORMPATH_APP_HREF&#x27;</span>,
 });
-</code></pre>
-<h4 id="account-store">Account Store</h4>
+</code></pre><h4 id="account-store">Account Store</h4>
 <p>If you wish to authenticate against a particular directory, you can configure
 this for all authentication attempts when constructing the strategy.</p>
 <pre><code class="javascript"><span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">StormpathStrategy</span>({
@@ -172,8 +168,7 @@ this for all authentication attempts when constructing the strategy.</p>
     <span class="attr">href</span>: <span class="string">&#x27;http://api.stormpath.com/v1/directorys/your-directory&#x27;</span>
   }
 });
-</code></pre>
-<p>If you need to dynamically supply the account store, you can pass it
+</code></pre><p>If you need to dynamically supply the account store, you can pass it
 on a per-call basis by manually invoking passport.</p>
 <pre><code class="javascript"><span class="comment">// Authenticate a user.</span>
 router.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
@@ -188,16 +183,14 @@ router.<span class="title function_">post</span>(<span class="string">&#x27;/log
     }
   )
 );
-</code></pre>
-<h4 id="expansions">Expansions</h4>
+</code></pre><h4 id="expansions">Expansions</h4>
 <p>Account resources (<em>e.g. Custom Data, Groups</em>) can be automatically expanded
 during the authentication process.  Declare which resources you would like to
 expand by providing a comma separated list as the <code>expansions</code> option:</p>
 <pre><code class="javascript"><span class="keyword">var</span> strategy = <span class="keyword">new</span> <span class="title class_">StormpathStrategy</span>({
   <span class="attr">expansions</span>: <span class="string">&#x27;groups,customData&#x27;</span>
 });
-</code></pre>
-<h4 id="stormpath-client">Stormpath Client</h4>
+</code></pre><h4 id="stormpath-client">Stormpath Client</h4>
 <p>You can also provide your own Stormpath client instance by constructing it
 manually and then passing it and an application reference to the strategy
 constructor:</p>
@@ -223,20 +216,17 @@ spClient.<span class="title function_">getApplication</span>(process.<span class
   });
   passport.<span class="title function_">use</span>(strategy);
 });
-</code></pre>
-<h2 id="build-documentation">Build Documentation</h2>
+</code></pre><h2 id="build-documentation">Build Documentation</h2>
 <p>All project documentation is written using <a href="http://sphinx-doc.org/">Sphinx</a>.  To
 build the documentation, you&#39;ll need to have Python installed and working.</p>
 <p>To install Sphinx and all other dependencies, run:</p>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">pip install -r requirements.txt</span>
-</code></pre>
-<p>This will install all the Python packages necessary to build the docs.</p>
+</code></pre><p>This will install all the Python packages necessary to build the docs.</p>
 <p>Once you have Sphinx installed, go into the <code>docs</code> directory to build the
 documentation:</p>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> docs</span>
 <span class="meta prompt_">$ </span><span class="language-bash">make html</span>
-</code></pre>
-<p>When this process is finished, you&#39;ll see that all project documentation has
+</code></pre><p>When this process is finished, you&#39;ll see that all project documentation has
 been built into HTML available at <code>docs/_build/html</code>.</p>
 <h2 id="contributing">Contributing</h2>
 <p>You can make your own contributions by forking the <code>develop</code> branch, making
@@ -251,14 +241,14 @@ and accept changes!</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-stormpath</span></code></div>
             <ul>
-              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2022-06-23T13:33:22Z">a year ago</abbr></li>
+              <li><span class="version">0.2.4</span> published <abbr class="updated" title="2022-06-23T13:33:22Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/stormpath/passport-stormpath">https://github.com/stormpath/passport-stormpath</a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
-              <li><b>2</b> downloads in the last day</li>
-              <li><b>6</b> downloads in the last week</li>
-              <li><b>25</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

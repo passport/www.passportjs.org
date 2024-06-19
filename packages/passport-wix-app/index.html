@@ -105,8 +105,7 @@
 <p><em>Useful helper for Wix Application developers</em></p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">$ npm install -S passport-wix-app
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>This module parses <code>instance</code> parameter passed by Wix Applications
 (<a href="http://dev.wix.com/docs/infrastructure/app-instance/">see documentation 🌐</a>)</p>
 <p>Wix sends several other parameters (not only <code>instance</code>). You could get their
@@ -143,12 +142,10 @@ parameter, <a href="http://dev.wix.com/docs/infrastructure/app-instance/">passed
     })
   }
 ))
-</code></pre>
-<h4 id="options">Options</h4>
+</code></pre><h4 id="options">Options</h4>
 <p>You can pass additional options to the <code>WixAppStrategy</code> constructor:</p>
 <pre><code class="js"><span class="keyword">new</span> <span class="title class_">WixAppStrategy</span>(options, callback)
-</code></pre>
-<p>The available options are:</p>
+</code></pre><p>The available options are:</p>
 <ul>
 <li><code>passReqToCallback</code> - determines whether to pass the incoming request (<code>req</code>)
   to the verify callback</li>
@@ -188,8 +185,7 @@ and extended with custom fields - <code>ext</code>):</p>
         <span class="string">&quot;signDate&quot;</span>:     <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2015</span>, <span class="number">11</span>, <span class="number">10</span>, <span class="number">06</span>, <span class="number">57</span>, <span class="number">37</span>, <span class="number">201</span>)
     },
 }
-</code></pre>
-<h3 id="authenticate-requests">Authenticate Requests</h3>
+</code></pre><h3 id="authenticate-requests">Authenticate Requests</h3>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;wix-app&#39;</code> strategy, to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="(http://expressjs.com/)">Express 🌐</a> application:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
@@ -197,8 +193,7 @@ and extended with custom fields - <code>ext</code>):</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<p>Or, with late-loaded secret:</p>
+</code></pre><p>Or, with late-loaded secret:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wix-app&#x27;</span>, {
     <span class="attr">secret</span>: <span class="string">&#x27;secret-key&#x27;</span>,
@@ -207,8 +202,7 @@ and extended with custom fields - <code>ext</code>):</p>
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   });
-</code></pre>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <p>The <a href="https://github.com/jaredhanson/passport-local">passport-local 🌐</a>
 (by Jared Hanson) was used as a scaffold for this module.</p>
 <h2 id="license">License</h2>
@@ -218,14 +212,14 @@ and extended with custom fields - <code>ext</code>):</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wix-app</span></code></div>
             <ul>
-              <li><span class="version">1.0.8</span> published <abbr class="updated" title="2022-06-23T13:48:58Z">a year ago</abbr></li>
+              <li><span class="version">1.0.8</span> published <abbr class="updated" title="2022-06-23T13:48:58Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/maxkoryukov/passport-wix-app">https://maxkoryukov.github.io/passport-wix-app/</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>1</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>18</b> downloads in the last month</li>
+              <li><b>0</b> downloads in the last day</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>10</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

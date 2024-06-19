@@ -113,8 +113,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="title class_">User</span>.<span class="title function_">findOrCreate</span>({ <span class="attr">cleverId</span>: profile.<span class="property">data</span>.<span class="property">id</span> }, <span class="keyword">function</span>(<span class="params">err, user</span>) {
         <span class="keyword">return</span> <span class="title function_">done</span>(err, user);
 }}));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code> to authunicate the requests.</p>
 <p>For example, you could implement it with <a href="http://expressjs.com/">Express</a> like this:</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&quot;clever&quot;</span>));
@@ -123,21 +122,20 @@ app.<span class="title function_">get</span>(<span class="string">&quot;/callbac
   <span class="keyword">function</span>(<span class="params">req, res</span>) {
     res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>); <span class="comment">//redirect on successful authentication</span>
 });
-</code></pre>
-<h2 id="disclaimer">Disclaimer</h2>
+</code></pre><h2 id="disclaimer">Disclaimer</h2>
 <p>This repository is NOT developed or endorsed by Clever. This library is here to help users easily integrate Clever&#39;s Instant Login API to their Node.js projects. All questions about the API should be taken to <a href="https://support.clever.com/hc/s/?language=en_US">Clever Support</a> and all questions about this library should be taken to <a href="mailto:milanmdev@gmail.com">Milan Mehra</a>.</p>
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">clever-passport</span></code></div>
             <ul>
-              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-04-04T22:06:08Z">a year ago</abbr></li>
+              <li><span class="version">1.0.3</span> published <abbr class="updated" title="2022-04-04T22:06:08Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/milanmdev/clever-passport">https://github.com/milanmdev/clever-passport#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>20</b> downloads in the last day</li>
-              <li><b>80</b> downloads in the last week</li>
-              <li><b>250</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last day</li>
+              <li><b>107</b> downloads in the last week</li>
+              <li><b>301</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

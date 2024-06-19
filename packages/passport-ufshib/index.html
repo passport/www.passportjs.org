@@ -93,16 +93,19 @@
       </nav>
       <div id="content">
         <div class="package hproduct" id="package">
-          <div class="description"><h1 id="-passport-ufshib">##Passport-UFshib</h1>
+          <div class="description"><p>##Passport-UFshib
+===============</p>
 <p>Passport authentication strategy for University of Florida&#39;s Shibboleth service.</p>
 <p>This module was cloned from David Stearns <a href="https://github.com/drstearns/passport-uwshib">https://github.com/drstearns/passport-uwshib</a> and then modified considerably.</p>
 <p>This module currently uses my fork of the <a href="https://github.com/bergie/passport-saml">passport-saml</a> module located: <a href="https://github.com/crohead13/passport-saml">https://github.com/crohead13/passport-saml</a></p>
 <p>You must register your SP with <a href="http://identity.it.ufl.edu/process/technologies/shibboleth/">UF IAM</a></p>
-<h2 id="-installation">##Installation</h2>
+<p>##Installation</p>
+<hr>
 <p>  npm install passport-ufshib</p>
 <p>or if using a <a href="https://www.npmjs.org/doc/package.json.html">package.json file</a>, add this line to your dependencies hash:</p>
 <p>  &quot;passport-ufshib&quot;: &quot;*&quot;</p>
-<h2 id="-usage">##Usage</h2>
+<p>##Usage</p>
+<hr>
 <p>This module provides a Strategy for the <a href="http://passportjs.org/">Passport</a> framework, which is typically used with <a href="http://expressjs.com/">Express</a>. Thus, there are several modules you need to require in your server script in addition to this module.</p>
 <pre><code>  <span class="keyword">var</span> http         = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);                     <span class="comment">//http server</span>
   <span class="keyword">var</span> https        = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>);                    <span class="comment">//https server</span>
@@ -137,12 +140,12 @@
 
     passport.<span class="keyword">use</span>(strategy);
 </code></pre><p>You will typically want to use sessions to allow users to authenticate only once per-sesion. The next functions are called by Passport to serialize and deserialize the user to the session. As noted in the comments, you would typically want to serialize only the unique ID (<code>.netID</code>) and reconstitute the user from your database during deserialzie. But to keep things simple, the script serializes the entire user and deserializes it again.</p>
-<pre><code>    passport.serialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span>{
-        <span class="keyword">done</span>(null, user);
+<pre><code>    passport.serializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>){
+        <span class="keyword">done</span>(<span class="literal">null</span>, user);
     });
 
-    passport.deserialize<span class="constructor">User(<span class="params">function</span>(<span class="params">user</span>, <span class="params">done</span>)</span>{
-        <span class="keyword">done</span>(null, user);
+    passport.deserializeUser(<span class="keyword">function</span>(user, <span class="keyword">done</span>){
+        <span class="keyword">done</span>(<span class="literal">null</span>, user);
     });
 </code></pre><p>Next, the script registers a few routes to handle login, the login callback, and the standard metadata. This module provides implementations for the metadata route, and you use passport.authenticate for the login and login callback routes. The login route will redirect the user to the UW single sign-on page, and the UW IdP will then redirect the user back to the login callback route.</p>
 <pre><code>  <span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span>
@@ -151,12 +154,12 @@
   app.get(loginUrl, passport.authenticate(strategy.name), ufshib.backToUrl());
   app.post(loginCallbackUrl, passport.authenticate(strategy.name), ufshib.backToUrl());
   app.get(ufshib.urls.metadata, ufshib.metadataRoute(strategy));
-
+  
   app.use(ufshib.ensureAuth(loginUrl));
 </code></pre><p>The <code>ufshib.backToUrl()</code> is a convenience middleware that will redirect the browser back to the URL that was originally requested before authentication.</p>
 <p>Lastly, the script tells Express to use the <code>ensureAuth()</code> middleware provided by this module to secure all routes declared after this.</p>
 <pre><code>    <span class="comment">//secure all routes following this</span>
-    app.use(ufshib.ensure<span class="constructor">Auth(<span class="params">loginUrl</span>)</span>);
+    <span class="keyword">app</span>.<span class="keyword">use</span>(ufshib.ensureAuth(loginUrl));
 </code></pre><p>Any route requested after this middleware will require authentication. When requested, those routes will automatically redirect to the <code>loginUrl</code> if the user has not already authenticated. After successful authentication, the browser will be redirected back to the original URL, and the user information will be available via the <code>.user</code> property on the request object.</p>
 <p>Note that <code>ensureAuth</code> can also be used to selectively secure routes. For example:</p>
 <pre><code>    app.get(&#x27;protected/resource&#x27;, ensureAuth(loginUrl), function(req, res) {
@@ -167,14 +170,14 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ufshib</span></code></div>
             <ul>
-              <li><span class="version">0.1.8</span> published <abbr class="updated" title="2022-06-23T13:41:28Z">a year ago</abbr></li>
+              <li><span class="version">0.1.8</span> published <abbr class="updated" title="2022-06-23T13:41:28Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/crohead13/passport-ufshib">https://www.ufl.edu</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>4</b> downloads in the last week</li>
-              <li><b>11</b> downloads in the last month</li>
+              <li><b>1</b> downloads in the last week</li>
+              <li><b>5</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

@@ -117,8 +117,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile)
   })
 }))
-</code></pre>
-<h4 id="protecting-a-path">Protecting a path</h4>
+</code></pre><h4 id="protecting-a-path">Protecting a path</h4>
 <pre><code class="js"><span class="keyword">var</span> opts = { <span class="attr">failWithError</span>: <span class="literal">true</span> }
 app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;ActiveDirectory&#x27;</span>, opts), <span class="keyword">function</span>(<span class="params">req, res</span>) {
   res.<span class="title function_">json</span>(req.<span class="property">user</span>)
@@ -128,8 +127,7 @@ app.<span class="title function_">post</span>(<span class="string">&#x27;/login&
 
 <span class="comment">// example request</span>
 <span class="comment">// &gt; curl -H &quot;Content-Type: application/json&quot; -X POST -d &#x27;{&quot;username&quot;:&quot;xyz&quot;,&quot;password&quot;:&quot;xyz&quot;}&#x27; http://localhost/login</span>
-</code></pre>
-<h4 id="optionally-reuse-an-existing-instance-of-activedirectory">Optionally reuse an existing instance of <code>activedirectory</code></h4>
+</code></pre><h4 id="optionally-reuse-an-existing-instance-of-activedirectory">Optionally reuse an existing instance of <code>activedirectory</code></h4>
 <pre><code class="js"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">&#x27;passport&#x27;</span>)
 <span class="keyword">var</span> <span class="title class_">ActiveDirectoryStrategy</span> = <span class="built_in">require</span>(<span class="string">&#x27;passport-activedirectory&#x27;</span>)
 <span class="keyword">var</span> <span class="title class_">ActiveDirectory</span> = <span class="built_in">require</span>(<span class="string">&#x27;activedirectory&#x27;</span>)
@@ -150,9 +148,8 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, profile)
   })
 }))
-</code></pre>
-<h3 id="api">API</h3>
-<h4 id="activedirectorystrategy-options-verify-">ActiveDirectoryStrategy ( <code>options</code>, <code>verify</code> )</h4>
+</code></pre><h3 id="api">API</h3>
+<h4 id="activedirectorystrategy--options-verify-">ActiveDirectoryStrategy ( <code>options</code>, <code>verify</code> )</h4>
 <ul>
 <li><code>options</code> { <code>Object</code> } - Options for connecting and verification<ul>
 <li>[<code>integrated=true</code>] { <code>Boolean</code> } - Use windows integrated login. For username and password authentication set this to <code>false</code></li>
@@ -198,14 +195,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-activedirectory</span></code></div>
             <ul>
-              <li><span class="version">1.4.0</span> published <abbr class="updated" title="2023-03-01T16:42:06Z">4 months ago</abbr></li>
+              <li><span class="version">1.4.0</span> published <abbr class="updated" title="2023-03-01T16:42:06Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/bhoriuchi/passport-activedirectory">https://github.com/bhoriuchi/passport-activedirectory#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>418</b> downloads in the last day</li>
-              <li><b>2,463</b> downloads in the last week</li>
-              <li><b>11,776</b> downloads in the last month</li>
+              <li><b>456</b> downloads in the last day</li>
+              <li><b>2,257</b> downloads in the last week</li>
+              <li><b>10,086</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

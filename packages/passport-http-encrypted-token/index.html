@@ -108,8 +108,7 @@ integrated into any application or framework that supports
 <p>This work is based on <a href="https://github.com/jaredhanson/passport-http-bearer">passport-http-bearer</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-http-encrypted-token</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="configure-strategy">Configure Strategy</h4>
 <p>The HTTP Encrypted token authentication strategy authenticates users using a encrypted_token.<br>The strategy requires a <code>verify</code> callback, which accepts that
 credential and calls <code>done</code> providing a user.</p>
@@ -124,8 +123,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     })
   }
 ))
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;Encrypted_token&#39;</code> strategy, to
 authenticate requests.  Requests containing encrypted tokens do not require session
 support, so the <code>session</code> option can be set to <code>false</code>.</p>
@@ -137,17 +135,13 @@ application:</p>
     res.<span class="title function_">json</span>(req.<span class="property">user</span>)
   }
 )
-<span class="string">`</span>
-</code></pre>
-<h2 id="tests">Tests</h2>
+</code></pre><h2 id="tests">Tests</h2>
 <pre><code class="console"><span class="meta prompt_">$ </span><span class="language-bash">npm install</span>
 <span class="meta prompt_">$ </span><span class="language-bash">npm <span class="built_in">test</span></span>
-</code></pre>
-<h2 id="example">Example</h2>
+</code></pre><h2 id="example">Example</h2>
 <p>Use <code>curl</code> to send an authenticated request.</p>
 <pre><code class="bash">$ curl -H <span class="string">&quot;Authorization: Encrypted_token 123456789&quot;</span> http://127.0.0.1:3000/
-</code></pre>
-<h2 id="credits">Credits</h2>
+</code></pre><h2 id="credits">Credits</h2>
 <ul>
 <li><a href="http://github.com/jaredhanson">Jared Hanson</a> (passport bearer auth implementation)</li>
 </ul>
@@ -158,14 +152,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-http-encrypted-token</span></code></div>
             <ul>
-              <li><span class="version">1.2.1</span> published <abbr class="updated" title="2022-06-23T12:46:27Z">a year ago</abbr></li>
+              <li><span class="version">1.2.1</span> published <abbr class="updated" title="2022-06-23T12:46:27Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/dowjones/passport-http-encrypted-token">https://github.com/dowjones/passport-http-encrypted-token#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>6</b> downloads in the last week</li>
+              <li><b>11</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

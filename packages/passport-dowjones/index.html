@@ -132,15 +132,13 @@ example relies on the express-session npm package, but other session managers co
 );
 
 passport.<span class="title function_">use</span>(strategy);
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <p>For this application, we support login and the callback interface.  Passport supports other mechanisms to for remaining endpoints,
 but we will focus on login here.</p>
 <p>First, create the login endpoint that</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/login&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;dowjones&#x27;</span>, {<span class="attr">connection</span>: <span class="string">&#x27;dj-piboauthv2&#x27;</span>}));
-</code></pre>
-<p>Next, we&#39;ll create the callback interface that gets invoked after login completes.  Note that we get an
+</code></pre><p>Next, we&#39;ll create the callback interface that gets invoked after login completes.  Note that we get an
 API token by calling delegate passing the references</p>
 <pre><code class="js">app.<span class="title function_">get</span>(<span class="string">&#x27;/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;dowjones&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/login&#x27;</span> }),
@@ -152,8 +150,7 @@ API token by calling delegate passing the references</p>
     res.<span class="title function_">redirect</span>(<span class="string">&quot;/&quot;</span>);
   }
 );
-</code></pre>
-<h2 id="alternate-authenticating-using-openid-oauth-requests">Alternate:  Authenticating using OpenID/oAuth Requests</h2>
+</code></pre><h2 id="alternate--authenticating-using-openidoauth-requests">Alternate:  Authenticating using OpenID/oAuth Requests</h2>
 <p>The DowJones Authentication API is built on OpenID and oAuth.  Compatible libraries can be used to perform authentication.  The
 call sequence for authentication is as follows:</p>
 <p><img src="http://www.websequencediagrams.com/files/render?link=r_EJ10NaljsGPxFk033c" alt="DowJones Authentication Sequence Diagram"></p>
@@ -170,14 +167,14 @@ call sequence for authentication is as follows:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-dowjones</span></code></div>
             <ul>
-              <li><span class="version">0.2.2</span> published <abbr class="updated" title="2022-06-23T12:30:33Z">a year ago</abbr></li>
+              <li><span class="version">0.2.2</span> published <abbr class="updated" title="2022-06-23T12:30:33Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/dowjones/passport-dowjones">https://github.com/DowJones/passport-dowjones#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>1</b> downloads in the last week</li>
-              <li><b>9</b> downloads in the last month</li>
+              <li><b>2</b> downloads in the last week</li>
+              <li><b>6</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

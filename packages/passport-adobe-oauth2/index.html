@@ -148,8 +148,7 @@ specifying a client ID, client secret, and callback URL.</p>
             });
         }
     ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;adobe&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -163,8 +162,7 @@ application:</p>
         <span class="comment">// Successful authentication, redirect home.</span>
         res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
       });
-</code></pre>
-<h2 id="example">Example</h2>
+</code></pre><h2 id="example">Example</h2>
 <p>The source repo contains a very basic example application you can run on your machine.
 Here&#39;s how to get it up and running:</p>
 <h3 id="step-1-create-an-integration-on-adobe-console">Step 1: Create an integration on <a href="https://console.adobe.io/">Adobe Console</a></h3>
@@ -199,8 +197,7 @@ into your certificate request.
 A challenge password []:
 ...
 $ openssl x509 -req -sha256 -days 365 -<span class="keyword">in</span> server.csr -signkey server.key -out server.crt
-</code></pre>
-<h3 id="step-3-override-dns-records-to-redirect-to-local-host">Step 3: Override DNS records to redirect to local host</h3>
+</code></pre><h3 id="step-3-override-dns-records-to-redirect-to-local-host">Step 3: Override DNS records to redirect to local host</h3>
 <p>Open and edit the hosts file with admin rights.</p>
 <ul>
 <li>for MacOSX and Ubuntu: <code>sudo open /etc/hosts</code></li>
@@ -208,7 +205,7 @@ $ openssl x509 -req -sha256 -days 365 -<span class="keyword">in</span> server.cs
 </ul>
 <p>Add a record on a new line to alias the redirect domain to your local host ip address</p>
 <pre><code><span class="number">127.0.0.1</span>       www.example.net
-</code></pre><h3 id="step-4-edit-the-app-js-file-in-the-example">Step 4: Edit the app.js file in the example</h3>
+</code></pre><h3 id="step-4-edit-the-appjs-file-in-the-example">Step 4: Edit the app.js file in the example</h3>
 <p>Open and edit the example/app.js file. Fill the following variable to match the integration you created on the console </p>
 <pre><code>var ADOBE_CLIENT_ID <span class="operator">=</span> <span class="string">&quot;...&quot;</span>
 var ADOBE_CLIENT_SECRET <span class="operator">=</span> <span class="string">&quot;...&quot;</span>
@@ -227,9 +224,10 @@ var REDIRECT_URI <span class="operator">=</span> <span class="string">&quot;...&
 <li>Dragos Dascalita Haut <a href="https://github.com/ddragosd">@ddragosd</a></li>
 <li>Audrey So <a href="https://github.com/audreyeso">@audreyeso</a></li>
 <li>Caryn Tran <a href="https://github.com/carynbear">@carynbear</a></li>
-<li><p>Jesse MacFadyen <a href="https://github.com/purplecabbage">@purplecabbage</a></p>
-<p>This strategy is based on Jared Hanson&#39;s GitHub strategy for passport:  </p>
-</li>
+<li>Jesse MacFadyen <a href="https://github.com/purplecabbage">@purplecabbage</a></li>
+</ul>
+<p>  This strategy is based on Jared Hanson&#39;s GitHub strategy for passport:  </p>
+<ul>
 <li><a href="https://github.com/jaredhanson">Jared Hanson</a></li>
 </ul>
 <h2 id="license">License</h2>
@@ -239,14 +237,14 @@ var REDIRECT_URI <span class="operator">=</span> <span class="string">&quot;...&
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-adobe-oauth2</span></code></div>
             <ul>
-              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-05-12T15:30:13Z">a year ago</abbr></li>
+              <li><span class="version">1.0.1</span> published <abbr class="updated" title="2022-05-12T15:30:13Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/adobe/passport-adobe-oauth2">https://github.com/adobe/passport-adobe-oauth2#readme</a></li>
               <li><a rel="licence" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></li>
             </ul>
             <ul>
-              <li><b>17</b> downloads in the last day</li>
-              <li><b>102</b> downloads in the last week</li>
-              <li><b>644</b> downloads in the last month</li>
+              <li><b>14</b> downloads in the last day</li>
+              <li><b>105</b> downloads in the last week</li>
+              <li><b>537</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

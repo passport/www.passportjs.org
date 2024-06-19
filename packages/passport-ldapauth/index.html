@@ -111,9 +111,9 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
       ...
     }
   }));
-</code></pre>
+</code></pre><ul>
+<li><p><code>server</code>: LDAP settings. These are passed directly to <a href="https://github.com/vesse/node-ldapauth-fork">ldapauth-fork</a>. See its documentation for all available options.</p>
 <ul>
-<li><code>server</code>: LDAP settings. These are passed directly to <a href="https://github.com/vesse/node-ldapauth-fork">ldapauth-fork</a>. See its documentation for all available options.<ul>
 <li><code>url</code>: e.g. <code>ldap://localhost:389</code></li>
 <li><code>bindDN</code>: e.g. <code>cn=&#39;root&#39;</code></li>
 <li><code>bindCredentials</code>: Password for bindDN</li>
@@ -123,16 +123,22 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
 <li><code>tlsOptions</code>: Optional object with options accepted by Node.js <a href="http://nodejs.org/api/tls.html#tls_tls_connect_options_callback">tls</a> module.</li>
 </ul>
 </li>
-<li><code>usernameField</code>: Field name where the username is found, defaults to <em>username</em></li>
-<li><code>passwordField</code>: Field name where the password is found, defaults to <em>password</em></li>
-<li><code>credentialsLookup</code>: Optional, synchronous function that provides the login credentials from <code>req</code>. See <a href="#credentialslookup">below</a> for more.</li>
-<li><code>missingCredentialsStatus</code>: Returned HTTP status code when credentials could not be found in the request. Defaults to <em>400</em></li>
-<li><code>handleErrorsAsFailures</code>: When <code>true</code>, unknown errors and ldapjs emitted errors are handled as authentication failures instead of errors (default: <code>false</code>).</li>
-<li><code>failureErrorCallback</code>: Optional, synchronous function that is called with the received error when <code>handleErrorsAsFailures</code> is enabled.</li>
+<li><p><code>usernameField</code>: Field name where the username is found, defaults to <em>username</em></p>
+</li>
+<li><p><code>passwordField</code>: Field name where the password is found, defaults to <em>password</em></p>
+</li>
+<li><p><code>credentialsLookup</code>: Optional, synchronous function that provides the login credentials from <code>req</code>. See <a href="#credentialslookup">below</a> for more.</p>
+</li>
+<li><p><code>missingCredentialsStatus</code>: Returned HTTP status code when credentials could not be found in the request. Defaults to <em>400</em></p>
+</li>
+<li><p><code>handleErrorsAsFailures</code>: When <code>true</code>, unknown errors and ldapjs emitted errors are handled as authentication failures instead of errors (default: <code>false</code>).</p>
+</li>
+<li><p><code>failureErrorCallback</code>: Optional, synchronous function that is called with the received error when <code>handleErrorsAsFailures</code> is enabled.</p>
+</li>
 <li><p><code>passReqToCallback</code>: When <code>true</code>, <code>req</code> is the first argument to the verify callback (default: <code>false</code>):</p>
-<pre><code>  passport.use(<span class="keyword">new</span> <span class="constructor">LdapStrategy(<span class="operator">...</span>, <span class="params">function</span>(<span class="params">req</span>, <span class="params">user</span>, <span class="params">done</span>)</span> {<span class="operator">
-      ...
-      </span><span class="keyword">done</span>(null, user);
+<pre><code>  passport.<span class="keyword">use</span>(<span class="keyword">new</span> LdapStrategy(<span class="operator">...</span>, <span class="keyword">function</span>(req, user, <span class="keyword">done</span>) {
+      <span class="operator">...</span>
+      <span class="keyword">done</span>(<span class="literal">null</span>, user);
     }
   ));
 </code></pre></li>
@@ -188,8 +194,7 @@ app.<span class="title function_">post</span>(<span class="string">&#x27;/login&
 });
 
 app.<span class="title function_">listen</span>(<span class="number">8080</span>);
-</code></pre>
-<h3 id="active-directory-over-ssl-example">Active Directory over SSL example</h3>
+</code></pre><h3 id="active-directory-over-ssl-example">Active Directory over SSL example</h3>
 <p>Simple example config for connecting over <code>ldaps://</code> to a server requiring some internal CA certificate (often the case in corporations using Windows AD).</p>
 <pre><code class="javascript"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);
 
@@ -209,16 +214,14 @@ app.<span class="title function_">listen</span>(<span class="number">8080</span>
   }
 };
 ...
-</code></pre>
-<h2 id="credentialslookup"><code>credentialsLookup</code></h2>
+</code></pre><h2 id="credentialslookup"><code>credentialsLookup</code></h2>
 <p>A synchronous function that receives the <code>req</code> object and returns an objec with keys <code>username</code> and <code>password</code> (or <code>name</code> and <code>pass</code>) can be provided. Note, that when this is provided the default lookup is not performed. This can be used to eg. enable basic auth header support:</p>
 <pre><code class="javascript"><span class="keyword">var</span> basicAuth = <span class="built_in">require</span>(<span class="string">&#x27;basic-auth&#x27;</span>);
 <span class="keyword">var</span> ldapOpts = {
   <span class="attr">server</span>: { ... },
   <span class="attr">credentialsLookup</span>: basicAuth
 }
-</code></pre>
-<h2 id="asynchronous-configuration-retrieval">Asynchronous configuration retrieval</h2>
+</code></pre><h2 id="asynchronous-configuration-retrieval">Asynchronous configuration retrieval</h2>
 <p>Instead of providing a static configuration object, you can pass a function as <code>options</code> that will take care of fetching the configuration. It will be called with the <code>req</code> object and a callback function having the standard <code>(err, result)</code> signature. Notice that the provided function will be called on every authenticate request.</p>
 <pre><code class="javascript"><span class="keyword">var</span> getLDAPConfiguration = <span class="keyword">function</span>(<span class="params">req, callback</span>) {
   <span class="comment">// Fetching things from database or whatever</span>
@@ -245,8 +248,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, user);
   }
 ));
-</code></pre>
-<h2 id="ldapsearch"><code>ldapsearch</code></h2>
+</code></pre><h2 id="ldapsearch"><code>ldapsearch</code></h2>
 <p><a href="http://linux.die.net/man/1/ldapsearch">ldapsearch</a> is a great command line tool for testing your config. The user search query performed in the Express example above when user logging in has uid <code>john</code> is the same as the following <code>ldapsearch</code> call:</p>
 <pre><code class="bash">ldapsearch \
   -H ldap://localhost:389 \
@@ -255,8 +257,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
   -w secret \
   -b ou=passport-ldapauth \
   <span class="string">&quot;(uid=john)&quot;</span>
-</code></pre>
-<p>If the query does not return expected user the configuration is likely incorrect.</p>
+</code></pre><p>If the query does not return expected user the configuration is likely incorrect.</p>
 <h2 id="license">License</h2>
 <p>MIT</p>
 <p><code>passport-ldapauth</code> has been partially sponsored by <a href="https://wakeone.co/">Wakeone Ltd</a>.</p>
@@ -264,14 +265,14 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-ldapauth</span></code></div>
             <ul>
-              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:39Z">a year ago</abbr></li>
+              <li><span class="version">3.0.1</span> published <abbr class="updated" title="2022-06-23T12:54:39Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/vesse/passport-ldapauth">https://github.com/vesse/passport-ldapauth#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>3,284</b> downloads in the last day</li>
-              <li><b>16,205</b> downloads in the last week</li>
-              <li><b>88,829</b> downloads in the last month</li>
+              <li><b>5,661</b> downloads in the last day</li>
+              <li><b>26,685</b> downloads in the last week</li>
+              <li><b>110,126</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

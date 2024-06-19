@@ -100,8 +100,7 @@
 <a href="https://www.bithound.io/github/DBCDK/passport-unilogin/master/dependencies/npm"><img src="https://www.bithound.io/github/DBCDK/passport-unilogin/badges/devDependencies.svg" alt="bitHound Dev Dependencies"></a></p>
 <h2 id="install">Install</h2>
 <pre><code class="bash">  $ npm install passport-unilogin --save
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h4 id="create-an-application">Create an Application</h4>
 <p>Before using <code>passport-unilogin</code>, you must register an application with UNI-Login.</p>
 <h4 id="configure-strategy">Configure Strategy</h4>
@@ -113,7 +112,7 @@
 </ul>
 <p>Optional parameters:</p>
 <ul>
-<li>maxTicketAge<br>If <code>maxTicketAge</code> is set to or above <code>1</code> the age of the ticket returned from UNI-Login will be asured that the age of ticket is not higer than the given amount in seconds.<br>I.e. if <code>maxTicketAge: 30</code> the error object returned to the application from <code>passport-unilogin</code> will contain an error.   </li>
+<li>maxTicketAge<br>If <code>maxTicketAge</code> is set to or above <code>1</code> the age of the ticket returned from UNI-Login will be asured that the age of ticket is not higer than the given amount in seconds.<br>I.e. if <code>maxTicketAge: 30</code> the error object returned to the application from <code>passport-unilogin</code> will contain an error.</li>
 </ul>
 <p>The strategy also requires a <code>verify</code> callback, which receives any errors, the ticket and the <code>req</code>object.
 The <code>verify</code> callback must call <code>done</code> providing a user to complete authentication.</p>
@@ -131,8 +130,7 @@ The <code>verify</code> callback must call <code>done</code> providing a user to
     <span class="attr">timestamp</span>: <span class="string">&#x27;YYYYMMDDHHmmss&#x27;</span>,
     <span class="attr">user</span>: <span class="string">&#x27;UNI-Login username&#x27;</span>
   }
-</code></pre>
-<h4 id="implementation">Implementation</h4>
+</code></pre><h4 id="implementation">Implementation</h4>
 <pre><code class="js">    passport.<span class="title function_">use</span>(<span class="string">&#x27;unilogin&#x27;</span>, <span class="keyword">new</span> <span class="title class_">UniloginStrategy</span>({
         <span class="attr">id</span>: <span class="variable constant_">UNILOGIN_APPLICATION_ID</span>,
         <span class="attr">secret</span>: <span class="variable constant_">UNILOGIN_APPLICATION_SECRET</span>,
@@ -140,16 +138,15 @@ The <code>verify</code> callback must call <code>done</code> providing a user to
         <span class="attr">maxTicketAge</span>: <span class="number">60</span>
       },
       <span class="function">(<span class="params">error, req, ticket, done</span>) =&gt;</span> {
-
+        
         <span class="keyword">if</span>(error) { 
           <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, <span class="literal">false</span>, <span class="string">&#x27;Some error message&#x27;</span>);
         }
-
+        
         <span class="keyword">return</span> <span class="title function_">done</span>(<span class="literal">null</span>, {<span class="attr">unilogin</span>: ticket.<span class="property">user</span>});
       }
     ));
-</code></pre>
-<h4 id="authenticate-requests">Authenticate Requests</h4>
+</code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;unilogin&#39;</code> strategy, to
 authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a>
@@ -159,8 +156,7 @@ application:</p>
       res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
      }
   );
-</code></pre>
-<p>For an actually example of usage see <a href="https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies">https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies</a></p>
+</code></pre><p>For an actually example of usage see <a href="https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies">https://github.com/DBCDK/biblo/tree/master/src/server/PassportStrategies</a></p>
 <h4 id="building">Building</h4>
 <p>The source code in <code>src/</code> is written in ES6 and transpiled using babel to ES5 and placed in <code>dist/</code> which is the code exposed to the application.
 Therefore, if not installed using <code>$ npm run install passport-unilogin</code> but i.e. cloned from GitHub remember to execute <code>$ npm run build</code> before using the <code>passport-unilogin</code>module.
@@ -170,19 +166,18 @@ See the <code>scripts</code> clause in <code>package.json</code> for more handy 
 expected to have corresponding test cases.  Ensure that the complete test suite
 passes by executing:</p>
 <pre><code class="bash">  $ npm run <span class="built_in">test</span>
-</code></pre>
-</div>
+</code></pre></div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-unilogin</span></code></div>
             <ul>
-              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:52Z">a year ago</abbr></li>
+              <li><span class="version">2.0.0</span> published <abbr class="updated" title="2022-06-23T13:41:52Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/DBCDK/passport-unilogin">https://github.com/DBCDK/passport-unilogin#readme</a></li>
               <li><a rel="licence" href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GNU General Public License v3.0 only</a></li>
             </ul>
             <ul>
               <li><b>0</b> downloads in the last day</li>
-              <li><b>2</b> downloads in the last week</li>
-              <li><b>6</b> downloads in the last month</li>
+              <li><b>3</b> downloads in the last week</li>
+              <li><b>8</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

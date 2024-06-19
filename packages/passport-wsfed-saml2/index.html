@@ -120,8 +120,7 @@
     });
   })
 ));
-</code></pre>
-<h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
+</code></pre><h3 id="provide-the-authentication-callback">Provide the authentication callback</h3>
 <p>You need to provide a route corresponding to the <code>path</code> configuration parameter given to the strategy:</p>
 <pre><code class="javascript">app.<span class="title function_">post</span>(<span class="string">&#x27;/login/callback&#x27;</span>,
   passport.<span class="title function_">authenticate</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, { <span class="attr">failureRedirect</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">failureFlash</span>: <span class="literal">true</span> }),
@@ -129,8 +128,7 @@
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h3 id="jwt">Jwt</h3>
+</code></pre><h3 id="jwt">Jwt</h3>
 <p>Although this started as wsfed&amp;saml we added support for wsfed&amp;jwt. Usage is</p>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>(
   {
@@ -149,8 +147,7 @@
     });
   })
 ));
-</code></pre>
-<h3 id="configure-strategy-for-adfs-ws-fed-">Configure strategy for ADFS (WS-Fed)</h3>
+</code></pre><h3 id="configure-strategy-for-adfs-ws-fed">Configure strategy for ADFS (WS-Fed)</h3>
 <p>This example utilizes a strategy with ADFS using WS-Fed.</p>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, <span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>({
     <span class="comment">// ADFS RP identifier</span>
@@ -162,9 +159,7 @@
 }, <span class="keyword">function</span> (<span class="params">profile, done</span>) {
  <span class="comment">// ...</span>
 }));
-
-</code></pre>
-<h3 id="configure-strategy-for-adfs-samlp-">Configure strategy for ADFS (SAMLp)</h3>
+</code></pre><h3 id="configure-strategy-for-adfs-samlp">Configure strategy for ADFS (SAMLp)</h3>
 <p>This example utilizes a strategy using SAMLp and RP token encryption.</p>
 <pre><code class="javascript">passport.<span class="title function_">use</span>(<span class="string">&#x27;wsfed-saml2&#x27;</span>, <span class="keyword">new</span> <span class="title function_">wsfedsaml2</span>({
     <span class="comment">// ADFS RP identifier</span>
@@ -180,8 +175,7 @@
 }, <span class="keyword">function</span> (<span class="params">profile, done</span>) {
  <span class="comment">// ...</span>
 }));
-</code></pre>
-<h2 id="issue-reporting">Issue Reporting</h2>
+</code></pre><h2 id="issue-reporting">Issue Reporting</h2>
 <p>If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
 <h2 id="security-notice">Security Notice</h2>
 <p>The <a href="SECURITY-NOTICE.md">Security Notice</a> lists the version that is vulnerable and the actions that are required to upgrade to the latest version.</p>
@@ -193,13 +187,13 @@
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-wsfed-saml2</span></code></div>
             <ul>
-              <li><span class="version">4.6.3</span> published <abbr class="updated" title="2023-02-28T17:12:19Z">4 months ago</abbr></li>
+              <li><span class="version">4.6.3</span> published <abbr class="updated" title="2023-02-28T17:12:19Z">a year ago</abbr></li>
               <li><a class="url" href="https://github.com/auth0/passport-wsfed-saml2">https://github.com/auth0/passport-wsfed-saml2#readme</a></li>
             </ul>
             <ul>
-              <li><b>241</b> downloads in the last day</li>
-              <li><b>1,318</b> downloads in the last week</li>
-              <li><b>9,338</b> downloads in the last month</li>
+              <li><b>552</b> downloads in the last day</li>
+              <li><b>2,187</b> downloads in the last week</li>
+              <li><b>9,121</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

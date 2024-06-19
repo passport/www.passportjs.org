@@ -107,15 +107,15 @@ key and calls <code>done</code> providing a user.  Optional <code>info</code> ca
 typically including associated scope, which will be set by Passport at
 <code>req.authInfo</code> to be used by later middleware for authorization and access
 control.</p>
-<pre><code><span class="keyword">let</span> strategy = <span class="keyword">new</span> <span class="constructor">LocalAPIKeyStrategy(<span class="params">function</span>(<span class="params">apikey</span>, <span class="params">done</span>)</span> {
-    <span class="module-access"><span class="module"><span class="identifier">User</span>.</span></span>find<span class="constructor">One({ <span class="params">apikey</span>: <span class="params">apikey</span> }, <span class="params">function</span> (<span class="params">err</span>, <span class="params">user</span>)</span> {
-      <span class="keyword">if</span> (err) { return <span class="keyword">done</span>(err); }
-      <span class="keyword">if</span> (!user) { return <span class="keyword">done</span>(null, <span class="literal">false</span>); }
-      return <span class="keyword">done</span>(null, user, { scope: &#x27;all&#x27; });
+<pre><code><span class="keyword">let</span> strategy <span class="operator">=</span> <span class="keyword">new</span> LocalAPIKeyStrategy(<span class="keyword">function</span>(apikey, <span class="keyword">done</span>) {
+    User.findOne({ apikey<span class="operator">:</span> apikey }, <span class="keyword">function</span> (err, user) {
+      <span class="keyword">if</span> (err) { <span class="keyword">return</span> <span class="keyword">done</span>(err); }
+      <span class="keyword">if</span> (<span class="operator">!</span>user) { <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, <span class="literal">false</span>); }
+      <span class="keyword">return</span> <span class="keyword">done</span>(<span class="literal">null</span>, user, { scope<span class="operator">:</span> <span class="symbol">&#x27;all</span>&#x27; });
     });
 });
 
-passport.use(strategy);
+passport.<span class="keyword">use</span>(strategy);
 </code></pre><h4 id="authenticate-requests">Authenticate Requests</h4>
 <p>Use <code>passport.authenticate()</code>, specifying the <code>&#39;apikey&#39;</code> strategy, to
 authenticate requests.  Requests containing apikey tokens do not require session
@@ -141,14 +141,14 @@ application:</p>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-httpapikey</span></code></div>
             <ul>
-              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:15Z">a year ago</abbr></li>
+              <li><span class="version">1.0.0</span> published <abbr class="updated" title="2022-06-23T12:47:15Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/p0wdrdotcom/passport-httpapikey">https://github.com/p0wdrdotcom/passport-httpapikey#readme</a></li>
               <li><a rel="licence" href="http://www.isc.org/software/license">ISC License</a></li>
             </ul>
             <ul>
-              <li><b>47</b> downloads in the last day</li>
-              <li><b>174</b> downloads in the last week</li>
-              <li><b>1,212</b> downloads in the last month</li>
+              <li><b>117</b> downloads in the last day</li>
+              <li><b>369</b> downloads in the last week</li>
+              <li><b>1,391</b> downloads in the last month</li>
             </ul>
           </div>
         </div>

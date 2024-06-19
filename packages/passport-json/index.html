@@ -94,7 +94,7 @@
       <div id="content">
         <div class="package hproduct" id="package">
           <div class="description"><h1 id="passport-json">passport-json</h1>
-<p><a href="https://github.com/JamesMGreene/passport-json"><img src="https://badge.fury.io/gh/JamesMGreene%2Fpassport-json.svg" alt="GitHub Latest Release"></a> <a href="https://travis-ci.org/JamesMGreene/passport-json"><img src="https://secure.travis-ci.org/JamesMGreene/passport-json.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/JamesMGreene/passport-json?branch=master"><img src="https://coveralls.io/repos/JamesMGreene/passport-json/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json"><img src="https://david-dm.org/JamesMGreene/passport-json.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json#info=devDependencies"><img src="https://david-dm.org/JamesMGreene/passport-json/dev-status.svg?theme=shields.io" alt="Dev Dependency Status"></a></p>
+<p><a href="https://github.com/JamesMGreene/passport-json"><img src="https://badge.fury.io/gh/JamesMGreene%2Fpassport-json.svg" alt="GitHub Latest Release"></a> <a href="https://travis-ci.org/JamesMGreene/passport-json"><img src="https://secure.travis-ci.org/JamesMGreene/passport-json.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/JamesMGreene/passport-json?branch=master"><img src="https://coveralls.io/repos/JamesMGreene/passport-json/badge.svg?branch=master&service=github" alt="Coverage Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json"><img src="https://david-dm.org/JamesMGreene/passport-json.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://david-dm.org/JamesMGreene/passport-json#info=devDependencies"><img src="https://david-dm.org/JamesMGreene/passport-json/dev-status.svg?theme=shields.io" alt="Dev Dependency Status"></a></p>
 <p>A <a href="http://passportjs.org/">Passport</a> strategy for username/password authentication via JSON from the request body.</p>
 <p>This module lets you authenticate using a username and password in your Node.js
 applications.  By plugging into Passport, JSON authentication can be easily and
@@ -103,8 +103,7 @@ unobtrusively integrated into any application or framework that supports
 <a href="http://expressjs.com/">Express</a>.</p>
 <h2 id="install">Install</h2>
 <pre><code class="shell"><span class="meta prompt_">$ </span><span class="language-bash">npm install passport-json</span>
-</code></pre>
-<h2 id="usage">Usage</h2>
+</code></pre><h2 id="usage">Usage</h2>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>Before you can use this strategy, you <em>MUST</em> ensure that your request (<code>req</code>) object always has a <code>body</code> property that is populated appropriately with parsed JSON.</p>
 <p>For example, if you are using Passport and this strategy within Express <code>4.x</code> or above, you would want to set up the <a href="https://www.npmjs.com/package/body-parser"><code>&#39;body-parser&#39;</code> middleware</a> to parse the request body&#39;s JSON before setting up the Passport middleware:</p>
@@ -114,8 +113,7 @@ unobtrusively integrated into any application or framework that supports
 <span class="keyword">var</span> app = <span class="title function_">express</span>();
 
 app.<span class="title function_">use</span>(bodyParser.<span class="title function_">json</span>());
-</code></pre>
-<h3 id="configure-strategy">Configure Strategy</h3>
+</code></pre><h3 id="configure-strategy">Configure Strategy</h3>
 <p>The JSON authentication strategy authenticates users using a username and
 password.  The strategy requires a <code>verify</code> callback, which accepts these
 credentials and calls <code>done</code> providing a user.</p>
@@ -131,8 +129,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     });
   }
 ));
-</code></pre>
-<h4 id="available-options">Available Options</h4>
+</code></pre><h4 id="available-options">Available Options</h4>
 <p>This strategy takes an optional options hash before the <code>verify</code> function, e.g. <code>new JsonStrategy(/* { options }, */ verify)</code>.</p>
 <p>The available options include:</p>
 <ul>
@@ -149,8 +146,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
   <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JamesMGreene&quot;</span><span class="punctuation">,</span>
   <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Th3 8e57 p@$sw0rd 3v4r&quot;</span>
 <span class="punctuation">}</span>
-</code></pre>
-<p>If your app prefers to name these properties differently, the <code>usernameProp</code> and <code>passwordProp</code> options are available to change the defaults:</p>
+</code></pre><p>If your app prefers to name these properties differently, the <code>usernameProp</code> and <code>passwordProp</code> options are available to change the defaults:</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonStrategy</span>(
   {
     <span class="attr">usernameProp</span>: <span class="string">&#x27;email&#x27;</span>,
@@ -160,8 +156,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<p>Additionally, if your app prefers to have these properties be nested within other object(s), the <code>usernameProp</code> and <code>passwordProp</code> options are available to support that using either dot or bracket [minus the quotes] notation as well:</p>
+</code></pre><p>Additionally, if your app prefers to have these properties be nested within other object(s), the <code>usernameProp</code> and <code>passwordProp</code> options are available to support that using either dot or bracket [minus the quotes] notation as well:</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonStrategy</span>(
   {
     <span class="attr">usernameProp</span>: <span class="string">&#x27;user.email&#x27;</span>,
@@ -171,8 +166,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<h6 id="passreqtocallback"><code>passReqToCallback</code></h6>
+</code></pre><h6 id="passreqtocallback"><code>passReqToCallback</code></h6>
 <p>The <code>verify</code> callback can be supplied with the <code>request</code> object <em>as the first argument</em> by setting the <code>passReqToCallback</code> option to <code>true</code>, and changing the expected callback parameters accordingly. This may be useful if you also need access to the request&#39;s HTTP headers. For example:</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonStrategy</span>(
   {
@@ -185,8 +179,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<h6 id="allowemptypasswords"><code>allowEmptyPasswords</code></h6>
+</code></pre><h6 id="allowemptypasswords"><code>allowEmptyPasswords</code></h6>
 <p>By setting the <code>allowEmptyPasswords</code> option to <code>true</code>, passwords of empty string (<code>&#39;&#39;</code>) will be allowed to pass the validation checks. For example:</p>
 <pre><code class="js">passport.<span class="title function_">use</span>(<span class="keyword">new</span> <span class="title class_">JsonStrategy</span>(
   {
@@ -196,8 +189,7 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     <span class="comment">// ...</span>
   }
 ));
-</code></pre>
-<h3 id="authenticating-requests">Authenticating Requests</h3>
+</code></pre><h3 id="authenticating-requests">Authenticating Requests</h3>
 <p>Use <code>passport.authenticate(&#39;json&#39;)</code> to specify that you want to employ the configured <code>&#39;json&#39;</code> strategy to authenticate requests.</p>
 <p>For example, as route middleware in an <a href="http://expressjs.com/">Express</a> application:</p>
 <pre><code class="js">app.<span class="title function_">post</span>(
@@ -207,22 +199,22 @@ passport.<span class="title function_">use</span>(<span class="keyword">new</spa
     res.<span class="title function_">redirect</span>(<span class="string">&#x27;/&#x27;</span>);
   }
 );
-</code></pre>
-<h2 id="license">License</h2>
+</code></pre><h2 id="license">License</h2>
 <p>Copyright (c) 2015, James M. Greene (MIT License)</p>
 <!--- RESOURCE LINKS -->
+
 </div>
           <div class="metadata">
             <div class="install"><code>npm install <span class="fn">passport-json</span></code></div>
             <ul>
-              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2022-06-23T12:51:51Z">a year ago</abbr></li>
+              <li><span class="version">1.2.0</span> published <abbr class="updated" title="2022-06-23T12:51:51Z">2 years ago</abbr></li>
               <li><a class="url" href="https://github.com/JamesMGreene/passport-json">https://github.com/JamesMGreene/passport-json#readme</a></li>
               <li><a rel="licence" href="http://www.opensource.org/licenses/MIT">MIT License</a></li>
             </ul>
             <ul>
-              <li><b>230</b> downloads in the last day</li>
-              <li><b>1,132</b> downloads in the last week</li>
-              <li><b>4,848</b> downloads in the last month</li>
+              <li><b>120</b> downloads in the last day</li>
+              <li><b>770</b> downloads in the last week</li>
+              <li><b>4,460</b> downloads in the last month</li>
             </ul>
           </div>
         </div>
