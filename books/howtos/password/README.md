@@ -2,10 +2,10 @@ This guide describes the steps needed to add username and password
 authentication to a [Node.js](https://nodejs.org/) app using the [Express](https://expressjs.com/)
 web framework.
 
-<div class="alert alert-info">
-This guide assumes familiarity with Passport.  If you are learning, the
-<a href="/tutorials/password/">username and password tutorial</a> is a better starting point.
-</div>
+> [!NOTE]
+> This guide assumes familiarity with Passport.  If you are learning, the
+> [username and pasword tutorial](/tutorials/password/) is a better starting
+> point.
 
 # Install
 
@@ -106,7 +106,6 @@ app.post('/login/password', passport.authenticate('local', {
 }));
 ```
 
-<div class="alert alert-warning">
-A session will be established after authentication.  When using this strategy,
-ensure that you have <a href="/howtos/session/">added support for sessions</a>.
-</div>
+> [!IMPORTANT]
+> A session will be established after authentication.  When using this strategy,
+> ensure that you have [added support for sessions](/howtos/session/).
