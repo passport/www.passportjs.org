@@ -4866,18 +4866,13 @@ body.is-search .search-con {
   }
 }
 .markdown-alert {
-  border-left-width: 3px;
-  border-left-style: solid;
-  x-background-color: #fff;
-  margin-bottom: 16px;
   padding: 8px 16px;
-}
-.markdown-alert.markdown-alert-note {
-  border-color: #2d68d3;
+  margin-bottom: 16px;
+  border-left: 0.25em solid;
 }
 .markdown-alert .markdown-alert-title {
-  font-weight: 500;
   display: flex;
+  font-weight: 500;
   align-items: center;
   line-height: 1;
 }
@@ -4886,6 +4881,9 @@ body.is-search .search-con {
 }
 .markdown-alert > :last-child {
   margin-bottom: 0;
+}
+.markdown-alert.markdown-alert-note {
+  border-color: #2d68d3;
 }
 .markdown-alert.markdown-alert-note .markdown-alert-title {
   color: #2d68d3;
@@ -4915,7 +4913,13 @@ body.is-search .search-con {
   color: #be3536;
 }
 .octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
   fill: currentColor;
+}
+.mr-2 {
+  margin-right: 8px !important;
 }
 @-moz-keyframes blink {
   to {
