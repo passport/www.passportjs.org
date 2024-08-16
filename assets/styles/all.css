@@ -4254,6 +4254,45 @@ body.is-search .search-con {
   font-size: 18px;
 }
 @media (min-width: 768px) {
+  .sponsors .platinum {
+    clear: both;
+    *zoom: 1;
+    width: auto;
+    margin-right: 0;
+    max-width: 890px;
+    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sponsors .platinum:after {
+    clear: both;
+  }
+  .sponsors .platinum:after,
+  .sponsors .platinum:before {
+    content: "";
+    display: table;
+  }
+  .sponsors .platinum .item {
+    float: left;
+    width: 100%;
+    padding-right: 0;
+    background-clip: content-box;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) {
+  .sponsors .platinum .item a {
+    x-height: 180px;
+  }
+}
+.sponsors .platinum .item img {
+  max-width: 366px;
+  max-height: 96px;
+}
+.sponsors .platinum .item p {
+  line-height: 22px;
+}
+@media (min-width: 768px) {
   .sponsors .gold {
     clear: both;
     *zoom: 1;
