@@ -51,3 +51,5 @@ SMACCS [categorization](http://smacss.com/book/categorizing/).  `app.style`
 is the "main" stylesheet which imports all others.  The source files are
 compiled to a single CSS stylesheet during the build step.
 
+### Style Guide
+

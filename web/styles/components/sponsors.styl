@@ -24,6 +24,25 @@
       color: rgba(255,255,255,.8)
       line-height 1.8
       font-size: 18px;
+  
+  .platinum
+    +breakpoint("tablet")
+      clear both
+      grid(1, 0)
+      max-width 890px
+      padding 0 20px
+      margin 0 auto
+      text-align center
+      
+    .item
+      a
+        +breakpoint("tablet")
+          x-height 180px
+      img
+        max-width 366px
+        max-height: 96px
+      p
+        line-height 22px
     
   .gold
     +breakpoint("tablet")
